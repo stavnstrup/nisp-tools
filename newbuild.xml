@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="no"?>
+
+<project name="NISP-Build" default="all" basedir=".">
+
+
+  <!-- XSLT Processor -->
+  <property name="xslt.class" value="com.icl.saxon.StyleSheet"/>
+
+  <path id="saxon.classpath">
+    <pathelement path="${basedir}/lib"/>
+    <fileset dir="${basedir}/lib">
+      <include name="**/xercesImpl*.jar"/>
+      <include name="**/xml-apis*.jar"/>
+      <include name="**/resolver*.jar"/>
+      <include name="**/saxon*.jar"/>
+    </fileset>
+  </path>
+
+
+  <target name="all" depends="newbuild, olinks"/>
+
+
+  <target name="newbuild" description="* Update the build file">
+    <echo message="Create a new build fragment in file build.targets"/>
+
+    <!-- Create a new build file -->
+
+    <java classname="${xslt.class}" fork="yes" dir="${basedir}">
+      <arg line="-o build.targets ${basedir}/src/documents.xml 
+                  ${basedir}/xsl/makebuild.xsl"/>
+      <classpath refid="saxon.classpath"/>
+    </java>
+  </target>
+
+  <target name="olinks" description="* Update the olinks masterfile">
+    <!-- Create a new olink master database -->
+    <!-- N.B. It is important, we do no use XInclude here -->
+
+    <java classname="${xslt.class}" fork="yes" dir="${basedir}/src/olinks">
+      <arg line=" -o olinkdb.xml ${basedir}/src/documents.xml 
+                  ${basedir}/xsl/makeolinks.xsl"/>
+      <classpath refid="saxon.classpath"/>
+    </java>
+  </target>
+
+
+</project>

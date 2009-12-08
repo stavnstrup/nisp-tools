@@ -1,0 +1,75 @@
+<!-- ...................................................................... -->
+<!-- Acronyms XML DTD V1.0 ................................................ -->
+<!-- File acronyms.dtd .................................................... -->
+
+<!-- Copyright 2001-2008 Danish Defence Research Establishment (DDRE) and
+     NATO Command, Control and Consultation Organisation (NC3O).
+
+     Permission to use, copy, modify and distribute the Acronyms XML DTD
+     and its accompanying documentation for any purpose and without fee
+     is hereby granted in perpetuity, provided that the above copyright
+     notice and this paragraph appear in all copies.  The copyright
+     holders make no representation about the suitability of the DTD for
+     any purpose.  It is provided "as is" without expressed or implied
+     warranty.
+
+     If you modify the Acronyms DTD in any way, except for declaring and
+     referencing additional sets of general entities and declaring
+     additional notations, label your DTD as a variant of Acronyms.
+-->
+
+<!-- This is the driver file for V1.0 of the Acronyms DTD.
+     Please use the following formal public identifier to identify it:
+
+     "-//DDRE//DTD Acronyms XML V1.0//EN"
+
+     Example, use the FPI in the DOCTYPE declaration:
+
+     <!DOCTYPE acronyms PUBLIC "-//DDRE//DTD Acronyms XML V1.0//EN"
+                    "acronyms.dtd"
+                    [...]>
+
+     Or, if you have a higher-level driver file that customizes Acronyms,
+     use the FPI in the parameter entity declaration:
+
+     <!ENTITY % AcronymsDTD PUBLIC "-//DDRE//DTD Acronyms XML V1.0//EN"
+                "acronyms.dtd">
+     %AcronymsDTD;
+
+-->
+
+<!-- ...................................................................... -->
+<!-- ISO character entity sets ............................................ -->
+
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % sgml.features "IGNORE">
+
+<!ENTITY % dbcent.module "INCLUDE">
+<![%dbcent.module;[
+<!ENTITY euro "&#x20AC;"><!-- euro sign, U+20AC NEW -->
+<!ENTITY % dbcent PUBLIC 
+"-//OASIS//ENTITIES DocBook Character Entities V4.5//EN"
+"docbkx45/dbcentx.mod">
+%dbcent;
+]]>
+
+
+<!ELEMENT acronyms (lastupdated, authority, acrogroup+)>
+
+<!ELEMENT lastupdated (#PCDATA)>
+
+<!ELEMENT authority (#PCDATA)>
+
+<!ELEMENT acrogroup (acronym*)>
+<!ATTLIST acrogroup tag ID #REQUIRED>
+
+<!ELEMENT acronym (name, meaning, source)>
+
+<!ELEMENT name (#PCDATA)>
+
+<!ELEMENT meaning (#PCDATA)>
+
+<!ELEMENT source (#PCDATA)>
+
+<!-- End of Acronyms XML DTD V1.0.......................................... -->
+<!-- ...................................................................... -->

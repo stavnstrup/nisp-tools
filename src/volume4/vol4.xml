@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd">
+
+<book>
+  <bookinfo>
+    <title>Allied Data Publication 34</title>
+
+    <subtitle>NATO Interoperability Standards and Profiles</subtitle>
+
+    <volumenum>4</volumenum>
+
+    <corpauthor>CCC NATO Open Systems Working Group</corpauthor>
+    <productname class="trade">Allied Data Publication 34</productname>
+    <biblioid class="pubnumber">ADatP-34 Edition (D)</biblioid>
+
+
+    <revhistory>
+      <revision>
+        <revnumber>4.0 DRAFT</revnumber>
+        <date>7 December 2009</date>
+        <revremark></revremark>
+      </revision>
+    </revhistory>
+  </bookinfo>
+
+  <chapter>
+    <title>Introduction</title>
+
+    <para>Volume 4 of the NATO Interoperability Standards &amp; Protocols
+    (NISP) will continue the evolution from the platform based NATO C3 Common
+    Operation Environment (NCOE) to the loosely coupled Network Enabled
+    Capabilities environment. Within this part of the document, the focus is
+    on the long-term's perspective. The long-term perspective has a time frame
+    of 7 to 10 years into the future from the publication of this version of
+    the NISP. This is the concluding step to the realization of a fully
+    network enabled NATO coalition environment.</para>
+
+    <sect1>
+      <title>Scope</title>
+
+      <para>The scope of this volume will cover that final transitional period
+      when NATO transforms its environment to one that follows the doctrine of
+      a NATO Network-Enabled Capability (NNEC) environment. This volume will
+      identify the emerging technologies.</para>
+
+      <para>The long-term period will mark the migration from separate wired
+      and wireless technologies and applications, and more about service
+      portability between various networks and seamless service mobility. The
+      NATO network of the future will leverage both smart devices and network
+      intelligence to delivery services in this seamless fashion.</para>
+    </sect1>
+  </chapter>
+
+  <chapter>
+    <title>Far-Term Emerging Technologies</title>
+
+    <sect1>
+      <title>Networking</title>
+
+      <sect2>
+        <title>Mobile Ad-hoc Network (MANET)</title>
+
+        <para>MANET can be set up to connect military groups that need to
+        maintain communications while on the move. Wireless sensor networks,
+        on the other hand, are stationary. They are often deployed in areas
+        hostile to humans and relay on a variety of observational data that
+        are passed onto military personnel stationed at safer vantage
+        points.</para>
+
+        <para>The potential integration of these two network types can provide
+        the cornerstone of a truly 'network-centric' communications
+        infrastructure. However, in order for NATO to fully utilize wireless
+        technology, future technology should be focused on addressing the
+        current deficiencies in wireless technology. These include:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Improvements in extending wireless range capabilities</para>
+          </listitem>
+
+          <listitem>
+            <para>Increasing transfer rates</para>
+          </listitem>
+
+          <listitem>
+            <para>Technology that will create more resilient/reliable
+            links</para>
+          </listitem>
+
+          <listitem>
+            <para>Evolving routing protocols to better secure wireless
+            networks</para>
+          </listitem>
+
+          <listitem>
+            <para>Technology that will not only choose the best path for
+            routing packets but will also choose the best frequency as
+            well.</para>
+
+            <figure float="0">
+              <title>Mobile AdHoc Network</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="center" fileref="figures/MANET2Topology.svg" format="SVG"/>
+
+                </imageobject>
+              </mediaobject>
+            </figure>
+          </listitem>
+        </itemizedlist>
+
+        <sect3>
+          <title>Ad Hoc On-Demand Distance Vector (AODV)</title>
+
+          <para>The Ad Hoc On-Demand Distance Vector routing protocol is
+          intended for use by mobile nodes in an ad hoc network. It offers
+          quick adaptation to dynamic link conditions, low processing and
+          memory overhead, low network utilization, and establishment of both
+          unicast and multicast routes between sources and destinations. It
+          uses destination sequence numbers to ensure loop freedom at all
+          times (even in the face of anomalous delivery of routing control
+          messages), solving problems (such as ``counting to infinity'')
+          associated with classical distance vector protocols.</para>
+
+          <para><emphasis role="bold">Importance: </emphasis> Designed for ad
+          hoc mobile networks and is capable of both unicast and multicast
+          routing.</para>
+
+          <figure float="0">
+            <title>Ad Hoc Networking</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="center" fileref="figures/AdHoc2.svg" format="SVG"/>
+
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </sect3>
+
+        <sect3>
+          <title>Dynamic Source Routing (DSR)</title>
+
+          <para>The Dynamic Source Routing (DSR) is a routing protocol for
+          wireless mesh networks. It is similar to AODV in that it forms a
+          route on-demand when a transmitting computer requests one. However,
+          it uses source routing instead of relying on the routing table at
+          each intermediate device.</para>
+
+          <para>Determining source routes requires accumulating the address of
+          each device between the source and destination during route
+          discovery. The accumulated path information is cached by nodes
+          processing the route discovery packets. The learned paths are used
+          to route packets. To accomplish source routing, the routed packets
+          contain the address of each device the packet will traverse. This
+          may result in high overhead for long paths or large addresses, like
+          IPv6. To avoid using source routing, DSR optionally defines a flow
+          id option that allows packets to be forwarded on a hop-by-hop
+          basis.</para>
+
+          <para>This protocol is truly based on source routing whereby all the
+          routing information is maintained (continually updated) at mobile
+          nodes. It has only 2 major phases which are Route Discovery and
+          Route Maintenance. Route Reply would only be generated if the
+          message has reached the intended destination node (route record
+          which is initially contained in Route Request would be inserted into
+          the Route Reply).</para>
+
+          <para>To return the Route Reply, the destination node must have a
+          route to the source node. If the route is in the Destination Node's
+          route cache, the route would be used. Otherwise, the node will
+          reverse the route based on the route record in the Route Reply
+          message header (symmetric links). In the event of fatal
+          transmission, the Route Maintenance Phase is initiated whereby the
+          Route Error packets are generated at a node. The erroneous hop will
+          be removed from the node's route cache; all routes containing the
+          hop are truncated at that point. Again, the Route Discovery Phase is
+          initiated to determine the most viable route.</para>
+
+          <para><emphasis role="bold">Importance: </emphasis> The protocol
+          allows multiple routes to any destination and allows each sender to
+          select and control the routes used in routing its packets. Also
+          allows for a very rapid recovery when routes in the network
+          change.</para>
+
+          <para><emphasis role="bold">Status: </emphasis> IETF DSR Draft-
+          version 1.0 has had many successful implementations. One of which is
+          the open source DSR-UU that can run on Linux. DSR-UU implements most
+          of the basic DSR features specified in the DSR draft (version 10).
+          One big exception is flow extensions.</para>
+        </sect3>
+      </sect2>
+
+      <sect2>
+        <title>Knowledge Based Networking</title>
+
+        <para>A Knowledge Based Network would make decisions about the
+        wireless spectrum and have intelligent nodes that could automatically
+        optimize the network. If a connection spans reliable and unreliable
+        parts of a network, there could be performance issues: if a packet
+        makes it through the reliable region but is dropped in the unreliable
+        part, it would have to be resent through the entire connection. A
+        Knowledge Based Network would automatically break this connection into
+        two smaller connections, one across the reliable region and one across
+        the unreliable region. Then, if data is lost across the unreliable
+        part, it would only need to be re-sent along that region of the
+        network. This technique could increase bandwidth tenfold.</para>
+
+        <para>Also, in a knowledge based network it would take note of
+        frequently accessed data and save copies on the edge of the network
+        for quick access: the idea is If one soldier needs a piece of map
+        data, then the guys around him will need it too. Artificial
+        intelligence could even decide which protocols to use.</para>
+
+        <para>Such an intelligent network would not only understand how to
+        move data; it would also be able to understand what the data meant to
+        users. This idea is based on this concept of the Semantic Web, which
+        called for Web pages to include machine-readable data in addition to
+        content intended to be read by people. Software agents would use this
+        data to understand the meaning of documents instead of simply
+        searching for keywords.</para>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Data Strategies</title>
+
+      <sect2>
+        <title>Situation-Dependent Information Extraction</title>
+
+        <para>Situation-dependent information extraction uses advanced
+        algorithms to support situation associative processing and improve
+        human systems collaboration. Tools are needed to go beyond static data
+        filtering and template matching. Early work has shown that Bayesian
+        networks, statistical analysis, and hidden Markov models can be used
+        to extract meaning and context from complex and cluttered data
+        streams. Application of the se techniques for disparate sensors that
+        are not temporally or specially matched would enable NATO to detect,
+        discern, analyze, and understand the actions of stealthy adversaries
+        embedded in complex domains.</para>
+
+        <para><emphasis role="bold">Importance: </emphasis>Effective
+        implementation and utilization of these tools in conjunction with
+        better understanding of the operational environment and adversary
+        activities will improve performance of NATO forces across the
+        decision-making spectrum from tactical to strategic, and cross the
+        pre- to post-conflict timeline. Improvements in link analysis and
+        intent inference will result in faster and more complete understanding
+        of options leading to better decisions.</para>
+      </sect2>
+
+      <sect2>
+        <title>Mega-Scale Data Management</title>
+
+        <para>Future operations can be expected to require the contextual
+        exploitation capability to handle exabytes of data at transfer rates
+        of terabytes per second, coupled to decision timelines in seconds to
+        minutes. As the threat base evolves, there will be a greater
+        dependence on integrated, multiple-domain sensors with much greater
+        dynamic range, spatial reach, sample rate, and temporal history.
+        Mega-scale data management will apply an integrated, federated, and
+        scalable data framework to link disparate information sources and
+        provide robust knowledge management to permit conclusions based on
+        contextual relationships. It will also incorporate a robust security
+        and access in a timely manner. Advanced automated decision tools will
+        increase the war fighter&#8217;s ability to make timely decisions with an
+        explicit evidential basis and reduced the level of information
+        overload often experienced in answering prioritized information
+        requests. User-defined knowledge sharing will minimize catastrophic
+        errors due to cognitive biases and other limitations.</para>
+
+        <para><emphasis role="bold">Importance: </emphasis>Member nations must
+        take a look at the private sector and emulate data management tools
+        being explored in this area. Member nations must become more agile and
+        responsive adapters of commercial advances in this and related fields
+        in order to achieve the anticipated operational demands of future data
+        management requirements.</para>
+      </sect2>
+
+      <sect2>
+        <title>Application Vulnerability Description Language (AVDL)</title>
+
+        <para>Application Vulnerability Description Language (AVDL) is a
+        security interoperability standard for creating a uniform method of
+        describing application security vulnerabilities using XML. With the
+        growing adoption of web-based technologies, applications have become
+        far more dynamic, with changes taking place daily or even hourly.
+        Consequently, enterprises must deal with a constant flood of new
+        security patches from their application and infrastructure
+        vendors.</para>
+
+        <para>To make matters worse, network-level security products do little
+        to protect against vulnerabilities at the application level. To
+        address this problem, enterprises today have deployed a host of
+        best-of-breed security products to discover application
+        vulnerabilities, block application-layer attacks, repair vulnerable
+        web sites, distribute patches, and manage security events. Enterprises
+        have come to view application security as a continuous life-cycle.
+        Unfortunately, there is currently no standard way for the products
+        these enterprises have implemented to communicate with each other,
+        making the overall security management process far too manual,
+        time-consuming, and error prone.</para>
+
+        <para><emphasis role="bold">Importance: </emphasis> AVDL will create a
+        uniform way of describing application security vulnerabilities. This
+        information may be utilized by application security gateways to
+        recommend the optimal attack prevention policy for that specific
+        application. Remediation products could use AVDL files to suggest the
+        best course of action for correcting problems, while reporting tools
+        could use AVDL to correlate event logs with areas of known
+        vulnerability.</para>
+
+        <para><emphasis role="bold">Status:</emphasis>The AVDL 1.0
+        specification was approved by OASIS in May 2004.</para>
+      </sect2>
+
+      <sect2>
+        <title>Common Alerting Protocol (CAP)</title>
+
+        <para>The Common Alerting Protocol is a simple but general format for
+        exchanging all-hazard emergency alerts and public warnings over all
+        kinds of networks. CAP is a XML-based data format for exchanging
+        public warnings and emergencies between alerting technologies. CAP
+        allows a warning message to be consistently disseminated
+        simultaneously over many warning systems to many applications. CAP
+        increases warning effectiveness and simplifies the task of activating
+        a warning for responsible officials. Individuals can receive
+        standardized alerts from many sources and configure their applications
+        to process and respond to the alerts as desired.</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Flexible geographic targeting using latitude/longitude boxes
+            and other geospatial representations in three dimensions;</para>
+          </listitem>
+
+          <listitem>
+            <para>Multilingual and multi-audience messaging;</para>
+          </listitem>
+
+          <listitem>
+            <para>Phased and delayed effective times and expirations;</para>
+          </listitem>
+
+          <listitem>
+            <para>Enhanced message update and cancellation features;</para>
+          </listitem>
+
+          <listitem>
+            <para>Template support for framing complete and effective warning
+            messages;</para>
+          </listitem>
+
+          <listitem>
+            <para>Digital encryption and signature capability; and,</para>
+          </listitem>
+
+          <listitem>
+            <para>Facility for digital images, audio and video.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para><emphasis role="bold">Importance: </emphasis> The Common
+        Alerting Protocol will enhance organizations 'situational awareness'
+        at all levels by providing a continual real-time database of all
+        warnings, even local ones. It will extend the reach of warning
+        messages and enhance the effectiveness of those messages by providing
+        timely corroboration of warnings from several sources. This system
+        will also simplify the work of alerting officials by giving them a
+        write-it-once method for issuing warnings over multiple dissemination
+        systems without duplicate effort.</para>
+
+        <para><emphasis role="bold">Status</emphasis>: The 1.0 specification
+        was approved by OASIS in, 2004. Based on experience with 1.0, the
+        OASIS Emergency Management Technical Committee adopted an updated 1.1
+        specification in October 2005. At a meeting in October, 2006 the 1.1
+        specification was taken under consideration by the International
+        Telecommunications for adoption as an ITU recommendation.</para>
+      </sect2>
+
+      <sect2>
+        <title>Emergency Data Exchange Language, Distribution Element (EDXL
+        DE)</title>
+
+        <para>Emergency Data Exchange Language, Distribution Element
+        (EDXL-DE), facilitates emergency information sharing and data exchange
+        across local, regional, tribal, national, and international
+        organizations in the public and private sectors. This standard has the
+        ability to transmit any content, from files to technical data exchange
+        information.</para>
+
+        <para><emphasis role="bold">Importance: </emphasis> Same as
+        CAP.</para>
+
+        <para><emphasis role="bold">Status: </emphasis>20 June 2006 - The
+        OASIS international standards consortium approved the Emergency Data
+        Exchange Language Distribution Element (EDXL-DE) version 1.0 as an
+        OASIS Standard.</para>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Nanotechnology</title>
+
+      <sect2>
+        <title>Carbon Nanotube Computers</title>
+
+        <para>For decades, the size of silicon-based transistors has decreased
+        steadily while their performance has improved. As the devices approach
+        their physical limits, though, researchers have started looking to
+        less conventional structures and materials. Single-walled carbon
+        nanotubes are one prominent candidate -- already researchers have
+        built carbon nanotube transistors that show promising performance.
+        According to estimates, carbon nanotubes have the potential to produce
+        transistors that run 10 times faster than even anticipated future
+        generations of silicon-based devices, while at the same time using
+        less power.</para>
+
+        <para><emphasis>Importance: </emphasis> Could help make large-scale
+        integrated circuits built out of carbon nanotubes possible, leading to
+        ultrafast, low-power processors. The need to power IT equipment
+        becomes less of a factor in planning military operations.</para>
+
+        <para><emphasis>Status: </emphasis> Researchers at have overcome an
+        important obstacle to building computers based on carbon nanotubes, by
+        developing a way to selectively arrange transistors that were made
+        using the carbon molecules.</para>
+      </sect2>
+
+      <sect2>
+        <title>Flexible Silicon</title>
+
+        <para>Most flexible electronics, such as those used in e-paper and
+        roll-up displays for mobile devices, rely on transistors made of
+        either organic polymers, printed directly on a plastic substrate, or
+        amorphous, or noncrystalline, silicon. However, transistors made of
+        these materials can't perform at the gigahertz speeds needed for
+        complex circuitry or antennas.</para>
+
+        <para>People have for some time been able to make slow flexible
+        electronics, but the speed of the transistors has been limited. The
+        next step has been to make the transistors out of high-quality,
+        single-crystal silicon instead of organic polymers and amorphous
+        silicon because electrons simply move faster in single-crystal
+        silicon.</para>
+
+        <para><emphasis role="bold">Importance: </emphasis> This technology
+        opens possibilities to new flexible electronics that can be
+        implemented in a wide variety of military applications. Imagine you
+        are an infantry soldier and you look to your wrist computer to get
+        your bearings, known positions of friend and foe and even a weather
+        report. Flexible electronics has the potential to revolutionize the
+        way in which information is disseminated on the battlefield.</para>
+
+        <para><emphasis role="bold">Status: </emphasis>Researchers have made
+        ultra thin silicon transistors that operate more than 50 times faster
+        than previous flexible-silicon devices. The advance could help make
+        possible flexible high-end electronics that would be useful in a
+        variety of applications, from computers to communication.</para>
+      </sect2>
+
+      <sect2>
+        <title>Microphotonic Devices</title>
+
+        <para>Optical fibers can quickly transmit huge amounts of data. But
+        the technology for sorting and sending photons lags far behind the
+        microelectronics that generates and process the data, putting a crimp
+        on bandwidths. In the past few years, scientists and engineers have
+        made great strides in miniaturizing photonic devices and integrating
+        them onto a single chip. Such advances allow for cheaper
+        manufacturing, smaller sizes, and higher performance. Along the way
+        they've developed techniques for working with materials common to the
+        semiconductor industry, which is a step toward integrating photonics
+        and electronics on the same chip. And these researchers have made
+        structures with phenomenal precision, in some cases down to distances
+        smaller than those that separate atoms.</para>
+
+        <para>Even with these successes, however, a major obstacle remained.
+        Light delivered via cylindrical fiber optics breaks into different
+        polarizations, or orientations of light waves. In devices at the
+        microscale, the outputs change depending on if the waves are oriented
+        vertically or horizontally so they're suited to processing only
+        certain polarizations, which can lead to weakened signals. If
+        researchers are limited to using horizontally polarized light, for
+        example, they end up throwing away vertically polarized light and lose
+        half the signal strength. That's a problem particularly when sending
+        signals over long distances, such as between continents.</para>
+
+        <para>One approach to this problem is to run light through more than
+        one device, each specifically designed to process one polarization.
+        Researchers at MIT's Research Laboratory of Electronics took a
+        different approach. Rather than building separate devices for
+        different light polarizations, they invented a device for converting
+        vertically polarized light into horizontally polarized light. First,
+        the device splits light into its horizontally and vertically polarized
+        components, directing these into separate channels. Then it gradually
+        rotates the vertically polarized light to make it horizontal. At this
+        point, the light in both channels has the same polarization. This
+        makes it possible to use identical devices to process that light. As a
+        result, all of the light is processed in the same way, allowing clear,
+        strong signals.</para>
+
+        <para>The current advance pertains only to those photonic applications
+        that involve light with multiple polarizations and those
+        communications applications that involve fiber optics. There hasn't
+        been much economic pressure in the past couple of years to develop
+        technology for these applications because of a glut in bandwidth, but
+        now communications demands are increasing again.</para>
+
+        <para><emphasis role="bold">Importance:</emphasis> Paves the way to
+        cheaper, more complex, and higher-performance optical networks. When
+        you integrate things like this, the complexity and the performance of
+        the kinds of filtering we can do are a little more advanced than the
+        methods that are used today. For example, sensor assemblies using
+        photonic components are immune to electromagnetic interference and
+        electrical component failure in adverse environments.</para>
+
+        <para><emphasis role="bold">Status: </emphasis> Researchers at MIT's
+        Research Laboratory of Electronics report in the current issue of
+        Nature Photonics that they have developed a method for overcoming a
+        fundamental problem in using photonics in communications.</para>
+      </sect2>
+
+      <sect2>
+        <title>Invisible Transistors</title>
+
+        <para>Researchers have fabricated high ­performance, transparent
+        thin-film transistors (TFTs) using a low-cost, low-temperature method.
+        They use indium oxide as both a semiconductor and a conductor,
+        combining the inorganic material with organic insulators on top of a
+        transparent substrate. The resulting transistors perform nearly as
+        well as the much more expensive polysilicon transistors used to
+        control pixels in high-end TVs and computer monitors.</para>
+
+        <para>On glass that's been coated with a transparent electrode, the
+        researchers deposit the organic insulating materials, which form a
+        multilayered lattice. To deposit the indium oxide, the researchers use
+        a standard technique called ion-assisted deposition, in which an ion
+        beam controls the crystallization and adhesion of the oxide. Changing
+        the oxygen pressure during the process varies the conductivity of the
+        indium oxide, which can thus be used as a semiconductor in one part of
+        the device and as a conductor in other parts.</para>
+
+        <para><emphasis role="bold">Importance:</emphasis> The new TFTs could
+        replace the opaque transistors used to control pixels in digital
+        displays. Because the low-temperature method can deposit transistors
+        on flexible plastics, it could lead to see-through displays affixed to
+        curved surfaces such as windshields and helmet visors. The method is
+        also cheap enough, and easy enough to adapt for large-scale
+        manufacturing, that it could make such displays affordable. Imagine a
+        vehicle windshield that displays a map to your destination, military
+        goggles with targets and instructions displayed right before a
+        soldier's eyes.</para>
+
+        <para><emphasis role="bold">Status: </emphasis> Negotiations for
+        licensing the technology have begun. Prototype displays could be ready
+        within 18 months. The researchers hope to improve the performance of
+        the transistors so that they could serve as processors or memory
+        cells.</para>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Human-Computer Interface</title>
+
+      <para>The idea of eliminating the gap between human thought and computer
+      responsiveness is an obvious one, and a number of companies are working
+      hard on promising technologies. One of the most obvious such
+      technologies is voice recognition software that allows the computer to
+      type as you speak, or allows users to control software applications by
+      issuing voice commands.</para>
+
+      <para>Even the most advanced and accurate software in this category has
+      an accuracy that is impressive, and the technology is far ahead of voice
+      recognition technology from a mere decade ago, but it's still not at the
+      point where people can walk up to their computer and start issuing voice
+      commands without a whole lot of setup, training, and fine tuning of
+      microphones and sound levels. Widespread, intuitive use of voice
+      recognition technology still appears to be years away.</para>
+
+      <para>And yet our interface with the Internet remains the lowly personal
+      computer. With its clumsy interface devices (keyboard and mouse,
+      primarily), the personal computer is a makeshift bridge between the
+      ideas of human beings and the world of information found on the
+      Internet. These interface devices are clumsy and simply cannot keep pace
+      with the speed of thought of which the human brain is capable.</para>
+
+      <para>Consider this: a person with an idea who wishes to communicate
+      that idea to others must translate that idea into words, then break
+      those words into individual letters, then direct her fingers to punch
+      physical buttons (the keyboard) corresponding to each of those letters,
+      all in the correct sequence. Not surprisingly, typing speed becomes a
+      major limiting factor here: most people can only type around sixty words
+      per minute. Even a fast typist can barely achieve 120 words per minute.
+      Yet the spoken word approaches 300 words per minute, and the speed of
+      'thought' is obviously many times faster than that.</para>
+
+      <para>Pushing thoughts through a computer keyboard is sort of like
+      trying to put out a raging fire with a garden hose: there is simply not
+      enough bandwidth to move things through quickly enough. As a result,
+      today's computer / human interface devices are significant obstacles to
+      breakthroughs in communicative efficiency.</para>
+
+      <para>The computer mouse is also severely limited. I like to think of
+      the mouse as a clumsy translator of intention: if you look at your
+      computer screen, and you intend to open a folder, you have to move your
+      hand from your keyboard to your mouse, slide the mouse to a new location
+      on your desk, watch the mouse pointer move across the screen in an
+      approximate mirror of the mouse movement on your desk, then click a
+      button twice. Thats a far cry from the idea of simply looking at the
+      icon and intending it to open.</para>
+
+      <para>Today's interface devices are little more than rudimentary
+      translation tools that allow us to access the world of personal
+      computers and the Internet in a clumsy, inefficient way. Still, the
+      Internet is so valuable that even these clumsy devices grant us
+      immeasurable benefits, but a new generation of computer/human interface
+      devices would greatly multiply those benefits and open up a whole new
+      world of possibilities for exploiting the power of information and
+      knowledge.</para>
+
+      <sect2>
+        <title>Hand Controlled Computers</title>
+
+        <para>Another recent technology that represents a clever approach to
+        computer / human interfaces is the iGesture Pad by a company called
+        Fingerworks (http://www.FingerWorks.com). With the iGesture Pad, users
+        place their hands on a touch sensitive pad (about the size of a mouse
+        pad), then move their fingers in certain patterns (gestures) that are
+        interpreted as application commands. For example, placing your fingers
+        on the pad in a tight group, then rapidly opening and spreading your
+        fingers are interpreted as an Open command.</para>
+
+        <para>For more intuitive control of software interfaces, what is
+        needed is a device that tracks eye movements and accurately translates
+        them into mouse movements: so you could just look at an icon on the
+        screen and the mouse would instantly move there.</para>
+
+        <para><emphasis role="bold">Importance: </emphasis> This technology
+        represents a leap in intuitive interface devices, and it promises a
+        whole new dimension of control versus the one-dimensional mouse click.
+        Keystrokes and mouse clicks limit a soldier's degree of
+        freedom.</para>
+
+        <para><emphasis role="bold">Status:</emphasis> It's still a somewhat
+        clumsy translation of intention through physical limbs. Interestingly,
+        some of the best technology in this area comes from companies building
+        systems for people with physical disabilities. For people who can't
+        move their limbs, computer control through alternate means is
+        absolutely essential.</para>
+      </sect2>
+
+      <sect2>
+        <title>Head Moving Tracking Technology</title>
+
+        <para>One approach to this is tracking the movement of a person's head
+        and translating that into mouse movements. One device, the Head Mouse
+        (Origin Instruments), does exactly that. You stick a reflective dot on
+        your forehead, put the sensor on top of your monitor, and then move
+        your head to move your mouse.</para>
+
+        <para>Another company called Madentec (http://www.Madentec.com) offers
+        a similar technology called Tracker One. Place a dot on your forehead,
+        and then you can control the mouse simply by moving your head.</para>
+
+        <para>In terms of affordable head tracking products for widespread
+        use, a company called NaturalPoint (http://www.NaturalPoint.com) seems
+        to have the best head tracking technology at the present: a product
+        called SmartNav. Add a foot switch and you can click with your
+        feet.</para>
+
+        <para><emphasis role="bold">Importance: </emphasis> Allows for
+        hands-free control via head movement.</para>
+
+        <para><emphasis role="bold">Status:</emphasis> Current implementations
+        present a learning curve for new users, but it works as
+        promised.</para>
+      </sect2>
+
+      <sect2>
+        <title>Eye Tracking Movements</title>
+
+        <para>While tracking head movement is in many ways better than
+        tracking mouse movement, a more intuitive approach, it seems, would be
+        to track actual eye movements. A company called LC Technologies, Inc.
+        is doing precisely that with their EyeGaze systems
+        (http://www.lctinc.com/products.htm). By mounting one or two cameras
+        under your monitor and calibrating the software to your screen
+        dimensions, you can control your mouse by simply looking at the
+        desired position on the screen.</para>
+
+        <para>This technology was originally developed for people with
+        physical disabilities, yet the potential application of it is far
+        greater. In time, I believe that eye tracking systems will become the
+        preferred method of cursor control for users of personal
+        computers.</para>
+
+        <para>Eye tracking technology is quickly emerging as a technology with
+        high potential for widespread adoption by the computing public.
+        Companies such as Tobii Technology (http://www.tobii.se), Seeing
+        Machines (http://www.SeeingMachines.com), SensoMotoric Instruments
+        (http://www.smi.de), Arrington Research
+        (http://www.ArringtonResearch.com), and EyeTech Digital Systems
+        (http://www.eyetechds.com) all offer eye tracking technology with
+        potential for computer / human interface applications. The two most
+        promising technologies in this list, in terms of widespread
+        consumer-level use, appear to be Tobii Technology and EyeTech Digital
+        Systems.</para>
+
+        <para><emphasis role="bold">Importance: </emphasis> Allows for
+        hands-free control via eye movement.</para>
+      </sect2>
+
+      <sect2>
+        <title>Brain-Computer Interface</title>
+
+        <para>Moving to the next level of human-computer interface technology,
+        the ability to control your computer with your thoughts alone seems to
+        be an obvious goal. The technology is called Brain Computer Interface
+        technology, or BCI.</para>
+
+        <para>Although the idea of brain-controlled computers has been around
+        for a while, it received a spike of popularity in 2004 with the
+        announcement that nerve-sensing circuitry was implanted in a monkey's
+        brain, allowing it to control a robotic arm by merely thinking. Brain
+        activity produces electrical signals that are detectable on the scalp
+        or cortical surface or within the brain. BCIs translate these signals
+        from mere reflections of brain activity into outputs that communicate
+        the user&#8217;s intent without the participation of peripheral nerves and
+        muscles. BCIs can be non-invasive or invasive. Non-invasive BCIs
+        derive the user&#8217;s intent from scalp-recorded electroencephalographic
+        (EED) activity. While invasive BCIs derive the user&#8217;s intent from
+        neuronal action potentials or local field potentials recorded from
+        within the cerebral cortex or from its surface. Researchers have
+        studied these systems mainly in nonhuman primates and to a limited
+        extent in humans. Invasive BCIs face substantial technical
+        difficulties and involve clinical risks. Surgeons must implant the
+        recording electrodes in or on the cortex. The devices must function
+        well for long periods and they risk infection and may pose other
+        damage to the brain.</para>
+
+        <para><emphasis role="bold">Importance:</emphasis> Imagine the
+        limitless applications of direct brain control. People could easily
+        manipulate cursors on the screen or control electromechanical devices.
+        They could direct software applications, enter text on virtual
+        keyboards, or even drive vehicles on public roads. Today, all these
+        tasks are accomplished by our brains moving our limbs, but the limbs,
+        technically speaking, don't have to be part of the chain of
+        command.</para>
+
+        <para><emphasis role="bold">Status: </emphasis>The lead researchers in
+        the monkey experiment are now involved in a commercial venture to
+        develop the technology for use in humans. The company, Cyberkinetics
+        Inc. hopes to someday implant circuits in the brains of disabled
+        humans and then allow those people to control robotic arms,
+        wheelchairs, computers or other devices through nothing more than
+        brain behaviour.</para>
+
+            <figure float="0">
+              <title>Brain Computer Interface</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="center" fileref="figures/BCI.svg" format="SVG"/>
+
+                </imageobject>
+              </mediaobject>
+            </figure>
+
+
+
+      </sect2>
+
+      <sect2>
+        <title>Tactile Feedback</title>
+
+        <para>Another promising area of human-computer interface technology is
+        being explored by companies like Immersion Corporation
+        (http://www.Immersion.com), which offers tactile feedback hardware
+        that allows users to 'feel' their computer interfaces.</para>
+
+        <para>Slide on Immersion's CyberGlove, and your computer can track and
+        translate detailed hand and finger movements. Add their CyberTouch
+        accessory, and tiny force feedback generators mounted on the glove
+        deliver the sensation of touch or vibration to your fingers. With
+        proper software translation, these technologies give users the ability
+        to manipulate virtual objects using their hands. It's an intuitive way
+        to manipulate objects in virtual space, since nearly all humans have
+        the natural ability to perform complex hand movements with practically
+        no training whatsoever.</para>
+
+        <para>Another company exploring the world of tactile feedback
+        technologies is SensAble Technologies. Their PHANTOM devices allow
+        users to construct and feel three-dimensional objects in virtual
+        space. Their consumer-level products include a utility for gamers that
+        translate computer game events into tactile feedback (vibrations,
+        hitting objects, gun recoil, etc.).</para>
+
+        <para>On a consumer level, Logitech makes a device called the IFeel
+        Mouse that vibrates or thumps when your mouse cursor passes over
+        certain on-screen features. Clickable icons, for example, feel like
+        bumps as you mouse over them. The edges of windows can also deliver
+        subtle feedback.</para>
+
+        <para><emphasis role="bold">Importance:</emphasis> Key technology for
+        modeling &amp; simulation, and simulated training. Tactile feedback
+        has potential for making human-computer interfaces more intuitive and
+        efficient;even if today's tactile technologies are clunky first
+        attempts. The more senses we can directly involve in our control of
+        computers, the broader the bandwidth of information and intention
+        between human beings and machines.</para>
+
+        <para><emphasis role="bold">Status: </emphasis> Hasn't seen much
+        success in the marketplace.</para>
+      </sect2>
+
+      <sect2>
+        <title>Three Dimensional Displays</title>
+
+        <para>The long-promised 3D computer monitor finally seems to be close
+        to reality. Manipulating complex windows, documents and virtual
+        objects on a two-dimensional display -- as is standard today -- is
+        rather limiting. With a 3D monitor, we could work in layers or
+        position documents and objects in 3D space rather than squeezing them
+        down to a tiny toolbar at the bottom of one screen.</para>
+
+        <para>For human beings, 3D space is intuitive. We get it without
+        training. That's because we live in a world of 3D objects and space,
+        and our perception is hard-wired to understand spatial relationships.
+        That's why gamers who play first-person shooters like Quake can
+        mentally retrace their way through enormous maps (levels) in their
+        heads, eyes closed, without even trying: the human brain was built to
+        remember and navigate 3D space.</para>
+
+        <para>Recent breakthroughs in 3D display promise to make computing
+        more intuitive and powerful. Companies like LightSpace Technologies
+        (http://www.lightspacetech.com) are already selling desktop 3D display
+        monitors that display true 3D images without the need for special
+        glasses.</para>
+
+        <para>The trouble is, Windows and Mac operating systems weren't
+        written with 3D displays in mind. So there's no capability to stack
+        windows or view the depth of objects. It's a classic chicken-and-egg
+        conundrum: who's going to buy 3D displays if the software can't
+        support them, and why would software makers write 3D layering logic if
+        nobody owns the displays?</para>
+
+        <para>In time, thanks to the cool factor of 3D displays, the
+        technology will eventually receive enough attention to warrant the
+        necessary R&amp;D investment by operating system developers like
+        Microsoft and Apple. No doubt, future generations will conduct all
+        their computing with the aid of 3D displays, and the very idea of 2D
+        displays will seem as outdated as black &amp; white movies do to us
+        today.</para>
+
+        <para>Another new 3D display device is the Perspecta Spatial 3D globe,
+        seen at: http://www.actuality-systems.com/index.php/actuality. This
+        device displays 3D objects or animations inside a globe. Users can
+        walk around the globe and view the objects from any angle. It's a
+        rather expensive item, of course, so early applications for this
+        product focus on medical and research tasks. In time, however, the
+        technology will drop in price, bringing it within reach of more
+        consumers.</para>
+
+        <para><emphasis role="bold">Importance:</emphasis> For that, we will
+        ultimately need a tabletop 3D display system that lays flat on your
+        desk (like an LCD monitor laying down) and projects 3D images into the
+        space above the panel. This would be a true volumetric 3D display
+        system, and it's here that the technology truly represents a
+        breakthrough. Program application windows could literally be stacked
+        from the rear to the front, and if you peeked around the side of the
+        display, you could see a side view of all the windows at once. With
+        proper software control, objects or documents could be placed in true
+        3D space: desktop icons, for example, could be lined up along the very
+        back row. Games could display true 3D scenes as if you're actually in
+        them, and CAD engineers would have the ability to observe their
+        designs in true 3D space. Better yet, if coupled with a motion
+        tracking glove or similar technology, users could use their hands to
+        grasp, move, resize or otherwise manipulate elements in 3D space.
+        This, of course, opens up an unlimited universe of possibilities for
+        computer / human interaction.</para>
+      </sect2>
+
+      <sect2>
+        <title>Automated Language Processing</title>
+
+        <para>Foreign language speech and text are indispensable sources of
+        intelligence, but the vast majority of this information is unexamined.
+        Foreign language data and their corresponding providers are massive
+        and growing in numbers daily. Moreover, because the time to transcribe
+        and translate foreign documents is so labor intensive, compounded by
+        the lack of linguists with suitable language skills to review it all,
+        much foreign language speech and text are never exploited for
+        intelligence and counterterrorism purposes. New and powerful foreign
+        language technology is needed to allow English-speaking analysts to
+        exploit and understand vastly more foreign speech and text than is
+        currently possible today.</para>
+
+        <figure float="0">
+          <title>Language Processing</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="center" fileref="figures/LanguageProcessing.svg" format="SVG"/>
+
+
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <sect3>
+          <title>Speech-to-Text Transcription</title>
+
+          <para>Automatic speech-to-text transcription seeks to produce rich,
+          readable transcripts of foreign news broadcasts and conversations
+          (over noisy channels and/or in noisy environments) despite
+          widely-varying pronunciations, speaking styles, and subject matter.
+          Goals for speech-to-text transcription include: (1) providing high
+          accuracy multilingual word-level transcription from speech at all
+          stages of processing and across multiple genres, topics, speakers,
+          and channels ( such as, Arabic, Chinese, the Web, news, blogs,
+          signals intelligence, and databases); (2) representing and
+          extracting &#8220;meaning&#8221; out of spoken language by reconciling and
+          resolving jargon, slang, code-speak, and language ambiguities; (3)
+          dynamically adapting to (noisy) acoustics, speakers, topics, new
+          names, speaking-styles, and dialects; (4) improving relevance to
+          deliver the information decision-makers need; (5) assimilating and
+          integrating speech across multiple sources to support exploration
+          and analysis to enable natural queries and drill-down; and (6)
+          increased portability across languages, sources, and information
+          needs.</para>
+
+          <para><emphasis role="bold">Importance:</emphasis> Examples of
+          critical technologies include: improved acoustic modeling; robust
+          feature extraction; better discriminative estimation models;
+          improved language and pronunciation modeling; and language
+          independent approaches that are able to learn from examples by using
+          algorithms that exploit advances in computational power plus the
+          large quantities of electronic speech and text that are now
+          available. The ultimate goal is to create rapid, robust technology
+          that cab be ported cheaply and easily to other languages and
+          domains.</para>
+        </sect3>
+
+        <sect3>
+          <title>Foreign-to-English Translation</title>
+
+          <para>Goals for foreign to English translation include: (1)
+          providing high accuracy machine translation and structural metadata
+          annotation from multilingual text document and speech transcription
+          input at all stages of processing and across multiple genres,
+          topics, and mediums ( such as, Arabic, Chinese, the Web, news,
+          blogs, signals intelligence, and databases); (2) understanding or at
+          least deriving semantic intent from input strings regardless of
+          source; (3) reconciling and resolving semantic differences,
+          duplications, inconsistencies, and ambiguities across words,
+          passages, and documents; (4) more efficient discovery of important
+          documents, more relevant and accurate facts while decreasing the
+          amount of time required to do it, and passages for distillation; (5)
+          providing enriched translation output that is formatted, cleaned-up,
+          clear, unambiguous, and meaningful to decision-makers; (6)
+          eliminating the need for human intervention and minimized delay of
+          information delivery; and (7) fast development of new language
+          capability, swift response to breaking events, and increased
+          portability across languages, sources, and information needs.</para>
+
+          <para><emphasis role="bold">Importance:</emphasis> Examples of
+          critical technologies include: improved dynamic language modeling
+          with adaptive learning; advanced machine translation technology that
+          utilizes heterogeneous knowledge sources; better inference models;
+          language-independent approaches to create rapid robust technology
+          that can be ported cheaply and easily to any language and domain;
+          syntactic and semantic representation techniques to deal with
+          ambiguous meaning and information overload; and cross- and mono-
+          lingual, language-independent information retrieval to detect and
+          discover the exact data in any language quickly and accurately, and
+          to flag new data that may be of interest.</para>
+        </sect3>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Portable Power</title>
+
+      <para>It seems that no matter how advanced notebook computers get, their
+      battery life remains at a standstill: 2-3 hours from most models,
+      regardless of price. From electric vehicles to portable electronics,
+      today's battery capacity lags far behind the steady improvements in
+      other areas of technology. Despite the hype and advertising from battery
+      manufacturers, today's chemical batteries are virtually identical to
+      ones sold three decades ago.</para>
+
+      <para>It's not that battery manufacturers aren't trying to develop
+      something better: efforts to improve battery capacity and power density
+      have been underway for years. Despite the research, arguably the best
+      technology they have produced yet is the ingenious battery testing strip
+      that you can use to check how quickly your batteries have gone
+      dead.</para>
+
+      <para>Today's battery technology is simply outdated. The chemicals are
+      extremely hazardous to the environment (Nickel-Cadmium, for example, is
+      made from two heavy metals that are toxic to practically all forms of
+      life on the planet), dangerous to nearby users (risk of explosions),
+      heavy (standard car batteries can weigh 70+ pounds) and unreliable. They
+      charge slowly, their output voltage wavers, and their size becomes a
+      major limiting factor when designing portable electronics like digital
+      cameras.</para>
+
+      <para>Portable power is a crucial enabling technology for a vast array
+      of applications. Some of these applications include:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">Wearable Computers</emphasis> - Smaller
+          batteries will make wearable computers more comfortable and
+          convenient. A power pack the size of a matchbox might power a
+          wearable computer for an entire day.</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Robotics</emphasis> - Autonomous robots
+          require an enormous amount of electrical power for the operation of
+          motors, artificial muscles and CPUs. Today's chemical batteries just
+          don't deliver the horsepower. AIBO, Sony's robotic pet, only barks
+          for 2-3 hours on a typical charge, and the working prototypes of
+          humanoid robots from Japan only have enough juice for brief public
+          performances.</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Medical Devices</emphasis> - The
+          miniaturization of medical devices depends heavily on increasing the
+          power density of batteries. From portable monitoring systems to
+          handheld diagnostic devices, the battlefield medicine would benefit
+          greatly from a breakthrough in power density and portability.</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Electric Vehicles</emphasis> - To date,
+          total electric vehicles have not succeeded in military applications
+          primarily due to their lack of range (power density). That's the
+          fault of the battery technology: it requires a thousand pounds of
+          batteries to drive a vehicle the same distance delivered by four
+          gallons of gasoline. While hybrid vehicles are finding tremendous
+          success in the marketplace by packing both batteries and combustion
+          engines under the same hood, tomorrow's vehicles could run off
+          batteries alone if high density power storage systems were
+          available.</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Space Exploration</emphasis> - The
+          limitations of portable power are critical when it comes to space
+          exploration. Battery requirements shape the scope of entire
+          missions. The primary factor limiting the life and utility of the
+          2004 Mars rovers, for example, was battery life. With the help of
+          higher density power systems, space exploration takes a quantum leap
+          forward and unleashes spectacular new possibilities in remote
+          sensing vehicles and manned missions.</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Solar Power Systems</emphasis> - Solar
+          power is clean, renewable, safe, reliable and environmentally
+          friendly. Unfortunately, it's expensive to install, and the single
+          greatest cost often comes from the batteries, not the solar panels.
+          Batteries for solar systems are typically large, heavy, dangerous
+          (risk of explosions), expensive and short-lived (many need replacing
+          in a mere five years). A breakthrough in power density and storage
+          costs could revolutionize the solar industry, making residential and
+          commercial solar systems far more affordable. If battery costs could
+          be halved, it would subtract five years from the average twenty-year
+          return on solar systems.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>These are just a few of the many important applications of high
+      density portable power. Remember, though, it's not just the density that
+      matters: it's the cost as well. To herald a genuine breakthrough, the
+      next wave of technology needs to be better on all counts: size, weight
+      and cost.</para>
+
+      <sect2>
+        <title>Fuel Cells</title>
+
+        <para>The most promising candidate technology that meets this
+        requirement is fuel cell technology. Fuel cells are clean, small and
+        lightweight, and will eventually be cheap to produce. The choice of
+        fuels for those fuel cells, however, remains undecided.</para>
+
+        <para>One of the promising contenders is zinc -- one of the most
+        abundant minerals in the planet. With the help of fuel cell membranes,
+        zinc particles release electricity when oxidized by exposing them to
+        air. Once all the zinc is oxidized, the zinc particles can be quickly
+        ''recharged" (reversing the oxidation process with the help of
+        electricity) and used again. This process can be endlessly repeated,
+        since the zinc never wears out.</para>
+
+        <para>Zinc is promising because it offers high density portable power
+        (far greater power density than chemical batteries), a
+        widely-available element, and outstanding safety (zinc won't explode
+        if exposed to flames or high temperatures). The industry leader in
+        portable zinc power is Metallic Power
+        (http://www.metallicpower.com)</para>
+      </sect2>
+
+      <sect2>
+        <title>Methanol Fuel Cells</title>
+
+        <para>Zinc power isn't seeing many headlines these days. Much of the
+        news about portable fuel cells seems focused on methanol. These
+        so-called Direct Methanol Fuel Cells (DMFCs) convert methanol (a
+        common alcohol that can be derived from corn, among other renewable
+        sources) into electricity. NEC, Samsung, and already have working
+        prototypes of DMFCs for notebook computers or portable
+        electronics.</para>
+
+        <para>The problem with methanol is its combustibility: methanol
+        ignites easily and has a flash point ranging from room temperature to
+        130 degrees (F), depending on the concentration of water in the
+        mixture. That makes it an illegal explosive according to the laws of
+        many countries, meaning that DMFCs would not be allowed on airplanes
+        unless existing regulations are changed.</para>
+
+        <para>Methanol also has the drawback of not being easily renewed by
+        consumers. Few people have the know-how to distill methanol in their
+        own garage, meaning that consumers would be dependent on DMFC
+        manufacturers for methanol recharge kits. Like ink jet printer refill
+        kits, this is where DMFC manufacturers will probably make the bulk of
+        their profits.</para>
+
+        <para>In the end, however, the choice of fuel isn't as important as
+        the widespread adoption of a fuel cell battery standard. Today's
+        chemical batteries are holding back promising applications for
+        emerging technologies, and only a breakthrough in portable power can
+        overcome those limitations. Fuel cells can make the leap, and their
+        adoption by consumers and manufacturers alike is all but
+        assured.</para>
+
+        <para><emphasis role="bold">Importance:</emphasis> Fuel cells are very
+        useful as power sources and offer significant savings of loads, in
+        weight and volume, compared to conventional power sources. Because
+        fuel cells have no moving parts and do not involve combustion, in
+        ideal conditions they can achieve up to 99.9999% reliability. This
+        equates to less than one minute of down time in a six year
+        period.</para>
+
+        <para/>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Computing</title>
+
+      <para>Optical computing would provide much higher computing speeds.
+      Developments have centered on devices such as VCSELS (Vertical Cavity
+      Surface-Emitting Lasers) for data input, SLMs (Spatial Light Modulators)
+      for putting information on light beams and high speed APDs (Avalanche
+      Photo-Diodes) for data output. More work remains before digital optical
+      computers will be available commercially.</para>
+
+      <sect2>
+        <title>Quantum Computing</title>
+
+        <para>A quantum computer would store information, not as strings of
+        ones and zeros as in a &#8216;classical&#8217; computer, but as a series of
+        quantum mechanical states. Quantum physics allows particles to be in
+        more than one state at a time, so that it is possible for a particle
+        in a quantum computer to hold more than one bit of information,
+        referred to as a &#8216;qubit&#8217;. The quantum computer would allow very fast
+        parallel computing capability. A functional quantum computer is still
+        beyond the grasp of current technology, and many obstacles must be
+        overcome before a usable computer can be built. A major problem is
+        that slight outside disruption, e.g. heat or light, will cause a
+        system to lose its quantum coherence, while the very process of
+        retrieving results would also upset the coherence.</para>
+
+        <para><emphasis role="bold">Importance:</emphasis> Integer
+        factorization is believed to be computationally infeasible with an
+        ordinary computer for large integers that are the product of only a
+        few prime numbers (e.g., products of two 300-digit primes). By
+        comparison, a quantum computer could efficiently solve this problem
+        using Shor's algorithm to find its factors. This ability would allow a
+        quantum computer to "break" many of the cryptographic systems in use
+        today.</para>
+
+        <para/>
+      </sect2>
+
+      <sect2>
+        <title>Data Storage</title>
+
+        <para>Data storage media will need to improve to keep pace with
+        computer processing power, and may be achieved via optical disk
+        technologies and applications of parallelism. Promising areas involve
+        the use of holographic memory, offering 64 billion bits storage
+        capacity on a laser activated crystal the size of a compact disk.
+        Holographic data storage captures information using an optical
+        inference pattern within a thick, photosensitive optical material.
+        Light from a single laser beam is divided into two separate beams, a
+        reference beam and an object or signal beam; a spatial light modulator
+        is used to encode the object beam with the data for storage. An
+        optical inference pattern results from the crossing of the beams&#8217;
+        paths, creating a chemical and/or physical change in the
+        photosensitive medium; the resulting data is represented in an optical
+        pattern of dark and light pixels. By adjusting the reference beam
+        angle, wavelength, or media position, a multitude of holograms
+        (theoretically, several thousand) can be stored on a single
+        volume.</para>
+
+        <para><emphasis role="bold">Importance:</emphasis> The theoretical
+        limits for the storage density of this technique are approximately
+        tens of per cubic centimeter. In addition, holographic data storage
+        can provide companies a method to preserve and archive information.
+        The write-once, read many (WORM) approach to data storage would ensure
+        content security, preventing the information from being overwritten or
+        modified. Manufacturers believe this technology can provide safe
+        storage for content without degradation for more than 50 years, far
+        exceeding current data storage options.</para>
+      </sect2>
+    </sect1>
+  </chapter>
+
+  <chapter>
+    <title>Acronyms</title>
+
+    <table>
+      <title>Acronyms</title>
+
+      <tgroup cols="2">
+        <colspec colname="col1" colnum="1" colwidth="30*"/>
+
+        <colspec colname="col2" colnum="2" colwidth="70*"/>
+
+        <tbody>
+          <row>
+            <entry>1xRTT</entry>
+
+            <entry>2.5G CDMA data service up to 384 kbps</entry>
+          </row>
+
+          <row>
+            <entry>AMPS</entry>
+
+            <entry>Advanced mobile phone service</entry>
+          </row>
+
+          <row>
+            <entry>AODV</entry>
+
+            <entry>Ad Hoc On-Demand Distance Vector</entry>
+          </row>
+
+          <row>
+            <entry>AVDL</entry>
+
+            <entry>Application Vulnerability Description Language</entry>
+          </row>
+
+          <row>
+            <entry>BICES</entry>
+
+            <entry>Battlefield Information Collection and Exploitation</entry>
+          </row>
+
+          <row>
+            <entry>BPIF</entry>
+
+            <entry>Business Process Infrastructure Framework</entry>
+          </row>
+
+          <row>
+            <entry>BRAN</entry>
+
+            <entry>Broadband Radio Access Network</entry>
+          </row>
+
+          <row>
+            <entry>C3</entry>
+
+            <entry>Command, Control, and Communications</entry>
+          </row>
+
+          <row>
+            <entry>CAP</entry>
+
+            <entry>Common Alerting Protocol</entry>
+          </row>
+
+          <row>
+            <entry>CDMA</entry>
+
+            <entry>Code division multiple access</entry>
+          </row>
+
+          <row>
+            <entry>CIS</entry>
+
+            <entry>Computer Information System</entry>
+          </row>
+
+          <row>
+            <entry>COI</entry>
+
+            <entry>Community of Interest</entry>
+          </row>
+
+          <row>
+            <entry>COTS</entry>
+
+            <entry>Commerical-of-the-Shelf</entry>
+          </row>
+
+          <row>
+            <entry>CPP</entry>
+
+            <entry>Collaboration Protocol Profile</entry>
+          </row>
+
+          <row>
+            <entry>DHCP</entry>
+
+            <entry>Dynamic Host Configuration Protocol</entry>
+          </row>
+
+          <row>
+            <entry>DISA</entry>
+
+            <entry>Defense Information Systems Agency</entry>
+          </row>
+
+          <row>
+            <entry>DSR</entry>
+
+            <entry>Dynamic Source Routing</entry>
+          </row>
+
+          <row>
+            <entry>EARS</entry>
+
+            <entry>Effective Affordable Reusable Speech-to-text</entry>
+          </row>
+
+          <row>
+            <entry>ebXML</entry>
+
+            <entry>electronic business Extensible Mark-up Language</entry>
+          </row>
+
+          <row>
+            <entry>EDGE</entry>
+
+            <entry>Enhanced data for global evolution</entry>
+          </row>
+
+          <row>
+            <entry>EDXL DE</entry>
+
+            <entry>Emergency Data Exchange Language, Distribution
+            Element</entry>
+          </row>
+
+          <row>
+            <entry>ETSI</entry>
+
+            <entry>European Telecommunications Standards Institute</entry>
+          </row>
+
+          <row>
+            <entry>FDMA</entry>
+
+            <entry>Frequency division multiple access</entry>
+          </row>
+
+          <row>
+            <entry>GPRS</entry>
+
+            <entry>General packet radio system</entry>
+          </row>
+
+          <row>
+            <entry>GSI</entry>
+
+            <entry>Grid Security Infrastructure</entry>
+          </row>
+
+          <row>
+            <entry>GSM</entry>
+
+            <entry>Global system for mobile</entry>
+          </row>
+
+          <row>
+            <entry>HTTP</entry>
+
+            <entry>HyperText Transfer Protocol</entry>
+          </row>
+
+          <row>
+            <entry>IEG</entry>
+
+            <entry>Information Exchange Gateway</entry>
+          </row>
+
+          <row>
+            <entry>IP</entry>
+
+            <entry>Internet Protocol</entry>
+          </row>
+
+          <row>
+            <entry>LAN</entry>
+
+            <entry>Local Area Network</entry>
+          </row>
+
+          <row>
+            <entry>MAC</entry>
+
+            <entry>Media Access Control</entry>
+          </row>
+
+          <row>
+            <entry>MANET</entry>
+
+            <entry>Mobile Ad-hoc Network</entry>
+          </row>
+
+          <row>
+            <entry>MBWA</entry>
+
+            <entry>Mobile Broadband Wireless Access</entry>
+          </row>
+
+          <row>
+            <entry>NATO</entry>
+
+            <entry>North Atlantic Treaty Organization</entry>
+          </row>
+
+          <row>
+            <entry>NC3TA</entry>
+
+            <entry>NATO Command, Control, and Communications Technical
+            Architecture</entry>
+          </row>
+
+          <row>
+            <entry>NCOE</entry>
+
+            <entry>Net Centric Operational Environment</entry>
+          </row>
+
+          <row>
+            <entry>NCOW</entry>
+
+            <entry>Net Centric Operations and Warfare</entry>
+          </row>
+
+          <row>
+            <entry>NGO</entry>
+
+            <entry>Non-Government Organization</entry>
+          </row>
+
+          <row>
+            <entry>NMT</entry>
+
+            <entry>Nordic mobile telephone</entry>
+          </row>
+
+          <row>
+            <entry>NNEC</entry>
+
+            <entry>NATO Network Enabled Capability</entry>
+          </row>
+
+          <row>
+            <entry>NNEC-DS</entry>
+
+            <entry>NNEC Data Strategy</entry>
+          </row>
+
+          <row>
+            <entry>NRF</entry>
+
+            <entry>NATO Reaction Force</entry>
+          </row>
+
+          <row>
+            <entry>OASIS</entry>
+
+            <entry>Organization for the Advancement of Structured Information
+            Standards</entry>
+          </row>
+
+          <row>
+            <entry>OGSA</entry>
+
+            <entry>Open Grid Services Architecture</entry>
+          </row>
+
+          <row>
+            <entry>OSGi</entry>
+
+            <entry>Open Services Gateway Initiative</entry>
+          </row>
+
+          <row>
+            <entry>P2P</entry>
+
+            <entry>Peer-to-Peer</entry>
+          </row>
+
+          <row>
+            <entry>PDC</entry>
+
+            <entry>Personal digital cellular</entry>
+          </row>
+
+          <row>
+            <entry>PSTN</entry>
+
+            <entry>Pubic switched telephone network</entry>
+          </row>
+
+          <row>
+            <entry>QoS</entry>
+
+            <entry>Quality of Service</entry>
+          </row>
+
+          <row>
+            <entry>RHQ AFNORTH</entry>
+
+            <entry>Regional Headquarters Allied Forces North Europe</entry>
+          </row>
+
+          <row>
+            <entry>SHAPE</entry>
+
+            <entry>Supreme Headquarters Allied Powers Europe</entry>
+          </row>
+
+          <row>
+            <entry>SLA</entry>
+
+            <entry>Service Level Agreements</entry>
+          </row>
+
+          <row>
+            <entry>SOA</entry>
+
+            <entry>Service Oriented Architecture</entry>
+          </row>
+
+          <row>
+            <entry>SOA-RM</entry>
+
+            <entry>SOA Reference Model</entry>
+          </row>
+
+          <row>
+            <entry>SOAP</entry>
+
+            <entry>Simple Object Access Protocol</entry>
+          </row>
+
+          <row>
+            <entry>TACS</entry>
+
+            <entry>Total access communications system</entry>
+          </row>
+
+          <row>
+            <entry>TDMA</entry>
+
+            <entry>Time division multiple access</entry>
+          </row>
+
+          <row>
+            <entry>TFT</entry>
+
+            <entry>Thin-Film Transistors</entry>
+          </row>
+
+          <row>
+            <entry>UDDI</entry>
+
+            <entry>Universal Description and Discovery Interface</entry>
+          </row>
+
+          <row>
+            <entry>W3C</entry>
+
+            <entry>World Wide Web Consortium</entry>
+          </row>
+
+          <row>
+            <entry>WCDMA</entry>
+
+            <entry>Wideband CDMA</entry>
+          </row>
+
+          <row>
+            <entry>XML</entry>
+
+            <entry>Extensible Modelling Language</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+
+    <para/>
+  </chapter>
+
+  <chapter>
+    <title>Standards</title>
+
+    <sect1>
+      <title>NNEC Application Services</title>
+
+      <?dbmerge area="nas"?>
+
+      <para condition="ignore"/>
+    </sect1>
+
+    <sect1>
+      <title>COI Services</title>
+
+      <?dbmerge area="coi"?>
+
+      <para condition="ignore"/>
+    </sect1>
+
+    <sect1>
+      <title>NNEC Core Enterprise Services</title>
+
+      <?dbmerge area="ces"?>
+
+      <para condition="ignore"/>
+    </sect1>
+
+    <sect1>
+      <title>Networking Information Infrastructure Services</title>
+
+      <?dbmerge area="nis"?>
+
+      <para condition="ignore"/>
+    </sect1>
+  </chapter>
+
+  <bibliography>
+    <title>References</title>
+
+    <biblioentry>
+      <abbrev>1</abbrev>
+
+      <title>2020 Vison: Business Transformation Through Technology
+      Innovation</title>
+
+      <authorgroup>
+        <author>
+          <firstname>Hossein</firstname>
+
+          <surname>Eslambolchi</surname>
+        </author>
+      </authorgroup>
+
+      <copyright>
+        <year>2006</year>
+      </copyright>
+
+      <isbn>0929306392</isbn>
+
+      <publisher>
+        <publishername>Silicone Press</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>2</abbrev>
+
+      <title>Hype Cycle for Emerging Technologies, 2006</title>
+
+      <subtitle>Gartner's 2006 Emerging Technologies Hype Cycle Highlights Key
+      Technology Themes</subtitle>
+
+      <authorgroup>
+        <author>
+          <firstname>Jackie</firstname>
+
+          <surname>Fenn</surname>
+
+          <firstname>David</firstname>
+
+          <surname>Cearley</surname>
+
+          <firstname>Ray</firstname>
+
+          <surname>Valdes</surname>
+        </author>
+      </authorgroup>
+
+      <copyright>
+        <year>2006</year>
+      </copyright>
+
+      <publisher>
+        <publishername>Gartner Group</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>3</abbrev>
+
+      <title>Challenges of Information Technology Management in the 21st
+      Century: 2000 Information Resources Management Association International
+      Conference</title>
+
+      <subtitle/>
+
+      <authorgroup>
+        <author>
+          <firstname>Mehdi</firstname>
+
+          <surname>Khosrowpour</surname>
+        </author>
+      </authorgroup>
+
+      <copyright>
+        <year>2000</year>
+      </copyright>
+
+      <isbn>1878289845</isbn>
+
+      <publisher>
+        <publishername>Idea Group Publishing</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>4</abbrev>
+
+      <title>The Ten Most Important Technologies for Humanity</title>
+
+      <authorgroup>
+        <author>
+          <firstname>Mike</firstname>
+
+          <surname>Adams</surname>
+        </author>
+      </authorgroup>
+
+      <copyright>
+        <year>2005</year>
+      </copyright>
+
+      <publisher>
+        <publishername>Truth Publishing International, Ltd</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>5</abbrev>
+
+      <title>2005 Defense Technology Area Plan</title>
+
+      <subtitle>DoD's Key Technology Areas</subtitle>
+
+      <copyright>
+        <year>2005</year>
+      </copyright>
+
+      <publisher>
+        <publishername>US Department of Defense</publishername>
+      </publisher>
+    </biblioentry>
+  </bibliography>
+</book>

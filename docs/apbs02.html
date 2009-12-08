@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>B.2. DocBook V4.1 and DocBook XML V4.1.2</title><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"/><link rel="start" href="index.html" title="The NC3TA tools"/><link rel="up" href="apb.html" title="Appendix B. DocBook Versions"/><link rel="prev" href="apb.html" title="Appendix B. DocBook Versions"/><link rel="next" href="apbs03.html" title="B.3. DocBook V4.2"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">B.2. DocBook V4.1 and DocBook XML V4.1.2</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="apb.html">Prev</a> </td><th width="60%" align="center">Appendix B. DocBook Versions</th><td width="20%" align="right"> <a accesskey="n" href="apbs03.html">Next</a></td></tr></table><hr/></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="v41"/>B.2. DocBook V4.1 and DocBook XML V4.1.2</h2></div></div></div><p>
+ DocBook <acronym class="acronym">V4.1</acronym> and DocBook XML <acronym class="acronym">V4.1.2</acronym>
+ became an OASIS Standard in
+ February 2001.</p><p>DocBook <acronym class="acronym">V4</acronym> introduced
+ a number of backward-incompatible
+ changes.</p><p>The policy of the DocBook <acronym class="acronym">TC</acronym> is that backward-incompatible changes
+ can only be introduced in a full version release.  They must also be described
+ in comments in the DTD at least one full version earlier.  In other words,
+ all the planned version 4.0 incompatibilities were announced with version 3.0.
+ </p><p>
+ Backward-incompatible changes to DocBook that are planned for version 4.0:
+ </p><div class="itemizedlist"><ul type="disc"><li><p>
+ The <code class="sgmltag-element">DocInfo</code> element will be split out into <code class="sgmltag-element">ChapterInfo</code>, <code class="sgmltag-element">AppendixInfo</code>,
+   and so on. <code class="sgmltag-element">ArtHeader</code> will be renamed to <code class="sgmltag-element">ArticleInfo</code>.  <code class="sgmltag-element">SeriesInfo</code> may be
+   discarded because it has become a special case of <code class="sgmltag-element">BiblioSet</code>.
+   <code class="sgmltag-element">BookBiblio</code> will be discarded in favor of a new, more inclusive,
+   structure for <code class="sgmltag-element">BookInfo</code> (and for <code class="sgmltag-element">ArticleInfo</code>, whose earlier <code class="sgmltag-element">ArtHeader</code>
+   form contained <code class="sgmltag-element">BookBiblio</code>).
+ </p></li><li><p>
+ The <code class="sgmltag-paramentity">%article.class;</code> entity may be removed from the <code class="sgmltag-element">Book</code> content model,
+   and made part of a new top-level document hierarchy.
+ </p></li><li><p>
+ The <code class="sgmltag-paramentity">%nav.class;</code> entity, which appears in several divisions, will allow
+   <code class="sgmltag-element">ToCchap</code> instead of <code class="sgmltag-element">ToC</code>.
+ </p></li><li><p>
+ <code class="sgmltag-element">MsgText</code> will be moved from <code class="sgmltag-paramentity">%tech.char.class;</code> to a more appropriate
+   parameter entity.
+ </p></li><li><p>
+ The following elements will have their content constrained to the
+   <code class="sgmltag-paramentity">%smallcptr.char.mix;</code> mixture: <code class="sgmltag-element">Action</code>, <code class="sgmltag-element">Command</code>, <code class="sgmltag-element">Database</code>, <code class="sgmltag-element">Filename</code>,
+   <code class="sgmltag-element">Hardware</code>, <code class="sgmltag-element">Interface</code>, <code class="sgmltag-element">KeyCap</code>, <code class="sgmltag-element">Literal</code>, <code class="sgmltag-element">Option</code>, <code class="sgmltag-element">Parameter</code>, <code class="sgmltag-element">Property</code>, and
+   <code class="sgmltag-element">SystemItem</code>.
+ </p></li><li><p>
+ <code class="sgmltag-element">AuthorBlurb</code> and <code class="sgmltag-element">Affiliation</code> will be removed from <code class="sgmltag-paramentity">%person.ident.mix;</code>
+   and a new wrapper element will be created to allow association of those two
+   elements with <code class="sgmltag-element">Author</code> name information.
+ </p></li><li><p>
+ <code class="sgmltag-element">Epigraph</code> will not be appearing in <code class="sgmltag-element">BlockQuote</code>.
+ </p></li><li><p>
+ <code class="sgmltag-element">Comment</code> will be renamed to <code class="sgmltag-element">Remark</code> and will be excluded from itself.
+ </p></li><li><p>
+ <code class="sgmltag-element">GlossTerm</code> will be excluded from itself, and may be split into an
+   element that appears in a <code class="sgmltag-element">Glossary</code> and an element that can appear in
+   the main text.
+ </p></li><li><p>
+ The <code class="sgmltag-attribute">Subject</code> attribute on <code class="sgmltag-element">GlossDef</code> will be renamed <code class="sgmltag-attribute">Keyword</code>.
+ </p></li><li><p>
+ Two <code class="sgmltag-element">SegTitle</code> elements will be required in <code class="sgmltag-element">SegmentedList</code>.
+ </p></li><li><p>
+ <code class="sgmltag-element">Graphic</code> and <code class="sgmltag-element">InlineGraphic</code> will be declared EMPTY.  This change will
+   require that end tags be removed and that any embedded graphic content
+   be stored outside the SGML source and pointed to from an <code class="sgmltag-attribute">Entityref</code> or
+   <code class="sgmltag-attribute">Fileref</code> attribute.
+ </p></li><li><p>
+ The <code class="literal">OptMult</code> and <code class="literal">ReqMult</code> values for the <code class="sgmltag-attribute">Choice</code> attribute on <code class="sgmltag-element">Group</code>
+   will be removed.  Use the <code class="sgmltag-attribute">Rep</code> attribute instead to indicate that the
+   choice is repeatable.
+ </p></li><li><p>
+ The content model group inside <code class="sgmltag-element">FuncSynopsis</code> starting with <code class="sgmltag-element">FuncDef</code>
+   will not be available; you will have to use <code class="sgmltag-element">FuncPrototype</code>.  Also, you
+   will be able to have a mixture of <code class="sgmltag-element">FuncPrototypes</code> and <code class="sgmltag-element">FuncSynopsisInfos</code>
+   (this is not backward-incompatible all by itself).
+ </p></li><li><p>
+ The <code class="literal">EnvironVar</code> and <code class="literal">Prompt</code> values for the <code class="sgmltag-attribute">Class</code> attribute on <code class="sgmltag-element">SystemItem</code>
+   will be eliminated; use the <code class="sgmltag-element">EnVar</code> and <code class="sgmltag-element">Prompt</code> elements instead.
+ </p></li></ul></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="apb.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="apb.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="apbs03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Appendix B. DocBook Versions </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> B.3. DocBook V4.2</td></tr></table></div></body></html>

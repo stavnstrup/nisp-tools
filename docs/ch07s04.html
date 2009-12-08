@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>7.4. Publishing the NISP</title><meta name="generator" content="DocBook XSL Stylesheets V1.74.0"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="ch07.html" title="Chapter 7. Working with the"/><link rel="prev" href="ch07s03.html" title="7.3. Processing the"/><link rel="next" href="ch08.html" title="Chapter 8. Building the NISP"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.4. Publishing the NISP</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s03.html">Prev</a> </td><th width="60%" align="center">Chapter 7. Working with the </th><td width="20%" align="right"> <a accesskey="n" href="ch08.html">Next</a></td></tr></table><hr/></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e3791"/>7.4. Publishing the NISP</h2></div></div></div><p>This section describes the steeps required, when releasing new
+distributions, and should normally only be followed by the editor and
+maintainer of the tools and stylesheet distribution.</p><div class="sidebar"><p class="title"><b>Cleaning Up before a Build</b></p><p>Before releasing a new distribution, it is always a good idea,
+to run the target <span class="emphasis"><em>clean</em></span>, which deletes the
+<code class="filename">build</code> and <code class="filename">dist</code> directories. During development, it
+is very likely, that these directory are filled up with uneeded file,
+when the user was experimenting with the build tools. So it is better
+to build everything from scratch, to ensure, that everything id
+created properly.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e3810"/>7.4.1. Preparing a Source Release</h3></div></div></div><p>During the current lifecycle of the , besides the official
+releases in December, it is often convenient for the editor, to be
+able to release during development of a new version of the , to
+ensure that everybody uses the same baseline. The following steps
+should be taken by the editor, to ensure to release a new version of
+the sources.</p><div class="orderedlist"><ol type="1"><li><p><span class="emphasis"><em>Cleanup the source directories</em></span>
+   - During the development of the  sources, a lot of
+   <span class="emphasis"><em>tempory</em></span> stuff is usually created, and unless
+   these temporary files should be keept, which would only make sence
+   if it is not an official release, A detailed inspection of all the
+   source directories should be conducted, since everything except,
+   what is explicitly stated in the <code class="filename">build.xml</code>
+   configuration file from the tools distribution, will be included in
+   the new source distribution.</p></li><li><p><span class="emphasis"><em>Update the source distribution version
+   numbers</em></span> - Edit the <code class="filename">src/VERSION</code> file,
+   which contains all version numbers for the architecture document,
+   and the additional documents like the rationale document and the
+   traceability matrix. Normally the entity variable
+   <code class="literal">src-version-minor</code> should just be a number,
+   typical 0 (zero), but in between official releases, this could be
+   <code class="literal">0-pre1</code> or something similar. The editor should
+   also update the entity variable
+   <code class="literal">src-release-date</code>.</p></li><li><p><span class="emphasis"><em>Update source distribution Version History
+   </em></span> - Modify the file <code class="filename">src/WhatsNew</code> with
+   the information considered appropiate.</p></li><li><p><span class="emphasis"><em>Update source document numbers</em></span>
+   - If we are dealing with an official, release. It is a good idea to
+   make sure all documents contains the correct version numbers, and
+   date. For the archtecture documents this can be accomplished by
+   making sure that the first revision element is the following:
+   </p><pre class="programlisting">
+   &lt;revision&gt;
+     &lt;revnumber&gt;&amp;src-version;&lt;/revnumber&gt;
+     &lt;date&gt;&amp;src-release-date&lt;/date&gt;
+   &lt;/revision&gt;
+
+   </pre><p>
+   The entity variables is from the just modified <code class="filename">src/VERSION</code>.</p></li><li><p>The last step is just to create a source
+   distribution, by running the target <span class="emphasis"><em>source</em></span> like
+   already described in <a class="xref" href="ch07s03.html#s2-cmd-antrun" title="7.3.2. Running Ant from a Command Shell">Section 7.3.2, “Running Ant from a Command Shell”</a> and <a class="xref" href="ch07s03.html#s2-jedit-antrun" title="7.3.3. Running Ant from jEdit">Section 7.3.3, “Running Ant from jEdit”</a>. This step will create a compressed
+   <span class="emphasis"><em>zip</em></span> file, which will be alled
+   e.g. <code class="filename">nisp-src-3.0.zip</code>, and which
+   will be placed in the directory <code class="filename">zip</code>, which is located in the root of
+   the nisp tools distribution.</p></li></ol></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e3882"/>7.4.2. Preparing an official release of the NISP</h3></div></div></div><p>After a new source distribution have been created, with all the
+cleaning up, the task of creating a new release is very
+ easy<sup>[<a id="d0e3887" href="#ftn.d0e3887" class="footnote">17</a>]</sup>. Just run the target
+ <span class="emphasis"><em>web</em></span>, which will create HTML and PDF versions of
+ all documents, and also create the <span class="emphasis"><em>homepage</em></span> for a
+ web portal to the , and additional material. After the creation of
+ the components, everything will be packed in a compressed
+ <span class="emphasis"><em>zip</em></span> file called
+ e.g. <code class="filename">nisp-web-3.0.zip</code>, and which will
+ be placed on the directory <code class="filename">zip</code>,
+ whic is located in the root of the nisp tools distribution.</p><p>Some people would prefere a PDF only distribution. This is
+accomplished by running the target <span class="emphasis"><em>pdf-only</em></span>. The
+ will create a compressed <span class="emphasis"><em>zip</em></span> file called
+ e.g. <code class="filename">nisp-pdf-3.0.zip</code>, and which will
+ be placed in the directory <code class="filename">zip</code>,
+ which is located in the root of the nisp tools distribution.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e3923"/>7.4.3. Preparing a new Release of the Tools</h3></div></div></div><p/></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e3927"/>7.4.4. Preparing an interrim Stylesheet Release</h3></div></div></div><p>Since the DocBook XSL stylesheets are released quite frequently,
+it very possible that the need to release part of the tools
+ distribution arises. Because the tools distribution is quite big, it
+ is not convenient to release such a large distribution often.</p><p>This is the reason the stylesheet-only distribution was
+created. Whenever a new tools distribution is released
+ e.g. <span class="emphasis"><em>nisp-tools-3.1.zip</em></span>, we will
+ also create a stylesheets distribution called
+ e.g. <span class="emphasis"><em>nisp-xsl-3.1.0-1.70.1.zip</em></span>,
+ where the number <span class="emphasis"><em>1.70.1</em></span> is the number of the
+ latest DocBook XSL stylesheet distribution. N.B. this stylesheet
+ distribution will allready be included in the tools distribution, and
+ is only created if we want to return to the original stylesheets. The
+ name of the next stylesheet-only distribution could then be
+ <span class="emphasis"><em>nisp-xsl-3.1.1-X.Y.Z.zip</em></span>, where
+ X.Y.Z is the number of the new DocBook XSL release, which might just
+ as well be 1.70.1 as the previous version, if we want to fix bugs
+ in our customizations, or just experiment with new designs.</p></div><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.d0e3887" href="#d0e3887" class="para">17</a>] </sup>Remenber to first run the target
+ <span class="emphasis"><em>clean</em></span>, as mentioned in the
+ sidebar.</p></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch07.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.3. Processing the  </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 8. Building the NISP</td></tr></table></div></body></html>

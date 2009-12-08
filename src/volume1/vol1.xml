@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd" [
+<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+]>
+<book lang="en">
+  <bookinfo>
+    <title>NATO Interoperability Standards and Profiles</title>
+
+    <subtitle>Introduction and Management</subtitle>
+
+    <corpauthor>C3 CCSC NATO Open Systems Working Group</corpauthor>
+
+    <productname>Allied Data Publication 34</productname>
+
+    <biblioid class="pubnumber">ADatP-34 Edition (D)</biblioid>
+
+    <volumenum>1</volumenum>
+
+    <revhistory>
+      <revision>
+        <revnumber>4.0 DRAFT</revnumber>
+
+        <date>7 December 2009</date>
+
+        <revremark></revremark>
+      </revision>
+    </revhistory>
+
+    <keywordset>
+      <keyword>NISP NATO Interoperability Standards Profiles NC3TA</keyword>
+
+      <keyword>NATO C3 Technical Architecture</keyword>
+
+      <keyword>NCSP</keyword>
+
+      <keyword>NATO Common Standards Profile</keyword>
+
+      <keyword>NCOE</keyword>
+
+      <keyword>NATO Common Operating Environment</keyword>
+
+      <keyword>ADatP-34</keyword>
+
+      <keyword>Allied Data Procedure 34</keyword>
+
+      <keyword>STANAG 5524</keyword>
+
+      <keyword>STANAG</keyword>
+
+      <keyword>NOSWG</keyword>
+
+      <keyword>NATO Open System Working Group</keyword>
+    </keywordset>
+  </bookinfo>
+
+  <!-- 
+ *****************************************************************
+       C H A P T E R 1 - Introduction and EXECUTIVE SUMMARY
+ ***************************************************************** 
+-->
+
+  <chapter id="v1c-Introduction">
+    <title>Introduction</title>
+
+    <sect1 id="v1s1-Background">
+      <title>Background</title>
+
+      <sect2 id="v1s2-NC3TA">
+        <title>NATO C3 Technical Architecture</title>
+
+        <para>In December 2005 the NATO Open System Working Group completed
+        version 7 of the NATO C3 Technical Architecture (NC3TA). In May 2006
+        the Information Systems Sub Committee (ISSC) approved version 7 of the
+        NC3TA on behalf of the NATO C3 Board (NC3B). Due to the reasons
+        described below, this was the last version of the NC3TA. In December
+        2006 The NOSWG completed the first version of the NATO
+        Interoperability Standards and Profiles (NISP) which is the
+        replacement for the NC3TA. The first version of the NISP was noted by
+        the C3 Capabilities Coherence Sub-Committee. At its meeting on 28
+        September 2007, The NC3REPS agreed that they would, on behalf of the
+        NC3B, approve future versions of the NISP.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="v1s2-need-for-change">
+      <title>Transformation to a Services Oriented Approach</title>
+
+      <para>The structure of the NC3TA was
+      based on a platform centric environment. This structure with stood the
+      test of time, as indicated in the seven published versions of the NC3TA.
+      At the Prague Summit in November 2002, Heads of State agreed to the
+      Prague Capability Commitment (PCC) which put into place a series of
+      measures to increase the deployability and usability of NATO forces. Two
+      major measures to reach these goals are The NATO Response Force (NRF)
+      and net-enabled capabilities. NATO, Nations and industry are all
+      adopting Service Oriented Architecture (SOA), and its loose coupling,
+      approach to system development as a means to achieve net-enabled
+      capabilities. It is recognised that the required changes cannot be
+      implemented overnight. A controlled transformation through a series of
+      maturity stages need to be achieved, responding to evolutionary sets of
+      operational objectives. This gradual transformation to a network enabled
+      environment based on SOA leading to better support for the NRF resulted
+      in the need to restructure the NC3TA.</para>
+
+      <para>During the transformation to a
+      network enabled environment there will be a need to support both
+      platform centric and network enabled environments for a number of years.
+      Since both of these environments are based upon providing services, this
+      leads to confusion when trying to differentiate what is a service in
+      each of the environment. The distinction between services in a platform
+      or system centric environment and a service oriented environment is
+      described in NISP Annex A.</para>
+    </sect1>
+  </chapter>
+
+  <!-- 
+ *****************************************************************
+                    C H A P T E R - 2
+ ***************************************************************** 
+-->
+
+  <chapter id="v1c-purpose">
+    <title>Purpose of the NISP</title>
+
+    <para>The NATO interoperability Standards and Profile (NISP) provides the
+    necessary guidance and technical components to support project
+    implementations and transition to NATO Network Enabled Capability (NNEC).
+    Also the Combined Communications Electronics Board (CCEB) nations use the
+    NISP to publish the interoperability standards for the CCEB under the
+    provisions of the NATO-CCEB List of Understandings (LoU) detailed in <xref
+    linkend="v1b-LOU" /> of this document. In addition, in order to support
+    the PCC, more emphasis is placed on interoperability profiles to support
+    the NRF and transition from today's legacy systems to NNEC.</para>
+
+    <para>The purpose of the NISP is to:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Encourage Nations to use the same standards as within the NATO CIS implementations in NATO led operations;</para>
+      </listitem>
+
+      <listitem>
+        <para>Serve as the principal source of technical guidance for
+        management of NATO CIS project implementations and transition to
+        NNEC;</para>
+      </listitem>
+
+      <listitem>
+        <para>Track technology developments in order to optimise application
+        development;</para>
+      </listitem>
+
+      <listitem>
+        <para>Identify and manage all applicable CIS standards as a baseline
+        for optimising programmes and project selection and adherence;</para>
+      </listitem>
+
+      <listitem>
+        <para>Assess CIS products for NATO application;</para>
+      </listitem>
+
+      <listitem>
+        <para>Support architecture-based CIS programme development and
+        evolution;</para>
+      </listitem>
+
+      <listitem>
+        <para>Provision of technical reference and rationale to promote and
+        optimise NATO CIS interoperability;</para>
+      </listitem>
+
+      <listitem>
+        <para>Promote NATO internal, Nation to NATO and Nation to Nation
+        interoperability;</para>
+      </listitem>
+
+      <listitem>
+        <para>Provide guidance on transformation to NNEC.</para>
+      </listitem>
+
+      <listitem>
+            <para>Identify applicable Design Rules to support cooperation in
+            federated common missions with proven solutions</para>
+      </listitem>
+
+      <listitem>
+            <para>Identify applicable Profiles as a baseline for optimising
+            service and standards implementation and utilization to support
+            cross-domain scenarios</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>The stakeholders of the NISP are all NNEC stakeholders involved in development, implementation, lifecycle management, and transformation to an NNEC environment.</para>
+
+    <para>This document describes the third version of the
+    NISP. Volume 1 of the four volumes deals with the NISP background,
+    the structure and the process of collecting standards from
+    stakeholders, including the configuration management and
+    publication of the NISP. Volume 2 focuses on near term
+    implementation (i.e.  present<footnote><para>Date of Approval by
+    the NC3REPS on behalf of the NC3B</para></footnote> to 2 years in
+    the future), Volume 3 focuses on mid-term implementation (2 to 6
+    years in the future), and Volume 4 focuses on long term
+    implementations (greater than 6 years in the future). A supporting
+    Rationale Document describes the rationale for the content of
+    volumes 2, 3 and 4; and an Annex Volume contains a number of
+    appendices relevant to the NISP.</para>
+
+    <para>The mandatory standards and profiles in Volume 2 will be used in the
+    implementation of NATO Common Funded Systems. Participating nations agree to use the mandatory standards and profiles included in the NISP at the Service Interoperability Points and to use Service Interface Profiles among NATO and Nations to support the exchange of information and the use of information services in the NATO realm.</para>
+
+    <para>A NISP Profile contains more than a technical standards profile with
+    a protocol stack and implementation options and settings. It also includes
+    refined operational view depicting the placement of the profile and its
+    relationships with other profiles; and a refined system view identifying
+    the service components and their descriptions.</para>
+
+<!-- A NISP Design Rule will be used to document and package proven
+    solutions that are expected to speed up development, and reduce cost and
+    risk, by reusing knowledge on how to solve recurring problems and by
+    providing verified solutions to those problems. Moreover, the use of
+    Design Rules should provide a means to coordinate development of different
+    federated systems in order to make them network enabled and facilitate the
+    evolvement of combined capabilities. -->
+  </chapter>
+
+  <!-- 
+ *****************************************************************
+       C H A P T E R 3 - NISP STRUCTURE
+ ***************************************************************** 
+-->
+
+  <chapter id="v1c-Structure">
+    <title>NISP Structure</title>
+
+    <para>The structure of the NISP is determined by several factors:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Ease of use for the users of the NISP</para>
+      </listitem>
+
+      <listitem>
+        <para>Implementation strategy of the NNEC vision</para>
+      </listitem>
+
+      <listitem>
+        <para>Nature of standards, profiles and design rules</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Partitioning the NISP into timeframes of near, mid and far term was
+    greatly influenced by the NNEC FS, national NEC development and industry
+    best practices. One common thread through all these efforts is the need to
+    partition NATO CIS implementations and transition to NNEC into well
+    defined time periods which are:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Near-term: 0 to 2 years</para>
+      </listitem>
+
+      <listitem>
+        <para>Mid-term: 2 to 6 years</para>
+      </listitem>
+
+      <listitem>
+        <para>Far-term: more than 6 years out</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>The NISP reflects these timeframes in individual volumes. To provide
+    consistency between these volumes and ease of tracking technology trends
+    and influences, each of these three volumes has similar structures
+    containing major sections dealing with:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Technology</para>
+      </listitem>
+
+      <listitem>
+        <para>Standards</para>
+      </listitem>
+
+      <listitem>
+        <para>Profiles</para>
+      </listitem>
+
+      <listitem>
+        <para>Transition</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>These similar structures enable one to focus in on an area of
+    interest (i.e. NRF profile) and to track this area of interest from
+    today's legacy systems transforming towards the NNEC paradigm.</para>
+
+    <para>Standards and profiles are the centrepiece of each volume. The
+    standards part of each volume provides an overview of those standards that
+    must be taken into account when developing architectures that cover
+    systems having their life-cycle within the period of time applicable for
+    this volume.</para>
+
+    <para>The profiles are derived based on operational requirements which
+    influence required services and interoperability points.</para>
+
+    <para>The NISP is composed of the four following volumes:</para>
+
+    <para><emphasis role="bold">Volume 1 - Overview and Management</emphasis>:
+    This volume provides the management framework for the development and
+    configuration control of the NISP and includes the general management
+    procedures for the application of the NISP in NATO C3 systems development
+    and the process for handling Request for Change Proposals (RFCP).</para>
+
+    <para><emphasis role="bold">Volume 2 - Near-term</emphasis>: This volume
+    provides the interoperability standards and profiles in the near-term
+    period with the emphasis on platform centric environment. This is the
+    short-term step describing the state of-the-art of NATO and National
+    systems today and the framework for new systems actually under procurement
+    or specification. For new systems, it contains near-term standards,
+    profiles, and technologies to support the initial steps towards Networking
+    and Information Infrastructure (NII).</para>
+
+    <para><emphasis role="bold">Volume 3 - Mid-term</emphasis>: This volume
+    will describe the evolution from the platform based NCOE to the loosely
+    coupled Network Enabled Capabilities environment where the functionality
+    of the interconnected systems is made generally available as "services on
+    the net". Ultimately the goal is that all systems shall be connected. By
+    means of real time configuration of interacting systems, it is possible to
+    combine the functionality of the most useful systems in each
+    situation.</para>
+
+    <para><emphasis role="bold">Volume 4 - Far-term</emphasis>: This volume of
+    the document focus is on the long-term perspective. The long-term
+    perspective has a time frame of 7 to 10 years into the future from the
+    publication of this version of the NISP. This is the concluding step to
+    the realization of a fully network enabled NATO coalition
+    environment.</para>
+
+    <para>In addition to these four volumes, the NISP is supported by a
+    Rationale Document that describes the rational for the selection of the
+    standards and profiles contained in Volumes 2 through 4; and an annex
+    volume containing the following appendicies:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Services and Interoperability Points in Platform Oriented and
+        SOA Environments</para>
+      </listitem>
+
+      <listitem>
+        <para>NATO, National and Industry NEC Implementation Approaches</para>
+      </listitem>
+
+      <listitem>
+        <para>Reference Models used in volumes 2 through 4 to structure and
+        organise the standards and technologies.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Technology standards will transition through a life-cycle. This
+    life-cycle is used to refine the categorisation of standards within the
+    volumes 2 through 4 and is also a key to providing guidance on the use of
+    standards in the development and transition of NATO CIS. The NISP has
+    adopted the four categories of in the life-cycle of standards shown below
+    in <xref linkend="v1f1-stdscat" />.</para>
+
+    <figure id="v1f1-stdscat">
+      <title>Standards Categories</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/v1-stdscat1.svg" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>Proposed standards can be accepted as Emerging standards in order to
+    follow their developments and decide if they can be promoted to mandatory
+    standards. In some cases proposed standards can be readily accepted as
+    Mandatory standards. Emerging standards have been partitioned into
+    specific categories of emerging near term, emerging midterm and emerging
+    far term to better support the transition to NNEC. Similarly, containment
+    standards have been classified as either fading or retiring.</para>
+
+    <para>A short description of each category is described below:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">Mandatory</emphasis>: A standard is
+        considered <emphasis role="bold">mandatory</emphasis> if it is mature
+        enough to be used immediately. This means that it may both be applied
+        within existing systems and in within midterm future planned
+        systems.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Emerging near term</emphasis>: A standard
+        is considered <emphasis role="bold">emerging near term</emphasis> if
+        it is mature enough to be used within the 0 - 2 year time frame of
+        Volume 2.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Emerging mid term</emphasis>: A standard
+        is considered <emphasis role="bold">emerging midterm</emphasis> if it
+        is sufficiently mature to be used within the current or next planned
+        systems. This means that it may be applied within future midterm
+        planned systems.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Emerging far term</emphasis>: A standard
+        is considered <emphasis role="bold">emerging far term</emphasis> if it
+        deals with technology that is expected to be useful in the long term
+        to NATO. Use of this standard in systems is not allowed, for example
+        because there is insufficient lack of support from commercial
+        companies or because the underlying technology is considered not
+        mature enough.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Fading</emphasis>: A standard is
+        considered <emphasis role="bold">fading</emphasis> if the standard is
+        still applicable for existing systems. The standard however is
+        becoming obsolete or will be replaced by a newer version or another
+        standard. Except for legacy systems or interoperability with legacy
+        systems, the standard may not be used.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Retired</emphasis>: A standard is
+        considered <emphasis role="bold">retired</emphasis> if the standard,
+        that has been used in the past, is not applicable for existing
+        systems.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Rejected</emphasis>: A standard is
+        considered <emphasis role="bold">rejected</emphasis> if, while it was
+        still emerging, it is considered unsuitable for use within
+        NATO.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Each standard in the NISP has a set of categories allocated to it
+    that are applicable to the timeframe covered:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Volume 2 - Near-term: Category can be "Mandatory", "Emerging
+        near term", "Fading" or "Retired";</para>
+      </listitem>
+
+      <listitem>
+        <para>Volume 3 - Mid-term: Category can be "Emerging mid term"; and
+        "rejected".</para>
+      </listitem>
+
+      <listitem>
+        <para>Volume 4 - Far-term: Category can be "Emerging far term" and
+        "rejected".</para>
+      </listitem>
+    </itemizedlist>
+
+    <sect1 id="v1s1-nsd">
+      <title>NISP Structure Drivers</title>
+
+      <para>In general, systems development approaches suggest a clean line of
+      reasoning from requirements capturing to architecture, to design and
+      build via testing to implementation and utilisation and finally to
+      retirement. In practice there is not always an opportunity (time or
+      money) for such a "clean" approach and compromises made: from
+      requirements immediately to build and implementation. In recognition of
+      this fact NATO has develop a parallel track approach, which allows some
+      degree of freedom in the systems development approach. Although
+      variations in sequence and speed of the different steps in the approach
+      are possible some elements need to be present in one form or another.
+      Architecture, including the selection of appropriate standards and
+      technologies, is such a mandatory step.</para>
+
+      <para>In a top-down execution of the systems development approach,
+      architecture will provide guidance and overview to the required
+      functionality and the solution patterns, based on long-standing and
+      visionary operational requirements. In a bottom-up execution of the
+      approach, usually responding to urgent requirements and operational
+      imperatives, architecture will be used to assess and validate chosen
+      solution in order to align with the longer term vision.</para>
+
+      <para>The NISP is a major tool for the architecture work and must be
+      suitable for use in the different variations of the systems development
+      approach.</para>
+
+    </sect1>
+
+    <sect1 id="v1s2-nrf">
+      <title>NATO Response Force (NRF)</title>
+
+      <para>The NISP is intended to expedite the process of establishing an
+      NRF component command and interconnecting NATO and coalition partners
+      serving in support of that command. As one of the strategic initiatives
+      within NATO, the NRF introduces several challenges. Due to the NRF
+      command rotations, and the majority of CIS capability to be provided by
+      Nations (90%), the NISP will focus its products on the Interoperability
+      Point (IOP) between these entities. By defining interface profiles at
+      the IOP between NATO and Nations, an agreed upon technical solution can
+      be identified, agreed to, tested, and implemented in a joint forum,
+      prior to deployment. In this way, a relevant product is always available
+      for use by the NRF community, and a vehicle for ongoing improvement is
+      in place to accommodate requests for change proposals and lessons
+      learned for future rotations. The NRF Interface Profiles based upon the
+      NISP profile guidance document serves as a tool for assessing
+      interoperability, conducting certification and approval by NRF CIS
+      Planners, and accelerating capability fielding by NRF commands.</para>
+    </sect1>
+
+    <sect1 id="v1s1-Implementation">
+      <title>Management and Implementation Approaches</title>
+
+      <para>The Management Approach to NNEC has identified four coherance
+      areas as a management mechanism to organize information about NNEC
+      developments in order to facilitate NNEC governance. The four NNEC
+      Coherance Areas are:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Operational Concepts and Requirements Implications
+          (OCRI),</para>
+        </listitem>
+
+        <listitem>
+          <para>Architecture and Service Definitions and Specification
+          (ASDS),</para>
+        </listitem>
+
+        <listitem>
+          <para>Implementation, and</para>
+        </listitem>
+
+        <listitem>
+          <para>Leadership and Guidance (L &amp; G)</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>The purpose of the OCRI Coherence Area is to improve coherence
+      across the operational community of all activities which need to address
+      NNEC. The goals of OCRI are to ensure that NNEC principles are addressed
+      in all concept development, identify and derive common NNEC service
+      requirements from operational concepts and requirements, to provide NNEC
+      concepts and technological advances for use by developers of operational
+      concepts, doctrine and organization, to define operational
+      interoperability metrics, and to recommend operational
+      improvements.</para>
+
+      <para>The purpose of the ASDS Coherence Area is to improve the coherence
+      of interoperability standards. The goals of ASDS are to oversee the
+      development of a common service-oriented architectural framework and set
+      of service definitions based on operational needs, to update these as
+      new technologies and operational needs are developed, and to define
+      service-based maturity levels.</para>
+
+      <para>The purpose of the Implementation Coherence area is to improve
+      NNEC coherence across all capability delivery programs. The goals of
+      Implementation are to identify current and future service availability,
+      to identify services shortfalls, to perform interoperability evaluation
+      and assessment, and make recommendations for changes.</para>
+
+      <para>The purpose of the L &amp; G Coherence Area is to support NNEC
+      governance and to ensure overall coherence. The goals of L &amp; G are
+      to establish levels of ambition, to establish high level NNEC policies,
+      to provide coordination between all four Coherence Areas, and to provide
+      widespread awareness of information about NNEC.</para>
+
+      <para>The NOSWG supports the C3CCSC as a coordination body for the ASDS
+      by Identifying Standards appropriate for all architectures and profiles
+      supporting implementation solutions.</para>
+
+      <para>The Implementation Coherence area also needs to adhere to the
+      standards, grouped in profiles that are placed in the NISP as
+      'agreements'.</para>
+
+      <para>However the role of coordination bodies for the four Coherence
+      Areas will require significant additional staff work. Although it is
+      expected that the NATO C3 Representatives (NC3Reps) will become the
+      coordination body for Leadership and Guidance (L &amp; G), the
+      coordination bodies have not been agreed for the other Coherence Areas.
+      Once identified and agreed, each designated coordination body will need
+      to determine whether the work can be achieved by reallocating personnel
+      from existing tasks or whether there is a need to hire additional
+      staff.</para>
+
+      <para>NATO, Nations and industry have all recognized the necessity to
+      migrate to a Service Oriented Architecture (SOA) based implementation to
+      support NNEC. The set of standards and profiles formerly identified in the platform based approach were not adequate to support either the SOA or the NNEC concept. It was therefore a necessity to reorganize and rework the NISP to identify additional standards and profiles are required to support service specifications. During this rework it came apparent that the NISP needs to support not only a time phased implementation, but also the ongoing work on developing a maturity model to help NATO and Nations to develop roadmaps for NII achievement.</para>
+
+      <para>Partitioning the NISP into timeframes of near, mid and far term
+      was greatly influenced by the NNEC FS, NATO Architecture approach,
+      national NEC development and industry best practices. One common thread
+      through all these efforts is the need to partition NATO CIS
+      implementations into well defined time periods in order to transition to
+      NII.</para>
+
+      <para>NATO, Nations and industry have adopted a time phased approach
+      achieving their respective goals for system implementations. Although
+      using different terminologies and time frames, these approaches are
+      based on the same concept of mapping of standards and profiles to
+      timeframes. The NISP has adopted this approach as a guiding concept for
+      its development.</para>
+
+      <para>In addition there is another strong need to develop Roadmaps for
+      NNEC implementation. These roadmaps will describe which level of
+      maturity that either NATO or the Nation shall achieve at a specific
+      point in time. The identified maturity level will point or map to
+      specific standards and profiles that are required in order to be
+      interoperable and compliant.</para>
+
+      <para>The following sub-sections contain some representative examples of
+      the maturity level model and of the time phased approach for specifying
+      standards and technologies.</para>
+
+      <sect2 id="v1s2-NII-NML">
+        <title>NII Maturity Level (NML) Model <footnote>
+            <para>Referred to as the NII Capability Maturity Model in the NNEC
+            Feasibility Study, Annex G to Volume II, October 2005</para>
+          </footnote></title>
+
+        <para>The concept of a NII Maturity Level was one of the two main
+        components of the NII Interoperability Framework (NIIF), the other
+        component being the Information Interoperability (I-Squared) Index. In
+        general terms, the NML supports Programme planning and auditing
+        activities across NATO and the nations, while the I-Squared Index will
+        be a more detailed technical reference document.</para>
+
+        <para>One of the challenges in implementing an effective NEC involving
+        NATO, NATO nations, coalition partners, government agencies, and
+        non-government organizations is to ensure a common understanding of
+        information infrastructure capabilities including interoperability,
+        based on objective criteria. This challenge is particularly difficult
+        in an alliance context where there is no overall authority so
+        policies, procedures, and standards cannot be directed from a central
+        authority. NATO does not have any guaranteed insight into nor any
+        responsibilities towards national infrastructure programs. In response
+        to this challenge a time-phased NML approach is proposed as a solution
+        to ensuring this common understanding.</para>
+
+        <para>The NML approach uses a five-level definition of capabilities
+        numbered from 1 to 5, defining increasing levels of capabilities. This
+        five level approach provides an intuitive and easily understood
+        measurement of a complex capability and is extremely useful for
+        effective communications between diverse audiences. It must be noted,
+        however, that the NML approach is designed to improve processes and
+        not to measure actual physical infrastructure. However the use of a
+        five level model with defined information infrastructure capabilities
+        for each level with specific objective criteria is a simple and
+        powerful approach.</para>
+
+        <para>It should also be noted that this NML approach to NNEC
+        capability could be expanded to cover not only the NII but the
+        complete spectrum of capabilities, perhaps divided into the Doctrine,
+        Organization, Training, Materiel, Leadership and Education, Personnel
+        and Facilities (DOTMLPF) categories currently used in assessing a
+        force capability. This would provide a more complete model to assess
+        the capabilities of a force but was beyond the scope of the NNEC
+        Feasibility study.</para>
+
+        <para>A five level model can be related to the overall vision of NNEC
+        which defines four levels of mission capability, namely Deconflict,
+        Coordinate, Collaborate, and Coherent. A fifth level of capability,
+        reflecting a rudimentary capability, called "Stand-Alone" could be
+        added, below Deconflict. This would reflect an organization or
+        military unit with little or no capabilities, procedures, nor
+        experience in interoperating with other military forces or
+        organizations. It is anticipated, (indeed hoped) that there will be
+        few forces or organizations that fit into this rudimentary capability
+        category.</para>
+
+        <para>The NML presented in the NNEC Feasibility Study Volume II Annex
+        G consisted of two major components. The first was the
+        time-independent NML itself which was derived directly from the
+        overall time-independent NNEC NML developed in Volume 1 of the study
+        and is in turn tied into the required NNEC operational capabilities
+        expressed as Mission Capability Packages (MCPs). The second component
+        was the time-dependent Infrastructure Implementation (I-Squared) Index
+        which was derived from the first NML component, but provides
+        measurable criteria for use in defining and implementing an NII
+        roadmap. Note that full completion of the I-Squared Index including
+        validation of the criteria values would take considerable effort and
+        was not within the scope of the NNEC Feasibility study.</para>
+      </sect2>
+
+    </sect1>
+
+    <sect1 id="v1s1-NISP-Appl">
+      <title>NATO Interoperability Standards and Profiles Application to
+      Architectures</title>
+
+      <para>The NATO Interoperability Directive (NID) defines what types of
+      architectures are to be developed within NATO: namely Baseline
+      Architectecture (BA), Target Architecture (TA), Reference Architecture
+      (RA), and Overarching Architecture (OA). These architecture types can be
+      related to the NISP Volumes 2, 3 and 4 as follows:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Volume 2 contains the standards mostly applicable to the TA's
+          and BA's.</para>
+        </listitem>
+
+        <listitem>
+          <para>Volume 3 contains the standards mostly applicable to the
+          RA's;</para>
+        </listitem>
+
+        <listitem>
+          <para>Volume 4 contains the standards mostly applicable to the
+          OA;</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>In particular the relationship with the Overarching Architecture
+      is of a reciprocal nature. The OA also provides inputs to the NISP by
+      identifying the technology areas that in the future will require
+      standards. The OA also provides guidance on the coherence of standards
+      by indicating in which timeframe certain standards and profiles are
+      required.</para>
+
+      <para>The work on RA's and TA's will benefit from the NISP by selecting
+      coherent sets of standards for solution patterns.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="v1c-Management">
+    <title>NISP and Configuration Management Process</title>
+
+    <para>The NISP has to be periodically updated to account for enhancements
+    in technology. Updates to the NISP are handled through Requests For Change
+    Proposal (RFCP). RFCPs are usually reviewed at regularly scheduled NOSWG
+    meetings. RFCPs deemed urgent are handled in an expedited manner, outside
+    the normal meeting schedule of the NOSWG with a reply to the RFCP
+    originator within two weeks.</para>
+
+    <para>The four volume paper version of the NISP and its supporting
+    Rational Document will be submitted to the NC3 Board by 15 December of
+    each year. The paper version is a snapshot in time of the status of
+    standards and profiles. The NISP database of standards and profiles is the
+    definitive source of the currents status of standards and profiles. The
+    database will be updated as soon as the RFCP has been approved by the
+    appropriate authority (NC3 Board).</para>
+
+    <sect1 id="v1s1-NISP-Update">
+      <title>NISP Update Process</title>
+
+      <para>Updating of the NISP and its associated database will be conducted
+      by a managed, rolling review process which will take into account
+      information on standards available from a wide variety of sources. The
+      NOSWG acts as the hub for this maintenance activity, supported by the
+      NHQC3Staff and NC3A personnel as required. The information updating
+      process is based on Requests For Change Proposal (RFCP's).</para>
+    </sect1>
+
+    <sect1 id="v1s1-RFCP">
+      <title>Request for Change Proposal (RFCP)</title>
+
+      <para>Request for Changes Proposal (RFCP) to the NISP will be processed
+      by the NOSWG following the process outlined in the <xref
+      linkend="v1f6-RFCP" /> below:</para>
+
+      <figure id="v1f6-RFCP">
+        <title>RFCP Handling Process</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/v1-rfcp-proc.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>The primary point of contact for RFCP submission is the Secretary
+      NOSWG. RFCP's may be submitted to the NOSWG through a number of
+      channels, including:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>NOSWG National representatives (for non-voting National
+          representatives see NATO-CCEB List of Understandings (LoU) at <xref
+          linkend="v1b-LOU" />);</para>
+        </listitem>
+
+        <listitem>
+          <para>Strategic Command representatives;</para>
+        </listitem>
+
+        <listitem>
+          <para>NATO Agency representatives;</para>
+        </listitem>
+
+        <listitem>
+          <para>Other Sub Committees of the NC3 Board, and their
+          substructures;</para>
+        </listitem>
+
+        <listitem>
+          <para>NC3Board Staff representatives;</para>
+        </listitem>
+
+        <listitem>
+          <para>NATO working groups / committees responsible for a specific
+          standards domain;</para>
+        </listitem>
+
+        <listitem>
+          <para>Industry</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Approval of RFCP's will be coordinated with the responsible
+      sub-committees where appropriate. In situations where a timely response
+      is requested by the RFCP submitter, the NOSWG will make its
+      recommendation directly to the NC3REPS. <xref linkend="v1D-CMnisp" />
+      contains a detailed description of the RFCP process and the form for
+      submitting RFCPs.</para>
+    </sect1>
+
+    <sect1 id="v1s1-CoordinationPMO">
+      <title>Coordination with NATO PMOs</title>
+
+      <para>The co-ordination with the NATO Programme Management Offices
+      (PMOs) is primarily realized through the Strategic Commands
+      representatives to the NOSWG. In addition, the NOSWG POW development
+      takes into account the requirements of NATO programmes, which is derived
+      from the programme increment currently under design.</para>
+    </sect1>
+
+    <sect1 id="v1s1-CoordinationNational">
+      <title>National Systems Interoperability Coordination</title>
+
+      <para>Each of the national NOSWG representatives is responsible
+      for:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Providing the NOSWG with the appropriate and timely inputs
+          with respect to interoperability with national systems;</para>
+        </listitem>
+
+        <listitem>
+          <para>Co-ordination of the national position, including
+          co-ordination with national representatives of other
+          sub-committees;</para>
+        </listitem>
+
+        <listitem>
+          <para>Providing the NOSWG with the appropriate technical information
+          based on the national IT market assessment.</para>
+        </listitem>
+      </itemizedlist>
+    </sect1>
+  </chapter>
+
+  <xi:include href="vol1-annexA.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="v1b-LOU" />
+
+  <xi:include href="vol1-annexB.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="v1D-CMnisp" />
+</book>

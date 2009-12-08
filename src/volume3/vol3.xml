@@ -1,0 +1,4114 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd">
+
+<book>
+  <bookinfo>
+    <title>Allied Data Publication 34</title>
+
+    <subtitle>NATO Interoperability Standards and Profiles</subtitle>
+
+    <corpauthor>CCC NATO Open Systems Working Group</corpauthor>
+    <productname>Allied Data Publication 34</productname>
+    <biblioid class="pubnumber">ADatP-34 Edition (D)</biblioid>
+    <volumenum>3</volumenum>
+
+
+    <revhistory>
+      <revision>
+        <revnumber>4.0 DRAFT</revnumber>
+        <date>7 December 2009</date>
+        <revremark></revremark>
+      </revision>
+    </revhistory>
+  </bookinfo>
+
+  <chapter>
+    <title>Introduction</title>
+
+    <para>NATO Network-Enabled Capability (NNEC) aims to provide an
+    environment where connected collectors, decision-makers, effectors, and
+    information sources are integrated in a common network of networks and can
+    be provided with, search for, or supply data and information from any
+    location under user-adapted format and within user relevant time
+    constraints. Advantage is taken of the great advances within civilian
+    information and communication technology. Solutions under network-oriented
+    concept are based on:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Service-Oriented Architecture (SOA)</para>
+      </listitem>
+
+      <listitem>
+        <para>Federation of systems, including federated networks.</para>
+      </listitem>
+
+      <listitem>
+        <para>Situation adapted combinations of units and systems</para>
+      </listitem>
+    </itemizedlist>
+
+    <figure float="0">
+      <title>NNEC Concept</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="center" fileref="figures/vol3fig01.svg" format="SVG"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>Volume 3 of this NISP will continue the evolution from the platform
+    based NCOE to the loosely coupled Network Enabled Capabilities environment
+    where the functionality of the interconnected systems is made generally
+    available as "services on the net". Ultimately the goal is that all
+    systems shall be connected. By means of real time configuration of
+    interacting systems, it is possible to combine the functionality of the
+    most useful systems in each situation.</para>
+
+    <para>Within this part of the document, the focus is on the mid-term's
+    perspective. The mid-term perspective has a time frame of 2 to 6 years
+    into the future from the publication of this version of the NISP. This is
+    the intermediate step to the realisation of a fully network enabled NATO
+    coalition environment.</para>
+  </chapter>
+
+  <chapter>
+    <title>Mid-Term Emerging Technologies And Standards</title>
+
+    <para>The purpose of this section is to identify a number of key emerging
+    (commercial) technologies that are relevant to NATO and to provide a
+    useful level of analysis about their possible application within military
+    systems. While the emerging technologies discussed in this section are not
+    exhaustive, the content of this section does draw significantly upon the
+    technology tracking efforts of the NOSWG member nations. Once technologies
+    are identified and their applicability analysed, then informed decisions
+    can be made on what role each technology or standard will play in the
+    current technical architecture. The rapid pace of technological change
+    carries with it the potential benefits of faster and more cost-effective
+    improvements in operational capability; however, the rapidity of change
+    upon a broad technology front also makes the task of identifying emerging
+    technologies particularly difficult.</para>
+
+    <para>The intention of this element of the NISP volume 3 is to be
+    informative, whilst maintaining brevity, on a range of technologies.
+    Consequently, the information is presented as a series of short articles
+    that cover the essential points of interest. This flexible format is
+    intended to facilitate the rapid change of content that will inevitably
+    happen between issues of the NISP.</para>
+
+    <sect1>
+      <title>Computing</title>
+
+      <para>Computing is usually defined as the activity of using and
+      developing computer technology, computer hardware and software. It is
+      the computer-specific part of information technology.</para>
+
+      <sect2>
+        <title>Programming Languages</title>
+
+        <para>A programming language is an artificial language designed to
+        express computations that can be performed by a machine. Programing
+        languages have written specifications of their syntax and
+        specification.</para>
+
+        <sect3>
+          <title>F Sharp (F#)</title>
+
+          <para>Developed by Microsoft, F# is a strongly-typed language that
+          uses type inference. As a result, data types need not be explicitly
+          declared by the programmer; they will be deduced by the compiler
+          during compilation. However, F# also allows explicit data type
+          declaration. Being a .NET language, F# supports .NET types and
+          objects. But it extends the type system and categorizes types as
+          immutable types or mutable types. .NET objects classify as mutable
+          types (which can be edited in-place), and are used to provide an
+          object-oriented programming model. Immutable types (editing which
+          creates a new instance without overwriting the older one) are
+          primarily used for functional programming.</para>
+
+          <para><emphasis role="bold">Status</emphasis>: Now being
+          transitioned towards a fully supported language on the .NET
+          platform.</para>
+        </sect3>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Communications &amp; Networking</title>
+
+      <sect2>
+        <title>Disruption Tolerant Networking (DTN)</title>
+
+        <para>Disruption Tolerant Networking (DTN) are comprised of
+        technologies that will provide network services when no end-to-end
+        path exists through the network because of periodic or intermittent
+        disruptions. Disruption may occur because of the limits of wireless
+        radio range, sparsity of mobile nodes, energy resources, enemy attack,
+        and noise. Such a robust communications network would have to be
+        autonomic, secure and opportunistic.</para>
+
+        <para><emphasis role="bold">Implications</emphasis>: The research in
+        this area is principally aimed at providing internet-like services and
+        supporting "long-haul" reliable transmission in interplanetary space,
+        but it has applications in other environments as well. The work done
+        to overcome delays caused by interplanetary distances can easily be
+        appealed to tactical military networks. Distance delays are just a
+        subset of the more general group of Disruption sources.</para>
+
+        <sect3>
+          <title>Bundle Protocols</title>
+
+          <para>Research goals in this area are to provide disruption
+          tolerance by organizing information flow into bundles. These bundles
+          are to be routed through an "intelligent" network that can manage
+          the delivery of the bundles to the maximal extent permitted by the
+          available topology. This method will allow messages to pass through
+          the network with successive responsibilities, rather than the
+          traditional end-to-end scheme. The mechanism of bundling will allow
+          a network node to hold data if the next hop in the network is
+          unavailable.</para>
+
+          <para><emphasis role="bold">Status</emphasis>: The Internet
+          Engineering Task Force (IETF) has recently published RFC 4838 and
+          RFC 5050 to provide the common defining framework for the formation
+          and transport of bundles of data. In 2008, the Bundle Protocol was
+          successfully tested in space on the UK-DMC Disaster Monitoring
+          Constellation satellite.</para>
+        </sect3>
+
+        <sect3>
+          <title>Licklider Transmission Protocol (LTP)</title>
+
+          <para>The Licklider Transmission Protocol (LTP) was designed to
+          provide retransmission-based reliability over links characterized by
+          extremely long message round-trip times (RTTs) and/or frequent
+          interruptions in connectivity.</para>
+
+          <para>The Licklider Transmission Protocol (LTP) would replace both
+          IP and TCP. Picturing protocols as layers in a stack, if the bottom
+          layer is the physical wire line or radio wave connecting two
+          devices, the Licklider Transmission Protocol sits just above that.
+          It makes the link between two routers more reliable than IP and
+          TCP.</para>
+
+          <para><emphasis role="bold">Status</emphasis>: In 2008, the IRTF
+          Working Group of the IETF established an experimental RFC (RFC 5326)
+          on this topic</para>
+        </sect3>
+      </sect2>
+
+      <sect2>
+        <title>Wireless Networking</title>
+
+        <para>Several wireless network standards have been developed to
+        encompass the wide range of mobile environments and
+        applications.</para>
+
+        <figure float="0">
+          <title>Standards, Mobility, and Data Rates</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/vol3fig08.svg" format="SVG"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <sect3>
+          <title>Wireless Personal Area Network (WPAN)</title>
+
+          <para>A wireless personal area network (WPAN) is a computer network
+          used for communication among computers, I/O peripherals (such as
+          keyboards, printers, scanners, etc) and devices (such as wireless
+          access points, cell phones and personal digital assistants) within
+          reach of a person. The devices may or may not belong to the person
+          in question. The range of a WPAN is typically less than 10 metres,
+          and up to 1 kilometre under ideal conditions. WPANs can be used to
+          replace cables between computers and their peripherals, to establish
+          communities, or to establish location aware services. WPANs can be
+          used for communication among the personal devices themselves
+          (intra-personal communication), or for connecting to a higher level
+          network and the Internet (an up link).</para>
+
+
+          <table>
+            <title>PAN Summary</title>
+
+            <tgroup cols="4">
+              <colspec colname="col1" colnum="1" colwidth="25*"/>
+              <colspec colname="col2" colnum="2" colwidth="25*"/>
+              <colspec colname="col3" colnum="3" colwidth="25*"/>
+              <colspec colname="col4" colnum="4" colwidth="25*"/>
+              <tbody>
+                <row>
+                  <entry align="center"><emphasis role="bold">Standard</emphasis></entry>
+
+                  <entry align="center"><emphasis role="bold">Frequencies</emphasis></entry>
+
+                  <entry align="center"><emphasis role="bold">Spectrum
+                  Type</emphasis></entry>
+
+                  <entry><emphasis role="bold">Data Rates</emphasis></entry>
+                </row>
+
+                <row>
+                  <entry>Bluetooth</entry>
+
+                  <entry>2.4GHz</entry>
+
+                  <entry>Unlicensed ISM</entry>
+
+                  <entry>2.1 Mbit/s</entry>
+                </row>
+
+                <row>
+                  <entry>Wibree</entry>
+
+                  <entry>2.4GHz</entry>
+
+                  <entry>Unlicensed ISM</entry>
+
+                  <entry>1 Mbit/s</entry>
+                </row>
+
+                <row>
+                  <entry>ZigBee</entry>
+
+                  <entry>868 MHz, 915 MHz, 2.4GHz</entry>
+
+                  <entry>Unlicensed ISM</entry>
+
+                  <entry>40-250 kbit/s</entry>
+                </row>
+
+                <row>
+                  <entry>Wireless USB, UWB</entry>
+
+                  <entry>5GHz+</entry>
+
+                  <entry>Unlicensed UWB</entry>
+
+                  <entry>250 kbit/s</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+
+          <para><emphasis role="bold">Importance</emphasis>: A key concept in
+          WPAN technology is known as plugging in. Ideally, when any two
+          WPAN-equipped devices come into close proximity (within several
+          metres of each other) or within a few kilometres of a central
+          server, they can communicate as if connected by a cable. Another
+          important feature is the ability of each device to lock out other
+          devices selectively, preventing needless interference or
+          unauthorised access to information.</para>
+
+          <para><emphasis role="bold">Implications</emphasis>: Collaboration
+          between units in the same physical area is possible. Useful on the
+          battlefield as a method for soldier communications and
+          monitoring.</para>
+
+          <sect4>
+            <title>IEEE 802.15.1 (Bluetooth 3.0)</title>
+
+            <para>The next version of Bluetooth, currently code named ,
+            includes a number of features to increase security, usability and
+            value of Bluetooth. The following features are defined:</para>
+
+            <itemizedlist>
+              <listitem>
+                <para>Atomic Encryption Change - allows encrypted links to
+                change their encryption keys periodically, increasing
+                security, and also allowing role switches on an encrypted
+                link.</para>
+              </listitem>
+
+              <listitem>
+                <para>Extended Inquiry Response - provides more information
+                during the inquiry procedure to allow better filtering of
+                devices before connection. This information includes the name
+                of the device, and a list of services, with other
+                information.</para>
+              </listitem>
+
+              <listitem>
+                <para>Sniff Sub-rating - reducing the power consumption when
+                devices are in the sniff low power mode, especially on links
+                with asymmetric data flows. Human interface devices (HID) are
+                expected to benefit the most with mice and keyboards
+                increasing the battery life from 3 to 10 times those currently
+                used.</para>
+              </listitem>
+
+              <listitem>
+                <para>QoS Improvements - these will enable audio and video
+                data to be transmitted at a higher quality, especially when
+                best effort traffic is being transmitted in the same
+                piconet.</para>
+              </listitem>
+
+              <listitem>
+                <para>Simple Pairing - this improvement will radically improve
+                the pairing experience for Bluetooth devices, while at the
+                same time increasing the use and strength of security. It is
+                expected that this feature will significantly increase the use
+                of Bluetooth.</para>
+              </listitem>
+            </itemizedlist>
+
+            <para>Bluetooth technology already plays a part in the rising
+            Voice over IP (VoIP) scene, with Bluetooth headsets being used as
+            wireless extensions to the PC audio system. As VoIP becomes more
+            popular, and more suitable for general home or office users than
+            wired phone lines, Bluetooth may be used in Cordless handsets,
+            with a base station connected to the Internet link.</para>
+
+            <para>The version of Bluetooth after , code-named , has many of
+            the same features, but is most notable for plans to adopt
+            Ultra-wideband radio technology. This will allow Bluetooth use
+            over UWB radio, enabling very fast data transfers,
+            synchronisations and file pushes, while building on the very low
+            power idle modes of Bluetooth. The combination of a radio using
+            little power when no data is transmitted, and a high data rate
+            radio used to transmit bulk data, could be the start of software
+            radios. Bluetooth, given its worldwide regulatory approval, low
+            power operation, and robust data transmission capabilities,
+            provides an excellent signalling channel to enable the soft radio
+            concept.</para>
+
+            <para><emphasis role="bold">Status</emphasis>: On 28 March 2006,
+            the Bluetooth Special Interest Group (SIG) announced its selection
+            of the WiMedia Alliance Multi-Band Orthogonal Frequency Division
+            Multiplexing (MB-OFDM) version of Ultra-wideband (UWB) for
+            integration with current Bluetooth wireless technology. UWB
+            integration will create a version of the globally popular
+            Bluetooth wireless technology with a high speed/high data rate
+            option. This new version of Bluetooth technology will meet the
+            high-speed demands of synchronising and transferring large amounts
+            of data as well as enabling high quality video and audio
+            applications for portable devices, multi-media projectors and
+            television sets, wireless VoIP. At the same time, Bluetooth
+            technology will continue catering to the needs of very low power
+            applications such as mice, keyboards and mono headsets, enabling
+            devices to select the most appropriate physical radio for the
+            application requirements, thereby offering the best of both
+            worlds.</para>
+          </sect4>
+        </sect3>
+
+        <sect3>
+          <title>Wireless Local Area Network (WLAN)</title>
+
+          <para>A wireless local area network (WLAN) is the linking of two or
+          more computers without using wires. WLAN utilises spread-spectrum
+          technology based on radio waves to enable communication between
+          devices in a limited area, also known as the basic service set. This
+          gives users the mobility to move around within a broad coverage area
+          and still be connected to the network.</para>
+
+          <para><emphasis role="bold">Importance</emphasis>: Wireless Local
+          Area Networks are more convenient, mobile, deployable, expandable,
+          and cheaper than wired networks.</para>
+
+          <para><emphasis role="bold">Implications</emphasis>: The wireless
+          nature of such networks allows users to access network resources
+          from nearly any convenient location within their primary networking
+          environment. Initial setup of an infrastructure-based wireless
+          network requires little more than a single access point. Eliminates
+          the cost, time, and labour of running physical cables.</para>
+
+          <sect4>
+            <title>IEEE 802.11 (WiFi)</title>
+
+            <para>Many are familiar with 802.11, also known as WiFi, as a
+            short-range wireless networking protocol for home and office
+            connections. 802.11 represent a family of wireless standards. The
+            802.11 series has been developed by the IEEE over the past 10
+            years as part of the range of communications protocols under the
+            802 standards series.</para>
+
+            <para>Each family member is identified by a letter suffix to the
+            series name. Currently these letters run from "a" to "w", although
+            there is the original base 802.11 wireless standard as well. Note
+            that there is no L standard. Some family members represent
+            amendments (a, b, g, i) to the original standard, whereas some
+            represents enhancements or extensions (c-f, h-j, n).</para>
+
+            <para>The 802.11 family of protocols share two common frequency
+            bands, 2.4GHz and 5GHz, the so-called Industrial, Scientific and
+            Medical (ISM) bands. Further more, each of these bands are divided
+            into 14 channels. The availability of channels is regulated by
+            nation, constrained in part by how each nation allocates radio
+            spectrum to various services. At one extreme, Japan permits the
+            use of all 14 channels (with the exclusion of 802.11g/n from
+            channel 14), while at the other Spain allowed only channels 10 and
+            11 (later all of the 14 channels have been allowed ), to which
+            France adds 12 and 13. Most other European countries are almost as
+            liberal as Japan, disallowing only channel 14, while North America
+            and some Central and South American countries further disallow 12
+            and 13. The emerging standards within the 802.11 family are as
+            follows:</para>
+
+            <para><emphasis role="bold">802.11-2007</emphasis>: Consolidated
+            amendments 802.11a,b,d,e,g,h,i,j with the original base standard
+            to form the latest base standard. <emphasis role="bold">Status</emphasis>: Approved as standard in March of
+            2007.</para>
+
+            <para><emphasis role="bold">802.11k</emphasis>: Intended to
+            improve the way traffic is distributed within a network by
+            discovering the best available access point. In a wireless , each
+            device normally connects to the access point (AP) that provides
+            the strongest signal. Depending on the number and geographic
+            locations of the subscribers, this arrangement can sometimes lead
+            to excessive demand on one AP and underutilisation of others,
+            resulting in degradation of overall network performance. In a
+            network conforming to 802.11k, if the AP having the strongest
+            signal is loaded to its full capacity, a wireless device is
+            connected to one of the underutilised APs. Even though the signal
+            may be weaker, the overall throughput is greater because more
+            efficient use is made of the network resources. 802.11k and
+            802.11r are the key industry standards now in development that
+            will enable seamless Basic Service Set (BSS) transitions in the
+            WLAN environment. <emphasis role="bold">Status</emphasis>: Still
+            in draft form, but expected to be ratified in 2008.</para>
+
+            <para><emphasis role="bold">802.11n</emphasis>: Focuses on
+            improvements on the 802.11 standard to obtain data throughput of
+            at least 100Mbps, improved coverage, and longer range. Such
+            advances will be achievable through multiple-input/multiple-output
+            (MIMO) communication. MIMO uses multiple radios simultaneously
+            transmitting and receiving different signals to and from at least
+            two radios on the client side to and from two or more on the
+            access point. <emphasis role="bold">Status</emphasis>: Expected to
+            be ratified in 2009. There are still some interoperability issues.
+            There are many products available based on the pre-draft
+            standard.</para>
+
+            <para><emphasis role="bold">802.11p</emphasis>: "Wireless Access
+            in Vehicular Environments (WAVE)" - Wireless communication between
+            fast moving vehicles or between a fast moving vehicle and a
+            stationary object. This standard supports speeds of minimum of
+            200km/h and ranges of up to 1km. It uses 850-5.925 GHz band and
+            defines enhancements to 802.11 required to support Intelligent
+            Transportation Systems (ITS) applications. The vision is for
+            nationwide network that enables communications between vehicles
+            and roadside access points or other vehicles. Such networks would
+            enable toll collection, vehicle safety services, and commerce
+            transactions via cars. <emphasis role="bold">Status</emphasis>:
+            Expected to be ratified in 2009. This standard would be the
+            foundation for projects like the Communications, Air-interface,
+            Long and Medium range (CALM) system in Europe, and Dedicated Short
+            Range Communications (DSRC) in the United States.</para>
+
+            <para><emphasis role="bold">802.11r</emphasis>: "Fast Roaming" -
+            This proposed standard will specify fast Basic Service Set (BSS)
+            transitions that address the faster transfer of a station from one
+            access point to another. Faster transitions are essential to
+            support real time applications such as VoIP ("voice over IP", or
+            Internet-based telephony) via mobile phones designed to work with
+            wireless Internet networks, instead of (or in addition to)
+            standard cellular networks. This will permit connectivity aboard
+            vehicles in motion, with fast handoffs from one base station to
+            another managed in a seamless manner. Handoffs are supported under
+            the "a", "b" and "g" implementations. <emphasis role="bold">Status</emphasis>: Ratified and published in July of
+            2008.</para>
+
+            <para><emphasis role="bold">802.11s</emphasis>: "Mesh Networking"
+            - Wireless Distribution System (WDS) protocol that is able to
+            auto-configure paths between APs. <emphasis role="bold">Status</emphasis>: ???</para>
+
+            <para><emphasis role="bold">802.11u</emphasis>: "Inter-working
+            with External Networks" - The primary focus is on inter-working
+            with cellular networks.<emphasis role="bold"> Status</emphasis>:
+            Ongoing; still being evaluated.</para>
+
+            <para><emphasis role="bold">802.11v</emphasis>: "Wireless Network
+            Management" - Management (monitoring, configuring, updating) of
+            attached stations through layer 2. It is to complement 802.11k
+            that gathers information from the stations.</para>
+
+            <para><emphasis role="bold">802.11y</emphasis>: "3650-3700 MHz
+            Operation in the U.S“ - This amendment to 802.11-2007 would allows
+            WiFi "like" equipment to operate at higher power levels with a
+            range of up to 5 kilometres in the United States. It introduces
+            three new concepts to the 802.11-2007 standard: Contention Based
+            Protocol, Extended Channel Switch Announcement, and Dependent
+            Station Enablement. Even though the current form is specific to
+            operations in the United States, care was taken so that, if the
+            light licensing concept was well received, it would not be
+            necessary to start the 3+ year task group process in order for
+            802.11y devices to operate in other countries or in other
+            frequency bands. As a result, lightly licensed 802.11 devices will
+            be able to operate in any 5, 10, or 20Â MHz channel that
+            regulators make available by simply adding entries to the country
+            and regulatory information tables in Annex I and J of 802.11. Has
+            implications in the following areas: Back haul for Municipal Wi-Fi
+            networks, Industrial automation/controls, Campus/Enterprise
+            networking, Last Mile Wireless Broadband Access, Fixed Point to
+            point links, Fixed point to mobile links, and Public safety and
+            security networks. <emphasis role="bold">Status</emphasis>:
+            Submitted for approval in June of 2008; Still not ratified.</para>
+
+
+            <table>
+              <title>Emerging 802.11x Summary</title>
+
+              <tgroup cols="3">
+                <colspec colname="col1" colnum="1" colwidth="15*"/>
+                <colspec colname="col2" colnum="2" colwidth="50*"/>
+                <colspec colname="col3" colnum="3" colwidth="25*"/>
+
+                <tbody>
+                  <row>
+                    <entry><emphasis role="bold">Standard</emphasis></entry>
+                    <entry><emphasis role="bold">Description</emphasis></entry>
+                    <entry><emphasis role="bold">Status </emphasis></entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11k</entry>
+                    <entry>Radio resource measurement enhancements</entry>
+                    <entry>Ongoing</entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11n</entry>
+                    <entry>Higher throughput improvements (e.g. MIMO)</entry>
+                    <entry>Ongoing. Estimated ratification in 2009</entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11p</entry>
+                    <entry>WAVE -Wireless Access for the Vehicular Environment
+                    (such as ambulances and passenger cars)</entry>
+                    <entry>Ongoing. Estimated ratification in 2009.</entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11r</entry>
+                    <entry>Fast roaming</entry>
+                    <entry>Ratified in July of 2008</entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11s</entry>
+                    <entry>EWireless mesh networking</entry>
+                    <entry>Ongoing</entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11t</entry>
+
+                    <entry>Wireless Performance Prediction (WPP) -test methods
+                    and metrics</entry>
+
+                    <entry>Ongoing</entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11u</entry>
+
+                    <entry>Inter-working with non-802 networks (e.g.,
+                    cellular)</entry>
+
+                    <entry>Ongoing</entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11v</entry>
+
+                    <entry>Wireless network management</entry>
+
+                    <entry>Ongoing</entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11w</entry>
+
+                    <entry>Protected Management Frames</entry>
+
+                    <entry>Ongoing</entry>
+                  </row>
+
+                  <row>
+                    <entry>IEEE 802.11y</entry>
+
+                    <entry>3650-3700 Operation in USA with wide range</entry>
+
+                    <entry>Ongoing. Estimated ratification in 2009.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+
+           </sect4>
+        </sect3>
+
+        <sect3>
+          <title>Mobile Broadband Wireless Access (MBWA)</title>
+
+          <para>While many military installations have some sort of high-speed
+          network backbone connected by fibre optic cabling, many of the
+          buildings do not have high-speed connections to the backbone. This
+          is because fibre-optic cabling, necessary for most high-speed
+          communications, must first be installed in the ground.</para>
+
+          <para>Three emerging mobile data architectures have the most promise
+          to eliminate the need for cables. In an effort to further improve
+          mobile technology bandwidth, the IEEE 802 standards group which is
+          already developing 802.11 (Wireless , WLAN), 802.15 (Personal Area
+          Networks, PAN), 802.17 (Fixed Broadband Wireless Access, FBWA) has
+          turned its attention to a new standardisation efforts on mobile
+          broadband wireless access (MBWA).</para>
+
+          <para>As with many civil based technologies the key question is
+          likely to be the performance of the system under stress (e.g.
+          Interference/jamming). However, there exists a possibility of a low
+          cost wireless network offering all IP connectivity for easy
+          integration with other component networks, rapid base-station
+          deployment, basic network security (allowing higher security to
+          layer on top) and high performance to many users.</para>
+
+          <para><emphasis role="bold">Importance</emphasis>: Installing fibres
+          is a disruptive, costly and time-consuming process. Trenching costs
+          become prohibitive to reach remote areas, such as transportation
+          depots and ranges. Also, right-of-way issues and physical barriers
+          such as lakes and historical grounds can increase the cost of
+          installing fibre-optic cabling.</para>
+
+          <para><emphasis role="bold">Implications</emphasis>: In the tactical
+          world, MBWA may be well suited for quickly establishing links
+          between temporary camps, command centres, and vehicles.</para>
+
+
+
+          <table>
+            <title>Data Architecture</title>
+
+            <tgroup cols="6">
+              <colspec colname="col1" colnum="1"/>
+              <colspec colname="col2" colnum="2"/>
+              <colspec colname="col3" colnum="3"/>
+              <colspec colname="col4" colnum="4"/>
+              <colspec colname="col5" colnum="5"/>
+              <colspec colname="col6" colnum="6"/>
+
+              <tbody>
+
+                <row>
+                  <entry align="center" morerows="1" nameend="col2" namest="col1" valign="middle"><emphasis role="bold">Characteristics</emphasis></entry>
+                  <entry align="center" nameend="col6" namest="col3" valign="middle"><emphasis role="bold">Mobile Data
+                  Architectures</emphasis></entry>
+                </row>
+
+                <row>
+                  <entry align="center" colname="col3" valign="middle"><emphasis role="bold">802.16e</emphasis></entry>
+                  <entry align="center" colname="col4" valign="middle"><emphasis role="bold">802.20</emphasis></entry>
+                  <entry align="center" colname="col5" valign="middle"><emphasis role="bold">HiperMAN</emphasis></entry>
+                  <entry align="center" colname="col6" valign="middle"><emphasis role="bold">4G+</emphasis></entry>
+                </row>
+
+                <row>
+                  <entry align="left" valign="middle">Standard
+                  Type</entry>
+
+                  <entry/>
+
+                  <entry align="right"  valign="middle">Open</entry>
+
+                  <entry align="right" valign="middle">Open</entry>
+
+                  <entry align="right" valign="middle">Open</entry>
+
+                  <entry align="right" valign="middle">Open</entry>
+                </row>
+
+                <row>
+                  <entry morerows="1" valign="middle">Cell Radius</entry>
+
+                  <entry>Line-of-sight</entry>
+
+                  <entry align="right" colname="col3" valign="middle">48
+                  km</entry>
+
+                  <entry align="right" colname="col4" valign="middle">-</entry>
+
+                  <entry align="right" colname="col5" valign="middle">10
+                  km</entry>
+
+                  <entry align="right" colname="col6" valign="middle">-</entry>
+                </row>
+
+                <row>
+                  <entry>Non Line-of-sight</entry>
+
+                  <entry align="right" valign="middle">3
+                  km</entry>
+
+                  <entry align="right" valign="middle">-</entry>
+
+                  <entry align="right" valign="middle">4km</entry>
+
+                  <entry align="right" valign="middle">-</entry>
+                </row>
+
+                <row>
+                  <entry align="left" valign="middle">Cell
+                  Speed</entry>
+
+                  <entry/>
+
+                  <entry align="right" valign="middle">60
+                  miles/hr</entry>
+
+                  <entry align="right" valign="middle">250
+                  km/hr</entry>
+
+                  <entry align="right" valign="middle">-</entry>
+
+                  <entry align="right" valign="middle">-</entry>
+                </row>
+
+                <row>
+                  <entry align="left" colname="col1" morerows="2" valign="middle">Data Rate</entry>
+
+                  <entry>Moving</entry>
+
+                  <entry align="right" colname="col3" valign="middle">&lt; 10
+                  Mbps</entry>
+
+                  <entry align="right" colname="col4" valign="middle">-</entry>
+
+                  <entry align="right" colname="col5" valign="middle">-</entry>
+
+                  <entry align="right" colname="col6" valign="middle">280
+                  Mbit/s</entry>
+                </row>
+
+                <row>
+                  <entry align="left" colname="col2" valign="middle">Stationary</entry>
+
+                  <entry align="right" colname="col3" valign="middle">10
+                  Mbps</entry>
+
+                  <entry align="right" colname="col4" valign="middle">-</entry>
+
+                  <entry align="right" colname="col5" valign="middle">14
+                  Mbit/s</entry>
+
+                  <entry align="right" colname="col6" valign="middle">1
+                  Gbit/s</entry>
+                </row>
+
+                <row>
+                  <entry>Peak</entry>
+
+                  <entry align="right" colname="col3" valign="middle">70
+                  Mbps</entry>
+
+                  <entry align="right" colname="col4" valign="middle">1
+                  Mbps</entry>
+
+                  <entry align="right" colname="col5" valign="middle">63
+                  Mbit/s</entry>
+
+                  <entry align="right" colname="col6" valign="middle">-</entry>
+                </row>
+
+                <row>
+                  <entry align="left" colname="col1" valign="middle">Spectrum</entry>
+
+                  <entry/>
+
+                  <entry align="right" colname="col3" valign="middle">&lt; 6
+                  GHz</entry>
+
+                  <entry align="right" colname="col4" valign="middle">-</entry>
+
+                  <entry align="right" colname="col5" valign="middle">5.725-5.875 GHz</entry>
+
+                  <entry align="right" colname="col6" valign="middle">-</entry>
+                </row>
+
+                <row>
+                  <entry align="left" colname="col1" valign="middle">Architecture</entry>
+
+                  <entry/>
+
+                  <entry align="right" colname="col3" valign="middle">Packet</entry>
+
+                  <entry align="right" colname="col4" valign="middle">Packet</entry>
+
+                  <entry align="right" colname="col5" valign="middle">Packet</entry>
+
+                  <entry align="right" colname="col6" valign="middle">Packet/Circuit</entry>
+                </row>
+
+                <row>
+                  <entry align="left" colname="col1" valign="middle">Bands</entry>
+
+                  <entry/>
+
+                  <entry align="right" colname="col3" valign="middle">Selectable Between 2-6 GHz</entry>
+
+                  <entry align="right" colname="col4" valign="middle">Licensed
+                  Bands below 3.5 GHz</entry>
+
+                  <entry align="right" colname="col5" valign="middle">Selectable Between 2-11 GHz (Mainly 3.5
+                  GHz)</entry>
+
+                  <entry align="right" colname="col6" valign="middle">Licensed
+                  Bands below 2.7 GHz</entry>
+                </row>
+
+                <row>
+                  <entry align="left" valign="middle">Latency</entry>
+
+                  <entry align="right" valign="middle"/>
+
+                  <entry align="right" valign="middle">Low</entry>
+
+                  <entry align="right" valign="middle">Low</entry>
+
+                  <entry align="right" valign="middle">High</entry>
+
+                  <entry align="right" valign="middle">High</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+
+
+          <sect4>
+            <title>Mobile Telephone (4G+)</title>
+
+            <para>Although the new 3G systems (mobile phone companies have
+            invested heavily in this technology) have just been launched not
+            long ago, many companies have already started on researching and
+            developing on the fourth generation (4G) system. Researchers are
+            hoping that the 4G system can reach a much faster speed, a
+            connection speed over 100Mb per second during connection, tighter
+            network security and also bring up the quality during
+            communication no matter on voice or video calls. Via mobile
+            phones, many things such as the security system, surveillance on
+            certain items could be done easily.</para>
+
+            <para>One 4G+ standardisation effort called Ultra Mobile Broadband
+            (UMB) is being coordinated by 3GPP2 (Collaboration between five
+            Asian and North American standards bodies. It will improve the
+            CDMA2000 mobile phone standard for next generation applications
+            and requirements. The proposed system intends to employ OFDMA
+            technology along with advanced antenna techniques to provide peak
+            rates of up to 280 Mbit/s. Goals for UMB include significantly
+            improving system capacity, greatly increasing user data rates
+            throughout the cell, lowering costs, enhancing existing services,
+            making possible new applications, and making use of new spectrum
+            opportunities. The technology will provide users with concurrent
+            IP-based services in a full mobility environment.</para>
+
+            <para><emphasis role="bold">Status</emphasis>: The UMB
+            standardisation is expected to be completed in late 2007, with
+            commercialisation taking place around mid-2009 or early
+            2010.</para>
+          </sect4>
+
+          <sect4>
+            <title>High Capacity Spatial Division Multiple Access (HC-SDMA, or
+            iBurst)</title>
+
+            <para>The HC-SDMA interface provides wide-area broadband wireless
+            data-connectivity for fixed, portable and mobile computing devices
+            and appliances. The protocol is designed to be implemented with
+            smart antenna array techniques to substantially improve the radio
+            frequency (RF) coverage, capacity and performance for the
+            system.</para>
+
+            <para>The HC-SDMA interface operates on a similar premise as GSM
+            or CDMA2000 for cellular phones, with hand-offs between HC-SDMA
+            cells reportedly providing the user with a seamless wideband
+            wireless experience even when moving at the speed of a car or
+            train.</para>
+
+            <para><emphasis role="bold">Status</emphasis>: HC-SDMA is being
+            incorporated by ISO TC204 WG16 into its standards for use of
+            wireless broadband systems in the continuous communications
+            standards architecture, known as CALM. The IEEE 802.20 working
+            group had adopted a technology proposal that includes the use of
+            the HC-SDMA standard for the 625kHz Multi-Carrier Time Division
+            Duplex (TDD) mode. Technology is available Asia, Europe, Africa,
+            Middle East, and North America.</para>
+          </sect4>
+        </sect3>
+
+        <sect3>
+          <title>Ad-Hoc Networking</title>
+
+          <sect4>
+            <title>Mobile Ad-Hoc Networks (MANET)</title>
+
+            <para>A mobile ad-hoc network (MANET) is a self-configuring
+            network of mobile routers (and associated hosts) connected by
+            wireless links. The routers are free to move randomly and
+            arbitrarily organise themselves. Accordingly, the topology of the
+            wireless network may change rapidly and unpredictably. Such a
+            network may operate in a standalone fashion, or may be connected
+            to the larger Internet. With attributes such as minimal
+            configuration and quick deployment make ad hoc networks
+            appropriate for situations like disasters (natural or man-made),
+            medical emergencies, military conflicts, etc.</para>
+
+            <para>The earliest predate the Internet and were called "packet
+            radio" networks. These early packet radio systems were part of the
+            motivation of the original Internet Protocol suite. Current are
+            designed principally for military utility; examples include Joint
+            Tactical Radio System (JTRS) and the High-Capacity Data Radio
+            (HCDR).</para>
+
+            <para>The widespread IEEE 802.11 ("WiFi") wireless protocol
+            incorporates an ad-hoc networking system when no wireless access
+            points are present, although it would be considered a very
+            low-grade ad-hoc protocol by specialists in the field. The IEEE
+            802.11 system only handles traffic within a local "cloud" of
+            wireless devices. Each node transmits and receives data, but does
+            not route anything between the network's systems. However,
+            higher-level protocols can be used to aggregate various IEEE
+            802.11 ad-hoc networks into .</para>
+          </sect4>
+
+          <sect4>
+            <title>Sensor Networks</title>
+
+            <para>A sensor network is composed of a large number of sensor
+            nodes that are densely deployed either inside an area of operation
+            or very close to it. The sensor nodes are tiny, low-cost,
+            low-power, self-organising and multi-functional (sensing, data
+            processing, and communicating). Since the sensor nodes can be
+            random deployed, such networks are ideal in inaccessible terrains
+            or disaster relief operations</para>
+
+
+            <table id="v3t-sensor-adhoc">
+              <title>Sensor vs. Ad-Hoc</title>
+
+              <tgroup cols="3">
+                <colspec colname="col1" colnum="1" colwidth="33*"/>
+                <colspec colname="col2" colnum="2" colwidth="33*"/>
+                <colspec colname="col3" colnum="3" colwidth="34*"/>
+
+                <tbody>
+                  <row>
+                    <entry align="center"><emphasis role="bold">Characteristics</emphasis></entry>
+
+                    <entry align="center" valign="middle"><emphasis role="bold">Sensor Networks</emphasis></entry>
+
+                    <entry align="center"><emphasis role="bold">Traditional
+                    Ad-Hoc</emphasis></entry>
+                  </row>
+
+                  <row>
+                    <entry>Communication</entry>
+
+                    <entry>Broadcast</entry>
+
+                    <entry>Point-to-Point</entry>
+                  </row>
+
+                  <row>
+                    <entry>Node Numbers</entry>
+
+                    <entry>Large</entry>
+
+                    <entry>Small</entry>
+                  </row>
+
+                  <row>
+                    <entry>Node Density</entry>
+
+                    <entry>High</entry>
+
+                    <entry>Low</entry>
+                  </row>
+
+                  <row>
+                    <entry>Node ID</entry>
+                    <entry>None</entry>
+                    <entry>Individual</entry>
+                  </row>
+
+                  <row>
+                    <entry>Failure Rate</entry>
+                    <entry>High</entry>
+                    <entry>Low</entry>
+                  </row>
+
+                  <row>
+                    <entry>Mobility</entry>
+                    <entry>No</entry>
+                    <entry>Yes</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+
+
+            <para>The differences between a sensor network and a traditional
+            ad-hoc network can be seen in <xref linkend="v3t-sensor-adhoc"/>.
+            The protocols and algorithms used in traditional ad-hoc networks
+            do not work well with sensor networks primarily because of the
+            relatively large number of sensor nodes used by sensor
+            networks.</para>
+
+            <figure float="0">
+              <title>Sensor Field</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="figures/vol3fig10.svg" format="SVG"/>
+                </imageobject>
+              </mediaobject>
+            </figure>
+          </sect4>
+        </sect3>
+
+        <sect3>
+          <title>Radio</title>
+
+          <sect4>
+            <title>Radio over Internet Protocol (RoIP)</title>
+
+            <para>Radio over IP is an method of converting analog radio
+            signals into packets that transmited over an IP network. This
+            capability of integrating disparate data and video signals with an
+            IP infrasturcture could be the long disatnce hauler of short
+            distance radio signals. With RoIP, there are no interoperability
+            issues, all radio signals (e.g. VHF, UHF, POTS telephone, cellular
+            telephone, SATCOM, air-to-ground) are packetized the same.
+            Demodulation and detection of the orignal message is done after it
+            has been transported.</para>
+
+            <para><emphasis role="bold">Status</emphasis>: Draft standard is
+            being developed by NIST, for the Bridging System Interface (BSI)
+            hardware and software that enables radio gateway interoperability
+            on a RoIP system. A half-dozen companies now offer Radio Over IP
+            solutions. The tactical use of this technology has been
+            demonstrated by coalition military forces in Afganistan and Iraq
+            to protect convoys spread out across large geographic
+            distances.</para>
+          </sect4>
+
+          <sect4>
+            <title>Radio Frequency Identification (RFID)</title>
+
+            <para>Radio Frequency Identification technology shares some
+            similar characteristics with IP technology. IP is a remarkably
+            flexible addressing system for information while RFID is a
+            flexible addressing system for physical objects. RFID creates "an
+            Internet of things" - a world of objects connected by Internet
+            technologies. Indeed, it is possible that this new Internet of
+            objects could significantly affect network architecture in the
+            years to come.</para>
+
+            <para>RFID is the labelling system behind IP-enabled inventory and
+            supply. Standard RFID tags contain three times the amount of
+            information that can be stored in bar codes. They transmit data
+            without contact or Line-of-sight with the reader, and can be read
+            through dust, snow, ice, paint, or grime - conditions that render
+            optical technologies, like bar coding, useless. Long-range tags
+            can be read at speeds achievable by cars or trains, automated toll
+            readers are a good example of this.</para>
+
+            <para>Capacitor / Coil (1) RFID reader Broadcasts electromagnetic
+            signal to tag (4). The tag's coils release an encoded radio wave
+            containing the information in the tag, which the reader then
+            demodulates.(2) Antenna in the tag receives the signal from the
+            reader and stores charge in a capacitor.(3) When the capacitor has
+            built up enough energy, it releases it over time to the tag's
+            coils.</para>
+
+            <figure float="0">
+              <title>RFID Example</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="figures/vol3fig13.svg" format="SVG"/>
+                </imageobject>
+              </mediaobject>
+            </figure>
+
+            <para>Most RFID tags are passive and read-only. With a virtually
+            unlimited operating lifetime, they consist of little more than a
+            computer chip and an antenna. A compatible reader provides power
+            to the tag over short distances between a few centimetres to
+            thirty meters. The tag 'awakens' and reports any information it
+            has available to the reader. Active tags, on the other hand, are
+            self-powered, have longer ranges than passive tags, and are
+            constantly reporting relevant information to any reader within
+            range. Active tags are becoming increasingly common, especially on
+            expensive items, or cartons of items. A reader installed in a
+            lock, for example, can automatically receive information from
+            active tags in every vessel and shipping box that passes through.
+            Additionally, some RFID tags are writable as well as
+            readable.</para>
+
+            <para>Security is the key challenge with RFID. If a NATO nation
+            implements RFID in its supply chain, and does not want other NATO
+            nations to track its shipments and inventory, then that nation
+            would perceive RFID technology as a significant security
+            vulnerability.</para>
+
+            <para>Some researchers have proposed schemes that would require
+            tags to authenticate readers, transmitting information only to
+            authorised readers. The tags would have to store ID numbers for
+            authorised readers, and a reader would have to broadcast its ID to
+            the tag. To protect the reader's ID and prevent others from
+            eavesdropping and stealing the information, the reader uses either
+            a fixed or randomly generated number to hash (encrypt) its ID. If
+            the tag cannot authenticate the reader's identity, the tag will
+            refuse to transmit the information it stores. Like most security
+            tactics, this scheme is vulnerable to attacks, such as man in the
+            middle, or reverse engineering.</para>
+
+            <para><emphasis role="bold">Importance</emphasis>: An advanced way
+            to automate the tracking of people and things.</para>
+
+            <para><emphasis role="bold">Implications</emphasis>: Improved
+            logistics through better management of supplies and
+            inventories.</para>
+
+            <para><emphasis role="bold">Status</emphasis>: Because of the
+            potential market, several vendors are actively researching
+            security and legacy integration issues. The big challenge to RFID
+            is its integration into existing systems. Several vendors are
+            developing RFID middle-ware that will link new RFID systems into
+            existing back-end infrastructures. middle-ware, for example, can
+            help with the current lack of standards in RFID. If an
+            organisation picks a standard that changes or loses its market
+            prevalence, middle-ware can transform the data from readers into
+            the format supported by back-end systems.</para>
+          </sect4>
+
+          <sect4>
+            <title>Software Defined Radio (SDR)</title>
+
+            <para>Software Defined Radio (SDR) technology uses software to
+            modulate and demodulate radio signals. This flexible approach
+            would solve the problem of having to carry several types of
+            special purpose radio. Ideally, one radio could can receive and
+            transmit a new form of radio protocol just by running new
+            software. All functionality and expandability is built upon the
+            Software Communications Architecture (SCA), an international open
+            architecture framework avaialble from the Object Management Group
+            (OMG).</para>
+
+            <para><emphasis role="bold">Importance:</emphasis> Reduces the
+            need for troops to carry multiple radios.</para>
+
+            <para><emphasis role="bold">Implications</emphasis>: Adaptable
+            radios can solve cross-nation, and cross organisation
+            communication interoperability problems.</para>
+
+            <para><emphasis role="bold">Status</emphasis>: All the pieces
+            needed to make this technology work in a tactical military
+            environment are not ready. The biggest hurdles are form-factor,
+            power consumption, and antenna size. Packaging such a radio that
+            can handle every waveform used on a battlefield is daunting.
+            Putting a 50 lb radio with a 30 foot antenna on the back of a foot
+            solider is not practical.</para>
+          </sect4>
+
+          <sect4>
+            <title>Cognitive Radio Technology</title>
+
+            <para>Cognitive Radio technology is, when combined with Software
+            Defined Radio technology, an effort to efficiently utilise the
+            electromagnetic spectrum. The argument is that in any given region
+            of the world, some portions of the spectrum are over utilised
+            while some are underutilised. A cognitive radio will analyse the
+            local spectrum and determine where there are spectrum "holes", or
+            under-used spectrum. It is in these "holes" that the adaptive
+            radio will operate by using software defined radio technology to
+            reconfigure its broadcasting characteristics as needed.</para>
+
+            <para>The real issue is how that spectrum is managed, not the lack
+            of available spectrum. A cognitive radio will not only analyse the
+            spectrum usage, but negotiate usage with nearby devices. Compare
+            the scheme to a driver's reacting to what she sees other drivers
+            doing. If you are in a traffic lane that is heavy, maybe it's time
+            for you to shift to another lane that is not so busy. When
+            shifting lanes, however, a driver needs to follow rules that
+            prevent her from bumping into others.</para>
+
+            <para>The MAC layer of the IEEE 802.22 wireless standard will be
+            based in Cognitive Radio Technology. It needs to be also able to
+            adapt dynamically to changes in the environment by sensing the
+            spectrum. The MAC layer will consist of two structures: Frame and
+            Superframe. A superframe will be formed by many frames. The
+            superframe will have an SCH (Superframe Control Header) and a
+            preamble. These will be sent by the BS in every channel that it's
+            possible to transmit and not cause interference. When a CPE is
+            turned on, it will sense the spectrum, find out which channels are
+            available and will receive all the needed information to attach to
+            the BS. Two different types of spectrum measurement will be done
+            by the CPE: in-band and out-of-band. The in-band measurement
+            consists in sensing the actual channel that is being used by the
+            BS and CPE. The out-of-band measurement will consist in sensing
+            the rest of the channels. The MAC layer will perform two different
+            types of sensing in either in-band or out-of-band measurements:
+            fast sensing and fine sensing. Fast sensing will consist in
+            sensing at speeds of under 1ms per channel. This sensing is
+            performed by the CPE and the BS and the BS's will gather all the
+            information and will decide if there is something new to be done.
+            The fine sensing takes more time (approximately 25 ms per channel
+            or more) and it is utilized based on the outcome of the previous
+            fast sensing mechanism. These sensing mechanisms are primarily
+            used to identify if there is an incumbent transmitting, and if
+            there is a need to avoid interfering with it.</para>
+
+            <para><emphasis role="bold">Importance:</emphasis> Enables
+            efficient usage of available limited spectrum.</para>
+
+            <para><emphasis role="bold">Implications</emphasis>: Ideal
+            companion technology to Software Defined Radio Technology.</para>
+
+            <para><emphasis role="bold">Status</emphasis>: Approved by IEEE in
+            january of 2008, the 802.22 standard is the first wireless
+            standard based on cognitive radios.</para>
+          </sect4>
+        </sect3>
+      </sect2>
+
+      <sect2>
+        <title>Wired Networking</title>
+
+        <para>When compared to wireless networking, the more mature wired
+        networking area provides benefits in cost, reliabilty and
+        performance.</para>
+
+        <para><emphasis role="bold">Implications</emphasis>: The need for
+        wired networking will be dictated by the operational
+        environment.</para>
+
+        <sect3>
+          <title>Fibre-Channel over Ethernet (FCoE)</title>
+
+          <para>Fibre-Channel over ethernet allows Fibre-Channel devices to
+          connect with one another over ethernet based networks. With FCoE,
+          native Fibre-Channel frames are encapsulated into ethernet frames to
+          be sent over a 10-Gbit Ethernet network. Considered a low-cost, high
+          performance alternative to Fibre-Channel over long distances. The
+          main applications that benifet from this technology are sStorage
+          Area Networks (SANs). With FCoE, network (IP) and storage (SAN) data
+          traffic can be consolidated using a single network switch. This
+          consolidation can:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>reduce the number of network interface cards required to
+              connect to disparate storage and IP networks</para>
+            </listitem>
+          </itemizedlist>
+
+          <itemizedlist>
+            <listitem>
+              <para>reduce the number of cables and switches</para>
+            </listitem>
+          </itemizedlist>
+
+          <itemizedlist>
+            <listitem>
+              <para>reduce power and cooling costs</para>
+            </listitem>
+          </itemizedlist>
+
+          <itemizedlist>
+            <listitem>
+              <para>increase utilization of servers through server
+              virtualization technologies</para>
+            </listitem>
+          </itemizedlist>
+
+          <para><emphasis role="bold">Status</emphasis>: Not yet apporved as a
+          standard by INCITS, InterNational Committee for Information
+          Technology Standards organisaton, but several vendors are shipping
+          products that will support the future standard. Expected to be
+          ratified in late 2009 or early 2010.</para>
+        </sect3>
+      </sect2>
+
+      <sect2>
+        <title>Transport Layer</title>
+
+        <sect3>
+          <title>Stream Control Transmission Protocol (SCTP)</title>
+
+          <para>The Stream Control Transmission Protocol operates on top of
+          the Internet Protocol (IP), and is defined in the RFC 2960 (IETF
+          standard). SCTP was developed to provide reliable transport of SS7
+          messages over an IP network.</para>
+
+          <para>The Stream Control Transmission Protocol (SCTP) is a new IP
+          transport protocol that operates on top of the Internet Protocol
+          (IP), and is defined in the RFC 2960 (IETF standard). It exists at
+          an equivalent level with UDP (User Datagram Protocol) and TCP
+          (Transmission Control Protocol), which provide transport layer
+          functions to many Internet applications.</para>
+
+          <para>Like TCP, SCTP provides a reliable transport service, ensuring
+          that data is transported across the network without error and in
+          sequence. Like TCP, SCTP is a session-oriented mechanism, meaning
+          that a relationship is created between the endpoints of an SCTP
+          association prior to data being transmitted, and this relationship
+          is maintained until all data transmission has been successfully
+          completed.</para>
+
+          <para>Unlike TCP, SCTP provides a number of functions that are
+          critical for telephony signalling transport, and at the same time
+          can potentially benefit other applications needing transport with
+          additional performance and reliability.</para>
+
+          <para><emphasis role="bold">Status</emphasis>: SCTP has been
+          approved by the IETF as a Proposed Standard. The error check
+          algorithm has since been modified. Future changes and updates will
+          be reflected in the IETF RFC index. SCTP has been implemented on
+          several OS: Windows XP, Linux, AIX, BSD, Solaris, and QNX
+          Neutrino.</para>
+        </sect3>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Green Information Technology</title>
+
+      <para>There has always been a push to make technology faster. Now,
+      emerging new trends are driving technologies to become more efficient as
+      well. The drivers of these new trends vary from higher energy costs to
+      environmental concerns. In the past, military interests in technology
+      were less concern with how efficient it was, than how competent it was
+      in producing a desired effect.</para>
+
+      <para><emphasis role="bold">Implications</emphasis>: Reduction of power
+      consumption during mlitary operations directly effects the costs of
+      conducting such operations. From a NATO perspective, cost-savings
+      incurred through efficiency will have larger impact on participants with
+      less finanical resources to devote to NATO operations.</para>
+
+      <sect2>
+        <title>IEEE 802.3az (Green Ethernet)</title>
+
+        <para>The goals of the IEEE 802.3az task force are pretty
+        straightforward: define a mechanism to reduce power consumption during
+        periods of low link utilization and a protocol to coordinate
+        transitions to or from a lower level of power consumption. It'll work
+        only on new hardware, of course, but that hardware should be fully
+        backward-compatible. Using "channel staggering" in combination with a
+        few other technologies may lead to a 50-85% power savings.</para>
+
+        <para><emphasis role="bold">Status</emphasis>: First draft of the
+        specification should by out by the end of 2008, though the final
+        version won't be ratified until early of 2010.</para>
+      </sect2>
+
+      <sect2>
+        <title>IEEE 1680 (Environmental Assessment)</title>
+
+        <para>Modern IT systems rely upon a complicated mix of people,
+        networks and hardware; as such, a green computing standard must be
+        systemic in nature, and address increasingly sophisticated problems.
+        The IEEE 1680 standard defines 51 criteria used in the assessment of
+        computing products for enironmental imapct. Impact is measure by
+        reduced use of hazardous materials, maximum energy efficiency during a
+        product's lifetime, and promotion of recyclability or biodegradability
+        of defunct products. Products that passes at least 21of the the 51
+        criteria, are eligble to be certified as Energy-Star or EPEAT
+        compliant.</para>
+
+        <para><emphasis role="bold">Status</emphasis>: Ratified in 2006, the
+        standard was viewed as ambiguous in how to apply specific criteria.
+        Recent verification rounds has prompted detailed clarification and
+        established Interpretations of some portions of the IEEE 1680
+        standard. With the new supplemental guidance it should be more widely
+        accepted over the next 3-5 years.</para>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Cloud Computing</title>
+
+      <para>The "Cloud" in Cloud computing describes a combination of
+      inter-connected networks. This technology area focuses on breaking up a
+      task into sub-tasks. The sub-tasks are then executed simultaneously on
+      two or more computers that are communicating with each other over the
+      &#8220;Cloud&#8221;. Later, the completed sub-tasks are reassembled to form the
+      completed original main task. There are many different types of
+      distributed computing systems and many issues to overcome in
+      successfully designing one. Many of these issues deal with accommodating
+      a wide-ranging mix of computer platforms with assorted capabilities that
+      could potentially be networked together</para>
+
+      <para><emphasis role="bold">Implications</emphasis>: The main goal of a
+      cloud computing system is to connect users and resources in a
+      transparent, open, and scalable way. Ideally this arrangement is
+      drastically more fault tolerant and more powerful than many combinations
+      of stand-alone computer systems. If practiced in a NATO environment,
+      member nations would consume their IT services in the most
+      cost-effective way, over a broad range of services (for example,
+      computational power, storage and business applications) from the
+      "cloud," rather than from on-premises equipment.</para>
+
+      <sect2>
+        <title>Platforms</title>
+
+        <para>Cloud-computing platforms have given many businesses flexible
+        access to computing resources, ushering in an era in which, among
+        other things, startups can operate with much lower infrastructure
+        costs. Instead of having to buy or rent hardware, users can pay for
+        only the processing power that they actually use and are free to use
+        more or less as their needs change. However, relying on cloud
+        computing comes with drawbacks, including privacy, security, and
+        reliability concerns.</para>
+
+        <sect3>
+          <title>Amazon's Elastic Compute Cloud (EC2)</title>
+
+          <para>Amazon Elastic Compute Cloud (Amazon EC2) is a web service
+          that provides resizable compute capacity in the cloud. It is
+          designed to make web-scale computing easier for developers. If your
+          application needs the processing power of 100 CPUs then you scale up
+          your demand. Conversely, if your application is idle then you scale
+          down then amount of computing resources that you allocate.</para>
+
+          <para><emphasis role="bold">Status</emphasis>:The first company to
+          successfully levearge the excess computing resources from its
+          primary bussiness. Currently, CPU cycles and storage are at pennies
+          per hour or GB.</para>
+        </sect3>
+
+        <sect3>
+          <title>Microsoft's Azure Services Platform</title>
+
+          <para>Windows® Azure is a cloud services operating system that
+          serves as the development, service hosting and service management
+          environment for the Azure Services Platform. Windows Azure provides
+          developers with on-demand compute and storage to host, scale, and
+          manage Web applications on the Internet through Microsoft® data
+          centers.</para>
+
+          <para><emphasis role="bold">Status</emphasis>: During the Community
+          Technology Preview (CTP) developers invited to the program, which
+          includes all attendees of the Microsoft Professional Developers
+          Conference 2008 (PDC), receive free trial access to the Azure
+          Services Platform SDK, a set of cloud-optimized modular components
+          including Windows Azure and .NET Services, as well as the ability to
+          host their finished application or service in Microsoft
+          datacenters.</para>
+        </sect3>
+
+        <sect3>
+          <title>Google App Engine</title>
+
+          <para>Google App Engine enables you to build web applications on the
+          same scalable systems that power Google applications. App Engine
+          applications are easy to build, easy to maintain, and easy to scale
+          as your traffic and data storage needs grow. With App Engine, there
+          are no servers to maintain: You just upload your application, and
+          it's ready to serve to your users. Google App Engine applications
+          are implemented using the Python programming language.</para>
+
+          <para><emphasis role="bold">Status</emphasis>: Currently in the
+          preview release stage. You can use up to 500MB of persistent storage
+          and enough CPU and bandwidth for about 5 million page views a month
+          for free. Later on if you want additional computing resources, you
+          will have to purchase it.</para>
+        </sect3>
+      </sect2>
+
+      <sect2>
+        <title>Grid Computing</title>
+
+        <para>Grid computing is the collective name of technologies that
+        attempt to combine a set of distributed nodes into a common resource
+        pool. The term grid computing stems from an analogy with electric
+        power grids that combine a large set of resources (power plants,
+        transformers, power lines) into simple well defined product (the power
+        outlet) that the user can use without having to know the details of
+        the infrastructure behind it.</para>
+
+        <para>Typical for grid computing is also that it offers a framework
+        for management of node memberships, access control, and life cycle
+        management. Common applications of grid computing allow well defined
+        organisations to share computational resources or storage resources so
+        that resources may be used efficiently and resource demanding tasks
+        can be performed that would otherwise have required large specialised
+        and/or local investments.</para>
+
+        <figure float="0">
+          <title>Grid Computing</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/vol3fig11.svg" format="SVG"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>While some grid computing systems have been designed for a
+        specific purpose, some standards for Grid infrastructure have also
+        evolved that make the task of setting up a Grid easier and provide a
+        common interface to application developers. Such standardisation
+        efforts have resulted in Globus Toolkit [51] and OGSA (Open Grid
+        Services Architecture) [53].</para>
+
+        <para>The Global Grid Forum (GGF) [52] is a set of working groups
+        where much work on grid computing standardisation is ongoing, and that
+        also is behind the OGSA standard. Their web site is a good source of
+        information about ongoing work in the field and examples of grid
+        projects.</para>
+
+        <sect3>
+          <title>Globus Toolkit</title>
+
+          <para>Globus Toolkit [51] offers tools and APIs for building secure
+          grid infrastructures. It offers a secure infrastructure (GSI) on top
+          of which support for resource management, information services, and
+          data management is provided. It is being developed by Globus
+          Alliance [50], and is among other applications being used as a
+          foundation for implementation of OGSA.</para>
+        </sect3>
+
+        <sect3>
+          <title>OGSA</title>
+
+          <para>OGSA [53] (developed by the Global Grid Forum, GGF [52])
+          builds on a combination of Globus Toolkit [51] (developed by the
+          Globus Alliance [50]) and Web service technologies to model and
+          encapsulate resources in the Grid. A number of special Web service
+          interfaces are defined by OGSA that support service management,
+          dynamic service creation, message notification, and service
+          registration. A number of implementations of OGSA have been made,
+          including for example OGSI (Open Grid Services Infrastructure) and
+          WSRF (Web Services Resource Framework, developed by OASIS [47]).
+          Today, WSRF is the chosen basis for further development of
+          OGSA</para>
+        </sect3>
+
+        <sect3>
+          <title>OSGi</title>
+
+          <para>OSGi is a standard for a framework for remotely manageable
+          networked devices [25]. Applications can be securely provisioned to
+          a network node running an OSGi framework during runtime and thus
+          provides the possibility to dynamically manage the services and
+          functionality of the network node. The OSGi model is based upon a
+          service component architecture, where all functionality in the node
+          is provided as "small" service components (called bundles). All
+          services are context aware of each other and heavily adapt their
+          functionality depending on what other services are available.
+          Services must degrade gracefully when the services they depend upon
+          are not available in the framework. These network nodes are designed
+          to reliably provide their services 24/7/365. Adding an OSGi Service
+          Platform to a networked node/device adds the capability to manage
+          the life cycle of the software components in the device. Adding new
+          services thus makes it more future proof and gives the node
+          flexibility.</para>
+
+          <para>OSGi adopts a SOA based approach where all bundles deployed
+          into an OSGi framework are described using well defined service
+          interfaces. The bundle uses the framework's name service for
+          publishing offered services and to retrieve services needed by the
+          bundle itself. OSGi works well together with other standards and
+          initiatives for example Jini or Web Services. OSGi is also an
+          example of a technology where integration is carried out in the Java
+          environment but the actual implementation of the services can be
+          written in other languages, such as C.</para>
+        </sect3>
+      </sect2>
+
+      <sect2>
+        <title>Decentralised Computing</title>
+
+        <para>Another trend in distributed system is to decrease the
+        dependence on centralised resources. A centralised resource is
+        typically some service of function implemented by dedicated nodes in
+        the distributed system that many of or all other nodes depend on to
+        perform their own services or functions. Examples of such services are
+        shared databases, network routing and configuration functions, and
+        name or catalogue services. Obviously, this may cause dependability
+        problems as the centralised server becomes a potential single point of
+        failure (). From some points of view, decentralisation (i.e To
+        decrease the dependence single nodes), is therefore a property to
+        strive for. However, decentralisation may also result in a (sometimes
+        perceived) loss of control that fits poorly with traditional ways of
+        thinking of, for example, security. Decentralisation can thus have a
+        rather long-reaching impact on the way distributed systems are
+        designed.</para>
+
+        <para>Taken to its extreme, decentralisation strives for distributed
+        systems where all nodes are considered equal in all respects (except
+        of course their performance and capacity), i.e., all nodes are
+        considered to peers. This is the foundation to peer-to-peer (P2P)
+        systems, which will be discussed later. In such systems,
+        decentralisation is realised by offering mechanisms to maintain a
+        global shared state that is not stored by any single node.</para>
+
+        <sect3>
+          <title>Peer-to-Peer (P2P)</title>
+
+          <para>Peer-to-peer, or P2P for short, is a technology trend that has
+          received much attention in recent years. Unfortunately, much of this
+          attention has been oriented towards questionable applications of
+          P2P, such as illegal file sharing, rather than towards its merits as
+          a technology that addresses important problems with traditional
+          distributed systems.</para>
+
+          <para>The fundamental idea behind P2P is, as is implied by its name,
+          that all participating nodes in a distributed system shall be
+          treated as peers, or equals. This is a clear deviation from the
+          client/server concept, where some nodes play a central role as
+          servers and other nodes play a role as clients. In those systems,
+          the server nodes become critical for the system function, and thus
+          need to be dependable, highly accessible, and dimensioned to handle
+          a sometimes unpredictable workload. Obviously this may make a server
+          node both a performance bottleneck and a dependability risk. P2P
+          addresses such problems.</para>
+
+          <figure float="0">
+            <title>Peer-To-Peer</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="figures/vol3fig12.svg" format="SVG"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
+
+          <para>The fundamental important property of many P2P applications is
+          that they allow storage of named objects, such as files, services,
+          or database entries, to be spread over all nodes in a system instead
+          of having to store and access them on centralised server nodes.
+          Object names can be numbers or character strings; whichever is
+          appropriate for the applications. Once stored in the system, any
+          node can access a named object just by knowing its name. This means
+          that a P2P system can have a global shared state that does not
+          depend on any centralised node.</para>
+
+          <para>While in principle avoiding a centralised solution, many early
+          P2P systems, such as the Napster file sharing system actually relied
+          on some central functions in order to implement the mapping from
+          object names to object locations. However, in later generations of
+          P2P decentralisation has been taken another step further, by the
+          introduction of overlay networks, earlier in this report mentioned
+          as a form of virtual networks.</para>
+
+          <para>With an overlay network, a distributed means of finding the
+          node that is responsible for storing an object with a given name is
+          provided. Typically the set of all possible object names, called the
+          name space, is divided into subsets such that each node becomes
+          responsible for one subset of the name space. This means that the
+          need for centralised resources is completely avoided. For a node to
+          become part of a P2P system, i.e. To join the overlay network, all
+          that is needed is knowledge of any other node already part of the
+          system. As nodes join and leave the system, the responsibility for
+          name space subsets is automatically redistributed.</para>
+
+          <para>The development of overlay network based P2P systems has been
+          driven by a striving to improve scalability, guarantees, and
+          robustness. Today, a logarithmic logical scalability can be
+          achieved, which means that to find a given node from any other node
+          in the system requires at most logk(N) node-to-node messages to be
+          sent, where k is some constant and N is the maximum number of nodes
+          in the system. Note, however, that this scalability measure does not
+          automatically translate into an exact measure of the actual time it
+          takes to send a message between two nodes as this time will depend
+          also on the distribution of nodes on the underlying physical
+          network.</para>
+
+          <para>The scalability issue has been addressed by a number of
+          proposed P2P implementation techniques developed within academic
+          research projects such as Chord [40], Pastry [41], and Tapestry
+          [42]. However, scalability has been taken yet another step further
+          by the DKS system developed at the Swedish Institute of Computer
+          Science (SICS. In DKS, the amount of administrative traffic required
+          to keep track of nodes in the overlay network is significantly
+          reduced, and dimensioning parameters of the system can be fine-tuned
+          in a very general framework (that actually treats the other
+          mentioned techniques as special cases) so as to improve the
+          practical scalability.</para>
+
+          <para>Another important aspect of P2P systems is also the guarantees
+          that can be given that any named object stored in the systems also
+          can found. Such guarantees have improved over the P2P technology
+          generations, and 100% guarantees can now be given by the DKS system
+          assuming that there are no errors such as physical communication
+          failures that make nodes unreachable. As intermittent or lasting
+          communication failures must be expected in any practical system,
+          techniques for improving the fault tolerance by means of replication
+          of data have been investigated and are now being included into the
+          general frameworks of P2P technologies.</para>
+
+          <para>However, practical applications of new P2P technologies like
+          DKS in distributed systems need to be investigated in order to
+          determine how well scalability and robustness functions in practise
+          given the impact of underlying infrastructure and application
+          properties. An example of an ongoing such project investigates the
+          properties of a DKS based implementation of central service in the
+          OpenSIS standard [49].</para>
+
+          <para>To summarise, P2P technologies have matured into a practical
+          way of organising distributed systems in a decentralised way that is
+          both highly scalable and reliable. Excellent reviews and
+          descriptions of P2P technologies can be found in [16], [19], and
+          [20].</para>
+
+          <para><emphasis role="bold">Status</emphasis>: Currently the
+          advantages of P2P technologies (pooling computing power, pooling
+          bandwidth of the participants, and elimination of the server/client
+          distinction) don't outweigh the disadvantages (legal obstacles, and
+          security vulnerabilities)</para>
+        </sect3>
+      </sect2>
+
+      <sect2>
+        <title>Service Directory Platform (SDP)</title>
+
+        <para>Service Delivery Platform (SDP) is an architecture that enables
+        the quick development, deployment and integration (convergence) of
+        broadband, video, wireless and wire-line services can cater to many
+        technologies including VoIP, IPTV, HSD (High Speed Data), Mobile
+        Telephony, Online Gaming, etc.</para>
+
+        <para>Examples of a converged architecture:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>A user can see incoming phone calls (Wire-line or Wireless),
+            IM buddies (PC) or the location of friends (GPS Enabled Device) on
+            their television screen.</para>
+          </listitem>
+
+          <listitem>
+            <para>A user can order VoD (Video on Demand) services from their
+            mobile phone or watch streaming video that they have ordered as a
+            video package for both home and mobile phone.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>SDPs in the converged services world need to be designed and
+        engineered using information and identity engineering techniques as a
+        core discipline because a is supporting online users their services. A
+        needs to be a real time multi function system that interfaces to the
+        back office systems for billing and to the network infrastructure
+        systems. From an information engineering perspective there could be
+        20-100 information items associated with a user, their devices and
+        their content and if there are 10 million users on the system, it
+        means that the needs scale up to associate with a billion pieces of
+        information used in random ways. SDPs also need to address the issues
+        of converged services management, account control, self care, and
+        entitlements as well as presence based event type services. Service
+        Delivery Platform, identity engineering and white papers on presence
+        based services can be found at *www.wwite.com.</para>
+
+        <sect3>
+          <title>Lightweight Directory Access Protocol v.3 (LDAP)</title>
+
+          <para>The following is a partial list of RFCs specifying LDAPv3
+          extensions:</para>
+
+          <table>
+            <title>Summary of LDAP Related RFCs</title>
+
+            <tgroup cols="2">
+              <colspec colname="col1" colnum="1" colwidth="15*"/>
+
+              <colspec colname="col2" colnum="2" colwidth="85*"/>
+
+              <tbody>
+                <row>
+                  <entry>RFC</entry>
+
+                  <entry>Description</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 2247</entry>
+
+                  <entry>Use of DNS domains in distinguished names</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 2307</entry>
+
+                  <entry>Using LDAP as a Network Information Service</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 2589</entry>
+
+                  <entry>LDAPv3: Dynamic Directory Services Extensions</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 2649</entry>
+
+                  <entry>LDAPv3 Operational Signatures</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 2696</entry>
+
+                  <entry>LDAP Simple Paged Result Control</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 2798</entry>
+
+                  <entry>inetOrgPerson LDAP Object Class</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 2849</entry>
+
+                  <entry>The LDAP Data Interchange Format (LDIF)</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 2891</entry>
+
+                  <entry>Server Side Sorting of Search Results</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3045</entry>
+
+                  <entry>Storing Vendor Information in the LDAP root
+                  DSE</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3062</entry>
+
+                  <entry>LDAP Password Modify Extended Operation</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3296</entry>
+
+                  <entry>Named Subordinate References in LDAP
+                  Directories</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3671</entry>
+
+                  <entry>Collective Attributes in LDAP</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3672</entry>
+
+                  <entry>Subentries in LDAP</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3673</entry>
+
+                  <entry>LDAPv3: All Operational Attributes</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3687</entry>
+
+                  <entry>LDAP Component Matching Rules</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3698</entry>
+
+                  <entry>LDAP: Additional Matching Rules</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3829</entry>
+
+                  <entry>LDAP Authorisation Identity Controls</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3866</entry>
+
+                  <entry>Language Tags and Ranges in LDAP</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3909</entry>
+
+                  <entry>LDAP Cancel Operation</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 3928</entry>
+
+                  <entry>LDAP Client Update Protocol</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4370</entry>
+
+                  <entry>LDAP Proxied Authorisation Control</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4373</entry>
+
+                  <entry>LBURP</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4403</entry>
+
+                  <entry>LDAP Schema for UDDI</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4522</entry>
+
+                  <entry>LDAP: Binary Encoding Option</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4523</entry>
+
+                  <entry>LDAP: X.509 Certificate Schema</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4524</entry>
+
+                  <entry>LDAP: COSINE Schema (replaces RFC 1274)</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4525</entry>
+
+                  <entry>LDAP: Modify-Increment Extension</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4526</entry>
+
+                  <entry>LDAP: Absolute True and False Filters</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4527</entry>
+
+                  <entry>LDAP: Read Entry Controls</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4528</entry>
+
+                  <entry>LDAP: Assertion Control</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4529</entry>
+
+                  <entry>LDAP: Requesting Attributes by Object Class</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4530</entry>
+
+                  <entry>LDAP: entryUUID</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4531</entry>
+
+                  <entry>LDAP Turn Operation</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4532</entry>
+
+                  <entry>LDAP Who am I? Operation</entry>
+                </row>
+
+                <row>
+                  <entry>RFC 4533</entry>
+
+                  <entry>LDAP Content Sync Operation</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+
+
+        </sect3>
+
+        <sect3>
+          <title>Composite Adaptive Directory Services</title>
+
+          <para>Data bases have been with the IT industry for 30 years and
+          traditional directories for the last 20 years and they will be with
+          us in the future. However, with the larger scale, converged services
+          and event driven (presence) systems now being developed world wide
+          (e.g. 3G-IMS), information, identity and presence services
+          engineering and the technologies that support it will require some
+          evolution. This could take the form of CADS (Composite Adaptive
+          Directory Services) and CADS supported Service Delivery Platforms.
+          CADS is an advanced directory service and contains functions for
+          managing identity, presence, content and adaptation algorithms for
+          self tuning and with its unique functions, greatly simplifies and
+          enhances the design of converged services SDPs. See Service Delivery
+          Platform</para>
+        </sect3>
+      </sect2>
+
+      <sect2>
+        <title>Networked Computing</title>
+
+        <para>Networked computing is a set of technologies that treats the
+        network as a computing platform, enables machine to machine
+        communication, and offer efficient new ways to help networked
+        computers organise and draw conclusions from online data.</para>
+
+        <para><emphasis role="bold">Implications</emphasis>: Reusable,
+        repurposable, and reconnectable data/services will promote the
+        convergence of Service Oriented Architecture and the Semantic
+        Web.</para>
+
+        <sect3>
+          <title>Web Services</title>
+
+          <para>Web Services are software systems that enable machine to
+          machine interaction over a network. The Web Services present
+          themselves as web based Application Programming Interfaces (API)
+          that use XML messages to communicate. No one standard defines Web
+          Services, but is comprised of four core standards:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para><emphasis role="bold">Extensible Markup Language
+              (XML)</emphasis> - A simple platform independent language used
+              to facilitate communication between different computing systems.
+              (W3C)</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Service Object Access Protocol
+              (SOAP) 1.2</emphasis> - A protocol for exchanging XML based
+              messages over networks using HTTP, HTTPS, SMTP, or XAMPP
+              protocols. (W3C)</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Web Services Description language
+              (WSDL) 2.0</emphasis> - XML document format that describes
+              interfaces and protocols need to connect to a Web Service.
+              (W3C)</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Universal Discovery, Description,
+              and Integration (UDDI)</emphasis> - XML based registry that can
+              be queried by SOAP messages, and return WSDL documents so that
+              Web Services can be found and connected to. (OASIS)</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>There are several efforts to extend the capabilities of Web
+          Services.</para>
+
+          <itemizedlist>
+            <listitem>
+              <para><emphasis role="bold">WS-Security </emphasis>- Defines how
+              to use XML Encryption and XML Signature in SOAP to secure
+              message exchanges, as an alternative or extension to using HTTPS
+              to secure the channel.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">WS-Reliability</emphasis> - An OASIS
+              standard protocol for reliable messaging between two Web
+              services.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">WS-ReliableMessaging</emphasis> - A
+              protocol for reliable messaging between two Web services, issued
+              by Microsoft, BEA and IBM it is currently being standardised by
+              the OASIS organisation</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">WS-Addressing</emphasis> - A way of
+              describing the address of the recipient (and sender) of a
+              message, inside the SOAP message itself.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">WS-Transaction</emphasis> - A way of
+              handling transactions.</para>
+            </listitem>
+          </itemizedlist>
+
+          <sect4>
+            <title>Web Service Specifications</title>
+
+              <table>
+                <title>Summary of Emerging Web Services Technologies</title>
+
+                <tgroup cols="2">
+                  <colspec colname="col1" colnum="1" colwidth="50*"/>
+                  <colspec colname="col2" colnum="2" colwidth="50*"/>
+                  <tbody>
+                    <row>
+                      <entry><emphasis role="bold">Technology</emphasis></entry>
+                      <entry><emphasis role="bold">Description</emphasis></entry>
+                    </row>
+
+                    <row>
+                      <entry>WS-BPEL</entry>
+                      <entry>Process composition</entry>
+                    </row>
+
+                    <row>
+                      <entry>WSCI</entry>
+                      <entry>Process composition</entry>
+                    </row>
+
+                    <row>
+                      <entry>WSDM</entry>
+                      <entry>Management and infrastructure</entry>
+                    </row>
+
+                    <row>
+                      <entry>JBI</entry>
+                      <entry>Process composition</entry>
+                    </row>
+
+                    <row>
+                      <entry>SCA</entry>
+                      <entry>Process composition</entry>
+                    </row>
+
+                    <row>
+                      <entry>Java-EE</entry>
+                      <entry>Management and infrastructure</entry>
+                    </row>
+
+                    <row>
+                      <entry>Java-RMI</entry>
+                      <entry>Distributed systems</entry>
+                    </row>
+
+                    <row>
+                      <entry>.NET</entry>
+                      <entry>Management and infrastructure</entry>
+                    </row>
+
+                    <row>
+                      <entry>Jini</entry>
+                      <entry>Distributed systems, Service selection,
+                      Management and infrastructure</entry>
+                    </row>
+
+                    <row>
+                      <entry>Rio</entry>
+                      <entry>Distributed systems, Service selection, Process
+                      composition, Management and infrastructure</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </table>
+
+            <sect5>
+              <title>Business Process Execution Language for Web Services
+              (WS-BPEL or BPEL4WS)</title>
+
+              <para>The Business Process Execution Language (BPEL) originally
+              proposed by Microsoft, and Siebel Systems. It is XML-based and
+              is designed as a layer on top of WSDL that allows a standardised
+              way of describing business process flows in terms of web
+              services. A BPEL process can be used either to describe an
+              executable work flow in a node (orchestration), or to describe
+              the protocol for interaction between participants in a business
+              process (choreography). <emphasis role="bold">Status</emphasis>:
+              As of January 2007, BPEL4WS is now an OASIS standard also
+              referred to as WS-BPEL version 2.0. [23].</para>
+            </sect5>
+
+            <sect5>
+              <title>Web Service Choreography Interface (WSCI)</title>
+
+              <para>Other Web service based standards for Web service
+              orchestration and choreography are , developed by Sun, , BEA,
+              and Intalio, and BPML, initiated by Intalio, Sterling Commerce,
+              Sun, and through the non-profit (Business Process Management
+              Initiative) corporation. (Web Services Choreography Interface)
+              extends WSDL (rather than being built on top of WSDL like BPEL)
+              and focuses on the collaborative behaviour of either a service
+              user or a service provider. <emphasis role="bold">Status</emphasis>: The WSCI specification is one of
+              the primary inputs into the W3C's Web Services Choreography
+              Working Group which published a Candidate Recommendation on
+              WS-DSL version 1.0 on November 2005 to replace WSCI.</para>
+            </sect5>
+
+            <sect5>
+              <title>Web Service Distributed Management (WSDM)</title>
+
+              <para>Web Services Distributed Management (WSDM) [70] is an
+              OASIS [45] standard that specifies infrastructure support for
+              the integration of web service management aspects across
+              heterogeneous systems. This is done through management specific
+              messaging via web services. It consists of main parts:</para>
+
+              <itemizedlist>
+                <listitem>
+                  <para>WSDM-MUWS. Deals with Management Using Web Services
+                  (MUWS), i.e., the fundamental capabilities required to
+                  manage a resource.</para>
+                </listitem>
+
+                <listitem>
+                  <para>WSDM-MOWS. Deals with Management of Web Services
+                  (MOWS), and builds on MUWS to specify how web services (as a
+                  kind of resource) are managed.</para>
+                </listitem>
+              </itemizedlist>
+            </sect5>
+
+            <sect5>
+              <title>Java Business Integration (JBI)</title>
+
+              <para>Java Business Integration (JBI) is a Java Specification
+              Request (JSR 208) [72] that aims to extend Java (including Java
+              EE) with an integration environment for business process
+              specifications like , BPEL4WS and those proposed by the W3C
+              Choreography Working Group [71]. It is an example of a
+              technology that implements Enterprise Service Bus (ESB)
+              concepts.</para>
+            </sect5>
+
+            <sect5>
+              <title>Java Remote Method Invocation (JRMI)</title>
+
+              <para>Java Remote Method Invocation (JRMI), is a Java specific
+              standard for access to Java objects across a distributed system
+              [39].</para>
+            </sect5>
+
+            <sect5>
+              <title>Jini</title>
+
+              <para>Jini network technology [29] [30] is an open architecture
+              that enables developers to create network-centric services that
+              are highly adaptive to change. An architecture based on the idea
+              of a federation rather than central control, Jini technology can
+              be used to build adaptive networks that are scalable, evolvable
+              and flexible as typically required in dynamic computing
+              environments. Jini technology provides a flexible infrastructure
+              for delivering services in a network and for creating
+              spontaneous interactions between clients that use these services
+              regardless of their hardware or software implementations.</para>
+
+              <para>The Jini architecture specifies a discovery mechanism used
+              by clients and services to find each other on the network and to
+              work together to get a task accomplished. Service providers
+              supply clients with portable Java technology based objects that
+              implements the service and gives the client access to the
+              service. The actual network interaction used can be of any type
+              such as Java [39], CORBA [38], or [54], because the object
+              encapsulates (hides) the communication so that the client only
+              sees the Java object provided by the service.</para>
+
+              <para>The Rio Project [31] extends the Jini technology [29] [30]
+              to provide dynamic adaptive network architecture and uses a
+              nomadic SOA approach. In a nomadic SOA services can migrate and
+              self optimise their architectural structure to respond to the
+              changing service environment.</para>
+
+              <para>A fundamental tenet of distributed systems is they must be
+              crafted with the reality that changes occur on the network.
+              Compute resources have assets diminished or fail and new ones
+              are introduced into the network. Applications executing on
+              compute resources may fail, or suffer performance degradation
+              based on diminishing compute resource capabilities and/or
+              assets. Technology used must provide distributed,
+              self-organizing, network-centric capabilities. Enables a
+              dynamic, distributed architecture capable of adapting to
+              unforeseen changes on the network.</para>
+
+              <para><emphasis role="bold">Importance</emphasis>: This
+              architecture can facilitate the construction of distributed
+              systems in the form of modular co-operating services.</para>
+
+              <para><emphasis role="bold">Implications</emphasis>: Can provide
+              a more stable, fault-tolerant, scalable, dynamic, and flexible
+              solution. Jini also provide the ability to do a better job at
+              upgrading systems, keeping everything running including old
+              clients.</para>
+
+              <para><emphasis role="bold">Status</emphasis>: Originally
+              developed and maintained by Sun Microsystems, but now that
+              responsibility is being transferred to the Apache Software
+              Foundation under the project name of River. There are many
+              initiatives that are based on the Jini technology such as
+              various grid architectures and [31].</para>
+            </sect5>
+          </sect4>
+
+          <sect4>
+            <title>Web Services Profiles</title>
+
+            <para>The Web Services Interoperability organisation (WS-I) is a
+            global industry organisation that promotes consistent and reliable
+            interoperability among Web services across platforms, applications
+            and programming languages. They are providing Profiles
+            (implementation guidelines), Sample Applications (web services
+            demonstrations), and Tools (to monitor Interoperability). The
+            forward looking WS-I is enhancing the current Basic Profile and
+            providing guidance for interoperable asynchronous and reliable
+            messaging. WS-I's profiles will be critical for making Web
+            services interoperability a practical reality.</para>
+
+            <para>The first charter, a revision to the existing WS-I Basic
+            Profile Working Group charter, resulted in the development of the
+            Basic Profile 1.2 and the future development of the Basic Profile
+            2.0. The Basic Profile 1.2 will incorporate asynchronous messaging
+            and will also consider SOAP 1.1 with Message Transmission
+            Optimisation Mechanism (MTOM) and XML-binary optimised Packaging
+            (XOP). The Basic Profile 2.0 will build on the Basic Profile 1.2
+            and will be based on SOAP 1.2 with MTOM and XOP. The second
+            charter establishes a new working group, the Reliable Secure
+            Profile Working Group, which will deliver guidance to Web services
+            architects and developers concerning reliable messaging with
+            security.</para>
+
+            <para><emphasis role="bold">Status</emphasis>: In 2006, work began
+            on Basic Profile 2.0 and the Reliable Secure Profile 1.0. In 2007
+            the Basic Profile 1.2, the Basic Security Profile 1.0 was
+            approved. More information about WS-I can be found at
+            www.ws-i.org.</para>
+          </sect4>
+
+          <sect4>
+            <title>Web Service Frameworks</title>
+
+            <para>A list of Frameworks:</para>
+
+
+              <informaltable>
+              <tgroup cols="5" title="Frameworks">
+                <tbody>
+                  <row>
+                    <entry><emphasis role="bold">Name</emphasis></entry>
+
+                    <entry><emphasis role="bold">Platform</emphasis></entry>
+
+                    <entry><emphasis role="bold">Destination</emphasis></entry>
+
+                    <entry><emphasis role="bold">Specification</emphasis></entry>
+
+                    <entry><emphasis role="bold">Protocols</emphasis></entry>
+                  </row>
+
+                  <row>
+                    <entry>Apache Axis</entry>
+
+                    <entry>Java/C++</entry>
+
+                    <entry>Client/Server</entry>
+
+                    <entry>WS-ReliableMessaging, WS-Coordination, WS-Security,
+                    WS-AtomicTransaction, WS-Addressing</entry>
+
+                    <entry>SOAP, WSDL</entry>
+                  </row>
+
+                  <row>
+                    <entry>JSON RPC Java</entry>
+
+                    <entry>Java</entry>
+
+                    <entry>Server</entry>
+
+                    <entry>-</entry>
+
+                    <entry>JSON-RPC</entry>
+                  </row>
+
+                  <row>
+                    <entry>Java Web</entry>
+
+                    <entry>Java</entry>
+
+                    <entry>Client/Server</entry>
+
+                    <entry>WS-Addressing, WS-Security</entry>
+
+                    <entry>SOAP</entry>
+                  </row>
+
+                  <row>
+                    <entry>Services Development Pack</entry>
+
+                    <entry>Java</entry>
+
+                    <entry>Client/Server</entry>
+
+                    <entry>-</entry>
+
+                    <entry>WSDL</entry>
+                  </row>
+
+                  <row>
+                    <entry>Web Services Interoperability Technology</entry>
+
+                    <entry>Java</entry>
+
+                    <entry>Client/Server</entry>
+
+                    <entry>WS-Addressing, WS-ReliableMessaging,
+                    WS-Coordination, WS-AtomicTransaction, WS-Security,
+                    WS-Security Policy, WS-Trust, WS-SecureConversation,
+                    WS-Policy, WS-MetadataExchange</entry>
+
+                    <entry>SOAP, WSDL, MTOM</entry>
+                  </row>
+
+                  <row>
+                    <entry>Web Services Invocation Framework</entry>
+
+                    <entry>Java</entry>
+
+                    <entry>Client</entry>
+
+                    <entry>-</entry>
+
+                    <entry>SOAP, WSDL</entry>
+                  </row>
+
+                  <row>
+                    <entry>Windows Communication Foundation</entry>
+
+                    <entry>.Net</entry>
+
+                    <entry>Client/Server</entry>
+
+                    <entry>WS-Addressing, WS-ReliableMessaging,
+                    WS-Security</entry>
+
+                    <entry>SOAP, WSDL</entry>
+                  </row>
+
+                  <row>
+                    <entry>XFire</entry>
+
+                    <entry>Java</entry>
+
+                    <entry>Client/Server</entry>
+
+                    <entry>WS-Addressing, WS-Security</entry>
+
+                    <entry>SOAP, WSDL</entry>
+                  </row>
+
+                  <row>
+                    <entry>XML Interface for Network Services</entry>
+
+                    <entry>Java</entry>
+
+                    <entry>Server</entry>
+
+                    <entry>-</entry>
+
+                    <entry>SOAP, WSDL</entry>
+                  </row>
+
+                  <row>
+                    <entry>gSOAP</entry>
+
+                    <entry>C/C++</entry>
+
+                    <entry>Client/Server</entry>
+
+                    <entry>WS-Addressing, WS-Discovery, WS-Enumeration,
+                    WS-Security</entry>
+
+                    <entry>SOAP, XML-RPC, WSDL</entry>
+                  </row>
+
+                  <row>
+                    <entry>NuSOAP</entry>
+
+                    <entry>PHP</entry>
+
+                    <entry>Server</entry>
+
+                    <entry>-</entry>
+
+                    <entry>SOAP, WSDL</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+
+          </sect4>
+
+          <sect4>
+            <title>Web Services Platforms</title>
+
+            <sect5>
+              <title>Java 2 Edition (J2EE)</title>
+
+              <para>Java Enterprise Edition (formerly known as Java 2
+              Platform, Enterprise Edition or J2EE up to version 1.4) [35] is
+              a specification of a platform and a code library that is part of
+              the Java Platform. It is used mainly for developing and running
+              distributed multi-tier Java applications, based largely on
+              modular software components running on a platform (application
+              server). The platform provides the application with support for
+              handling of transactions, security, scalability, concurrency and
+              management of deployed applications. Applications are easily
+              ported between different Java EE application servers.
+              Applications developed for the Java EE can easily support Web
+              Services. Java EE is often compared to Microsoft .Net [36], a
+              comparison that is beyond the scope of this document. But it
+              shall be noted that .Net is a product and framework closely
+              related to development for the Windows operating system whereas
+              Java EE is a specification that is followed by many product
+              vendors.</para>
+            </sect5>
+
+            <sect5>
+              <title>Microsoft .NET</title>
+
+              <para>Microsoft .NET framework [36] is a Microsoft product
+              closely related to application development for the Windows
+              platform [36]. The framework includes the closely related C#
+              programming language (even if it is a formal ISO standard) and
+              the Common Language Runtime (CLR), which simplified is
+              Microsoft's response to JAVA. Programs written for the NET.
+              Framework execute in which provides the appearance of an
+              application virtual machine, so that programmers need not
+              consider the capabilities of the specific CPU that will execute
+              the program. The framework also includes libraries for
+              development of web service applications.</para>
+            </sect5>
+          </sect4>
+        </sect3>
+
+        <sect3>
+          <title>Semantic Web</title>
+
+          <para>The Semantic Web initiative will make searches more accurate
+          and enable increasingly sophisticated information services like
+          intelligent agents that can find products and services, schedule
+          appointments and make purchases. The initiative includes a sort of
+          grammar and vocabulary that provide information about a document's
+          components; this information will enable Web software to act on the
+          meaning of Web content. Semantic Web software and Web services
+          promise to shift the nature of the Web from a publishing and
+          communications medium to an information management
+          environment.</para>
+
+          <para>Semantic Web software includes a special set of Extensible
+          Mark-up Language (XML) tags that includes Uniform Resource
+          Identifiers (URL), a Resource Description Framework (RDF), and a Web
+          Ontology Language (OWL).</para>
+
+          <para>Semantic Web software makes it possible for an intelligent
+          agent to carry out the request "show me the Unmanned Aerial Vehicles
+          (UAV) operating in the current area of responsibility" even if there
+          is no explicit list, because it knows that "area of responsibility"
+          has the property "location" with the value "Kandahar", and in
+          searching a directory of UAVs it knows to skip UAVs belonging to the
+          United States, whose location value is "Kabul", but include German
+          UAVs, whose location value is "Kandahar".</para>
+
+          <para>Semantic Web software organises Web information so that search
+          engines and intelligent agents can understand properties and
+          relationships. A university, for example, could be defined as an
+          institution of higher education, which is a class of objects that
+          has a set of properties like a population of students.</para>
+
+          <para>The World Wide Web Consortium released standards in February
+          2004 that define the two foundation elements of the Semantic Web
+          initiative: the Resource Description Framework (RDF), which provides
+          a structure for interpreting information, and the Web Ontology
+          Language (OWL), which provides a means for defining the properties
+          and relationships of objects in Web information.</para>
+
+          <para>Web services provide a way for software to communicate with
+          each other over the Web, enabling a form of distributed computing in
+          which simple services can be combined to carry out complicated tasks
+          like financial transactions.</para>
+
+          <para>Our most fundamental sensors are our senses themselves. They
+          are quite sophisticated, the product of a complex evolutionary
+          design. And yet we've improved on them as time has passed:
+          telescopes and microscopes extend our eyes, thermometers extend our
+          touch, and satellite dishes extend our ears. In addition, virtual
+          sensors have been used for many years to monitor our computing
+          environments. Smaller and more powerful computer processors allow
+          sensors to be small and inexpensive enough that they can be
+          everywhere. And with the advent of trillions and trillions of IPv6
+          addresses, they can all be networked.</para>
+
+          <para>Networks, human or technological, are designed to communicate
+          information from one point to others. But the value of a network is
+          entirely dependent on the information it contains. And so the
+          sensors that feed information into a network play a crucial role in
+          maximising a network's value. Simply put, the better the sensors and
+          the better the information they provide, the more valuable the
+          network becomes.</para>
+
+          <para>Advanced sensors that report directly about their physical
+          environment will enable truly revolutionary applications. Already
+          there are sensors that can detect, measure, and transmit any
+          physical quality such as temperature, pressure, colour, shape,
+          sound, motion, and chemical composition. And, as sensors are
+          becoming more sophisticated, they are also shrinking in size. Some
+          are so tiny that they are difficult to detect.</para>
+
+          <para>Emerging sensor network technologies will be autonomous,
+          intelligent, and mobile. These sensors will reconfigure themselves
+          to achieve certain tasks. These requirements will provide rigid
+          requirements for the computing, and delivery systems of the future.
+          The networks and computing systems must reorganise themselves to
+          serve the distributed agents with needs to communicate and exchange
+          decisions, actions, and knowledge to other agents in secured
+          environment.</para>
+        </sect3>
+
+        <sect3>
+          <title>Service Component Architecture</title>
+
+          <para>Service component architecture (SCA) [73] is a technology
+          development initiative driven by a group of middle-ware vendors. SCA
+          extends and complements existing standards for service
+          implementation and for web services; the goal is to simplify
+          application development and implementation of SOA.</para>
+
+          <para>SCA components operate at a business level and are decoupled
+          from the actual implementation technology and infrastructure used.
+          SCA uses Service Data Objects (SDO) [74] to represent the business
+          data that forms parameters and return value between the services.
+          SCA thus provides uniform Service access and uniform Service data
+          representation.</para>
+
+          <para><emphasis role="bold">Status</emphasis>: The current SCA
+          specifications are published in a draft version (0.9) at the
+          vendor's web sites [73].</para>
+        </sect3>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Security</title>
+
+      <para>There is an explosion of protocols and standards dealing with
+      identities. These range from identity, authentication, access control,
+      compliance, workflow, policy, storage, etc. From these protocols and
+      standards we are seeing infrastructure that is being developed to
+      support them. There is a growing trend to provide security
+      infrastructure openly so that there is interoperability and
+      collaboration in the "Security Environment". From this infrastructure
+      many applications will be written, such as signal sigon.</para>
+
+      <para><emphasis role="bold">Implication</emphasis>: For an enterprise,
+      this means a lower cost of password and account management, and lower
+      user frustration by allowing users to control of their login.</para>
+
+      <sect2>
+        <title>Authentication</title>
+
+        <sect3>
+          <title>OpenID</title>
+
+          <para>OpenID is a decentralised single sign-on system. Websites
+          using OpenID allow web users to abandon the need to remember
+          traditional authentication tokens such as user name and password.
+          Instead, they only need to be previously registered on a website
+          with an OpenID "identity provider", sometimes called an i-broker.
+          Since OpenID is decentralised, any website can employ OpenID
+          software as a way for users to sign in; OpenID solves the problem
+          without relying on any centralised website to confirm digital
+          identity.</para>
+
+          <para><emphasis role="bold">Status</emphasis>: OpenID is
+          increasingly gaining adoption among large sites, with organisations
+          like AOL acting as a provider. In addition, integrated OpenID
+          support has been made a high priority in Firefox 3 and Microsoft is
+          working on implementing OpenID 2.0 in Windows Vista. A non-profit
+          organisation,OpenID Europe, was created in 2007 to support and
+          promote the OpenID framework in Europe.</para>
+        </sect3>
+
+        <sect3>
+          <title>Bandit Project</title>
+
+          <para>The Bandit project is a worldwide open source community that
+          enables open yet secure enterprise computing through an Open
+          Identity System. Bandit's components will create an environment
+          where, the right people get the right access to the right IT systems
+          at the right time. The Bandit project is sponsored by Novell, which
+          contributes significant engineering, management and infrastructure
+          resources. Novell, in consultation with the Bandit community, sets
+          the project engineering goals and retains ultimate responsibility
+          for the project.<figure float="0">
+              <title>Bandit High Level Architecture</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="center" fileref="figures/vol3fig22.svg" format="SVG" userlevel="" width="90%"/>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+
+          <para>Bandit's current emphasis is in the following areas:
+          <itemizedlist>
+              <listitem>
+                <para>Provide simple application access to multiple identity
+                stores</para>
+              </listitem>
+
+              <listitem>
+                <para>Support multiple and pluggable authentication methods to
+                provide consistent application access</para>
+              </listitem>
+
+              <listitem>
+                <para>Provide a simple application interface to unify system
+                access based on roles</para>
+              </listitem>
+
+              <listitem>
+                <para>Allow applications to easily participate in a common
+                compliance system</para>
+              </listitem>
+            </itemizedlist></para>
+
+          <para><emphasis role="bold">Status</emphasis>:Work is being done on
+          version 2 of the Common Identity component and the Role Engine
+          component.</para>
+        </sect3>
+      </sect2>
+
+      <sect2>
+        <title>Risk Analytical Engines</title>
+
+        <para>Risk Analytical Engines are used predict risk based on models.
+        Risk assessments are done real-time.</para>
+
+        <para><emphasis role="bold">implications</emphasis>: Risk Analytical
+        Engines are used in a variety of industries such as financial, health,
+        and customer service. But it is the potential use in enterprise
+        identity management and network intrusion detection that makes it an
+        attractive technology category.</para>
+
+        <sect3>
+          <title>Predictive Model Markup Language (PMML)</title>
+
+          <para>Predictive Model Markup Language (PMML) describes predictive
+          analytical models that are conventionally used to analyse data in a
+          data warehouse. PMML provides a method for systems, or computer
+          programs to access an analytical model by providing a web services
+          abstraction of the analytical model. This allows the invocation of
+          the analytical model hosted by an analytic engine through a web
+          services interface to the analytic engine. Invocation of the
+          analytical model through the web services interface may be
+          independent of the analytic engine hosting the analytical
+          model.</para>
+        </sect3>
+      </sect2>
+    </sect1>
+  </chapter>
+
+  <chapter>
+    <title>Standards</title>
+
+    <sect1>
+      <title>NNEC Application Services</title>
+
+      <?dbmerge area="nas"?>
+
+      <para condition="ignore"/>
+    </sect1>
+
+    <sect1>
+      <title>COI Services</title>
+
+      <?dbmerge area="coi"?>
+
+      <para condition="ignore"/>
+    </sect1>
+
+    <sect1>
+      <title>NNEC Core Enterprise Services</title>
+
+      <?dbmerge area="ces"?>
+
+      <para condition="ignore"/>
+    </sect1>
+
+    <sect1>
+      <title>Networking Information Infrastructure Services</title>
+
+      <?dbmerge area="nis"?>
+
+      <para condition="ignore"/>
+    </sect1>
+  </chapter>
+
+  <appendix>
+    <title>Acronyms</title>
+
+    <para/>
+
+    <table>
+      <title>Standards organisations</title>
+      <tgroup cols="2">
+        <colspec colname="col1" colwidth="13*"/>
+        <colspec colname="col2" colwidth="87*"/>
+
+        <tbody>
+          <row>
+            <entry nameend="col2" namest="col1"><emphasis role="bold">Standards organisations</emphasis></entry>
+          </row>
+
+          <row>
+            <entry>IETF</entry>
+
+            <entry>Internet Engineering Task Force</entry>
+          </row>
+
+          <row>
+            <entry>IEEE</entry>
+
+            <entry>International Electronics and Electrical Engineering
+            Society</entry>
+          </row>
+
+          <row>
+            <entry>INCITS</entry>
+
+            <entry>International Committee for Internet Technology
+            Standards</entry>
+          </row>
+
+          <row>
+            <entry>IEC</entry>
+
+            <entry>International Electrotechnical Commission</entry>
+          </row>
+
+          <row>
+            <entry>ISO</entry>
+
+            <entry>International Standards organisation</entry>
+          </row>
+
+          <row>
+            <entry>ITU</entry>
+
+            <entry>International Telecomunications Union</entry>
+          </row>
+
+          <row>
+            <entry>OASIS</entry>
+
+            <entry>organisation for the Advancement of Structured Information
+            Standards</entry>
+          </row>
+
+          <row>
+            <entry>OMG</entry>
+
+            <entry>Object Management Group</entry>
+          </row>
+
+          <row>
+            <entry>TTA</entry>
+
+            <entry/>
+          </row>
+
+          <row>
+            <entry>W3C</entry>
+
+            <entry>World Wide Web Consortium</entry>
+          </row>
+
+          <row>
+            <entry>WS-I</entry>
+
+            <entry>Web Services Interoperability Organisation</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+
+    <table>
+      <title>Terms</title>
+
+      <tgroup cols="2">
+        <colspec colname="col1" colnum="1" colwidth="14*"/>
+
+        <colspec colname="col2" colnum="2" colwidth="86*"/>
+
+        <tbody>
+          <row>
+            <entry nameend="col2" namest="col1"><emphasis role="bold">Terms</emphasis></entry>
+          </row>
+
+          <row>
+            <entry>1xRTT</entry>
+
+            <entry>2.5G CDMA data service up to 384 kbps</entry>
+          </row>
+
+          <row>
+            <entry>AMPS</entry>
+
+            <entry>Advanced mobile phone service</entry>
+          </row>
+
+          <row>
+            <entry>CDMA</entry>
+
+            <entry>Code division multiple access</entry>
+          </row>
+
+          <row>
+            <entry>DISA</entry>
+
+            <entry>Defense Information Systems Agency [US]</entry>
+          </row>
+
+          <row>
+            <entry>ebXML</entry>
+
+            <entry>Electronic Bussiness Extensible Modelling Langauge</entry>
+          </row>
+
+          <row>
+            <entry>EDGE</entry>
+
+            <entry>Enhanced data for global evolution</entry>
+          </row>
+
+          <row>
+            <entry>FDMA</entry>
+
+            <entry>Frequency division multiple access</entry>
+          </row>
+
+          <row>
+            <entry>GPRS</entry>
+
+            <entry>General packet radio system</entry>
+          </row>
+
+          <row>
+            <entry>GSM</entry>
+
+            <entry>Global system for mobile</entry>
+          </row>
+
+          <row>
+            <entry>IEG</entry>
+
+            <entry>Information Exchange Gateway</entry>
+          </row>
+
+          <row>
+            <entry>NATO</entry>
+
+            <entry>North Atlantic Treaty organisation</entry>
+          </row>
+
+          <row>
+            <entry>NCOW</entry>
+
+            <entry>Net Centric Operations and Warfare</entry>
+          </row>
+
+          <row>
+            <entry>NGO</entry>
+
+            <entry>Non-Government organisation</entry>
+          </row>
+
+          <row>
+            <entry>NMT</entry>
+
+            <entry>Nordic mobile telephone</entry>
+          </row>
+
+          <row>
+            <entry>NNEC</entry>
+
+            <entry>NATO Network Enabled Capability</entry>
+          </row>
+
+          <row>
+            <entry>NRF</entry>
+
+            <entry>NATO Reaction Force</entry>
+          </row>
+
+          <row>
+            <entry>PDC</entry>
+
+            <entry>Personal digital cellular</entry>
+          </row>
+
+          <row>
+            <entry>PSTN</entry>
+
+            <entry>Pubic switched telephone network</entry>
+          </row>
+
+          <row>
+            <entry>RHQ AFNORTH</entry>
+
+            <entry>Regional Headquarters Allied Forces North Europe</entry>
+          </row>
+
+          <row>
+            <entry>SHAPE</entry>
+
+            <entry>Supreme Headquarters Allied Powers Europe</entry>
+          </row>
+
+          <row>
+            <entry>SOA</entry>
+
+            <entry>Service Oriented Architecture</entry>
+          </row>
+
+          <row>
+            <entry>TACS</entry>
+
+            <entry>Total access communications system</entry>
+          </row>
+
+          <row>
+            <entry>TDMA</entry>
+
+            <entry>Time division multiple access</entry>
+          </row>
+
+          <row>
+            <entry>UDDI</entry>
+
+            <entry>Universal Description and Discovery Interface</entry>
+          </row>
+
+          <row>
+            <entry>WCDMA</entry>
+
+            <entry>Wideband CDMA</entry>
+          </row>
+
+          <row>
+            <entry>XML</entry>
+
+            <entry>Extensible Modelling Langauge</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+
+</appendix>
+
+  <bibliography>
+    <title>References</title>
+
+    <biblioentry>
+      <abbrev>1</abbrev>
+
+      <title>2020 Vision: Business Transformation Through Technology
+      Innovation</title>
+
+      <copyright>
+        <year>2006</year>
+      </copyright>
+
+      <isbn>0929306392</isbn>
+
+      <publisher>
+        <publishername>Silicone Press</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>2</abbrev>
+
+      <title>Challenges of Information Technology Management in the 21st
+      Century: 2000 Information Resources Management Association International
+      Conference</title>
+
+      <copyright>
+        <year>2000</year>
+      </copyright>
+
+      <isbn>1878289845</isbn>
+
+      <publisher>
+        <publishername>Idea Group Publishing</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>3</abbrev>
+
+      <!--
+<ulink
+       url="http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=soa-rm"></ulink>
+-->
+
+      <title>Reference Model for Service Oriented Architectures</title>
+
+      <subtitle>Working Draft 11, OASIS Open, 15 December 2005</subtitle>
+
+      <author>
+        <surname>Rebekah</surname>
+      </author>
+
+      <copyright>
+        <year>2005</year>
+
+        <holder>OASIS</holder>
+      </copyright>
+
+      <publisher>
+        <publishername>OASIS</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>4</abbrev>
+
+      <!--
+<ulink
+      url="http://www.adobe.com/enterprise/pdfs/Services_Oriented_Architecture_from_Adobe.pdf"></ulink>
+-->
+
+      <title>Service Oriented Architecture White Paper</title>
+
+      <copyright>
+        <year>2005</year>
+
+        <holder>Adobe Systems Incorporated</holder>
+      </copyright>
+
+      <publisher>
+        <publishername>Adobe Systems Incorporated</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>5</abbrev>
+
+      <title>Service-Oriented Architecture Compass: Business Value, Planning
+      and Roadmap</title>
+
+      <authorgroup>
+        <author>
+          <surname>Bieberstein</surname>
+        </author>
+
+        <author>
+          <firstname>Sanjay</firstname>
+
+          <surname>Bose</surname>
+        </author>
+
+        <author>
+          <surname>Fiammante</surname>
+        </author>
+
+        <author>
+          <surname>Jones</surname>
+        </author>
+
+        <author>
+          <firstname>Rawn</firstname>
+
+          <surname>Shah</surname>
+        </author>
+      </authorgroup>
+
+      <copyright>
+        <year>2006</year>
+      </copyright>
+
+      <isbn>0-13-187002-5</isbn>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>6</abbrev>
+
+      <title>SOA Service Oriented Architecture Best Practices</title>
+
+      <authorgroup>
+        <author>
+          <firstname>Dirk</firstname>
+
+          <surname>Krafzig</surname>
+        </author>
+
+        <author>
+          <firstname>Karl</firstname>
+
+          <surname>Banke</surname>
+        </author>
+
+        <author>
+          <firstname>Dirk</firstname>
+
+          <surname>Slama</surname>
+        </author>
+      </authorgroup>
+
+      <copyright>
+        <year>2004</year>
+
+        <holder>Prentice Hall</holder>
+      </copyright>
+
+      <isbn>0-13-146575-9</isbn>
+
+      <publisher>
+        <publishername>Prentice Hall</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>7</abbrev>
+
+      <!--
+<ulink
+      url="http://www.mip-site.org/publicsite/Baseline_2.0/MTIR-MIP_Tactical_C2IS_Interoperability_Requirements/MTIR 2.2 including annexes A to G version Sep 24 2004.pdf">MIP
+      Tactical C2IS Interoperability Requirements (MTIR)</ulink>
+
+-->
+
+      <title>Multi-lateral Interoperability Programme Working Group,, Version
+      2.2, 27 September 2003</title>
+
+      <copyright>
+        <year>2003</year>
+      </copyright>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>8</abbrev>
+
+      <title>TACOMS Post 2000, Final Study Report, WP13202, Technology
+      Independent Network Architecture Concept Study,
+      TACOMS/WP13202/RD/TACONE/813</title>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>9</abbrev>
+
+      <title>NATO RESPONSE FORCE - NATO's Expeditionary Capability, Background
+      Briefing</title>
+
+      <copyright>
+        <year>2002</year>
+      </copyright>
+
+      <publisher>
+        <publishername>Colorado Springs Defense Ministers
+        Meeting</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>10</abbrev>
+
+      <title>NATO Network Enabled Capabilities Feasibility Study, Version 1.0,
+      30 June 2005.</title>
+
+      <copyright>
+        <year>2005</year>
+
+        <holder>NATO C3 Agency</holder>
+      </copyright>
+
+      <publisher>
+        <publishername>NATO C3 Agency</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>11</abbrev>
+
+      <title>DoD Architecture Framework Working Group, DoD Architecture
+      Framework Deskbook, Version 1.0, 9 February 2004</title>
+
+      <copyright>
+        <year>2004</year>
+      </copyright>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>12</abbrev>
+
+      <title>Defense, C4ISR Framework Compliant Information, Technology
+      Architectures, White Paper</title>
+
+      <author>
+        <firstname>Jeffery</firstname>
+
+        <surname>Coffin</surname>
+      </author>
+
+      <copyright>
+        <year>2001</year>
+      </copyright>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>13</abbrev>
+
+      <title>Using Architectures for Interoperability Assessments,
+      Briefing</title>
+
+      <publisher>
+        <publishername>Office of Assistant Secretary of the
+        Navy</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>14</abbrev>
+
+      <title>Systems Architecture Framework (NAF), 7 October 2003</title>
+
+      <copyright>
+        <year>2003</year>
+      </copyright>
+
+      <publisher>
+        <publishername>NATO C3 Agency</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>15</abbrev>
+
+      <!--
+<ulink
+      url="http://www.extremetech.com/article2/0,1558,2023640,00.asp?kc=ETRSS02129TX1K0000532"></ulink>
+-->
+
+      <title>WiBree Standard To Challenge Bluetooth</title>
+
+      <subtitle>http://www.extremetech.com/article2/0,1558,2023640,00.asp?kc=ETRSS02129TX1K0000532</subtitle>
+
+      <publisher>
+        <publishername>Rueters and eWEEk</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>16</abbrev>
+
+      <title>Internet distributed computing, web services, peer-to-peer, grid
+      computing, ad hoc networks</title>
+
+      <subtitle>IEEE Computer, Vol 36, Number 5, May 2003</subtitle>
+
+      <copyright>
+        <year>2003</year>
+      </copyright>
+
+      <publisher>
+        <publishername>IEEE Computer Society Publications</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>17</abbrev>
+
+      <title>Web Services, Business Process Modelling.</title>
+
+      <subtitle>IEEE Computer,Vol 36 number 10, October 2003</subtitle>
+
+      <copyright>
+        <year>2003</year>
+      </copyright>
+
+      <publisher>
+        <publishername>IEEE Computer Society Publications</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>18</abbrev>
+
+      <title>Virtualization and Grid Computing.</title>
+
+      <subtitle>IEEE Computer, Vol 38 number 4, April 2005</subtitle>
+
+      <copyright>
+        <year>2005</year>
+      </copyright>
+
+      <publisher>
+        <publishername>IEEE Computer Society Publications</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>19</abbrev>
+
+      <title>Theme Issue On Peer-to-Peer Computing</title>
+
+      <subtitle>Communications of the ACM, Vol 46 number 2, February
+      2003</subtitle>
+
+      <copyright>
+        <year>2003</year>
+      </copyright>
+
+      <publisher>
+        <publishername>ACM Publications Office</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>20</abbrev>
+
+      <title>Discusses Peer-to-Peer Computing</title>
+
+      <subtitle>Communications of the ACM, Vol 46 number 9, September
+      2003</subtitle>
+
+      <copyright>
+        <year>2003</year>
+      </copyright>
+
+      <publisher>
+        <publishername>ACM Publications Office</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>21</abbrev>
+
+      <title>An introduction to virtualisation,
+      http://www.kernelthread.com/publications/virtualization</title>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>22</abbrev>
+
+      <title>Business process modelling initiative, now merged with business
+      processing management initiative. http://www.bpmi.org.</title>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>23</abbrev>
+
+      <title>OASIS BPEL working group,
+      http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel</title>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>24</abbrev>
+
+      <title>ebXML, http://www.ebxml.org</title>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>25</abbrev>
+
+      <title>The OSGi Standard Forum</title>
+
+      <subtitle>http://www.osgi.org</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>26</abbrev>
+
+      <title>Ad Hoc Networks: New Life For An Old Concept</title>
+
+      <subtitle>http://www.eurescom.de/message/messageMar2005/Ad_hoc_networks_New_life_for_an_old_concept.asp</subtitle>
+
+      <copyright>
+        <year>2005</year>
+      </copyright>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>27</abbrev>
+
+      <title>OWL Web Ontology Language Overview.</title>
+
+      <subtitle>http://www.w3.org/TR/owl-features</subtitle>
+
+      <publisher>
+        <publishername>W3C</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>28</abbrev>
+
+      <title>Semantic Web Overview</title>
+
+      <subtitle>http://www.w3.org/2001/sw/Activity</subtitle>
+
+      <publisher>
+        <publishername>W3C</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>29</abbrev>
+
+      <title>Sun's Jini Description</title>
+
+      <subtitle>http://java.sun.com/developer/products/jini/index.jsp</subtitle>
+
+      <publisher>
+        <publishername>Sun Microsystems</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>30</abbrev>
+
+      <title>Jini Community resource</title>
+
+      <subtitle>http://www.jini.org/</subtitle>
+
+      <publisher>
+        <publishername>Apache Projects</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>31</abbrev>
+
+      <title>Jini Project</title>
+
+      <subtitle>http://rio.jini.org/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>32</abbrev>
+
+      <title>WSMO Working Group Homepage</title>
+
+      <subtitle>http://www.wsmo.org/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>33</abbrev>
+
+      <title>Towards Intelligent Web Services: Web Service Modelling Ontology
+      (WSMO)</title>
+
+      <subtitle>Conference Paper on WSMO, Proceedings of the Conference on
+      Intelligent Computing (ICIC),August 23-26, 2005</subtitle>
+
+      <authorgroup>
+        <author>
+          <firstname/>
+
+          <surname>Feier</surname>
+        </author>
+
+        <author>
+          <firstname>Dieter</firstname>
+
+          <surname>Fensel</surname>
+        </author>
+      </authorgroup>
+
+      <copyright>
+        <year>2005</year>
+      </copyright>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>34</abbrev>
+
+      <title>Web Services Homepage (DAML-S, OWL-S)</title>
+
+      <subtitle>http://www.daml.org/services/owl-s/</subtitle>
+
+      <publisher>
+        <publishername>Defense Advance Research Projects Agency
+        (DARPA)</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>35</abbrev>
+
+      <title>Java EE</title>
+
+      <subtitle>http://java.sun.com/javaee/index.jsp</subtitle>
+
+      <publisher>
+        <publishername>Sun Microsystems</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>36</abbrev>
+
+      <title>Microsoft .NET Developer Homepage</title>
+
+      <subtitle>http://msdn.microsoft.com/netframework/</subtitle>
+
+      <publisher>
+        <publishername>Microsoft Inc.</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>37</abbrev>
+
+      <title>SDL Forum</title>
+
+      <subtitle>http://www.sdl-forum.org/</subtitle>
+
+      <publisher>
+        <publishername>SDL Forum Society</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>38</abbrev>
+
+      <title>Homepage (CORBA, IDL)</title>
+
+      <subtitle>http://www.omg.org/</subtitle>
+
+      <publisher>
+        <publishername>The Object Management Group (OMG)</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>39</abbrev>
+
+      <title>Java</title>
+
+      <subtitle>http://java.sun.com/products/jdk/rmi</subtitle>
+
+      <publisher>
+        <publishername>Sun Microsystems</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>40</abbrev>
+
+      <title>Chord</title>
+
+      <subtitle>http://pdos.csail.mit.edu/chord</subtitle>
+
+      <publisher>
+        <publishername>MIT</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>41</abbrev>
+
+      <title>Pastry</title>
+
+      <subtitle>http://research.microsoft.com/~antr/pastry</subtitle>
+
+      <publisher>
+        <publishername>Microsoft Inc.</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>42</abbrev>
+
+      <title>Tapestry</title>
+
+      <subtitle>http://oceanstore.cs.berkeley.edu/tapestry</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>43</abbrev>
+
+      <title>DKS</title>
+
+      <subtitle>http://dks.sics.se</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>44</abbrev>
+
+      <title>Grid Enabled Scalable Self-Organizing Services (GES3): A
+      Vinnova-funded project between SICS and KTH</title>
+
+      <subtitle>http://www.sics.se/dsl/ges3</subtitle>
+
+      <publisher>
+        <publishername>Sweedish Royal Institute of Technonlogy</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>45</abbrev>
+
+      <title>OASIS, http://www.oasis-open.org</title>
+
+      <publisher>
+        <publishername>organisation for the Advancement of Structured
+        Information Standards (OASIS)</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>46</abbrev>
+
+      <title>Reference Rodel for Service Oriented Architecture SOA-RM,
+      Comittee draft 1.0, 7 February 2006</title>
+
+      <subtitle>http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=soa-rm</subtitle>
+
+      <copyright>
+        <year>2006</year>
+      </copyright>
+
+      <publisher>
+        <publishername>organisation for the Advancement of Structured
+        Information Standards (OASIS)</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>47</abbrev>
+
+      <title>OASIS WSRF technical committee</title>
+
+      <subtitle>http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsrf</subtitle>
+
+      <publisher>
+        <publishername>organisation for the Advancement of Structured
+        Information Standards (OASIS)</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>48</abbrev>
+
+      <title>FMA Technology Support Study, June 2005</title>
+
+      <copyright>
+        <year>2005</year>
+      </copyright>
+
+      <publisher>
+        <publishername>The Swedish Defence Material
+        Administration(FMV)</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>49</abbrev>
+
+      <title>OpenSIS</title>
+
+      <subtitle>http://www.opensis.org</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>50</abbrev>
+
+      <title>Globus Alliance</title>
+
+      <subtitle>http://www.globus.org</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>51</abbrev>
+
+      <title>Globus Toolkit</title>
+
+      <subtitle>http://www.globus.org/toolkit</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>52</abbrev>
+
+      <title>Global Grid Forum</title>
+
+      <subtitle>http://www.ggf.org</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>53</abbrev>
+
+      <title>OGSA</title>
+
+      <subtitle>http://forge.gridforum.org/projects/ogsa-wg</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>54</abbrev>
+
+      <title>SOAP Version 1.2 Part 0: Primer</title>
+
+      <subtitle>http://www.w3.org/TR/2003/REC-soap12-part0-20030624/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>55</abbrev>
+
+      <title>Component Object Model Technologies</title>
+
+      <subtitle>http://www.microsoft.com/com/default.mspx</subtitle>
+
+      <publisher>
+        <publishername>Microsoft</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>56</abbrev>
+
+      <title>Web Services Description Working Group</title>
+
+      <subtitle>http://www.w3.org/2002/ws/desc/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>57</abbrev>
+
+      <title>Web Services Description Language 1.1</title>
+
+      <subtitle>http://www.w3.org/TR/wsdl</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>58</abbrev>
+
+      <title>UDDI</title>
+
+      <subtitle>http://www.uddi.org/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>59</abbrev>
+
+      <title>RDF</title>
+
+      <subtitle>http://www.w3.org/RDF/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>60</abbrev>
+
+      <title>RSS 0.9</title>
+
+      <subtitle>http://www.tragicdoughnuts.com/rss/0.9.html</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>61</abbrev>
+
+      <title>RSS 0.91</title>
+
+      <subtitle>http://my.netscape.com/publish/formats/rss-spec-0.91.html</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>62</abbrev>
+
+      <title>RSS 1.0</title>
+
+      <subtitle>http://web.resource.org/rss/1.0/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>63</abbrev>
+
+      <title>RSS 1.1</title>
+
+      <subtitle>http://inamidst.com/rss1.1/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>64</abbrev>
+
+      <title>RSS 2.0</title>
+
+      <subtitle>http://inamidst.com/rss1.1/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>65</abbrev>
+
+      <title>Atom, RFC 4287</title>
+
+      <subtitle>http://tools.ietf.org/html/4287</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>66</abbrev>
+
+      <title>DAML+</title>
+
+      <subtitle>http://www.daml.org/2001/03/daml+oil-index</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>67</abbrev>
+
+      <title>WSMF</title>
+
+      <subtitle>http://www.wsmo.org/papers/publications/wsmf.paper.pdf</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>68</abbrev>
+
+      <title>WSMX Working group</title>
+
+      <subtitle>http://www.wsmo.org/wsmx/index.html</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>69</abbrev>
+
+      <title>WSML Working group</title>
+
+      <subtitle>http://www.wsmo.org/wsml/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>70</abbrev>
+
+      <title>OASIS WSDM technical committee</title>
+
+      <subtitle>http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsdm</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>71</abbrev>
+
+      <title>W3C Choreography Working Group</title>
+
+      <subtitle>http://www.w3.org/2002/ws/chor</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>72</abbrev>
+
+      <title>Java Specification Request (JSR 208)</title>
+
+      <subtitle>http://www.jcp.org/en/jsr/detail?id=208</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>73</abbrev>
+
+      <title>Service Component Architecture (SCA)</title>
+
+      <subtitle>http://www-128.ibm.com/developerworks/library/specification/ws-sca/</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>74</abbrev>
+
+      <!--
+<ulink
+      url="http://dev2dev.bea.com/pub/a/2005/11/sdo.html"></ulink>
+-->
+
+      <title>Service Data Objects (SDO)</title>
+
+      <subtitle>http://dev2dev.bea.com/pub/a/2005/11/sdo.html</subtitle>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>75</abbrev>
+
+      <title>Evolution of a Software-Defined Radio Receiver's RF Front-End, RF
+      IC Symp., paper RMO1A-5, June 2006.</title>
+
+      <copyright>
+        <year>2006</year>
+      </copyright>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>76</abbrev>
+
+      <title>The Software Radio Architecture, Mag., vol. 33, no. 5, May 1995,
+      pp. 2638.</title>
+
+      <pagenums>26-38</pagenums>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>77</abbrev>
+
+      <title>Beyond Technical Interoperability; Introducing a Reference Model
+      for Measures of Merit for Coalition Interoperability, June 17-19,
+      2003</title>
+
+      <authorgroup>
+        <author>
+          <firstname>Tolk</firstname>
+
+          <surname>Andreas</surname>
+        </author>
+      </authorgroup>
+
+      <copyright>
+        <year>2003</year>
+
+        <holder>Command and Control Research Program (CCRP)</holder>
+      </copyright>
+
+      <publisher>
+        <publishername>8th International Command and Control Research and
+        Technology Symposium (ICCRTS)</publishername>
+      </publisher>
+    </biblioentry>
+
+    <biblioentry>
+      <abbrev>78</abbrev>
+
+      <title>The Global Technology Revolution 2020, In-Depth Analyses</title>
+
+      <authorgroup>
+        <corpauthor>Richard Silberglitt, Philip S. AntÃ³n, David R. Howell,
+        Anny Wong</corpauthor>
+      </authorgroup>
+
+      <copyright>
+        <year>2006 RAND Corporation</year>
+      </copyright>
+
+      <isbn>0-8330-3975-X</isbn>
+
+      <publisher>
+        <publishername>RAND Corporation</publishername>
+      </publisher>
+    </biblioentry>
+  </bibliography>
+</book>

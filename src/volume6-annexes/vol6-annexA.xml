@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*****************************************************************
+                   Vol 6 -   A N N E X - A
+*****************************************************************  
+-->
+
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd" [
+<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+]>
+
+<appendix id="v6a-a">
+    <title>Services and Interoperability Points in Platform Oriented and SOA Environments</title>
+
+    <sect1 id="v1a-s1"><title>Background</title>
+
+      <para>To paraphrase William Shakespeare <footnote><para>"O! be some other name: What's in a name? that which we call a rose By any other name would smell as sweet"</para></footnote> "What's in a name? That which we call a service by any other name would mean the same".  The problem is that the meaning of service does not always mean the same thing; it is dependent upon the context in which it is used.  A messaging service in a client/server or platform oriented environment is not the same as a messaging service in a SOA environment.  Many use this confusion to indicate that they are providing a service in a SOA environment, when in fact the service is actually provided in a platform oriented environment.</para>
+
+	<para>The NNEC FS introduced the terms Service Interoperability Point (SIOP) and Service Interface Point (SIP). </para>
+	<itemizedlist>
+		<listitem><para>SIOP: A reference point within an architecture where one or more service interfaces are physically or logically instantiated to allow systems delivering the same service using different protocols to interoperate</para></listitem>
+		<listitem><para>SIP: A set of attributes [technical specification] that specifies the characteristics of a service interface between interoperable systems in the NII</para></listitem>
+	</itemizedlist>
+
+	<para>TACOMS Post 2000 describes an Interoperability Point (IOP) which is the point where nations agree to use STANAGs to interconnect their national systems to achieve interoperability of services.  Similarly, The Information Exchange Gateway (IEG) concept describes an Interoperability Point where NATO and Nations interconnect their respective systems.</para>
+
+	<para>The NISP contains Profiles which contain a set of standards to be used to exchange services and may imply profiles for platform centric or SOA environments.</para>
+
+	<para>All these efforts describe service interoperability without going into the detail of the services being platform centric or SOA. This annex to the NISP Volume 1 will clarify the meaning of services in platform oriented an SOA environments, and their respective interoperability points.</para>
+
+	<para>The following diagram (<xref linkend="v1a1-gipsi" />) depicts generic interface points and service interoperability that is applicable for both platform centric and SOA environments.  Details of platform centric and SOA services are described in the following sections.</para>
+	
+    <figure id="v1a1-gipsi">
+      <title>Generic Interoperability Point and Service Interoperability</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/v1a1-gipsi.svg" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    </sect1>
+
+    <sect1 id="v1a-s2">
+	<title>Platform Oriented Environment</title>
+		<para>Volume 1, <xref linkend="v6c-refmod" /> of the NISP describes the NATO Technical Reference Model (NTRM) and NATO Common Operating Environment (NCOE) Component Model (NCM).  These models can be used in describing services in a platform oriented environment.</para>
+	<sect2 id="v1a-s3">
+		<title>NTRM</title>
+			<para>As stated in Volume 1, Annex E of the NISP, the NTRM focuses on separating data from applications and applications from the computing platform.  The NTRM provides the definitions necessary for designing and defining architectures and related service components. It also identifies service areas (i.e., capabilities that have been grouped together by functions - see <xref linkend="v1a1-ntrm" />), as well as their interfaces.</para>
+	
+    <figure id="v1a1-ntrm">
+      <title>NTRM Service View</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/v1-nato-trm.svg" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+	<para>The Application Platform Entity is structured in the following 12 Application Platform
+Service Areas:</para>	
+
+	<itemizedlist>
+		<listitem><para><emphasis role="bold">User Interface Services.</emphasis> These services define how users may interact with an application. The term user interface in this context means a graphical user interface (GUI). Standards are not only required for setting up and managing graphical windows, but also for the toolkit and generic 'look and feel'.</para></listitem>
+		<listitem><para><emphasis role="bold">Data Management Services.</emphasis> The management of data is central to most systems. To improve interoperability, data should be defined independently from the processes that create or use it, and should be maintained and shared among many processes.</para></listitem>
+		<listitem><para><emphasis role="bold">Data Interchange Services.</emphasis> These services provide support for the interchange of data between applications. They are designed to handle data interchange between applications on the same or on heterogeneous platforms.</para></listitem>
+		<listitem><para><emphasis role="bold">Graphics Services.</emphasis> These services provide functions required for creating and manipulating graphics.</para></listitem>
+		<listitem><para><emphasis role="bold">Communication Services.</emphasis> These services provide distributed applications support for data access and applications interoperability in heterogeneous or homogeneous networked environments.</para></listitem>
+		<listitem><para><emphasis role="bold">Operating System Services.</emphasis> These services are the core services needed to operate and administer the application platform and provide an interface between applications software and platform. Application programmers will use operating system services to obtain operating system functionality.</para></listitem>
+		<listitem><para><emphasis role="bold">Internationalization Services.</emphasis> Within the context of the NTRM, internationalization provides a set of services and interfaces that allow a user to define, select, and switch between different culturally related application environments supported by the particular implementation. Character sets and data representation services include the capability to input, store, manipulate, retrieve, communicate, and present data independently of the coding scheme used. This includes the capability to maintain and access a central character set repository of all coded character sets used throughout the platform.</para></listitem>
+		<listitem><para><emphasis role="bold">System Management Services.</emphasis> Information systems are composed of a wide variety of diverse resources that must be managed effectively to achieve the goals of an open system environment. While the individual resources (such as printers, software, users, processors) may differ widely, the abstraction of these resources as managed objects allows for their treatment in a uniform manner.</para></listitem>
+		<listitem><para><emphasis role="bold">Security Services.</emphasis> Different groups of individuals within and across the various NATO applications need to work with specific sets of data elements. Access to these sets of data elements is to be restricted to authorized users. Satisfaction of this requirement has traditionally been accomplished by the implementation of separate information systems. Organizations cannot continue to afford to implement separate information systems to satisfy this requirement, nor is it effective to require the user to change interface components every time the need arises to operate with a different restricted data set. Significant benefit will accrue when an individual information system can effectively support the needs of different groups of users and data sets.</para></listitem>
+		<listitem><para><emphasis role="bold">Distributed Computing Services.</emphasis> These services provide specialized support for applications that may be physically or logically dispersed among computer systems in a network, but yet wish to maintain a co-operative processing environment. The classical definition of a computer becomes blurred as the processes that contribute to information processing become distributed across a facility or a network. As with other cross-cutting services, the requisite components of distributed computing services typically exist within particular service areas.</para></listitem>
+		<listitem><para><emphasis role="bold">Software Engineering Services.</emphasis> The procedural aspect of an application is embodied in the programming languages used to code it. Additionally, professional system developers require methods and tools appropriate to the development and maintenance of applications.</para></listitem>
+		<listitem><para><emphasis role="bold">Common C2 Applications Services.</emphasis> These services provide the ability to view data (i.e., share) in a common way across the network. Common C2 Applications Services promote interoperability among diverse functional mission area domains and may be executed between both individual and multiple functional application domain areas.</para></listitem>
+	</itemizedlist>
+
+	<para>In the NC3TA each of these service areas was further defined into one or more functional
+classes, with each class mapped to one or more standards.  For example, communication services has a class called messaging with Simple Mail Transfer Protocol (SMTP) being one of the protocols used to support the communication service.</para>
+	</sect2>
+	<sect2 id="v1a-s4">
+		<title>NCM</title>
+			
+	<para>The NTRM provides the structural basis for defining the NCOE (NATO Common Operating Environment) Component Model (NCM).  The NCOE provides the set of building blocks and guidance necessary for effective maintenance of open system design, development, implementation and integration.  The NCM is shown below in <xref linkend="v1a1-ncoe" />.</para>
+	
+    <figure id="v1a1-ncoe">
+      <title>NCOE Component Model</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/v1-ncoe-cm.svg" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+	<para>The principal components of the NCM include:</para>
+
+	<itemizedlist>
+		<listitem><para><emphasis role="bold">Network Services.</emphasis> The NCOE Network Services constitute the basic interface between the platform and the underlying networking infrastructure and include the Internet sub-layer services.</para></listitem>
+		<listitem><para><emphasis role="bold">Kernel Services.</emphasis> The Kernel Services are that subset of the NCOE component segments, which are required for all compliant platforms. At a minimum, this sub-set would consist of the operating system, windowing software, security services, segment installation software and an executive manager.</para></listitem>
+		<listitem><para><emphasis role="bold">Infrastructure Services.</emphasis> Infrastructure services are those services that directly support the flow of information across NATO systems. Infrastructure services provide a set of integrated capabilities that the applications will access to invoke NCOE services.</para></listitem>
+		<listitem><para><emphasis role="bold">Common Support Application Services.</emphasis> Common Support Application Services provide services to process and view data in a common way (share data) across the network. The NCOE common support application services promote interoperability among various Mission Applications.</para></listitem>
+		<listitem><para><emphasis role="bold">Application Programming Interfaces.</emphasis> Applications are integrated into the NCOE through a common set of Application Programming Interfaces (APIs). The APIs are invoked by the applications and services as required.</para></listitem>
+		<listitem><para><emphasis role="bold">Data Component Definition.</emphasis> The data component refers to the way in which data is taken into account in the NCOE and is related to the main components of the NCOE (Common Support Application Services, Infrastructure Services, Kernel Services) and even, out of NCOE components, in the strictest sense, to Mission Applications.</para></listitem>
+		<listitem><para><emphasis role="bold">Support Services.</emphasis> The NCOE Support Services include Methods and Tools, Information Repository, Training Services, System Management and Security.</para></listitem>
+	</itemizedlist>
+	</sect2>
+	<sect2 id="v1a-s5">
+		<title>OSI Protocol Stack and Services</title>
+		<para>The OSI protocol stack (as well as the Internet stack) is based on the concept of layering as depicted below (<xref linkend="v1a1-slayer" />):</para>
+	
+    <figure id="v1a1-slayer">
+      <title>Service Layering</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/v1a1-slayer.svg" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+	<para>A key aspect of the layer principle is layer independence.  The service user is not concerned with the specifics of the protocol used by the service provider to provide the service.  The user of the N Layer service uses defined service primitives to use the services provided by the N Layer.  The N Layer uses the N Layer protocol and services provided by the N-1 Layer to provide the N Layer services.  The N Layer protocol definition describes the rules which each N Layer service peer uses when communicating with its other service peers.  As long as there are no changes to the service interface, the service user at that layer is completely unaffected by changes in the underlying layers or by the protocol used within the layer.  Protocol layering is key to the development the profiles contained in the NISP.</para>	
+	</sect2>
+    </sect1>
+    <sect1 id="v1a1-soa">
+	<title>SOA Environment</title>
+	<para>Volume 1 Annex E of the NISP also describes SOA<footnote><para>OASIS Reference Model for Service Oriented Architectures</para></footnote>.  Following are some of the SOA highlights describes in Volume 1:</para>
+	<itemizedlist>
+		<listitem><para>Service Oriented Architecture (SOA) is a paradigm for organizing and using distributed capabilities that may be under the control of different ownership domains.</para></listitem>
+		<listitem><para>Visibility, interaction, and effect are key concepts for describing the SOA paradigm.</para></listitem>
+		<listitem><para>For a service provider and consumer to interact with each other they have to be able to 'see' each other.   Visibility needs to be emphasized because it is not necessarily obvious how service participants can see each other to interact.</para></listitem>
+		<listitem><para>The service interface is the means for interacting with a service. It includes the specific protocols, commands, and information exchange by which actions are initiated that result in the real world effects as specified through the service functionality portion of the service description.</para></listitem>
+		<listitem><para>SOA is commonly implemented using Web services, but services can be made visible, support interaction, and generate effects through other implementations.</para></listitem>
+	</itemizedlist>
+	<para>The SOA concepts are best depicted in <xref linkend="v1a1-soafig" />.</para>
+	
+    <figure id="v1a1-soafig">
+      <title>Conceptual Roles and Operations of a SOA</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/v1a1-soafig.svg" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+	<itemizedlist>
+	<listitem><para>Service: The means by which the needs of a consumer are brought together with the capabilities of a provider.</para></listitem>
+	<listitem><para>Service Description: The information needed in order to use, or consider using, a service.</para></listitem>
+	<listitem><para>Service Provider: Makes the service available and publishes the contract that describes the interface to the service and registers the service with a service broker</para></listitem>
+	<listitem><para>Service Consumer: Queries the service broker and finds the desired service.</para></listitem>
+	<listitem><para>Service Broker: Gives the service consumer directions on where to find the service and its service contract.</para></listitem>
+	</itemizedlist>
+    </sect1>
+    <sect1 id="v1a1-siop">
+	<title>Service and Interoperability Points</title>
+	<para>This section deals with service and interoperability points connecting domains under separate management and control, such as National or NATO Systems. In a platform oriented environment two parties agree "a priori" on the services and standards at static interoperability points.  In A SOA environment provider parties advertise a service with a public interface which may be discovered by a consumer requiring the use of that service.</para>
+	<sect2 id="v1a1-pcsip">
+	<title>Platform Centric Service and Interoperability Points</title>
+	<para>A typical example of a service and interoperability point implementation in a platform centric environment is the Information Exchange Gateway (IEG) shown in <xref linkend="v1a1-ieg" /><footnote><para>AC/322-D(2005)0054</para></footnote>.</para>
+	
+    <figure id="v1a1-ieg">
+      <title>NATO IEG Concept</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/v1a1-ieg.svg" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+	<para>The IEG Concept is designed to satisfy information requirements by providing information exchange capability between different CIS communities, while protecting the same CIS communities.  The IEG Concept provides:</para>
+	<itemizedlist>
+	<listitem><para>Information Exchange Services (IES) for the exchange of information between NATO and other CIS communities, and</para></listitem>
+	<listitem><para>Boundary Protection Services/Boundary Protection Component  (BPS/BPC) to protect NATO and national CIS communities by implementing the stated security principles like self protecting node principle and  defence in depth to support the security objectives of confidentiality , integrity and availability.</para></listitem>
+	</itemizedlist>
+	<para>The Interoperability Point depicted in <xref linkend="v1a1-ieg" /> may be considered both a SIOP and a SIP.  The services at this interface point are taken form the services described in the NTRM.  Example services are messaging and document exchange.  These services are initial services supported by the IEG.  Interoperability for these services is obtained by using the mandatory protocols (e.g. SMTP) and profiles contained in Volume 2 (the NISP profiles can be considered equivalent to SIPs).</para>
+	<para>The communications SIOPs and SIPs (e.g. tactical data links, IP) described in the NNEC FS are compliance with the NTRM.</para>
+	</sect2>
+	<sect2 id="v1a1-soasip">
+	<title>SOA Service and Interoperability</title>
+	<sect3 id="v1a1-soachar">
+		<title>SOA Characteristics</title>
+	<para>One of the highlights of a SOA is the degree of documentation and description associated with it.  The use of a service without the service consumer needing to know the details of the service implementation, the service description makes available critical information that a consumer needs in order to decide whether or not to use a service. In particular, a service consumer must possess the following items of information:</para>
+	<itemizedlist>
+	<listitem><para>That the service exists and is reachable;</para></listitem>
+	<listitem><para>That the service performs a certain function or set of functions;</para></listitem>
+	<listitem><para>That the service operates under a specified set of constraints and policies;</para></listitem>
+	<listitem><para>That the service will (to some implicit or explicit extent) comply with policies as prescribed by the service consumer;</para></listitem>
+	<listitem><para>How to interact with the service in order to achieve the required objectives, including the format and content of information exchanged between the service and the consumer and the sequences of information exchange that may be expected.</para></listitem>
+	</itemizedlist>
+	<para>The service description is part of the service contract depicted in <xref linkend="v1a1-soafig" />. A service contract needs to have the following components<footnote><para>Wikipedia</para></footnote>:</para>
+	<itemizedlist>
+	<listitem><para>Header</para>
+		<itemizedlist>
+			<listitem><para>Name - The service name. Should indicate in general terms what it does, but not be the only definition</para></listitem>
+			<listitem><para>Version - The version of this service contract</para></listitem>
+			<listitem><para>Owner - The person/team in charge of the service</para></listitem>
+			<listitem><para>RACI</para>
+				<itemizedlist>
+					<listitem><para>Responsible - The role is the person/team responsible for the deliverables of this contract/service.</para></listitem>
+					<listitem><para>Accountable - Ultimate Decision Maker in terms of this contract/service.</para></listitem>
+					<listitem><para>Consulted - Who must be consulted before action is taken on this contract/service. This is 2-way communication. These people have an impact on the decision and/or the execution of that decision.</para></listitem>
+					<listitem><para>Informed - Who must be informed that a decision or action is being taken. This is a 1-way communication. These people are impacted by the decision or execution of that decision, but have no control over the action.</para></listitem>
+				</itemizedlist>
+			</listitem>
+			<listitem><para>Type - This is the type of service to help distinguish the layer it resides.</para>					<itemizedlist>
+					<listitem><para>Data</para></listitem>
+					<listitem><para>Process</para></listitem>
+					<listitem><para>Functionality</para></listitem>
+					<listitem><para>Presentation</para></listitem>
+				</itemizedlist>
+			</listitem>
+		</itemizedlist>
+      </listitem>
+	<listitem><para>Functional</para>
+		<itemizedlist>
+			<listitem><para>Functional Requirement (From Requirements Document) - Indicates the functionality in specific bulleted items what exactly this service accomplishes. The language should be such that it allows test cases to prove the functionality is accomplished.</para></listitem>
+			<listitem><para>Service Operations - Methods, actions etc. Must be defined in terms of what part of the Functionality it provides.</para></listitem>
+			<listitem><para>Invocation - Indicates the invocation means of the service. This includes the URL, interface, etc. There may be multiple Invocation paths for the same service. We may have the same functionality for an internal and external clients each with a different invocation means and interface. Examples:</para>
+				<itemizedlist>
+					<listitem><para>SOAP</para></listitem>
+					<listitem><para>REST</para></listitem>
+					<listitem><para>Event Triggers</para></listitem>
+				</itemizedlist>
+			</listitem>
+		</itemizedlist>
+	</listitem>
+	<listitem><para>Non-Functional</para>
+		<itemizedlist>
+			<listitem><para>Security Constraints - Defines who can execute this service in terms of roles or individual partners, etc. and which invocation mechanism they can invoke.</para></listitem>
+			<listitem><para>Quality of Service - Determines the allowable failure rate.</para></listitem>
+			<listitem><para>Transactional - Is this capable of acting as part of a larger transaction and if so, how do we control that?</para></listitem>
+			<listitem><para>Service Level Agreement - Determines the amount of latency the service is allowed to have to perform its actions.</para></listitem>
+			<listitem><para>Semantics - Dictates or defines the meaning of terms used in the description and interfaces of the service.</para></listitem>
+			<listitem><para>Process - Describes the process, if any, of the contracted service.</para></listitem>
+		</itemizedlist>
+	</listitem>
+	</itemizedlist>
+	<para>SIOPs and SIPs for SOA be compatible with <xref linkend="v1a1-soafig" /> and will have to be compliant with NATO agreed standards for service descriptions and contracts.  Since it is expected SOA services will be implemented with web services, SIOPs and SIPs will be implemented with web service standards (e.g. WSDL, UDDI, XML, SOAP).</para>
+	</sect3>
+	<sect3 id="v1a1-recs">
+		<title>Recommendations</title>
+	<para>To clarify the meaning of service interoperability in platform centric and SOA centric environments it is recommended that:</para>
+	<itemizedlist>
+	<listitem><para>For platform centric environments the terms Interoperability Point (IOP) and Interface Point (IP) be used, and</para></listitem>
+	<listitem><para>For SOA environments the terms Service Interface Point (SIP) and Servcie Interoperability Point (SIOP) be used.</para></listitem>
+	</itemizedlist>
+	</sect3>
+	</sect2>
+    </sect1>
+
+</appendix>

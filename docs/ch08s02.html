@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>8.2. Building a document</title><meta name="generator" content="DocBook XSL Stylesheets V1.74.0"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="ch08.html" title="Chapter 8. Building the NISP"/><link rel="prev" href="ch08.html" title="Chapter 8. Building the NISP"/><link rel="next" href="ch08s03.html" title="8.3. Build targets"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8.2. Building a document</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch08.html">Prev</a> </td><th width="60%" align="center">Chapter 8. Building the NISP</th><td width="20%" align="right"> <a accesskey="n" href="ch08s03.html">Next</a></td></tr></table><hr/></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="build-doc"/>8.2. Building a document</h2></div></div></div><p>To transform a specific volume (e.g. volume 4), the user should run the
+command</p><pre class="programlisting">
+   build vol4
+</pre><p>Running this target will automatically run a number of sub targets, which
+will essentially do the following:</p><div class="itemizedlist"><ul type="disc"><li><p>Create a resolved version, if the XML sources have been
+  changed.</p></li><li><p>Create JPG version of the SVG vector images, if any SVG image
+  have been changed</p></li><li><p>Create a XHTML version of the resolved version have been
+  changed</p></li><li><p>Create a PDF version if the resolved version or any of the SVG
+  images have been changed</p></li></ul></div><p>The term changed should be interpreted as "modified or if the resulting
+file/files does not exists"</p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e4043"/>8.2.1. Resolving a documents</h3></div></div></div><p>Creating a resolved version of a given document is NISP specific step in
+the building process, and is actually used for a number of things.</p><div class="itemizedlist"><ul type="disc"><li><p>Add the two attributes id and condition to the book element.
+  Both variables is extracted from the file
+  <code class="filename">src/documents.xml</code> and a used to define a unique
+  identifier for the book element and to define a subdirectory to the build
+  directory, where the XHTML versions of the document should be
+  stored.</p></li><li><p>volume 3, 4, 5 and the rationale document should be merged
+  with a database before being transformed into a another format. This step is
+  accomplished by applying one of the stylesheets
+  <code class="filename">merge3.xsl</code>, <code class="filename">merge4.xsl</code>,
+  <code class="filename">merge5.xsl</code> and <code class="filename">merge-rd.xsl</code> to the
+  source xml file.</p></li><li><p>In the source documents all references to images are to a SVG
+  file located in a subdirectory of the source document. In the build directory
+  XHTML files should refer to JPG version of the image, and XSL-FO (the
+  transformation step before creating the PDF file), should either refer to the
+  JPG file used for the XHTML version or eventually to the original SVG
+  image.</p></li></ul></div><p>The manipulation of image file references mentioned above, the figure
+element</p><pre class="programlisting">
+   &lt;figure id="v4f-spsa-co-osi"&gt;
+     &lt;title&gt;Protocol Layers Used in a Typical OSI Communications Link.&lt;/title&gt;
+     &lt;mediaobject&gt;
+       &lt;imageobject&gt;
+         &lt;imagedata fileref="figures/v4-osi.svg"/&gt;
+       &lt;/imageobject&gt;
+     &lt;/mediaobject&gt;
+   &lt;/figure&gt;
+</pre><p>is transformed to</p><pre class="programlisting">
+  &lt;figure id="v4f-spsa-co-osi" float="0"&gt;
+    &lt;title&gt;Protocol Layers Used in a Typical OSI Communications Link.&lt;/title&gt;
+    &lt;mediaobject&gt;
+      &lt;imageobject role="html"&gt;
+        &lt;imagedata fileref="figures/v4-osi.jpg"/&gt;
+      &lt;/imageobject&gt;
+      &lt;imageobject role="fop"&gt;
+        &lt;imagedata fileref="../volume4/figures/v4-osi.jpg"/&gt;
+      &lt;/imageobject&gt;
+    &lt;/mediaobject&gt;
+  &lt;/figure&gt;
+</pre><p>When the actually transformation takes place, a stylesheet will select the
+appropriate imageobject element.</p></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch08.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch08.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch08s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 8. Building the NISP </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 8.3. Build targets</td></tr></table></div></body></html>

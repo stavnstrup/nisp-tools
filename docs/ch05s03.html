@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.3. DocBook Markup in the NISP</title><meta name="generator" content="DocBook XSL Stylesheets V1.74.0"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="ch05.html" title="Chapter 5. The DocBook DTD"/><link rel="prev" href="ch05s02.html" title="5.2. Used DocBook Elements"/><link rel="next" href="ch06.html" title="Chapter 6. Design of the TA Stylesheets"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.3. DocBook Markup in the NISP</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05s02.html">Prev</a> </td><th width="60%" align="center">Chapter 5. The DocBook DTD</th><td width="20%" align="right"> <a accesskey="n" href="ch06.html">Next</a></td></tr></table><hr/></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="ta-markup"/>5.3. DocBook Markup in the NISP</h2></div></div></div><p>The following section illustrates how to use a small subset of
+the elements defined in DocBook. For each of these elements only the
+necessary attributes are included. For a much more comprensive
+definition, see the reference manual <a class="xref" href="bi01.html#WaMu2005" title="DocBook - The Definitive Guide 2.0.12">[<abbr class="abbrev">WaMu05</abbr>]</a>. The
+elements selected illustrates common constructs in word processin in
+general, and covers almost all the elements required to write the 
+documents.</p><p>The  documents are all created with the DocBook element
+<span class="emphasis"><em>book</em></span> as its root element. The book element
+consists of meta-information about the book in form of the
+<span class="emphasis"><em>bookinfo</em></span> element, a number of chapters, and
+potentially a bibliography element and a number of appendixes, as
+shown below:</p><pre class="programlisting">
+ 
+ &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+
+ &lt;book&gt;
+
+ &lt;bookinfo&gt;
+   &lt;title&gt;NC3 Technical Architecture&lt;/title&gt;
+   &lt;subtitle&gt;NCOE &lt;/subtitle&gt;
+   ...
+   &lt;volumenum&gt;5&lt;/volumenum&gt;
+   ...
+   &lt;revhistory&gt;
+     &lt;revision&gt;
+       &lt;revnumber&gt;&amp;src-version;&lt;/revnumber&gt;
+       &lt;date&gt;&amp;src-release-date;&lt;/date&gt;
+     &lt;/revision&gt;
+     &lt;revision&gt;
+       &lt;revnumber&gt;3.0&lt;/revnumber&gt;
+       &lt;date&gt;15 December 2001&lt;/date&gt;
+     &lt;/revision&gt;
+   ...
+   &lt;/revhistory&gt;
+ &lt;/bookinfo&gt;
+
+ &lt;chapter&gt;&lt;title&gt;Some title&lt;/title&gt;
+
+ &lt;sect1&gt;&lt;title&gt;My first section&lt;/title&gt;
+
+ &lt;para&gt; Some text&lt;/para&gt;
+
+ &lt;sect2&gt;&lt;title&gt;A subsection&lt;/title&gt;
+
+ &lt;para&gt;Some more text&lt;/para&gt;
+
+ &lt;/sect2&gt;
+
+ &lt;/sect1&gt;
+
+ &lt;/chapter&gt;
+
+   ...
+
+ &lt;appendix&gt;&lt;title&gt;Some other title&lt;/title&gt;
+
+ &lt;/appendix&gt;
+ &lt;/book&gt;
+ 
+ </pre><p>The meta-info element <span class="emphasis"><em>bookinfo</em></span> contains
+ among other things a <span class="emphasis"><em>revhistory</em></span> element, which
+ consists of a list of <span class="emphasis"><em>revision</em></span> elements. In the
+ draft version 4 of the , the first <span class="emphasis"><em>revision</em></span>
+ element uses external entities, which are defined in the file
+ <code class="filename">VERSION</code> located in the <code class="filename">src</code> directory. When the final version of
+ volume 4 is released, the <code class="filename">VERSION</code> file should be
+ updated accordingly. But during the development, he user could create
+ his own revision element.</p><p>Each chapter and appendix consists of a number of elements,
+ where the most significant are <span class="emphasis"><em>para</em></span> and
+ <span class="emphasis"><em>sect1</em></span> which constitutes a paragraph respectively
+ a section on level 1. Each <span class="emphasis"><em>sect1</em></span> element consists
+ of a number of elements, among others the <span class="emphasis"><em>sect2</em></span>
+ element etc.</p><p>The first element in all chapter-, appendix-, and sect1- to
+ sect4 element is by convention in the  a title element.</p><p>Just as the <span class="emphasis"><em>book</em></span> element contains meta-info
+ through the <span class="emphasis"><em>bookinfo</em></span> element, there are similar
+ elements for the <span class="emphasis"><em>chapter</em></span>,
+ <span class="emphasis"><em>appendix</em></span> and the section elements. These elements
+ are currently not used, but might be in the future.</p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e2524"/>5.3.1. Creating lists</h3></div></div></div><p>DocBook supports seven list elements. Two of those are:</p><div class="variablelist"><dl><dt><span class="term">ItemizdList</span></dt><dd><p>An unordered (bulleted) list. There are attributes to control the marks used</p></dd><dt><span class="term">OrderedList</span></dt><dd><p>A numbered list. There are attributes to control the marks used</p></dd></dl></div><p>The following examples illustrated these two list types:</p><p>A bullet list, with the DocBook source:</p><pre class="programlisting">
+ 
+ &lt;itemizedlist&gt;
+   &lt;listitem&gt;&lt;para&gt;First Item&lt;/para&gt;&lt;/listitem&gt;
+   &lt;listitem&gt;&lt;para&gt;Second Item&lt;/para&gt;&lt;/listitem&gt;
+   &lt;listitem&gt;&lt;para&gt;Third Item&lt;/para&gt;&lt;/listitem&gt;
+ &lt;/itemizedlist&gt;
+ </pre><p>looks like this:</p><div class="itemizedlist"><ul type="disc"><li><p>First Item</p></li><li><p>Second Item</p></li><li><p>Third Item</p></li></ul></div><p>And an ordered list, with the DocBook source:</p><pre class="programlisting">
+ 
+ &lt;orderedlist&gt;
+   &lt;listitem&gt;&lt;para&gt;First Item&lt;/para&gt;&lt;/listitem&gt;
+   &lt;listitem&gt;&lt;para&gt;Second Item&lt;/para&gt;&lt;/listitem&gt;
+   &lt;listitem&gt;&lt;para&gt;Third Item&lt;/para&gt;&lt;/listitem&gt;
+ &lt;/orderedlist&gt;
+ </pre><p>looks like this:</p><div class="orderedlist"><ol type="1"><li><p>First Item</p></li><li><p>Second Item</p></li><li><p>Third Item</p></li></ol></div><p>Lists can also be nested, and bulleted and numbered list can be
+ combined arbitrarily, as illustrated by the source:</p><pre class="programlisting">
+ 
+ &lt;itemizedlist&gt;
+   &lt;listitem&gt;&lt;para&gt;First Item&lt;/para&gt;&lt;/listitem&gt;
+   &lt;listitem&gt;&lt;para&gt;Second Item&lt;/para&gt;&lt;/listitem&gt;
+   &lt;listitem&gt;&lt;para&gt;Third Item
+     &lt;orderedlist&gt;
+       &lt;listitem&gt;&lt;para&gt;First Item (2nd level)&lt;/para&gt;&lt;/listitem&gt;
+       &lt;listitem&gt;&lt;para&gt;Second Item (2nd level)&lt;/para&gt;&lt;/listitem&gt;
+       &lt;listitem&gt;&lt;para&gt;Third Item (2nd level)&lt;/para&gt;&lt;/listitem&gt;
+     &lt;/orderedlist&gt;&lt;/para&gt;&lt;/listitem&gt;
+ &lt;/itemizedlist&gt;
+ 
+ </pre><p>looks like this</p><div class="itemizedlist"><ul type="disc"><li><p>First Item</p></li><li><p>Second Item</p></li><li><p>Third Item
+     </p><div class="orderedlist"><ol type="1"><li><p>First Item (2nd level)</p></li><li><p>Second Item (2nd level)</p></li><li><p>Third Item (2nd level)</p></li></ol></div></li></ul></div><p>Instead of using numbers in an ordered list, we can use letter,
+ roman numeral all controlled with the attribute
+ <span class="emphasis"><em>numeration</em></span>.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e2607"/>5.3.2. Typographical element</h3></div></div></div><p>A few elements are oriented toward the <span class="emphasis"><em>What You See
+ Is What You Get</em></span> solution, familiar from well known word
+ processors. Among the elements are:</p><div class="itemizedlist"><ul type="disc"><li><p>Italic text like <span class="emphasis"><em>Hello Italic World</em></span>, is created using the following markup:</p><p>
+   </p><pre class="programlisting">
+   
+     &lt;emphasis&gt;Hello Italic World&lt;/emphasis&gt;
+   </pre></li><li><p>Bold text like <span class="bold"><strong>Hello Bold
+   World</strong></span>, is created using the following markup:</p><p>
+
+   </p><pre class="programlisting">
+   
+   &lt;emphasis role="bold"&gt;Hello Bold World&lt;/emphasis&gt;
+   </pre><p>
+   </p></li><li><p>Subscripted text like H<sub>2</sub>O, is created
+   using the following DocBook markup:</p><p>
+
+   </p><pre class="programlisting">
+   
+   H&lt;subscript&gt;2&lt;/subscript&gt;O
+   
+   </pre></li><li><p>Superscripted text at the square function:
+   X<sup>2</sup>, is created using the following DocBook markup:</p><p>
+   </p><pre class="programlisting">
+   
+   X&lt;superscript&gt;2&lt;/superscript&gt;
+   </pre></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e2657"/>5.3.3. Creating Footnotes</h3></div></div></div><p>Footnotes are generated using the following DocBook markup:
+ <code class="literal">&lt;footnote&gt;&lt;para&gt;This is my
+ footnote&lt;/para&gt;&lt;footnote&gt;</code>. In practise this will
+ result in the following<sup>[<a id="footnote" href="#ftn.footnote" class="footnote">8</a>]</sup></p><p>What actually happens here is twofold. The footnote is generated
+ and will later be added on the bottom of the current page, and at the
+ same time a reference to the same footnote is generated. Sometimes one
+ needs to referrer to the same footnote from multiple place. The can be
+ accomplished by creating an id attribute to the footnote like
+ <code class="literal">&lt;footnote id='xray'&gt;&lt;para&gt;This is my
+ footnote&lt;/para&gt;&lt;footnote&gt;</code>. We can then 
+ later refer to the same footnote<sup>[<a href="ch05s03.html#ftn.footnote" class="footnoteref">8</a>]</sup>,
+ using the markup <code class="literal">&lt;footnoteref
+ linkend='xray'/&gt;</code>.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="ta-graphics"/>5.3.4. Graphic Elements</h3></div></div></div><p>Graphics occurs often in Figures (the elements
+ <span class="emphasis"><em>figure</em></span> and <span class="emphasis"><em>informalfigure</em></span>) and
+ Screenshots (the element <span class="emphasis"><em>schreenshot</em></span>), but they can also
+ occur without a wrapper. The element used to contain graphics and other media
+ types are the elements <span class="emphasis"><em>mediaobject</em></span> and
+ <span class="emphasis"><em>inlinemediaobject</em></span><sup>[<a id="d0e2697" href="#ftn.d0e2697" class="footnote">9</a>]</sup>. These elements may contain video, audio, image and
+ text data. A single <span class="emphasis"><em>mediaobject</em></span> may contain multiple
+ version, and it is up to the presentation system to select the appropriate
+ object. The respective elements contained in the
+ <span class="emphasis"><em>mediaobject</em></span> element are the elements
+ <span class="emphasis"><em>videoobject</em></span>, <span class="emphasis"><em>audioobject</em></span>,
+ <span class="emphasis"><em>imageobject</em></span> and <span class="emphasis"><em>textobject</em></span>.</p><p>The following example illustrates<sup>[<a id="d0e2727" href="#ftn.d0e2727" class="footnote">10</a>]</sup> the use of a graphic
+ elements, in the way it is often used in the  documents:</p><pre class="programlisting">
+ 
+   &lt;figure&gt;&lt;title&gt;Here is an image&lt;/title&gt;
+     &lt;mediaobject&gt;
+       &lt;imageobject&gt;
+	 &lt;imagedata fileref="figures/a-raster-image.svg"/&gt;
+       &lt;/imageobject&gt;
+     &lt;/mediaobject&gt;
+   &lt;/figure&gt;
+ 
+ </pre><p>In a lot of the tables, in appendix A of volume 3 we actually
+ use the <span class="emphasis"><em>mediaobject</em></span> directly, since the
+ <span class="emphasis"><em>figure</em></span> element is not part of the table cell
+ (<span class="emphasis"><em>entry</em></span>) content model.</p><p>In version 2 of the  all volumes used different and inconsistent
+ naming conventions for the raster images used in the HTML version. The figures,
+ was named Figure01, Figure001, etc. all names, more related to the figure number
+ in the work document, which by the way was not always correct.</p><p>Since all the figures during the translation of the  to
+ XML, was implemented as Scalable Vector Graphics (SVG) files, a new
+ naming scheme was implemented at the same time.The naming convention
+ is implemented in the following way:</p><div class="itemizedlist"><ul type="disc"><li><p>All figures are places in a separate figures directory.</p></li><li><p>A figure could eg be named
+ <span class="emphasis"><em>figures/v1-ex-mgt.svg</em></span>.  This describes the
+ directory, where the figure is located and the name of the SVG image
+ representing the figure.</p></li><li><p>Note, that figure names consists of the parts
+   <span class="emphasis"><em>v1</em></span>, <span class="emphasis"><em>ex-mgt</em></span>,
+    and as extension svg, where
+   </p><div class="itemizedlist"><ul type="circle"><li><p><span class="emphasis"><em>v1</em></span> is the volume the figure is
+     located in</p></li><li><p><span class="emphasis"><em>ex-mgt</em></span> is a shortcut for the 
+     title of the figure</p></li><li><p>and svg is the extension of the file</p></li></ul></div><p>
+ </p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e2785"/>5.3.5. Creating Tables</h3></div></div></div><p>Table is a significant element of the NISP. In version 3, we currently
+ have 502 informal- and formal tables. The difference between the two elements
+ is that <span class="emphasis"><em>table</em></span> have a caption and
+ <span class="emphasis"><em>informaltable</em></span> does not.</p><p>Most tables are actually straightforward to create, as should be
+ familiar to everybody, which have worked with HTML files, since the DocBook
+ table model is very similar to the CALS model used in HTML.</p><p>In DocBook the <span class="emphasis"><em>table</em></span> element consists of a number
+ of <span class="emphasis"><em>row</em></span> element. Each <span class="emphasis"><em>row</em></span> consists of
+ a number of <span class="emphasis"><em>column</em></span> elements, which are specified by the
+ <span class="emphasis"><em>cols</em></span> attribute of the <span class="emphasis"><em>tgroup</em></span> element
+ as illustrated below:</p><pre class="programlisting">
+ 
+ &lt;table frame="all"&gt;
+ &lt;title&gt;Simple Table&lt;/title&gt;
+ &lt;tgroup cols="3"&gt;
+ &lt;colspec colwidth="33*"/&gt;
+ &lt;colspec colwidth="33*"/&gt;
+ &lt;colspec colwidth="34*"/&gt;
+ &lt;tbody&gt;
+   &lt;row&gt;
+     &lt;entry&gt;A&lt;/entry&gt;
+     &lt;entry&gt;B&lt;/entry&gt;
+     &lt;entry&gt;C&lt;/entry&gt;
+   &lt;/row&gt;
+   &lt;row&gt;
+     &lt;entry&gt;D&lt;/entry&gt;
+   &lt;/row&gt;
+ &lt;/tbody&gt;
+ &lt;/tgroup&gt;
+ &lt;/table&gt;
+ 
+ </pre><p>resulting in:</p><div class="table"><a id="d0e2822"/><p class="title"><b>Table 5.1. Simple Table</b></p><div class="table-contents"><table summary="Simple Table" border="1"><colgroup><col width="33*"/><col width="33*"/><col width="34*"/></colgroup><tbody><tr><td>A</td><td>B</td><td>C</td></tr><tr><td>D</td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr></tbody></table></div><p/></div><br class="table-break"/><p>Note, that in the second row, only one cell have been specified,
+ which illustrates that the stylesheet assumes an entry to be empty, if
+ it isn't specified. The processing of cells in a row is done from left
+ to right, and each cell meet is assumed to be the next cell in the
+ row, unless explicit specified in an attribute. So if we define that a
+ table have 5 columns, but only create 2 entries without any position
+ modifier. These cells are assummed to be the first and second cell in
+ a row. The three other cells are considered empty.</p><p>The next example illustrates the concept of cells,which span
+ multiple columns and/or rows. The <span class="emphasis"><em>"Protocol
+ Set"</em></span> part of most of the tables in Appendix A of
+ Volume 3 utilises this facility, which is illustrated below:</p><pre class="programlisting">
+ 
+ &lt;table frame="all"&gt;
+ &lt;title&gt;Complicated Table&lt;/title&gt;
+ &lt;tgroup cols="3"&gt;
+ &lt;colspec colname="c1" colwidth="33*"/&gt;
+ &lt;colspec colname="c2" colwidth="33*"/&gt;
+ &lt;colspec colname="c3" colwidth="34*"/&gt;
+ &lt;tbody&gt;
+   &lt;row&gt;
+     &lt;entry&gt;A&lt;/entry&gt;
+     &lt;entry namest="c2" nameend="c3"&gt;BC&lt;/entry&gt;
+   &lt;/row&gt;
+   &lt;row&gt;
+     &lt;entry morerows="1"&gt;DG&lt;/entry&gt;
+     &lt;entry&gt;E&lt;/entry&gt;
+     &lt;entry&gt;F&lt;/entry&gt;
+   &lt;/row&gt;
+   &lt;row&gt;
+     &lt;entry&gt;H&lt;/entry&gt;
+     &lt;entry&gt;I&lt;/entry&gt;
+   &lt;/row&gt;
+ &lt;/tbody&gt;
+ &lt;/tgroup&gt;
+ &lt;/table&gt;
+ 
+ </pre><p>resulting in:</p><div class="table"><a id="d0e2851"/><p class="title"><b>Table 5.2. Complicated Table</b></p><div class="table-contents"><table summary="Complicated Table" border="1"><colgroup><col width="33*"/><col width="33*"/><col width="34*"/></colgroup><tbody><tr><td>A</td><td colspan="2">BC</td></tr><tr><td rowspan="2">DG</td><td>E</td><td>F</td></tr><tr><td>H</td><td>I</td></tr></tbody></table></div><p/></div><br class="table-break"/></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e2876"/>5.3.6. Creating URLs</h3></div></div></div><p>Links, that addresses its targets by means of a URL are
+ implemented through the <span class="emphasis"><em>ulink</em></span> element. A typical
+ use of the element, would be:</p><pre class="programlisting">
+   &lt;ulink url="http://www.nc3a.nato,int"&gt;NATO C3 Agency&lt;/ulink&gt;
+ </pre><p>which would look like this "<a class="ulink" href="http://www.nc3a.nato,int" target="_top">NATO C3 Agency</a>". Sometimes we
+ want the presented text (here "NATO C3 Agency") to be the URL
+ itself. This can be accomplished with the following abbreviation,
+ which describes an element with no contents, such as:</p><pre class="programlisting">
+   &lt;ulink url="http://www.nc3a.nato,int"/&gt;
+ </pre><p>which would look like this: <a class="ulink" href="http://www.nc3a.nato,int" target="_top">http://www.nc3a.nato,int</a></p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a id="d0e2896"/>5.3.7. Creating Cross references</h3></div></div></div><p>Creating cross-references in DocBook is quite easy. Every
+ element may have an attribute <span class="emphasis"><em>id</em></span>, which must be
+ set to a unique value. In order to reference the element anywhere in
+ the document, we create an <span class="emphasis"><em>xref</em></span> element, which
+ then will refere to the element. The text used in the reference is
+ dependent on the context. So a reference to a chapter would e.g. be
+ <span class="emphasis"><em>Chapter 3</em></span>, and similar for other elements.</p><pre class="programlisting">
+   &lt;xref linkend="v4-ch-my-intro"/&gt;
+ </pre><p>In the  documents, we by convention uses id's, that are
+ identifiable. like eg. <span class="emphasis"><em>v4-ch-intro</em></span>. The user
+ should only create is in the different elements, if there is a
+ requirement for to reference that element.</p></div><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.footnote" href="#footnote" class="para">8</a>] </sup>This is my
+ footnote</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e2697" href="#d0e2697" class="para">9</a>] </sup>Although still legal,
+ the element <span class="emphasis"><em>graphics</em></span> and
+ <span class="emphasis"><em>inlinegraphic</em></span> will be removed in a future version of
+ DocBook.</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e2727" href="#d0e2727" class="para">10</a>] </sup>In the , we
+ actually only use entity references as value to the attribute
+ <span class="emphasis"><em>fileref</em></span>.</p></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch05s02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch05.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch06.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">5.2. Used DocBook Elements </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 6. Design of the TA Stylesheets</td></tr></table></div></body></html>

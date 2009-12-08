@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>2.2. Standard and profile definition</title><meta name="generator" content="DocBook XSL Stylesheets V1.74.0"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="ch02.html" title="Chapter 2. The standard database DTD"/><link rel="prev" href="ch02.html" title="Chapter 2. The standard database DTD"/><link rel="next" href="ch02s03.html" title="2.3. Standard Selection"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.2. Standard and profile definition</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center">Chapter 2. The standard database DTD</th><td width="20%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a></td></tr></table><hr/></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e277"/>2.2. Standard and profile definition</h2></div></div></div><p>Both de-jure and de-facto standards from many different standard
+<span class="emphasis"><em>organisations</em></span> are labeled different. Some
+standards have multiple parts each have a standard number, where for
+other standards only the cover standard have a number. Some standards
+are registered by multiple standard bodies. Some standards are
+updated, but the actual update are released as a separate document
+instead of releasing a new version of the stabdard. The same is true
+for profiles.</p><p>To distinguish between information about a standard provided a
+standard body and infomation only relevant to this database, an
+element standardrecord is used to describe a standard and also to
+describe historical aspect of the inclusion of the standard in the
+database. A profilerecord element is similar introduced to describe a
+profile.</p><p>In the NISP volume 3, a referencerecord element, was used to
+refer to a standard or profile, which was described in another
+location in standard hieracy.</p><pre class="programlisting">
+
+&lt;!ELEMENT standardrecord (debug?, ((standard | applicability | status)*))&gt;
+
+&lt;!ATTLIST standardrecord
+          tag CDATA #REQUIRED
+          id ID #IMPLIED&gt;
+
+
+</pre><p>A standardrecord element may contain a debug<sup>[<a id="d0e293" href="#ftn.d0e293" class="footnote">4</a>]</sup> element followed by 0 or more
+standard, applicability or status elements<sup>[<a id="d0e297" href="#ftn.d0e297" class="footnote">5</a>]</sup></p><p>A standardrecord element must contain an tag attribute and may
+contain an id attribute.</p><pre class="programlisting">
+
+&lt;!ELEMENT profilerecord (debug?, ((profilenote | parts | applicability | status)* |
+                          sremark))&gt;
+
+&lt;!ATTLIST profilerecord
+          tag CDATA #REQUIRED
+          id ID #IMPLIED&gt;
+
+</pre><p>A profilerecord element may contain a debug element followed by 0
+or more profilenote, parts, applicability or status elements. Or a
+profilerecord may contain a debug element followed by an sremark
+element.</p><p>A profilerecord element must contain an tag attribute and may
+contain an id attribute.</p><pre class="programlisting">
+
+&lt;!ELEMENT referencerecord (sremark)&gt;
+
+
+&lt;!ATTLIST referencerecord
+          tag CDATA #REQUIRED&gt;
+
+</pre><p>A referencerecord element contains an sremark element. A
+referencerecord must contain a tag attribute,</p><pre class="programlisting">
+
+&lt;!ELEMENT standard ((correction | alsoknown | comment)*,  parts?)&gt;
+
+&lt;!ATTLIST standard
+          orgid  CDATA #REQUIRED
+          pubnum CDATA #REQUIRED
+          date   CDATA #REQUIRED
+          title  CDATA #REQUIRED&gt;
+
+</pre><p>A standard element may contain 0 or more correction, alsoknown
+or comments elements possibly followed by a parts element.</p><p>A standard element must contain the attributes orgid, pubnum,
+date and title.</p><pre class="programlisting">
+
+&lt;!ELEMENT correction (#PCDATA)&gt;
+
+&lt;!ATTLIST correction
+          cpubnum  CDATA #REQUIRED
+          date     CDATA #REQUIRED&gt;
+
+</pre><p>A correction element  </p><pre class="programlisting">
+
+&lt;!ELEMENT alsoknown (#PCDATA)&gt;
+
+&lt;!ATTLIST alsoknown
+          orgid   CDATA #REQUIRED
+          pubnum  CDATA #REQUIRED
+          date    CDATA #REQUIRED&gt;
+
+</pre><p>A alsoknown element contains a describtion which might be
+empty. A alsoknown element must also contain a orgid, pubnum and date
+attribute.</p><p>NATO stanag 3809 for Digital Terrain Elevation
+ Data (DTED) is also know as  ISO/IEC 8211.</p><pre class="programlisting">
+
+&lt;!ELEMENT comment (#PCDATA | ulink)*&gt;
+
+</pre><p>A comment element contain data in the form of text or DocBook
+ulink elements.</p><pre class="programlisting">
+
+&lt;!ELEMENT parts (standard)+&gt;
+
+</pre><p>The parts element contains one or more standard elements.</p><pre class="programlisting">
+
+&lt;!ELEMENT profilenote (#PCDATA)&gt;
+
+</pre><p>The profilenote element contains text.</p><pre class="programlisting">
+
+&lt;!ELEMENT applicability %ho; (%tbl.entry.mdl;)*&gt;
+
+</pre><p>The applicability element uses the same content model as the
+DocBook element entry.</p><pre class="programlisting">
+
+&lt;!ELEMENT status (info?, uri?, history)&gt;
+
+&lt;!ATTLIST status
+          mode   (unknown|rejected|retired) #IMPLIED "unknown"
+          stage  CDATA #REQUIRED&gt;
+
+</pre><p>The status element contains in the following order an info, uri
+and history element. The history element is mandatoty, the infor and
+uri elements are not. The uri element is defined in the DocBook
+DTD.</p><p>The status element contains the attributes mode and stage. The
+first is implied and the second is required.</p><pre class="programlisting">
+
+  &lt;!ELEMENT info (#PCDATA | ulink)*&gt;
+
+</pre><p>The info element contains textual information, which is not
+appropiate to put in e.g. the applicability element. It can also
+contain ulink elements, whiche e.g. could point to the standard.</p><pre class="programlisting">
+
+&lt;!ELEMENT history (event)+&gt;
+
+&lt;!ELEMENT event (#PCDATA)&gt;
+
+&lt;!ATTLIST event
+          flag    (added|changed|deleted)   #REQUIRED
+          date    CDATA   #REQUIRED
+          rfcp    CDATA   #IMPLIED
+          version CDATA   #REQUIRED
+&gt;
+
+</pre><p>The histoty element contains historical infomation about a
+standard. When was it added, changed or deleted and through which
+RFCP. The history element contains of one or more event
+elements.</p><p>The event element may contain a rfcp attribute and must contain
+the attributes flag, date and version.</p><p>The date attribute must use the following wellknown pattern
+YYYY-MM-DD.</p><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><pre class="programlisting">
+
+
+</pre><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.d0e293" href="#d0e293" class="para">4</a>] </sup>The
+historical reason of this element is unknown, maybee a stylesheet will
+reviel the reason.</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e297" href="#d0e297" class="para">5</a>] </sup>This looks
+strange</p></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. The standard database DTD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 2.3. Standard Selection</td></tr></table></div></body></html>

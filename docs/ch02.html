@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 2. The standard database DTD</title><meta name="generator" content="DocBook XSL Stylesheets V1.74.0"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="pt02.html" title="Part II. Advanced"/><link rel="prev" href="pt02.html" title="Part II. Advanced"/><link rel="next" href="ch02s02.html" title="2.2. Standard and profile definition"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. The standard database DTD</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pt02.html">Prev</a> </td><th width="60%" align="center">Part II. Advanced</th><td width="20%" align="right"> <a accesskey="n" href="ch02s02.html">Next</a></td></tr></table><hr/></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="ch-std-dtd"/>Chapter 2. The standard database DTD</h2></div></div></div><p>The current NISP standards database is implemented as a XML
+document. The original design of the database reflected the structure
+of the list of standard and profiles described in the NC3 Technical
+Architecture version 1. In order to enable consistency across the
+different volumes, the database have been extented to be able to
+describe the selection of mandatory-, emerging- and fading standards
+and profiles. These selection are justified in the traceability matrix
+included in the rationale document, which are also part of the
+database. Recently the database have been reorganized to reflect
+additional requirements, but also to prepare the database for
+inclusion in the NATO Architecture Repository (NAR)</p><p>In order to enable validation of the database a schema in form
+of a DTD have been defined. This DTD is located in the source
+distribution at <code class="filename">schema/dtd/stddb40.dtd</code>. Since
+the database contains DocBook fragments such as paragraphs, unnumbered
+lists etc., the standard database DTD have been implemented as an
+extension to the DocBook DTD. Ideally we should use multiple namespace
+in order to avoid name conflicts, but that is very complicated when
+using a simple schema language such as DTD. A better approach will be
+to implement the standard database schema in a modern schema language
+such as Relax NG.</p><p>In the following pages, the syntax of the database is described
+in detail and when appropiate, examples of the actual implementation is
+included.</p><p>The standard database DTD is logically separated in three
+different parts:</p><div class="itemizedlist"><ul type="disc"><li><p>standards taxonomy</p></li><li><p>standard and profile description</p></li><li><p>standard selction</p></li></ul></div><p>It could be tempting also to separate the database into three
+physical parts - although not necessary in three different files.
+However</p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e246"/>2.1. Standard taxonomy</h2></div></div></div><p>The standard taxonomy describes how the standards and profiles
+are organised and is based on the taxanomy decribed in the NNEC
+Feasibility study </p><p>The root element of the DTD is the element standards.</p><pre class="programlisting">
+
+&lt;!ELEMENT standards (servicearea+, externalrefs?, organisations)&gt;
+
+</pre><p>The standard database represented by the standards element
+consists on one or more servicearea and some eksta elements used for
+different purposes.</p><pre class="programlisting">
+
+&lt;!ELEMENT servicearea ((servicecategory |  standardrecord | 
+                        profilerecord | referencerecord | sp-list)*)&gt;
+
+&lt;!ATTLIST servicearea
+          id ID #REQUIRED
+          mid CDATA #IMPLIED
+          title CDATA #REQUIRED&gt;
+
+</pre><p>A servicearea<sup>[<a id="d0e261" href="#ftn.d0e261" class="footnote">2</a>]</sup> may contain 0 or
+more servicecategory, standardrecord, profilerecord, referencerecord
+or sp-list elements. As servicearea element must have an id and title
+attribute.</p><pre class="programlisting">
+
+&lt;!ELEMENT servicecategory ((category | standardrecord | profilerecord | referencerecord | sp-list)*)&gt;
+
+&lt;!ATTLIST servicecategory
+          id ID #REQUIRED
+          mid CDATA #IMPLIED
+          title CDATA #REQUIRED&gt;
+
+</pre><p>A servicecategory<sup>[<a id="d0e269" href="#ftn.d0e269" class="footnote">3</a>]</sup> element may
+contain 0 or more category, standardrecord, profilerecord,
+referencerecord or sp-list elements. As servicecategory element must
+have an id and title attribute.</p><pre class="programlisting">
+
+&lt;!ELEMENT category ((standardrecord | profilerecord | referencerecord | sp-list)*)&gt;
+
+&lt;!ATTLIST category
+          id ID #REQUIRED
+          mid CDATA #IMPLIED
+          title CDATA #REQUIRED&gt;
+
+</pre><p>A category element may contain 0 or more standardrecord,
+profilerecord, referencerecord or sp-list elements. As service
+category element must have an id and title attribute.</p></div><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.d0e261" href="#d0e261" class="para">2</a>] </sup>A servicearea element should
+properly only contain servicecategory elements, but the initial
+database have all these elements.</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e269" href="#d0e269" class="para">3</a>] </sup>A servicecategory element
+should properly only contain category elements, but the initial
+database have all these elements.</p></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pt02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="pt02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch02s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Part II. Advanced </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 2.2. Standard and profile definition</td></tr></table></div></body></html>

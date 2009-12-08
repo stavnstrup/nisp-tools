@@ -1,0 +1,3497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*****************************************************************
+                   Vol 6 -   A N N E X - C
+*****************************************************************  
+-->
+
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd" [
+<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+]>
+<appendix id="v6c-refmod">
+    <title>Reference Models</title>
+
+    <para>By definition, a reference model is an abstract framework for
+    understanding the relationships among the entities within a specified
+    environment. It enables the development of specific architectures using
+    consistent standards or specifications supporting that environment.</para>
+
+    <para>A basic reference model will consists of the smallest set of
+    unifying concepts, rules and relationships within a particular problem
+    area, and is independent of specific standards, technologies,
+    implementations, or other concrete details.</para>
+
+    <para>The relationship between the Reference Model and the implementation
+    of a particular abstract concept is illustrated in <xref linkend="v1e-trm" />.</para>
+
+    <para>Reference models are a standard definitive document or conceptual
+    representation of a system or process. It provides a structure which
+    allows the modules and interfaces of a system to be described in a
+    consistent manner. In the context of near-future NATO environments, member
+    nations could use these general models in designing architectures for
+    net-enabled systems and platforms. These models represent the mid-term
+    common framework that NATO nations can build to. A common framework is one
+    of the keys to ensuring interoperability.</para>
+
+    <para>General reference models presented by industry do not take into
+    account the typical Military or NATO unique situation. In the far-term,
+    the NNEC approach will require us to establish a NATO Reference Model for
+    services that tailored to complement the NATO mission.</para>
+
+    <para>Reference models are a standard definitive document or conceptual
+    representation of a system or process. It provides a structure which
+    allows the modules and interfaces of a system to be described in a
+    consistent manner. In the context of future NATO environments, member
+    nations can use these models in designing architectures for net-enabled
+    systems and platforms.</para>
+
+    <para>Such assets can then participate in an NCO environment, by acting as
+    interoperable nodes on a fixed or mobile ad hoc network. Once an element
+    operates as a node, it can discover and register its needs and
+    capabilities on a network, and use that network to communicate, interact
+    and function with other nodes. The ultimate result is greater mission
+    effectiveness.</para>
+
+    <sect1 id="v1e-s1">
+      <title>Platform Oriented Architecture Reference Models</title>
+
+      <sect2 id="v1e-s2">
+        <title>The NATO Technical Reference Model (NTRM)</title>
+
+        <sect3 id="v1e-s3">
+          <title>Purpose</title>
+
+          <para>Within the context of information systems, a Technical
+          Reference Model (TRM) is a generally accepted construct that
+          provides a basic set of concepts and a conceptual framework for
+          identifying and resolving standards issues.</para>
+
+          <para>The main purpose of the NATO TRM (NTRM) is to structure the
+          standards listed in the NATO Interoperability Standards and Profiles
+          (NISP). As such, it should be a stable model and modifications
+          should be made very carefully.</para>
+        </sect3>
+
+        <sect3 id="v1e-s4">
+          <title>Structure</title>
+
+          <para>The NTRM focuses on separating data from applications and
+          applications from the computing platform. This is a key principle
+          when striving to attain a true open system environment. The NTRM
+          provides the definitions necessary for designing and defining
+          architectures and related service components. It also identifies
+          service areas (i.e., capabilities that have been grouped together by
+          functions), as well as their interfaces.</para>
+
+          <para>As indicated above, the NTRM is designed to decouple the
+          application and external environment from the platform. This allows
+          for portability of the application and independence from the
+          external devices (e.g., disk, mouse, keyboard, LAN). This is
+          accomplished by defining the application program interface (API) and
+          external environment interface (EEI) accordingly.</para>
+        </sect3>
+
+        <sect3 id="v1e-s5">
+          <title>Basic Entities and Interfaces</title>
+
+          <para>The basic elements of the NTRM are those identified in the
+          POSIX OSE Reference Model. This model includes 3 classes of entities
+          and 2 types of interfaces as follows:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Application Software Entity</para>
+            </listitem>
+
+            <listitem>
+              <para>Application Program Interface (API)</para>
+            </listitem>
+
+            <listitem>
+              <para>Application Platform Entity</para>
+            </listitem>
+
+            <listitem>
+              <para>External Environment Interface (EEI)</para>
+            </listitem>
+
+            <listitem>
+              <para>External Environment Entity</para>
+            </listitem>
+          </itemizedlist>
+
+          <figure id="v1e-trm">
+            <title>NTRM Services View</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="figures/v1-nato-trm.svg" />
+              </imageobject>
+            </mediaobject>
+          </figure>
+
+          <sect4 id="v1e-s6">
+            <title>Application Software Entity</title>
+
+            <para>The Application Software Entity includes both mission area
+            and support applications.</para>
+
+            <itemizedlist>
+              <listitem>
+                <para>Mission-area or user applications implement specific
+                user requirements (e.g., personnel, material, and management).
+                This application software may be COTS, GOTS, custom developed,
+                or consist of a combination thereof.</para>
+              </listitem>
+
+              <listitem>
+                <para>Support applications (e.g., email and word processing)
+                can be used to develop mission area specific applications or
+                could be made readily available to the user. There are six
+                support application categories:</para>
+
+                <itemizedlist>
+                  <listitem>
+                    <para>Multimedia,</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>Communications,</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>Business Processing,</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>Environment Management,</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>Database utilities,</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>Engineering support.</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+            </itemizedlist>
+          </sect4>
+
+          <sect4 id="v1e-s7">
+            <title>Application Platform Entity</title>
+
+            <para>The Application Platform Entity contains the system services
+            and the physical environment services. It is the second layer of
+            the NTRM and includes the services in which information processing
+            functionality is built.</para>
+
+            <itemizedlist>
+              <listitem>
+                <para>Service Areas are defined in <xref linkend="v1e-saNTRM" />.</para>
+              </listitem>
+
+              <listitem>
+                <para>Physical Environment services address the requirements
+                for establishing the data interchange interface between
+                physical resources and enable bus or communications link
+                boards to address their peers in another node or system. They
+                may also enable links to address processors or enable
+                processors to address memory registers.</para>
+              </listitem>
+            </itemizedlist>
+          </sect4>
+
+          <sect4 id="v1e-s8">
+            <title>External Environment Entity</title>
+
+            <para>The External Environment Entity consists of external
+            services that interact with the physical environment services of
+            the application platform entity. These services are classified
+            into the general categories of user services (e. g., mouse,
+            display), information exchange services (e.g., memory stick) and
+            communications services (e.g., LAN, WAN).</para>
+          </sect4>
+
+          <sect4 id="v1e-s9">
+            <title>Interfaces</title>
+
+            <para>The Interfaces include both Application Programming
+            Interfaces (API) and External Environment Interfaces
+            (EEI)):</para>
+
+            <itemizedlist>
+              <listitem>
+                <para>The APIs are the interface between the application
+                software entity and the application platform. They constitute
+                a collection of standards-based interfaces,</para>
+              </listitem>
+
+              <listitem>
+                <para>The External Environment Interfaces (EEI) are defined as
+                the interfaces between the application platform and the
+                external environment across which services are available,
+                primarily in support of system and application software
+                interoperability. User and data portability are provided
+                directly by the EEI and provide the interfaces between the
+                application platform entity and the external
+                environment.</para>
+              </listitem>
+            </itemizedlist>
+
+            <para>A concept of internal interfaces (IIs), not included in the
+            previous version of the model, complements the notions of APIs and
+            EEIs:</para>
+
+            <para>IIs are the interfaces within the system entities, both
+            between sub-entities at the same level and sub-entities at
+            different levels where sub-entities at a higher level make use of
+            services offered by a lower level one. (A direct communication
+            between two sub-entities at the same level is only possible at the
+            lowest level).</para>
+
+            <para>The interfaces are in principle supported or realized by
+            commonly defined data models and structures (e.g., ACP 133 B
+            Schema Information for Directory Services).</para>
+
+            <para>Users should assess their own requirements and create a
+            listing of services, interfaces, and standards that satisfy their
+            own mission-area needs in conjunction with the NTRM
+            accordingly.</para>
+
+            <para>In addition, the NTRM can accommodate a wide variety of
+            general- and special purpose systems. From the perspective of the
+            application software entity, these services are provided by an
+            application platform whether the particular services are provided
+            from the local platform or from remote platforms that may comprise
+            one or more nodes of a larger distributed system. The NTRM can
+            also be applied in a distributed environment and networked
+            environment.</para>
+
+            <para>The objective of the NTRM is to provide a complete, as well
+            as extensive set of features and capabilities. The NTRM provides
+            consistency for user applications from a broader community in
+            order to address interoperability, open systems, acquisition, and
+            management issues associated with commercial off-the-shelf (COTS)
+            and Government off-the-shelf (GOTS) products.</para>
+          </sect4>
+        </sect3>
+
+        <sect3 id="v1e-saNTRM">
+          <title>Service Areas of the NTRM</title>
+
+          <para>The System Services of the Application Platform Entity are
+          used to structure the standards listed in the NISP. The classes and
+          sub- classes described in the NISP are to be considered part of the
+          NTRM. The 12 System Services areas are:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para><emphasis role="bold">User Interface Services.</emphasis>
+              These services define how users may interact with an
+              application. The term user interface in this context means a
+              graphical user interface (GUI). Standards are not only required
+              for setting up and managing graphical windows, but also for the
+              toolkit and generic 'look and feel'.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Data Management Services.</emphasis>
+              The management of data is central to most systems. To improve
+              interoperability, data should be defined independently from the
+              processes that create or use it, and should be maintained and
+              shared among many processes.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Data Interchange
+              Services.</emphasis> These services provide support for the
+              interchange of data between applications. They are designed to
+              handle data interchange between applications on the same or on
+              heterogeneous platforms.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Graphics Services.</emphasis> These
+              services provide functions required for creating and
+              manipulating graphics.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Communication Services.</emphasis>
+              These services provide distributed applications support for data
+              access and applications interoperability in heterogeneous or
+              homogeneous networked environments.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Operating System
+              Services.</emphasis> These services are the core services needed
+              to operate and administer the application platform and provide
+              an interface between applications software and platform.
+              Application programmers will use operating system services to
+              obtain operating system functionality.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Internationalization
+              Services.</emphasis> Within the context of the NTRM,
+              internationalization provides a set of services and interfaces
+              that allow a user to define, select, translate and switch
+              between different culturally related application environments
+              supported by the particular implementation. Character sets and
+              data representation services include the capability to input,
+              store, manipulate, retrieve, communicate, and present data
+              independently of the coding scheme used. This includes the
+              capability to maintain and access a central character set
+              repository of all coded character sets used throughout the
+              platform.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">System Management
+              Services.</emphasis> Information systems are composed of a wide
+              variety of diverse resources that must be managed effectively to
+              achieve the goals of an open system environment. While the
+              individual resources (such as printers, software, users,
+              processors) may differ widely, the abstraction of these
+              resources as managed objects allows for their treatment in a
+              uniform manner.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Security Services.</emphasis>
+              Different groups of individuals within and across the various
+              NATO applications need to work with specific sets of data
+              elements. Access to these sets of data elements is to be
+              restricted to authorized users. Satisfaction of this requirement
+              has traditionally been accomplished by the implementation of
+              separate information systems. Organizations cannot continue to
+              afford to implement separate information systems to satisfy this
+              requirement, nor is it effective to require the user to change
+              interface components every time the need arises to operate with
+              a different restricted data set. Significant benefit will accrue
+              when an individual information system can effectively support
+              the needs of different groups of users and data sets.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Distributed Computing
+              Services.</emphasis> These services provide specialized support
+              for applications that may be physically or logically dispersed
+              among computer systems in a network, but yet wish to maintain a
+              co-operative processing environment. The classical definition of
+              a computer becomes blurred as the processes that contribute to
+              information processing become distributed across a facility or a
+              network. As with other cross-cutting services, the requisite
+              components of distributed computing services typically exist
+              within particular service areas.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Software Engineering
+              Services.</emphasis> The procedural aspect of an application is
+              embodied in the programming languages used to code it.
+              Additionally, professional system developers require methods and
+              tools appropriate to the development and maintenance of
+              applications.</para>
+            </listitem>
+
+            <listitem>
+              <para><emphasis role="bold">Common C2 Applications
+              Services.</emphasis> These services provide the ability to view
+              data (i.e., share) in a common way across the network. Common C2
+              Applications Services promote interoperability among diverse
+              functional mission area domains and may be executed between both
+              individual and multiple functional application domain
+              areas.</para>
+            </listitem>
+          </itemizedlist>
+        </sect3>
+      </sect2>
+
+      <sect2 id="v1e-s10">
+        <title>NCOE Component Model (NCM)</title>
+
+        <para>The NTRM provides the structural basis for defining the NCOE
+        (NATO Common Operating Environment) Component Model (NCM).</para>
+
+        <figure id="v1e-ref-cm">
+          <title>The NCOE Component Model</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/v1-ncoe-cm.svg" />
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>The principal components of the NCM (see <xref
+        linkend="v1e-ref-cm" />) include:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para><emphasis role="bold">Kernel Services.</emphasis> The Kernel
+            Services are that subset of the NCOE component segments, which are
+            required for all compliant platforms. At a minimum, this sub-set
+            would consist of the operating system, windowing software,
+            security services, segment installation software and an executive
+            manager.</para>
+          </listitem>
+
+          <listitem>
+            <para><emphasis role="bold">Infrastructure Services.</emphasis>
+            Infrastructure services are those services that directly support
+            the flow of information across NATO systems. Infrastructure
+            services provide a set of integrated capabilities that the
+            applications will access to invoke NCOE services.</para>
+          </listitem>
+
+          <listitem>
+            <para><emphasis role="bold">Common Support Application
+            Services.</emphasis> Common Support Application Services provide
+            services to process and view data in a common way (share data)
+            across the network. The NCOE common support application services
+            promote interoperability among various Mission
+            Applications.</para>
+          </listitem>
+
+          <listitem>
+            <para><emphasis role="bold">Network Services.</emphasis> The NCOE
+            Network Services constitute the basic interface between the
+            platform and the underlying networking infrastructure and include
+            the Internet Sub-layer services.</para>
+          </listitem>
+
+          <listitem>
+            <para><emphasis role="bold">Application Programming
+            Interfaces</emphasis>. Applications are integrated into the NCOE
+            through a common set of Application Programming Interfaces (APIs).
+            The APIs are invoked by the applications and services as required
+            <footnote>
+                <para>The term API is to be understood in a local sense (e.g.
+                APIs between components interfaced on a user desktop), as well
+                as in a distributed sense (e.g. interfaces from legacy or
+                external components using an Object Request Broker (ORB)
+                through IDL interfaces).</para>
+              </footnote>.</para>
+          </listitem>
+
+          <listitem>
+            <para><emphasis role="bold">Data Component Definition</emphasis>.
+            The data component refers to the way in which data is taken into
+            account in the NCOE and is related to the main components of the
+            NCOE (Common Support Application Services, Infrastructure
+            Services, Kernel Services) and even, out of NCOE components, in
+            the strictest sense, to Mission Applications.</para>
+          </listitem>
+
+          <listitem>
+            <para><emphasis role="bold">Support Services</emphasis>. The NCOE
+            Support Services include Methods &amp; Tools, Information
+            Repository, Training Services, System Management and
+            Security.</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+    </sect1>
+
+    <sect1 id="v1e-s11">
+      <title>Service Oriented Architecture Reference Models</title>
+
+      <sect2 id="v1e-s12">
+        <title>What is SOA?</title>
+
+        <para>Service Oriented Architecture (SOA) is a paradigm for organizing
+        and using distributed capabilities that may be under the control of
+        different ownership domains. It is natural in such a context to think
+        of one person’s needs being met by capabilities offered by someone
+        else or, in the world of distributed computing, one computer agent’s
+        requirements being met by a computer agent belonging to a different
+        owner. There is not necessarily a one-to-one correlation between needs
+        and capabilities; the granularity of needs and capabilities vary from
+        fundamental to complex, and any given need may require the combining
+        of numerous capabilities while any single capability may address more
+        than one need. The perceived value of SOA is that it provides a
+        powerful framework for matching needs and capabilities and for
+        combining capabilities to address those needs.</para>
+
+        <para>Visibility, interaction, and effect are key concepts for
+        describing the SOA paradigm. <emphasis
+        role="bold">Visibility</emphasis> refers to the capacity for those
+        with needs and those with capabilities to be able to see each other to
+        interact. Visibility is typically enhanced through the use of metadata
+        to describe such aspects as functional and technical requirements,
+        related constraints and policies, and mechanisms for interaction. For
+        maximum visibility, metadata must be in a form in which its syntax and
+        semantics are widely accessible and understandable.</para>
+
+        <para>Whereas visibility introduces the possibilities for matching
+        needs to capabilities (and vice versa), <emphasis
+        role="bold">interaction </emphasis> is the activity of using the
+        capability. Typically mediated by the exchange of messages, an
+        interaction proceeds through a series of information exchanges and
+        invoked actions. There are many facets of interaction; but they are
+        all grounded in a particular <emphasis role="bold">execution context
+        </emphasis> – the set of technical and business elements that together
+        form a path between those with needs and those with capabilities and
+        that permit information to be exchanged, actions to be performed and
+        provides a decision point for any policies and contracts that may be
+        in force.</para>
+
+        <para>The purpose of using a capability is to realize one or more
+        <emphasis role="bold">real world effects</emphasis>. At its core, an
+        interaction is “an act” rather than “an object” and the result of a
+        interaction is an effect (or a set/series of effects).</para>
+
+        <para>The expected effects, together with relevant preconditions
+        associated with those effects, should be made visible as part of the
+        capability metadata and form an important part of the assessment as to
+        whether a given capability matches similarly described needs. It is
+        not possible to describe every possible effect of using a capability:
+        indeed a cornerstone of SOA is that such knowledge is not
+        necessary.</para>
+
+        <para>A concept that is considered central to SOA has not yet been
+        mentioned – that of <emphasis role="bold">service</emphasis>. Both
+        needs and capabilities exist outside of SOA. What distinguishes SOA is
+        the perceived improvement in bringing needs and capabilities together.
+        <emphasis role="bold">In SOA, services are the mechanism by which
+        needs and capabilities are brought together.</emphasis> SOA is not the
+        solution of domain problems but rather a way of organizing a wider
+        array of possibilities to generate a domain solution. By itself, SOA
+        does not provide a solution to a difficult domain problem where a
+        satisfactory solution does not already exist. SOA can, however,
+        provide an organizing and delivery paradigm that enables one to get
+        more value from use of both solutions which are locally “owned” and
+        solutions under the control of others. It also enables one to express
+        solutions in a way that makes it easier to modify or evolve the
+        identified solution or to try alternate domain solutions.</para>
+
+        <para>The concepts of visibility, interaction, and effect apply
+        directly to services in the same manner as these were described for
+        the general SOA paradigm. Visibility is promoted by the <emphasis
+        role="bold">service description</emphasis> which contains the
+        information necessary to interact with the service and describes this
+        in such terms as the service inputs, outputs, and associated
+        semantics. The service description also conveys what is accomplished
+        when the service is invoked and the conditions for invoking the
+        service. In general, entities (people and organizations) offer
+        capabilities through services and act as <emphasis role="bold">service
+        providers</emphasis>. Those with needs who make use of capabilities
+        through their associated services are referred to as <emphasis
+        role="bold">service consumers</emphasis>. The service description
+        allows prospective consumers to decide if the service is suitable for
+        their current needs and establish whether a consumer satisfies the
+        requirements, if any, of the service provider to be permitted
+        access.</para>
+
+        <para>Having described what is SOA, it is appropriate to note several
+        things which are related but are not necessary attributes or
+        restrictions.</para>
+
+        <para>SOA identifies necessary aspects of interactions involving
+        multiple ownership domains; however, it does not directly embody
+        concepts relating to ownership.</para>
+
+        <para>SOA is commonly implemented using Web services, but services can
+        be made visible, support interaction, and generate effects through
+        other implementations.</para>
+
+        <para>By following a Service-Oriented Architecture NATO nations can
+        then participate in an NNEC environment, by acting as interoperable
+        nodes on a fixed or mobile ad hoc network. Once an element operates as
+        a node, it can discover and register its needs and capabilities on a
+        network, and use that network to communicate, interact and function
+        with other nodes. The ultimate result is greater mission
+        effectiveness.</para>
+
+        <para>In February of 2005, the Organization for the Advancement of
+        Structured Information Standards (OASIS) started standards work to
+        define an SOA reference model (SOA-RM) by establishing a technical
+        committee for that sole purpose.</para>
+
+        <para>The goal of OASIS SOA-RM technical committee is to "establish a
+        Reference Model to encourage the continued growth of specific and
+        different SOA implementations whilst preserving a common layer that
+        can be shared and understood between those or future
+        implementations."</para>
+
+        <para>Achievement of their goals for this reference model will be done
+        by defining the fundamental nature of SOA, and emerge with a common
+        vocabulary and understanding of SOA. As such, it will provide a
+        conforming reference that treats SOA as a powerful abstract model that
+        is independent of the various inevitable technology evolutions.</para>
+      </sect2>
+
+      <sect2 id="v1e-s13">
+        <title>The Benefits of Service Oriented Architecture</title>
+
+        <para>The main drivers for SOA-based architectures are the requirement
+        to facilitate the manageable growth of large-scale enterprise systems,
+        the requirement to facilitate Internet-scale provisioning and use of
+        services and the requirement to reduce costs in organization to
+        organization cooperation.</para>
+
+        <para>The value of SOA is that it provides a simple scalable paradigm
+        for organizing large networks of systems that require interoperability
+        to realize the value inherent in the individual components. Indeed,
+        SOA is scalable because it makes the fewest possible assumptions,
+        including about the network and also minimizes any trust assumptions
+        that are often implicitly made in smaller scale systems.</para>
+
+        <para>An architect using SOA principles is better equipped, therefore,
+        to develop systems that are scalable, evolvable and manageable. It
+        should be easier to decide how to integrate functionality across
+        ownership boundaries. For example, a large company that acquires a
+        smaller company must determine how to integrate the acquired IT
+        infrastructure into its overall IT portfolio.</para>
+
+        <para>Through this inherent ability to scale and evolve, SOA enables
+        an IT portfolio which is also adaptable to the needs of a specific
+        problem domain or process architecture. The infrastructure SOA
+        encourages is also more agile and responsive than one built on an
+        exponential number of pair-wise interfaces. Therefore, SOA can also
+        provide a solid foundation for business agility and
+        adaptability.</para>
+      </sect2>
+
+      <sect2 id="v1e-s14">
+        <title>Overview of the Model</title>
+
+        <para>A key concept of SOA is that of <emphasis role="bold">service
+        </emphasis>. In general, entities (people and organizations) create
+        capabilities to solve or support a solution for the problems they face
+        in the course of their business. SOA is a way to organize the world
+        around this key concept of service. The noun “service” is defined in
+        dictionaries as “The performance of work (a function) by one for
+        another.” However, service, as the term is generally understood, also
+        combines the following related ideas:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>The capability to perform work for another</para>
+          </listitem>
+
+          <listitem>
+            <para>The specification of the work offered for another</para>
+          </listitem>
+
+          <listitem>
+            <para>The offer to perform work for another</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>These concepts emphasize a distinction between a capability and
+        the ability to bring that capability to bear in the context of SOA,
+        where the capability exists independently of SOA. The term service
+        should, therefore, be understood as a set of separate, yet
+        interrelated and more precise concepts. These concepts are an offer,
+        interaction and effect.</para>
+
+        <para>The concept of an <emphasis role="bold">offer</emphasis> follows
+        directly from the dictionary definition of service: 'by one' and 'for
+        another.' In general terms, an offer is a proposal; made by providers
+        which may possess a capability that address a need. In order to use a
+        service, it is necessary to know that it exists, what is accomplished
+        if the service is invoked, how the service is invoked, and other
+        characteristics. Collectively this is the service <emphasis
+        role="bold"> visibility</emphasis>. When given an explicit searchable
+        form, this information allows, for example, prospective consumers to
+        decide if the service is suitable for their current needs and
+        establish whether a consumer satisfies any requirements of the service
+        provider to be permitted access. This information constitutes the
+        <emphasis role="bold"> service description</emphasis>.</para>
+
+        <para>The convergence of a capability and a need results in an
+        <emphasis role="bold">interaction</emphasis>. In an SOA, interaction
+        is effected by exchanging information between service providers and
+        consumers. Typically this is achieved by exchanging messages using a
+        standardized protocol; however, there are many modalities possible for
+        interacting with services.</para>
+
+        <para>At its core, an interaction is “an act” rather than “an object.
+        Therefore, interaction is the focus of the interfaces and behaviour
+        necessary to support the interaction. Recall that interaction may, and
+        typically does, involve crossing ownership boundaries. SOA identifies
+        some of the necessary aspects of interactions involving multiple
+        ownership domains; however, it does not directly embody concepts
+        relating to ownership.</para>
+
+        <para>The final key concept is the <emphasis role="bold">real world
+        effect</emphasis> of using services; it is always the case that there
+        is an intended purpose to providing a service and similarly to using a
+        service. Given that there is often an ownership boundary between the
+        service provider and consumer, there is a natural distinction to be
+        drawn between the public interactions with a service and the private
+        actions of both the service provider and consumer. This distinction
+        maintains and encourages independence of each service participant
+        which, in turn, greatly enhances the scalability and security
+        attributes of SOA. Focus can be directed to the public aspects of
+        using a service by examining the <emphasis
+        role="bold">conditions</emphasis> of using a service and the <emphasis
+        role="bold">expectations</emphasis> that arise as a result of using
+        the service. Service conditions are loosely associated with the
+        <emphasis role="bold">service policies</emphasis> and the expectations
+        with <emphasis role="bold">service contracts </emphasis>.</para>
+      </sect2>
+
+      <sect2 id="v1e-s15">
+        <title>The SOA Reference Model</title>
+
+        <sect3 id="v1e-s16">
+          <title>Service</title>
+
+          <para>A <emphasis role="bold">service</emphasis> is a means to
+          access to one or more capabilities, where the access is provided
+          using a prescribed interface and is exercised consistent with
+          constraints and policies as specified by the service description. A
+          service is provided by one entity – the <emphasis
+          role="bold">service provider </emphasis> – for use by others, but
+          the eventual consumers of the service may not be known to the
+          service provider and may demonstrate uses of the service beyond the
+          scope originally conceived by the provider,</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Information returned in response to a request,</para>
+            </listitem>
+
+            <listitem>
+              <para>A change to the shared state of defined entities,
+              or</para>
+            </listitem>
+
+            <listitem>
+              <para>Some combination of the above.</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Note, the <emphasis role="bold">service consumer</emphasis> in
+          (1) does not typically know how the information is generated, e.g.
+          whether it is extracted from a database or generated dynamically; in
+          (2), the service consumer does not typically know how the state
+          change is effected. In either case, the service consumer would need
+          to provide input parameters required by the service and the service
+          would return information, status indicators, or error descriptions,
+          where both the input and output are as described by the data model
+          exposed through the published service interface. Note that the
+          service may be invoked without requiring information from the
+          consumer (other than a command to initiate action) and may
+          accomplish its functions without providing any return or feedback to
+          the consumer.</para>
+
+          <para>The service concept above emphasizes a distinction between a
+          capability that represents some functionality created to address a
+          need and the point of access to bring that capability to bear in the
+          context of SOA. It is assumed that capabilities exist outside of the
+          SOA. In actual use, maintaining this distinction may not be critical
+          (i.e. the service may be talked about in terms of being the
+          capability) but the separation is pertinent in terms of a clear
+          expression of the nature of SOA and the value it provides.</para>
+        </sect3>
+
+        <sect3 id="v1e-s17">
+          <title>Service description</title>
+
+          <para>The service description represents the information needed in
+          order to use a service. It may be considered part of or the complete
+          set of the metadata associated with a service.
+          In any case, the service description overlaps and shares many common
+          properties with service metadata. In most cases, there is no one
+          “right” set of metadata but rather the metadata content depends on
+          the context and the needs of the parties using the associated
+          entity. The same holds for a service description. While there are
+          certain elements that are likely to be part of any service
+          description, most notably the data model, many elements such as
+          function and policy may vary.</para>
+
+          <para>Best practice suggests that the service description should be
+          represented using a standard, referenceable format. Such a format
+          facilitates the use of common processing tools (such as discovery
+          engines) that can, in turn, capitalize on the service
+          description.</para>
+
+          <para>While the concept of a SOA supports use of a service without
+          the service consumer needing to know the details of the service
+          implementation, the service description makes available critical
+          information that a consumer needs in order to decide whether or not
+          to use a service. In particular, a service consumer must possess the
+          following items of information:</para>
+
+          <orderedlist>
+            <listitem>
+              <para>That the service exists and is <emphasis role="bold">
+              reachable</emphasis> (i.e., the service is <emphasis
+              role="bold"> visible</emphasis> to the service consumer and
+              there are sufficient mechanisms in place for the service
+              participants to be able to interact);</para>
+            </listitem>
+
+            <listitem>
+              <para>That the service performs a certain function or set of
+              functions;</para>
+            </listitem>
+
+            <listitem>
+              <para>That the service operates under a specified set of
+              constraints and policies;</para>
+            </listitem>
+
+            <listitem>
+              <para>That the service will (to some implicit or explicit
+              extent) comply with policies as prescribed by the service
+              consumer;</para>
+            </listitem>
+
+            <listitem>
+              <para>How to interact with the service in order to achieve
+              the required objectives, including the format and content of
+              information exchanged between the service and the consumer and
+              the sequences of information exchange that may be
+              expected.</para>
+            </listitem>
+          </orderedlist>
+
+          <para>Subsequent sections of this document will deal with these
+          aspects of a service in detail but the following subsections will
+          describe the relationship of these information items to the service
+          description.</para>
+
+          <sect4 id="v1e-s18">
+            <title>Service Reachability</title>
+
+            <para>A service description should include sufficient data to
+            permit a service consumer and service provider to exchange
+            information. This might include metadata (such as the location of
+            the service and what information protocols it supports and
+            requires) and information that allows the service consumer to
+            determine if the service is currently reachable or not.</para>
+          </sect4>
+
+          <sect4 id="v1e-s19">
+            <title>Service Functionality</title>
+
+            <para>Item 2 relates to the need to unambiguously express the
+            function(s) of the service and the real world effects that result from it being invoked. This portion of the
+            description needs to be expressed in a way that is generally
+            understandable by service consumers but able to accommodate a
+            vocabulary that is sufficiently expressive for the domain for
+            which the service provides its functionality. The description of
+            functionality may include, among other possibilities, a textual
+            description intended for human consumption or identifiers or
+            keywords referenced to specific machine-processable definitions.
+            For a full description, it may be useful to indicate multiple
+            identifiers or keywords from a number of different collections of
+            definitions.</para>
+
+            <para>Part of the description of functionality may include
+            underlying technical assumptions that determine the limits of
+            functionality exposed by the service or of the underlying
+            capability.</para>
+          </sect4>
+
+          <sect4 id="v1e-s20">
+            <title>Policies Related to a Service</title>
+
+            <para>Items 3 and 4 from Section 2.2.4.2 relate to the service
+            description’s support for associating constraints and policies
+            with a service and providing necessary information for prospective
+            consumers to evaluate if a service will act in a manner consistent
+            with the consumer’s constraints and policies.</para>
+
+            <para>In some situations the consumer may similarly provide an
+            indication of its constraints and policies to support a service’
+            need to do a similar evaluation of suitability. Thus, both
+            prospective consumers and providers are likely to use the service
+            description to establish what Section 2.2.5.3 refers to as the
+            <emphasis role="bold">execution context</emphasis>.</para>
+          </sect4>
+
+          <sect4 id="v1e-s21">
+            <title>Service Interface</title>
+
+            <para>The service interface is the means referred to in Item 5 for
+            interacting with a service. It includes the specific protocols,
+            commands, and information exchange by which actions are initiated
+            that result in the real world effects as specified through the
+            service functionality portion of the service description.</para>
+
+            <para>The specifics of the interface should be syntactically
+            represented in a standard referenceable format. These prescribe
+            what information needs to be provided to the service in order to
+            exercise its functionality and/or the results of the service
+            invocation to be returned to the service consumer. This logical
+            expression of the set of information items associated with the
+            consumption of the service is often referred to as the service
+            data model. It should be noted that the particulars of the
+            standard referenceable format is beyond the scope of the reference
+            model. However, requiring that mechanisms be available (in order
+            to define and retrieve such definitions) is fundamental to the SOA
+            concept.</para>
+          </sect4>
+        </sect3>
+
+        <sect3 id="v1e-s22">
+          <title>Descriptions and Metadata</title>
+
+          <para>One of the hallmarks of a Service Oriented Architecture is the
+          degree of documentation and description associated with it;
+          particularly machine processable descriptions – otherwise known as
+          metadata.</para>
+
+          <para>The purpose of this metadata is to facilitate integration,
+          particularly across ownership domains. By providing public
+          descriptions, it makes it possible for potential participants to
+          construct applications that use services and even offer compatible
+          services. Standardizing the formats of such metadata reduces the
+          cost and burden of producing the descriptions necessary to promote
+          reuse and integration.</para>
+
+          <sect4 id="v1e-s23">
+            <title>The roles of description</title>
+
+            <para>An important additional benefit of metadata – as opposed to
+            informal natural language descriptions – is its potential to
+            facilitate automated software development. Both service providers
+            and service consumers can benefit from such automation – reducing
+            the cost of developing such systems.</para>
+
+            <para>For example, metadata can be used as a basis of discovery in
+            dynamic systems. Metadata can assist in managing a service,
+            validating and auditing usage of services which may also be
+            simplified by rich metadata. It can also help ensure that
+            requirements and expectations (regarding the content of any data
+            interchanged) are properly interpreted and fulfilled.</para>
+          </sect4>
+
+          <sect4 id="v1e-s24">
+            <title>The Limits of Description</title>
+
+            <para>There are well-known theoretic limits on the effectiveness
+            of descriptions – it is simply not possible to specify, completely
+            and unambiguously the precise semantics of a service. There will
+            always be unstated assumptions made by the describer of a service
+            that must be implicitly shared by readers of the description. This
+            applies to machine processable descriptions as well as to human
+            readable descriptions.</para>
+
+            <para>Fortunately, complete precision is not necessary either –
+            what is required is sufficient precision to enable required
+            functionality.</para>
+
+            <para>Another kind of limit of service descriptions is more
+            straightforward: whenever a repository is searched using any kind
+            of query there is always the potential for zero or more responses.
+            There may be many reasons why a multiplicity of responses is
+            returned: there might be several versions of the service, there
+            might be competing services that offer overlapping functionality
+            and there might be services from multiple different
+            providers.</para>
+
+            <para>In the case that there is more than one response, this set
+            of responses has to be converted into a choice of a single service
+            in order for a service consumer to ensure the required function
+            performed. In a multi-provider scenario, that choice must also
+            take into account real world aspects of the service – such as
+            whether the service consumer can identify the provider, can or
+            should trust the provider, and whether the provider is reliable
+            and timely in delivering the service offered. It is unlikely that
+            all such factors can be easily and securely encoded in
+            descriptions and search criteria.</para>
+          </sect4>
+        </sect3>
+      </sect2>
+
+      <sect2 id="v1e-s25">
+        <title>Interacting with Services</title>
+
+        <para>Interacting with a service involves exchanging information with
+        the service and performing actions against the service. In many cases,
+        this is accomplished by sending and receiving messages, but there are
+        other modes possible that do not involve explicit message
+        transmission. However, for simplicity, we often refer to message
+        exchange as the primary mode of interaction with a service. The forms
+        of information exchanged and understood, together with the mechanisms
+        used to exchange information, constitute the <emphasis
+        role="bold">service interface </emphasis> –.</para>
+
+        <para>The key concepts that are important in understanding what it is
+        involved in interacting with services are the <emphasis role="bold">
+        data model</emphasis>, the <emphasis role="bold">process model
+        </emphasis>, the <emphasis role="bold">execution context</emphasis>
+        and the <emphasis role="bold">expectations</emphasis> about the
+        interaction.</para>
+
+        <sect3 id="v1e-s26">
+          <title>Data Model</title>
+
+          <para>The data model of a service is a characterization of the
+          information associated with the use of the service.</para>
+
+          <para>The scope of the data model includes the format of exchanged
+          information, the structural relationships within documents and the
+          definition of terms used. Typically, only information about, and
+          data potentially included in, an exchange with a service are
+          generally considered as being part of that service's data
+          model.</para>
+
+          <para>There are two important aspects of a data model that are
+          important in interpreting information exchange – the structure of
+          the information and the meaning assigned to elements of the
+          information. Particularly for information that is exchanged across
+          an ownership boundary, the interpretation of strings and other
+          tokens in the information is a critical part of the semantics of the
+          interaction.</para>
+
+          <sect4 id="v1e-s27">
+            <title>Structure</title>
+
+            <para>Understanding the representation, structure and form of
+            information exchanged is a key initial step in ensuring effective
+            interactions with a service. There are several levels of such
+            structural information; ranging from the encoding of character
+            data, through the use of formats such as XML, SOAP and
+            schema-based representations.</para>
+
+            <para>A described data model typically has a great deal to say
+            about the form of messages, about the types of the various
+            components of messages and so on. However, pure “typed”
+            information is not sufficient to completely describe the
+            appropriate interpretation of data.</para>
+          </sect4>
+
+          <sect4 id="v1e-s28">
+            <title>Semantics and Ontology</title>
+
+            <para>The primary task of any communication infrastructure is to
+            facilitate the exchange of information and the exchange of intent.
+            For example, a purchase order combines two somewhat orthogonal
+            aspects: the description of the items being purchased and the fact
+            that one party intends to purchase those items from another party.
+            Even if for exchanges that do not cross any ownership boundaries,
+            exchanges with services have similar aspects: this is an update to
+            the customer profile with these changes.</para>
+
+            <para>Especially in the case where the exchanges are across
+            ownership boundaries, a critical issue is the interpretation of
+            the data. This interpretation must be consistent between the
+            participants in the service interaction. Consistent interpretation
+            is a stronger requirement than merely type (or structural)
+            consistency – the tokens in the data itself must also have a
+            shared basis.</para>
+
+            <para>An ontology is a formal description of terms and the
+            relationships between them in a given context. It will include
+            information about how terms should be interpreted within a given
+            context, constraints on and functions of valid values for the data
+            and associated properties, as well as information about possible
+            relationships of some terms to other terms (hierarchical,
+            class/sub class, associative, dependent, etc.).</para>
+
+            <para>The role of explicit ontologies in an SOA is to provide a
+            firm basis for selecting correct interpretations for elements of
+            information exchanged.</para>
+
+            <para>Ontologies also provide a point of context to facilitate the
+            reinterpretation of data. Such a reinterpretation is effectively
+            represented as a particular traversal of the graph of concepts and
+            relationships embodied in the ontology. How much automation of
+            ontology walking is appropriate will depend on the nature of the
+            service and the service participants.</para>
+
+            <para>Note that, for the most part, it is not expected that
+            service consumers and providers would actually exchange ontologies
+            in their interaction – the role of the ontology is a background
+            one – it facilitates sound interactions. Hence ontology references
+            are mostly to be found in <emphasis role="bold">service
+            descriptions</emphasis>.</para>
+
+            <para>More specifically, and in order for a service to be
+            consistent, the service should make consistent use of terms as
+            defined in an ontology. Specific domain semantics are beyond the
+            scope of this reference model; but there is a requirement that the
+            service interface enable providers and consumers to identify
+            unambiguously those definitions that are relevant to their
+            respective domains.</para>
+          </sect4>
+        </sect3>
+
+        <sect3 id="v1e-s29">
+          <title>Behavioural model</title>
+
+          <para>The second key requirement for successful interactions with
+          services is knowledge of the process or temporal aspects of
+          interacting with the service. Loosely, this can be characterized as
+          knowledge of the actions on, responses to and temporal dependencies
+          between actions on the service.</para>
+
+          <para>For example, in a security-controlled access to a database
+          service, the actions available to a service consumer might include
+          presenting credentials, requesting database updates and reading
+          results of queries. The security may be based on a
+          challenge-response protocol. For example, the initiator presents an
+          initial token of identity, the responder presents a challenge and
+          the initiator responds to the challenge in a way that satisfies the
+          service. Only after the user’s credentials have been verified will
+          any action that queries and/or updates the database be accepted. The
+          sequences of actions involved are a critical aspect of the knowledge
+          required for successful use of the secured database service.</para>
+
+          <para>There are other aspects of the behaviour of services that are
+          important. These include, for example, whether the service is
+          transactional, idempotent or long running. As a particular example,
+          a service that supports updating an account balance with a
+          transaction is typically idempotent; i.e., the state of the account
+          would not be affected should a subsequent interaction be attempted
+          for the same transaction.</para>
+
+          <sect4 id="v1e-s30">
+            <title>Action model</title>
+
+            <para>The <emphasis role="bold">action model</emphasis> of a
+            service is about the individual actions that may be invoked
+            against the service. Of course, a great portion of the behaviour
+            resulting from an action may be private; however, the expected
+            public view of a service surely includes the implied effects of
+            actions.</para>
+          </sect4>
+
+          <sect4 id="v1e-s31">
+            <title>Process Model</title>
+
+            <para>The <emphasis role="bold">process model</emphasis>
+            characterizes the temporal relationships between actions and
+            events associated with interacting with the service. It is fairly
+            common to partition the process model associated with a service
+            into two levels: the particular sequences of operations needed to
+            achieve single service exchanges and longer term transactions.
+            These two levels may be nested – a long running transaction is
+            often composed of sequences of exchange patterns.</para>
+
+            <para>Note that although the process model is an essential part of
+            this Reference Model, its extent is not completely defined. In
+            some architectures the process model will include aspects that are
+            not strictly part of SOA – for example, in this reference model we
+            do not address the orchestration of multiple services – although
+            orchestration and choreography may be part of the process model of
+            a given architecture. At a minimum, the process model must cover
+            the interactions with the service itself.</para>
+          </sect4>
+
+          <sect4 id="v1e-s32">
+            <title>Higher-order attributes of processes</title>
+
+            <para>Beyond the straightforward mechanics of interacting with a
+            service there are other, higher-order, attributes of services’
+            process models that are also often important. These can include
+            whether the service is <emphasis
+            role="bold">idempotent</emphasis>, whether the service is
+            <emphasis role="bold">long-running</emphasis> in nature and
+            whether it is important to account for any <emphasis
+            role="bold">transactional</emphasis> aspects of the
+            service.</para>
+
+            <para>A service is <emphasis role="bold">idempotent</emphasis> if
+            subsequent attempts to perform identical transactions are
+            discounted. For example, it often important that a bank will only
+            cash a check once – subsequent attempts to cash the same check
+            should be ignored, rejected or initiate an alert process. Note
+            that idempotency is not the same as effect-free or stateless: a
+            service that always returns the same results is idempotent, but
+            only by virtue of the fact that it does not change from invocation
+            to invocation.</para>
+
+            <para>Idempotency is an important attribute of a service in an
+            environment where there is a significant possibility that the
+            interaction between the service provider and consumer may be
+            interrupted – whether by a network issue or simply one of the
+            parties dropping out. A strategy for recovering from such a
+            breakdown is to attempt to repeat the interaction – an idempotent
+            service is required to ignore such repetitions should the
+            transaction have been completed beforehand.</para>
+
+            <para>A service is <emphasis role="bold">long-running</emphasis>
+            if the activities engendered by an interaction are likely to
+            persist beyond the immediate interaction itself. For example, a
+            classic book selling service might be viewed as a long-running
+            service: the activity started by the purchase of the book may take
+            days or weeks to complete. It can be important to account for a
+            long-running process as it has implications for the kinds of
+            infrastructure needed – both by the service provider and by the
+            service consumer – in order to be able to keep track of the
+            progress of the interaction.</para>
+
+            <para>Often, once a business-level contract has been agreed on, it
+            can be difficult or impossible to simply cancel the consequences
+            of the agreement. This is particularly an issue when the agreement
+            of several parties is necessary simultaneously. For example,
+            booking a vacation may require a flight ticket as well as a hotel
+            room – without either component the result is not a vacation.
+            However, the airline typically will not have a relationship with
+            the hotel. If there are no hotel rooms available for the proposed
+            vacation then the airline ticket will need to be cancelled.</para>
+
+            <para>The process of reversing a previously completed transaction
+            – backing out of the airline booking for example – is likely to be
+            quite different to the process for the original transaction;
+            possibly even involving a different service. Knowledge of such
+            compensatory actions is a key aspect of interacting with <emphasis
+            role="bold">transactional</emphasis> services.</para>
+          </sect4>
+        </sect3>
+
+        <sect3 id="v1e-s33">
+          <title>Actualized Services</title>
+
+          <para>The <emphasis role="bold">execution context</emphasis> of a
+          service interaction is the set of infrastructure elements, process
+          entities and policy assertions that are deployed as part of the
+          instantiated service interaction. In effect, the execution context
+          defines the point of contact between abstractions such as service
+          descriptions which are mostly about the potential for interaction
+          and an actually executing service. It is the point of measurement
+          between the service description and reality, between theory and
+          practice.</para>
+
+          <para>The execution context is not limited to one side of the
+          interaction; rather it concerns the totality of the interaction –
+          including the service provider, the service consumer and the common
+          infrastructure needed to mediate the interaction.</para>
+
+          <para>The execution context is central to many aspects of a service
+          interaction. It defines, for example, the decision point for any
+          policy enforcement relating to the service interaction. Note that a
+          policy decision point is not necessarily the same as an enforcement
+          point: an execution context is not by itself something that lends
+          itself to enforcement. On the other hand, any enforcement mechanism
+          of a policy is likely to take into account the particulars of the
+          actual service interaction.</para>
+
+          <para>The execution context also allows us to distinguish services
+          from one another. Different instances of the same service – denoting
+          interactions between a given service provider and different service
+          consumers for example – are distinguished by virtue of the fact that
+          their execution contexts are different.</para>
+
+          <para>Finally, the execution context is also the context in which
+          the interpretation of data that is exchanged takes place – it is
+          where the symbol grounding happens as it were. A particular string
+          has a particular meaning in a service interaction in a particular
+          context – the execution context.</para>
+        </sect3>
+      </sect2>
+
+      <sect2 id="v1e-s34">
+        <title>Real World Effect</title>
+
+        <para>There is always a particular purpose associated with interacting
+        with a service. Conversely, a service provider (and consumer) often
+        has a priori conditions that apply to its interactions. The service
+        consumer is trying to achieve some result by interacting with the
+        service, as is the service provider. At first sight, such a goal can
+        often be expressed as “trying to get the service to do something” This
+        is sometimes known as the <emphasis role="bold">real world effect
+        </emphasis> of using a service.</para>
+
+        <para>The internal actions that a service providers and consumers
+        perform as a result of participation in service interactions are, by
+        definition, private and fundamentally unknowable. By unknowable we
+        mean both that external parties cannot see others’ private actions
+        and, furthermore should not have explicit knowledge of them. Instead
+        we focus on the state that is shared between the parties – the
+        <emphasis role="bold"> shared state</emphasis>. Actions by service
+        providers and consumers lead to modifications of this shared state;
+        and that in turn leads to modified <emphasis
+        role="bold">expectations</emphasis> by the participants.</para>
+
+        <para>Note that there does not need to be a third party to act as a
+        kind of escrow for the shared state between service providers and
+        consumers. The elements of the shared state are inferred from the
+        communication that has occurred between the participants together with
+        other context as necessary. Of course, in the case where adjudication
+        is a possibility, it becomes prudent to record the interaction – so
+        that disputes can be arbitrated.</para>
+
+        <para>Although there is not necessarily a one-to-one correspondence,
+        the natural container for the conditions applying to a service is the
+        <emphasis role="bold">service policy</emphasis>. Similarly, the
+        natural container for the expectations arising from a service is the
+        <emphasis role="bold">service contract</emphasis>.</para>
+      </sect2>
+
+      <sect2 id="v1e-s35">
+        <title>Policies and Contracts</title>
+
+        <para>A <emphasis role="bold">policy</emphasis> represents some
+        constraint or condition on the use, deployment or description of an
+        owned entity as defined by any participant. A <emphasis
+        role="bold">contract</emphasis>, on the other hand, represents an
+        agreement by two or more parties. Like policies, agreements are also
+        about the conditions of use of a service; they may also constrain the
+        expected real world effects of using a service. The reference model is
+        focused primarily on the concept of policies and contracts as they
+        apply to services. We are not concerned with the form or
+        expressiveness of any language used to express policies and
+        contracts.</para>
+
+        <sect3 id="v1e-s36">
+          <title>Service Policy</title>
+
+          <para>A policy is a statement of the obligations, constraints or
+          other conditions of use of a given service that expresses intent on
+          the part of a participant. More particularly, policies are a way for
+          expressing the relationship between the <emphasis
+          role="bold">execution context</emphasis> and the <emphasis
+          role="bold">data</emphasis> and <emphasis role="bold">behaviour
+          models</emphasis> associated with the service.</para>
+
+          <para>Conceptually, there are three aspects of policies: the policy
+          assertion, the policy owner (sometimes referred to as the policy
+          subject) and policy enforcement.</para>
+
+          <para>For example, the assertion: “All messages are triple-DES
+          encrypted is an assertion regarding the forms of messages. As an
+          assertion, it is measurable: it may be true or false depending on
+          whether the traffic is encrypted or not. Policy assertions are often
+          about the way the service is realized; i.e., they are about the
+          relationship between the service and its execution context.</para>
+
+          <para>A policy always represents a participant’s point of view. An
+          assertion becomes the policy of a participant when they make it
+          their policy. This linking is normally not part of the assertion
+          itself. For example, if the service consumer declares that “Al
+          messages are triple-DES encrypted”, then that reflects the policy of
+          the service consumer. This policy is one that may be asserted by the
+          service consumer independently of any agreement from the service
+          provider.</para>
+
+          <para>Finally, a policy may be enforced. Techniques for the
+          enforcement of policies depend on the nature of the policy.
+          Conceptually, service policy enforcement amounts to ensuring that
+          the policy assertion is consistent with the real world. This might
+          mean preventing unauthorized actions to be performed or states to be
+          entered into; it can also mean initiating compensatory actions when
+          a policy violation has been detected. An unenforceable constraint is
+          not a policy; it would be better described as a wish.</para>
+
+          <para>Policies potentially apply to many aspects of SOA: security,
+          privacy, manageability, Quality of Service and so on. Beyond such
+          infrastructure-oriented policies, participants may also express
+          business-oriented policies – such as hours of business, return
+          policies and so on.</para>
+
+          <para>Policy assertions should be written in a form that is
+          understandable to, and processable by, the parties to whom the
+          policy is directed. Policies may need to be automatically
+          interpreted, depending on the purpose and applicability of the
+          policy and whether it might affect whether a particular service is
+          used or not.</para>
+
+          <para>A natural point of contact between service participants and
+          policies associated with the service is in the service description. It would be natural for the service description
+          to contain references to the policies associated with the
+          service.</para>
+        </sect3>
+
+        <sect3 id="v1e-s37">
+          <title>Service Contract</title>
+
+          <para>Where a policy is associated with the point of view of
+          individual participants, a contract represents an agreement between
+          two or more participants. Like policies, contracts can cover a wide
+          range of aspects of services: quality of service agreements,
+          interface and choreography agreements and commercial
+          agreements</para>
+
+          <para>Thus, following the analysis above, a service contract is a
+          measurable assertion that governs the requirements and expectations
+          of two or more parties. Unlike policy enforcement, which is usually
+          the responsibility of the policy owner, contract enforcement may
+          involve resolving disputes between the parties to the contract. The
+          resolution of such disputes may involve appeals to higher
+          authorities.</para>
+
+          <para>Like policies, contracts may be expressed in a form that
+          permits automated interpretation. Where a contract is used to codify
+          the results of a service interaction, it is good practice to
+          represent it in a machine processable form. This facilitates
+          automatic service composition, for example. Where a contract is used
+          to describe over-arching agreements between service providers and
+          consumers, then the priority is likely to make such contracts
+          readable by people.</para>
+        </sect3>
+      </sect2>
+
+      <sect2 id="v1e-s38">
+        <title>Visibility</title>
+
+        <para>For a service provider and consumer to interact with each other
+        they have to be able to ‘see’ each other. This is true for any
+        consumer/provider relationship – including in an application program
+        where one program calls another: without the proper libraries being
+        present the function call cannot complete. In the case of SOA
+        visibility needs to be emphasized because it is not necessarily
+        obvious how service participants can see each other to
+        interact.</para>
+
+        <para>Visibility is the relationship between service consumers and
+        providers that is satisfied when they are able to interact with each
+        other. Preconditions to visibility are awareness – typically the
+        initiator in a service interaction must be aware of the other parties
+        – willingness – the parties must be predisposed to interactions – and
+        ability – the participants must be able to exchange information as
+        part of a service interaction.</para>
+
+        <sect3 id="v1e-s39">
+          <title>Awareness</title>
+
+          <para>A key aspect of visibility is awareness – both the service
+          provider and the service consumer must have information that would
+          lead them to know of the other’s existence. Technically, the prime
+          requirement is that the initiator of a service interaction has
+          knowledge of the responder. The fact of a successful initiation is
+          often sufficient to inform the responder of the other’s
+          existence.</para>
+
+          <para>Awareness of service offerings is often mediated by various
+          discovery mechanisms. For a service consumer (say) to discover a
+          service provider, the service provider must be capable of making
+          details of the service (notably service description and policies)
+          available to potential consumers; and consumers must be capable of
+          finding that information.</para>
+
+          <para>Service discoverability requires that the service description
+          and policy – or at least a suitable subset thereof – be available in
+          such a manner and form that, directly or indirectly, an awareness of
+          the existence and capabilities of the service can become known to
+          potential consumers. The extent to which the discovery is “pushed by
+          the service provider, “pulled” by a potential consumer, subject to a
+          probe or another method, will depend on many factors.</para>
+
+          <para>For example, a service provider may advertise and promote
+          their service by either including it in a service directory or
+          broadcasting it to all consumers; potential consumers may broadcast
+          their particular service needs in the hope that a suitable service
+          responds with a proposal or offer or a service consumer might also
+          “probe” a entire network to determine if suitable services exist.
+          When the demand for a service is higher than the supply, then by
+          advertising their needs, potential consumers are likely to be more
+          effective then service providers advertising offered
+          services.</para>
+
+          <para>One way or another, the potential consumer must acquire a
+          sufficient description to evaluate whether the service matches their
+          expectations and, if so, the method for the consumer to establish a
+          contract and invoke the service.</para>
+        </sect3>
+
+        <sect3 id="v1e-s40">
+          <title>Willingness</title>
+
+          <para>Associated with all service interactions is intent – it is an
+          intentional act to initiate and to participate in a service
+          interaction. For example, if a service consumer discovers a service
+          via its description in a registry, and the consumer initiates an
+          interaction, if the service provider does not cooperate then there
+          can be no interaction. In some circumstances it is precisely the
+          correct behaviour for a service to fail to respond – for example, it
+          is the classic defence against certain denial-of-service
+          attacks.</para>
+
+          <para>The extent of a service participant’s willingness to engage in
+          service interactions may be the subject of policies. Those policies
+          may be documented in the service description.</para>
+
+          <para>Of course, willingness on the part of service providers and
+          consumers to interact is not the same as a willingness to perform
+          requested actions. A service provider that rejects all attempts to
+          cause it to perform some action may still be fully willing and
+          engaged in interacting with the consumer.</para>
+        </sect3>
+
+        <sect3 id="v1e-s41">
+          <title>Reachability</title>
+
+          <para>A service consumer may have the intention of interacting with
+          a service, and may even have all the information needed to
+          communicate with it. However, if the service is not reachable, for
+          example if there is not communication path between the consumer and
+          provider, then, effectively, the service is not visible to the
+          consumer.</para>
+
+          <para>Reachability is the relationship between service participants
+          where they are able to exchange information as part of service
+          interactions. Reachability is closely connected to the concept of
+          execution context – an important requirement
+          for an execution context is to establish that service participants
+          can communicate with each other.</para>
+        </sect3>
+      </sect2>
+
+      <sect2 id="v1e-s42">
+        <title>SOA Attributes</title>
+
+        <table id="v1e-t1">
+          <title>Implementation of SOA Attributes</title>
+
+          <tgroup cols="7">
+            <colspec colname="col1" colnum="1" colwidth="25*" />
+
+            <colspec colname="col2" colnum="2" colwidth="18*" />
+
+            <colspec colname="col3" colnum="3" colwidth="14*" />
+
+            <colspec colname="col4" colnum="4" colwidth="14*" />
+
+            <colspec colname="col5" colnum="5" colwidth="14*" />
+
+            <colspec colname="col6" colnum="6" colwidth="14*" />
+
+            <colspec colname="col7" colnum="7" colwidth="14*" />
+
+            <tbody>
+              <row>
+                <entry>SOA Attribute</entry>
+
+                <entry>Feature</entry>
+
+                <entry>Year 2</entry>
+
+                <entry>Year 3</entry>
+
+                <entry>Year 4</entry>
+
+                <entry>Year 5</entry>
+
+                <entry>Year 6</entry>
+              </row>
+
+              <row>
+                <entry>Service Applications</entry>
+
+                <entry>Enterprise Management</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>15%</entry>
+
+                <entry>30%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Discovery</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>20%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Messaging</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Mediation</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Collaboration</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Security</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>15%</entry>
+
+                <entry>30%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Storage</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Application</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Assistance</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+              </row>
+
+              <row>
+                <entry>Service Catalogue</entry>
+
+                <entry>Description Language</entry>
+
+                <entry>0%</entry>
+
+                <entry>20%</entry>
+
+                <entry>40%</entry>
+
+                <entry>60%</entry>
+
+                <entry>80%</entry>
+              </row>
+
+              <row>
+                <entry>Service Instance</entry>
+
+                <entry>Definition Language</entry>
+
+                <entry>0%</entry>
+
+                <entry>20%</entry>
+
+                <entry>40%</entry>
+
+                <entry>60%</entry>
+
+                <entry>80%</entry>
+              </row>
+
+              <row>
+                <entry>Service Publications</entry>
+
+                <entry>Unicast</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>25%</entry>
+
+                <entry>50%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Multicast</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>25%</entry>
+
+                <entry>50%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Broadcast</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>25%</entry>
+
+                <entry>50%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Anycast</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+              </row>
+
+              <row>
+                <entry>Service Discovery</entry>
+
+                <entry>Registry</entry>
+
+                <entry>0%</entry>
+
+                <entry>20%</entry>
+
+                <entry>40%</entry>
+
+                <entry>60%</entry>
+
+                <entry>80%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Directory</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>30%</entry>
+
+                <entry>60%</entry>
+
+                <entry>90%</entry>
+              </row>
+
+              <row>
+                <entry>Service Data Model</entry>
+
+                <entry></entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+              </row>
+
+              <row>
+                <entry>Service Contract</entry>
+
+                <entry>Low Level</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>High Level</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>The previous table, <xref linkend="v1e-t1" />, is a suggested generalized outline
+        on when SOA attributes should be implemented within the mid-term time
+        frame. A value of zero percent indicates that implementation should
+        begin in that year. Conversely, a value of a hundred percent indicates
+        that implementation should end in that year. Naturally, measurable
+        metrics to quantify progress would have to be agreed upon by the NATO
+        nations.</para>
+
+        <table id="v1e-t3">
+          <title><emphasis>Far-term SOA Attributes</emphasis></title>
+
+          <tgroup cols="7">
+            <colspec colname="col1" colnum="1" colwidth="26*" />
+
+            <colspec colname="col2" colnum="2" colwidth="19*" />
+
+            <colspec colname="col3" colnum="3" colwidth="10*" />
+
+            <colspec colname="col4" colnum="4" colwidth="10*" />
+
+            <colspec colname="col5" colnum="5" colwidth="10*" />
+
+            <colspec colname="col6" colnum="6" colwidth="10*" />
+
+            <colspec colname="col7" colnum="7" colwidth="10*" />
+
+            <tbody>
+              <row>
+                <entry><emphasis role="bold">SOA Attribute</emphasis></entry>
+
+                <entry><emphasis role="bold">Feature</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 6</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 7</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 8</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 9</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 10</emphasis></entry>
+              </row>
+
+              <row>
+                <entry>Service Applications</entry>
+
+                <entry>Enterprise Management</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Discovery</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Messaging</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Mediation</entry>
+
+                <entry></entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Collaboration</entry>
+
+                <entry></entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Security</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Storage</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Application</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Assistance</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry>Service Descriptions</entry>
+
+                <entry>Description Language</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry>Service Definitions</entry>
+
+                <entry>Definition Language</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry>Service Publications</entry>
+
+                <entry>Unicast</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Multicast</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Broadcast</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Anycast</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry>Service Discovery</entry>
+
+                <entry>Repository</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Directory</entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry>Service Data Model</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+              </row>
+
+              <row>
+                <entry>Service Contract</entry>
+
+                <entry>Low Level</entry>
+
+                <entry></entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>High Level</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+
+                <entry> </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <sect3 id="v1e-s43">
+          <title>Service Application</title>
+
+          <para>A service is a contractually defined behaviour that can be
+          implemented and provided by a service provider of choice for use by
+          service consumer. The term “services” does not imply web services;
+          although, web services are well known implementations of SOA. Other
+          specialized implementations include J2EE<footnote>
+              <para>Sun Microsystems® Java 2® Platform, Enterprise Edition
+              (J2EE) defines the standard for developing component-based,
+              multi-tier, enterprise applications.
+              http://java.sun.com/j2ee/</para>
+            </footnote> and .NET<footnote>
+              <para>Microsoft® .NET is a set of Microsoft software
+              technologies for connecting information, people, systems, and
+              devices. www.microsoft.com/net/</para>
+            </footnote>.</para>
+
+          <para>The following service group is called the NATO Information
+          Infrastructure Core Enterprise Services (NII-CES). NII-CES services
+          are available enterprise-wide and are independent of Cross COI
+          Services. They are considered the building blocks upon which Cross
+          COI Services are created.</para>
+
+          <para>Capability Areas</para>
+
+          <para>Service Management Control</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Enterprise Management</para>
+            </listitem>
+
+            <listitem>
+              <para>Application</para>
+            </listitem>
+
+            <listitem>
+              <para>Assistance</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Information Assurance</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Security</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Information and Integration</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Discovery</para>
+            </listitem>
+
+            <listitem>
+              <para>Mediation</para>
+            </listitem>
+
+            <listitem>
+              <para>Storage</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Communication</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Messaging</para>
+            </listitem>
+
+            <listitem>
+              <para>Collaboration</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Community of Interests</para>
+
+          <para>Users and Missions</para>
+        </sect3>
+
+        <sect3 id="v1e-s44">
+          <title>Service Catalogue</title>
+
+          <para>The service catalogue information consists of the constraints
+          and policies that define the usage context and functionality of the
+          service. This enables service consumers, human or another service,
+          to examine the service description and evaluate the following
+          questions:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>What does the service do?</para>
+            </listitem>
+
+            <listitem>
+              <para>Is it relevant to my mission?</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>The declaration may also include details about any implied
+          process or other legal or business terms that occur when the service
+          is invoked. For example, if a service consumer invokes a service
+          that places a purchase order to the service provider, and the
+          execution is successful, it may result in a financial responsibility
+          to the service provider or some other legal entity.</para>
+        </sect3>
+
+        <sect3 id="v1e-s45">
+          <title>Service Type</title>
+
+          <para>Service type information includes all information that is
+          needed to know how to use or how to produce a service of a specific
+          type. It includes information on service interfaces, protocols and
+          achievements.</para>
+        </sect3>
+
+        <sect3 id="v1e-s46">
+          <title>Service Instance</title>
+
+          <para>While the nature of the services themselves may vary, a common
+          standard for declaring a service is desirable when building an
+          infrastructure. The service instance consists of the technical
+          parameters, constraints and policies that define the terms to invoke
+          the service instance. Every service should include a service
+          definition in a standardized format. This enables service consumers,
+          human or another service, to examine the service definition and
+          evaluate the following questions:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>How can I bind to a service?</para>
+            </listitem>
+
+            <listitem>
+              <para>What security protocols (if any) must be used with
+              it?</para>
+            </listitem>
+          </itemizedlist>
+        </sect3>
+
+        <sect3 id="v1e-s47">
+          <title>Service Publication</title>
+
+          <para>A service must communicate its service description in an
+          accessible manner to potential consumers. It does so by using one of
+          several advertising method; catalogue or webpage publishing,
+          Pulling, or Pushing.</para>
+
+          <para>In the Pull methodology, potential service consumers request
+          the service provider to send them the service description. This pull
+          methodology may be invoked as a service itself.</para>
+
+          <para>In the Push methodology, the service provider, or its agent,
+          sends the service description to potential service consumers. The
+          push and pull methodologies may work together to facilitate
+          advertising services through a third party in a pattern of publish
+          and subscribe.</para>
+
+          <para>Different models for the push methodology include:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Unicast (point-to-point) is a methodology where the
+              service provider sends a message from a single source to a
+              single destination.</para>
+            </listitem>
+
+            <listitem>
+              <para>Multicast (point-to-multipoint) is a parallel
+              communication pattern in which a source host sends a message to
+              a group of destination hosts. This is different from sending
+              multiple serial unicast (point-to-point) messages to each of the
+              destination hosts.</para>
+            </listitem>
+
+            <listitem>
+              <para>Broadcast (point-to-all points) is a methodology where the
+              service provider sends a transmission to all message consumers
+              on a fabric.</para>
+            </listitem>
+
+            <listitem>
+              <para>Anycast (point-to-point-to-multipoint) is a methodology
+              that assigns a private address to several message consumers on a
+              fabric. The message sender does not know or care who consumes
+              the message or the details of the message’s distribution
+              list.</para>
+            </listitem>
+          </itemizedlist>
+        </sect3>
+
+        <sect3 id="v1e-s48">
+          <title>Service Discovery</title>
+
+          <para>Discovery occurs when a potential consumer obtains information
+          about the existence of a service, its applicable parameters and
+          terms. Discovery does not constitute authorization to execute
+          against the service; although these details may be included in the
+          discovery pattern.</para>
+
+          <para>Service discovery may include the following steps:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Finding and selecting achievements that suits the need of
+              the service consumer</para>
+            </listitem>
+
+            <listitem>
+              <para>Finding and selecting service types that produces the
+              selected achievements</para>
+            </listitem>
+
+            <listitem>
+              <para>Finding and selecting service instances of the selected
+              service types</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Finding and using services based on type can be easily
+          automated, while finding and using services based on description or
+          ontology is still difficult to automate.</para>
+
+          <sect4 id="v1e-s49">
+            <title>Implementing advertising and discovery</title>
+
+            <para>The publishing and discovery components of SOA may be
+            implemented in many ways, including using a registry/repository or
+            a services directory. Although using these may make discovery
+            easier, an SOA requires neither of them.</para>
+          </sect4>
+
+          <sect4 id="v1e-s50">
+            <title>Registry/Repository</title>
+
+            <para>A Registry/Repository is a component where users can store
+            and manage artefacts required for their enterprise to function.
+            This includes artefacts that require sharing among more than one
+            user (such as XML schemas and web-service descriptions). The
+            repository component provides an intrinsic storage mechanism that
+            is bound to the registry such that the registry knows about any
+            auditable events to the artefacts in the repository.</para>
+          </sect4>
+
+          <sect4 id="v1e-s51">
+            <title>Services Directory</title>
+
+            <para>A Directory is an interface that provides information to
+            bind to artefacts. Those who own or control the artefacts may make
+            an entry into the directory to reference the artefact and explain
+            how to bind to it. Others may retrieve this information and use it
+            to bind to the artefacts. The main drawback of the directory is
+            that it has no control or notification if an artefact is deleted,
+            changed or replaced, and the directory may not be able to indicate
+            these events to users.</para>
+
+            <para>Both Registry/Repository and Directory implementations allow
+            for federation (also called replication). This functionality
+            allows content from one implementation to be replicated or
+            referenced from within other implementations.</para>
+
+            <para>Several standards exist to constrain Registry/Repository and
+            Directory implementations. The most prevalent standards are
+            ISO/IEC 11179 Part 315 (an ISO standard for metadata registries),
+            the OASIS ebXML Registry-Repository Technical Specifications16 and
+            the OASIS Universal Description and Discovery Interface (UDDI)
+            Technical Specification</para>
+
+            <para>The OASIS UDDI specification is available from the OASIS
+            website under the technical committee’s home page area at
+            www.oasis-open.org/committees/tc_home.php?wg_abbrev=uddi-spec.</para>
+
+            <para>Standards such as Bluetooth TM use a broadcast-type
+            methodology to advertise their services to other Bluetooth devices
+            that are within range.</para>
+          </sect4>
+        </sect3>
+
+        <sect3 id="v1e-s52">
+          <title>Service Data Model</title>
+          <para>When invoking a service, certain parameters may be required to help the service fulfil the service request.  The service may also pass parameters back to the service consumer.  To understand any required parameters serialization, an artefact is required to specify the associated data models for the services.  Even if no parameters are used, SOA requires a base component to declare this in a format that is understandable to service consumers.</para>
+          <sect4 id="v1e-s53">
+            <title>Known implementations</title>
+            <para>The W3C’s WSDL10 can be used to express that related schema fragments constrain XML instance data being passed in and out of services.  ebXML’s Collaboration Protocol Profile11 also references a schema for instance data being used in a service or collaboration of services.  Both of these implementations are not specifically dependent on the W3C’s XML Schema19 format; yet most implementations use it.</para>
+          </sect4>
+        </sect3>
+
+        <sect3 id="v1e-s54">
+          <title>Service Contract</title>
+
+          <para>A service contract is not an actual legal document. Instead,
+          the service contract specifies a set of technical data, and possibly
+          business information. The contract is between whoever is providing
+          the Web service, and whoever is consuming the Web service. Put in
+          the simplest terms, the contract provides details about the service
+          being offered by the provider. By agreeing to a contract, both sides
+          understand exactly what will be provided.</para>
+
+          <sect4 id="v1e-s55">
+            <title>Low Level</title>
+
+            <para>A service contract can operate at a lot of different levels.
+            A low-level contract expresses how you communicate, and what the
+            expectations of communications are. But that low-level contract is
+            not nearly as important as the higher-level contracts. At a
+            minimum, will contain:</para>
+
+            <itemizedlist>
+              <listitem>
+                <para>Service description</para>
+              </listitem>
+
+              <listitem>
+                <para>Service interface details</para>
+              </listitem>
+
+              <listitem>
+                <para>Service inputs/outputs</para>
+              </listitem>
+            </itemizedlist>
+          </sect4>
+
+          <sect4 id="v1e-s56">
+            <title>High Level</title>
+
+            <para>This higher-level contract is far more important because
+            these contracts frequently have business implications, not just
+            technical implications. For example, a contract may include
+            details of how the service will be authenticated, and so have
+            details about authentication, encryption and authorization. A
+            typical high-level contract could include the following:</para>
+
+            <itemizedlist>
+              <listitem>
+                <para>Description of service</para>
+              </listitem>
+
+              <listitem>
+                <para>Details interface to the service</para>
+              </listitem>
+
+              <listitem>
+                <para>Service inputs/outputs</para>
+              </listitem>
+
+              <listitem>
+                <para>How service will be authenticated</para>
+              </listitem>
+
+              <listitem>
+                <para>How service will be authorized</para>
+              </listitem>
+
+              <listitem>
+                <para>What type of encryption will be used</para>
+              </listitem>
+
+              <listitem>
+                <para>Service level agreements (Availability, response time,
+                etc)</para>
+              </listitem>
+
+              <listitem>
+                <para>Charges to use the service</para>
+              </listitem>
+            </itemizedlist>
+          </sect4>
+        </sect3>
+      </sect2>
+    </sect1>
+
+    <sect1 id="v1e-s57">
+      <title>Network-Enabled Operations (NEO-RM)</title>
+
+      <para>A NATO Network Enabled Operations Reference Model (NEO-RM) should
+      be created during the mid-term time frame. The best course of action to
+      create such a document would be build upon similar existing doctrine
+      used at the national level by some NATO members.</para>
+
+      <para>The NEO RM, describes all of the activities required to establish,
+      use, operate, and manage the network enabled enterprise information
+      environment to include: the generic user-interface, the
+      intelligent-assistant capabilities, the network enabled capabilities
+      (i.e., core services, Community of Interest services, and environment
+      control services), and the enterprise management components. It also
+      describes a selected set of key standards that will be needed as the NEO
+      capabilities of a seamless communications network backbone are
+      realized.</para>
+
+      <para>The NEO-RM is to describe the evolving NATO enterprise aspects of
+      an objective net-enabled information environment. The NEO-RM, as
+      designed, serves as a common, enterprise-level, reference model for
+      NATO’s net-enabled operations, such as the expeditionary NATO Response
+      Force (NRF), and for current and future acquisition programs to
+      reference. A shared vision of the enterprise information environment
+      will assist decision makers promote enterprise-wide unity of
+      effort.</para>
+
+      <figure id="v1e-nneo">
+        <title>NATO Network-Enabled Operations: The Future</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/v1-fig06.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <sect2 id="v1e-s58">
+        <title>NEO Attributes</title>
+
+        <table id="v1e-t2">
+          <title>Implementation of NEO attributes</title>
+
+          <tgroup cols="7">
+            <colspec colname="col1" colnum="1" colwidth="24*" />
+
+            <colspec colname="col2" colnum="2" colwidth="18*" />
+
+            <colspec colname="col3" colnum="3" colwidth="14*" />
+
+            <colspec colname="col4" colnum="4" colwidth="14*" />
+
+            <colspec colname="col5" colnum="5" colwidth="14*" />
+
+            <colspec colname="col6" colnum="6" colwidth="14*" />
+
+            <colspec colname="col7" colnum="7" colwidth="14*" />
+
+            <tbody>
+              <row>
+                <entry>NCOW Attribute</entry>
+
+                <entry>Features</entry>
+
+                <entry>Year 2</entry>
+
+                <entry>Year 3</entry>
+
+                <entry>Year 4</entry>
+
+                <entry>Year 5</entry>
+
+                <entry>Year 6</entry>
+              </row>
+
+              <row>
+                <entry>Internet Protocol</entry>
+
+                <entry>Automated Configuration</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>25%</entry>
+
+                <entry>50%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Large Address Space</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>25%</entry>
+
+                <entry>50%</entry>
+              </row>
+
+              <row>
+                <entry>Secure &amp; Available Communications</entry>
+
+                <entry>Hardened Against Denial of Service</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>10%</entry>
+
+                <entry>20%</entry>
+
+                <entry>30%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Core Network Encryption</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>20%</entry>
+
+                <entry>40%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Edge to Edge Encryption</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>25%</entry>
+              </row>
+
+              <row>
+                <entry>Only Handle Information Once (OHIO)</entry>
+
+                <entry>Use Known Repositories</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>25%</entry>
+
+                <entry>50%</entry>
+
+                <entry>75%</entry>
+              </row>
+
+              <row>
+                <entry>Post in Parallel</entry>
+
+                <entry>Post Data Before Processing</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>20%</entry>
+
+                <entry>40%</entry>
+              </row>
+
+              <row>
+                <entry>Smart Pull</entry>
+
+                <entry></entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>20%</entry>
+
+                <entry>40%</entry>
+              </row>
+
+              <row>
+                <entry>Service Agreements</entry>
+
+                <entry>Service Contract</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Quality of Service</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+              </row>
+
+              <row>
+                <entry>Data Centric</entry>
+
+                <entry>Metadata</entry>
+
+                <entry>-</entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>30%</entry>
+
+                <entry>60%</entry>
+              </row>
+
+              <row>
+                <entry></entry>
+
+                <entry>Metadata Registry</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+              </row>
+
+              <row>
+                <entry>Application Diversity</entry>
+
+                <entry></entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>10%</entry>
+
+                <entry>20%</entry>
+
+                <entry>30%</entry>
+              </row>
+
+              <row>
+                <entry>Assured Sharing</entry>
+
+                <entry></entry>
+
+                <entry>-</entry>
+
+                <entry>0%</entry>
+
+                <entry>20%</entry>
+
+                <entry>40%</entry>
+
+                <entry>60%</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>The previous table, <xref linkend="v1e-t2" />, is a suggested generalized outline
+        on when NEO attributes should be implemented within the mid-term time
+        frame. A value of zero percent indicates that implementation should
+        begin in that year. Conversely, a value of a hundred percent indicates
+        that implementation should end in that year. Naturally, measurable
+        metrics to quantify progress would have to be agreed upon by the NATO
+        nations.</para>
+
+        <sect3 id="v1e-s59">
+          <title>Internet Protocol (IP)</title>
+
+          <para>The Internet Protocol (IP) is a protocol used by source and
+          destination hosts for communicating data across a packet-switched
+          inter-network. Data in an IP inter-network are sent in blocks
+          referred to as packets. No setup of "path" is needed before a host
+          tries to send packets to a host it has previously not communicated
+          with.</para>
+
+          <para>The Internet Protocol provides an unreliable datagram service
+          (also called best effort); i.e. It makes almost no guarantees about
+          the packet. The packet may arrive damaged, it may be out of order
+          (compared to other packets sent between the same hosts), it may be
+          duplicated, or it may be dropped entirely. If an application needs
+          reliability, it is provided by other means, typically by upper level
+          protocols transported on top of IP.</para>
+
+          <para>Inter-network routers, forward IP packets across
+          interconnected layer 2 networks. The lack of any delivery guarantees
+          means that the design of packet switches is made much simpler. (Note
+          that if the network does drop, reorder or otherwise damage a lot of
+          packets, the performance seen by the user will be poor, so most
+          network elements do try hard to not do these things - hence the best
+          effort term. However, an occasional error will produce no noticeable
+          effect.)</para>
+
+          <para>In a network-enable NATO, there is a need for support for an
+          unlimited number of site addresses for wireless communications
+          devices, remote sensors, vehicles and precision-guided munitions.
+          Therefore, with any large-scale operation, the current finite number
+          of IP addresses becomes a resource that must be managed and closely
+          monitored.</para>
+
+          <para>The ad-hoc nature of future NATO operations dictates the need
+          for easily configurable networks. Since most of the devices
+          connected to NATO networks will be mobile devices, a device must be
+          able to arbitrarily change locations on the Internet and still
+          maintain existing connections.</para>
+        </sect3>
+
+        <sect3 id="v1e-s60">
+          <title>Secure and Available Communications</title>
+
+          <para>Security requires that systems and users are protected against
+          attack, disruptions, and threats. Data must also be kept private and
+          free of malicious or corrupted content as it travels throughout the
+          enterprise. And the network infrastructure itself must be protected
+          against exposure to attacks that impacts internal servers and end
+          user systems. In the mid-term time frame the initial goal is
+          encryption for the core network, and the final goal is edge-to-edge
+          encryption with a network that is hardened against denial of
+          service.</para>
+
+          <para>Ensuring availability means that systems themselves are always
+          available, and that information is readily accessible to users and
+          other authorized individuals, especially as it relates to regulatory
+          compliance and legal discovery. Migrating older, yet still useful,
+          data poses an added challenge to availability, as users still demand
+          immediate access and IT requires high degrees of ease and automation
+          to achieve this.</para>
+        </sect3>
+
+        <sect3 id="v1e-s61">
+          <title>Only Handle Information Once (OHIO)</title>
+
+          <para>A key feature of network-enabled NATO is the ability to
+          provide individual soldiers and commanders with relevant timely
+          information. But pushing information to users in the area of
+          operation is difficult because the number of items that can link to
+          the network exceeds the current messaging protocol’s ability to
+          assign addresses. Technologies that allow wireless systems to plug
+          into tactical and theatre networks seamlessly without straining
+          resources may permit the military to deploy more network-enabled
+          devices.</para>
+
+          <para>This capability fits into a concept known as “only handle
+          information once” (OHIO), where an information producer posts data once
+          but permits authorized users to access it. This approach differs
+          from requiring the producer to know the address of every user that
+          may want the information.</para>
+        </sect3>
+
+        <sect3 id="v1e-s62">
+          <title>Post in Parallel</title>
+
+          <para>All NATO participants or business process owners make their
+          data available on the network as soon as it is created. Posting data
+          does not mean just making accessible, it also means tagging
+          (describing) the data appropriately for its content. Processing of
+          data will be done as needed by specialized web services invoked by
+          the data consumer.</para>
+        </sect3>
+
+        <sect3 id="v1e-s63">
+          <title>Smart Pull</title>
+
+          <para>The two solutions in use for data synchronization are called
+          “Push” and “Pull”. Smart Pull is just a further refinement of the
+          Pull solution.</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Push solutions involve the server notifying the device
+              that data is available. Solutions to this usually require some
+              type of infrastructure to manage the distribution of
+              notifications to the network enabled-devices. For example, the
+              solution might involve using the mobile phone service provider’s
+              SMS system or might be a custom built system like that created
+              by Research in Motion (RIM) for their Blackberry communications
+              network.</para>
+            </listitem>
+
+            <listitem>
+              <para>Pull solutions put the burden on the network-enabled
+              device to go retrieve data. They’ve historically been simple
+              implementations using techniques like calling the server on some
+              regular time interval or maybe even relying on the user to
+              initiate the data sync.</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Generally the immediate notification of push is desirable,
+          however when building our own applications, the simplicity of pull
+          is more attractive. This is where Smart Pull comes in. An example of
+          the concept of smart pull that has been gained a lot of attention
+          since the announcement is the Microsoft Messaging and Security
+          Feature Pack (MMSF). MMSF provides Windows Mobile 5.0 Smartphone
+          with full connectivity to their Exchange server, keeping Outlook
+          data up-to-date including receiving email as soon as it arrives at
+          the server. The technique used to maintain synchronization is
+          basically a long-running web service call.</para>
+
+          <para>The smart pull mechanism seems like the kind of solution that
+          will address many common scenarios faced when developing mobile
+          applications that require close synchronization with a server.
+          Applications encourage discovery; users can pull data directly from
+          the network or use value-added discovery services.</para>
+        </sect3>
+
+        <sect3 id="v1e-s64">
+          <title>Data Centric Approach</title>
+
+          <para>In a data-centric approach the data separate from
+          applications, or services. Communications between services occurs by
+          posting data. The steps involved in a data-centric approach
+          are:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Analyze how the data is used and moved as it flows through
+              the system to better understand how to store and use it.</para>
+            </listitem>
+
+            <listitem>
+              <para>Describe data or tag data to facilitate a system level
+              view. This involves describing data <emphasis
+              role="bold">and</emphasis> describing the context under which it
+              was collected or generated.</para>
+            </listitem>
+
+            <listitem>
+              <para>Build services around data. Services are just the methods
+              to manage data.</para>
+            </listitem>
+          </itemizedlist>
+        </sect3>
+
+        <sect3 id="v1e-s65">
+          <title>Application Diversity</title>
+
+          <para>Users can pull multiple services to access same data (e.g.,
+          for collaboration). This idea reinforces the underlying concept of
+          the data being independent of the services that manipulate the
+          data.</para>
+        </sect3>
+
+        <sect3 id="v1e-s66">
+          <title>Assured Sharing</title>
+
+          <para>Assured sharing means trusted accessibility to net resources,
+          such as: data, services, apps, people, collaborative environment,
+          etc. Access is assured for authorized users, but denied for
+          unauthorized users by maintaining thorough security policies.</para>
+        </sect3>
+
+        <sect3 id="v1e-s67">
+          <title>Quality of Service</title>
+
+          <para>Data timeliness, accuracy, completeness, integrity, and ease
+          of use.</para>
+        </sect3>
+      </sect2>
+    </sect1>
+
+    <sect1 id="v1e-s68">
+      <title>Information Systems Interoperability Reference Model
+      (ISIOP-RM)</title>
+
+      <para>A successful case of interoperability is demonstrated in NATO’s
+      efforts to standardize small arms. It was politically unattainable, for
+      domestic industrial base reasons, to standardize on a common rifle and
+      pistol for all NATO countries. But NATO did standardize on ammunition;
+      the standard pistol round is 9mm. The interoperable ammunition solution
+      gained interoperability -- the real need -- without imposing unpalatable
+      commonality requirements. Such interoperability can also be achieved
+      with information systems.</para>
+
+      <sect2 id="v1e-s69">
+        <title>Interoperability Attributes</title>
+
+        <table id="v1e-t4">
+          <title></title>
+
+          <tgroup cols="6">
+            <colspec colname="col1" colnum="1" colwidth="38*" />
+
+            <colspec colname="col2" colnum="2" colwidth="24*" />
+
+            <colspec colname="col3" colnum="3" colwidth="14*" />
+
+            <colspec colname="col4" colnum="4" colwidth="14*" />
+
+            <colspec colname="col5" colnum="5" colwidth="14*" />
+
+            <colspec colname="col6" colnum="6" colwidth="14*" />
+
+            <tbody>
+              <row>
+                <entry><emphasis role="bold">Interoperability
+                Attribute</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 2</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 3</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 4</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 5</emphasis></entry>
+
+                <entry><emphasis role="bold">Year 6</emphasis></entry>
+              </row>
+
+              <row>
+                <entry>Inter-Network</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+              </row>
+
+              <row>
+                <entry>Modularity</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+              </row>
+
+              <row>
+                <entry>Data</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+              </row>
+
+              <row>
+                <entry>Shared processes</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+              </row>
+
+              <row>
+                <entry>Interoperable procedures</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+              </row>
+
+              <row>
+                <entry>Cognitive interoperability</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+              </row>
+
+              <row>
+                <entry>Doctrinal interoperability</entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+
+                <entry></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <sect3 id="v1e-s70">
+          <title>Inter-Network</title>
+
+          <para>Communications interoperability can be defined by the ability
+          to inter-network. Because of the confederated nature of NATO,
+          heterogeneous communications networks are necessary, and
+          unavoidable; the key to interoperability is that they can be
+          concatenated together using routers. Each discrete communications
+          network is a routable network.</para>
+        </sect3>
+
+        <sect3 id="v1e-s71">
+          <title>Modularity</title>
+
+          <para>Information systems are made up of sense, decide and act
+          functions that rest upon the communications. This layer of the Model
+          deals with the modularity of these functions and the complexity of
+          information systems, which can be explained by nesting and
+          chaining.</para>
+        </sect3>
+
+        <sect3 id="v1e-s72">
+          <title>Data</title>
+
+          <para>Data element interoperability is a clear requisite to
+          information system interoperability. This is the abstract layer
+          where this discussion of data, meta-data and meta-meta-data belongs.
+          A key issue is semantic equivalences.</para>
+        </sect3>
+
+        <sect3 id="v1e-s73">
+          <title>Shared Processes</title>
+
+          <para>This is a software engineering concept. At its trivial level
+          reusable code obviously enhances interoperability but that is a side
+          effect of what is essentially an economy effort in code production.
+          At a more mature level, mobile code and portable code are the
+          pertinent issues.</para>
+        </sect3>
+
+        <sect3 id="v1e-s74">
+          <title>Interoperable Procedures</title>
+
+          <para>Operating procedures is the level at which we tend to shift
+          from systems engineering to human factors in the layered Model. This
+          is the domain long inhabited by Standard Operating
+          Procedures.</para>
+        </sect3>
+
+        <sect3 id="v1e-s75">
+          <title>Cognitive Interoperability</title>
+
+          <para>Cognitive Interoperability has to do with shared situation
+          awareness. Information systems are interoperable at this layer if
+          decision makers in two different systems are seeing coherent
+          pictures of the information presented.</para>
+        </sect3>
+
+        <sect3 id="v1e-s76">
+          <title>Doctrinal Interoperability</title>
+
+          <para>This is a human factor that leads to coherency and uniformity
+          of action. Different decision makers, when presented with the same
+          information will be making similar decisions. The usual doctrinal
+          tensions of uniformity versus creativity are still present and
+          certainly not resolved by this Model. The Model only serves to
+          illustrate the level of abstraction where such discussion
+          belongs.</para>
+
+          <para>Where the reference models, described in the previous section,
+          laid out the framework for a networked-enabled NATO, it is the
+          technologies that are projected to be available during the mid-term
+          period are going to enable the implementation of a network-enabled
+          NATO, during this time frame.</para>
+        </sect3>
+      </sect2>
+    </sect1>
+    <sect1 id="v1e-s77">
+      <title>Business Process Infrastructure Framework (BPIF)</title>
+      <para>Within the wide area of relevant information technologies, this work has focused on a particular field referred to as Business Process Infrastructure Framework (BPIF).  Although highly relevant, this is by no means a well defined or even well established field.  Instead, an important part of this work has been to find a working definition and scope for the field.</para>
+      <para>As a starting point, the intent has been to describe technologies that in various ways support business processes. As almost any information technology available can be said to do this, we have focused on those technologies that most explicitly have to do with this kind of support. Furthermore, as service orientation is a known fundamental architectural concept for future NNEC solutions, the definition of BPIF assumed here has been limited to that kind of solutions. From the outset, we have also seen technologies for service description and discovery, which also is part of the Swedish responsibility, as such a fundamental ingredient of BPIF, that it is included as a subfield within BPIF.</para>
+      <para>An important basis for this work has also been the FMA Technology Support Study, June 2005, that points out and describes some central areas of technology development, in particular within the field of distributed system architecture. Parts of the material from that report have also been reused here, although somewhat rearranged to fit the current scope.</para>
+      <para>Within this scope, this report presents the first steps toward a complete description of the field of BPIF, and includes</para>
+      <itemizedlist>
+        <listitem>
+          <para>a definition of the field,</para>
+        </listitem>
+        <listitem>
+          <para>a structure that divides the field into a number of aspects,</para>
+        </listitem>
+        <listitem>
+          <para>a brief overview of each of these aspects,</para>
+        </listitem>
+        <listitem>
+          <para>a list of candidate technologies (with an emphasis of existing or emerging standards) with a bearing on BPIF, and</para>
+        </listitem>
+        <listitem>
+          <para>A mapping of the candidate technologies onto the BPIF subfields.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Currently, the terms used in this report are those traditionally used in the general development of the various technologies that are presented. However, in the more specific context where the results of this report are to be applied, an adaptation of some terms to that context will probably be needed.</para>
+      <sect2 id="v1e-s78">
+        <title>Overview</title>
+        <para>This section consists of two main parts. The first part is a definition of the field of business process infrastructure frameworks (BPIF), which divides the field into four main aspects. These aspects are described one by one. The descriptions both introduce some central concepts, and provide an overview of technology fields that support the aspects.</para>
+        <para>Many relevant technologies do not fit into a single of the aspects or technology fields addressed in the first part. The second part of the document is therefore a listing of potentially relevant technologies, along with brief descriptions of the technologies and which aspects of BPIF they support.</para>
+      </sect2>
+      <sect2 id="v1e-s79">
+        <title>Definition</title>
+        <para>At operational level, business processes are key components for the realization of an organization’s tasks, in particular those tasks that represent the main and externally exposed capabilities of the organization. A business process is a realization of a work flow that may involve several subtasks and decision points. Often, a business process also involves the collaboration of several organizations where each organization will contribute in parts of the operations. Setting up and running a business process is thus an important and often complex task in any operation.</para>
+        <para>Although business processes have traditionally been treated mostly in a commercial context, they are also relevant as means of organizing operations in a context like NNEC. However, to successfully make use of the concept of business processes, in particular in a very dynamic context, a framework for engineering and management of business processes is needed, i.e., a business process infrastructure framework (BPIF).</para>
+        <para>Today, there are technologies that provide at least partial support for a BPIF. Most of those technologies that provide the most explicit support for business processes are based on the concepts of services and service oriented architecture (SOA), and we will in fact limit our definition of BPIF in this context to include only service based solutions. However, few if any complete frameworks for service based business processes exist that provide the consistent technology reference model needed here. Therefore, we will address this field in terms of four aspects or concerns:</para>
+        <para>Distributed systems: Many practical business processes involve the collaboration of several organizations and systems. Therefore, a BPIF needs to be based on distributed system technologies. With service based solutions in focus, service oriented architecture (SOA) is an obvious field of distributed system technologies to consider, but there are also other trends in distributed system technologies that may provide essential support for the implementation of a BPIF.</para>
+        <para>Service selection: With services as key components for the realization of a business process, it is of course important that relevant services can be found. Normally, this is not just a matter of finding services that provide the right capabilities, but also to make sure that other requirements and constraints are fulfilled regarding, for example, quality of service (QoS) and policies. Specific concerns for this aspect are thus both the description of services, and means of finding and identifying the right services.</para>
+        <para>Process composition: Once suitable services are available, they need to be combined into sequences and decision points that represent the required work flow of the business process. Also it is necessary to make sure that service providers and consumers in the work flow interact properly in accordance with the intentions behind each service. Support for this aspect must include the description of business processes in these terms so that their setup and deployment can be made more or less automatic.</para>
+        <para>Management and infrastructure. This aspect concerns deployment, configuration, contracts, and policies for business processes. Typically, business processes will need to involve components that are distributed over heterogeneous environments and different organizations. This stresses the need for technologies that can provide a manageable infrastructure and execution context.</para>
+        <figure id="v1e-bpif"><title><emphasis>BPIF Overview</emphasis></title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/v1-fig01.svg"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+        <para>Each of these aspects can also be treated as a technology area where technologies already exist or development of new technologies is going on. However, much development in each area has a scope or orientation that is beyond the particular needs for a BPIF.  Therefore our treatment of each area will not cover its full extent, but rather be limited to parts that are related to BPIF needs.</para>
+      </sect2>
+    </sect1>
+    <sect1 id="v1e-s80">
+      <title>NNEC Profile</title>
+      <figure id="v1e-nnecp"><title>NNEC Profile</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/v1-fig02.svg"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+<para>The items in the figure above are:<itemizedlist><listitem>Enterprise service synonym for NNEC Service Type</listitem>
+<listitem>ENTERPRICE SERVICE is a type of NNEC SERVICE classified by the capability (service) area in which it is delivering its services</listitem>
+<listitem>SERVICE CATEGORY is a TAXONOMY ELEMENT that structures ENTERPRISE SERVICES in a group with the same objectives</listitem>
+<listitem>SERVICE GROUP is a TAXONOMY ELEMENT that structures ENTERPRISE SERVICES in a group with the main objectives</listitem>
+<listitem>SERVICE LAYER is a TAXONOMY ELEMENT that structures ENTERPRISE SERVICES in a group of the same family </listitem>
+<listitem>SERVICE AREA is a TAXONOMY ELEMENT that structures ENTERPRISE SERVICES in a group of the same nature</listitem>
+<listitem>SERVICE COMPOSITION is the orchestration of a NNEC service in terms of Enterprise service</listitem>
+<listitem>ENTERPRISE service is a construction element of a ENTERPRISE SERVICE realizing a CIS part of a CAPABILITY PACKAGE</listitem>
+<listitem>CAPABILITY PACKAGE is a combination of national (military and civilian) and NATO funded infrastructure, operations, and maintenance, manpower, and associated costs that, with the military forces and other essential requirements, enable a NATO commander to achieve a specific military required capability.</listitem>
+<listitem>SIOP (Service Inter Operability Point) is a linking point that ensures that ENTERPRISE SERVICES of different making but with the same SIP can interact with each other</listitem>
+<listitem>SIP (Service Interface Profile) is a description of requirements of A SIOP that give guidance to engineers in realizing ENTERPRISE COMPONENTS</listitem>
+<listitem>IPP (Interoperability Performance Paramter) Is an indicator of the required quality of service of a SIOP according to the CM</listitem>
+</itemizedlist>
+</para>
+    </sect1>
+
+  <sect1 id="v1c-transition">
+    <title>Transition from Platform Oriented to Service Oriented Models</title>
+
+    <para>Information technology is undergoing a fundamental shift from
+    platform-centric computing to network-centric computing. Platform-centric
+    computing emerged with the widespread proliferation of personal computers
+    and the global business environment. These factors and related
+    technologies have created the conditions for the emergence of
+    network-centric computing. This shift from platform to network is what
+    enables the more flexible and more dynamic network-centric operation. The
+    shift from viewing partners as independent to viewing partners as part of
+    a continuously adapting ecosystem fosters a rich information sharing
+    environment.</para>
+
+    <para>This shift is most obvious in the explosive growth of the internet,
+    intranets, and extranets. Internet users no doubt will recognize
+    transmission control protocol/internet protocol (TCP/IP), hypertext
+    transfer protocol (HTTP), hypertext markup language (HTML), Web browsers
+    (such as Netscape Navigator, and Microsoft's Internet Explorer), search
+    engines, and JavaTM Computing. These technologies, combined with
+    high-volume, high-speed data access (enabled by the low-cost laser) and
+    technologies for high-speed data networking (hubs and routers) have led to
+    the emergence of network-centric computing. Information "content" now can
+    be created, distributed, and easily exploited across the extremely
+    heterogeneous global computing environment. The "power" or "payoff" of
+    network-centric computing comes from information-intensive interactions
+    between very large numbers of heterogeneous computational nodes in the
+    network, where the network becomes the dynamic information grid
+    established by interconnecting partners participating in a collaborative,
+    coalition environment. At the structural level, network-centric warfare
+    requires an operational architecture to enable the common processes to be
+    shared by all parties.</para>
+
+    <para>The fabric for enabling net-centric operations is Service-Oriented
+    Architectures (SOA). SOA is enterprise architecture that leverages
+    heterogeneity, and thus inherently platform-neutral. It is focused on the
+    composition of Services into flexible processes and is more concerned with
+    the Service interface and above (including composition metadata, security
+    policy, and dynamic binding information), more so than what sits beneath
+    the abstraction of the Service interface. SOA requires a different kind of
+    platform, because runtime execution has different meanings within SOA. SOA
+    is to enable business users and business process architects to compose
+    Services into processes, and then manage and evolve those processes, in a
+    declarative fashion. Runtime execution of such processes is therefore a
+    metadata-centric operation of a different kind of platform --a
+    Service-oriented composite application platform.</para>
+
+    <para>Network-centric warfare is characterized by new concepts of speed of
+    command and self-synchronization.</para>
+
+    <para>The most important SOA within an enterprise is the one that links
+    all its systems. Existing platforms can be wrapped or extended in order to
+    participate in a wider SOA environment. NATO use of the NISP will provide
+    a template for new systems development, as well as assist in defining the
+    path for existing systems to migrate towards net-centric
+    operations.</para>
+  </sect1>
+
+</appendix>

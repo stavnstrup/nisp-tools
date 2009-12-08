@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 8. Building the NISP</title><meta name="generator" content="DocBook XSL Stylesheets V1.74.0"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="pt03.html" title="Part III. Old manual"/><link rel="prev" href="ch07s04.html" title="7.4. Publishing the NISP"/><link rel="next" href="ch08s02.html" title="8.2. Building a document"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 8. Building the NISP</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s04.html">Prev</a> </td><th width="60%" align="center">Part III. Old manual</th><td width="20%" align="right"> <a accesskey="n" href="ch08s02.html">Next</a></td></tr></table><hr/></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="d0e3946"/>Chapter 8. Building the NISP</h2></div></div></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e3949"/>8.1. Introduction</h2></div></div></div><p>The NISP source package contains all DocBook XML files which are used to
+transform to other formats. Besides the XML files, the sources also contains
+Scalable Vector Graphics (SVG) files, which is a also a XML format for 2D vector
+graphics. In the root of the source distribution, the file documents.xml
+contains a description of all documents, which are part of the NISP The data
+configuration data in the file is used to create the rules necessary to build
+HTML/PDF and a Windows HTMLHelp file of the NISP. This file is also used by
+some of the stylesheets, to extract document specific parameters.</p><p>The NISP tool package is used to transform the DocBook XML documents to
+XHTML, PDF and the Windows HTMLHelp format.</p><p>The tools used for this transformation is</p><div class="itemizedlist"><ul type="disc"><li><p>Xerces for parsing XML documents</p></li><li><p>Saxon for transforming to XHTML and XSL-FO</p></li><li><p>Fop for transforming XSL-FO to PDF</p></li><li><p>Batik for transforming SVG to JPEG</p></li><li><p>iText for post processing of the PDF file</p></li><li><p>resolver for resolving public identifiers in DOCTYPE
+  declarations</p></li></ul></div><p>In order to automate the steps required to compile the NISP sources, the
+package Ant is used. Ant is a make-like tool implemented in Java, which can
+build targets defined in a configuration file called a build file. In the NISP
+ant is called from the script build.bat on Windows or build.sh on unix, which
+takes of declaring environment variables and loading of the required Java
+classes. To build a target for the NISP, the user should run the command:</p><pre class="programlisting">
+   build [-f buildfile] [target [target ...]]
+</pre><p>If a build file is not specified the system will by default use the
+buildfile <code class="filename">build.xml</code>. If a target is not specified, the
+default target is used, for more information on available targets in a build
+file, run the command:</p><pre class="programlisting">
+   build [-f buildfile]  -projecthelp
+</pre><p>Besides listing public targets, the command also shows the name of the
+default target, which will be used if no target have been specified.</p><p>In the NISP build system the two main build files are:</p><div class="variablelist"><dl><dt><span class="term">build.xml</span></dt><dd><p>This file contains the
+  targets used to create the normal NATO/EAPC UNCLASSIFIED
+  version</p></dd><dt><span class="term">build-internet.xml</span></dt><dd><p>This file creates
+  an unlabelled version of the NISP</p></dd></dl></div><p>The file <code class="filename">build.xml</code> contains all the target used to
+build the HTML/PDF and Windows HTML Help files and also target used to create
+archives of the website version, new tools and source packages and also targets
+used to clean-up the build and distributions directories. This file will be
+described in detail in <a class="xref" href="ch08s03.html" title="8.3. Build targets">Section 8.3, “Build targets”</a></p><p>The file <code class="filename">build-internet.xml</code> contains all the targets
+to build an unlabelled version of the technical architecture. The build file
+imports the build file <code class="filename">build.xml</code>, but provides only three
+targets web, pdf-only and clean.</p></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s04.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="pt03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch08s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">7.4. Publishing the NISP </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 8.2. Building a document</td></tr></table></div></body></html>

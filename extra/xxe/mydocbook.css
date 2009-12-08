@@ -1,0 +1,75 @@
+@import url(xxe-config:docbook/css/docbook.css);
+
+/*
+chapter sect1 > title:first-child:before { 
+  content: collapser() " " counter(n--, upper-roman) "." counter(n-) " "; 
+}
+*/
+chapter sect1 > title:first-child:before { 
+  content: collapser() " " counter(n--) "." counter(n-) " "; 
+}
+
+appendix sect1 > title:first-child:before { 
+  content: collapser() " " counter(n--, upper-alpha) "." counter(n-) " "; 
+}
+
+chapter sect2 > title:first-child:before { 
+  content: collapser() " " counter(n---) "." counter(nn-) " "; 
+}
+
+appendix sect2 > title:first-child:before { 
+  content: collapser() " " counter(n---, upper-alpha) "." counter(nn-) " "; 
+}
+
+chapter sect3 > title:first-child:before { 
+  content: collapser() " " counter(n----) "." counter(nnn-) " "; 
+}
+
+appendix sect3 > title:first-child:before { 
+  content: collapser() " " counter(n----, upper-alpha) "." counter(nnn-) " "; 
+}
+
+chapter sect4 > title:first-child:before { 
+ content: collapser() " " counter(n-----) "." counter(nnnn-) " "; 
+}
+
+appendix sect4 > title:first-child:before { 
+ content: collapser() " " counter(n-----, upper-alpha) "." counter(nnnn-) " "; 
+}
+
+chapter section > title:first-child:before { 
+  content: collapser() " " counter(n--) "." counter(n-) " "; 
+}
+
+appendix section > title:first-child:before { 
+  content: collapser() " " counter(n--, upper-alpha) "." counter(n-) " "; 
+}
+
+chapter section section > title:first-child:before { 
+  content: collapser() " " counter(n---) "." counter(nn-) " "; 
+}
+
+appendix section section > title:first-child:before { 
+  content: collapser() " " counter(n---, upper-alpha) "." counter(nn-) " "; 
+}
+
+chapter section section section > title:first-child:before { 
+  content: collapser() " " counter(n----) "." counter(nnn-) " "; 
+}
+
+appendix section section section > title:first-child:before { 
+  content: collapser() " " counter(n----, upper-alpha) "." counter(nnn-) " "; 
+}
+
+chapter section section section section > title:first-child:before { 
+ content: collapser() " " counter(n-----) "." counter(nnnn-) " "; 
+}
+
+appendix section section section section > title:first-child:before { 
+ content: collapser() " " counter(n-----, upper-alpha) "." counter(nnnn-) " "; 
+}
+
+chapter section section section * section > title:first-child:before,
+appendix section section section * section > title:first-child:before { 
+    content: ""; 
+}

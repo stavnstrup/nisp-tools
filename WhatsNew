@@ -1,0 +1,417 @@
+What is new in the NISP tools distribution
+------------------------------------------
+
+- (IN DEVELOPMENT) Ver. 3.1 released  Dec XX, 2009 <stavnstrup@mil.dk>
+
+TO BE DONE
+
+  + Adapt FO stylesheets for FOP 0.95 
+
+  + Upgrade FOP to 0.95 or 0.96 SVN version (Try using XMP to create meta-data)
+
+  + Eleminate design elements, which was required by the OLD NOSWG web
+    site CMS.
+
+  + Create a new layout/design respecting standard typography
+    conventions to increase legibility.  
+
+DONE
+
+  * Upgraded  DocBook XSLT stylesheets to version 1.75.2
+
+  * Upgrade to Batik 1.7
+  
+  * Upgrade to Xerces 2.9.1
+  
+- Ver. 2.3 released  Jan 12, 2009 <stavnstrup@mil.dk>
+
+  * Remove the "Releasable for internet transmission" as it is no
+    longer required by NATO
+    
+  * Upgraded  DocBook XSLT stylesheets to version 1.74.0
+
+- Ver. 2.2 released  Dec 10, 2008 <stavnstrup@mil.dk>
+
+  * Fix namespace leaks identified by Wout
+
+  * Updated resolver stylesheet to reflect update database structure
+    as published by GE on oct. 15, 2008 
+  
+
+- Ver. 2.1 released  Jul 28, 2008 <stavnstrup@mil.dk>
+
+  * Mixed documentation fixes
+
+  * Standard DB name is no longer hardcoded in all resolver stylesheets
+
+- Ver. 1.2pre1 released Jan 21, 2008 <stavnstrup@mil.dk>
+
+  * Upgraded  DocBook XSLT stylesheets to version 1.73.2
+
+  * Fixed errors in resolver stylesheets for vol 2, 3 and 4
+  
+  * Document targets located in build.targets is now a normal XML file,
+    which is imported by ANT
+
+- Ver. 1.1 released Jan 4, 2008 <stavnstrup@mil.dk>
+
+  * Created resolver stylesheet for vol 3 and 4
+
+  * Modified stylesheets to reflect all documents are using DocBook 4.5
+
+- Ver. 1.0 released Jan 2, 2008 <stavnstrup@mil.dk>
+
+  * The tool distribution now uses the NISP_HOME environment variable
+    instead the old NC3TA_HOME
+
+  * Replace bottom logo with NISP text
+
+  * Remove blankline from database when resolving volume 2
+
+  * Added stylesheet to merge vol 5 with the datbase
+
+- Ver. 0.2 released Mar 1, 2007 <stavnstrup@mil.dk>
+
+  * Corrections to xsl/resolver/resolver5.xsl and xsl/fo/fo-common.xsl
+
+  * N.B. Resolver stylesheets for vol 3, 4 and RD is still missing
+  
+- Ver. 0.1 released Mar 1, 2007  <stavnstrup@mil.dk>
+
+  * Upgraded to Xerces 2.9.0
+  
+  * Upgraded DocBook XSLT stylesheets to version 1.71.1
+
+  * Many other libraries updates
+
+What is new in the NC3TA tools distribution
+-------------------------------------------
+
+- Ver. 7.1 released Sep 27, 2006  <js@ddre.dk>
+
+  * Upgraded to Xerces 2.8.1
+
+  * Created temporary resolver stylesheets for NNEC version of the database
+  
+  * Upgraded iText to version 1.4.5
+
+- Ver. 7.0 released Jun 21, 2006  <js@ddre.dk>
+
+  * Upgraded iText to version 1.4.1
+
+  * Upgraded DocBook XSLT stylesheets to version 1.70.1
+
+  * Upgraded to Xerces 2.8.0
+
+  * Upgraded to Saxon 6.5.5
+
+  * The master files (info about the NC3TA) are now included in the
+    HTMLHelp file
+
+  * Updated the avalon framework to 4.2.0
+
+  * PDF targets described in src/documents.xml which have the embedsvg
+    attribute set to yes - will now embed SVG directly into the PDF.
+    (This should work when new FOP are included in the distribution and
+     when the DocBook-XSL stylesheets supports the new FOP). 
+    
+  * Resolver stylesheets renamed and moved to xsl/resolve/
+
+  * Created new source archive targets (e.g. vol1.zip, ..., ihb.zip)
+    Archives saved in zip/ with date embedded in archive name
+
+  * Added db-nscp as new database query
+
+- Ver. 6.1 released Oct 23, 2005  <js@ddre.dk>
+
+  * Upgraded to Saxon 6.5.4
+
+  * Upgraded to Batik 1.6
+
+  * Upgraded DocBook XSLT stylesheets to version 1.69.1
+
+  * Upgraded to Ant 1.6.5
+
+  * Upgraded to Xerces 2.7.1
+
+  * Added nnec element as child of ncsp-view in the stsndard database DTD.
+    Reflected in src/catalog.xml, src/schema/dtd/stddb.ddt and  xsl/merge4.xsl
+
+- Ver. 6.0 released Apr 19, 2005  <js@ddre.dk>
+
+  * Added a debugging flag use.show.indexterm in the file user.properties.
+    When this flag is on, "[Org, Pubnumber]" is added in bold in the remarks
+    column of the NCSP tables for all manually added indexterm elements.
+
+  * Manually added indexterm entries in the ncspview/remark element will
+    be added to the NCSP index
+
+  * Added DocBook XML 4.4 DTD to the schema/dtd directory
+
+  * Upgraded DocBook XSLT stylesheets to version 1.68.1
+
+  * Use resolver 1.1 from the xml-commons project instead of the SUN version 
+
+  * Upgarded xml-apis from the xml-commons project to 1.0b2
+
+  * Recompiled Saxon 6.5.3, FOP 0.20.5 and Batik 1.5.1 with Java 1.4.2_06
+
+  * Java 2 SDk 1.4.2 is now the default environment
+
+  * Documentation now uses DocBook XML 4.3
+
+  * Upgraded to Batik 1.5.1
+
+  * The root directory of the non-labeled is now called e.g. nc3ta-5.0
+    instead of the previous nc3ta-5.0-internet in order to accomodate the
+    build process of the Web portal software.
+
+  * Upgraded to Ant 1.6.2
+
+  * Modified XHTML stylesheets to reflect the design of the new NC3TA
+    web portal
+
+  * Added source code to pdffix (located in lib/java). This tools add metadata
+    to the PDF files.
+
+  * Volume 5 is now using the resolver stylesheet merge5.xsl to merge the
+    src/standards/products.xml database
+
+  * Changed the documents.dtd to reflect that we are now using both a
+    standard- and a productdatabase
+
+- Ver. 5.0 released Marts 2, 2004  <js@ddre.dk>
+
+  * Upgraded DocBook XSLT stylesheets to version 1.64.1
+
+  * Upgraded Ant to version 1.5.4
+
+  * moved all dabase query styleshees to xsl/dbquery
+
+  * Upgraded to Xerces 2.6.0
+
+  * The merge process now allows use of XInclude (2001 namespace), which
+    means that documents now can be separated into legal XML documents.
+    For an example of this, see the file src/olinks/olinkdb.xml
+
+  * Optimized generation of index for htmlhelp
+
+- Ver. 4.2 released October 27, 2003  <js@ddre.dk>
+
+  * Re-added the DocBook XML 4.1.2 DTD for potential use with Open Office
+
+  * Moved misc. dtd's from dtd/ to schema/dtd/
+
+  * Upgraded DocBook XSLT stylesheets to version 1.62.4
+
+  * Upgraded to Xerces 2.5.0
+
+  * Upgraded Batik to version 1.5
+
+  * Upgraded to fop 0.20.5
+
+  * Moved the images directory to the xsl/ directory
+
+  * modified xsl/merge3.xsl to comply with the new Standard Database DTD.
+    The new public identifier is "-//DDRE/DTD Standards XML V2.0//EN"
+
+  * Added multiple build targets, which creates reports about the
+    standards database. See the db-stat/ directory in the build directory
+    for a current reports. (Run db-all to generate all reports)
+
+  * Added pdffix.jar and iText.jar (0.99) to enable creation of meta
+    information in PDF files. To see the meta information, open a PDF
+    file and press CTRL+D
+
+  * Updated build file to enable CSS in the HTMLHelp file
+
+  * Removed the jEdit editor from the distribution (Information on
+    jEdit can now be found on the website http://nw3.ddre.dk/noswg/edit/
+
+  * lib/ant.dtd fixed. Older Ant dtd's removed
+
+- Ver. 4.1 released on Marts 20, 2003 <js@ddre.dk>
+
+  * Upgraded jEdit to version 4.1
+
+    Updated a number of jEdit plugins as well
+
+  * Updated the INSTALL file for instructions on installing the
+    Implementation Handbook PDF files
+
+  * Updated to FOP 0.20.5 CVS version from Mar 20, 2003
+
+  * Updated the merge.xsl stylesheet, to accomodate Jed's comments to
+    the Dec 16, 2002 (Ver 4.0) of the NCSP
+
+  * Updated DocBook XSLT stylesheets to version 1.59.2
+
+  * Added a build-internet.xml file. This is used to generate an
+    internet (unlabelled) version of the of the architecture (HTML and
+    PDF). Note this build file only comes with three targets 'web',
+    'pdf' and 'clean'.
+
+  * Removed the build-htmlhelp.xml file, which is now part of the 
+    standard build.xml file
+
+  * Updated to Xerces 2.2.1
+ 
+  * Removed build instructions for the IHB. We are still keeping the
+    ihb directory, since a pdf version of the Implementation Handbook is 
+    included by default.
+
+  * Updated to Ant 1.5
+
+  * Fixed bug in the xsl/htmlhelp/mkset.xsl stylesheets, that
+    prevented generation of service class tables for volume 3, 4 and the
+    TM tables in the RD
+
+- Ver. 4.0 released on September 25, 2002 <js@ddre.dk>
+
+  * Upgraded to Xerces 2.1.0
+
+  * Created stylesheets for merging of the standard database to volume 4
+    (xsl/merge4.xsl) and the rationale document (xsl/merge-rd.xsl)
+
+  * Added build instructions for the IHB.
+
+- Ver. 3.0 released on September 11, 2002 <js@ddre.dk>
+
+   * TODO file removed from distribution. Same information is now included in
+     the file docs/manual.pdf
+
+   * Updated DocBook XSLT stylesheet to version 1.54.1
+
+   * Upgraded to Batik 1.5 beta 4
+
+   * Added XML Catalog support for DTDs used in the distribution, new
+     files are:
+
+        catalog.xml
+        lib/CatalogManager.properties
+        lib/resolver-1.1.jar
+
+   * Upgraded to FOP 0.20.4 (Avalon logging substitutes lokit)
+
+   * Auto generated DTD for ANT build files included (dtd/ant4nc3ta.dtd)
+
+   * [DOC] Substantial improvements to the documentation
+
+   * Upgraded to Saxon 6.5.2
+
+   * All the archive targets (source, tool, xsl, web and pdf-only) are now  
+     placed in the subdirectory zip. This is for preventing accidential 
+     owerwriting upgraded files, when unpacking an archive
+
+   * Added new archive target called xsl. Characteristics are
+     
+     - The nc3ta-xsl-X.Y.Z.zip, where Z is 0 is by default included in 
+       nc3ta-tools-X.Y.zip distribution.
+
+     - The value of Z is incremented for each update to the stylesheet 
+       distribution, released in between normal nc3ta-tools releases
+
+   * Upgraded to Xerces 2.0.1
+
+   * CSS styles moved the XSL directory
+
+- Ver. 0.6 released on May 6, 2002 <js@ddre.dk>
+
+   * Modified stylesheets for better handling of toolbars
+
+   * [DOC] Minor upgrades to the documentation
+
+   * Now the NC3TA_HOME environment need to be set to the
+     location of the NC3TA tools distribution
+
+   * Added jEdit 4.0 and plugins in the extra/jedit directory. Included
+     plugins are: 
+
+       a) XML 0.8.1 (XML.jar and xerces.jar)
+
+          - ErrorList 1.2.2 (ErrorList.jar - required by XML 0.8.1)
+
+       b) AntFarm 1.1 (Antfarm.jar, ant.jar, ant-optional.jar - N.B. Ant is ver. 1.4.1))
+
+          - Console 3.2.1 (Console.jar - required by AntFarm 1.1)
+
+          - Common Controls 0.2 (CommonControls.jar - required by
+            AntFarm 1.1)
+  
+       c) WhiteSpace 0.9.1 (WhiteSpace.jar)
+
+   * Upgraded to Batik 1.5 beta 1
+
+   * Added license files for all tools in the lib directory
+
+- Ver. 0.5 released on March 22, 2002 <js@ddre.dk>
+
+    * Updated DocBook XSLT stylesheet to version 1.50.0
+
+    * Forces Saxon to use the Xerces XML parser, which provides
+      better error reporting facilities 
+
+    * Whitespace changes only: use PC-style CR/LF end-of-line
+      because many Window clients chokes on the Unix LF convention.
+
+    * Release date and version number of tools distribution now as entities
+      in VERSION
+
+    * Upgraded to FOP 0.20.3
+
+    * Removed creation of one large HTML page for each volume
+
+    * Added possibility for paragraph numberes in HTML and FO version
+
+    * Upgraded to  Saxon 6.5.1
+
+- Ver. 0.4 released on February 15, 2002 <js@ddre.dk>
+
+    * Created XSLT stylesheet, enabling creation of formating object (fo) 
+      versions of the TA. 
+
+    * Enables the process XML -> FO -> PDF
+
+    * Minor changes to CSS stylesheets
+
+    * Added FOP to the distribution to enable the creation of
+      PDF versions of the TA
+
+    * doc and docsrc renamed to docs and xdocs
+
+- Ver. 0.3 released on February 7, 2002 <js@ddre.dk>
+    
+    * Added CSS stylesheets collection
+
+    * Removed all references to the glossary
+
+    * Updated XSLT stylesheets for HTML to reflect new layout
+
+    * Addded batik to create raster version of the SVG figures
+
+    * Updated build.xml to compile rationale document
+
+- Ver. 0.2 released on Jan 8, 2002 <js@ddre.dk> 
+
+    * [DOC] many additional changes (still very incomplete)
+
+    * [DOC] added XML standards to biography list
+
+    * [DOC] updated XSLT instruction with info on Saxon/Xerces extensions
+
+    * New files: WhatsNew, INSTALL
+
+    * Updated DocBook XSLT stylesheet to version 1.48
+
+    * Moved saxon jar to seperate dir to avoid class mixup (Jed)
+
+    * Javascript enabled in HTML toolbar
+
+    * Added DocBook XSL stylesheets to tools distribution
+
+    * Split distribution in two (tools and nc3ta XML sources) (Wouter)
+
+- Ver 0.1 not released 
+
+    * N.B. was part of the XML-src 2.0.1-pre 1 [November 6, 2001]
+

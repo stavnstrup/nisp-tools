@@ -1,0 +1,924 @@
+<?xml version="1.0" standalone="no"?>
+
+
+<!-- =====================================================================
+
+Build file for the NATO Interoperability Standards and Profiles (NISP)
+
+All documents will be classified NATO/EAPC UNCLASSIFIED
+
+The NISP build system is based on the Apache Ant,
+which is a Java building tool.
+
+Ant uses a  file written in XML (this file) as its building instructions.
+
+The only thing that you have to make sure, is the "JAVA_HOME" environment
+property should be set to match the JVM you want to use.
+
+First, make sure your current working directory is where this very
+file is located. Then type
+
+  ./build.sh (unix)
+  .\build.bat (win32)
+
+This will build a HTML and PDF version of the NISP. 
+To know more about the available targets take a look at this file, which is
+pretty self-explanatory or type
+
+ [unix]  ./build.sh  -projecthelp
+ [win32] .\build.bat -projecthelp
+
+and concentrate on the target descriptions that start with a star '*': these
+are the one you should call, the others are internal targets that are called
+by the main ones.
+
+
+For additional help, type
+
+
+ [unix]  ./build.sh  -help
+ [win32] .\build.bat -help
+  
+-->
+
+<!DOCTYPE project PUBLIC "-//Apache//DTD ANT XML 1.6.5 (NISP specific)//EN"
+                         "schema/dtd/ant.dtd" [
+
+
+<!ENTITY % tools-info SYSTEM "VERSION">
+%tools-info;
+
+<!ENTITY % src-info SYSTEM "src/VERSION">
+%src-info;
+
+<!ENTITY targets SYSTEM "build.targets">
+
+]>
+
+
+<project name="NISP" default="all" basedir=".">
+
+  <!-- =================================================================== -->
+  <!-- Project specific parameters                                         -->
+  <!-- =================================================================== -->
+
+  <property name="name" value="nisp"/>
+
+  <!-- Version of the NISP tools  -->
+  <property name="tool-version" value="&tools-version;"/>
+  <property name="style-rev" value="&style-revision;"/>
+  <property name="doc-rev" value="&document-revision;"/>
+
+
+
+  <!-- Release date of the NISP tools -->
+  <property name="tool-date" value="&tools-release-date;"/>
+
+  <!-- Version of the NISP XML sources -->
+  <property name="src-version" value="&src-version;"/>
+  <property name="src-version-major" value="&src-version-major;"/>
+  
+  <property name="build.compiler" value="modern"/>
+  <property name="debug" value="off"/>
+
+
+
+  <!-- =================================================================== -->
+  <!-- Defines paths/names of prerequisite jar files we compile against    -->
+  <!-- =================================================================== -->
+
+  <property name="lib.dir" value="${basedir}/lib"/>
+
+
+  <!-- Relative locations of source directories  -->
+  <property name="src.dir" value="${basedir}/src"/>
+
+  <!-- Build and distribution output areas -->
+  <property name="build.dir" value="${basedir}/build"/>
+  <property name="build.resolve" value="${basedir}/build.src"/>
+  <property name="build.fo" value="${build.dir}/pdf"/>
+<!--
+  <property name="build.wml" value="${build.dir}/wml"/>
+  <property name="build.ihb" value="${build.dir}/ihb"/>
+-->
+  <property name="dist.dir" value="${basedir}/dist"/>
+  <property name="zip.dir" value="${basedir}/zip"/>
+
+  <!-- NISP XSLT stylesheets used in the building process -->
+
+  <property file="xsl/user.build.properties"/>
+  <property file="xsl/xsl.properties"/>
+
+
+
+  <!-- =================================================================== -->
+  <!-- User defined properties                                             -->
+  <!-- =================================================================== -->
+
+  <property file="local.user.properties"/>
+  <property file="user.properties"/>
+
+
+  <!-- =================================================================== -->
+  <!-- Internet publication parameters (DON'T MODIFY ANY OF THESE)         -->
+  <!-- =================================================================== -->
+
+  <property name="for.internet.publication" value="0"/>
+  <property name="internet.postfix" value=""/>
+
+  <property name="internet.opts" 
+            value="for.internet.publication=${for.internet.publication}"/>
+
+  <!-- =================================================================== -->
+  <!-- External application specific parameter                             -->
+  <!-- =================================================================== -->
+
+
+  <!-- Saxon XSLT extension functions jar -->
+  <property name="jar-saxon-ext" value="saxon65.jar"/>
+
+
+  <!-- XSLT Processor -->
+  <property name="xslt.class" value="com.icl.saxon.StyleSheet"/>
+
+  <!-- Saxon options -->
+  <property name="xslt.opts" 
+            value="-x org.apache.xml.resolver.tools.ResolvingXMLReader 
+                   -y org.apache.xml.resolver.tools.ResolvingXMLReader
+                   -r org.apache.xml.resolver.tools.CatalogResolver"/>
+
+<!--
+        -x org.apache.xml.resolver.tools.ResolvingXMLReader 
+        -y org.apache.xml.resolver.tools.ResolvingXMLReader
+        -r org.apache.xml.resolver.tools.CatalogResolver"/>
+
+-->
+
+  <!-- Allows XInclude procesing -->
+  <property name="use.dom" value="-Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl"/>
+  <property name="use.sax" value="-Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl"/>
+  <property name="use.xinc" value="-Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration"/>
+
+
+  <!-- Batik Class -->
+  <property name="batik-class" 
+            value="org.apache.batik.apps.rasterizer.Main"/>
+
+  <property name="dpi.raster" value="100"/>
+
+  <!-- Validation Class -->
+  <property name="valid.class"
+            value="sax.Counter"/>
+
+
+  <property name="fop.message"
+            value="info"/>
+  
+  <!-- =================================================================== -->
+  <!-- Build Classpaths for Xerces, Saxon, Fop and Batik                   -->
+  <!-- =================================================================== -->
+
+  <path id="lib-xerces-classpath">
+    <fileset dir="${lib.dir}">
+      <include name="xercesImpl*.jar"/>
+      <include name="xml-apis*.jar"/>
+    </fileset>
+  </path>
+
+  <path id="lib-saxon-classpath">
+    <pathelement path="${lib.dir}"/>
+    <fileset dir="${lib.dir}">
+      <include name="batik*.jar"/>
+      <include name="xercesImpl*.jar"/>
+      <include name="xml-apis*.jar"/>
+      <include name="resolver*.jar"/>
+      <include name="saxon*.jar"/>
+    </fileset>
+    <fileset dir="${docbook-xsl.dir}/extensions/">
+      <include name="${jar-saxon-ext}"/>
+    </fileset>
+  </path>
+
+  <path id="lib-fop-classpath">
+    <fileset dir="${lib.dir}">
+      <include name="batik*.jar"/>
+      <include name="xml-apis*.jar"/>
+      <include name="resolver*.jar"/>
+      <include name="xercesImpl*.jar"/>
+      <include name="fop-0.20.5-jsfix.jar"/>
+      <include name="avalon*.jar"/>
+      <include name="xml*.jar"/>
+      <include name="common*.jar"/>
+      <include name="pdffix*.jar"/>
+      <include name="iText*.jar"/>
+    </fileset>
+  </path>
+
+  <path id="lib-pdffix-classpath">
+    <fileset dir="${lib.dir}">
+    </fileset>
+  </path>
+
+  <path id="lib-batik-classpath">
+    <fileset dir="${lib.dir}">
+      <include name="batik-all*.jar"/>
+      <include name="RasterizerTask*.jar"/>
+      <include name="xml-apis*.jar"/>
+    </fileset>
+  </path>
+
+  <xmlcatalog id="allcatalogs">
+    <catalogpath>
+      <pathelement location="catalog.xml"/>
+    </catalogpath>
+  </xmlcatalog>
+  
+  <!-- Batik Rasterizer Ant Task -->
+  <taskdef name="rasterize"
+       classname="org.apache.tools.ant.taskdefs.optional.RasterizerTask"
+       classpathref="lib-batik-classpath"/>
+
+  <!-- FOP Ant task (as of FOP 0.20.5) -->
+  <taskdef name="fop"
+           classname="org.apache.fop.tools.anttasks.Fop"
+           classpathref="lib-fop-classpath"/>
+
+  <!-- =================================================================== -->
+  <!-- Creates output build directories and doc prerequistes               -->
+  <!-- =================================================================== -->
+
+
+  <target name="init" depends="-newbuild">
+    <echo  message="NISP Build system - ver. ${tool-version}. Released on ${tool-date}"/>
+    <echo message="compiling sources ver. ${src-version}."/>
+    <tstamp/>
+    <mkdir dir="${build.dir}"/>
+
+    <mkdir dir="${build.acronyms}"/>
+    <mkdir dir="${build.resolve}"/>
+<!--
+  <mkdir dir="${build.ihb}"/>
+-->
+    <mkdir dir="${build.fo}"/>
+    <mkdir dir="${build.dir}/db-stat"/>
+
+    <copy todir="${build.dir}/style" 
+      preservelastmodified="yes">
+      <fileset dir="${basedir}/xsl/css"/>
+      <fileset dir="${basedir}/src/style"/>
+    </copy>
+
+    <copy todir="${build.dir}/images" 
+      preservelastmodified="yes">
+      <fileset dir="${basedir}/xsl/images"/>
+    </copy>
+
+    <available  property="hcc.present" file="${hhc}"/>
+ 
+    <condition property="hcc.message" value="Compiling HTMLHelp file">
+      <equals arg1="${hcc.present}" arg2="true"/>
+    </condition>
+    <condition property="hcc.message"
+        value="WARNING: The HELP Compiler is not located at ${hhc}">
+      <not>
+        <equals arg1="${hcc.present}" arg2="true"/>
+      </not>
+    </condition>
+    <echo message="${hcc.message}"/>
+
+    <available property="xfc.present" classname="com.xmlmind.fo.converter.Driver"
+               classpath="lib-xfc-classpath"/>
+
+    <mkdir dir="${build.dir}/htmlhelp"/>
+    <mkdir dir="${build.dir}/htmlhelp/figures"/>
+
+    <copy todir="${build.dir}/htmlhelp"
+          preservelastmodified="yes"
+          file="${xsl-styles.dir}/css/htmlhelp.css"/>
+
+    <copy todir="${build.dir}"
+          preservelastmodified="yes"
+          file="${basedir}/src/RFCP-Form.doc"/>
+  </target>
+
+
+  <target name="-build-check">
+    <uptodate property="build-uptodate" targetfile="build.targets">
+       <srcfiles dir="${src.dir}" includes="documents.xml"/>
+       <srcfiles dir="${xsl-styles.dir}" includes="makebuild.xsl"/>
+    </uptodate>
+  </target>
+
+  <target name="-newbuild" depends="-build-check" unless="build-uptodate">
+    <fail message="Build file is not uptodate, please run: build -f newbuild.xml"/>
+  </target>
+
+
+
+  <!-- =================================================================== -->
+  <!-- Default target and global HTML and PDF targets                      -->
+  <!-- =================================================================== -->
+
+  <target name="all" description="* Create all volumes for the web"
+          depends="init, html, pdf"/>
+
+
+  <!-- =================================================================== -->
+  <!-- Various targets to the NISP master documents                        -->
+  <!-- =================================================================== -->
+
+  <target name="master-check" depends="init">
+    <uptodate property="master.notRequired" 
+              targetfile="${build.dir}/index.html">
+       <srcfiles dir="${src.dir}/master" includes="*.xml"/>
+       <srcfiles dir="${src.dir}" includes="documents.xml"/>
+       <srcfiles dir="${xsl-xhtml.dir}" includes="${xsl-master}"/>
+       <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-master}"/>
+     </uptodate>
+  </target>
+
+  <target name="master" description="* Create the NISP master documents" 
+          depends="master-check" unless="master.notRequired">
+    <echo message="Creating the NISP master documents"/>
+<!--
+    <xslt basedir="${src.dir}/master" destdir="${build.dir}"
+          style="${xsl-xhtml.dir}/master.xsl"
+          includes="*.xml">
+       <param name="for.internet.publication" expression="${for.internet.publication}"/>      
+       <param name="internet.postfix" expression="${internet.postfix}"/>
+    </xslt> 
+-->
+    <java classname="${xslt.class}" fork="yes" dir="${build.dir}">
+      <arg line="${xslt.opts} -o ${build.dir}/ ${src.dir}/master/ 
+                  ${xsl-xhtml.dir}/master.xsl ${internet.opts}"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+    <!-- After upgrading to Java 1.4 and Saxon 6.5.3 all output files
+         suddenly have the extension .xml -->
+    <move todir="${build.dir}">
+      <fileset dir="${build.dir}"/>
+      <mapper type="glob" from="*.xml" to="*.html"/>
+    </move>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- NISP Implementation Handbook                                        -->
+  <!-- =================================================================== -->
+
+  <target name="get-ihb">
+<!--
+    <copy todir="${build.dir}/ihb" preservelastmodified="yes">
+      <fileset dir="${src.dir}/ihb/">
+        <include name="ihb${internet.postfix}.pdf*"/>
+      </fileset>
+    </copy>
+-->
+  </target>
+  
+
+  <!-- =================================================================== -->
+  <!-- Various targets to build the acronyms documents                     -->
+  <!-- =================================================================== -->
+
+  <property name="src.acronyms" value="${src.dir}/acronyms"/>
+  <property name="build.acronyms" value="${build.dir}/acronyms"/>
+
+  <property name="xsl-acro" value="acronyms.xsl"/>
+
+
+  <target name="acronyms-check" depends="init">
+    <uptodate property="acronyms.notrequired"
+              targetfile="${build.acronyms}/index.html">
+      <srcfiles dir="${src.acronyms}" includes="acronyms.xml"/>
+      <srcfiles dir="${src.acronyms}/letter" includes="*.xml"/>
+      <srcfiles dir="${xsl-xhtml.dir}" includes="acronyms.xsl"/>
+      <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-acro}"/>
+    </uptodate>
+  </target>
+
+  <target name="acronyms" 
+          description="* Create the acronyms as chunked XHTML pages"
+          depends="init, acronyms-check" unless="acronyms.notrequired">
+    <echo message="Create the acronyms as chunked XHTML pages"/>
+<!--
+    <xslt basedir="${src.acronyms}" destdir="${build.acronyms}"
+          style="${xsl-xhtml.dir}/acronyms.xsl"
+          includes="${src.acronyms}/acronyms.xml">
+
+       <factory name="com.icl.saxon.TransformerFactoryImpl">
+         <attribute name="http://saxon.icl.com/feature/source_parser_class"
+                    value="com.sun.resolver.tools.ResolvingXMLReader"/>
+         <attribute name="http://saxon.icl.com/feature/style_parser_class"
+                    value="com.sun.resolver.tools.ResolvingXMLReader"/>
+         <attribute name="http://saxon.icl.com/feature/output_uri_reslver"
+                    value="com.sun.resolver.tools.CatalogResolver"/>
+       </factory>
+       <param name="for.internet.publication" expression="${for.internet.publication}"/>      
+       <param name="internet.postfix" expression="${internet.postfix}"/>
+    </xslt> 
+-->
+    <java classname="${xslt.class}" fork="yes" dir="${build.acronyms}">
+      <arg line="${xslt.opts} ${src.acronyms}/acronyms.xml 
+         ${xsl-xhtml.dir}/acronyms.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Layout templates                                                    -->
+  <!-- =================================================================== -->
+
+  <target name="layout-fo-check" depends="init">
+    <uptodate property="layout-fo.notRequired"
+              targetfile="${xsl-fo.dir}/nisp-layout.xsl">
+      <srcfiles dir="${xsl-fo.dir}" includes="nisp-layout.xml"/>
+      <srcfiles dir="${docbook-xsl.dir}/template" includes="templates.xsl"/>
+    </uptodate>
+  </target>
+
+
+  <target name="layout-fo" depends="layout-fo-check"
+          unless="layout-fo.notRequired">
+    <echo message="Creating Layout for fo documents"/>
+    <java classname="${xslt.class}" fork="yes" dir="${xsl-fo.dir}">
+      <arg line="${xslt.opts} -o nisp-layout.xsl 
+           ${xsl-fo.dir}/nisp-layout.xml 
+           ${docbook-xsl.dir}/template/titlepage.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Database                                                            -->
+  <!-- =================================================================== -->
+
+  <target name="checkdb">
+    <echo message="Checking standards DB"/>
+    <java classname="${xsltclass]" fork="yes">
+       <arg line="${basedir}/src/standards/standards.xml
+                  ${docbook-xsl.dir}/checkdb.xsl"/>
+       <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Targets                                                             -->
+  <!-- =================================================================== -->
+
+  <import file="build.targets"/>
+
+  <!-- =================================================================== -->
+  <!-- Create a HTMLHelp version of all the documents                      -->
+  <!-- =================================================================== -->
+
+
+
+  <target name="merge.check" depends="init">
+    <uptodate property="merge.notRequired" 
+              targetfile="${build.dir}/htmlhelp/nisp.xml">
+      <srcfiles dir="${build.resolve}" includes="*.xml"/>
+      <srcfiles dir="${xsl-htmlhelp.dir}" includes="mkset.xsl"/>
+    </uptodate>
+  </target>
+
+  <!-- Combine all document into one set -->
+
+  <target name="merge" 
+          depends="resolve, merge.check"
+          unless="merge.notRequired">
+    <echo message="Merge all volumes into a set"/>
+
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/htmlhelp">
+       <arg line="${xslt.opts} -o nisp.xml ${basedir}/src/documents.xml
+                  ${basedir}/xsl/htmlhelp/mkset.xsl"/>
+       <classpath refid="lib-saxon-classpath"/>
+       <jvmarg value="${use.sax}"/>
+       <jvmarg value="${use.dom}"/>
+       <jvmarg value="${use.xinc}"/>    
+     </java>
+  </target>
+
+  <target name="chunk.check" depends="init">
+    <uptodate property="chunk.notRequired"
+              targetfile="${build.dir}/htmlhelp/index.html">
+      <srcfiles dir="${build.dir}/htmlhelp" includes="nisp.xml"/>
+      <srcfiles dir="${xsl-htmlhelp.dir}" includes="htmlhelp.xsl"/>
+    </uptodate>
+  </target>
+
+  <!-- Create a chunked version of the master set -->
+
+  <target name="chunk"
+          depends="init,  merge, chunk.check, getfigs"
+          unless="chunk.notRequired">
+    <java classname="${xslt.class}" maxmemory="300M" fork="yes"
+          dir="${build.dir}/htmlhelp">
+       <arg line="${xslt.opts} ${build.dir}/htmlhelp/nisp.xml
+                ${basedir}/xsl/htmlhelp/htmlhelp.xsl
+                use.para.numbering=${use.para.numbering}"/>
+       <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+  <target name="chm.check">
+
+  </target>
+
+  <target name="chm"
+          depends="chunk, chm.check, svg"
+          if="hcc.present">
+    <exec executable="${hhc}"
+          dir="${build.dir}/htmlhelp">
+      <arg line="htmlhelp.hhp"/>
+    </exec>
+  </target>
+
+  <target name="no.chm" unless="hcc.present">
+    <echo>WARNING: The HELP Compiler is not located at ${hhc}</echo>
+  </target>
+
+  <target name="htmlhelp"
+          description="* Create HTMLHelp version of the architecture">
+    <antcall target="chm"/>
+    <antcall target="no.chm"/>
+  </target>
+
+
+  <target name="dbvalid">
+    <xmlvalidate failonerror="no">
+<!--
+                 classname="org.apache.xerces.parsers.SAXParser">
+-->
+      <fileset dir="src/standards/" includes="standards.xml"/>
+      <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+<!--
+     <xmlcatalog refid="allcatalogs"/>
+-->
+    </xmlvalidate>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- Create DB Reports                                                   -->
+  <!-- =================================================================== -->
+
+  <target name="db-all" description="* Create misc. database reports"
+          depends="db-overview, db-duplex, db-dates, db-ncsp">
+  </target>
+
+
+  <target name="db-overview" description="* Create DB Overview">
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/db-stat/">
+      <arg line="${xslt.opts} -o overview.html
+                 ${build.resolve}/resolved-standards.xml
+                 ${xsl-dbquery.dir}/db-overview.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+  <target name="db-duplex" description="* Create DB Duplex list">
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/db-stat/">
+      <arg line="${xslt.opts} -o duplex.html 
+                 ${build.resolve}/resolved-standards.xml
+                 ${xsl-dbquery.dir}/db-duplex.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+  <target name="db-dates" description="* Create DB Dated list">
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/db-stat/">
+      <arg line="${xslt.opts} -o dates.html
+                 ${build.resolve}/resolved-standards.xml
+                 ${xsl-dbquery.dir}/db-dates.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+  <target name="db-ncsp" description="* Create NCSP Stat">
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/db-stat/">
+      <arg line="${xslt.opts} -o ncsp.html
+                 ${build.resolve}/resolved-standards.xml
+                 ${xsl-dbquery.dir}/db-ncsp.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- Create documentation                                                -->
+  <!-- =================================================================== -->
+
+  <target name="doc-layout-fo-check" depends="init">
+    <uptodate property="doc-layout-fo.notRequired"
+              targetfile="${xsl-fo.dir}/doc-layout.xsl">
+      <srcfiles dir="${xsl-fo.dir}" includes="doc-layout.xml"/>
+      <srcfiles dir="${docbook-xsl.dir}/template" includes="templates.xsl"/>
+    </uptodate>
+  </target>
+
+
+  <target name="doc-layout-fo" depends="doc-layout-fo-check"
+          unless="doc-layout-fo.notRequired">
+    <echo message="Creating Layout for fo documents"/>
+      <java classname="${xslt.class}" fork="yes" dir="${xsl-fo.dir}">
+      <arg line="${xslt.opts} -o doc-layout.xsl 
+           ${xsl-fo.dir}/doc-layout.xml 
+           ${docbook-xsl.dir}/template/titlepage.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+
+  <target name="doc-html.check">
+    <uptodate property="doc.notRequired"
+              targetfile="${basedir}/docs/index.html">
+      <srcfiles dir="${basedir}/xdocs" 
+               includes="manual.xml, el-stat.xml software.ent"/>
+      <srcfiles dir="${basedir}" includes="VERSION"/>
+      <srcfiles dir="${basedir}/src" includes="VERSION"/>
+      <srcfiles dir="${xsl-html.dir}" includes="doc.xsl"/>
+    </uptodate>
+  </target>
+  
+  <target name="doc-pdf.check">
+    <uptodate property="doc-pdf.notRequired"
+              targetfile="${basedir}/docs/manual.pdf">
+      <srcfiles dir="${basedir}/xdocs"
+               includes="manual.xml, el-stat.xml, software.ent"/>
+      <srcfiles dir="${basedir}" includes="VERSION"/>
+      <srcfiles dir="${basedir}/src" includes="VERSION"/>
+      <srcfiles dir="${xsl-fo.dir}" includes="doc.xsl,doc-layout.xsl"/>
+    </uptodate>
+  </target>
+  
+  <target name="doc" description="* Create documentation pages"
+          depends="doc.html, doc.pdf"/>
+
+  <target name="doc.html" description="* Create documentation pages in html"
+          depends="init, doc-html.check" unless="doc.notRequired">
+    <echo message="Create documentation pages in HTML"/>
+    <java classname="${xslt.class}" fork="yes" dir="${basedir}/docs">
+      <arg line="-o ${basedir}/docs/index.html 
+        ${basedir}/xdocs/manual.xml ${xsl-html.dir}/doc.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>     
+  </target>
+
+
+  <target name="doc.pdf" description="* Create documentation pages in PDF"
+          depends="init, doc-layout-fo, doc-pdf.check" unless="doc-pdf.notRequired">
+    <echo message="Create documentation pages in PDF"/>
+    <java classname="${xslt.class}" fork="yes" dir="${basedir}/xdocs">
+      <arg line="-o ${basedir}/docs/manual.fo
+        ${basedir}/xdocs/manual.xml ${xsl-fo.dir}/doc.xsl"/>
+      <classpath refid="lib-saxon-classpath"/> 
+    </java>
+
+    <java classname="org.apache.fop.apps.Fop" fork="yes"
+          dir="${basedir}/docs">
+        <arg line=" manual.fo manual.pdf"/>
+        <classpath refid="lib-fop-classpath"/>
+    </java>
+    <delete file="${basedir}/manual.fo"/>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- Make Distributions (source, tool, xsl, web, pdf-only)               -->
+  <!-- =================================================================== -->
+
+  <!-- Create the source distribution -->
+
+  <target name="source" description="* Create a new source distribution">
+    <mkdir dir="${zip.dir}"/>
+    <zip zipfile="${zip.dir}/${name}-src-${src-version}.zip">
+      <zipfileset dir="${src.dir}" includes="**/*"
+                  excludes="**/*~,**/rtf/*.*, **/*/*.ced,
+                            **/*/*.fo, **/.svn
+                            figures/obsolete, figures/obsolete/*"/>
+    </zip>
+  </target>
+
+
+  <!-- Create the web distribution -->
+
+  <target name="web" description="* Create the website containing the NISP"
+          depends="all, htmlhelp"> 
+    <mkdir dir="${zip.dir}"/>
+    <zip zipfile="${zip.dir}/${name}-web-${src-version}${internet.postfix}.zip">
+      <zipfileset dir="${build.dir}"
+                  prefix="${name}-${src-version}"
+                  excludes="pdf/*.fo, 
+                            **/htmlhelp/**/*.xml,
+                            **/htmlhelp/figures/, 
+                            **/htmlhelp/*.h*,
+                            **/htmlhelp/*.css,
+                            **/rtf/**,
+                            **/figures/*.svg,
+			    **/.svn,
+                            **/db-stat/**"/>
+
+    </zip>
+  </target>
+
+
+
+  <!-- Create archive with the resolved sources -->
+
+  <target name="resolve.zip" description="* Create a resolved version of the XML sources"
+          depends="resolve">
+    <mkdir dir="${zip.dir}"/>
+    <zip zipfile="${zip.dir}/${name}-src-resolve-${src-version}.zip">
+      <zipfileset dir="${build.resolve}"/>
+    </zip>
+  </target>
+
+
+  <!-- Create the tools distribution -->
+
+  <target name="tool" description="* Create a new tool distribution"
+          depends="doc, new-dtd">
+    <mkdir dir="${zip.dir}"/>
+    
+    <mkdir dir="${dist.dir}/src"/>
+
+    <copy todir="${dist.dir}/bin" 
+      preservelastmodified="yes">
+      <fileset dir="${basedir}/bin"/>
+    </copy>
+
+
+    <mkdir dir="${dist.dir}/docs"/>
+    <copy todir="${dist.dir}/docs" 
+      preservelastmodified="yes">
+      <fileset dir="${basedir}/docs"
+               excludes="**/*/*.ced, *.fo"/>
+    </copy>
+
+    <mkdir dir="${dist.dir}/xdocs"/>
+
+    <copy todir="${dist.dir}/xdocs" 
+      preservelastmodified="yes">
+      <fileset dir="${basedir}/xdocs"
+               excludes="*.ced"/>
+    </copy>
+
+    <copy todir="${dist.dir}/extra"
+          preservelastmodified="yes">
+      <fileset dir="${basedir}/extra"/>
+    </copy> 
+
+
+    <copy todir="${dist.dir}/lib" 
+      preservelastmodified="yes">
+      <fileset dir="${basedir}/lib">
+        <exclude name="java/build/**"/>
+      </fileset>
+    </copy>
+
+    <copy todir="${dist.dir}/schema" 
+      preservelastmodified="yes">
+      <fileset dir="${basedir}/schema"/>
+    </copy>
+
+
+    <copy todir="${dist.dir}/xsl"
+          preservelastmodified="yes">
+      <fileset dir="${basedir}/xsl">
+        <exclude name="**/*.fo"/>
+        <exclude name="docbook-xsl/doc*/**"/>
+        <exclude name="docbook-xsl/javahelp/**"/>
+        <exclude name="docbook-xsl/params/**"/>
+        <exclude name="docbook-xsl/extensions/doc/**"/>
+        <exclude name="docbook-xsl/extensions/manpages/**"/>
+        <exclude name="docbook-xsl/extensions/xalan*/**"/>
+        <exclude name="docbook-xsl/extensions/saxon5/**"/>
+        <exclude name="docbook-xsl/extensions/saxon64*/**"/>
+        <exclude name="docbook-xsl/extensions/xsltproc*/**"/>
+        <exclude name="docbook-xsl/epub*/**"/>
+        <exclude name="docbook-xsl/eclipse*/**"/>
+        <exclude name="docbook-xsl/slides*/**"/>
+        <exclude name="docbook-xsl/website*/**"/>
+        <exclude name="docbook-xsl/sxw/**"/>
+      </fileset>
+    </copy>
+
+    <copy todir="${dist.dir}" preservelastmodified="yes">
+      <fileset dir="${basedir}"
+               includes="README, build.xml, build.targets, newbuild.xml, 
+                         build.bat, build.sh, 
+                         build-internet.xml, user.properties, INSTALL, 
+                         VERSION, WhatsNew, catalog.xml"/>
+    </copy>
+    <zip zipfile="${zip.dir}/${name}-tools-${tool-version}.zip">
+      <zipfileset dir="${dist.dir}" includes="**/*" excludes="**/.svn"
+                  prefix="${name}-tools-${tool-version}"/>
+    </zip>
+  </target>
+
+  <!-- Create a styleheet distribution -->
+
+  <target name="xsl">
+    <mkdir dir="${zip.dir}"/>
+    <copy todir="${dist.dir}/xsl"
+          preservelastmodified="yes">
+      <fileset dir="${basedir}/xsl">
+        <exclude name="docbook-xsl/doc*/**"/>
+        <exclude name="docbook-xsl/javahelp/**"/>
+        <exclude name="docbook-xsl/params/**"/>
+        <exclude name="docbook-xsl/extensions/doc/**"/>
+        <exclude name="docbook-xsl/extensions/manpages*/**"/>
+        <exclude name="docbook-xsl/extensions/xalan*/**"/>
+        <exclude name="docbook-xsl/extensions/saxon5/**"/>
+        <exclude name="docbook-xsl/extensions/saxon64*/**"/>
+        <exclude name="docbook-xsl/extensions/xsltproc*/**"/>
+        <exclude name="docbook-xsl/epub*/**"/>
+        <exclude name="docbook-xsl/eclipse*/**"/>
+        <exclude name="docbook-xsl/slides*/**"/>
+        <exclude name="docbook-xsl/website*/**"/>
+        <exclude name="docbook-xsl/sxw/**"/>
+      </fileset>
+    </copy>
+    <zip zipfile="${zip.dir}/${name}-xsl-${tool-version}${style-rev}.zip">
+      <zipfileset dir="${dist.dir}/xsl" includes="**/*"/>
+    </zip>
+  </target>
+
+  <!-- Create a pdf-only distribution -->
+
+  <target name="pdf-only" description="* Create a zip containing only PDF files"
+          depends="pdf">
+    <zip zipfile="${zip.dir}/${name}-pdf-${src-version}${internet.postfix}.zip">
+      <zipfileset dir="${build.dir}/pdf" includes="*.pdf"/>
+    </zip>
+  </target>
+
+  <!-- Create all archive  distribution -->
+
+  <target name="zip" description="* Create source, tool, xsl, web and pdf archives"
+          depends="source, tool, xsl, web, pdf-only"/>
+
+  <!-- =================================================================== -->
+  <!-- Various targets to clean                                            -->
+  <!-- =================================================================== -->
+
+  <target name="clean-build" description="* Clean the build directories">
+    <delete dir="${build.dir}"/>
+    <delete dir="${build.resolve}"/>
+  </target>
+
+  <target name="clean-dist" 
+          description="* Clean the distribution directories">
+    <delete dir="${dist.dir}"/>    
+  </target>
+
+  <target name="clean-zip" 
+          description="* Clean the distribution zip directories">
+    <delete dir="${zip.dir}"/>
+  </target>
+
+  <target name="clean" description="* Clean all"
+          depends="clean-build, clean-dist"/>
+
+
+          
+  <!-- =================================================================== -->
+  <!-- Internal usage only                                                 -->
+  <!-- =================================================================== -->
+  
+
+  <target name="new-dtd">
+    <antstructure output="schema/dtd/ant.dtd"/>
+  </target>
+
+  <!-- Create a raw version of the stylesheets (Everything except 
+       Norman Walsh's DocBook XSL collection) -->
+
+  <target name="raw-xsl">
+     <mkdir dir="${zip.dir}"/>
+     <zip zipfile="${zip.dir}/${name}-raw-xsl-${dbxsl-version}.zip">
+       <zipfileset  dir="${basedir}/xsl" prefix="xsl-${dbxsl-version}" 
+                    includes="**" excludes="docbook-*/**, sxw*/**"/>
+     </zip>
+  </target>
+
+  <!-- (use PC style CR/LF) -->
+
+  <target name="fixCRLFsource">
+    <fixcrlf srcdir="${src.dir}" eol="crlf"
+             excludes="**/*.jpg, **/*.gif, 
+         .    dtd/docbkx412/**, dtd/docbkx42CR1/**,
+              dtd/docbkx42/**"/>
+  </target>
+
+  <target name="fixCRLFtools">
+    <fixcrlf srcdir="" eol="crlf"
+             excludes="**/*.jpg, **/*.gif, **/*.jar, **/*.sh"/>
+  </target> 
+  
+</project>

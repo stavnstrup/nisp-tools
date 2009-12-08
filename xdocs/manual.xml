@@ -1,0 +1,5610 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  
+[x] 3.6 Hvad er name spaces (hvor bruger vi det i NISP)
+
+[ ] 4.4.8 Linking mellem documentertoo
+
+[ ] 4.4.9 Doc Book Gotchas
+
+[ ] 5.1 Basic XSLT
+
+[ ] 5.2 Beskriv Saxon Extensions
+
+
+[ ] 5.3 Start på NC3TA XSLT
+
+[ ] 5.4 XSL-FO
+
+[ ] 6 SVG
+
+[ ] 7.1 Publication Process
+
+[ ] 7.3.3 Running Ant fra jEdit
+
+[ ] B 2.2 running saxon
+
+[ ] B.2.3 Running Batik
+
+
+-->
+
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+                      "../src/schema/dtd/docbkx45/docbookx.dtd" [
+
+  <!-- Appendix -->
+  <!ENTITY inside-tools SYSTEM "inside.xml">
+
+  <!ENTITY dbxpub "-//OASIS//DTD DocBook XML V4.5//EN">
+  <!ENTITY dbxsys "http://www.oasis-open.org/docbook/xml/4.55/docbookx.dtd">  
+
+  <!ENTITY ta "Technical Architecture">
+  <!ENTITY TA "Technical Architecture">
+
+  <!-- Distribution related general entities  -->
+
+  <!ENTITY % tools-info SYSTEM "../VERSION">
+  %tools-info;
+
+  <!ENTITY % src-info SYSTEM "../src/VERSION">
+  %src-info;
+
+  <!ENTITY % software SYSTEM "software.ent">
+  %software;
+
+  <!--  General Entities used in the biography   -->
+  <!ENTITY ora "O&apos;Reilly &amp; Assocates, Inc.">
+  <!ENTITY wrox "Wrox Press Ltd.">
+  <!ENTITY w3c "The World Wide Web Consortium">
+  <!ENTITY oasis "The Organization for the Advancement of Structured Information Standards [OASIS]">
+  
+  <!-- From the TDG : used in the section "Logical Divisions: The 
+  Categories of Elements in DocBook", which is taken directly from TDG -->
+  <!ENTITY % tdg-refpurposes SYSTEM "refpurps.ent.txt">
+  %tdg-refpurposes;
+
+  <!-- See "The Definitive Guide" (Entities section in chapter 1), on how to 
+  use this -->
+  <!ENTITY % draft "INCLUDE">
+
+  <!-- Statistics of used DocBook elements  -->
+  <!ENTITY element-stat SYSTEM "el-stat.xml">
+
+]>
+
+
+<book lang="en">
+
+<bookinfo>
+  <title>The NISP tools</title>
+  <subtitle>Users Manual</subtitle>
+  <author>
+    <firstname>Jens</firstname>
+    <surname>Stavnstrup</surname>
+    <email>stavnstrup@mil.dk</email>
+  </author>
+  <orgname>Danish Defence Acqusition and Logistic Organisation</orgname>
+<!--
+<pubdate>&tools-release-date; - Version &tools-version;&document-revision;</pubdate>
+-->
+  <pubdate><?dbtimestamp format="Y-m-d H:M:S"?></pubdate>
+  <copyright>
+    <year>2001</year>
+    <year>2007</year>
+    <holder>Danish Defence Research Establishment</holder>
+  </copyright>
+  <biblioid class="pubnumber">DDRE M-XX/2006</biblioid>
+</bookinfo>
+
+<!-- 
+ *****************************************************************
+                    Preface
+ ***************************************************************** 
+-->
+
+
+<preface><title>Preface</title>
+
+<para>This document describes the tools necessary to create HTML and
+PDF versions of the &nisp; using sources of the documents implemented
+using the DocBook Document Type Definition (DTD). The following
+chapters describes how to install install and also cover a brief
+description of the most common DocBook elements used by the &nisp;
+documents. For a more comprehensive understanding of the technologies
+used a bibography is included.</para>
+</preface>
+
+
+<part>
+  <title>Quick Guide</title>
+
+<chapter id="install.config"><title>Installation and Configuration</title>
+
+<para>Working with DocBook XML files, requires quite a bit of
+software. However, the number of packages necessary, depends on the
+requirements of the user. To simplify things, most of the tools have
+been bundled in the nisp-tools package. In order
+e.g. to generate a HTML version of the &nisp;, the users only have to
+install Java, the nisp tools distribution and the sources for the XML
+version of the &nisp;. A detailed description of all the different tools
+included in this package can be found in <xref
+linkend="sw-tools"/>.</para>
+
+<para>All software packages can in principle be installed anywhere,
+but everything should work without a glitch, if some of the packages
+are installed in a couple of predefined places.</para>
+
+<sidebar><title>File paths in archives</title>
+
+<para>The user should be aware, that some distributions are archived
+inside a sub directory, and some are not., e.g. the NISP tools
+distribution is unpacked into the sub directory
+nisp-tools-&tools-version;, where all the files in the NISP tools
+distribution are located. It is up to the user to ensure this issue is
+resolved properly. So if the installation instructions recommends that
+the NISP package should be installed under Windows in the directory
+<filename class="directory">c:\nisp-tools</filename>, the path to the
+<filename>README</filename> file from the NISP tools distribution,
+should be the file path <filename>c:\nisp-tools\README</filename> and
+not the file path
+<filename>c:\nisp-tools\nc3ta-tools-&tools-version;\README</filename>.
+</para></sidebar>
+
+
+<sect1><title>Installation of &java;</title>
+
+<para>The installation of the Java &java-ver; is straight forward. The
+Java 2 Software Development Kit or the Java 2 Run-time environment
+comes as an archived executable, and is by default installed under
+windows at <filename class="directory">c:\jdk&java-ver;</filename>. If
+the user prefers to use another version of java, please consult the
+installation instruction of the programs Xerces, Saxon, Batik, Fop,
+Sun catalog resolver and Ant to identify the system requirements for
+these tools.<footnote><para>Note, that the tools have not been tested
+with Java 2 SDK 1.4, so you are entirely on your own, if you choose
+this platform.</para></footnote></para>
+
+<para>The user <emphasis>must</emphasis> always add the directory,
+where Java executables are located to the <envar>PATH</envar>
+environment variable. Typical values for <envar>PATH</envar>
+are:</para>
+
+
+
+<bridgehead>Java 2 Software Development Kit</bridgehead>
+
+<programlisting>
+   c:\jdk&java-ver;\bin            (Win32)
+
+   /usr/java/jdk&java-ver;/bin     (Unix)
+</programlisting>
+
+
+<bridgehead>Java 2 Runtime Environment</bridgehead>
+
+<programlisting>
+   c:\Program Files\JavaSoft\JRE\&java-ver;\bin     (Win32)
+
+   /usr/java/jdk&java-ver;/bin                      (Unix)
+</programlisting>
+
+
+<para>The user should also set the environment variable
+<envar>JAVA_HOME</envar>. Although normally not required by Java
+&java-ver;, the Ant program requires this variable set for reasons of
+backward compatibility. Typical values for <envar>JAVA_HOME</envar>
+are:</para>
+
+
+
+<bridgehead>Java 2 Software Development Kit</bridgehead>
+
+<programlisting>
+   c:\jdk&java-ver;            (Win32)
+
+   /usr/java/jdk&java-ver;     (Unix)
+</programlisting>
+
+
+<bridgehead>Java 2 Runtime Environment</bridgehead>
+
+<programlisting>
+   c:\Program Files\JavaSoft\JRE\&java-ver;     (Win32)
+
+   /usr/java/jdk&java-ver;                      (Unix)
+</programlisting>
+
+</sect1>
+
+<sect1><title>Installation of &nisp-tools;</title>
+
+<para>The NISP tools distribution consists of all the packages
+necessary to build a HTML version of the &nisp;. The NISP tools can in
+principle be installed anywhere, but if the user are runs a
+<emphasis>Win 95</emphasis>, <emphasis>Win 98</emphasis> or a
+<emphasis>Windows ME</emphasis> platform, then the path to the
+distribution should be relatively short due to a bug in the command
+processor.</para>
+
+<para>The user should set the environment variable
+<envar>NISP_HOME</envar> to the directory, where the NISP tools
+package, was installed. Typical values for
+<envar>NISP_HOME</envar> are:</para>
+
+<programlisting>
+   c:\nisp-tools-&nisp-tools-ver;            (Win32)
+
+   &tilde;/nisp-tools-&nisp-tools-ver;/            (Unix)
+</programlisting>
+
+<sidebar><title>Using a generic root name</title>
+
+<para>Since the NISP tool package may be released frequently, the
+user could rename the tools directory to e.g.  <filename
+class="directory">c:\nisp-tools</filename>, and of course set the
+<envar>NISP_HOME</envar> environment variable accordingly.</para>
+
+</sidebar>
+
+</sect1>
+
+
+<sect1><title>Installation of the &nisp-src;</title>
+
+<para>The NISP XML sources
+(<filename>nisp-src-&src-version;.zip</filename>)
+<emphasis>must</emphasis> be unpacked in the empty <filename
+class="directory">src</filename> directory in the tools
+distribution.</para>
+
+</sect1>
+
+
+<sect1><title>Installation of the HTMLHELP compiler</title>
+
+
+<para>The current webversion of the NISP also comes with a HTML Help
+version.  This requires installation of the Microsofts HTML Help
+compiler, which due to license restrictions can not be included in the
+NISP tools package. The user is required to download this distribution
+from the Microsofts website. Search for "html help downloads".</para>
+
+<para>The configuration file "user.properties", which is located in the root
+of the tools distribution contains the property "hcc", which must point
+to the location of the HTML Help Compiler.</para>
+
+<para>When you use the default installation using the file "htmlhelp.exe"
+distributed by Microsoft, the HTML Help Workshop will be installed in
+"C:\Program Files\HTML Help Workshop". The HTML Help Workshop also
+includes the HTML Help Compiler.The default setting of the property
+"hcc" in the file "user.properties" therefore is "hcc = C:\\Program
+Files\\HTML Help Workshop\\hhc.exe".</para>
+
+<para>Change the value of this parameter, if your version of the HTML Help
+Compiler is located in a different directory.</para>
+
+
+<para>Please note that the file "hcc.exe" itself is not sufficient to be able
+to compile a HTML Help project. At least the following three files,
+which are included in the Microsoft distribution of the HTML Help
+Workshop, are required to be able to compile a HTML Help project:</para>
+
+<itemizedlist>
+  <listitem><para>hhc.exe. Default this file is installed in C:\Program Files\HTML
+    Help Workshop.</para></listitem>
+  <listitem><para>itcc.dll. Default this file is installed in C:\Program
+     Files\HTML Help Workshop.</para></listitem>
+  <listitem><para>hha.dll. Default this file is installed in C:\Windows\System32
+     (on WindowsXP).</para></listitem>
+</itemizedlist>
+
+<para>If you do not have sufficient privileges to install the HTML Help
+Workshop, you can copy these files to the same folder, e.g.
+D:\Tools\NISP\HTMLHelp and change the "hcc" property in the file
+"user.properties" to e.g. "hcc=D:\\Tools\\NISP\\HTMLHelp". Now it is
+possible to invoke the HTML Help compiler and generate the ".chm"-file.</para>
+
+<para>This approach has one problem: the index will not be generated
+correctly. You must register the file "itcc.dll" to be able to generate
+a correct index as well. If you have sufficient privileges, you can
+perform this action using the command "regsvr32 itcc.dll".</para>
+
+
+
+<!--
+<para>The current webversion of te &nisp; also comes with a HTMLHELP
+version. This requires installation of Microsofts HTMLHELP compiler,
+which do to license restrictions can not be included in the NISP
+tools package. The user are requirred to download this distribution
+from Microsofts Website. Search for HTMLHELP.</para>
+
+<para>The configuration file <filename>HTMLHelp.properties</filename>,
+contains a property, which will point to the default location of the
+HTML HELP Compiler.</para>
+
+
+<programlisting><![CDATA[
+   hcc = c:\\Program Files\\HTML Help Workshop\\hhc.exe]]>
+</programlisting>
+
+<para>Change the value of this parameter, if your version of the HTML
+Help compiler is located in a different directory.</para>
+
+-->
+
+
+</sect1>
+
+
+<sect1><title>The XSL/XSLT stylesheets distribution</title>
+
+<para>With the release of the tools distribution
+<filename>nisp-tools-&nisp-tools-ver;.zip</filename>, and additional
+file called <filename>nisp-xsl-&nisp-tools-ver;.0.zip</filename> was
+also released. This file contains the stylesheets used by the tools
+distribution, and is by default already included in the tools
+distribution.</para>
+
+<para>Whenever an update to the stylesheets is released, the revision
+number of the stylesheet will be increased. So the first new version
+would e.g. be named
+<filename>nisp-xsl-&nisp-tools-ver;.1.zip</filename>.</para>
+
+<sect2><title>Updating the stylesheets</title>
+
+<para>To upgrade the stylesheets of the tools distributions, the user
+should just delete all files in the tools directory <filename
+class="directory">xsl</filename>, and unpack the new stylesheets into
+that directory. Since the original stylesheets from the tools
+distribution <filename>nisp-tools-&nisp-tools-ver;.zip</filename>,
+was also distributed in the file
+<filename>nisp-xsl-&nisp-tools-ver;.0.zip</filename>, the user can
+always return to the original sets of stylesheets. </para>
+
+ </sect2>
+
+
+ </sect1>
+
+
+ </chapter>
+ 
+
+</part>
+
+<part>
+  <title>Advanced</title>
+
+
+<chapter id="ch-std-dtd"><title>The standard database DTD</title>
+
+<para>The current NISP standards database is implemented as a XML
+document. The original design of the database reflected the structure
+of the list of standard and profiles described in the NC3 Technical
+Architecture version 1. In order to enable consistency across the
+different volumes, the database have been extented to be able to
+describe the selection of mandatory-, emerging- and fading standards
+and profiles. These selection are justified in the traceability matrix
+included in the rationale document, which are also part of the
+database. Recently the database have been reorganized to reflect
+additional requirements, but also to prepare the database for
+inclusion in the NATO Architecture Repository (NAR)</para>
+
+<para>In order to enable validation of the database a schema in form
+of a DTD have been defined. This DTD is located in the source
+distribution at <filename>schema/dtd/stddb40.dtd</filename>. Since
+the database contains DocBook fragments such as paragraphs, unnumbered
+lists etc., the standard database DTD have been implemented as an
+extension to the DocBook DTD. Ideally we should use multiple namespace
+in order to avoid name conflicts, but that is very complicated when
+using a simple schema language such as DTD. A better approach will be
+to implement the standard database schema in a modern schema language
+such as Relax NG.</para>
+
+<para>In the following pages, the syntax of the database is described
+in detail and when appropiate, examples of the actual implementation is
+included.</para>
+
+
+<para>The standard database DTD is logically separated in three
+different parts:</para>
+
+<itemizedlist>
+  <listitem><para>standards taxonomy</para></listitem>
+  <listitem><para>standard and profile description</para></listitem>
+  <listitem><para>standard selction</para></listitem>
+</itemizedlist>
+
+
+<para>It could be tempting also to separate the database into three
+physical parts - although not necessary in three different files.
+However</para>
+
+<sect1><title>Standard taxonomy</title>
+
+<para>The standard taxonomy describes how the standards and profiles
+are organised and is based on the taxanomy decribed in the NNEC
+Feasibility study </para>
+
+<para>The root element of the DTD is the element standards.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT standards (servicearea+, externalrefs?, organisations)>
+]]>
+</programlisting>
+
+
+<para>The standard database represented by the standards element
+consists on one or more servicearea and some eksta elements used for
+different purposes.</para>
+
+
+<programlisting>
+<![CDATA[
+<!ELEMENT servicearea ((servicecategory |  standardrecord | 
+                        profilerecord | referencerecord | sp-list)*)>
+
+<!ATTLIST servicearea
+          id ID #REQUIRED
+          mid CDATA #IMPLIED
+          title CDATA #REQUIRED>
+]]>
+</programlisting>
+
+<para>A servicearea<footnote><para>A servicearea element should
+properly only contain servicecategory elements, but the initial
+database have all these elements.</para></footnote> may contain 0 or
+more servicecategory, standardrecord, profilerecord, referencerecord
+or sp-list elements. As servicearea element must have an id and title
+attribute.</para>
+
+
+<programlisting>
+<![CDATA[
+<!ELEMENT servicecategory ((category | standardrecord | profilerecord | referencerecord | sp-list)*)>
+
+<!ATTLIST servicecategory
+          id ID #REQUIRED
+          mid CDATA #IMPLIED
+          title CDATA #REQUIRED>
+]]>
+</programlisting>
+
+<para>A servicecategory<footnote><para>A servicecategory element
+should properly only contain category elements, but the initial
+database have all these elements.</para></footnote> element may
+contain 0 or more category, standardrecord, profilerecord,
+referencerecord or sp-list elements. As servicecategory element must
+have an id and title attribute.</para>
+
+
+<programlisting>
+<![CDATA[
+<!ELEMENT category ((standardrecord | profilerecord | referencerecord | sp-list)*)>
+
+<!ATTLIST category
+          id ID #REQUIRED
+          mid CDATA #IMPLIED
+          title CDATA #REQUIRED>
+]]>
+</programlisting>
+
+
+<para>A category element may contain 0 or more standardrecord,
+profilerecord, referencerecord or sp-list elements. As service
+category element must have an id and title attribute.</para>
+
+
+</sect1>
+
+<sect1><title>Standard and profile definition</title>
+
+<para>Both de-jure and de-facto standards from many different standard
+<emphasis>organisations</emphasis> are labeled different. Some
+standards have multiple parts each have a standard number, where for
+other standards only the cover standard have a number. Some standards
+are registered by multiple standard bodies. Some standards are
+updated, but the actual update are released as a separate document
+instead of releasing a new version of the stabdard. The same is true
+for profiles.</para>
+
+<para>To distinguish between information about a standard provided a
+standard body and infomation only relevant to this database, an
+element standardrecord is used to describe a standard and also to
+describe historical aspect of the inclusion of the standard in the
+database. A profilerecord element is similar introduced to describe a
+profile.</para>
+
+<para>In the NISP volume 3, a referencerecord element, was used to
+refer to a standard or profile, which was described in another
+location in standard hieracy.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT standardrecord (debug?, ((standard | applicability | status)*))>
+
+<!ATTLIST standardrecord
+          tag CDATA #REQUIRED
+          id ID #IMPLIED>
+
+]]>
+</programlisting>
+
+<para>A standardrecord element may contain a debug<footnote><para>The
+historical reason of this element is unknown, maybee a stylesheet will
+reviel the reason.</para></footnote> element followed by 0 or more
+standard, applicability or status elements<footnote><para>This looks
+strange</para></footnote></para>
+
+<para>A standardrecord element must contain an tag attribute and may
+contain an id attribute.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT profilerecord (debug?, ((profilenote | parts | applicability | status)* |
+                          sremark))>
+
+<!ATTLIST profilerecord
+          tag CDATA #REQUIRED
+          id ID #IMPLIED>
+]]>
+</programlisting>
+
+<para>A profilerecord element may contain a debug element followed by 0
+or more profilenote, parts, applicability or status elements. Or a
+profilerecord may contain a debug element followed by an sremark
+element.</para>
+
+<para>A profilerecord element must contain an tag attribute and may
+contain an id attribute.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT referencerecord (sremark)>
+
+
+<!ATTLIST referencerecord
+          tag CDATA #REQUIRED>
+]]>
+</programlisting>
+
+
+<para>A referencerecord element contains an sremark element. A
+referencerecord must contain a tag attribute,</para>
+
+
+<programlisting>
+<![CDATA[
+<!ELEMENT standard ((correction | alsoknown | comment)*,  parts?)>
+
+<!ATTLIST standard
+          orgid  CDATA #REQUIRED
+          pubnum CDATA #REQUIRED
+          date   CDATA #REQUIRED
+          title  CDATA #REQUIRED>
+]]>
+</programlisting>
+
+<para>A standard element may contain 0 or more correction, alsoknown
+or comments elements possibly followed by a parts element.</para>
+
+<para>A standard element must contain the attributes orgid, pubnum,
+date and title.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT correction (#PCDATA)>
+
+<!ATTLIST correction
+          cpubnum  CDATA #REQUIRED
+          date     CDATA #REQUIRED>
+]]>
+</programlisting>
+
+<para>A correction element  </para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT alsoknown (#PCDATA)>
+
+<!ATTLIST alsoknown
+          orgid   CDATA #REQUIRED
+          pubnum  CDATA #REQUIRED
+          date    CDATA #REQUIRED>
+]]>
+</programlisting>
+
+<para>A alsoknown element contains a describtion which might be
+empty. A alsoknown element must also contain a orgid, pubnum and date
+attribute.</para>
+
+<para>NATO stanag 3809 for Digital Terrain Elevation
+ Data (DTED) is also know as  ISO/IEC 8211.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT comment (#PCDATA | ulink)*>
+]]>
+</programlisting>
+
+<para>A comment element contain data in the form of text or DocBook
+ulink elements.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT parts (standard)+>
+]]>
+</programlisting>
+
+<para>The parts element contains one or more standard elements.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT profilenote (#PCDATA)>
+]]>
+</programlisting>
+
+<para>The profilenote element contains text.</para>
+
+
+<programlisting>
+<![CDATA[
+<!ELEMENT applicability %ho; (%tbl.entry.mdl;)*>
+]]>
+</programlisting>
+
+<para>The applicability element uses the same content model as the
+DocBook element entry.</para>
+
+ 
+<programlisting>
+<![CDATA[
+<!ELEMENT status (info?, uri?, history)>
+
+<!ATTLIST status
+          mode   (unknown|rejected|retired) #IMPLIED "unknown"
+          stage  CDATA #REQUIRED>
+]]>
+</programlisting>
+
+<para>The status element contains in the following order an info, uri
+and history element. The history element is mandatoty, the infor and
+uri elements are not. The uri element is defined in the DocBook
+DTD.</para>
+
+<para>The status element contains the attributes mode and stage. The
+first is implied and the second is required.</para>
+
+<programlisting>
+<![CDATA[
+  <!ELEMENT info (#PCDATA | ulink)*>
+]]>
+</programlisting>
+
+<para>The info element contains textual information, which is not
+appropiate to put in e.g. the applicability element. It can also
+contain ulink elements, whiche e.g. could point to the standard.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT history (event)+>
+
+<!ELEMENT event (#PCDATA)>
+
+<!ATTLIST event
+          flag    (added|changed|deleted)   #REQUIRED
+          date    CDATA   #REQUIRED
+          rfcp    CDATA   #IMPLIED
+          version CDATA   #REQUIRED
+>
+]]>
+</programlisting>
+
+<para>The histoty element contains historical infomation about a
+standard. When was it added, changed or deleted and through which
+RFCP. The history element contains of one or more event
+elements.</para>
+
+<para>The event element may contain a rfcp attribute and must contain
+the attributes flag, date and version.</para>
+
+<para>The date attribute must use the following wellknown pattern
+YYYY-MM-DD.</para>
+
+
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+
+
+</sect1>
+
+
+<sect1><title>Standard Selection</title>
+
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+<programlisting>
+<![CDATA[
+]]>
+</programlisting>
+
+
+</sect1>
+
+
+
+
+</chapter>
+
+
+</part>
+
+
+
+<part>
+  <title>Old manual</title>
+
+<!-- 
+ *****************************************************************
+                    Introduction
+ ***************************************************************** 
+-->
+
+<chapter id="intro"><title>Introduction</title>
+
+
+<para>The NISP tools is a collection of software packages, XSLT
+stylesheets etc., used to build a HTML- and a version suitable for
+printing of the NATO C3 &nisp;. The XML source files are not included in
+this distribution, but are distributed separately.</para>
+
+<sect1><title>Background</title>
+
+<para>During the 16th NOSWG meeting in Feb 2001, NC3A informed the
+group, that in the future the Microsoft Word version of the &nisp; would
+no longer be maintained, but instead all future editing of the
+architecture documents would be done on the HTML (Hyper-text Markup
+Language) version of the documents. Although it is nice to have a HTML
+version of the architecture, it often just as convenient to have a
+printed version of a properly formatted document. However, since the
+burden of maintaining two versions in parallel requires a substantial
+amount of resources, I proposed a different solution, such as using a
+format that focus on the contents of the document, as e.g. using a
+structured markup language instead. The idea being, that our limited
+resources are better utilised focusing on the content rather than the
+presentation of the content. In order to prove the concept, I began
+to investigate the state of the art in this field. This paper describes
+the result of this work.</para>
+
+</sect1>
+
+<sect1><title>SGML &amp; XML</title>
+
+<para>The obvious solution was to use something like the SGML
+(Standard Generalised Markup Language). SGML is a meta-language, which
+describes how markup languages are defined. Unlike HTML, SGML does not
+consists of any predefined elements or  semantic rules, but are
+strictly used to define markup languages of which HTML is the most
+popular. But where HTML also contains tags, which describes font-size,
+color etc. Meta-Markup languages consists of elements, that only are
+used to the describe the logical structure of a document. In the
+documentation domain these elements could be elements, like chapter,
+sections, paragraphs, unnumbered lists etc.</para>
+
+<para>One solution, could be to look elsewhere in NATO. During the 2nd
+meeting in the XML Ad-Hoc Group, NAMSA presented a solution to the
+problem of managing huge amounts of documentation by using a homegrown
+document format. Although I could have chosen a similar approach, I
+decided, that the proper way would be to use a format that already
+enjoys considerably support from miscellaneous publishing
+houses.</para>
+
+<para>One popular SGML implementation is the markup language DocBook,
+which is very well suited for technical documentation. There is one
+strong argument against adopting the markup language to mark-up the
+&nisp;. Although SGML has been around for quite a
+while, and is very well suited for handling huge repositories of
+technical documentation, the tools for editing and validating SGML
+documents are very complicated and therefore also very expensive.
+However, just a couple of weeks before the NOSWG meeting, OASIS
+released a XML version of DocBook. Since XML is much less complicated
+than SGML, it is very likely, that inexpensive tools for editing XML
+documents will be available to the public, within a relative short
+time frame.</para>
+
+</sect1>
+
+
+
+<sect1><title>Parser's and other tools</title>
+
+<para>Since XML is a moving target, the selection of tools can be
+quite a complicated affair. Releases are frequent, and new and not so
+mature tools arrive every day. Fortunately, most of the tools
+necessary for the translation of the &nisp;, are quite stable, and
+require almost none if any post-processing by the user. When working
+with a platform-independent technology such as XML, it can simplify
+matter a lot, if the tools used would also be platform
+independent. This can be accomplished by selecting tools written in
+Java, which at least in theory is platform-independent.</para>
+
+<para>Since the major task in processing the NC3 &nisp; documents are
+the transformation of the XML documents to HTML and a format suitable
+for printing, we need a tool that implements the XSLT 1.0
+standard. Among the most popular tools are Xalan from the Apache Group
+and Michael Kay's Saxon. Both of these tools are implemented in
+Java, and Saxon is currently considered more mature, and
+also implements most of the additional functionality
+defined in the working draft XSLT 1.1, of which we need the ability to
+merge multiple documents, a property not defined in the original XSLT
+1.0 specification.</para>
+
+<para>Before the transformation of an XML document is invoked, the
+document must be parsed by an XML parser. Saxon comes preinstalled
+with the AElfred parser, which is not a validating parser, required in
+order to ensure that all NISP documents conform to the DocBook
+specification. Most of the original XML parsers, are not validating
+parsers, but recently the Apache Group have released the validating
+parser Xerces.</para>
+
+<para>Currently there is no open source implementation, which does a
+really good job in creating a printed version of the XML
+documents. The best open-source project is the FO processor
+<emphasis>Fop</emphasis>, which currently is undergoing a major
+redesign effort and the frequency of releases have therefore
+dramatically slowed down. There are a couple of very good commercial
+implementations, which suffer seriously from the problem, that they
+are very expensive.</para>
+
+<para>Although there are many bugs and facilities currently
+unimplemented in the FO processor. It turns out, that most of the
+problems, which are relevant to the &nisp; documents can be temporary
+solved by manipulation of the FO tree, before the layout and rendering
+phase resulting in a PDF document.</para>
+
+</sect1>
+
+
+<sect1><title>Contents of this document</title>
+
+<para>The next few chapters describes, how to install the necessary
+tool, and discusses XML, XSL, DocBook and the different tools in the
+distribution.</para>
+
+</sect1>
+
+</chapter>
+
+
+<!-- 
+ *****************************************************************
+                    Installation and Configuration
+ ***************************************************************** 
+-->
+
+
+ <!-- 
+  *****************************************************************
+		     Introduction to XML
+  ***************************************************************** 
+ -->
+
+<chapter id="xml-intro"><title>Introduction to XML</title>
+
+<para>XML is a subset of SGML, and are designed for the Web. Like its
+ancestor SGML, XML do not have any predefined tags, but leave it up to
+the users to define their own vocabulary. The XML standard as defined
+in <xref linkend="xml"/>, describes a set of rules that must be
+followed when writing XML documents. The following sections will very
+briefly describe the structure, and the usual components of a XML
+document. Additional information can also be found in the books
+
+<xref linkend="HaMe2001"/> and <!-- XML Nut --> <xref
+linkend="Ma2001"/>. <!-- Prof XML --> The user can also read the
+articles <xref linkend="Walsh-1998-xml"/> and <xref
+linkend="walsh-2001-xml-mag"/> online. <!-- XML Basic (Norm in XML
+Mag) --></para>
+
+<sect1><title>The building blocks of XML</title>
+
+<para>A XML document consists of a number of syntactical constructs,
+which will be defined in the following.</para>
+
+<sect2><title>XML Prologue Statement</title>
+
+<para>All documents may and should begin with a XML prologue statement</para>
+
+ <programlisting>
+   &lt;?xml version="1.0"?&gt;
+ </programlisting>
+
+<para>This statement must be placed on the first line of any XML
+document and might besides the version attribute, contain additional
+attributes such as the encoding- and standalone attribute.</para>
+
+</sect2>
+
+<sect2><title>Elements</title>
+
+<para>The main building block of XML documents is the element. An
+element is delimited by a <emphasis>start tag</emphasis> and an
+<emphasis>end tag</emphasis>. Everything between the start tag and the
+end tag is the <emphasis>content</emphasis> of the element. Every XML
+document is a hierarchical structure with exactly one root element and
+a number of children elements. In the example document below taken
+from <xref linkend="HaMe2001"/>, the root element is
+<literal>person</literal> delimited by the start tag
+<literal>&lt;person&gt;</literal> and end tag
+<literal>&lt;/person&gt;</literal>.</para>
+
+ <programlisting>
+ <![CDATA[
+   <person>
+     <name>
+       <first_name>Alan</first_name>
+       <last_name>Turing</last_name>
+     </name>
+     <profession>computer scientist</profession>
+     <profession>matematician</profession>
+     <profession>cryptographer</profession>
+   </person>
+ ]]>
+ </programlisting>
+
+<para>The hierarchical structure of XML is obvious, if we think of the
+person element as the <emphasis>parent element</emphasis> containing
+four <emphasis>children elements</emphasis>, i.e. one
+<literal>name</literal> element and three
+<literal>profession</literal> elements. The <literal>name</literal>
+element again consists of two <emphasis>children elements</emphasis>
+<literal>first_name</literal> and <literal>last_name</literal>
+element, and each of the <literal>profession</literal> elements
+consists of only <emphasis>character data</emphasis>. XML tags are
+case-sensitive, i.e.  <literal>&lt;person&gt;</literal> and
+<literal>&lt;PERSON&gt;</literal> are two different start tags.</para>
+
+<para>When the example above is parsed by a XML parser, besides the
+elements and the prologue statement, the parser will also identify
+some <emphasis>white space</emphasis>, e.g. the spaces before the
+start-tag <literal>&lt;first_name&gt;</literal> and also after the
+end-tag <literal>&lt;/first_name&gt;</literal>. This means that there
+is actually more that four children elements, contrary to what was
+stated before. Whitespace can be ignored by the XML parser, but
+sometimes it can be impossible for the parser to determine whether
+some space are semantically important or not, unless a document is
+also <emphasis>validated</emphasis>. In the DocBook DTD, this can be
+significant, when we are working with table cells.</para>
+
+ <para>If an element does not contain other elements but only
+ attributes, then it can be written using the shortcut
+ &lt;myelement/&gt;.</para>
+
+</sect2>
+
+<sect2><title>Attributes</title>
+
+<para>Each element can contain one or more attributes in the form of a
+key value pair. Keys and values are separated by an equals sign and
+values are enclosed in single- or double quotes.</para>
+
+ <programlisting>
+ <![CDATA[
+
+   <person born="1912/06/23">
+     Allan Turing
+   </person>
+
+ ]]>
+ </programlisting>
+
+ </sect2>
+
+ <sect2 id="PI"><title>Processing Instructions</title>
+
+<para>It is sometimes necessary to provide an application which
+processes a XML document with information, which for practical reasons
+is not part of the DTD (see <xref linkend="s1-dtd"/>) for that
+document. For this purpose an author can use a <emphasis>processing
+instruction</emphasis> (PI) as an alternative means to provide
+information to the processing application. A processing instruction
+begins with <literal>&lt;?</literal> and ends with
+<literal>?&gt;</literal>. Immediately following the
+<literal>&lt;?</literal> is an XML name called the
+<emphasis>target</emphasis>, identifying the application for which
+this PI is used, the target can also be considered the name of a
+PI. All the text to the right of the target is in a format appropriate
+for the application the PI is intended for.</para>
+
+
+<para>In volume 3, 4 and the rationale document of the &nisp;, PIs is
+used to identify a collection of standards, which will be merged into
+the final document. One example of such a PI used in volume 3 is shown
+below.</para>
+
+ <programlisting>
+   &lt;?dbmerge cid=&quot;se-lng&quot;?&gt;
+ </programlisting>
+
+<para>Whenever the stylesheet <filename>xsl/merge3.xml</filename>
+meets such a processing instruction, the appropriate standard is
+selected from the standard database
+<filename>standards/ta-standards.xml</filename> located in the &nisp;s
+source distribution.</para>
+
+</sect2>
+
+<sect2><title>Comments</title>
+
+<para>Comments in XML are syntactical identical to the comments in
+HTML. Comment are used only to comment the document. A XML parser is
+not required to pass the comments up to the application, so comments
+should only be used for informational purposes. Comments can appear
+anywhere in a document, except inside tags and inside other
+comments.</para>
+
+<programlisting>
+  &lt;-- This is an example of a comment --&gt;
+</programlisting>
+
+</sect2>
+
+<sect2><title>Entities</title>
+
+<para>When parsing a XML document, it is sometimes necessary to use
+characters normally reserved for marking-up a XML document, such as
+the bracket characters (&apos;&lt;&apos; and &apos;&gt;&apos;) which
+are used to embed tags. In order for the user to be able to use these
+two characters and a couple more, the XML standard have defined a
+concept called entities, which is a kind of macros, that are replaced
+with the appropriate characters, by the XML parser, when parsing a XML
+document.</para>
+
+<para>This following list illustrates the list of predefined entities
+in XML
+
+ <variablelist>
+   <varlistentry>
+     <term><literal>&amp;lt;</literal></term>
+     <listitem><para>The less-than sign, or opening angle bracket (&lt; )</para></listitem>
+   </varlistentry>
+   <varlistentry>
+     <term><literal>&amp;amp;</literal></term>
+     <listitem><para>The ampersand (&amp;)</para></listitem>
+   </varlistentry>
+   <varlistentry>
+     <term><literal>&amp;gt;</literal></term>
+     <listitem><para>The greater-than, or closing angle bracket (&gt;)</para></listitem>
+   </varlistentry>
+   <varlistentry>
+     <term><literal>&amp;quot;</literal></term>
+     <listitem><para>The straight, double quotation marks (&quot;)</para></listitem>
+   </varlistentry>
+   <varlistentry>
+     <term><literal>&amp;apos;</literal></term>
+     <listitem><para>The apostrophe, or single quote (&apos;)</para></listitem>
+   </varlistentry>
+ </variablelist>
+
+ </para>
+
+<para>These five entities is central in the mark-up of XML documents,
+so whenever a user needs to write the character &apos;&amp;&apos;,
+this can be accomplished by writing the entity instead, e.g.
+&apos;&amp;amp;&apos;.</para>
+
+<para>The DocBook DTD comes with a large number of predefined entities
+used to represents uni-code characters and other symbols, which can be
+used in DocBook documents. Besides the convenience of enabling access
+to a larger number of characters, normally not supported by text
+editors today, it is also sometimes safer although quite tedious to
+use these entities, instead of utilising the functionality of a given
+editor.</para>
+
+<para>Entities comes in many flavours, and we will not go into detail,
+in this slightly complicated subject, but only mention the use of
+entities in the &nisp;. For a more detailed description of entities, the
+reader are referred to the XML standard or the articles ??? and ???</para>
+
+ <itemizedlist>
+   <listitem><para>In most of the volumes, we do not
+   referrer to the filenames of externally defined images, but instead
+   uses parametric entities defined in the external file
+   <filename>figures.ent</filename> (which is automatically is loaded,
+   by the XML Parser to resolve the entities). The makes it much easier
+   to keep track on the images used in the different
+   volumes.</para></listitem>
+
+   <listitem><para>In the source distribution, we have specifies the
+   version number of the volumes in the file
+   <filename>VERSION</filename>, which may be used by the different
+   volumes, in the revision history.</para></listitem>
+
+   <listitem><para>The same <filename>VERSION</filename> information is also used when
+   building the distribution packages.</para></listitem>
+ </itemizedlist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="s2-xml-struc"><title>Structure of XML documents</title>
+
+<para>A XML document contains one or more elements delimited by start-
+and end tags. There is exactly one root element, and all other
+elements are properly nested within this root element. Every attribute
+in an element must be embedded inside single or double quotes. These
+simple rules are central to the understanding of the structure of
+generic XML documents.</para>
+
+</sect1>
+
+<sect1 id="s1-dtd"><title>DTDs</title>
+
+<para>A Document Type Definition (DTD) describes the legal structure
+of a document and is an integral part of the XML standard. The DTD
+describes the formal syntax of a given document and describes
+precisely, which elements and attributes are allowed, and the context
+in which the elements are allowed. The DocBook DTD can make
+statements, such as a <emphasis>sect2</emphasis> element must be
+contained inside a <emphasis>sect1</emphasis> element, Or a
+<emphasis>row</emphasis> element are only allowed to contain one or
+more <emphasis>entry</emphasis> or <emphasis>entrytbl</emphasis>
+elements. It is not a requirement, that the DTD is available when
+writing XML documents, but whenever people are involved in the
+process, it is always a good idea, to use a DTD in order to ensure
+that the XML document is legal. The source distribution comes with a
+number of DTDs, which are described futher in <xref
+linkend="dtd-nisp"/>. </para>
+
+
+</sect1>
+
+<sect1><title>Well-formed and Valid Documents</title>
+
+<para>A XML document is well-formed if it follows the rules stated in
+<xref linkend="s2-xml-struc"/>.
+</para>
+
+<para>A XML document is valid, if it is well-formed and follows a
+syntax defined in a Document Type Definition (DTD). The description of
+an DTD is defined in the XML specification, and will not be described
+further in this paper.</para>
+
+</sect1>
+
+<sect1><title>Document Type Declaration</title>
+
+<para>In order for an XML parser to validate a document written in a
+given DTD, a document type declaration must be included at the
+beginning of a document. The document type declaration is not required
+in a XML document, but when working with large DTD like DocBook, it is
+absolutely recommended.</para>
+
+<para>A doctype declaration for a DocBook document could look like
+this:</para>
+
+ <programlisting>
+   &lt;?xml version=&quot;1.0&quot;?&gt;
+   &lt;!DOCTYPE book PUBLIC &quot;&dbxpub;&quot; 
+	&quot;&dbxsys;&quot;&gt;
+ </programlisting>
+
+<para>The declaration indicates, that the DTD used are specified by
+the PUBLIC identifier: <literal>&dbxpub;</literal>, the root element
+is book, and the SYSTEM identifier identifies the physical location of
+the DTD, which in this case is a web server at OASIS. The PUBLIC
+identifier are frequently used, when working with SGML documents,
+where through some magic, the PUBLIC identifier are resolved into the
+physical location of the DTD. The PUBLIC identifier is optional in XML
+documents, and the XML specification do not give any means, on how to
+resolve a public identifier, but this may change in a future
+version.</para>
+
+<para>The SYSTEM identifier is mandatory for XML document and is
+always an URI. However, many parser's accept a file name, and then
+interpret this as an URI with the prefix
+<literal>file://</literal></para>
+
+<para>If the SYSTEM identifier is
+&apos;<filename>dtd/tongle.dtd</filename>&apos;, this would indicate
+to the parser, that the documents DTD is called tongle.dtd, and is
+located in the sub directory dtd, which relative to the directory,
+where the document resides.  With the introduction of the resolver
+library in the &nisp; tools, it is now possible to use XML Catalogs<xref
+linkend="xml-catalog"/> to resolve public identifiers.</para>
+
+</sect1>
+
+<sect1><title>Namespaces</title>
+
+<para>Namespaces <xref linkend="names-xml"/> are primary used to
+distinguish between elements from different applications of XML, that
+share the same name. Namespaces are implemented by attaching a prefix
+to elements and attributes belonging to the namespace. Each of these
+prefixes are mapped to a URI, which uniquely defines the
+namespace. The URI may, but is not required to point to an actual
+document.</para>
+
+<para>In the &nisp; namespaces are used mostly in stylesheets, and are
+used to distinguish between stylesheet elements and elements used to
+generate the target documents, i.e. elements that belongs to the HTML
+and the XSL-FO namespace.</para>
+
+<para>Although we do not define our own namespaces in the &nisp;
+documents, we use multiple DTDs. It is therefore important to
+understand that a namespace and a DTD is in no way related. We can use
+DTD's without using namespaces and vice versa.  Similarly we can work
+with documents, without using a DTD or namespaces. So although we have
+defined a DTD for standards used in the &nisp;, this DTD, which is an
+extension to the DocBook DTD, do contains elements, which are part of
+the DocBook namespace and also elements which does not belongs to any
+namespace.</para>
+
+</sect1>
+
+<sect1><title>Character-Set in XML documents</title>
+
+<para>All XML documents uses the Unicode character-set<xref
+linkend="unicode"/>, which contains all the characters used today, and
+even characters from dead languages like Sanskrit and the Egyptian
+hieroglyphs. A character-set is actually a mapping from a character to
+a number<footnote><para>Such a mapping is also called a <emphasis>code
+point</emphasis></para></footnote>, since computers only understand
+numbers in the form of bits and bytes. E.g. in Unicode the character
+&apos;A&apos; is represented by the decimal number 65.</para>
+
+<para>A <emphasis>character encoding</emphasis> describes how the
+characters of the text is represented, and also, which characters from
+the Unicode character set is included in the encoding. All the &nisp;
+uses the ISO-8859-1 character encoding scheme, which according to
+<xref linkend="HaMe2001"/> consists of &quot;<emphasis>ASCII character
+set plus accented letters and other characters needed for most
+Latin-alphabet Western European languages.</emphasis>&quot;</para>
+
+</sect1>
+
+</chapter>
+
+
+
+ <!-- 
+  *****************************************************************
+		     The DocBook DTD
+  ***************************************************************** 
+ -->
+
+<chapter id="docbook-dtd"><title>The DocBook DTD</title>
+
+<para>The DocBook format <xref linkend="WaMu1999"/> and <xref
+linkend="WaMu2005"/> is an international SGML documentation standard
+currently managed by an OASIS technical committee. DocBook is actually
+a Document Type Definition (DTD), which is a syntactically description
+on how document compliant with the DocBook DTD should be
+written.</para>
+
+<para>The first XML implementation of DocBook XML (4.1.2) was
+officially released by OASIS in February 2001, and is almost identical
+to the SGML version. There are of course some things, which currently
+cannot be expressed in XML, but this is not significant for the XML
+implementation of the &nisp;.</para>
+
+
+
+<sect1><title>Basic Markup Concepts</title>
+
+<para>Using a DTD like DocBook will properly in the beginning be a
+frustrating experience comparing to using a GUI word processor like
+Microsoft&apos;s Word. The most important difference is that the usual
+control of layout and formatting is not possible. Markup is not about
+style, but strictly about contents. At first, this may seem like a
+major inconvenience, but in the long run, this is a actually a huge
+advantage, since it prevents ad-hoc definitions of styles, which might
+be changed later, and instead enables the use to concentrate on the
+contents of the document. The separation of contents from layout and
+style enable publication on many different medias, many not even
+considered by the time of the writing.  It will also enable computer
+based manipulation of documents, which are currently only possible
+with the greatest difficulty using the current tools.</para>
+
+</sect1>
+
+
+<sect1><title>Used DocBook Elements</title>
+
+<para>All-though the DocBook XML DTD consists of almost 400
+elements. The XML implementation of the &nisp; uses only a very limited
+subset of all the elements defined in the DTD as illustrated in the
+following table<footnote><para>This table was generate using a perl
+program. See the file <filename>extra/perl/estat.pl</filename> in the
+tools distribution.</para></footnote>, which is based on Version 5.0
+of the XML &nisp; (dated December 15, 2003). The table clearly illustrates,
+that the elements mostly used, are actually related to table elements,
+and the paragraph element <emphasis>para</emphasis>.</para>
+
+<para>The elements used in the &nisp; is as described above only a small
+subset of all the elements in the DocBook DTD. In <xref
+linkend="WaMu2005"/>, a breakdown of the logical stucture of DocBook
+elements is described.</para>
+
+ <!-- Include statistics of used elements in the Technical Architecture. -->
+ <!-- This file referenced here is generated using the perl script:      -->
+ <!--      extra/perl/estat.pl                                           -->
+
+
+ &element-stat;
+
+<para>Any DTD describes a number of elements and the relationship
+between these documents, however there is no syntactic construct,
+which identify a single element at the default root elements. Often a
+written description of the DTD identify a such a root element, however
+this is not the case for the docbook DTD. Theoretically any element can
+be a root element in DocBook, but in practice the root element of most
+DocBook documents are either the <sgmltag>article</sgmltag> or the
+<sgmltag>book</sgmltag> element.</para>
+
+<para>All the documents in the &nisp; do have the
+<sgmltag>book</sgmltag> element as its root element.</para>
+
+</sect1>
+
+
+
+<sect1 id="ta-markup"><title>DocBook Markup in the NISP</title>
+
+<para>The following section illustrates how to use a small subset of
+the elements defined in DocBook. For each of these elements only the
+necessary attributes are included. For a much more comprensive
+definition, see the reference manual <xref linkend="WaMu2005"/>. The
+elements selected illustrates common constructs in word processin in
+general, and covers almost all the elements required to write the &nisp;
+documents.</para>
+
+<para>The &nisp; documents are all created with the DocBook element
+<emphasis>book</emphasis> as its root element. The book element
+consists of meta-information about the book in form of the
+<emphasis>bookinfo</emphasis> element, a number of chapters, and
+potentially a bibliography element and a number of appendixes, as
+shown below:</para>
+
+
+ <programlisting>
+ <![CDATA[
+ <?xml version="1.0" encoding="ISO-8859-1"?>
+
+ <book>
+
+ <bookinfo>
+   <title>NC3 Technical Architecture</title>
+   <subtitle>NCOE </subtitle>
+   ...
+   <volumenum>5</volumenum>
+   ...
+   <revhistory>
+     <revision>
+       <revnumber>&src-version;</revnumber>
+       <date>&src-release-date;</date>
+     </revision>
+     <revision>
+       <revnumber>3.0</revnumber>
+       <date>15 December 2001</date>
+     </revision>
+   ...
+   </revhistory>
+ </bookinfo>
+
+ <chapter><title>Some title</title>
+
+ <sect1><title>My first section</title>
+
+ <para> Some text</para>
+
+ <sect2><title>A subsection</title>
+
+ <para>Some more text</para>
+
+ </sect2>
+
+ </sect1>
+
+ </chapter>
+
+   ...
+
+ <appendix><title>Some other title</title>
+
+ </appendix>
+ </book>
+ ]]>
+ </programlisting>
+
+ <para>The meta-info element <emphasis>bookinfo</emphasis> contains
+ among other things a <emphasis>revhistory</emphasis> element, which
+ consists of a list of <emphasis>revision</emphasis> elements. In the
+ draft version 4 of the &nisp;, the first <emphasis>revision</emphasis>
+ element uses external entities, which are defined in the file
+ <filename>VERSION</filename> located in the <filename
+ class="directory">src</filename> directory. When the final version of
+ volume 4 is released, the <filename>VERSION</filename> file should be
+ updated accordingly. But during the development, he user could create
+ his own revision element.</para>
+
+ <para>Each chapter and appendix consists of a number of elements,
+ where the most significant are <emphasis>para</emphasis> and
+ <emphasis>sect1</emphasis> which constitutes a paragraph respectively
+ a section on level 1. Each <emphasis>sect1</emphasis> element consists
+ of a number of elements, among others the <emphasis>sect2</emphasis>
+ element etc.</para>
+
+ <para>The first element in all chapter-, appendix-, and sect1- to
+ sect4 element is by convention in the &nisp; a title element.</para>
+
+ <para>Just as the <emphasis>book</emphasis> element contains meta-info
+ through the <emphasis>bookinfo</emphasis> element, there are similar
+ elements for the <emphasis>chapter</emphasis>,
+ <emphasis>appendix</emphasis> and the section elements. These elements
+ are currently not used, but might be in the future.</para>
+
+
+ <sect2><title>Creating lists</title>
+
+ <para>DocBook supports seven list elements. Two of those are:</para>
+
+ <variablelist>
+   <varlistentry><term>ItemizdList</term>
+   <listitem><para>An unordered (bulleted) list. There are attributes to control the marks used</para></listitem></varlistentry>
+
+   <varlistentry><term>OrderedList</term>
+   <listitem><para>A numbered list. There are attributes to control the marks used</para></listitem></varlistentry>
+ </variablelist>
+
+ <para>The following examples illustrated these two list types:</para>
+
+ <para>A bullet list, with the DocBook source:</para>
+
+ <programlisting>
+ <![CDATA[
+ <itemizedlist>
+   <listitem><para>First Item</para></listitem>
+   <listitem><para>Second Item</para></listitem>
+   <listitem><para>Third Item</para></listitem>
+ </itemizedlist>
+ ]]></programlisting>
+
+ <para>looks like this:</para>
+
+ <itemizedlist>
+   <listitem><para>First Item</para></listitem>
+   <listitem><para>Second Item</para></listitem>
+   <listitem><para>Third Item</para></listitem>
+ </itemizedlist>
+
+ <para>And an ordered list, with the DocBook source:</para>
+
+ <programlisting>
+ <![CDATA[
+ <orderedlist>
+   <listitem><para>First Item</para></listitem>
+   <listitem><para>Second Item</para></listitem>
+   <listitem><para>Third Item</para></listitem>
+ </orderedlist>
+ ]]></programlisting>
+
+ <para>looks like this:</para>
+
+ <orderedlist>
+   <listitem><para>First Item</para></listitem>
+   <listitem><para>Second Item</para></listitem>
+   <listitem><para>Third Item</para></listitem>
+ </orderedlist>
+
+ <para>Lists can also be nested, and bulleted and numbered list can be
+ combined arbitrarily, as illustrated by the source:</para>
+
+ <programlisting>
+ <![CDATA[
+ <itemizedlist>
+   <listitem><para>First Item</para></listitem>
+   <listitem><para>Second Item</para></listitem>
+   <listitem><para>Third Item
+     <orderedlist>
+       <listitem><para>First Item (2nd level)</para></listitem>
+       <listitem><para>Second Item (2nd level)</para></listitem>
+       <listitem><para>Third Item (2nd level)</para></listitem>
+     </orderedlist></para></listitem>
+ </itemizedlist>
+ ]]>
+ </programlisting>
+
+ <para>looks like this</para>
+
+ <itemizedlist>
+   <listitem><para>First Item</para></listitem>
+   <listitem><para>Second Item</para></listitem>
+   <listitem><para>Third Item
+     <orderedlist>
+       <listitem><para>First Item (2nd level)</para></listitem>
+       <listitem><para>Second Item (2nd level)</para></listitem>
+       <listitem><para>Third Item (2nd level)</para></listitem>
+     </orderedlist></para></listitem>
+ </itemizedlist>
+
+ <para>Instead of using numbers in an ordered list, we can use letter,
+ roman numeral all controlled with the attribute
+ <emphasis>numeration</emphasis>.</para>
+
+ </sect2>
+
+
+ <sect2><title>Typographical element</title>
+
+ <para>A few elements are oriented toward the <emphasis>What You See
+ Is What You Get</emphasis> solution, familiar from well known word
+ processors. Among the elements are:</para>
+
+ <itemizedlist>
+   <listitem><para>Italic text like <emphasis>Hello Italic World</emphasis>, is created using the following markup:</para><para>
+   <programlisting>
+   <![CDATA[
+     <emphasis>Hello Italic World</emphasis>
+   ]]></programlisting></para></listitem>
+
+   <listitem><para>Bold text like <emphasis role="bold">Hello Bold
+   World</emphasis>, is created using the following markup:</para><para>
+
+   <programlisting>
+   <![CDATA[
+   <emphasis role="bold">Hello Bold World</emphasis>]]>
+   </programlisting>
+   </para></listitem>
+
+   <listitem><para>Subscripted text like H<subscript>2</subscript>O, is created
+   using the following DocBook markup:</para><para>
+
+   <programlisting>
+   <![CDATA[
+   H<subscript>2</subscript>O
+   ]]>
+   </programlisting></para></listitem>
+
+   <listitem><para>Superscripted text at the square function:
+   X<superscript>2</superscript>, is created using the following DocBook markup:</para><para>
+   <programlisting>
+   <![CDATA[
+   X<superscript>2</superscript>
+   ]]></programlisting></para></listitem>
+
+ </itemizedlist>
+
+
+ </sect2>
+
+
+ <sect2><title>Creating Footnotes</title>
+
+ <para>Footnotes are generated using the following DocBook markup:
+ <literal>&lt;footnote&gt;&lt;para&gt;This is my
+ footnote&lt;/para&gt;&lt;footnote&gt;</literal>. In practise this will
+ result in the following<footnote id="footnote"><para>This is my
+ footnote</para></footnote></para>
+
+ <para>What actually happens here is twofold. The footnote is generated
+ and will later be added on the bottom of the current page, and at the
+ same time a reference to the same footnote is generated. Sometimes one
+ needs to referrer to the same footnote from multiple place. The can be
+ accomplished by creating an id attribute to the footnote like
+ <literal>&lt;footnote id=&apos;xray&apos;&gt;&lt;para&gt;This is my
+ footnote&lt;/para&gt;&lt;footnote&gt;</literal>. We can then 
+ later refer to the same footnote<footnoteref linkend="footnote"/>,
+ using the markup <literal>&lt;footnoteref
+ linkend=&apos;xray&apos;/&gt;</literal>.</para>
+ </sect2>
+
+ <sect2 id="ta-graphics"><title>Graphic Elements</title>
+
+ <para>Graphics occurs often in Figures (the elements
+ <emphasis>figure</emphasis> and <emphasis>informalfigure</emphasis>) and
+ Screenshots (the element <emphasis>schreenshot</emphasis>), but they can also
+ occur without a wrapper. The element used to contain graphics and other media
+ types are the elements <emphasis>mediaobject</emphasis> and
+ <emphasis>inlinemediaobject</emphasis><footnote><para>Although still legal,
+ the element <emphasis>graphics</emphasis> and
+ <emphasis>inlinegraphic</emphasis> will be removed in a future version of
+ DocBook.</para></footnote>. These elements may contain video, audio, image and
+ text data. A single <emphasis>mediaobject</emphasis> may contain multiple
+ version, and it is up to the presentation system to select the appropriate
+ object. The respective elements contained in the
+ <emphasis>mediaobject</emphasis> element are the elements
+ <emphasis>videoobject</emphasis>, <emphasis>audioobject</emphasis>,
+ <emphasis>imageobject</emphasis> and <emphasis>textobject</emphasis>.</para>
+
+ <para>The following example illustrates<footnote><para>In the &nisp;, we
+ actually only use entity references as value to the attribute
+ <emphasis>fileref</emphasis>.</para></footnote> the use of a graphic
+ elements, in the way it is often used in the &nisp; documents:</para>
+
+ <programlisting>
+ <![CDATA[
+   <figure><title>Here is an image</title>
+     <mediaobject>
+       <imageobject>
+	 <imagedata fileref="figures/a-raster-image.svg"/>
+       </imageobject>
+     </mediaobject>
+   </figure>
+ ]]>
+ </programlisting>
+
+
+ <para>In a lot of the tables, in appendix A of volume 3 we actually
+ use the <emphasis>mediaobject</emphasis> directly, since the
+ <emphasis>figure</emphasis> element is not part of the table cell
+ (<emphasis>entry</emphasis>) content model.</para>
+
+ <para>In version 2 of the &nisp; all volumes used different and inconsistent
+ naming conventions for the raster images used in the HTML version. The figures,
+ was named Figure01, Figure001, etc. all names, more related to the figure number
+ in the work document, which by the way was not always correct.</para>
+
+ <para>Since all the figures during the translation of the &nisp; to
+ XML, was implemented as Scalable Vector Graphics (SVG) files, a new
+ naming scheme was implemented at the same time.The naming convention
+ is implemented in the following way:</para>
+
+ <itemizedlist>
+
+ <listitem><para>All figures are places in a separate figures directory.</para></listitem>
+
+ <listitem><para>A figure could eg be named
+ <emphasis>figures/v1-ex-mgt.svg</emphasis>.  This describes the
+ directory, where the figure is located and the name of the SVG image
+ representing the figure.</para></listitem>
+
+ <listitem><para>Note, that figure names consists of the parts
+   <emphasis>v1</emphasis>, <emphasis>ex-mgt</emphasis>,
+    and as extension svg, where
+   <itemizedlist>
+     <listitem><para><emphasis>v1</emphasis> is the volume the figure is
+     located in</para></listitem>
+     <listitem><para><emphasis>ex-mgt</emphasis> is a shortcut for the 
+     title of the figure</para></listitem>
+     <listitem><para>and svg is the extension of the file</para></listitem>
+   </itemizedlist>
+ </para></listitem>
+
+ </itemizedlist>
+
+ </sect2>
+
+
+ <sect2><title>Creating Tables</title>
+
+ <para>Table is a significant element of the NISP. In version 3, we currently
+ have 502 informal- and formal tables. The difference between the two elements
+ is that <emphasis>table</emphasis> have a caption and
+ <emphasis>informaltable</emphasis> does not.</para>
+
+ <para>Most tables are actually straightforward to create, as should be
+ familiar to everybody, which have worked with HTML files, since the DocBook
+ table model is very similar to the CALS model used in HTML.</para>
+
+
+ <para>In DocBook the <emphasis>table</emphasis> element consists of a number
+ of <emphasis>row</emphasis> element. Each <emphasis>row</emphasis> consists of
+ a number of <emphasis>column</emphasis> elements, which are specified by the
+ <emphasis>cols</emphasis> attribute of the <emphasis>tgroup</emphasis> element
+ as illustrated below:</para>
+
+ <programlisting>
+ <![CDATA[
+ <table frame="all">
+ <title>Simple Table</title>
+ <tgroup cols="3">
+ <colspec colwidth="33*"/>
+ <colspec colwidth="33*"/>
+ <colspec colwidth="34*"/>
+ <tbody>
+   <row>
+     <entry>A</entry>
+     <entry>B</entry>
+     <entry>C</entry>
+   </row>
+   <row>
+     <entry>D</entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </table>
+ ]]>
+ </programlisting>
+
+ <para>resulting in:</para>
+
+
+ <table frame="all"><title>Simple Table</title>
+ <tgroup cols="3">
+ <colspec colwidth="33*"/>
+ <colspec colwidth="33*"/>
+ <colspec colwidth="34*"/>
+ <tbody>
+   <row>
+     <entry>A</entry>
+     <entry>B</entry>
+     <entry>C</entry>
+   </row>
+   <row>
+     <entry>D</entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </table>
+
+ <para>Note, that in the second row, only one cell have been specified,
+ which illustrates that the stylesheet assumes an entry to be empty, if
+ it isn't specified. The processing of cells in a row is done from left
+ to right, and each cell meet is assumed to be the next cell in the
+ row, unless explicit specified in an attribute. So if we define that a
+ table have 5 columns, but only create 2 entries without any position
+ modifier. These cells are assummed to be the first and second cell in
+ a row. The three other cells are considered empty.</para>
+
+ <para>The next example illustrates the concept of cells,which span
+ multiple columns and/or rows. The <emphasis>&quot;Protocol
+ Set&quot;</emphasis> part of most of the tables in Appendix A of
+ Volume 3 utilises this facility, which is illustrated below:</para>
+
+ <programlisting>
+ <![CDATA[
+ <table frame="all">
+ <title>Complicated Table</title>
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="33*"/>
+ <colspec colname="c2" colwidth="33*"/>
+ <colspec colname="c3" colwidth="34*"/>
+ <tbody>
+   <row>
+     <entry>A</entry>
+     <entry namest="c2" nameend="c3">BC</entry>
+   </row>
+   <row>
+     <entry morerows="1">DG</entry>
+     <entry>E</entry>
+     <entry>F</entry>
+   </row>
+   <row>
+     <entry>H</entry>
+     <entry>I</entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </table>
+ ]]>
+ </programlisting>
+
+ <para>resulting in:</para>
+
+ <table frame="all"><title>Complicated Table</title>
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="33*"/>
+ <colspec colname="c2" colwidth="33*"/>
+ <colspec colname="c3" colwidth="34*"/>
+ <tbody>
+   <row>
+     <entry>A</entry>
+     <entry namest="c2" nameend="c3">BC</entry>
+   </row>
+   <row>
+     <entry morerows="1">DG</entry>
+     <entry>E</entry>
+     <entry>F</entry>
+   </row>
+   <row>
+     <entry>H</entry>
+     <entry>I</entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </table>
+
+ </sect2>
+
+
+ <sect2><title>Creating URLs</title>
+
+ <para>Links, that addresses its targets by means of a URL are
+ implemented through the <emphasis>ulink</emphasis> element. A typical
+ use of the element, would be:</para>
+
+ <programlisting><![CDATA[
+   <ulink url="http://www.nc3a.nato,int">NATO C3 Agency</ulink>
+ ]]></programlisting>
+
+ <para>which would look like this &quot;<ulink
+ url="http://www.nc3a.nato,int">NATO C3 Agency</ulink>&quot;. Sometimes we
+ want the presented text (here &quot;NATO C3 Agency&quot;) to be the URL
+ itself. This can be accomplished with the following abbreviation,
+ which describes an element with no contents, such as:</para>
+
+ <programlisting><![CDATA[
+   <ulink url="http://www.nc3a.nato,int"/>
+ ]]></programlisting>
+
+ <para>which would look like this: <ulink url="http://www.nc3a.nato,int"/></para>
+
+ </sect2>
+
+ <sect2><title>Creating Cross references</title>
+
+ <para>Creating cross-references in DocBook is quite easy. Every
+ element may have an attribute <emphasis>id</emphasis>, which must be
+ set to a unique value. In order to reference the element anywhere in
+ the document, we create an <emphasis>xref</emphasis> element, which
+ then will refere to the element. The text used in the reference is
+ dependent on the context. So a reference to a chapter would e.g. be
+ <emphasis>Chapter 3</emphasis>, and similar for other elements.</para>
+
+
+ <programlisting><![CDATA[
+   <xref linkend="v4-ch-my-intro"/>
+ ]]></programlisting>
+
+ <para>In the &nisp; documents, we by convention uses id&apos;s, that are
+ identifiable. like eg. <emphasis>v4-ch-intro</emphasis>. The user
+ should only create is in the different elements, if there is a
+ requirement for to reference that element.</para>
+
+ </sect2>
+
+ <!--
+
+ <sect2><title>Linking between Documents</title>
+
+ <para>With the release of DocBoook XML 4.2 in July 2002, a new element
+ <emphasis>olink</emphasis> <xref linkend="st-2002-olink"/> have been
+ created, which enables cross-references between documents.</para>
+
+ <para>FIXME:</para>
+
+ </sect2>
+
+ -->
+
+ <!--
+ <sect2><title>DocBook Gotcha's</title>
+
+ <para>FIXME: - topics: listitems, pernicious mixed contents model, 
+ no orderedlist in entry, 
+ creating indented text in entrys using simplelist</para>
+
+ </sect2>
+
+ -->
+
+ <!--
+ <table frame="all">
+   <title>This is a table</title>
+   <tgroup>
+
+ </tgroup>
+ </table>
+ -->
+
+ </sect1>
+
+
+ </chapter>
+
+
+
+
+ <!-- 
+  *****************************************************************
+		     Design the of TA
+  ***************************************************************** 
+ -->
+
+
+<chapter id="design.ta.style"><title>Design of the TA Stylesheets</title>
+
+<para>XML documents are usually transformed into a format suitable to
+most readers. For the TA documents, the current choices of output
+medias, is either in the form of HTML<footnote><para>We are actaully
+creating XHTML pages, which is an XML implementation of
+HTML</para></footnote> pages suitable to be displayed by a web browser, or in
+a form suitable for output on regular paper, which in our case will be
+PDF, which both can be viewed on screen, og printed out on
+paper.</para>
+
+<para>The best tool for transforming XML documents is the XML
+Stylesheet language (XSL). The XSL standard consists of two parts
+&quot;the XSL Transformation&quot; (XSLT) <xref linkend="xslt"/>and
+the XSL formatting object language (XSL-FO) <xref linkend="xsl"/>, the
+first being a tool to transform XML documents, and the later is a
+highly complicated formatting language.</para>
+
+<sect1><title>Basic XSLT</title>
+
+<para>An XSLT stylesheet consists of a number of templates, which
+describes, how to transform the different elements from XML to another
+language like HTML, or potentially another XML language. XSLT is also
+a declarative XML language, with a number of pre-defined elements,
+which defines how to handle XML elements, common programming language
+constructs like loops and conditional statements etc. XSLT utilises
+the XPath standard <xref linkend="xpath"/> to define the patterns,
+which describes elements of the source language.</para>
+
+
+ <figure>
+   <title>Applying XSLT to an XML document</title>
+
+   <mediaobject>
+     <imageobject>
+       <imagedata align="center" fileref="no-fig-yet.jpg"/>
+     </imageobject>
+   </mediaobject>
+ </figure>
+
+
+<para>There will be no further description of XSLT in this
+document. Instead, the user are can read the introductory article
+<xref linkend="hol-2000-xslt"/>. For a comprehensive information on
+XSLT, see the excelent book<xref linkend="Kay2001"/> written by
+Michael Kay, the current editor of XSLT.</para>
+
+</sect1>
+
+<sect1><title>The DocBook Stylesheets</title>
+
+<para>Creating stylesheets for a large DTD as the DocBook DTD is a
+huge task.  Fortunately the chairman of OASIS technical committee
+Norman Walsh have implemented a collection of XSLT stylesheets, which
+enables the user to transform from DocBook to HTML and XSL-FO. This
+stylesheet collection is is not without reason considered one of the
+most complicated implementations of XSLT yet devised.</para>
+
+<para>The implementation of the stylesheets are based on a number of
+design criterias, of which the most important is the decision to make
+the stylesheets highly modular and parameterised. Furthermore the
+stylesheets are highly data-driven, which is accomplished by using
+matching templates as much as possible.</para>
+
+<para>Together, these and additional criterias makes it reasonable
+easy to design customisation of the stylesheets. However, some of the
+functionality of the DocBook stylesheets, can not or only with great
+difficulty be implemented with XSLT. For this purpose a number of
+small Java classes have been created, which works as an extension to
+the XSLT language. In order for these extensions to work, a parameter
+must be set in the stylesheets, and a Java jar file must be included
+on the classpath. Since we are using the Saxon XSLT-processor, we need
+to add the appropriate Saxon extension to the Java
+classpath<footnote><para>The Saxon extension is located in the
+directory <filename
+class="directory">xsl/docbook-xsl/extension/</filename></para></footnote>
+and set the parameter <literal>use.extensions</literal> in the
+stylesheet. Besides the official reference material included in the
+DocBook XSL distribution, a draft book <xref linkend="st-2003-dbxsl"/>
+is currently availible, which in detail describes how to use the
+DocBook XSL stylesheets.</para>
+
+
+<para>The stylesheets used to create the &nisp; are customised version
+of the XSLT stylesheets, created to comply with the design of the TA
+documents. None of the original DocBook XSLT stylesheets are modified
+in any way, instead the &nisp; stylesheets imports the DocBook XSLT
+stylesheets and through parameterisation and overriding of templates,
+the behaviour of the stylesheets are modified in order to fit with our
+design requirements.</para>
+
+
+
+</sect1>
+
+
+<sect1><title>TA Stylesheets for HTML</title>
+
+<para>The &nisp; currently consists of volume 1 to 5, the rationale
+document and a couple of suplements, all in the form of XML
+files. Besides these files, a number of files exists in the <filename
+class="directory">src/master</filename> firectory , which describes
+three pages: one is the front page shown in the web version of the
+&nisp; and the other two pages are both available from the front page
+through the links <emphasis>User Information</emphasis> and
+<emphasis>Introduction</emphasis>. All of the volumes are in the XHTML
+version being displayed as chunked pages.</para>
+
+<para>The current XSLT standard does not support the creation of
+multiple target documents, but a now depreciated working draft of
+version 1.1 of the standard, and more recently a working draft<xref
+linkend="xslt2"/> of what is to become version 2 of the XSLT standard,
+support this and several other additions, and are already being
+supported by most XSLT processors, although sometimes through a
+proprietary extension. The Saxon XSLT processor used in the &nisp;, have
+the advantage of being developed by the current editor of the XSLT
+document and are therefore usually way ahead of the competition. The
+&nisp;- and the master pages all uses the same layout as described in
+the following figure.  </para>
+
+
+ <figure id="fig-genfrmlayout">
+   <title>Generic Frame Layout</title>
+   <mediaobject>
+     <imageobject>
+       <imagedata align="center" fileref="flayout.jpg"/>
+     </imageobject>
+   </mediaobject>
+ </figure>
+
+<para>The gray areas represent the frames with actual contents, while
+the two other rectangles are just containers in the form of
+<emphasis>frameset</emphasis> definitions as described in <xref
+linkend="Musc-html-x-2000"/>. Each of the three frames are given a
+name as illustrated in <xref linkend="fig-genfrmlayout"/>, which then
+are referenced to using the attribute <emphasis>target</emphasis> of
+the HTML anchor element <emphasis>a</emphasis>.  The generated code
+for the layout of frames are shown below.</para>
+
+ <programlisting><![CDATA[
+ <html>
+   <frameset framespacing="0" frameborder="0" cols="140,*">
+     <frame src="navbar.html" name="navbar" marginwidth="0" 
+	    marginheight="0" framespacing="0" frameborder="0" border="0">
+     <frameset framespacing="0" frameborder="0" rows="95,*">
+       <frame src="head.html" name="head" noresize scrolling="no">
+       <frame src="firstpage.html" name="chunkarea" scrolling="auto">
+     </frameset>
+   </frameset>
+ </html>
+ ]]></programlisting>
+
+<para>The above frame layout code is used in all &nisp; documents and
+also for the master document forming the frontend to the &nisp; web
+portal. This layoutcode will be saved in a file named
+<filename>index.html</filename> for each document in a seperate
+directory. Besides this file, two additional files will also be
+creates for the frame called <emphasis>navbar</emphasis> and
+<emphasis>head</emphasis> called respectively
+<filename>navbar.html</filename> and
+<emphasis>head.html</emphasis>. The frame called
+<emphasis>chunkarea</emphasis> will be used for a chunked version of
+the document, where the first chunk will be named
+<filename>firstpage.html</filename>.</para>
+
+<para>The stylesheet <emphasis>multipage.xsl</emphasis> will create
+all these file and will also use a number of cascaded stylesheets
+<xref linkend="lie-css-99"/> for detailed formatting of the different
+HTML elements.</para>
+
+</sect1>
+
+<sect1><title>TA Stylesheets for XSL-FO</title>
+
+<para>The page description model used by XSL-FO is fundamentally
+different from the HTML model and is used to very precisely describe
+the layout of a page. An XSL-FO document describes how a series of
+nested boxes are placed on one or more pages. A XSL-FO document
+contains a layout-master-set and one or more page-sequences. The
+layout-master-set contains a number of page-masters, which each
+describes the physical layout of a page. The pages created from a
+page-sequence are also based on one or more page-masters from the
+layout-master set. The final process, after creating an XSL-FO
+document is either to view the document using an XSL-FO viewer or
+transform it to another format. We do the later with the &nisp;
+document, and transform to the page description language PDF.</para>
+
+
+
+<para>Conceptually the DocBook XSL-FO stylesheets by default groups a
+DocBook document up into six predefined classes and associates a
+page-sequence-master to each group. Each of these
+page-sequence-masters can be formattet differently. Within each
+page-sequence-master we defined typically four different page-master,
+descripbing the layout of a of a page. Typically, we have different
+page-masters for the first, odd, even and blank pages in a
+page-sequence.</para>
+
+ <table frame="all"><title>DocBook XSL-FO Page Classes</title>
+ <tgroup cols="2"><?dbfo tablewidth="8cm"?>
+ <thead>
+   <row>
+     <entry>Page Class (and page-sequence master names)</entry>
+     <entry>Used by</entry>
+   </row>
+ </thead>
+ <tbody>
+   <row>
+     <entry>titlepage</entry>
+     <entry>Set-, part- and Book titlepages</entry>
+   </row>
+   <row>
+     <entry>lot</entry>
+     <entry>List of titles including table of contents and list of figures, tables and examples</entry>
+   </row>
+   <row>
+     <entry>front</entry>
+     <entry>Used by these elements:
+ <programlisting>
+ dedication
+ preface 
+ </programlisting>
+ </entry>
+   </row>
+   <row>
+     <entry>body</entry>
+     <entry>Used by these elements</entry>
+   </row>
+   <row>
+     <entry>back</entry>
+     <entry></entry>
+   </row>
+   <row>
+     <entry>index</entry>
+     <entry></entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </table>
+
+
+
+
+<sect2><title>Layout of Pages</title>
+
+<para>All pages in a XSL-FO document will have the same basic layout,
+as illustrated in <xref linkend="fo-layout"/>. For each of the letters
+A-H, there exists a parameter in the stylesheets, which can be
+defined. The NISP stylesheet <filename>xsl/fo/ta2fo.xsl</filename>
+set these parameters in accordance with the design of the original
+Word documents.</para>
+
+ <figure id="fo-layout">
+   <title>Layout of a XSL-FO page</title>
+   <mediaobject>
+     <imageobject>
+       <imagedata align="center" fileref="fo-layout.jpg"/>
+     </imageobject>
+   </mediaobject>
+ </figure>
+
+
+
+<para>Many of the layout parameters are customisable through simple
+parameters defined in the stylesheet. And most of the layout and
+design can actually be changed, by just changing the value of a
+parameter. However, some of the templates are not suitable for the
+design of the &nisp;, and must therefore be overwritten
+accordingly. Other templates are modified either because bug in the
+Docbook stylesheets, or due to unimplemented features in the XSL-FO
+processor used subsequently in the production of PDF files.</para>
+
+</sect2>
+
+<sect2><title>Titlepage templates</title>
+
+<para>Some things can not easily be accomplished through
+parameterisation, e.g the titlepage of a document. For these purposes,
+a special template system have been implemented in the DocBook XSL
+stylesheets. The templates defines the layout of the titlepage, and
+also the format of <emphasis>titlepages</emphasis> of the major
+component (chapter, appendixes and sections), which means where and
+how the different components should be formatted, selection of fonts,
+size of fonts, etc.. The stylesheet used to create the XSL-FO
+documents have the name <filename>xsl/fo/ta2fo.xsl</filename>. The
+file <filename>xsl/fo/nisp-layout.xsl</filename> contains the styles
+used to modify the <emphasis>tilepages</emphasis><footnote><para>This
+stylesheet is created from the specification defined in
+<filename>xsl/fo/nisp-layout.xml</filename></para></footnote></para>
+
+
+</sect2>
+
+<sect2><title>Other FO stylesheets</title>
+
+<para>Additional stylesheets which are used to create the XSL-FO of
+the document are:
+
+ <itemizedlist>
+   <listitem><para>fo-post-for-fop.xsl - Used to post-process the
+   XSL-FO result tree. This enables us to temporary fix FOP bugs in a
+   simpler way, than modifying the DocBook XSLT
+   stylesheets.</para></listitem>
+ </itemizedlist>
+
+ </para>
+ </sect2>
+
+ </sect1>
+
+ </chapter>
+
+
+
+ <!-- 
+  *****************************************************************
+		     Creating graphics with SVG
+  ***************************************************************** 
+ -->
+
+
+<!--
+ <chapter id="create-svg"><title>Creating Graphics with SVG</title>
+
+ <para>All graphics in the &nisp; documents are created in a XML based
+ vector drawing format called Scalable Vector Graphics (SVG). </para>
+
+ <sect1><title></title>
+ <para></para>
+ </sect1>
+
+ <sect1><title>Common Elements</title>
+ <para></para>
+ </sect1>
+
+ <sect1><title>Tips &amp; Tricks</title>
+ <para></para>
+ </sect1>
+
+ <sect1><title></title>
+ <para></para>
+ </sect1>
+
+ </chapter>
+
+-->
+
+ <!--
+
+ <chapter><title>Creating a print version</title>
+
+ <para>Although far from perfect the FOP tool from apache are now able to
+ create a reasonable complete PDF version of the technical architecture. There
+ are still lot of flaws in the implementation, but those are expected to be
+ fixed in future versions</para>
+
+
+ </chapter>
+
+ -->
+
+
+<!-- 
+  *****************************************************************
+		     How to use the tools
+  ***************************************************************** 
+-->
+
+<chapter id="using"><title>Working with the &nisp;</title>
+
+<para>Due to the requirement of creating both a HTML- and a
+PDF-version of all the documents. The translation all the architecture
+documents using the XML- and SVG files, the XSLT stylesheets and tools
+described in this document is quite a complicated operation, which
+requires that the user executes dozens of commands in the correct
+order, not to mention the requirements when creating a distribution of
+all the translated documents for the web. To simplify this operation,
+a make-like tool called Ant is used, and acts as a kind of glue,
+between the different tools required in the publication cycle. The Ant
+tools are used throughout the publication cycle process except when
+editing the NISP documents, and are also used by the editor and tool
+package maintainer to create new distributions of the source- and tool
+packages.<!-- The configuration file created especially for the &nisp;,
+defines a number of tasks (jobs that need to be executed).--></para>
+
+
+
+
+
+<para>The following sections will describe the content of the source
+distribution<footnote><para>Where all the editing takes
+place.</para></footnote>, and describe all the steps necessarry in
+order to create human readable versions of the architecture
+documents.</para>
+
+
+<sect1><title>Inside the Source Distribution</title>
+
+<para>The sources to the &nisp; is distributed separately from the tools
+distribution in a compressed archive. The name of the latest
+distribution is <filename>nisp-src-&nisp-src-ver;.zip</filename> and
+is organised in the following way: </para>
+
+
+<sect2><title>Structure of distribution</title>
+
+<para>The source distribution consists of the following
+elements:</para>
+
+<itemizedlist>
+
+ <listitem><para>a number of directories, one for each of the documents in the
+ distribution (<filename class="directory">volume1</filename>, <filename
+ class="directory">volume2</filename>, <filename
+ class="directory">vol2-sup1</filename>, <filename
+ class="directory">vol2-sup2</filename>, <filename
+ class="directory">volume3</filename>, <filename
+ class="directory">volume4</filename>, <filename
+ class="directory">volume5</filename>, <filename
+ class="directory">rationale</filename> and <filename
+ class="directory">ihb</filename>), where the <filename class="directory">ihb</filename> directory should contain
+ pdf versions of the <emphasis>Implementation HandBook</emphasis>.</para></listitem>
+
+
+ <listitem><para>The directory <filename
+ class="directory">schema</filename>, which contains all the schemas used in
+ the &nisp; documents.</para></listitem>
+
+ <listitem><para>The directory <filename
+ class="directory">acronyms</filename> contains a list of acronyms
+ created by NC3A. This is only included in the HTML
+ version.</para></listitem>
+
+ <listitem><para>The directory <filename
+ class="directory">master</filename> contains a number of DocBook
+ files in form of chapters a consisting of four
+ <emphasis>chapters</emphasis>. Each <emphasis>chapter</emphasis>
+ represents a HTML page, which are used to create misc. pages for the
+ &nisp; web portal.</para></listitem>
+
+ <listitem><para>The directory <filename>olinkdb.xml</filename> contains a
+ database of document references for all the &nisp; documents. The
+ database contains pointers in the form of external entities, which
+ point to an auto generated list of reference for each of the
+ volumes.</para></listitem>
+
+ <listitem><para>The directory <filename>standards</filename>, which
+ contains the combined collection of standards used in chapter 2 of
+ volume 3 organised in a hierarchical database-like structure. This
+ database is also used by volume 4 (NCSP) and the rationale
+ document.</para></listitem>
+
+ <listitem><para>The file <filename>catalog.xml</filename>, which is a
+ XML Catalog used to resolve public identifiers in the
+ documents.</para></listitem>
+
+</itemizedlist>
+
+</sect2>
+
+
+<sect2><title>Database driven documents</title>
+
+<para>In the original word version of volume 3 (Base Standards), the
+description of each of the standards were presented in a similar
+fashion, in the form of a table. During the transformation from the
+Word version to XML, all the standards were extracted from chapter 2
+in volume 3 and placed in a separate XML document, which is organised
+like a hierarchical database. This was done for two reasons, primary
+because a table have no semantic value and secondary because, it was a
+nuisance to translate a couple of hundred word tables to similar XML
+tables. When the translation of volume 3 to HTML and FO takes place, a
+merged version volume 3 is created using processing instructions as
+described in <xref linkend="PI"/>, i.e. the database
+<filename>standards/ta-standards.xml</filename> is merged back into
+the document<footnote><para>Currently volume 3 consists of the
+skeleton files vol3.xml, and v3appendixA.xml</para></footnote>, which
+is then translated to HTML and FO as illustrated in <xref
+linkend="fig-ddd"/>. As of version 4 of the &nisp;, both volume 4 and
+the rationale document uses a similar approach. In this way, we will
+avoid the problem of selecting standards for the NCSP, which have not
+been defined in volume 3.</para>
+
+
+ <figure id="fig-ddd"><title>Database driven documents</title>
+   <mediaobject>
+     <imageobject>
+       <imagedata align="center" fileref="no-fig-yet.jpg"/>
+     </imageobject>
+   </mediaobject>
+ </figure>
+
+</sect2>
+
+<sect2><title>The standards database</title>
+
+<para>The standard database was designed to mirror the original
+document structure, where the chapter was split into eight service
+areas. Each service area was grouped into miscellaneous service
+classes, which again contained a list of standards. The following code
+illustrates this heirachical structure, and also illustrates the
+structure of standards. The syntax of standards is defined in the file
+<filename>schema/dtd/stddb.dtd</filename>, and are also included in
+this document in <xref linkend="ch-std-dtd"/>, with a more detailed
+descrition of the DTD.</para>
+
+<programlisting>
+ <![CDATA[
+ <ta-standards>
+   <servicearea id="se" title="Software Engineering Services">
+     <serviceclass cid="se-lng" title="Languages and Bindings">
+
+       <standardrecord id="se-lng-ada95" tag="Ada">
+         <standard orgid="&iso-iec;" pubnum="8652" date="1995"
+      	     title="Ada">
+           <correction cpubnum="TC1" date="2001"/>
+         </standard>
+
+         <applicability>Ada is a general purpose high-order
+         object-oriented programming language capable of processing
+         both numerical and textual data that has the key attributes
+         of strong data typing, data abstraction, object-orientation,
+         structured constructs, multitasking and concurrent
+         processing. For R&amp;D it is encouraged to use Ada95
+         </applicability>
+
+         <status stage="30.40">
+           <history>
+             <event flag="added" date="1998-11-06" version="1.0"/>
+             <event flag="changed" date="2003-08-01" rfcp="" version="5.0"/>
+           </history>
+         </status>
+       </standardrecord>
+     </serviceclass>
+   </servicearea>
+ </ta-standards>
+ ]]>
+</programlisting>
+
+<para>In order to merge the standards back into volume 3, we have in
+the documents created handles in the form of processing instructions
+(PIs), which are then substituted with the appropriate standard, when
+creating volume the final version of volume 3. The PI defined in the
+skeleton version of volume 3, do not referer to a specific standard,
+but rather to a <emphasis>serviceclass</emphasis>, A typical PI used
+to e.g. include the <emphasis>Language and Bindings</emphasis> service
+class, look like:</para>
+
+ <programlisting><![CDATA[
+   <?dbmerge cid="se-lng"?>
+ ]]></programlisting>
+
+</sect2>
+
+
+<sect2 id="dtd-nisp"><title>DTD</title>
+
+<para>The directory <filename class="directory">schema/dtd</filename>
+contains all the DTDs used in the &nisp; documents. The most important
+is of course the ver %dtd-ver; of DocBook XML DTD used to develop the
+&nisp; document.</para>
+
+<itemizedlist>
+
+ <listitem><para><filename>acronyms.dtd</filename> -  describes the syntax of the acronyms list</para></listitem>
+
+ <listitem><para><filename class="directory">docbkx42</filename> - This
+ directory contains the all the files describing the syntax of DocBook
+ documents and which is used by all documents in the technical
+ architecture. </para></listitem>
+
+ <!--<listitem><para><filename>glossary.dtd</filename></para></listitem>-->
+
+ <listitem><para><filename>rfcp.dtd</filename> - contains an
+ experimental DTD for Request For Change Proposals (RFCP). The DTD may
+ describe documents, which can be created dynamically by submitters of
+ the RFCPs.</para></listitem>
+
+ <listitem><para><filename>stddb.dtd</filename> - describes the
+ standards included in volume 3, and also a view of selected mandatory-
+ and emerging standards, which are shown in the standard class tables
+ in volume 4 and in the traceabillity matrix included in the rationale
+ document. The <filename>stddb.dtd</filename> is a customized version
+ of the DocBook XML &dtd-ver; DTD. Since several of the elements
+ contains DocBook code, which should passed-on unchanged to the
+ document requiring the definition standard, it is much easier to
+ create an extension to DocBook, rather than working with multiple
+ namespaces. Additional element have recently been added to the DTD to
+ enable an autogeneration of tables in volume 4 and the rationale
+ document as well. The standard database is described in more detail in
+ <xref linkend="ch-std-dtd"/></para></listitem>
+
+ <listitem><para><filename>svg10.dtd</filename> - This is the official
+ DTD describing Scalable Vector Graphics documents.</para></listitem>
+
+ <listitem><para><filename>targetdatabase.dtd</filename> - This DTD
+ describes a target database, used to create cross-references between
+ documents.</para></listitem>
+
+ </itemizedlist>
+
+ </sect2>
+
+
+ <!--
+ <sect2><title>The NISP DTDs</title>
+
+ <para>The directory <emphasis>dtd</emphasis> in the source distributions,
+ contains a number of DTDs:</para>
+
+ <itemizedlist>
+
+ <listitem><para>The directory <filename
+ class="directory">docbkx42</filename> contains the DocBook XML DTD
+ version 4.2 </para></listitem>
+
+ <listitem><para>The <filename>acronyms.dtd</filename> is the DTD
+ created for the XML based acronymslist included in the
+ distribution</para></listitem>
+
+ <listitem><para>The <filename>stddb.dtd</filename> is a  </para></listitem>
+
+ <listitem><para>The <emphasis>dtd</emphasis> directory contains a few
+ other DTDs, like the DTD for Scalable Vector Graphics (SVG) and an
+ experimental DTD which are intended for use with <emphasis>Request for
+  Change Proposas</emphasis> (RFCP).</para></listitem>
+
+ </itemizedlist>
+
+ </sect2>
+ -->
+
+
+<sect2><title>Figures</title>
+
+<para>The directory <filename class="directory">figures</filename>
+contains an SVG implementation for each of the images used in the &nisp;
+documents.</para>
+
+</sect2>
+
+</sect1>
+
+
+<sect1><title>Editing the &nisp;</title>
+
+<para>In principle, all the XML/XSLT and SVG files in the source
+distribution can be edited using the users editor of choice. In
+reality, this is not always the case, since not all editors by default
+supports editing of Unicode documents yet. Most English documents
+written in the Unicode standard, which is a 31 bit character set,
+generally uses an encoding scheme, which allows most document to
+backward compatible with ASCII. All the XML documents forming the
+technical architecture documents are created using an encoding scheme
+called ISO-8859-1 (also called Latin 1), which by default is support
+by the XML standard. Modern versions of Word supports various Unicode
+encoding schemes, although it is not obvious from the user interface,
+what encoding schemes are actually supported. In one version it was
+stated that word was using Unicode, but what encoding was not
+specified. This is a pity, since Microsofts support for Unicode in
+general is quite good. Furthermore when copying text between word
+document and text documents, Word usually copy additionally
+<emphasis>invisible characters</emphasis>, which XML parsers don't
+like. For this and additional reasons an open source editor jEdit
+(<ulink url="http://www.jedit.org/"/>) is included with the tool
+distribution.  Every contributor to the &nisp; documents are
+<emphasis>STRONGLY ENCOURAGED</emphasis> to use this editor, which
+have the additional advantages of being XML- and DocBook aware and
+being able to integrate the tools package used to build the &nisp;
+documents.</para>
+
+</sect1>
+
+<sect1 id="ant"><title>Processing the &nisp;</title>
+
+<sect2><title>The Build Tool Ant</title>
+
+<para>The Ant tool developed by the Apache group, build its
+targets<footnote><para>A target is a task, e.g. translate volume 1 to
+HTML</para></footnote> according to an XML based configuration
+file. In the tools distribution we have two Ant configuration
+files. One is called <filename>build.xml</filename> and is used to
+generate the architecture document for nations and the NATO intranet
+are all these document are thefore labeled <emphasis>NATO/EAPC
+UNCLASSIFIED</emphasis>. The other file is called
+<filename>build-internet.xml</filename> and is used to create a
+version of the &nisp; with will be published on the internet and are
+thefore created without any classification labels. Both files are
+located in the root directory of this distribution. These build files
+are more or less self-explanatory, and describes the different targets
+and sub-targets, which should be executed in order to create HTML- and
+PDF versions of the &nisp;. If some of the XML files and XSLT
+stylesheets are modified after a build, only the targets, which
+depends on the modified files are build in a subsequent execution of
+Ant.</para>
+
+<para>This build files also takes care of the creation of new
+distributions, as e.g. a new nisp tools distribution, a new
+distribution of the source and also takes care of the task of creating
+a web version of the technical architecture, etc.</para>
+
+</sect2>
+
+<sect2 id="s2-cmd-antrun"><title>Running Ant from a Command Shell</title>
+
+<para>As all Java programs in the tool distribution, the Ant
+executable is embedded inside a Java jar file. In order to simplify
+the execution, two script files <filename>build.bat</filename> and
+<filename>build.sh</filename> are included for Windows respectively
+Unix. These scripts calls the Ant program and is executed using the
+syntax:</para>
+
+ <programlisting>
+   .\build.bat [options] [target [target2] ...]]  (Win32)
+
+   ./build.sh  [options] [target [target2] ...]]  (Unix)
+ </programlisting>
+
+<para>In order to run Ant on the provided build file, the user should
+open a command shell, and then run the script files from the
+directory, where the build file is located. The legal parameters for
+ant and therefore the build script are the following:</para>
+
+ <programlisting>
+ <![CDATA[
+ build [options] [target [target2 [target3] ...]]
+ Options: 
+   -help                  print this message
+   -projecthelp           print project help information
+   -version               print the version information and exit
+   -diagnostics           print information that might be helpful to
+			  diagnose or report problems.
+   -quiet, -q             be extra quiet
+   -verbose, -v           be extra verbose
+   -debug                 print debugging information
+   -emacs                 produce logging information without adornments
+   -logfile <file>        use given file for log
+     -l     <file>                ''
+   -logger <classname>    the class which is to perform logging
+   -listener <classname>  add an instance of class as a project listener
+   -buildfile <file>      use given buildfile
+     -file    <file>              ''
+     -f       <file>              ''
+   -D<property>=<value>   use value for given property
+   -propertyfile <name>   load all properties from file with -D
+			  properties taking precedence
+   -inputhandler <class>  the class which will handle input requests
+   -find <file>           search for buildfile towards the root of the
+			  filesystem and use it
+ ]]>
+ </programlisting>
+
+
+
+<para>If the name of the actual build file is not specified in the
+example, the ant system will by default select the build file
+<filename>build.xml</filename>. So in order to create a classified
+version of the &nisp;, In the above example, the following command
+should be executed:</para>
+
+
+ <programlisting>
+   .\build.bat -f build-internet.xml [options] [target [target2] ...]]  (Win32)
+
+   ./build.sh  -f build-internet.xml [options] [target [target2] ...]]  (Unix)
+ </programlisting>
+
+ </sect2>
+
+ <sect2 id="s2-jedit-antrun"><title>Running Ant from jEdit</title>
+
+<para>When using the editor jEdit, it is now possible to edit the
+documents and build all the html- and pdf versions of the &nisp; from
+within jEdit. The jEdit plugin AntFarm integrates the Ant tool, and
+thereby the &nisp; building process into the editor.</para>
+
+<para>FIXME:</para>
+
+
+ <figure><title>AntFarm Build</title>
+   <mediaobject>
+     <imageobject>
+       <imagedata align="center" fileref="AntFarmBuild-1.1.jpg"/>
+     </imageobject>
+   </mediaobject>
+ </figure>
+
+
+</sect2>
+
+<sect2 id="s2-ant-targets"><title>General Ant Targets in build.xml</title>
+
+<para>The build file <filename>bild.xml</filename> comes with a number
+of predefined target, which are goals, that must be solved. On such
+goal could be to create a chunked HTML version of a volume, another
+goal could be to create a PDF version of a volume.</para>
+
+<para>The dependency of a number of the targets are illustrated in
+<xref linkend="fig-targ-dep"/>. There we can see, that the default
+target <emphasis>all</emphasis> depends on the targets
+<emphasis>html</emphasis> and <emphasis>pdf</emphasis>. The target
+<emphasis>pdf</emphasis> depends on <emphasis>vol1.pdf</emphasis>,
+<emphasis>vol2.pdf</emphasis> etc. Note that
+<emphasis>vol1.pdf</emphasis> is a target and have nothing to do a
+file with a similar name.</para>
+
+
+ <figure id="fig-targ-dep"><title>Target Dependencies</title>
+   <mediaobject>
+     <imageobject>
+       <imagedata align="center" fileref="tag-dep.jpg"/>
+     </imageobject>
+   </mediaobject>
+ </figure>
+
+
+ <para>Currently the main targets are:</para>
+
+ <informaltable frame="all">
+ <tgroup cols="7">
+ <colspec colwidth="14*"/>
+ <colspec colwidth="14*"/>
+ <colspec colwidth="14*"/>
+ <colspec colwidth="14*"/>
+ <colspec colwidth="14*"/>
+ <colspec colwidth="14*"/>
+ <colspec colwidth="16*"/>
+ <thead>
+   <row>
+     <entry>Volume 1</entry>
+     <entry>Volume 2</entry>
+     <entry>Volume 3</entry>
+     <entry>Volume 4</entry>
+     <entry>Volume 5</entry>
+     <entry>Rationale Document</entry>
+     <entry>Comment</entry>
+   </row>
+ </thead>
+ <tbody>
+   <row>
+     <entry>vol1</entry>
+     <entry>vol2</entry>
+     <entry>vol3</entry>
+     <entry>vol4</entry>
+     <entry>vol5</entry>
+     <entry>rationale</entry>
+     <entry>Create a HTML and PDF version of the document</entry>
+   </row>
+   <row>
+     <entry>vol1.html</entry>
+     <entry>vol2.html</entry>
+     <entry>vol3.html</entry>
+     <entry>vol4.html</entry>
+     <entry>vol5.html</entry>
+     <entry>rationale.html</entry>
+     <entry>Create a HTML version of the document</entry>
+   </row>
+   <row>
+     <entry>vol1.pdf</entry>
+     <entry>vol2.pdf</entry>
+     <entry>vol3.pdf</entry>
+     <entry>vol4.pdf</entry>
+     <entry>vol5.pdf</entry>
+     <entry>rationale.pdf</entry>
+     <entry>Create a PDF version of the volume</entry>
+   </row>
+   <row>
+     <entry>-</entry>
+     <entry>-</entry>
+     <entry>v3.merge<footnote><para>Merge the standard database with volume 3. What it
+     actually does, is to merge the content of the files
+     <filename>vol3.xml</filename>, <filename>v3appendixA.xml</filename>
+     and <filename>ta-standards.xml</filename> and as a result create the file
+     <filename>vol3-merged.xml</filename></para></footnote></entry>
+     <entry>v4.merge</entry>
+     <entry>-</entry>
+     <entry>rd.merge</entry>
+     <entry>Merge the standards into the volume</entry>
+   </row>
+   <row>
+     <entry>valid1</entry>
+     <entry>valid2</entry>
+     <entry>valid3</entry>
+     <entry>valid4</entry>
+     <entry>valid5</entry>
+     <entry>valid-rationale</entry>
+     <entry>Check if the document is valid<footnote><para>Note the jEdit editor 
+     automatically validates a document, if the XML plugin is 
+     installed</para></footnote></entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+<para>There is actually an additional target for volume 3, which is
+called <literal>vol3-check</literal>, but this target is used by one
+of the targets already mentioned to decide if it is necessary at all
+to rebuild a given target, depending on the date of the files
+involved. This target should therefore never explicit be executed by
+the user. For a list of all the targets available, the user should
+under windows run the command:</para>
+
+ <programlisting>
+    .\build.bat  -projecthelp
+ </programlisting>
+
+<para>Besides similar targets for the other volumes, and targets for
+the master document and acronyms a few targets should also be
+mentioned.</para>
+
+
+ <informaltable frame="none">
+ <tgroup cols="2">
+ <colspec colwidth="18*"/>
+ <colspec colwidth="82*"/>
+ <thead>
+   <row>
+     <entry><emphasis role="bold">Target</emphasis></entry>
+     <entry><emphasis role="bold">Comment</emphasis></entry>
+   </row>
+ </thead>
+ <tbody>
+   <row>
+     <entry>all</entry>
+     <entry>If the user do not supply a target, the default
+     target <emphasis>all</emphasis> is build. This target create a
+     <filename class="directory">build</filename> 
+     directory<footnote><para>This directory is 
+     located in the root of the tools distribution</para></footnote>, and 
+     then build all volumes, and also 
+     copy additionally files to this directory, such as e.g. the figures and
+     icons used in the documents, plus additional files
+     necessary.</entry>
+   </row>
+   <row>
+     <entry>html</entry>
+     <entry>Create HTML of all &nisp; documents, the rationale, the master and 
+     the acronyms pages.</entry>
+   </row>
+   <row>
+     <entry>pdf</entry>
+     <entry>Create a PDF version of all the &nisp; documents, and the rationale
+     document.</entry>
+   </row>
+   <row>
+     <entry>doc</entry>
+     <entry>Create the documentation of the &nisp; tools
+     distribution. That is currently only this
+     document.</entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+<para>A number of target exists specifically to clean up the
+filesystem of generated. Usually these targets deletes the generated
+html and pdf files.</para>
+
+
+ <informaltable frame="none">
+ <tgroup cols="2">
+ <colspec colwidth="18*"/>
+ <colspec colwidth="82*"/>
+ <thead>
+   <row>
+     <entry><emphasis role="bold">Target</emphasis></entry>
+     <entry><emphasis role="bold">Comment</emphasis></entry>
+   </row>
+ </thead>
+ <tbody>
+   <row>
+     <entry>clean-build</entry>
+     <entry>Delete the <filename 
+     class="directory">build</filename> directory.</entry>
+   </row>
+   <row>
+     <entry>clean-dist</entry>
+     <entry>Delete the <filename 
+     class="directory">dist</filename> directory</entry>
+   </row>
+   <row>
+     <entry>clean-zip</entry>
+     <entry>Delete the <filename class="directory">zip</filename> directory</entry>
+   </row>
+   <row>
+     <entry>clean</entry>
+     <entry>Remove all generated files, from the <filename 
+     class="directory">build</filename>- and <filename 
+     class="directory">dist</filename> - directories.</entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+<sect3><title>Special distribution targets</title>
+
+
+<para>The following targets, should only be used by the editor of the
+&nisp; and the maintainer of the nisp tool package. All the archives
+generated by these targets are saved in the subdirectory <filename
+class="directory">zip</filename>.</para>
+
+
+ <informaltable frame="none">
+ <tgroup cols="2">
+ <colspec colwidth="18*"/>
+ <colspec colwidth="82*"/>
+ <thead>
+   <row>
+     <entry><emphasis role="bold">Target</emphasis></entry>
+     <entry><emphasis role="bold">Comment</emphasis></entry>
+   </row>
+ </thead>
+ <tbody>
+   <row>
+     <entry>source</entry>
+     <entry>Create a new source distribution of the &nisp;. This target
+     should normally only be executed by the editor of the &nisp;. The
+     name of the archive could e.g. be
+     <filename>nisp-src-&src-version;.zip</filename> and will be
+     placed in the subdirectory <filename
+     class="directory">zip</filename></entry>
+   </row>
+   <row>
+     <entry>tool</entry>
+     <entry>Create a new tool distribution of the &nisp;. This target
+     should normally only be executed by the maintainer of the
+     nisp-tools package.  The appropriate files from the tool
+     directory are copied to the <filename
+     class="directory">dist</filename> directory, and a new archive is
+     created. The name of the archive could e.g. be named e.g
+     <filename>nisp-tool-&tools-version;.zip</filename> and will be
+     placed in the subdirectory <filename
+     class="directory">zip</filename>.</entry>
+   </row>
+   <row>
+     <entry>web</entry>
+     <entry>Create a archive of the files, necessary
+     for a Web version of the &nisp;. The name of the archive could e.g. be
+     named  e.g <filename>nisp-web-&src-version;.zip</filename> and will be
+     placed in the subdirectory <filename class="directory">zip</filename>.</entry>
+   </row>
+   <row>
+     <entry>pdf-only</entry>
+     <entry>Create an archive with PDF versions of all the &nisp; documents.  
+     The name of the archive could e.g. be
+     named  e.g <filename>nisp-pdf-&src-version;.zip</filename> and will be
+     placed in the subdirectory <filename class="directory">zip</filename>.</entry>
+   </row>
+   <row>
+     <entry>xsl</entry>
+     <entry>Create a <emphasis>stylesheet only</emphasis>
+     distribution. Used to release stylesheet distributions in between
+     normal tools releases.</entry>
+   </row>
+   <row>
+     <entry>zip</entry>
+     <entry>Create the source, tool, xsl, web and pdf-only archives</entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+</sect3>
+
+
+<sect3><title>Validating a document</title>
+
+<para>It was previous mentioned, that there are Ant targets, which are
+used to validate XML document (i.e. that obey the syntax of the
+DocBook DTD). This is necessary, since existing many editors currently
+are not XML-aware, and it is therefore necessary for the author to
+ensure, that he is writing a syntactically correct DocBook
+document. Because the the DocBook syntax is very large, the user can
+not manually verify the correctness of the document, but must use a
+validating parser. Saxon comes with a non-validating parser, which is
+why the validating parser Xerces is included in the tools distribution
+and is used for this purpose.</para>
+
+<para>When the user wants to validate volume 5 (under Windows), the
+following command is executed </para>
+
+ <programlisting>
+   .\build.bat valid5
+ </programlisting>
+
+ <para>This result in the following output from the validation
+ process:</para>
+
+ <programlisting>
+   Buildfile: build.xml
+
+   valid5:
+   /home/js/work/noswg/xml-nisp/tools/src/volume5/vol5.xml: 3917 ms 
+	   (3725 elems, 522 attrs, 10080 spaces, 133734 chars)
+
+   BUILD SUCCESSFUL
+
+   Total time: 6 seconds
+ </programlisting>
+
+<para>The program used to validate a XML files, is called SAXCount and
+is a sample application included with the Xerces distribution. It is
+actually used to count the number of elements, attributes, text
+characters and ignorable white-space characters in the document. By
+default, we have turned on the validation flag, and all though the
+output does not say it, volume 5 is a valid document. If that was not
+the case, a large number of error messages describing the syntax
+errors, would be written to the standard output.</para>
+
+<para>If the editor <emphasis>jEdit</emphasis> is used, this step is
+unnecessary. Whenever a document is opened, the focus shifts to a new
+document or a document is saved, the current buffer is automatically
+validated .</para>
+
+ </sect3>
+
+ </sect2>
+
+
+<sect2><title>Building a internet version of the documents</title>
+
+<para>In order to publish a version of the &nisp; for the internet</para>
+
+</sect2>
+
+</sect1>
+
+<sect1><title>Publishing the NISP</title>
+
+<para>This section describes the steeps required, when releasing new
+distributions, and should normally only be followed by the editor and
+maintainer of the tools and stylesheet distribution.</para>
+
+<sidebar><title>Cleaning Up before a Build</title>
+
+<para>Before releasing a new distribution, it is always a good idea,
+to run the target <emphasis>clean</emphasis>, which deletes the
+<filename class="directory">build</filename> and <filename
+class="directory">dist</filename> directories. During development, it
+is very likely, that these directory are filled up with uneeded file,
+when the user was experimenting with the build tools. So it is better
+to build everything from scratch, to ensure, that everything id
+created properly.</para> </sidebar>
+
+<sect2><title>Preparing a Source Release</title>
+
+<para>During the current lifecycle of the &nisp;, besides the official
+releases in December, it is often convenient for the editor, to be
+able to release during development of a new version of the &nisp;, to
+ensure that everybody uses the same baseline. The following steps
+should be taken by the editor, to ensure to release a new version of
+the sources.</para>
+
+ <orderedlist>
+
+   <listitem><para><emphasis>Cleanup the source directories</emphasis>
+   - During the development of the &nisp; sources, a lot of
+   <emphasis>tempory</emphasis> stuff is usually created, and unless
+   these temporary files should be keept, which would only make sence
+   if it is not an official release, A detailed inspection of all the
+   source directories should be conducted, since everything except,
+   what is explicitly stated in the <filename>build.xml</filename>
+   configuration file from the tools distribution, will be included in
+   the new source distribution.</para></listitem>
+
+   <listitem><para><emphasis>Update the source distribution version
+   numbers</emphasis> - Edit the <filename>src/VERSION</filename> file,
+   which contains all version numbers for the architecture document,
+   and the additional documents like the rationale document and the
+   traceability matrix. Normally the entity variable
+   <literal>src-version-minor</literal> should just be a number,
+   typical 0 (zero), but in between official releases, this could be
+   <literal>0-pre1</literal> or something similar. The editor should
+   also update the entity variable
+   <literal>src-release-date</literal>.</para></listitem>
+
+   <listitem><para><emphasis>Update source distribution Version History
+   </emphasis> - Modify the file <filename>src/WhatsNew</filename> with
+   the information considered appropiate.</para></listitem>
+
+   <listitem><para><emphasis>Update source document numbers</emphasis>
+   - If we are dealing with an official, release. It is a good idea to
+   make sure all documents contains the correct version numbers, and
+   date. For the archtecture documents this can be accomplished by
+   making sure that the first revision element is the following:
+   <programlisting><![CDATA[
+   <revision>
+     <revnumber>&src-version;</revnumber>
+     <date>&src-release-date</date>
+   </revision>
+
+   ]]></programlisting>
+   The entity variables is from the just modified <filename>src/VERSION</filename>.</para></listitem>
+
+   <listitem><para>The last step is just to create a source
+   distribution, by running the target <emphasis>source</emphasis> like
+   already described in <xref linkend="s2-cmd-antrun"/> and <xref
+   linkend="s2-jedit-antrun"/>. This step will create a compressed
+   <emphasis>zip</emphasis> file, which will be alled
+   e.g. <filename>nisp-src-&src-version;.zip</filename>, and which
+   will be placed in the directory <filename
+   class="directory">zip</filename>, which is located in the root of
+   the nisp tools distribution.</para></listitem>
+ </orderedlist>
+
+</sect2>
+
+<sect2><title>Preparing an official release of the NISP</title>
+
+<para>After a new source distribution have been created, with all the
+cleaning up, the task of creating a new release is very
+ easy<footnote><para>Remenber to first run the target
+ <emphasis>clean</emphasis>, as mentioned in the
+ sidebar.</para></footnote>. Just run the target
+ <emphasis>web</emphasis>, which will create HTML and PDF versions of
+ all documents, and also create the <emphasis>homepage</emphasis> for a
+ web portal to the &nisp;, and additional material. After the creation of
+ the components, everything will be packed in a compressed
+ <emphasis>zip</emphasis> file called
+ e.g. <filename>nisp-web-&src-version;.zip</filename>, and which will
+ be placed on the directory <filename class="directory">zip</filename>,
+ whic is located in the root of the nisp tools distribution.</para>
+
+<para>Some people would prefere a PDF only distribution. This is
+accomplished by running the target <emphasis>pdf-only</emphasis>. The
+ will create a compressed <emphasis>zip</emphasis> file called
+ e.g. <filename>nisp-pdf-&src-version;.zip</filename>, and which will
+ be placed in the directory <filename class="directory">zip</filename>,
+ which is located in the root of the nisp tools distribution.</para>
+
+</sect2>
+
+<sect2><title>Preparing a new Release of the Tools</title>
+
+<para></para>
+
+</sect2>
+
+<sect2><title>Preparing an interrim Stylesheet Release</title>
+
+<para>Since the DocBook XSL stylesheets are released quite frequently,
+it very possible that the need to release part of the tools
+ distribution arises. Because the tools distribution is quite big, it
+ is not convenient to release such a large distribution often.</para>
+
+<para>This is the reason the stylesheet-only distribution was
+created. Whenever a new tools distribution is released
+ e.g. <emphasis>nisp-tools-&tools-version;.zip</emphasis>, we will
+ also create a stylesheets distribution called
+ e.g. <emphasis>nisp-xsl-&tools-version;.0-&dbxsl-ver;.zip</emphasis>,
+ where the number <emphasis>&dbxsl-ver;</emphasis> is the number of the
+ latest DocBook XSL stylesheet distribution. N.B. this stylesheet
+ distribution will allready be included in the tools distribution, and
+ is only created if we want to return to the original stylesheets. The
+ name of the next stylesheet-only distribution could then be
+ <emphasis>nisp-xsl-&tools-version;.1-X.Y.Z.zip</emphasis>, where
+ X.Y.Z is the number of the new DocBook XSL release, which might just
+ as well be &dbxsl-ver; as the previous version, if we want to fix bugs
+ in our customizations, or just experiment with new designs.</para>
+
+</sect2>
+
+
+</sect1>
+
+
+</chapter>
+
+
+<chapter><title>Building the NISP</title>
+
+
+<sect1><title>Introduction</title>
+
+<para>The NISP source package contains all DocBook XML files which are used to
+transform to other formats. Besides the XML files, the sources also contains
+Scalable Vector Graphics (SVG) files, which is a also a XML format for 2D vector
+graphics. In the root of the source distribution, the file documents.xml
+contains a description of all documents, which are part of the NISP The data
+configuration data in the file is used to create the rules necessary to build
+HTML/PDF and a Windows HTMLHelp file of the NISP. This file is also used by
+some of the stylesheets, to extract document specific parameters.</para>
+
+<para>The NISP tool package is used to transform the DocBook XML documents to
+XHTML, PDF and the Windows HTMLHelp format.</para>
+
+<para>The tools used for this transformation is</para>
+
+
+<itemizedlist>
+  <listitem><para>Xerces for parsing XML documents</para></listitem>
+  <listitem><para>Saxon for transforming to XHTML and XSL-FO</para></listitem>
+  <listitem><para>Fop for transforming XSL-FO to PDF</para></listitem>
+  <listitem><para>Batik for transforming SVG to JPEG</para></listitem>
+  <listitem><para>iText for post processing of the PDF file</para></listitem>
+  <listitem><para>resolver for resolving public identifiers in DOCTYPE
+  declarations</para></listitem>
+</itemizedlist>
+
+
+<para>In order to automate the steps required to compile the NISP sources, the
+package Ant is used. Ant is a make-like tool implemented in Java, which can
+build targets defined in a configuration file called a build file. In the NISP
+ant is called from the script build.bat on Windows or build.sh on unix, which
+takes of declaring environment variables and loading of the required Java
+classes. To build a target for the NISP, the user should run the command:</para>
+
+<programlisting>
+   build [-f buildfile] [target [target ...]]
+</programlisting>
+
+<para>If a build file is not specified the system will by default use the
+buildfile <filename>build.xml</filename>. If a target is not specified, the
+default target is used, for more information on available targets in a build
+file, run the command:</para>
+
+<programlisting>
+   build [-f buildfile]  -projecthelp
+</programlisting>
+
+<para>Besides listing public targets, the command also shows the name of the
+default target, which will be used if no target have been specified.</para>
+
+<para>In the NISP build system the two main build files are:</para>
+
+<variablelist>
+
+  <varlistentry><term>build.xml</term><listitem><para>This file contains the
+  targets used to create the normal NATO/EAPC UNCLASSIFIED
+  version</para></listitem></varlistentry>
+
+  <varlistentry><term>build-internet.xml</term><listitem><para>This file creates
+  an unlabelled version of the NISP</para></listitem></varlistentry>
+
+</variablelist>
+
+
+
+<para>The file <filename>build.xml</filename> contains all the target used to
+build the HTML/PDF and Windows HTML Help files and also target used to create
+archives of the website version, new tools and source packages and also targets
+used to clean-up the build and distributions directories. This file will be
+described in detail in <xref linkend="build-targets"/></para>
+
+
+<para>The file <filename>build-internet.xml</filename> contains all the targets
+to build an unlabelled version of the technical architecture. The build file
+imports the build file <filename>build.xml</filename>, but provides only three
+targets web, pdf-only and clean.</para>
+
+</sect1>
+
+
+<sect1 id="build-doc"><title>Building a document</title>
+
+
+<para>To transform a specific volume (e.g. volume 4), the user should run the
+command</para>
+
+<programlisting>
+   build vol4
+</programlisting>
+
+<para>Running this target will automatically run a number of sub targets, which
+will essentially do the following:</para>
+
+<itemizedlist>
+
+  <listitem><para>Create a resolved version, if the XML sources have been
+  changed.</para></listitem>
+
+  <listitem><para>Create JPG version of the SVG vector images, if any SVG image
+  have been changed</para></listitem>
+
+  <listitem><para>Create a XHTML version of the resolved version have been
+  changed</para></listitem>
+
+  <listitem><para>Create a PDF version if the resolved version or any of the SVG
+  images have been changed</para></listitem>
+
+</itemizedlist>
+
+<para>The term changed should be interpreted as "modified or if the resulting
+file/files does not exists"</para>
+
+
+
+<sect2><title>Resolving a documents</title>
+
+<para>Creating a resolved version of a given document is NISP specific step in
+the building process, and is actually used for a number of things.</para>
+
+<itemizedlist>
+
+  <listitem><para>Add the two attributes id and condition to the book element.
+  Both variables is extracted from the file
+  <filename>src/documents.xml</filename> and a used to define a unique
+  identifier for the book element and to define a subdirectory to the build
+  directory, where the XHTML versions of the document should be
+  stored.</para></listitem>
+
+  <listitem><para>volume 3, 4, 5 and the rationale document should be merged
+  with a database before being transformed into a another format. This step is
+  accomplished by applying one of the stylesheets
+  <filename>merge3.xsl</filename>, <filename>merge4.xsl</filename>,
+  <filename>merge5.xsl</filename> and <filename>merge-rd.xsl</filename> to the
+  source xml file.</para></listitem>
+
+  <listitem><para>In the source documents all references to images are to a SVG
+  file located in a subdirectory of the source document. In the build directory
+  XHTML files should refer to JPG version of the image, and XSL-FO (the
+  transformation step before creating the PDF file), should either refer to the
+  JPG file used for the XHTML version or eventually to the original SVG
+  image.</para></listitem>
+
+</itemizedlist>
+
+
+<para>The manipulation of image file references mentioned above, the figure
+element</para>
+
+  <programlisting><![CDATA[
+   <figure id="v4f-spsa-co-osi">
+     <title>Protocol Layers Used in a Typical OSI Communications Link.</title>
+     <mediaobject>
+       <imageobject>
+         <imagedata fileref="figures/v4-osi.svg"/>
+       </imageobject>
+     </mediaobject>
+   </figure>]]>
+</programlisting>
+
+<para>is transformed to</para>
+
+<programlisting><![CDATA[
+  <figure id="v4f-spsa-co-osi" float="0">
+    <title>Protocol Layers Used in a Typical OSI Communications Link.</title>
+    <mediaobject>
+      <imageobject role="html">
+        <imagedata fileref="figures/v4-osi.jpg"/>
+      </imageobject>
+      <imageobject role="fop">
+        <imagedata fileref="../volume4/figures/v4-osi.jpg"/>
+      </imageobject>
+    </mediaobject>
+  </figure>]]>
+</programlisting>
+
+
+
+<para>When the actually transformation takes place, a stylesheet will select the
+appropriate imageobject element.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="build-targets"><title>Build targets</title>
+
+<para>The build file <filename>build.xml</filename> defines a number of targets
+used to generate XHTML/PDF and a Windows HTML Help file of the different
+volumes, all of which depends of the number of documents in the NISP
+collection. It also contain a number of other more static targets used for
+different purposes.</para>
+
+<sect2><title>Document targets</title>
+
+<para>For each of the volumes in the technical architecture, there exists a
+number of target necessary to implement the algorithm described in <xref
+linkend="build-doc"/>. Of the 11 targets currently defined only three are
+significant for the user, the rest of the target are intermediate
+targets. For volume 1 the targets are:</para>
+
+<itemizedlist>
+  <listitem><para>vol1.html - build volume 1 in XHTML</para></listitem>
+  <listitem><para>vol1.pdf - build volume 1 in PDF</para></listitem>
+  <listitem><para>vol1 - build volume 1 in XHTML and PDF</para></listitem>
+</itemizedlist>
+
+<para>There exists similar target for volume 2-5. For the rationale document the
+respective targets are called rd.html, rd.pdf and rd. Besides these target, a
+couple of generic targets also exists like html and pdf, which will create XHTML
+and PDF versions of all documents.</para>
+
+<para>All the target for the different volumes are dynamically generated as
+described in <xref linkend="doc-conf"/>.</para>
+
+<para>In the root distribution, a special build directory called <filename
+class="directory">build/</filename> is created, where all the transformed
+document will be placed</para>
+
+</sect2>
+
+
+<sect2><title>Administrative targets</title>
+
+<para>Among the targets used for administration are the following:</para>
+
+<sect3><title>Building NISP distributions</title>
+
+<variablelist>
+
+  <varlistentry><term>web</term><listitem><para>build a zip file containg a
+  complete set of XHTML/PDF and Windows HTML Help
+  file</para></listitem></varlistentry>
+
+  <varlistentry><term>pdf-only</term><listitem><para>build a zip file containing
+  only a PDF version of the technical
+  architecture.</para></listitem></varlistentry>
+</variablelist>
+
+</sect3>
+
+<sect3><title>Builing Tool and source packages</title>
+
+<variablelist>
+
+  <varlistentry><term>tool</term><listitem><para>build a zip file with a new tool
+  package</para></listitem></varlistentry>
+
+  <varlistentry><term>source</term><listitem><para>build a zip file with a new
+  source distribution</para></listitem></varlistentry>
+
+  <varlistentry><term>xsl</term><listitem><para>build a zip file with only the
+  stylesheets</para></listitem></varlistentry>
+
+</variablelist>
+
+</sect3>
+
+<sect3><title>Cleaning the distribution</title>
+
+<variablelist>
+
+  <varlistentry><term>clean-build</term><listitem><para>Erase the <filename
+  class="directory">build/</filename> directory</para></listitem></varlistentry>
+
+  <varlistentry><term>clean-dist</term><listitem><para>Erase the <filename
+  class="directory">dist/</filename> directory (used to build a new tool
+  distribution)</para></listitem></varlistentry>
+
+  <varlistentry><term>clean</term><listitem><para>Run both clean-build and
+  clean-dist</para></listitem></varlistentry>
+
+</variablelist>
+
+</sect3>
+
+<sect3><title>Other targets</title>
+
+<variablelist>
+
+  <varlistentry><term></term><listitem><para></para></listitem></varlistentry>
+
+</variablelist>
+
+</sect3>
+
+</sect2>
+
+
+
+</sect1>
+
+<sect1 id="doc-conf"><title>Document configuration</title>
+
+<para>The number of target for the individual volumes defined in the build file
+may vary over time, we may add or delete documents, and we will therefore also
+have to change the build instructions required. These instructions used to be
+written manually, but since that process very easy introduces errors in the
+building process.</para>
+
+<para>All the targets used to build the different volumes of the technical
+architecture are actually generated by a different Ant configuration file, and
+the resulting rules are saved in the file <filename>build.targets</filename>,
+which will be included in the <filename>build.xml</filename> file as an external
+entity. If new documents are included in the distribution, the user should
+create the appropriate directory in the source distribution, modify the file
+<filename>src/documents.xml</filename> and finally run the command</para>
+
+<programlisting>
+  build -f newbuild.xml
+</programlisting>
+
+
+<para>A typical fragment, which describes the a specific volume is shown below:</para>
+
+
+<programlisting><![CDATA[
+  <directory dir="volume4">
+    <docinfo id="vol4">
+      <main>vol4.xml</main>
+      <figures/>
+      <titles>
+        <short>V4</short>
+        <title>Volume 4</title>
+        <longtitle>NC3 Common Standards Profile (NCSP)</longtitle>
+      </titles>
+
+      <resolve usedb="yes" db="ta-standards.xml">merge4.xsl</resolve>
+
+      <targets>
+        <target type="html">index.html</target>
+        <target type="pdf">NISP-Vol4</target>
+      </targets>
+    </docinfo>
+  </directory>]]>
+</programlisting>
+
+<para>Most of the elements and attributes are selfexplanatoty, so we will only
+mention a couple of them:</para>
+
+<para>TBD</para>
+
+</sect1>
+
+</chapter>
+
+
+
+
+
+ <!-- 
+  *****************************************************************
+		     Bibliography
+  ***************************************************************** 
+ -->
+
+ <!-- To add
+
+ Standards : None
+
+ Articles: 
+
+ Books : None
+
+ -->
+
+<!-- Bibliography Type : Raw-->
+
+ <bibliography>
+
+ <bibliodiv><title>Normative References</title>
+
+ <biblioentry id="unicode">
+   <abbrev>UCS</abbrev>
+   <title></title>
+ </biblioentry>
+
+
+ <biblioentry id="xml">
+   <abbrev>XML 1.0</abbrev>
+   <editor>
+      <firstname>Tim</firstname>
+      <surname>Bray</surname>
+   </editor>
+   <title>Extensible Markup Language (XML) 1.0</title>
+   <edition>2nd ed</edition>
+   <releaseinfo>W3C Recommendation</releaseinfo>
+   <date>6 October 2000</date>
+   <copyright>
+     <year>2000</year>
+     <holder>&w3c;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.w3.org/TR/2000/REC-xml-20001006/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="names-xml">
+   <abbrev>Names</abbrev>
+   <editor>
+      <firstname>Tim</firstname>
+      <surname>Bray</surname>
+   </editor>
+   <title>Namespaces in XML</title>
+   <releaseinfo>W3C Recommendation</releaseinfo>
+   <date>14 January 1999</date>
+   <copyright>
+     <year>1999</year>
+     <holder>&w3c;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.w3.org/TR/1999/REC-xml-names-19990114/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="svg">
+   <abbrev>SVG</abbrev>
+   <editor>
+     <firstname>Jon</firstname>
+     <surname>Ferraiolo</surname>
+   </editor>
+   <title>Scalable Vector Graphics (SVG) 1.0 Specification</title>
+   <releaseinfo>W3C Recommendation</releaseinfo>
+   <date>4 September 2001</date>
+   <copyright>
+     <year>2001</year>
+     <holder>&w3c;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.w3.org/TR/2001/REC-SVG-20010904/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="xinclude">
+   <abbrev>XInclude</abbrev>
+   <authorgroup>
+     <editor>
+       <firstname>Jonathan</firstname>
+       <surname>March</surname>
+       <affiliation>
+	 <orgname>Microsoft</orgname>
+       </affiliation>
+     </editor>
+     <editor>
+       <firstname>David</firstname>
+       <surname>Orchard</surname>
+       <affiliation>
+	 <orgname>BEA Systems</orgname>
+       </affiliation>
+     </editor>
+   </authorgroup>
+   <title>XML Inclusions (XInclude)  1.0</title>
+   <releaseinfo>W3C Candidate Recommendation</releaseinfo>
+   <date>17 September 2002</date>
+   <biblioid class="uri">
+     <ulink url="http://www.w3.org/TR/2002/CR-xinclude-20020917/"/>
+   </biblioid>
+ </biblioentry>
+
+ <biblioentry id="xml-catalog">
+   <abbrev>Wa02a</abbrev>
+   <editor>
+     <firstname>Norman</firstname>
+     <surname>Walsh</surname>
+   </editor>
+   <title>XML Catalogs</title>
+   <releaseinfo>Committee Specification</releaseinfo>
+   <date>6 August 2001</date>
+   <copyright>
+     <year>2000</year>
+     <year>2001</year>
+     <holder>&oasis;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.oasis-open.org/committee/entity/spec.html"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="dtd-xml-spec-42">
+   <abbrev>Wa02b</abbrev>
+   <editor>
+      <firstname>Norman</firstname>
+      <surname>Walsh</surname>
+   </editor>
+   <title>The DocBook Document Type</title>
+   <releaseinfo>Committee Specification 4.2</releaseinfo>
+   <date>16 July 2002</date>
+   <copyright>
+     <year>2001</year>
+     <year>2002</year>
+     <holder>&oasis;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url=
+    "http://www.oasis-open.org/docbook/specs/cs-docbook-docbook-4.2.html"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="xslt">
+   <abbrev>XSLT</abbrev>
+   <editor>
+      <firstname>James</firstname>
+      <surname>Clark</surname>
+   </editor>
+   <title>XSL Transformations (XSLT) Version 1.0</title>
+   <releaseinfo>W3C Recommendation</releaseinfo>
+   <date>16 November 1999</date>
+   <copyright>
+     <year>1999</year>
+     <holder>&w3c;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.w3.org/TR/1999/REC-xslt-19991116/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="xpath">
+   <abbrev>XPath</abbrev>
+   <authorgroup>
+     <editor>
+       <firstname>James</firstname>
+       <surname>Clark</surname>
+     </editor>
+     <editor>
+       <firstname>Steve</firstname>
+       <surname>Derose</surname>
+     </editor>
+   </authorgroup>
+   <title>XML Path Language (XPath) 1.0</title>
+   <releaseinfo>W3C Working Draft</releaseinfo>
+   <date>16 November 1999</date>
+   <copyright>
+     <year>1999</year>
+     <holder>&w3c;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.w3.org/TR/xpath/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="xslt11">
+   <abbrev>XSLT11</abbrev>
+   <editor>
+     <firstname>James</firstname>
+     <surname>Clark</surname>
+   </editor>
+   <title>XSL Transformations (XSLT) Version 1.1</title>
+   <releaseinfo>W3C Working Draft</releaseinfo>
+   <date>24 August 2001</date>
+   <copyright>
+     <year>2001</year>
+     <holder>&w3c;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.w3.org/TR/xslt11/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="xslt2">
+   <abbrev>XSLT2</abbrev>
+   <editor>
+     <firstname>Michael</firstname>
+     <surname>Kay</surname>
+   </editor>
+   <title>XSL Transformations (XSLT) Version 2.0</title>
+   <releaseinfo>W3C Working Draft</releaseinfo>
+   <date>16 August 2002</date>
+   <copyright>
+     <year>2002</year>
+     <holder>&w3c;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.w3.org/TR/2002/xslt20/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="xsl">
+   <abbrev>XSL</abbrev>
+   <authorgroup>
+     <editor>
+       <firstname>Sharon</firstname>
+       <surname>Adler</surname>
+     </editor>
+     <editor>
+       <firstname>Steve</firstname>
+       <surname>Ziles</surname>
+     </editor>
+   </authorgroup>
+   <title>Extensible Styesheet Language (XSL) Version 1.0</title>
+   <releaseinfo>W3C Recommendation</releaseinfo>
+   <date>15 October 2001</date>
+   <copyright>
+     <year>2001</year>
+     <holder>&w3c;</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.w3.org/TR/xsl/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ </bibliodiv>
+
+
+ <bibliodiv><title>Articles</title>
+
+ <biblioentry id="flynn-xml-faq">
+   <abbrev>Fl01</abbrev>
+   <author>
+     <firstname>Peter</firstname>
+     <surname>Flynn</surname>
+   </author>
+   <title>The XML FAQ</title>
+   <edition>2.1</edition>
+   <date>1 January 2002</date>
+   <biblioid class="uri">
+     <ulink url="http://www.ucc.ie/xml/faq.html"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="hol-2000-xslt">
+   <abbrev>Ho00</abbrev>
+   <author>
+     <firstname>G. Ken</firstname>
+     <surname>Holman</surname>
+   </author>
+   <title>What is XSLT?</title>
+   <date>16 Aug 2000</date>
+   <copyright>
+     <year>2000</year>
+     <holder>xml.com</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.xml.com/pub/a/2000/08/holman/index.html"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="hol-2002-fo">
+   <abbrev>Ho02</abbrev>
+   <author>
+     <firstname>G. Ken</firstname>
+     <surname>Holman</surname>
+   </author>
+   <title>What is XSL-FO?</title>
+   <date>20 Mar 2002</date>
+   <copyright>
+     <year>2002</year>
+     <holder>xml.com</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.xml.com/pub/a/2002/03/20/xsl-fo.html"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="st-2002-olink">
+   <abbrev>St02a</abbrev>
+   <author>
+     <firstname>Robert</firstname>
+     <surname>Stayton</surname>
+   </author>
+   <title>A new implementation of Olink, Ver. 2.0</title>
+   <date>Jul 14, 2002</date>
+   <copyright>
+     <year>2002</year>
+     <holder>Robert Stayton</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://sagehill.net/xml/OlinkExtended.html/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="st-2003-dbxsl">
+   <abbrev>St03</abbrev>
+   <author>
+     <firstname>Robert</firstname>
+     <surname>Stayton</surname>
+   </author>
+   <title>DocBook XSL : The Complete Guide</title>
+   <edition>2.0</edition>
+   <date>February 2005</date>
+   <copyright>
+     <year>2002, 2003, 2005</year>
+     <holder>Robert Stayton</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://sagehill.net/docbokxsl/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="Walsh-1998-xml">
+   <abbrev>Wa98</abbrev>
+   <author>
+     <firstname>Norman</firstname>
+     <surname>Walsh</surname>
+   </author>
+   <title>A Technical Introduction to XML?</title>
+   <date>3 Oct 1998</date>
+   <copyright>
+     <year>1998</year>
+     <holder>xml.com</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.xml.com/pub/a/98/10/guide0.html"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="Walsh-2000-sdev-catalog">
+   <abbrev>Wa00</abbrev>
+   <author>
+     <firstname>Norman</firstname>
+     <surname>Walsh</surname>
+   </author>
+   <title>If you can Name it, you ca claim it!</title>
+   <date>4 Apr 2000</date>
+   <copyright>
+     <year>2000</year>
+     <holder>Abortext, Inc.</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.abortext.com/Think_Thank/XML_Resources/Issue_Three/body_issue_three.html"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="Walsh-2001-design">
+   <abbrev>Wa01a</abbrev>
+   <author>
+     <firstname>Norman</firstname>
+     <surname>Walsh</surname>
+   </author>
+   <title>The Design of The DocBook XSL Stylesheets</title>
+   <date>8 Apr 2001</date>
+   <copyright>
+     <year>2001</year>
+     <holder>Sun Microsystems Inc.</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://nwalsh.com/docs/articles/dbdesign/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="walsh-2001-xml-mag">
+   <abbrev>Wa01b</abbrev>
+   <author>
+     <firstname>Norman</firstname>
+     <surname>Walsh</surname>
+   </author>
+   <title>XML Basics</title>
+   <copyright>
+     <year>2001</year>
+     <holder>Linux Magazine</holder>
+   </copyright>
+   <biblioid class="uri">
+     <ulink url="http://www.linux-mag.com/2001-07/xml_basics_01.html"/>
+   </biblioid>
+ </biblioentry>
+
+ </bibliodiv>
+
+
+ <bibliodiv><title>Books</title>
+
+
+ <biblioentry id="Musc-html-x-2000">
+   <abbrev>Mu02</abbrev>
+   <author>
+     <firstname>Chuck</firstname>
+     <surname>Musciano</surname>
+   </author>
+   <title>HTML &amp; XHTML: The Definitive Guide</title>
+   <edition>4th ed.</edition>
+   <copyright>
+     <year>1996</year>
+     <year>1997</year>
+     <year>1998</year>
+     <year>2000</year>
+     <holder>&ora;</holder>
+   </copyright>
+   <biblioid class="isbn">ISBN 0-596-00026-X</biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="CaCo2001">
+   <abbrev>Ca01</abbrev>
+   <authorgroup>
+     <author>
+       <firstname>Kurt</firstname>
+       <surname>Cagle</surname>
+     </author>
+     <author>
+       <firstname>Michael</firstname>
+       <surname>Corning</surname>
+     </author>
+     <author>
+       <firstname>Jason</firstname>
+       <surname>Diamont</surname>
+     </author>
+     <author>
+       <firstname>Teun</firstname>
+       <surname>Deynstee</surname>
+     </author>
+   </authorgroup>
+   <title>Professional XSL</title>
+   <copyright>
+     <year>2001</year>
+     <holder>&wrox;</holder>
+   </copyright>
+   <biblioid class="isbn">ISBN 1-861003-57-9</biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="HaMe2001">
+   <abbrev>HaMe01</abbrev>
+   <authorgroup>
+     <author>
+       <firstname>Elliotte Rusty</firstname>
+       <surname>Harold</surname>
+     </author>
+     <author>
+       <firstname>W. Scott</firstname>
+       <surname>Means</surname>
+     </author>
+   </authorgroup>
+   <title>XML in a Nutshell - A Desktop Quick Reference</title>
+   <copyright>
+     <year>2001</year>
+     <holder>&ora;</holder>
+   </copyright>
+   <biblioid class="isbn">ISBN 0-596-00058-8</biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="Kay2001">
+   <abbrev>Kay01</abbrev>
+   <author>
+     <firstname>Michael</firstname>
+     <surname>Kay</surname>
+   </author>
+   <title>XSLT - Programmers Reference</title>
+   <edition>2 ed</edition>
+   <copyright>
+     <year>2001</year>
+     <holder>&wrox;</holder>
+   </copyright>
+   <biblioid class="isbn">ISBN 1-861005-06-7</biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="lie-css-99">
+   <abbrev>Li99</abbrev>
+   <authorgroup>
+     <author>
+       <firstname>H&aring;kon</firstname>
+       <surname>Lie</surname>
+     </author>
+     <author>
+       <firstname>Bert</firstname>
+       <surname>Boss</surname>
+     </author>
+   </authorgroup>
+   <title>Cascading Stylesheets</title>
+   <copyright>
+     <year>1997</year>
+     <year>1999</year>
+     <holder>Pearson Education Limited</holder>
+   </copyright>
+   <biblioid class="isbn">ISBN 0-201-59625-3</biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="Ma2001">
+   <abbrev>Ma01</abbrev>
+   <authorgroup>
+     <author>
+       <firstname>Didier</firstname>
+       <surname>Martin</surname>
+     </author>
+     <author>
+       <firstname>Michael</firstname>
+       <surname>Kay</surname>
+     </author>
+     <author>
+       <surname>etc.</surname>
+     </author>
+   </authorgroup>
+   <title>Professional XML</title>
+   <copyright>
+     <year>2000</year>
+     <holder>&wrox;</holder>
+   </copyright>
+   <biblioid class="isbn">ISBN 1-861003-11-0</biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="paw-2002-fo">
+   <abbrev>Pa02</abbrev>
+   <author>
+     <firstname>Dave</firstname>
+     <surname>Pawson</surname>
+   </author>
+   <title>XSL-FO</title>
+   <subtitle>Making XML Look Good in Print</subtitle>
+   <copyright>
+     <year>August 2002</year>
+     <holder>&ora;</holder>
+   </copyright>
+   <biblioid class="isbn">ISBN 0-596-00355-2</biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="WaMu1999">
+   <abbrev>WaMu99</abbrev>
+   <authorgroup>
+     <author>
+       <firstname>Norman</firstname>
+       <surname>Walsh</surname>
+     </author>
+     <author>
+       <firstname>Leonard</firstname>
+       <surname>Muellner</surname>
+     </author>
+   </authorgroup>
+   <title>DocBook - The Definitive Guide 1.0.3</title>
+   <date>Nov 9, 1999</date>
+   <copyright>
+     <year>1999</year>
+     <holder>&ora;</holder>
+   </copyright>
+   <biblioid class="isbn">ISBN 1-56592-580-7</biblioid>
+   <biblioid class="uri">
+     <ulink url="http://docbook.org/tdg/"/>
+   </biblioid>
+ </biblioentry>
+
+
+ <biblioentry id="WaMu2005">
+   <abbrev>WaMu05</abbrev>
+   <authorgroup>
+     <author>
+       <firstname>Norman</firstname>
+       <surname>Walsh</surname>
+     </author>
+     <author>
+       <firstname>Leonard</firstname>
+       <surname>Muellner</surname>
+     </author>
+   </authorgroup>
+   <title>DocBook - The Definitive Guide 2.0.12</title>
+   <date>Apr 18, 2005</date>
+   <copyright>
+     <year>1999</year>
+     <year>2000</year>
+     <year>2001</year>
+     <year>2002</year>
+     <year>2003</year>
+     <year>2004</year>
+     <year>2005</year>
+     <holder>&ora;</holder>
+   </copyright>
+   <biblioid class="isbn">ISBN 1-56592-580-7</biblioid>
+   <biblioid class="uri">
+     <ulink url="http://docbook.org/tdg/"/>
+   </biblioid>
+ </biblioentry>
+
+
+
+ <!--
+
+
+
+ Chuck Mu 
+
+ HTML &amp; XHTML: The Definitive Guide
+
+ 0-596-00026-X
+
+ <biblioentry id="">
+   <abbrev></abbrev>
+   <authorgroup>
+     <author>
+       <firstname></firstname>
+       <surname></surname>
+     </author>
+     <author>
+       <firstname></firstname>
+       <surname></surname>,
+     </author>
+   </authorgroup>
+   <title></title>
+   <copyright>
+     <holder></holder>
+     <year></year>
+   </copyright>
+   <isbn></isbn>
+ </biblioentry>
+
+
+
+ CSS2
+
+ Jacob Nielsen bøger
+
+
+
+  Wium Lie  and Bert Bos Cascading Stylesheets
+ Addison-Wesley 2ed 1999
+
+ 0-201-59625-3
+
+ copyright Pearson Education Limited 
+
+
+
+ -->
+
+ </bibliodiv>
+
+
+
+ <!--
+
+ Standard
+
+ <biblioentry id="">
+   <abbrev></abbrev>
+   <editor>
+      <firstname></firstname>
+      <surname></surname>
+   </editor>
+   <title></title>
+   <edition></edition>
+   <releaseinfo>W3C Recommendation</releaseinfo>
+   <date></date>
+   <bibliomisc>
+     <ulink url=""/>
+   </bibliomisc>
+ </biblioentry>
+
+ -->
+
+
+
+ <!--
+
+ Book
+
+ <biblioentry id="">
+   <abbrev></abbrev>
+   <authorgroup>
+     <author>
+       <firstname></firstname>
+       <surname></surname>
+     </author>
+     <author>
+       <firstname></firstname>
+       <surname></surname>,
+     </author>
+   </authorgroup>
+   <title></title>
+   <copyright>
+     <holder></holder>
+     <year></year>
+   </copyright>
+   <isbn></isbn>
+ </biblioentry>
+ -->
+
+ </bibliography>
+
+ <!--
+
+ XML 1.0 
+
+ XSLT 1.0
+
+ XSLT 1.1
+
+ -->
+
+
+
+ <!-- 
+  *****************************************************************
+		     What's in the Distribution
+  ***************************************************************** 
+ -->
+
+
+ <appendix id="sw-tools"><title>Inside the NISP tools distribution</title>
+
+ <para>This appendix contains references to all the software packages
+ used in the &nisp;. The versions mentioned here, may not be the lastest
+ versions, but have on the other hand been tested with the &nisp;
+ documents.</para>
+
+ <!--
+
+ <sect1><title>Naming Convention</title>
+
+ <para>In order to enable flexibility in the release schedule of the
+ &nisp; sources, the following naming scheme are proposed starting with
+ the first XML version. All source releases </para>
+
+ <programlisting>
+    nisp-src-&lt;X.Y&gt;.&lt;Z&gt;-&lt;D&gt;.zip       (example: nisp-src-3.0.0-1.zip)
+ </programlisting>
+
+ <para>where &lt;X.Y&gt;, &lt;Z&gt; &amp; &lt;D&gt; should be
+ interpreted as follows:</para>
+
+
+ <itemizedlist>
+   <listitem><para>&lt;X.Y&gt; - These are official distributions
+   endorsed by the ISSC</para></listitem>
+
+   <listitem><para>&lt;Z&gt; - Updates to the volumes (only fixing
+   spelling errors and other typos). This is done exclusively by the
+   editor.</para></listitem>
+
+   <listitem><para>&lt;D&gt; - Additional updates (new version of
+   tools, updated stylesheets etc). These updates can, if necessary,
+   been done frequently. NO MODIFICATION OF ANY KIND IS DONE TO THE
+   TECHNICAL ARCHITECTURE SOURCES.</para></listitem>
+ </itemizedlist>
+
+ <para>During the period before an official, where updates to the
+ volumes are done by different working groups. The editor could
+ regulary, at his/hers conveniance release
+ <emphasis>official</emphasis> versions of the &nisp;, using a different
+ namescheme scheme:</para>
+
+ <programlisting>
+   nisp-src-&lt;X.Y.Z&gt;-pre&lt;P&gt;.zip    (example:  nisp-src-3.0.0pre1.zip)
+ </programlisting>
+
+ <para>where &lt;X.Y.Z&gt; &amp; &lt;P&gt; should be interpreted as
+ follows:</para>
+
+ <itemizedlist>
+   <listitem><para>&lt;X.Y.Z&gt; - Upcoming official ISSC release
+   number</para></listitem>
+   <listitem><para>&lt;P&gt; - Prerelease version number by decision of the
+   editor</para></listitem>
+ </itemizedlist>
+
+ </sect1>
+
+ -->
+
+ <sect1><title>Directory Map</title>
+
+ <para>The following figure illustrates the structure of the NISP tools distribution.</para>
+
+ <programlisting>
+ <![CDATA[
+   -|--bin                - Script files
+    |--extra              - additional material
+    |--docs               - Documentation
+    |--lib                - Contain jars for Ant, Xerces, Saxon, Fop and Batik
+    |--schema             - Misc. extra schemas used by the tool package
+    |--src                - Empty directory, where sources should be unpacked
+    |--xdoc               - Documentation sources 
+    |--xsl                - XSL stylesheets
+	|--common         - Common stylesheets
+	|--css            - Cascaded stylesheet used by HTML versions
+	|--docbook-xsl    - DocBook XSL stylesheets
+	|   |-- 
+	|   ...
+	|
+	|--fo             - NISP XSL stylesheets for FO
+	|--html           - NISP XSL stylesheets for HTML
+	|--htmlhelp       - NISP XSL stylesheets for Windows Help file
+        |--images         - Raster images used in the HTML version
+        |--xhtml          - NISP XSL stylesheets for HTML
+	
+]]>
+ </programlisting>
+
+ </sect1>
+
+ <sect1><title>Overview</title>
+
+ <para>This section describes the necessary software
+ packages, and describes how to install them. In order to simplify
+ things, most of these tools have been bundled in the NISP Tools
+ distribution.</para>
+
+ <para>Only part of nine of the packages comes pre-installed with the
+ &nisp; documents. The pre-installed packages are:</para>
+
+ <itemizedlist>
+   <listitem><para>The DocBook XML DTD</para></listitem>
+   <listitem><para>The DocBook XSLT stylesheet</para></listitem>
+   <listitem><para>The Apache XML-Commons library</para></listitem>
+   <listitem><para>The XML Catalog Resolver library</para></listitem>
+   <listitem><para>The Xerces XML parser</para></listitem>
+   <listitem><para>The Saxon XSLT processor</para></listitem>
+
+   <listitem><para>The Fop XSL-FO processor<footnote id="patchedver"><para>This 
+     version have been pacthed to obtain
+     specific functionality.</para></footnote></para></listitem>
+
+   <listitem><para>The Batik svg processor</para></listitem>
+   <listitem><para>The Ant build tool</para></listitem>
+ </itemizedlist>
+
+
+<sect2><title>Patching</title>
+
+<para>Both the Saxon XSLT processor and the FOP XSL-FO processor have been
+patched and subsequently recpompiled to obtain functionality
+originally not availiable in the official distribution. </para>
+
+</sect2>
+
+
+ </sect1>
+
+ <sect1><title>Software Requirements in the publishing cycle </title>
+
+ <para><xref linkend="sw-req"/> illustrates the software packages
+ necessary to work with the XML version of the NC3 &nisp;. Each row list
+ a software package, and each column list the functionality required by
+ the user. The column headings should be interpreted as follows:</para>
+
+ <variablelist>
+   <varlistentry>
+     <term>Edit</term>
+     <listitem><para>The packages required to edit the NISP XML
+     version.</para></listitem>
+   </varlistentry>
+   <varlistentry>
+     <term>Validate</term> <listitem><para>The packages required to
+     validate if the documents follows the required syntax, ad defined
+     in the DocBook XML DTD</para></listitem>
+   </varlistentry>
+   <varlistentry>
+     <term>HTML</term>
+     <listitem><para>The packages required to create a HTML version of
+     the NISP</para></listitem>
+   </varlistentry>
+   <varlistentry>
+     <term>Print</term> <listitem><para>The packages required to create
+     a <emphasis>print</emphasis> version of the NISP. The  result is a formatting object version, which then are
+     transformed into PDF.</para></listitem>
+   </varlistentry>
+ </variablelist>
+
+ <table  id="sw-req" frame="all"><title>Software Required</title>
+ <tgroup cols="6">
+ <colspec colwidth="30*" align="left"/>
+ <colspec colwidth="10*" align="center"/>
+ <colspec colwidth="10*" align="center"/>
+ <colspec colwidth="10*" align="center"/>
+ <colspec colwidth="10*" align="center"/>
+ <colspec colwidth="30*" align="left"/>
+ <thead>
+   <row>
+     <entry></entry>
+     <entry>Edit</entry>
+     <entry>Validate</entry>
+     <entry>HTML</entry>
+     <entry>Print</entry>
+     <entry></entry>
+   </row>
+ </thead>
+ <tbody>
+   <row>
+     <entry>&nisp-src;</entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry></entry>
+   </row>
+   <row>
+     <entry>&nisp-tools;</entry>
+     <entry></entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry></entry>
+   </row>
+   <row>
+     <entry>&java;</entry>
+     <entry>(Yes)</entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry></entry>
+   </row>
+   <row>
+     <entry>&resolv;</entry>
+     <entry>(Yes)</entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Included in the tool distribution</entry>
+   </row>
+ <!--
+   <row>
+     <entry>&jedit;</entry>
+     <entry>(Yes)</entry>
+     <entry>(Yes)</entry>
+     <entry/>
+     <entry/>
+     <entry>Included in the tool distribution</entry>
+   </row>
+ -->
+   <row>
+     <entry>&dtd;</entry>
+     <entry></entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Included in the tool distribution</entry>
+   </row>
+   <row>
+     <entry>&xerces;</entry>
+     <entry></entry>
+     <entry>Yes</entry>
+     <entry></entry>
+     <entry></entry>
+     <entry>Included in the tool distribution</entry>
+   </row>
+   <row>
+     <entry>&dbxsl;</entry>
+     <entry></entry>
+     <entry></entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Included in the tool distribution</entry>
+   </row>
+   <row>
+     <entry>&saxon;</entry>
+     <entry></entry>
+     <entry></entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Included in the tool distribution</entry>
+   </row>
+   <row>
+     <entry>&fop;</entry>
+     <entry></entry>
+     <entry></entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Included in the tool distribution</entry>
+   </row>
+   <row>
+     <entry>&batik;</entry>
+     <entry></entry>
+     <entry></entry>
+     <entry>Yes</entry>
+     <entry>Yes</entry>
+     <entry>Included in the tool distribution</entry>
+   </row>
+   <row>
+     <entry>&ant;</entry>
+     <entry></entry>
+     <entry>(Yes)</entry>
+     <entry>(Yes)</entry>
+     <entry>(Yes)</entry>
+     <entry>Included in the tool distribution</entry>
+   </row>
+ </tbody>
+ </tgroup>
+ </table>
+
+
+ </sect1>
+
+
+ <sect1><title>Release Information</title>
+
+ <!-- NISP Tools -->
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">The &nisp-tools;</emphasis></entry>
+ </row>
+ <row>
+   <entry>File</entry>
+   <entry>:</entry>
+   <entry>nisp-tools-&nisp-tools-ver;.zip</entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>&tools-release-date;</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>This is the tools used to build a HTML and print versions of the 
+   NATO C3 &nisp;. See the README file for a detailed description for the 
+   contents of this archive</entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+ <!-- NISP Sources -->
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">The &nisp-src;</emphasis></entry>
+ </row>
+ <row>
+   <entry>File</entry>
+   <entry>:</entry>
+   <entry>nisp-src-&nisp-src-ver;.zip</entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>&src-release-date;</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>This is the NATO C3 &nisp; implemented in
+	    XML. See the README file for a detailed description for the
+	    contents of this archive</entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+ <!-- DTD -->
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="11pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&dtd;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>&dtd-date;</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>This is the XML version of the DocBook DTD</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://www.oasis-open.org/docbook/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+ <!-- Java -->
+
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&java;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>May 2001</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>One can also download the Java 2 Software Development Kit, but that is currently not necessary</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://java.sun.com/j2se/1.3/jre/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+ <!-- Resolver -->
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&resolv;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>Jan 9, 2002</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>The resolver classes are used to map public and system identifiers and URIs to file names or other URIs.</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink 
+   url="http://www.sun.com/software/xml/developer/resolver/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+ <!--
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&resolv;</emphasis></entry>
+ </row>
+ <row>
+   <entry>File</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://xml.apache.org/dist/xml-commons-resolver-1.0.tar.gz"/></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>Nov 12, 2002</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>The resolver classes are used to map public and system identifiers and URIs to file names or other URIs.</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://xml.apache.org/xml-commons/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+ -->
+
+ <!-- jEdit -->
+
+<!--
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&jedit;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>Februar 27, 2003</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>Java-based editor</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://www.jedit.org/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+-->
+
+ <!-- Xerces -->
+
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&xerces;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>November 20, 2003</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>This is a validating XML parser</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://xml.apache.org/xerces-j/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+ <!-- DocBook XSL Stylesheets -->
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&dbxsl;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>Aug 12, 2005</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>XSLT stylesheets used to generate the HTML and PDF version</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://docbook.sourceforge.net/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+ <!-- Saxon -->
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&saxon;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>&saxon-date;</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>This is the XSLT processor used to transform the XML sources
+	    to HTML and PDF</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://saxon.sourceforge.net/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+ <!-- Batik -->
+
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&batik;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>&batik-date;</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>This is the SVG processer, which generate raster images of
+    all the &nisp; figures</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://xml.apache.org/batik/"/></entry>
+ </row>
+
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+ <!-- FOP -->
+
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&fop;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>Feb 20, 2004</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>This is the XSL-FO processer, which generate PDF versions of
+	    the &nisp;. The version used have been modified to enable
+	    setting the Creation Date of a document in the Document
+	    properties dialog. </entry>
+
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://xml.apache.org/fop/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+
+ <!-- Ant -->
+
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold">&ant;</emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry>Jun 2, 2005</entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry>A make like system from the Apache Project. This make like
+	    system is used to run all the commands necessary to build
+	    all documents both in a HTML and a print version of the
+	    &nisp;.</entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry><ulink url="http://ant.apache.org/"/></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+ <!--
+
+ <informaltable frame="none">
+ <tgroup cols="3">
+ <colspec colname="c1" colwidth="2cm"/>
+ <colspec colwidth="16pt"/>
+ <colspec colname="c3" colwidth="11cm"/>
+ <tbody>
+ <row>
+ <entry namest="c1" nameend="c3"><emphasis role="bold"></emphasis></entry>
+ </row>
+ <row>
+   <entry>Released</entry>
+   <entry>:</entry>
+   <entry></entry>
+ </row>
+ <row>
+   <entry>Comment</entry>
+   <entry>:</entry>
+   <entry></entry>
+ </row>
+ <row>
+   <entry>Homepage</entry>
+   <entry>:</entry>
+   <entry></entry>
+ </row>
+ </tbody>
+ </tgroup>
+ </informaltable>
+
+ -->
+
+ </sect1>
+
+
+ <!--
+
+ <sect1><title>jEdit </title>
+
+ <para/>
+
+ <sect2><title>Plugins</title>
+
+ <para/>
+
+ </sect2>
+
+ </sect1>
+
+ -->
+
+ <sect1><title>Building the TA</title>
+
+
+
+ <para/>
+
+
+
+ </sect1>
+
+
+ <!-- 
+  *****************************************************************
+		     Upgrading the tools
+  ***************************************************************** 
+ -->
+
+<!--
+
+ <sect1 id="tools-update"><title>Updating and running the tools components</title>
+
+ <para>The user are wellcome to experiment with new versions of
+ the packages, but then you are on your own. The user should especially
+ be carefull, when using newer versions of the DocBook XSLT
+ stylesheets. The NISP XSLT stylesheets, imports and overwrites
+ different parts of the DocBook XSLT stylesheets, and may therefore
+ break when using an updated version.</para>
+
+
+ <sect2><title>Additional installation instructions</title>
+
+ <para>As mentioned in <xref linkend="install.config"/>, the DocBook XML DTD
+ and parts of Xerces, Saxon and Ant comes pre-installed with this
+ distribution. If the user want to update Xerces, Saxon or Ant, this
+ section describes the necessary steps required. <emphasis>Note, that
+ the user should under NO circumstances, update the DocBook XML DTD
+ when a new version is released, since this will allmost guarantied
+ break all the volumes of the &nisp;</emphasis>.</para>
+
+ <sect3><title>Installation of &xerces;</title>
+
+ <para>The Xerces parser is a validating parser, and is actually not
+ needed in order to build a HTML and print version of the &nisp;, but is
+ a very convenient for the author of a DocBook document, to ensure that
+ the syntax of the DocBook DTD have been followed. The distribution can
+ be installed anywhere. After the installation the three parameters
+ <literal>xerces.dir</literal>, <literal>jar-xerces</literal> and
+ <literal>jar-xersample</literal> from the Ant build file
+ <filename>build.xml</filename> should be changed.</para>
+
+ <itemizedlist>
+   <listitem><para><literal>xerces.dir</literal> - should point to the
+   directory, where the Xerces jars are located.</para></listitem>
+
+   <listitem><para><literal>jar-xerces</literal> - should be the name
+   of the Xerces jar, which is usually
+   <filename>xerces.jar</filename></para></listitem>
+
+   <listitem><para><literal>jar-xersample</literal> - should be the name
+   of the Xerces sample applications jar, which is usually
+   <filename>xercesSamples.jar</filename></para></listitem>
+ </itemizedlist>
+
+ <para>Alternatively, the updated files <filename>xerces.jar</filename> and
+ <filename>xercesSamples.jar</filename> could be copied to the directory
+ <filename class="directory">src/lib</filename> in the distribution, using a
+ numbering scheme as already used in the current distribution. Note, this will
+ still require the user to change parameters in the
+ <filename>build.xml</filename> file. Note, that one version of the Xerces
+ parser (<filename>xerces.jar</filename>) should always be avalible in the
+ <filename class="directory">src/lib</filename> directory, since it is 
+ required by the ant distribution.</para>
+
+ </sect3>
+
+
+ <sect3><title>Installation of &saxon;</title>
+
+ <para>The XSLT processor Saxon are used to create the HTML version of
+ the &nisp;, and to merge the standard database with volume
+ 3. Eventually, this processor will also be used to create a print
+ version of the architecture. The distribution can be installed
+ anywhere. installed. After the installation the two parameters
+ <literal>saxon.dir</literal> and <literal>jar-saxon</literal> from
+ the Ant build file <filename>build.xml</filename> should be
+ changed.</para>
+
+
+ <itemizedlist>
+   <listitem><para><literal>saxon.dir</literal> - should point to the
+   directory, where the saxon jars are located.</para></listitem>
+   <listitem><para><literal>jar-saxon</literal> - should be the name of
+   the Saxon jar, which is usually
+   <filename>saxon.jar</filename></para></listitem>
+ </itemizedlist>
+
+ </sect3>
+
+ <sect3><title>Installation of &ant;</title>
+
+ <para>The Ant program is a make-like application and is used to build
+ miscellaneous part of the &nisp; documents. The different targets was described
+ in <xref linkend="ant"/>. The binary distribution of Ant consists of the three
+ directories: <filename class="directory">bin</filename>, <filename
+ class="directory">doc</filename> and <filename
+ class="directory">lib</filename>. To install Ant chose a directory e.g.
+ <filename class="directory">c:\ant</filename>, and unpack the distribution.
+ This directory will be know as ANT_HOME. Note, then when the binary Ant
+ archive is unpacked, the directory jakarta-ant-1.4 is created. If The user
+ should move all files in this directory to the directory defined by
+ ANT_HOME.</para>
+
+ <para>Since the Win95 and Win98 operating systems do have problems
+ handling long file names, the preferred install directory on the windows
+ platform should be a <emphasis role="bold">short</emphasis> name such
+ as <emphasis>c:\ant</emphasis>.</para>
+
+ <bridgehead>Windows</bridgehead>
+
+ <para>Assume Ant is installed in <filename class="directory">c:\ant\</filename>. The
+ following sets up the environment</para>
+
+ <programlisting>
+   set ANT_HOME=c:\ant
+   set PATH=%PATH%;%ANT_HOME%\bin 
+ </programlisting>
+
+ <bridgehead>Unix (bash)</bridgehead>
+
+ <para>Assume ant is installed in
+ <filename  class="directory">/usr/local/ant</filename>. The following sets up the
+ environment:</para>
+
+ <programlisting>
+   export ANT_HOME=/usr/local/ant/
+   export PATH=${PATH}:${ANT_HOME}/bin
+ </programlisting>
+
+ <para>Subsequently, the user should modify the build scripts
+ <filename>build.bat</filename> and <filename>build.sh</filename> to reflect the
+ new location of Ant. To verify the installation the user can issue the
+ command:</para>
+
+ <programlisting>
+    .\build.bat -version      (Win32)
+
+    ./build.sh -version       (Unix)
+ </programlisting>
+
+ </sect3>
+
+ </sect2>
+
+
+ <sect2><title>Running Java programs</title>
+
+ <para>Typically a Java program is executed using the following command:</para>
+
+ <cmdsynopsis>
+   <command>java</command>
+   <arg>-cp<replaceable>classpath</replaceable></arg>
+   <arg choice="plain"><replaceable>class</replaceable></arg>
+   <arg choice="opt" rep="repeat"><replaceable>args</replaceable></arg>
+ </cmdsynopsis>
+
+ <para>Usually the classpath can be set using the environment variable
+ <literal>CLASSPATH</literal>. This environment variable should point
+ to a directory structure containing the classes required by the
+ application. If any Java jars are required, each jar should be
+ specified on the classpath. As described above, the classpath variable
+ can also be set with the flag &quot;<emphasis>cp</emphasis>&quot;. The
+ later method is used in this distribution.</para>
+
+ <para>The functionality described in the next three sections are all
+ availible as targets in the Ant build file
+ <filename>build.xml</filename>, but are described here, so the user will
+ be able use the tools in another context.</para>
+
+ <sect3><title>Running Xerces</title>
+
+ <para>The Xerces parser jar consists of miscellaneous APIs used to
+ parse XML documents. Among the sample programs in the distribution,
+ the program &quot;<literal>sax.Counter</literal>&quot; can be used to
+ parse documents. To quote from the Xerces documentation:
+ &quot;<emphasis>SAXCount parses your input file, and outputs the total
+ parse time, along with counts of elements, attributes, text
+ characters, and ignorable whitespace characters. SAXCount displays
+ errors and warnings that occur during parsing.</emphasis>&quot; By
+ default validating XML parsers do not validate XML files, but only
+ check for well-formness. The <emphasis>SAXCount</emphasis> program can
+ be called with the flag &quot;<emphasis>v</emphasis>&quot;, which
+ turns on validation. So in order to validate the file
+ <literal>file.xml</literal>, the user should run the following program
+ (ignore the linebreak):</para>
+
+ <programlisting>
+   java -cp /thepath/xerces.jar;/thepath/xercesSamples.jar  
+       sax.SAXCount -v  file.xml
+ </programlisting>
+
+ </sect3>
+
+ <sect3><title>Running Saxon</title>
+
+ <para>FIXME: org.icl.saxon.StyleSheet</para>
+
+ </sect3>
+
+
+ <sect3><title>Running Batik</title>
+
+ <para>FIXME:</para>
+
+ </sect3>
+
+
+ <sect3><title>Running Ant</title>
+
+ <para>FIXME:</para>
+
+ </sect3>
+
+ </sect2>
+
+ </sect1>
+
+-->
+
+
+
+
+ </appendix>
+
+
+<!--
+http://www.fis.utoronto.ca/cais-acsi2002/webabstracts/07hudon-hjartarson.htm
+-->
+
+<!-- 
+ *****************************************************************
+                    TO DO
+ ***************************************************************** 
+-->
+
+<appendix><title>TO DO</title>
+
+<para>This chapter describes a number of potential improvements to the
+tools package, that might be implemented in a future version. This is
+only a catalog of ideas, and should in now way be considered as
+something which will be implemented really soon now.</para>
+
+
+<itemizedlist>
+  <listitem><para><emphasis>Tracking</emphasis> - It would be nice, if
+  it was possible to create printable versions, where the difference
+  between two versions of a document could be shown. What is added, What is
+  deleted etc.</para></listitem>
+
+  <listitem><para><emphasis>Index</emphasis> - In DocBook it is
+  possible to create an index<footnote><para>A standard index was
+  created for vol 3 and 4 in version 4.4</para></footnote>. However
+  such an index requires planning. This is also almost a source-only
+  distribution problem.</para></listitem>
+
+  <listitem><para><emphasis>Modular Documents</emphasis> - Currently
+  most documents in the &nisp; consists of one large file. It is
+  currently possible to to split a document into manageable portions,
+  but only through external entities. This means, that the sub
+  documents, are not allowed to contain any XML prologue statement, or
+  any document type definition, which in the end means.  that these
+  document fragments can not be validated. The candidate
+  recommendation XML Include (see <xref linkend="xinclude"/>) makes a
+  properly modular structure possible, where each document fragment is
+  also a valid XML document. However this is not very well supported
+  yet, at least not by the Xerces parser which is used to parse the
+  &nisp; documents.</para></listitem>
+
+  <listitem><para><emphasis>Using Resolution Dependent
+  Images</emphasis> - The images are currently transformed to a raster
+  for suitable for Screen (i.e. 70 dpi). The images are also used for
+  the FO version. The ideal solution would be to create an extra
+  collection of images for the FO version with and approximate
+  resolution of 110 dpi.</para></listitem>
+
+  <listitem><para><emphasis>Embedding SVG images</emphasis> - With a
+  collection of images all created in SVG. The ideal solution, would
+  be use a mixed namespace solution and embed the images in both the
+  Web Browser and in a FO representation of the document. But until
+  Web browsers comes with native support for SVG and not through a
+  third party plugin like the <emphasis>Adobe SVG Viewer</emphasis>,
+  that is not an option at least for the HTML solution. For the FO
+  version, the situation is a little different, since one of the main
+  developers of FOP are also involved in the Batik project, and
+  therefor also working with techniques for seamless integration of
+  these two products. To implement part of this in the technical
+  architecture, experiments need not be conducted to judge, if the
+  results will be as excellent as the current raster
+  images.</para></listitem>
+
+  <listitem><para><emphasis>Using Portable Web Fonts</emphasis> - The
+  current SVG standard is quite vague, when it comes to the use of
+  fonts in SVG images. Most of the components of a SVG image is
+  independent of the platform and therefore extremely portable. The
+  only problem is in the use of fonts. As long as the standard does
+  not define and include a minimum recommended set of fonts, the
+  creator of SVG images are depend either on the set of fonts
+  available on the current platform, or included on the application
+  used to create the SVG image. For the &nisp;, this currently means,
+  that the images, which are created on a Windows platform needs to be
+  rendered on the same platform, otherwise the Batik processor with
+  substitute the Windows only fonts, with similar types on different
+  platforms with undesired results, since the glyphs of different
+  fonts will have a different design. It will therefore also be a
+  problem, if some SVG images are created on a machine with an exotic
+  but not standard font, which often is the case when receiving
+  document, presentations etc. from miscellaneous
+  parties.</para></listitem>
+
+  <listitem><para><emphasis>Spell Checking</emphasis> - Spell checking
+  of the &nisp; documents, should be included by default. The jEdit
+  editor already have support for spellchecking and is working like a
+  snap on Unix. Support for Windows do exists, though the open-source
+  tool aspell. Experiments need to be done, to investiate how this is
+  done without any hazzle.</para></listitem>
+  
+  <listitem><para><emphasis>Configuration Control</emphasis> - With
+  multiple authors working on documents in parallel, a configuration
+  control system would be very convenient. On most large open source
+  development systems, this is mandatory. According to one of the
+  well-known development sites (SourceForge) :
+  <emphasis>Sourceforge.net is the worlds largest development website
+  with the largest repository of Open Source code and applications
+  avalible on the internet.</emphasis> This of course requires strict
+  configuration control and on this site are examples on tools, that
+  enables such an development environment, even on the NISP sources,
+  through the use of encryption software. See among other the manual
+  on using CVS and SSH on the Windows platform: <ulink
+  url="https://sourceforge.net/docman/display_doc.php?docid=766&amp;group_id=1"/>. Implementing
+  such a system would require all users to be able to access a CVS
+  server from the normal environment. This might not be possible due
+  to security restrictions forced upon them,</para></listitem>
+</itemizedlist>
+
+
+</appendix>
+
+
+</part>
+
+</book>
+
+
+
+
+<!-- FIXME: quote from Tim's briefing at XML DEVCON June 2001 
+
+Vertical Industry Vocabularies 
+
+34.6 old pub tech publishing
+
+inventory 
+
+open
+   
+Vendor 
+
+Vulnerable  
+
+
+ dave winer - scripting.com 
+
+all these Markup languages
+
+
+Ron Bourret: Namespaces FAQ ( http://www.rpbourret.com/xml/NamespacesFAQ.htm)
+
+ Chuck Yuzanevsky (Borland) har lavet the "Universal Component" 
+
+-->
+
+
+
+<!--
+Why the XML and not SGML version
+================================
+
+How are DocBook documents translated.
+=====================================
+
+The modular XSL style-sheets
+============================
+
+The chairman of the OASIS Technical committee, which manages DocBook
+DTD, have also developed stylesheets for the DocBook XML DTD.
+
+   gotcha in docbook
+
+DocBook Tags supported and attributes
+=====================================
+
+DocBook tags groped by ??
+=========================
+
+
+link to volume home page         vol4/v4-frontindex
+volume full index (on new page)  vol4/v4-fullindex (really not necessary)
+vol figures    (on new page)     vol4/v4-figures
+link to glossary                 ../gloss/..
+link to acronyms                 ../acrony/..
+
+
+chapter headings (1 level)  
+
+appendix headings (1 level)
+
+
+   editors, xml parsers, xslt processers, 
+
+
+
+  Sum of fixed column widths 458077 greater than maximum specified IPD 453543 
+
+
+-->
+
+
+   
+<!--  LocalWords:  stylesheets
+ -->
+
+<!--
+
+Homegrown fop extension element
+
+<fox:info key="author">NATO Open Systems Working Group</fox:info>
+<fox:info key="title"></fox:info>
+<fox:info key="subject"></fox:info>
+<fox:info key="creator"></fox:info>
+<fox:info key="keywords"></fox:info>
+
+
+-->
