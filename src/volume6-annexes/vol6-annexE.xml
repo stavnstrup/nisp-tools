@@ -1,411 +1,910 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-*****************************************************************
-                   Vol 6 -   A N N E X - E
-*****************************************************************  
--->
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../schema/dtd/docbkx45/docbookx.dtd" [
-<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
-]>
-<appendix id="v6e-ndr">
+"../schema/dtd/docbkx45/docbookx.dtd">
+<appendix id="v6e-drguide">
   <title>Guidelines using design rules in NATO NEC federated
   environment</title>
 
-  <sect1 id="v6e-01">
-    <title>Summary</title>
+  <simpara><emphasis role="bold">Summary</emphasis></simpara>
+
+  <para>This guideline document describes a concept and model for how
+  knowledge of proven solutions can be documented and packaged in order to
+  form a shared basis for supporting the development and the implementation of
+  NNEC based systems for NATO.</para>
+
+  <sect1>
+    <title>Introduction</title>
+
+    <para>This document introduces the concept of design rules by describing
+    what design rules are and how they shall be applied in a NATO Network
+    Enabled Capabilities context.</para>
+
+    <para>Design rules are about reusing knowledge of proven solutions for
+    reoccurring problems. Reuse of solutions that give NNEC-specific
+    characteristics is particularly important. These solutions should solve
+    frequent and/or difficult problems, promote important system
+    characteristics and/or improve the quality of the resulting product in a
+    cost effective way.</para>
+
+    <para>A design rule consists mainly of the following three parts:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Context; describes under what circumstances the design rule is
+        valid</para>
+      </listitem>
+
+      <listitem>
+        <para>Problem/Opportunity; is a description of the problem it solves
+        or the opportunity it exploits.</para>
+      </listitem>
+
+      <listitem>
+        <para>Solution; is a description how the problem/opportunity
+        shall/should be resolved in the given context</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Design rules can give solutions on all levels, but it is anticipated
+    that the produced design rules mainly takes care of the higher system
+    levels (relating to the breakdown patterns in a system design) in order to
+    avoid a cumbersome number of rules. If possible design rules shall be
+    based on standards and/or NISP/NAF and will preferably be associated with
+    as concept (generic concept of design).</para>
+
+    <para>The introduction of design rules in the NISP will also need to be
+    integrated with other design related artefacts and frameworks within NATO
+    such as the NATO Architectural Framework (NAF).</para>
+  </sect1>
+
+  <sect1>
+    <title>General</title>
+
+    <sect2>
+      <title>Target Group</title>
+
+      <para condition="ignore"></para>
+    </sect2>
+
+    <sect2>
+      <title>Definitions, Abbreviations and Acronyms</title>
+
+      <informaltable frame="all">
+        <tgroup cols="4">
+          <colspec colwidth="16*" />
+
+          <colspec colwidth="22*" />
+
+          <colspec colwidth="22*" />
+
+          <colspec colwidth="50*" />
+
+          <thead>
+            <row>
+              <entry><para>Acronym</para></entry>
+
+              <entry><para>Explanation</para></entry>
+
+              <entry><para>Reference</para></entry>
+
+              <entry><para>Definition</para></entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry><para>DR</para></entry>
+
+              <entry><para>Design Rule</para></entry>
+
+              <entry><para>NOSWG</para></entry>
+
+              <entry><para>A standardized, reusable solution to a design
+              problem in a specific context within a problem space that
+              provides value to the user.</para> <para>Note: There are four
+              (4) types of design rules:</para> <para>a. A development method
+              that supports the life cycle perspective;</para> <para>b. A
+              defined structure that supports descriptions of complex
+              relations;</para> <para>c. A detailed description of suggested
+              technical solutions;</para> <para>d. A proven and reusable
+              solution for a generic problem.</para></entry>
+            </row>
+
+            <row>
+              <entry><para>DRP</para></entry>
+
+              <entry><para>Design Rule Package</para></entry>
+
+              <entry><para>NOSWG</para></entry>
+
+              <entry><para>A specific set of design rules that make up a
+              solution package within a defined problem area.</para></entry>
+            </row>
+
+            <row>
+              <entry><para>SIOP</para></entry>
+
+              <entry><para>service interoperability point</para>
+              <para></para></entry>
+
+              <entry><para>EAPC(AC/322)D(2006)0002-REV1</para>
+              <para></para></entry>
+
+              <entry><para>A reference point within an architecture where one
+              or more service interfaces are physically or logically
+              instantiated to allow systems delivering the same service using
+              different protocols to interoperate.</para> <para>Note: A
+              service interoperability point serves as the focal point for
+              service interoperability between interconnected systems, and may
+              be logically located at any level within the components, and its
+              detailed technical specification is contained within a service
+              interface profile.</para></entry>
+            </row>
+
+            <row>
+              <entry><para>SIP</para></entry>
+
+              <entry><para>service interface profile</para>
+              <para></para></entry>
+
+              <entry><para>EAPC(AC/322)D(2006)0002-REV1</para>
+              <para></para></entry>
+
+              <entry><para>A set of attributes that specifies the
+              characteristics of a service interface between interoperable
+              systems in the Networking and Information Infrastructure.</para>
+              <para>Note: A service interface profile is identified at a
+              service interoperability point in an architecture system
+              view.</para> <para></para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </sect2>
+
+    <sect2>
+      <title>References</title>
+
+      <para condition="ignore"></para>
+
+      <bibliography>
+        <title>Referenced documents</title>
+
+        <bibliomixed><author>
+            <surname>Alexander</surname>
+
+            <firstname>C.</firstname>
+          </author> et al. <pubdate>1997</pubdate> <title>A Pattern
+        Language</title>, <publishername>Oxford University
+        Press</publishername>, <address>New York</address>,</bibliomixed>
+
+        <bibliomixed><author>
+            <firstname>E.</firstname>
+
+            <surname>Gamma</surname>
+          </author>, <author>
+            <firstname>R.</firstname>
+
+            <surname>Helm</surname>
+          </author>, <author>
+            <firstname>J.</firstname>
+
+            <surname>Vlissides</surname>
+          </author> <pubdate>1995</pubdate>. <title>Design Patterns: Elements
+        of Reusable Object-Oriented Software</title>. <address>Reading, MA</address>:
+        <publishername>Addison-Wesley</publishername></bibliomixed>
+
+        <bibliomixed><author>
+            <surname>Buschmann</surname>
+
+            <firstname>F.</firstname>
+          </author>, <author>
+            <surname>Meunier</surname>
+
+            <firstname>R.</firstname>
+          </author>, <author>
+            <surname>Rohnert</surname>
+
+            <firstname>H.</firstname>
+          </author>, <author>
+            <surname>Sommerlad</surname>
+
+            <firstname>P.</firstname>
+          </author> and <author>
+            <firstname>M.</firstname>
+
+            <surname>Stal</surname>
+          </author>. <pubdate>1996</pubdate>. <title>Pattern-Oriented Software
+        Architecture, A System of Patterns</title>. <address>New York</address>:
+        <publishername>John Wiley and Sons</publishername></bibliomixed>
+
+        <bibliomixed><title>Designrules, in the commercial world</title>.
+        <author>
+            <firstname>David B. Kim</firstname>
+
+            <surname>Clark</surname>
+          </author></bibliomixed>
+      </bibliography>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Background</title>
+
+    <para>Packaging knowledge into something reusable is nothing new in the
+    software engineering field of science. Almost ten years ago a book was
+    published that made a huge impact on how software engineers look upon
+    packaging and sharing knowledge of proven solutions. The Design
+    Pattern-book gave the engineers a tool not only on how to describe,
+    formalize, package and distribute their knowledge and experience but also
+    a tool on how to discuss different possible solution alternatives to a
+    specific problem. It enables efficiency in both the communication and the
+    implementation of software design, based upon a common vocabulary and
+    reference.</para>
+
+    <para>The design pattern concept described in this book was not an
+    original idea but the adaptation of the ideas from a building architect,
+    Dr Christopher Alexander, who wrote a book on patterns found when
+    categorizing floor plans, buildings, neighbourhoods, town, cities, etc. In
+    that book Alexander writes:</para>
+
+    <para>&ldquo;Each pattern is a three-part rule, which expresses a relation
+    between a certain context, a problem, and a solution.&rdquor;</para>
+
+    <para>This is the central thing about being able to package our knowledge
+    and experience. It is not enough to describe a solution. To make a
+    solution useful you also have to state what problem the solution solves or
+    what opportunity that the solution makes possible as well as the context
+    in which the problem/opportunity &ndash; solution pair is valid. For
+    instance, the optimal solution to the problem on how to enter and exit a
+    building will be very different in the context of a building situated in
+    Stockholm or somewhere in the arctic.</para>
+
+    <para>The design patterns from the Design Pattern-book are the type of
+    patterns that have become most widely known. These patterns solve problems
+    or makes opportunities possible at a analysis or design level of
+    abstraction. However, this is not the only level of abstraction covered by
+    patterns. 1996 an important piece of work regarding patterns was published
+    dealing with patterns on an architectural level of abstraction. This book
+    identified patterns for system architecture at a higher level than the
+    original design patterns. The patterns relate to the macro-design of
+    system components such as operating systems or network stacks.</para>
+
+    <para>After this, patterns of higher and higher level of abstraction have
+    been published, sometimes, but not very often, also on lower levels. A
+    specific level of interest to us is the system level-of abstraction.
+    System-level patterns identify and describe the overall structure and
+    interactions that can occur between components of a system. Furthermore,
+    Enterprise-level patterns are possible, showing how to efficiently
+    organise ones enterprise and what type of services to offer to its
+    clients.</para>
+
+    <para>Consequently, mechanisms similar to the design rules described in
+    this guideline have been used in different contexts and at different
+    levels of abstraction. In many cases they have been quite popular and
+    proven practical. Thus, it can be assumed that the design rule concept can
+    be an efficient means to provide reuse of knowledge within the future
+    development of the NNEC.</para>
+  </sect1>
+
+  <sect1>
+    <title>Design rules summary</title>
+
+    <sect2>
+      <title>Introduction to design rules</title>
+
+      <para>Design rules are about reusing knowledge of proven solutions for
+      reoccurring problems. Reuse of solutions that give NNEC-specific
+      characteristics is particularly important. These solutions should solve
+      frequent and/or difficult problems, promote important system
+      characteristics and/or improve the quality of the resulting product in a
+      cost effective way.</para>
+
+      <para>Design rules consist mainly of the following three parts:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Context; describes under what circumstances the design rule is
+          valid</para>
+        </listitem>
+
+        <listitem>
+          <para>Problem/Opportunity; is a description of the problem it solves
+          or the opportunity it exploits.</para>
+        </listitem>
+
+        <listitem>
+          <para>Solution; is a description how the problem/opportunity
+          shall/should be resolved in the given context</para>
+        </listitem>
+      </itemizedlist>
+
+      <para>Design rules can give solutions on all levels, but it is
+      anticipated that the produced design rules mainly takes care of the
+      higher system levels (relating to the breakdown patterns in a system
+      design) in order to avoid a cumbersome number of rules. If possible
+      design rules shall be based on standards and/or NISP/NAF and will
+      preferably be associated with as concept (generic concept of
+      design).</para>
+
+      <para>A design rule package is a mechanism for packaging of design rules
+      (by reference) within a certain domain or for a specific kind of system.
+      The dependencies between design rules that are part of a design rule
+      package shall be defined and minimized.</para>
+    </sect2>
+
+    <sect2>
+      <title>Benefits from using design rules</title>
+
+      <para>In today&rsquor;s knowledge oriented organizations it is very
+      important to make sure that the knowledge of people is preserved in the
+      organization even if the people change positions or leave the company.
+      Design rules are important tools to be able to aid the process of
+      managing this knowledge since they force documentation of knowledge in a
+      structured way.</para>
+
+      <para>The use of design rules to document and package proven solutions
+      is expected to speed up development, and reduce cost and risk, by
+      reusing knowledge on how to solve recurring problems and by providing
+      verified solutions to those problems.</para>
+
+      <para>Moreover, the use of design rules provide the means to coordinate
+      development of different federated systems in order to make them network
+      enabled and facilitate the evolvement of combined capabilities. Another
+      important aspect is also that design rules aid organisations in creating
+      a common understanding of the problems and challenges they are
+      facing.</para>
+    </sect2>
+
+    <sect2>
+      <title>Consequences of using design rules</title>
+
+      <para>In order for design rules to have effect in an organization there
+      must be a framework which describes what design rules are and how they
+      shall be used, i.e. this document. Design rules will also affect the way
+      solutions are described and must be an integral part of the architecture
+      description framework.</para>
+
+      <para>Another important thing to remember is that design rules will
+      affect the way we work, thus putting new requirements on the processes
+      and people within our organization.</para>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Design rules in a NATO NEC federated environment</title>
 
     <para>This guideline document describes a concept and model for how
-    knowledge of proven solutions can be documented and packaged in order to
-    form a shared basis for supporting the development and the implementation
-    of NNEC based systems for NATO.</para>
+    knowledge of proven solutions in the form of design rules can be
+    documented and packaged in order to form a shared basis for the future
+    development of NNEC based systems for NATO.</para>
+
+    <para>The processes in which design rules are identified, produced and
+    used are not described within this guideline.</para>
+
+    <sect2>
+      <title>Problems or opportunity description</title>
+
+      <para>In the development of large systems of systems or federated
+      systems for the future needs of the NATO there are several problems to
+      be solved as well as opportunities to exploit. The problems range from
+      what methods to use for requirements capture and design to how to solve
+      detailed technical matters.</para>
+
+      <para>In order to be able to establish a set of building blocks that can
+      be used to meet the needs of the future NNEC, design regulations are
+      absolutely essential if the building blocks shall be possible to be used
+      together and combined in different ways, from a technical as well as
+      from a business point of view.</para>
+
+      <para>Design regulations in this context are the descriptive or
+      normative regulation work necessary for NATO nations to be able to
+      implement, configure and use systems in a federated environment. This
+      includes not only technical and business design, but also the ability to
+      manage and maintain these regulations to be able to provide the NATO
+      nations with flexible component based systems.</para>
+
+      <para>Moreover, there is a strong incentive to endorse reuse of proven
+      solutions or implementations and thus get a more cost-effective
+      solution. The overall quality is also expected to benefit from this kind
+      of reuse.</para>
+
+      <para>In this document we will focus on the model for design rules, and
+      the patterns for setting up the SIOP and SIP:s between federations, this
+      in order to be able to exchange information services between
+      parties.</para>
+
+      <para>Design rules patterns and knowledge for supporting NATO Nations in
+      designing NNEC compliant components and services can also be retrieved
+      from different Nations repositories as reference architectures, Sweden
+      Design rules (releasable to NATO) will be included as one of the Partner
+      nations reference architecture as recommended and proven patterns in
+      order to achieve NNEC interoperability.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <sect3>
+        <title>Design rules in the NNEC context</title>
+
+        <para>Design rules are about reusing knowledge of proven solutions. In
+        the context of NNEC we are especially interested in reuse of solutions
+        that provide typical NNEC characteristics. In addition to this, the
+        use of design rules aim at making the development of NNEC more
+        cost-effective and improve the quality in the resulting
+        products.</para>
+
+        <para>As mentioned before, a design rule is in the most general
+        description a three-part rule, which expresses a relation between a
+        certain context, a problem or an opportunity and a solution.</para>
+
+        <para>Different design rules may be in conflict with each other, e.g.
+        in that the solution of one design rule can be incompatible with the
+        solution of the other.</para>
+
+        <para>Moreover, design rules can be singular or aggregates meaning
+        that it either is an atomic rule or an aggregate of rules that
+        together constitute the rule. The aggregate may include rules on how
+        to combine the possibly conflicting aggregated rules in order to
+        generate a rule according to the current priorities.</para>
+
+        <para>Design rules may be implemented for solutions on different
+        levels. There may be design rules for specific technical design
+        problems or rules, how to handle a major business opportunities. It is
+        however anticipated that the majority of design rules valid for an
+        NNEC-system will be focused on the higher levels.</para>
+
+        <para>Design rules can be used in order to meet functional as well as
+        non-functional needs of the system of interest. It should be clear
+        from all design rules which problem or opportunity it is supposed to
+        solve.</para>
+      </sect3>
+
+      <sect3>
+        <title>General guidance for using design rules</title>
+
+        <para>The prime prerequisites for implementing a design rule
+        are:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>The use of the design rule shall make the resulting design
+            &ldquo;NNEC-compliant&rdquor;, i.e. the design rules shall provide
+            essential NNEC-characteristics such as flexibility,
+            interoperability, security and usability</para>
+          </listitem>
+
+          <listitem>
+            <para>A design rule shall provide a solution to frequently shown
+            problems, to enable reuse of solutions or implementations and thus
+            get a more cost-effective solution.</para>
+          </listitem>
+
+          <listitem>
+            <para>A design rule shall provide a solution to difficult
+            problems, or explore an opportunity, i.e. be a part of the
+            corporate or federated memory</para>
+          </listitem>
+
+          <listitem>
+            <para>A design rule shall improve the quality of the resulting
+            product relative a product solution not using the design
+            rule.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>At least one of the mentioned prerequisites should be fulfilled.
+        There may of course be other valid prerequisites, which will be
+        assessed and used to initiate the design of a design rule.</para>
+
+        <para>Design rules shall consist of either atomic rules or aggregates
+        of rules that together shall constitute the rule. The aggregate may
+        include rules on how to combine the possibly conflicting rules in
+        order to generate a rule according to the priorities.</para>
+
+        <para>An atomic design rule must not contain solutions for more than
+        one subject area, e.g. mixing of business and technical subjects shall
+        be avoided. Detailed technical rules shall in the same way be
+        separated from rules of information or logical nature.</para>
+
+        <para>Design rules shall where applicable be based on concepts and
+        rules in an extended NATO Architecture Framework.</para>
+
+        <para>A design rule shall not be of too low granularity or too trivial
+        in order to avoid an explosion in the number produced of design rules.
+        To achieve the approved mandatory validity, a design rule shall
+        specify the way to solve the problem it is intended for. Rules that
+        can be expressed in single sentences are collected in general sections
+        in the design rule solution part.</para>
+
+        <para>Great efforts shall be made to ensure that the design rule is
+        maintainable. This is primarily achieved by limiting the problem area
+        that the design rule is intended for. More complex problems or
+        opportunities shall be supported by aggregates of rules.</para>
+      </sect3>
+
+      <sect3>
+        <title>Design rule model</title>
+
+        <figure>
+          <title>Design rule model</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/dr-guide-designrulemodel.svg" />
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>The design rule product consists of:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>The basic design rule which, as already described, is a
+            three part rule consisting of context, problem and solution. This
+            shall also be complemented with one or more rejected solutions,
+            i.e. solutions which shall not be used.</para>
+          </listitem>
+
+          <listitem>
+            <para>An analysis and motivation why the solution fits the problem
+            in the given context. This needs to be linked to direct business
+            benefits such as cost savings or increased efficacy in
+            operations.</para>
+          </listitem>
+
+          <listitem>
+            <para>A description of the consequences from the proposed solution
+            which is used to create an understanding at what cost the solution
+            comes. This could include financial impacts, but also how people,
+            processes or technology needs to be adjusted in order to achieve
+            the solution. When describing the consequences from a design rule
+            solution the impact on (at least) the following areas should
+            always be considered:</para>
+
+            <itemizedlist>
+              <listitem>
+                <para>Security</para>
+              </listitem>
+
+              <listitem>
+                <para>Interoperability</para>
+              </listitem>
+
+              <listitem>
+                <para>Cost</para>
+              </listitem>
+
+              <listitem>
+                <para>Usability</para>
+              </listitem>
+
+              <listitem>
+                <para>Flexibility and</para>
+              </listitem>
+
+              <listitem>
+                <para>Procedures</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+
+          <listitem>
+            <para>Verification information which explains how the application
+            of the rule can be verified.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>A template for design rules, including guidelines, is defined in
+        a separate document.</para>
+
+        <para>A design rule product is like Standards in the NISP related to
+        near, mid and far term. A design rule can also exist in different
+        versions with different status. The status of the design rule
+        indicates which state of development the design rule is in.</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Candidates</para>
+          </listitem>
+
+          <listitem>
+            <para>Approved</para>
+          </listitem>
+
+          <listitem>
+            <para>Disposed</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>The solution described in a design rule may refer to other
+        design rules to form an aggregate design rule. This may be the case
+        for instance in a design rule describing a configuration to use in a
+        specific context or for a specific type of system. If so, the validity
+        of the referenced design rule within the current context shall be
+        stated.</para>
+
+        <para>Each design rule is configured in one, and only one, Design Rule
+        Package.</para>
+
+        <para>The status of a design rule indicates in which state of
+        development it is.</para>
+
+        <para>Validity of a design rule is only used when referring as e.g. to
+        form aggregates. The validity labels that can be used are defined in
+        the table below.</para>
+
+        <table frame="all">
+          <title>Rule validities</title>
+
+          <tgroup cols="2">
+            <colspec colwidth="20*" />
+
+            <colspec colwidth="80*" />
+
+            <thead>
+              <row>
+                <entry><para>Validity</para></entry>
+
+                <entry><para>Description</para></entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry><para>Mandatory</para></entry>
+
+                <entry><para>The rule shall be treated as a norm and is
+                mandatory to use.</para></entry>
+              </row>
+
+              <row>
+                <entry><para>Optional</para></entry>
+
+                <entry><para>The rule gives good design principles and is
+                recommended for use.</para></entry>
+              </row>
+
+              <row>
+                <entry><para>Candidate</para></entry>
+
+                <entry><para>The rule is planned for future use in this
+                context. The design rule exist but is not appropriate to use
+                due to reasons like cost, compatibility etc.</para></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <para>The lifecycle for a design rule must be coordinated with
+        profiles and standards in the manner, following the NOSWG NISP
+        model</para>
+      </sect3>
+
+      <sect3>
+        <title>Packaging of Rules (Rule Package)</title>
+
+        <para>Design rules are configured in packages named DRP, Design Rule
+        Package. A DRP may also configure other DRPs, thus creating a
+        hierarchy of packages. A design rule or DRP belongs to one, and only
+        one, DRP.</para>
+
+        <para>DRPs are defined so that each DRP-structure covers rules that
+        are specific to one particular domain defined for a specific subject
+        area of norms.</para>
+
+        <para>Dependencies between DRPs shall be defined, and the dependencies
+        shall be minimized. Circular dependencies must not exist. The
+        visibility of design rules configured by a DRP may in addition be
+        limited to the DRP only; default is however that only the DRP exposes
+        the external visibility for a design rule.</para>
+
+        <para>No design rule shall be part of more than one DRP, if necessary
+        cross-references between DRPs according to the rules for dependencies
+        between DRPs shall be used. Common design rules must for this reason
+        be allocated to higher levels in a DRP hierarchy.</para>
+      </sect3>
+    </sect2>
+
+    <sect2>
+      <title>Consequences</title>
+
+      <para>If the design rule concept is going to be successfully
+      implemented, it is important to understand how they impact the other
+      frameworks and processes used in design. These frameworks and processes
+      also have to be adjusted so it becomes clear as to what is documented
+      where and when.</para>
+
+      <sect3>
+        <title>Standards with the use of design rules</title>
+
+        <para>Standards is often about WHAT but not always about HOW. A vast
+        number of standards are applicable for NNEC, what are applied where,
+        how and together with what, does not always mean that complex system
+        will work. In order to support profiling development when using NISP,
+        Designrules is adopted by NATO as a complementary set of tools for
+        :</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Helping to choose the right standard</para>
+          </listitem>
+
+          <listitem>
+            <para>How to apply the standard on a specific problem</para>
+          </listitem>
+
+          <listitem>
+            <para>Understanding the relations between different
+            standards</para>
+          </listitem>
+
+          <listitem>
+            <para>Applicability in different domains</para>
+          </listitem>
+
+          <listitem>
+            <para>Helping with best practice and good patters in order to
+            speed up the development of a profile.</para>
+          </listitem>
+        </itemizedlist>
+      </sect3>
+
+      <sect3>
+        <title>Profiling with the use of NAF and Standards and Designrules in
+        the NISP</title>
+
+        <para>The relations between the NISP and NAF objects in focus. The
+        following picture shows the relations between the NISP objects
+        Profile, Standards and Designrules. For more information about Profile
+        guidance document.</para>
+
+        <figure>
+          <title>Releationship between NISP objects Profiles, standards and
+          Designrules</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/dr-guide-profiling.svg" />
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </sect3>
+    </sect2>
   </sect1>
 
+  <sect1>
+    <title>Reference architecture - National design rules</title>
 
-  <sect1 id="v6e-01b">
-    <title>Introduction</title>
-    <para>This document introduces the concept of design rules by describing what design rules are and how they shall be applied in a NATO Network Enabled Capabilities context.</para> 
+    <sect2>
+      <title>The Swedish Design rules contributions</title>
 
-<para>Design rules are about reusing knowledge of proven solutions for reoccurring problems. Reuse of solutions that give NNEC-specific characteristics is particularly important. These solutions should solve frequent and/or difficult problems, promote important system characteristics and/or improve the quality of the resulting product in a cost effective way.</para>
+      <simpara><emphasis role="bold">FMLS Architecture Framework
+      Designrules</emphasis></simpara>
 
-<para>A design rule consists mainly of the following three parts:</para>
-	<itemizedlist>
-	<listitem><para>Context; describes under what circumstances the design rule is valid</para></listitem>
-	<listitem><para>Problem/Opportunity; is a description of the problem it solves or the opportunity it exploits.</para></listitem>
-	<listitem><para>Solution; is a description how the problem/opportunity shall/should be resolved in the given context</para></listitem>
-	</itemizedlist>
-	
-<para>Design rules can give solutions on all levels, but it is anticipated that the produced design rules mainly takes care of the higher system levels (relating to the breakdown patterns in a system design) in order to avoid a cumbersome number of rules. If possible design rules shall be based on standards and/or NISP/NAF and will preferably be associated with as concept (generic concept of design).</para>
-<para>The introduction of design rules in the NISP will also need to be integrated with other design related artefacts and frameworks within NATO such as the NATO Architectural Framework (NAF).</para>
+      <simpara>LT9O P05-0486 Executive Summary 1.0</simpara>
+
+      <simpara>Leif Nyberg, JV Network Based Defence, Framework Service
+      Description LT1K P04-0320 Version 7.0 December 2006.</simpara>
+
+      <simpara>LT1K P05-0074 Overarching Architecture 4.0</simpara>
+
+      <simpara>LT1K P05-0075 Systems Engineering Vision FMLS 2010
+      5.0</simpara>
+
+      <simpara>LT1K P05-0026 - SOA for NBD Principles 3.0</simpara>
+
+      <simpara>LT1K P05-0507 Architecture Description Framework 2.0</simpara>
+
+      <simpara>LT1K P06-0025 Integrated Dictionary for FMLS 2010 Technical
+      Systems rev 1.0</simpara>
+
+      <simpara><emphasis role="bold">FMLS Generic
+      Designrules</emphasis></simpara>
+
+      <simpara>LT1K P04-0438 Definition of service Service Registry
+      3.0</simpara>
+
+      <simpara>LT1K P05-0235 Definition of service User Registry 2.0</simpara>
+
+      <simpara>LT1K P05-0446 NERE metadata specs for tech and softw syst
+      2.0</simpara>
+
+      <simpara>LT1K P06-0036 SD Provide Report 2.0</simpara>
+
+      <simpara>LT1K P06-0039 SD Access COP Information 2.0</simpara>
+
+      <simpara>LT1K P06-0061 Definition of Service SW and Data Distribution
+      1.0</simpara>
+
+      <simpara>LT1K P06-0064 Definition of Service Configuration 1.0</simpara>
+
+      <simpara>LT1K P06-0102 Definition of Service GetRevocation 1.0</simpara>
+
+      <simpara>LT1K P06-0269 Definition of Service TimeStamp 1.0</simpara>
+
+      <simpara>LT1K P06-0272 Definition of Service ComBroker 1.0</simpara>
+
+      <simpara>LT1K P06-0298 D3C 1.0</simpara>
+
+      <simpara>LT1K P05-0034 Infrastructure Overview 3.0</simpara>
+
+      <simpara>LT1K P05-0236 Definition of service Organization Registry
+      2.0</simpara>
+
+      <simpara>LT1K P05-0557 Design Target Architecture NERE 2.0</simpara>
+
+      <simpara>LT1K P06-0037 SD Process intelligence 2.0</simpara>
+
+      <simpara>LT1K P06-0059 Definition of Service Policy 1.0</simpara>
+
+      <simpara>LT1K P06-0062 Definition of Service Action 1.0</simpara>
+
+      <simpara>LT1K P06-0091 COPS Information model 1.0</simpara>
+
+      <simpara>LT1K P06-0134 Definition of Service DNS 1.0</simpara>
+
+      <simpara>LT1K P06-0270 Definition of Service AccessControl 1.0</simpara>
+
+      <simpara>LT1K P06-0274 Definition of API data validation 1.0</simpara>
+
+      <simpara>LT1K P05-0035 Communication Infrastructure Overview
+      4.0</simpara>
+
+      <simpara>LT1K P05-0443 NCES Reference Architecture 2.0</simpara>
+
+      <simpara>LT1K P06-0035 SD Provide Streaming Data 2.0</simpara>
+
+      <simpara>LT1K P06-0038 SD Support COPS 2.0</simpara>
+
+      <simpara>LT1K P06-0060 Definition of Service Log 1.0</simpara>
+
+      <simpara>LT1K P06-0063 Definition of Service Monitoring 1.0</simpara>
+
+      <simpara>LT1K P06-0095 NCES Management Information and Data models
+      1.0</simpara>
+
+      <simpara>LT1K P06-0145 Design Overview 1.0</simpara>
+
+      <simpara>LT1K P06-0271 Definition of Service NereRegistryAdmin
+      1.0</simpara>
+
+      <simpara>LT1K P06-0279 Definition of Service Network Time
+      synchronization 1.0</simpara>
+
+      <simpara><emphasis role="bold">FMLS Technical
+      Designrules</emphasis></simpara>
+
+      <simpara>LT1K P05-0217 - DR Data Incest Prevention 2.0</simpara>
+
+      <simpara>LT1K P06-0049 DR Risk management 2.0</simpara>
+
+      <simpara>LT1K P06-0106 Design Rule Mobility 2.0</simpara>
+
+      <simpara>LT1K P06-0350 DRP Flexibility 1.0</simpara>
+
+      <simpara>LT1K P05-0547 - DRP Common Operational Picture 2.0</simpara>
+
+      <simpara>LT1K P06-0050 DR Flexibility 2.0</simpara>
+
+      <simpara>LT1K P06-0108 DR security aspects of information 1.0</simpara>
+
+      <simpara>LT1K P06-0351 DRP Interoperability 1.0</simpara>
+
+      <simpara>LT1K P06-0008 Design Rule Legacy Integration 1.0</simpara>
+
+      <simpara>LT1K P06-0051 DR Interoperability 2.0</simpara>
+
+      <simpara>LT1K P06-0321 DR Scalability 1.0</simpara>
+
+      <simpara>LT1K P06-0352 DRP Security 1.0</simpara>
+    </sect2>
+
+    <sect2>
+      <title>Nation x &hellip;</title>
+
+      <para condition="ignore"></para>
+    </sect2>
   </sect1>
-
-  <sect1 id="v6e-02">
-	<title>General</title>
-	<sect2 id="v6e-0201">
-	<title>Target Group</title>
-	</sect2>
-
-	<sect2 id="v6e-0202">
-	<title>Definitions, Abbreviations and Acronyms</title>
-<table frame="all" id="v6e-0202-t1" orient="land">
-      <tgroup align="left" cols="4">
-	<thead>
-	<row>
-              <entry>Acronym</entry>
-              <entry>Explanation</entry>
-              <entry>Reference</entry>
-              <entry>Definition</entry>
-	</row>
-	</thead>
-	<tbody>
-		<row>
-		<entry>DR</entry>
-		<entry>Design Rule</entry>
-		<entry>NOSWG</entry>
-		<entry>A standardized, reusable solution to a design problem in a specific context within a problem space that provides value to the user. Note: There are four (4) types of design rules: a. A development method that supports the life cycle perspective; b. A defined structure that supports descriptions of complex relations; c. A detailed description of suggested technical solutions; d. A proven and reusable solution for a generic problem.</entry>
-		</row>
-
-		<row>
-		<entry>DRP</entry>
-		<entry>Design Rule Package</entry>
-		<entry>NOSWG</entry>
-		<entry>A specific set of design rules that make up a solution package within a defined problem area.</entry>
-		</row>
-
-		<row>
-		<entry>SIOP</entry>
-		<entry>service interoperability point</entry>
-		<entry>EAPC(AC/322)D(2006)0002-REV1</entry>
-		<entry>A reference point within an architecture where one or more service interfaces are physically or logically instantiated to allow systems delivering the same service using different protocols to interoperate. Note: A service interoperability point serves as the focal point for service interoperability between interconnected systems, and may be logically located at any level within the components, and its detailed technical specification is contained within a service interface profile.</entry>
-		</row>
-
-		<row>
-		<entry>SIP</entry>
-		<entry>service interface profile</entry>
-		<entry>EAPC(AC/322)D(2006)0002-REV1</entry>
-		<entry>A set of attributes that specifies the characteristics of a service interface between interoperable systems in the Networking and Information Infrastructure. Note: A service interface profile is identified at a service interoperability point in an architecture system view.</entry>
-		</row>
-	</tbody>
-	</tgroup>
-	</table>
-	</sect2>
-
-	<sect2 id="v6e-0203">
-	<title>References</title>
-	<sect3 id="v6e-020301">
-	<title>Referenced Documents</title>
-	<itemizedlist><listitem><para>[1] Alexander, C., et al. 1977. A Pattern Language. New York: Oxford University Press</para></listitem>
-<listitem><para>[2] Gamma, E., Helm, R., Johnson, R., and J. Vlissides. 1995. Design Patterns: Elements of Reusable Object-Oriented Software. Reading, MA: Addison-Wesley</para></listitem>
-<listitem><para>[3] Buschmann, F., Meunier, R., Rohnert, H., Sommerlad, P., and M. Stal. 1996. Pattern-Oriented Software Architecture, A System of Patterns. New York: John Wiley and Sons</para></listitem>
-<listitem><para>[4] Designrules, in the commercial world. David B. Kim Clark</para></listitem>
-	</itemizedlist>
-	</sect3>
-	</sect2>
-  </sect1>
-
-  <sect1 id="v6e-03">
-	<title>Background</title>
-	<para>Packaging knowledge into something reusable is nothing new in the software engineering field of science. Almost ten years ago a book was published that made a huge impact on how software engineers look upon packaging and sharing knowledge of proven solutions. The Design Pattern-book gave the engineers a tool not only on how to describe, formalize, package and distribute their knowledge and experience but also a tool on how to discuss different possible solution alternatives to a specific problem. It enables efficiency in both the communication and the implementation of software design, based upon a common vocabulary and reference.</para>
-
-	<para>The design pattern concept described in this book was not an original idea but the adaptation of the ideas from a building architect, Dr Christopher Alexander, who wrote a book on patterns found when categorizing floor plans, buildings, neighbourhoods, town, cities, etc. In that book Alexander writes:</para>
-
-	<para>"Each pattern is a three-part rule, which expresses a relation between a certain context, a problem, and a solution."</para>
-
-	<para>This is the central thing about being able to package our knowledge and experience. It is not enough to describe a solution. To make a solution useful you also have to state what problem the solution solves or what opportunity that the solution makes possible as well as the context in which the problem/opportunity - solution pair is valid. For instance, the optimal solution to the problem on how to enter and exit a building will be very different in the context of a building situated in Stockholm or somewhere in the arctic.</para>
-
-	<para>The design patterns from the Design Pattern-book are the type of patterns that have become most widely known. These patterns solve problems or makes opportunities possible at a analysis or design level of abstraction. However, this is not the only level of abstraction covered by patterns. 1996 an important piece of work regarding patterns was published dealing with patterns on an architectural level of abstraction. This book identified patterns for system architecture at a higher level than the original design patterns. The patterns relate to the macro-design of system components such as operating systems or network stacks.</para>
-
-	<para>After this, patterns of higher and higher level of abstraction have been published, sometimes, but not very often, also on lower levels. A specific level of interest to us is the system level-of abstraction. System-level patterns identify and describe the overall structure and interactions that can occur between components of a system. Furthermore, Enterprise-level patterns are possible, showing how to efficiently organise ones enterprise and what type of services to offer to its clients.</para>
-
-	<para>Consequently, mechanisms similar to the design rules described in this guideline have been used in different contexts and at different levels of abstraction. In many cases they have been quite popular and proven practical. Thus, it can be assumed that the design rule concept can be an efficient means to provide reuse of knowledge within the future development of the NNEC.</para>
-
-
-  </sect1>
-
-  <sect1 id="v6e-04">
-	<title>Design Rules Summary</title>
-	<sect2 id="v6e-0401">
-	<title>Introduction to design rules</title>
-	<para>Design rules are about reusing knowledge of proven solutions for reoccurring problems. Reuse of solutions that give NNEC-specific characteristics is particularly important. These solutions should solve frequent and/or difficult problems, promote important system characteristics and/or improve the quality of the resulting product in a cost effective way.</para>
-	<para>Design rules consist mainly of the following three parts:</para>
-	<itemizedlist>
-	<listitem><para>Context; describes under what circumstances the design rule is valid</para></listitem>
-	<listitem><para>Problem/Opportunity; is a description of the problem it solves or the opportunity it exploits.</para></listitem>
-	<listitem><para>Solution; is a description how the problem/opportunity shall/should be resolved in the given context</para></listitem>
-	</itemizedlist>
-	<para>Design rules can give solutions on all levels, but it is anticipated that the produced design rules mainly takes care of the higher system levels (relating to the breakdown patterns in a system design) in order to avoid a cumbersome number of rules. If possible design rules shall be based on standards and/or NISP/NAF and will preferably be associated with as concept (generic concept of design).</para>
-	<para>A design rule package is a mechanism for packaging of design rules (by reference) within a certain domain or for a specific kind of system. The dependencies between design rules that are part of a design rule package shall be defined and minimized.</para>
-	</sect2>
-	<sect2 id="v6e-0402">
-	<title>Benefits from using design rules</title>
-	<para>In today's knowledge oriented organizations it is very important to make sure that the knowledge of people is preserved in the organization even if the people change positions or leave the company. Design rules are important tools to be able to aid the process of managing this knowledge since they force documentation of knowledge in a structured way.</para>
-	<para>The use of design rules to document and package proven solutions is expected to speed up development, and reduce cost and risk, by reusing knowledge on how to solve recurring problems and by providing verified solutions to those problems.</para>
-	<para>Moreover, the use of design rules provide the means to coordinate development of different federated systems in order to make them network enabled and facilitate the evolvement of combined capabilities. Another important aspect is also that design rules aid organisations in creating a common understanding of the problems and challenges they are facing.</para>
-	</sect2>
-	<sect2 id="v6e-0403">
-	<title>Consequences of using design rules</title>
-	<para>In order for design rules to have effect in an organization there must be a framework which describes what design rules are and how they shall be used, i.e. this document. Design rules will also affect the way solutions are described and must be an integral part of the architecture description framework.</para>
-	<para>Another important thing to remember is that design rules will affect the way we work, thus putting new requirements on the processes and people within our organization.</para>
-	</sect2>
-			
-  </sect1>
-
-  <sect1 id="v6e-05">
-	<title>Design Rules in a NNEC Federated Environment</title>
-	<para>This guideline document describes a concept and model for how knowledge of proven solutions in the form of design rules can be documented and packaged in order to form a shared basis for the future development of NNEC based systems for NATO.
-	</para>
-	<para>The processes in which design rules are identified, produced and used are not described within this guideline.</para>
-	<sect2 id="v6e-0501">
-	<title>Problems or opportunity description</title>
-	<para>In the development of large systems of systems or federated systems for the future needs of the NATO there are several problems to be solved as well as opportunities to exploit. The problems range from what methods to use for requirements capture and design to how to solve detailed technical matters.</para>
-
-	<para>In order to be able to establish a set of building blocks that can be used to meet the needs of the future NNEC, design regulations are absolutely essential if the building blocks shall be possible to be used together and combined in different ways, from a technical as well as from a business point of view.</para>
-
-	<para>Design regulations in this context are the descriptive or normative regulation work necessary for NATO nations to be able to implement, configure and use systems in a federated environment. This includes not only technical and business design, but also the ability to manage and maintain these regulations to be able to provide the NATO nations with flexible component based systems.</para>
-
-	<para>Moreover, there is a strong incentive to endorse reuse of proven solutions or implementations and thus get a more cost-effective solution. The overall quality is also expected to benefit from this kind of reuse.</para>
-
-	<para>In this document we will focus on the model for design rules, and the patterns for setting up the SIOP and SIPs between federations, this in order to be able to exchange information services between parties.</para>
-
-	<para>Design rules patterns and knowledge for supporting NATO Nations in designing NNEC compliant components and services can also be retrieved from different Nations repositories as reference architectures, Sweden Design rules (releasable to NATO) will be included as one of the Partner nations reference architecture as recommended and proven patterns in order to achieve NNEC interoperability.</para>
-
-	</sect2>
- 	<sect2 id="v6e-0502">
-	<title>Solution</title>
-
-	<sect3 id="v6e-050201">
-	<title>Design rules in the NNEC context</title>
-	<para>Design rules are about reusing knowledge of proven solutions. In the context of NNEC we are especially interested in reuse of solutions that provide typical NNEC characteristics. In addition to this, the use of design rules aim at making the development of NNEC more cost-effective and improve the quality in the resulting products.</para>
-
-<para>As mentioned before, a design rule is in the most general description a three-part rule, which expresses a relation between a certain context, a problem or an opportunity and a solution.</para>
-
-<para>Different design rules may be in conflict with each other, e.g. in that the solution of one design rule can be incompatible with the solution of the other.</para> 
-
-<para>Moreover, design rules can be singular or aggregates meaning that it either is an atomic rule or an aggregate of rules that together constitute the rule. The aggregate may include rules on how to combine the possibly conflicting aggregated rules in order to generate a rule according to the current priorities.</para>
-
-<para>Design rules may be implemented for solutions on different levels. There may be design rules for specific technical design problems or rules, how to handle a major business opportunities. It is however anticipated that the majority of design rules valid for an NNEC-system will be focused on the higher levels.</para> 
-
-<para>Design rules can be used in order to meet functional as well as non-functional needs of the system of interest. It should be clear from all design rules which problem or opportunity it is supposed to solve.</para>
-	</sect3>
-
-	<sect3 id="v6e-050202">
-	<title>General guidance for using design rules</title>
-	<para>The prime prerequisites for implementing a design rule are:</para>
-	<itemizedlist>
-	<listitem><para>The use of the design rule shall make the resulting design "NNEC-compliant", i.e. the design rules shall provide essential NNEC-characteristics such as flexibility, interoperability, security and usability.</para></listitem>
-	<listitem><para>A design rule shall provide a solution to frequently shown problems, to enable reuse of solutions or implementations and thus get a more cost-effective solution.</para></listitem>
-	<listitem><para>A design rule shall provide a solution to difficult problems, or explore an opportunity, i.e. be a part of the corporate or federated memory.</para></listitem>
-	<listitem><para>A design rule shall improve the quality of the resulting product relative a product solution not using the design rule.</para></listitem>
-	</itemizedlist>
-
-	<para>At least one of the mentioned prerequisites should be fulfilled. There may of course be other valid prerequisites, which will be assessed and used to initiate the design of a design rule.</para>
-
-	<para>Design rules shall consist of either atomic rules or aggregates of rules that together shall constitute the rule. The aggregate may include rules on how to combine the possibly conflicting rules in order to generate a rule according to the priorities.</para>
-
-	<para>An atomic design rule must not contain solutions for more than one subject area, e.g. mixing of business and technical subjects shall be avoided. Detailed technical rules shall in the same way be separated from rules of information or logical nature.</para>
-
-	<para>Design rules shall where applicable be based on concepts and rules in an extended NATO Architecture Framework.</para>
-
-	<para>A design rule shall not be of too low granularity or too trivial in order to avoid an explosion in the number produced of design rules. To achieve the approved mandatory validity, a design rule shall specify the way to solve the problem it is intended for. Rules that can be expressed in single sentences are collected in general sections in the design rule solution part.</para>
-
-	<para>Great efforts shall be made to ensure that the design rule is maintainable. This is primarily achieved by limiting the problem area that the design rule is intended for. More complex problems or opportunities shall be supported by aggregates of rules.</para>
-
-	</sect3>
-
-	<sect3 id="v6e-050203">
-	<title>Design rule model</title>
-	
-    <figure id="v6e-050203f1">
-	<title>Design Rule Model</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="figures/v6e0502f1.svg" />
-        </imageobject>
-      </mediaobject>
-    </figure>
-
-	<para>The design rule product consists of:</para>
-	<itemizedlist>
-	<listitem><para>The basic design rule which, as already described, is a three part rule consisting of context, problem and solution. This shall also be complemented with one or more rejected solutions, i.e. solutions which shall not be used.</para></listitem>
-	<listitem><para>An analysis and motivation why the solution fits the problem in the given context. This needs to be linked to direct business benefits such as cost savings or increased efficacy in operations.</para></listitem>
-	<listitem><para>A description of the consequences from the proposed solution which is used to create an understanding at what cost the solution comes. This could include financial impacts, but also how people, processes or technology needs to be adjusted in order to achieve the solution. When describing the consequences from a design rule solution the impact on (at least) the following areas should always be considered:
-	<itemizedlist>
-	<listitem><para>Security</para></listitem>
-	<listitem><para>Interoperability</para></listitem>
-	<listitem><para>Cost</para></listitem>
-	<listitem><para>Usability</para></listitem>
-	<listitem><para>Flexibility and</para></listitem>
-	<listitem><para>Procedures</para></listitem>
-	</itemizedlist>
-</para></listitem>
-	<listitem><para>Verification information which explains how the application of the rule can be verified</para></listitem>
-	</itemizedlist>
-
-	<para>A template for design rules, including guidelines, is defined in a separate document.</para>
-
-	<para>A design rule product is like Standards in the NISP related to near, mid and far term. A design rule can also exist in different versions with different status. The status of the design rule indicates which state of development the design rule is in.
-	<itemizedlist>
-	<listitem><para>Candidates</para></listitem>
-	<listitem><para>Approved</para></listitem>
-	<listitem><para>Disposed</para></listitem>
-	</itemizedlist>
-	</para>
-
-	<para>The solution described in a design rule may refer to other design rules to form an aggregate design rule. This may be the case for instance in a design rule describing a configuration to use in a specific context or for a specific type of system. If so, the validity of the referenced design rule within the current context shall be stated.</para>
-
-	<para>Each design rule is configured in one, and only one, Design Rule Package. The status of a design rule indicates in which state of development it is.</para>
-
-	<para>Validity of a design rule is only used when referring as e.g. to form aggregates. The validity labels that can be used are defined in the table below.</para>
-
-<table frame="all" id="v6e-050203-t1" orient="land">
-<title>Rule Validities</title>
-        <tgroup align="left" cols="2">
- 	<thead>
-	<row>
-              <entry>Validity</entry>
-              <entry>Description</entry>
-        </row>
-	</thead>
-	<tbody>
-	<row>
-              <entry>Mandatory</entry>
-              <entry>The rule shall be treated as a norm and is mandatory to use.</entry>
-      </row>
-	<row>
-              <entry>Optional</entry>
-              <entry>The rule gives good design principles and is recommended for use.</entry>
-      </row>
-	<row>
-              <entry>Candidate</entry>
-              <entry>The rule is planned for future use in this context. The design rule exist but is not appropriate to use due to reasons like cost, compatibility etc.</entry>
-      </row>
- 	</tbody>
- </tgroup>
-</table>
-
-	<para>The lifecycle for a design rule must be coordinated with profiles and standards in the manner, following the NOSWG NISP model.</para>
-
-	</sect3>
-
-	<sect3 id="v6e-050204">
-	<title>Packaging of Rules (Rule Package)</title>
-	<para>Design rules are configured in packages named DRP, Design Rule Package. A DRP may also configure other DRPs, thus creating a hierarchy of packages. A design rule or DRP belongs to one, and only one, DRP.</para>
-
-<para>DRPs are defined so that each DRP-structure covers rules that are specific to one particular domain defined for a specific subject area of norms.</para>
-
-<para>Dependencies between DRPs shall be defined, and the dependencies shall be minimized. Circular dependencies must not exist. The visibility of design rules configured by a DRP may in addition be limited to the DRP only; default is however that only the DRP exposes the external visibility for a design rule.</para> 
-
-<para>No design rule shall be part of more than one DRP, if necessary cross-references between DRPs according to the rules for dependencies between DRPs shall be used. Common design rules must for this reason be allocated to higher levels in a DRP hierarchy.</para>
-	</sect3>
-
-	</sect2>
- 	<sect2 id="v6e-0503">
-	<title>Consequences</title>
-	<para>If the design rule concept is going to be successfully implemented, it is important to understand
-how they impact the other frameworks and processes used in design. These frameworks and
-processes also have to be adjusted so it becomes clear as to what is documented where and when.
-	</para>
-	<sect3 id="v6e-050301">
-	<title>Standards with the use of design rules</title>
-	<para>Standards is often about WHAT but not always about HOW. A vast number of standards are
-applicable for NNEC, what are applied where, how and together with what, does not always mean
-that complex system will work. In order to support profiling development when using NISP,
-Designrules is adopted by NATO as a complementary set of tools for :
-	</para>
-	<itemizedlist>
-	<listitem><para>Helping to choose the right standard</para></listitem>
-	<listitem><para>How to apply the standard on a specific problem</para></listitem>
-	<listitem><para>Understanding the relations between different standards</para></listitem>
-	<listitem><para>Applicability in different domains</para></listitem>
-	<listitem><para>Helping with best practice and good patters in order to speed up the development of a
-profile.</para></listitem>
-	</itemizedlist>
-	</sect3>
-	<sect3 id="v6e-050302">
-	<title>Profiling with the use of NAF and Standards and Designrules in the NISP</title>
-	<para>The relations between the NISP and NAF objects in focus. The following picture shows the
-relations between the NISP objects Profile, Standards and Designrules. For more information about
-Profile guidance document.
-	</para>
-	
-    <figure id="v6e-050302f1">
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="figures/v6e0503f1.svg" />
-        </imageobject>
-      </mediaobject>
-    </figure>
-
-	</sect3>
-
-	</sect2>
-  </sect1>
-
-  <sect1 id="v6e-06">
-	<title>Reference Architecture - National Design Rules</title>
-	<sect2 id="v6e-0601">
-		<title>The Swedish Design rules contributions</title>
-
-		<para>FMLS Architecture Framework Designrules</para>
-		<itemizedlist>
-		<listitem><para>LT9O P05-0486 Executive Summary 1.0Leif Nyberg, JV Network Based Defence, Framework Service Description LT1K P04-0278 Version 7.0 December 2006.</para></listitem>
-		<listitem><para>LT1K P05-0074 Overarching Architecture 4.0</para></listitem> 
-		<listitem><para>LT1K P05-0075 Systems Engineering Vision FMLS 2010 5.0</para></listitem> 
-		<listitem><para>LT1K P05-0026 - SOA for NBD Principles 3.0</para></listitem> 
-		<listitem><para>LT1K P05-0507 Architecture Description Framework 2.0</para></listitem> 
-		<listitem><para>LT1K P06-0025 Integrated Dictionary for FMLS 2010 Technical Systems rev 1.0</para></listitem>
-		</itemizedlist>
-
-		<para>FMLS Generic Designrules</para>
-		<itemizedlist>
-		<listitem><para>LT1K P04-0438 Definition of service Service Registry 3.0</para></listitem>
-		<listitem><para>LT1K P05-0235 Definition of service User Registry 2.0</para></listitem>
-		<listitem><para>LT1K P05-0446 NERE metadata specs for tech and softw syst 2.0</para></listitem>				<listitem><para>LT1K P06-0036 SD Provide Report 2.0</para></listitem>
-		<listitem><para>LT1K P06-0039 SD Access COP Information 2.0</para></listitem>
-		<listitem><para>LT1K P06-0061 Definition of Service SW and Data Distribution 1.0</para></listitem>
-		<listitem><para>LT1K P06-0064 Definition of Service Configuration 1.0</para></listitem>
-		<listitem><para>LT1K P06-0102 Definition of Service GetRevocation 1.0</para></listitem>
-		<listitem><para>LT1K P06-0269 Definition of Service TimeStamp 1.0</para></listitem>
-		<listitem><para>LT1K P06-0272 Definition of Service ComBroker 1.0</para></listitem>
-		<listitem><para>LT1K P06-0298 D3C 1.0</para></listitem>
-		<listitem><para>LT1K P05-0034 Infrastructure Overview 3.0</para></listitem>
-		<listitem><para>LT1K P05-0236 Definition of service Organization Registry 2.0</para></listitem>
-		<listitem><para>LT1K P05-0557 Design Target Architecture NERE 2.0</para></listitem>
-		<listitem><para>LT1K P06-0037 SD Process intelligence 2.0</para></listitem>
-		<listitem><para>LT1K P06-0059 Definition of Service Policy 1.0</para></listitem>
-		<listitem><para>LT1K P06-0062 Definition of Service Action 1.0</para></listitem>
-		<listitem><para>LT1K P06-0091 COPS Information model 1.0</para></listitem>
-		<listitem><para>LT1K P06-0134 Definition of Service DNS 1.0</para></listitem>
-		<listitem><para>LT1K P06-0270 Definition of Service AccessControl 1.0</para></listitem>
-		<listitem><para>LT1K P06-0274 Definition of API data validation 1.0</para></listitem>
-		<listitem><para>LT1K P05-0035 Communication Infrastructure Overview 4.0</para></listitem>
-		<listitem><para>LT1K P05-0443 NCES Reference Architecture 2.0</para></listitem>
-		<listitem><para>LT1K P06-0035 SD Provide Streaming Data 2.0</para></listitem>
-		<listitem><para>LT1K P06-0038 SD Support COPS 2.0</para></listitem>
-		<listitem><para>LT1K P06-0060 Definition of Service Log 1.0</para></listitem>
-		<listitem><para>LT1K P06-0063 Definition of Service Monitoring 1.0</para></listitem>
-		<listitem><para>LT1K P06-0095 NCES Management Information and Data models 1.0</para></listitem>
-		<listitem><para>LT1K P06-0145 Design Overview 1.0</para></listitem>
-		<listitem><para>LT1K P06-0271 Definition of Service NereRegistryAdmin 1.0</para></listitem>
-		<listitem><para>LT1K P06-0279 Definition of Service Network Time synchronization 1.0</para></listitem>
-		</itemizedlist>
-
-		<para>FMLS Technical Designrules</para>
-		<itemizedlist>
-		<listitem><para>LT1K P05-0217 - DR Data Incest Prevention 2.0</para></listitem> 
-		<listitem><para>LT1K P06-0049 DR Risk management 2.0</para></listitem> 
-		<listitem><para>LT1K P06-0106 Design Rule Mobility 2.0</para></listitem> 
-		<listitem><para>LT1K P06-0350 DRP Flexibility 1.0</para></listitem> 
-		<listitem><para>LT1K P05-0547 - DRP Common Operational Picture 2.0</para></listitem> 
-		<listitem><para>LT1K P06-0050 DR Flexibility 2.0</para></listitem> 
-		<listitem><para>LT1K P06-0108 DR security aspects of information 1.0</para></listitem> 
-		<listitem><para>LT1K P06-0351 DRP Interoperability 1.0</para></listitem> 
-		<listitem><para>LT1K P06-0008 Design Rule Legacy Integration 1.0</para></listitem> 
-		<listitem><para>LT1K P06-0051 DR Interoperability 2.0</para></listitem> 
-		<listitem><para>LT1K P06-0321 DR Scalability 1.0</para></listitem><listitem><para>LT1K P06-0352 DRP Security 1.0</para></listitem>
-		</itemizedlist>
-
-	</sect2>
- </sect1>
-
 </appendix>
