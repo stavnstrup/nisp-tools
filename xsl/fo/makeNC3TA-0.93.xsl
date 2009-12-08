@@ -41,9 +41,9 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:import href="../docbook-xsl/fo/docbook.xsl"/>
 <xsl:import href="nisp-layout.xsl"/>
 <xsl:import href="../common/common.xsl"/>
-
+<!--
 <xsl:import href="dbxsl-bugs/pagesetup.xsl"/>
-
+-->
 <xsl:import href="fo-common.xsl"/>
 
 
@@ -74,5 +74,42 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="use.extensions" select="1"/>
 <xsl:param name="tablecolumns.extension" select="1"/> 
 
+
+
+<xsl:template name="hyphenate-tableentries">
+  <xsl:param name="entry" select="''"/>
+    <xsl:choose>
+      <xsl:when test="$tableentry.hyphenate = ''">
+	<xsl:value-of select="$entry"/>
+      </xsl:when>
+      <xsl:when test="string-length($entry) &gt; 1">
+	<xsl:variable name="char" select="substring($entry, 1, 1)"/>
+        <xsl:value-of select="$char"/>
+        <xsl:if test="contains($tableentry.hyphenate.chars, $char)">
+          <!-- Do not hyphen in-between // -->
+	  <xsl:if test="not($char = '/' and substring($entry,2,1) = '/')">
+            <xsl:copy-of select="$tableentry.hyphenate"/>
+	  </xsl:if>
+	</xsl:if>
+	<!-- recurse to the next character -->
+        <xsl:call-template name="hyphenate-tableentries">
+	  <xsl:with-param name="entry" select="substring($entry, 2)"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+	<xsl:value-of select="$entry"/>
+      </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+				 
+<xsl:param name="tableentry.hyphenate.chars">_.-/&amp;</xsl:param>
+<xsl:param name="tableentry.hyphenate">­</xsl:param>
+				   
+<xsl:template match="entry//text()">
+  <xsl:call-template name="hyphenate-tableentries">
+    <xsl:with-param name="entry" select="."/>
+  </xsl:call-template>
+</xsl:template>
+    
 
 </xsl:stylesheet>

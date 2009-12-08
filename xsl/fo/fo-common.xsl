@@ -100,6 +100,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="page.margin.inner" select="'25mm'"/>      <!-- G -->
 <xsl:param name="page.margin.outer" select="'25mm'"/>      <!-- H -->
 
+<xsl:param name="body.start.indent" select="'0pc'"/>
+
 <xsl:param name="body.font.master" select="12"/>
 
 <xsl:param name="title.margin.left" select="'0pc'"/>
