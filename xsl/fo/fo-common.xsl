@@ -359,7 +359,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- The Document number should be embraced in a parentesis -->
 
 <xsl:template match="biblioid" mode="titlepage.mode">(<xsl:value-of 
-     select="."/>)
+     select="."/>(<xsl:value-of select="$adatp34edition"/>))
 </xsl:template>
 
 <!-- We only want to use the first revision element. Print version and date on 
