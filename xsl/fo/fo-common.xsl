@@ -249,59 +249,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   <xsl:text>.xml</xsl:text>
 </xsl:variable>
 
-<!--
-<xsl:template name="genhead.left.right">
-  <xsl:param name="left"></xsl:param>
-  <xsl:param name="right"></xsl:param>
-
-  <fo:list-block provisional-distance-between-starts="4.0in"
-                 provisional-label-separation="0pt">
-    <fo:list-item>
-      <fo:list-item-label end-indent="label-end()">
-        <fo:block text-align="start"><xsl:value-of select="$left"/></fo:block>
-      </fo:list-item-label>
-      <fo:list-item-body start-indent="body-start()">
-        <fo:block text-align="end"><xsl:value-of
-                  select="$right"/></fo:block>
-      </fo:list-item-body>
-    </fo:list-item>
-  </fo:list-block>
-</xsl:template>
--->
-
-<!--
-<xsl:variable name="even.page.head">
-  <xsl:call-template name="genhead.left.right">
-    <xsl:with-param name="left"><xsl:value-of   
-                    select="$docname"/></xsl:with-param>
-    <xsl:with-param name="right">
-      <xsl:value-of select="//book/bookinfo/biblioid"/>
-      <xsl:text>(</xsl:text>
-      <xsl:value-of select="$adatp34edition"/>  
-      <xsl:text>)</xsl:text>
-    </xsl:with-param>
-  </xsl:call-template>
-</xsl:variable>
--->
-
-<!--
-<xsl:variable name="odd.page.head">
-  <xsl:call-template name="genhead.left.right">
-    <xsl:with-param name="left">
-      <xsl:value-of select="//book/bookinfo/biblioid"/>
-      <xsl:text>(</xsl:text>
-      <xsl:value-of select="$adatp34edition"/>  
-      <xsl:text>)</xsl:text>
-    </xsl:with-param>
-    <xsl:with-param name="right"><xsl:value-of 
-                    select="$docname"/></xsl:with-param>
-  </xsl:call-template>
-</xsl:variable>
-
-
-<xsl:variable name="odd.page.footer">
-</xsl:variable>
--->
 
 <!-- ==================================================================== -->
 <!--   Modify stylesheets to comply with the layout of the Word version   -->
@@ -689,46 +636,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <!-- pageclass can be front, body, back -->
     <!-- sequence can be odd, even, first, blank -->
     <!-- position can be left, center, right -->
-<!--
-    <xsl:choose>
-      <xsl:when test="$pageclass = 'titlepage'">
-        
-      </xsl:when>
 
-      <xsl:when test="$double.sided != 0 and $sequence = 'even'
-                      and $position='left'">
-        <fo:page-number/>
-      </xsl:when>
-
-      <xsl:when test="$double.sided != 0 and ($sequence = 'odd' or $sequence = 'first')
-                      and $position='right'">
-        <fo:page-number/>
-      </xsl:when>
-
-      <xsl:when test="$double.sided = 0 and $position='center'">
-        <fo:page-number/>
-      </xsl:when>
-
-      <xsl:when test="$sequence='blank'">
-        <xsl:choose>
-          <xsl:when test="$double.sided != 0 and $position = 'left'">
-            <fo:page-number/>
-          </xsl:when>
-          <xsl:when test="$double.sided = 0 and $position = 'center'">
-            <fo:page-number/>
-          </xsl:when>
-          <xsl:otherwise>
-            
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-
-
-      <xsl:otherwise>
-        
-      </xsl:otherwise>
-    </xsl:choose>
--->
     <xsl:if test="(($sequence='blank' or $sequence='even') and $position='left') or 
                   (($sequence='first' or $sequence='odd') and $position='right')">
       <xsl:choose>
