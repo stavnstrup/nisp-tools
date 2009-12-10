@@ -190,13 +190,13 @@ table:
   ==========================================================
 -->
   <servicearea id="esm" title="Service Management and control">
-    <servicecategory id="ces-esm-UNKNOWN" title=""/>
     <servicecategory id="ces-esm-mipub" title="Mgmt Info Publisher"/>
     <servicecategory id="ces-esm-mis" title="Mgmt Info Subscriber"/>
     <servicecategory id="ces-esm-mic" title="Mgmt Info Collector"/>
     <servicecategory id="ces-esm-mip" title="Mgmt Info Provider"/>
     <servicecategory id="ces-esm-am" title="Asset Mgmt"/>
     <servicecategory id="ces-esm-um" title="User Mgmt"/>
+    <servicecategory id="ces-esm-sys" title="System Mgmt"/>
   </servicearea>
 
   <lists>
@@ -266,7 +266,7 @@ table:
           Protocols for Distributed Interactive Simulation (DIS)(STANAG 4482 ed.1:1995)
         </select>
         <select id="ieee-p1278" mode="fading">
-          STANAG 4482 should  be migrated to IEEE
+          STANAG 4482 should be migrated to IEEE
           Std 1278:1998
         </select>
         <remarks>
@@ -293,28 +293,6 @@ table:
       </sp-view>
     </sp-list>
     <sp-list tref="ts-integ">
-      <sp-view idx="d0e1158" category="a">
-        <ncoe/>
-        <select id="w3c-owl" mode="emerging">Web Ontology Language (OWL) (ACT TIDE)</select>
-        <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
-        <rationale/>
-      </sp-view>
-      <sp-view idx="d0e1165" category="a">
-        <ncoe/>
-        <select id="w3c-subm-owl-s-20041122" mode="midterm">OWL-S</select>
-        <remarks/>
-        <rationale/>
-      </sp-view>
-      <sp-view idx="d0e1171" category="a">
-        <select id="w3c-rdf" mode="emerging">Resource Description Framework (RDF) (ACT TIDE)</select>
-        <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
-        <rationale>Included in NISP v.3 by RFCP 2-18</rationale>
-      </sp-view>
-      <sp-view idx="d0e1178" category="a">
-        <select id="w3c-rec-rdf-sparql-query-20080115" mode="emerging">Protocol and RDF Query Language (SPARQL) (ACT TIDE)</select>
-        <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
-        <rationale>Included in NISP v.3 by RFCP 2-19</rationale>
-      </sp-view>
       <sp-view idx="d0e1185" category="a">
         <ncoe/>
         <select id="oasis-avdl-specification-01" mode="farterm">AVDL</select>
@@ -331,13 +309,125 @@ table:
     <sp-list tref="ts-svc-dis">
       <sp-view idx="d0e11326" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="oasis-programmersapi_v2" mode="mandatory">UDDI v2.0, W3C</select>
+        <select id="oasis-programmersapi_v2" mode="mandatory">Universal Description,
+	  Discovery and Integration (UDDI) v2.0, W3C</select>
         <select id="oasis-uddi-v3.00-published-20020719" mode="emerging">UDDI v3.0, W3C</select>
         <remarks>
           UDDI 2.0 provides a platform-independent way of describing- and
           disovering service. For CCEB interoperability UDDI 3.0 is mandatory
         </remarks>
         <rationale>Included in v.5 through RFCP 4-38 and updated in NCSP v.6 through RFCP 5-26.</rationale>
+      </sp-view>
+      <sp-view idx="d0e11367" category="a">
+        <ncoe>Distr. Comp.</ncoe>
+        <select id="ebxml-ebta" mode="emerging">Electronic Business Extensible Markup
+	  Language (ebXML) ISO/TS 15000-1:2004, -2:2004, -3:2004, -4:2004, -5:2005 
+        </select>
+        <remarks>
+          ebXML is a suite of specifications for standardizing XML based business
+          messages to facilitate trading between organisation.
+        </remarks>
+        <rationale>Included in NCSP v.7 through RFCP 6-16</rationale>
+      </sp-view>
+      <sp-view idx="d0e9493" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="ebxml-ebta" mode="emerging">ebXML Messaging Service v. 2:2002 (OASIS)</select>
+      </sp-view>
+      <sp-view idx="d0e11337" category="a">
+        <select id="oasis-regrep-rim-3.0-os" mode="midterm">ebRIM v3.0, OASIS</select>
+        <remarks>ebXML Registry Information Model</remarks>
+        <rationale>Included in NISP v.3 through RFCP 2-12.</rationale>
+      </sp-view>
+      <sp-view idx="d0e1171" category="a">
+        <select id="w3c-rdf" mode="emerging">Resource Description Framework (RDF) (W3C)</select>
+        <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
+        <rationale>Included in NISP v.3 by RFCP 2-18</rationale>
+      </sp-view>
+      <sp-view idx="d0e1178" category="a">
+        <select id="w3c-rec-rdf-sparql-query-20080115" mode="emerging">Protocol and RDF Query Language (SPARQL) (W3C)</select>
+        <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
+        <rationale>Included in NISP v.3 by RFCP 2-19</rationale>
+      </sp-view>
+      <sp-view idx="d0e4970" category="a">
+        <select id="ietf-draft-lee-sip-dns-sd-uri-03.txt" mode="emerging">DNS Service Disvovery (DNS-SD) (ACT TIDE)</select>
+        <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
+        <rationale>DNS-SD included in NISP v.3 by RFCP 2-15</rationale>
+      </sp-view>
+    </sp-list>
+    <sp-list tref="ts-rep-eds">
+      <sp-view idx="d0e6734" category="a">
+        <ncoe>Comms</ncoe>
+        <select id="cceb-acp133" mode="emerging">Common Directory Services and Procedures (ACP 133C)</select>
+        <select id="cceb-acp133" mode="fading">ACP 133B</select>
+        <remarks>
+          Contains schema.ACP 133B contains the upper layer
+          protocol profile down to the requested Transport Service
+        </remarks>
+        <rationale>ACP 133C included in NCSP v.6</rationale>
+      </sp-view>
+      <sp-view idx="d0e6745" category="a">
+        <ncoe>Comms</ncoe>
+        <select id="ietf-rfc1823" mode="mandatory">LDAP v3 (IETF RFC 4510:2006,
+	  4511:2006,4512:2006, 4513:2006)</select>
+        <remarks>
+          LDAP is an IETF protocol and close to a functional subset of DAP.
+          Many Web-browsers can act as LDAP clients, which is highly desirable.
+        </remarks>
+      </sp-view>
+      <sp-view idx="d0e6752" category="a">
+        <ncoe>Comms</ncoe>
+        <select id="ietf-rfc2849" mode="mandatory">LDIF (IETF RFC 2849:2000)</select>
+        <remarks>
+          LDIF defines a flexible and almost universally accepted means of
+          exchanging directory information via flat files.
+        </remarks>
+        <rationale>Included in v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e6761" category="a">
+        <ncoe>Comms</ncoe>
+        <select id="iso-iec-9594" mode="fading">DSP (ITU-T X.500:2005)</select>
+        <remarks>
+          DSP defines X.500 server to server communication, including chaining.
+          <para>For CCEB interoperability this standard is not applicable</para>
+        </remarks>
+      </sp-view>
+      <sp-view idx="d0e6770" category="a">
+        <ncoe>Comms</ncoe>
+        <select id="iso-iec-9594" mode="fading">DSIP (ITU-T X.500:2005)</select>
+        <remarks>
+          DISP defines X.500 based information shadowing/replication.
+          <para>For CCEB interoperability this standard is not applicable</para>
+        </remarks>
+      </sp-view>
+      <sp-view idx="d0e6779" category="a">
+        <ncoe>Comms</ncoe>
+        <select id="iso-iec-9594" mode="fading">DOP (ITU-T X.500:2005)</select>
+        <remarks>
+          Contains operational management. <para>
+            For CCEB interoperability this
+            standard is not applicable
+          </para>
+        </remarks>
+      </sp-view>
+    </sp-list>
+    <sp-list tref="ts-ces-rep">
+      <sp-view idx="d0e8554" category="a">
+        <ncoe>Data Mgmt</ncoe>
+        <select id="nato-stanag5523" mode="mandatory">NC3 Repository</select>
+        <remarks>
+          Common repository for standard data elements and their
+          related tool for the NATO Corporate Data Model for Data
+          Administration. See also XML.<para/>For CCEB interoperability this standard
+          is partially applicable
+        </remarks>
+        <rationale>For CCEB interoperability this standard is partially applicable</rationale>
+      </sp-view>
+    </sp-list>
+    <sp-list tref="ts-rep-meta">
+      <sp-view idx="d0e9015" category="a">
+        <select id="nato-nmrr" mode="emerging">NATO Metadata Registry and Repository (NMRR)</select>
+        <remarks>For CCEB interoperability this standard is not applicable.</remarks>
+        <rationale>NMRR added in NISP v.3 through RFCP 2-24.</rationale>
       </sp-view>
     </sp-list>
     <sp-list tref="ts-net">
@@ -348,12 +438,6 @@ table:
           by RFC 1101:1989, 1183:1990, updated by 5395:2008; 1706:1994, 1876:1996, 1982:1996, 1995:1996, 1996:1996,
           2136:1997, 2181:1997, updated by 5452:2009; 2308:1998, 2845:2000, 2931:2000, 3007:2000, 3226:2004, 3425:2002,
           3597:2004, 3645:2003, 4033:2005, 4034:2005, 4035:2005, 4343:2006, 4470:2006, 4592:2006)
-        </select>
-        <select id="ietf-rfc1034" mode="fading">
-          RFC 1034:1987 and RFC 1035:1987 updated by RFC 1101:1989, 1183:1990, updated by 5395:2008;
-          1706:1994, 1876:1996, 1982:1996, 1995:1996, 1996:1996, 2136:1997, 2181:1997, 2308:1998,
-          2845:2000, 2931:2000, 3007:2000, 3226:2004, 3425:2002, 3597:2004, 3645:2003,
-          4033:2005, 4034:2005, 4035:2005 changed in NCSP v.6
         </select>
         <remarks>Bind version 9 or later should be used.</remarks>
         <rationale>
@@ -746,6 +830,10 @@ table:
         </remarks>
         <rationale>Included in v.5 through RFCP 4-6</rationale>
       </sp-view>
+      <sp-view idx="d0e5006" category="a">
+        <ncoe>Security</ncoe>
+        <select id="ietf-rfc3768" mode="mandatory">Virtual Router Redundancy Protocol (VRRP), IETF RFC 3768:2004</select>
+      </sp-view>
     </sp-list>
     <sp-list tref="nis-ns-en">
       <sp-view idx="d0e1753" category="a">
@@ -966,7 +1054,7 @@ table:
       </sp-view>
       <sp-view idx="d0e1993" category="a">
         <ncoe/>
-        <select id="unknown-wusb" mode="midterm">WUSB</select>
+        <select id="usb.org-wusb" mode="midterm">W-USB</select>
         <remarks/>
         <rationale/>
       </sp-view>
@@ -1603,11 +1691,18 @@ table:
       </sp-view>
     </sp-list>
     <sp-list tref="ts-inf-dis">
-      <sp-view idx="d0e4970" category="a">
-        <select id="ietf-draft-lee-sip-dns-sd-uri-03.txt" mode="emerging">DNS Service Disvovery (DNS-SD) (ACT TIDE)</select>
+      <sp-view idx="d0e1158" category="a">
+        <ncoe/>
+        <select id="w3c-owl" mode="emerging">Web Ontology Language (OWL), W3C</select>
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
-        <rationale>DNS-SD included in NISP v.3 by RFCP 2-15</rationale>
+        <rationale/>
       </sp-view>
+      <sp-view idx="d0e1165" category="a">
+        <ncoe/>
+        <select id="w3c-subm-owl-s-20041122" mode="midterm">OWL-S</select>
+        <remarks/>
+        <rationale/>
+      </sp-view>  
     </sp-list>
     <sp-list tref="ias">
       <sp-view idx="d0e4990" category="a">
@@ -1616,43 +1711,152 @@ table:
         <remarks>Procedural document dealing with the evaluation criteria for IT security.</remarks>
         <rationale>Procedural document dealing with security risk assessment</rationale>
       </sp-view>
-      <sp-view idx="d0e4999" category="a">
+      <sp-view idx="d0e5123" category="a">
         <ncoe>Security</ncoe>
-        <select id="ietf-rfc2058" mode="mandatory">Radius, IETF RFC 2865:2000 updated by RFC 2868:2000, 3575:2003, 5080:2007</select>
-        <select id="ietf-rfc3162" mode="emerging">Radius and IPv6, IETF RFC 3162:2001</select>
-      </sp-view>
-      <sp-view idx="d0e5006" category="a">
-        <ncoe>Security</ncoe>
-        <select id="ietf-rfc3768" mode="mandatory">Virtual Router Redundancy Protocol (VRRP), IETF RFC 3768:2004</select>
-      </sp-view>
-      <sp-view idx="d0e5011" category="a">
-        <ncoe>Security</ncoe>
-        <select id="opengroup-p702" mode="emerging">Single sign on (SSO, the Open Group)</select>
-        <rationale>RFC 2289:1998 changed into SSO, as RFC 2289:1998 is not an sso standard</rationale>
-      </sp-view>
-      <sp-view idx="d0e5018" category="a">
-        <ncoe>Security</ncoe>
-        <select id="iso-iec-9594-8" mode="mandatory">
-          Dir Authentication Framework (ITU-T X.509 v3,
-          ISO 9594:2001)
+        <select id="iso-iec-7810" mode="mandatory">
+          Physical characteristics (ISO/IEC
+          7810:2003)
         </select>
+        <rationale>
+          Included in v.4 through RFCP 3-10; Updated from ISO/IEC 7810:1995
+          to ISO/IEC 7810:2003 in NCSP v.6
+        </rationale>
       </sp-view>
-      <sp-view idx="d0e5023" category="a">
-        <select id="unknown-dummy" mode="emerging"/>
+      <sp-view idx="d0e5137" category="a">
+        <ncoe>Security</ncoe>
+        <select id="iso-iec-7816" mode="mandatory">
+          Integrated circuit(s) with electrical
+          contacts (ISO/IEC 7816:2006)
+        </select>
+        <rationale>
+          Included in v.4 through RFCP 3-10; ISO/IEC 7816:1999 revised in ISO/IEC
+          7816:2006 in NCSP v.6
+        </rationale>
+      </sp-view>
+      <sp-view idx="d0e5144" category="a">
+        <ncoe>Security</ncoe>
+        <select id="ps-sc-wg-" mode="mandatory">
+          Interface between the card aware applications
+          and cards, PC/SC Specs. 1.0
+        </select>
+        <rationale>Included in v.4 through RFCP 3-10</rationale>
+      </sp-view>
+      <sp-view idx="d0e5151" category="a">
+        <ncoe>Security</ncoe>
+        <select id="sun-java_card_kit-2_2_1-fr-spec" mode="mandatory">
+          Card-resistance allications,
+          JAVACard
+        </select>
+        <rationale>Included in NCSP v.4 through RFCP 3-10</rationale>
+      </sp-view>
+      <sp-view idx="d0e5158" category="a">
+        <ncoe>Security</ncoe>
+        <select id="iso-iec-14443" mode="mandatory">Contactless cards (ISO/IEC 14443:2008)</select>
+        <rationale>Included in NCSP v.4 through RFCP 3-10; revised in NCSP v.6</rationale>
+      </sp-view>
+    </sp-list>
+    <sp-list tref="ias-smi">
+      <sp-view idx="d0e5166" category="a">
+        <select id="oasis-oasis-sstc-saml-core-1.1" mode="emerging">
+          Security Assertion Markup
+          Language, SAML v1.1 (OASIS)
+        </select>
         <remarks>
-          For CCEB interoperability the standard is  S/MIME Version 3 ESS,
-          application layer data confidentiality or link level
-          encryption
+          For CCEB interoperability the Security Ascertion Markup Language
+          (SAML) v1.1 is mandatory and SAML 2.0 is emerging
           <indexterm significance="normal">
-            <primary>ietf</primary>
-            <secondary>S/MIME Version 3 ESS</secondary>
+            <primary>oasis</primary>
+            <secondary>SAML 1.1</secondary>
           </indexterm>
         </remarks>
+        <rationale>SAML added in NISP v.3 through RFCP 2-8</rationale>
+      </sp-view>
+      <sp-view idx="d0e5183" category="a">
+        <select id="w3c-xkms" mode="emerging">XKMS (W3C)</select>
+        <rationale>XKMS added in NISP v.3 through RFCP 2-7</rationale>
+      </sp-view>
+      <sp-view idx="d0e5236" category="a">
+        <select id="unknown-dummy" mode="emerging"/>
+        <remarks>
+          See General Security Key Management and Distribution. <para>
+            For
+            CCEB interoperability the mandatory standard is ACP145 (Gateway-to-Gateway
+            Messaging Protocols) and X.500 (based on CMI authentication framework)
+          </para>
+        </remarks>
         <rationale>
-          For CCEB interoperability the standard is S/MIME Version 3 ESS,
-          application layer data confidentiality or link level
-          encryption
+          For CCEB interoperability the mandatory standard is ACP145
+          (Gateway-to-Gateway Messaging Protocols) and X.500 (based on CMI
+          authentication framework)
         </rationale>
+      </sp-view>
+    </sp-list>
+    <sp-list tref="ias-con">
+      <sp-view idx="d0e5198" category="a">
+        <ncoe>Security</ncoe>
+        <select id="ietf-rfc2632" mode="mandatory">S/MIME with Encrypted Security Service (ESS)
+          (IETF RFCs 3850:2004, 3851:2004)
+        </select>
+        <select id="ietf-rfc2632" mode="fading">ACP120 replaced by ACP145</select>
+        <remarks>
+          Messaging System independent encapsulation syntax
+          supporting signature and confidentiality functions based on DSA.
+          <para>
+            For CCEB interoperability the standard is  S/MIME Version 3 ESS,
+            application layer data confidentiality or link level encryption
+          </para>
+        </remarks>
+        <rationale>
+          ACP120 replaced by ACP145 in NCSP v.5 through RFCP 4-8.
+	  <para>
+	    Messaging System independent encapsulation syntax
+            supporting signature and confidentiality functions based on DSA.
+	  </para>
+          <para>
+            For CCEB interoperability the standard is  S/MIME Version 3 ESS,
+            application layer data confidentiality or link level encryption
+          </para>
+	  For CCEB
+          interoperability the mandatory standard is ACP145 (Gateway-to-Gateway Messaging Protocols)
+        </rationale>
+      </sp-view>
+      <sp-view idx="d0e5217" category="a">
+        <ncoe>Security</ncoe>
+        <select id="nato-stanag4406" mode="mandatory">Military Messaging (STANAG 4406 Ed.2)</select>
+        <select id="nato-stanag4406" mode="fading">ACP120 replaced by ACP145</select>
+        <remarks>
+          This includes PCT (protected content type). PCT may be used for protection
+          of data objects in systems. <para>
+            For CCEB interoperability the mandatory standard
+            is ACP145<indexterm significance="normal">
+              <primary>cceb</primary>
+              <secondary>ACP145</secondary>
+            </indexterm>
+            (Gateway-to-Gateway Messaging Protocols)
+          </para>
+        </remarks>
+        <rationale>
+          ACP120 replaced by ACP145 in v.5 through RFCP 4-8. For CCEB interoperability
+          the mandatory standard is ACP145 (Gateway-to-Gateway Messaging Protocols)
+        </rationale>
+      </sp-view>
+      <sp-view idx="d0e5256" category="a">
+        <ncoe>Security</ncoe>
+        <select id="itu-t-x.411" mode="emerging">ITU-T X.411:1999</select>
+        <rationale>X.411:1995 updated with X.411:1999 in NCSP v.6</rationale>
+      </sp-view>
+    </sp-list>
+    <sp-list tref="ias-enc">
+      <sp-view idx="d0e5049" category="a">
+        <ncoe>Security</ncoe>
+        <select id="ietf-rfc5246" mode="mandatory">TLS v1.2 (IETF RFC 5246:2008)</select>
+        <select id="ietf-rfc5246" mode="fading">SSL excluded in NCSP v.6</select>
+        <remarks>Used as a transport layer security protocol.</remarks>
+        <rationale>SSL excluded and RFC 4366:2006 updated in NCSP v.6</rationale>
+      </sp-view>
+      <sp-view idx="d0e5193" category="a">
+        <select id="w3c-xmldsig-core" mode="emerging">XML Encryption (W3C)</select>
+        <rationale>XML Encryption added in NISP v.3 through RFCP 2-7</rationale>
       </sp-view>
       <sp-view idx="d0e5034" category="a">
         <ncoe>Security</ncoe>
@@ -1676,13 +1880,8 @@ table:
         </remarks>
         <rationale>AES added through RFCP 6-1.</rationale>
       </sp-view>
-      <sp-view idx="d0e5049" category="a">
-        <ncoe>Security</ncoe>
-        <select id="ietf-rfc5246" mode="mandatory">TLS v1.2 (IETF RFC 5246:2008)</select>
-        <select id="ietf-rfc5246" mode="fading">SSL excluded in NCSP v.6</select>
-        <remarks>Used as a transport layer security protocol.</remarks>
-        <rationale>SSL excluded and RFC 4366:2006 updated in NCSP v.6</rationale>
-      </sp-view>
+    </sp-list>
+    <sp-list tref="ias-integ">
       <sp-view idx="d0e5060" category="a">
         <ncoe>Security</ncoe>
         <select id="ietf-rfc2401" mode="mandatory">IP ESP (RFC 2406:1998)</select>
@@ -1691,23 +1890,6 @@ table:
           depending on the use of algorithms
         </remarks>
         <rationale>RFC 3168:2001 updated in NCSP v.6</rationale>
-      </sp-view>
-      <sp-view idx="d0e5069" category="a">
-        <select id="unknown-dummy" mode="emerging"/>
-        <remarks>
-          For CCEB interoperability the standard is S/MIME Version 3 ESS,
-          application layer digital signatures or link level
-          encryption
-          <indexterm significance="normal">
-            <primary>ietf</primary>
-            <secondary>S/MIME Version 3 ESS</secondary>
-          </indexterm>
-        </remarks>
-        <rationale>
-          For CCEB interoperability the standard is S/MIME Version 3 ESS,
-          application layer digital signatures or link level
-          encryption
-        </rationale>
       </sp-view>
       <sp-view idx="d0e5080" category="a">
         <ncoe>Security</ncoe>
@@ -1781,188 +1963,37 @@ table:
         </remarks>
         <rationale>SHA-1 replaced by SHA 256 through RFCP 6-1</rationale>
       </sp-view>
-      <sp-view idx="d0e5123" category="a">
+    </sp-list>
+    <sp-list tref="ias-auth">
+      <sp-view idx="d0e4999" category="a">
         <ncoe>Security</ncoe>
-        <select id="iso-iec-7810" mode="mandatory">
-          Physical characteristics (ISO/IEC
-          7810:2003)
+        <select id="ietf-rfc2058" mode="mandatory">Radius, IETF RFC 2865:2000 updated by RFC 2868:2000, 3575:2003, 5080:2007</select>
+        <select id="ietf-rfc3162" mode="emerging">Radius and IPv6, IETF RFC 3162:2001</select>
+      </sp-view>
+      <sp-view idx="d0e5011" category="a">
+        <ncoe>Security</ncoe>
+        <select id="opengroup-p702" mode="emerging">Single sign on (SSO, the Open Group)</select>
+        <rationale>RFC 2289:1998 changed into SSO, as RFC 2289:1998 is not an sso standard</rationale>
+      </sp-view>
+      <sp-view idx="d0e5018" category="a">
+        <ncoe>Security</ncoe>
+        <select id="iso-iec-9594-8" mode="mandatory">
+          Dir Authentication Framework (ITU-T X.509 v3,
+          ISO 9594:2001)
         </select>
-        <rationale>
-          Included in v.4 through RFCP 3-10; Updated from ISO/IEC 7810:1995
-          to ISO/IEC 7810:2003 in NCSP v.6
-        </rationale>
       </sp-view>
       <sp-view idx="d0e5130" category="a">
         <ncoe>Security</ncoe>
         <select id="iso-iec-7812" mode="mandatory">Identification of Issuers (ISO 7812:2007)</select>
         <rationale>Included in v.4 through RFCP 3-10</rationale>
       </sp-view>
-      <sp-view idx="d0e5137" category="a">
-        <ncoe>Security</ncoe>
-        <select id="iso-iec-7816" mode="mandatory">
-          Integrated circuit(s) with electrical
-          contacts (ISO/IEC 7816:2006)
-        </select>
-        <rationale>
-          Included in v.4 through RFCP 3-10; ISO/IEC 7816:1999 revised in ISO/IEC
-          7816:2006 in NCSP v.6
-        </rationale>
-      </sp-view>
-      <sp-view idx="d0e5144" category="a">
-        <ncoe>Security</ncoe>
-        <select id="ps-sc-wg-" mode="mandatory">
-          Interface between the card aware applications
-          and cards, PC/SC Specs. 1.0
-        </select>
-        <rationale>Included in v.4 through RFCP 3-10</rationale>
-      </sp-view>
-      <sp-view idx="d0e5151" category="a">
-        <ncoe>Security</ncoe>
-        <select id="sun-java_card_kit-2_2_1-fr-spec" mode="mandatory">
-          Card-resistance allications,
-          JAVACard
-        </select>
-        <rationale>Included in NCSP v.4 through RFCP 3-10</rationale>
-      </sp-view>
-      <sp-view idx="d0e5158" category="a">
-        <ncoe>Security</ncoe>
-        <select id="iso-iec-14443" mode="mandatory">Contactless cards (ISO/IEC 14443:2008)</select>
-        <rationale>Included in NCSP v.4 through RFCP 3-10; revised in NCSP v.6</rationale>
-      </sp-view>
-    </sp-list>
-    <sp-list tref="ias">
-      <sp-view idx="d0e5166" category="a">
-        <select id="oasis-oasis-sstc-saml-core-1.1" mode="emerging">
-          Security Assertion Markup
-          Language, SAML v1.1 (OASIS)
-        </select>
-        <remarks>
-          For CCEB interoperability the Security Ascertion Markup Language
-          (SAML) v1.1 is mandatory and SAML 2.0 is emerging
-          <indexterm significance="normal">
-            <primary>oasis</primary>
-            <secondary>SAML 1.1</secondary>
-          </indexterm>
-        </remarks>
-        <rationale>SAML added in NISP v.3 through RFCP 2-8</rationale>
-      </sp-view>
       <sp-view idx="d0e5178" category="a">
         <select id="w3c-xmlenc-core" mode="emerging">XML Signature (W3C)</select>
         <rationale>XML Signature added in NISP v.3 through RFCP 2-7</rationale>
       </sp-view>
-      <sp-view idx="d0e5183" category="a">
-        <select id="w3c-xkms" mode="emerging">XKMS (W3C)</select>
-        <rationale>XKMS added in NISP v.3 through RFCP 2-7</rationale>
-      </sp-view>
       <sp-view idx="d0e5188" category="a">
         <select id="oasis-oasis-access_control-xacml-2.0-core-spec-os" mode="emerging">XACML v2.0 (OASIS)</select>
         <rationale>XACML added in NISP v.3 through RFCP 2-7</rationale>
-      </sp-view>
-      <sp-view idx="d0e5193" category="a">
-        <select id="w3c-xmldsig-core" mode="emerging">XML Encryption (W3C)</select>
-        <rationale>XML Encryption added in NISP v.3 through RFCP 2-7</rationale>
-      </sp-view>
-      <sp-view idx="d0e5198" category="a">
-        <ncoe>Security</ncoe>
-        <select id="ietf-rfc2632" mode="mandatory">
-          S/MIME with Encrypted Security Service (ESS)
-          (IETF RFCs 3850:2004, 3851:2004)
-        </select>
-        <select id="ietf-rfc2632" mode="fading">ACP120 replaced by ACP145</select>
-        <remarks>
-          Messaging System independent encapsulation syntax
-          supporting signature and confidentiality functions based on DSA.
-          <para>
-            For CCEB interoperability the mandatory standard is
-            ACP145
-            <indexterm significance="normal">
-              <primary>cceb</primary>
-              <secondary>ACP 145</secondary>
-            </indexterm>
-            (Gateway-to-Gateway Messaging Protocols)
-          </para>
-        </remarks>
-        <rationale>
-          ACP120 replaced by ACP145 in NCSP v.5 through RFCP 4-8. For CCEB
-          interoperability the mandatory standard is ACP145 (Gateway-to-Gateway Messaging Protocols)
-        </rationale>
-      </sp-view>
-      <sp-view idx="d0e5217" category="a">
-        <ncoe>Security</ncoe>
-        <select id="nato-stanag4406" mode="mandatory">Military Messaging (STANAG 4406 Ed.2)</select>
-        <select id="nato-stanag4406" mode="fading">ACP120 replaced by ACP145</select>
-        <remarks>
-          This includes PCT (protected content type). PCT may be used for protection
-          of data objects in systems. <para>
-            For CCEB interoperability the mandatory standard
-            is ACP145<indexterm significance="normal">
-              <primary>cceb</primary>
-              <secondary>ACP145</secondary>
-            </indexterm>
-            (Gateway-to-Gateway Messaging Protocols)
-          </para>
-        </remarks>
-        <rationale>
-          ACP120 replaced by ACP145 in v.5 through RFCP 4-8. For CCEB interoperability
-          the mandatory standard is ACP145 (Gateway-to-Gateway Messaging Protocols)
-        </rationale>
-      </sp-view>
-      <sp-view idx="d0e5236" category="a">
-        <select id="unknown-dummy" mode="emerging"/>
-        <remarks>
-          See General Security Key Management and Distribution. <para>
-            For
-            CCEB interoperability the mandatory standard is ACP145 (Gateway-to-Gateway
-            Messaging Protocols) and X.500 (based on CMI authentication framework)
-          </para>
-        </remarks>
-        <rationale>
-          For CCEB interoperability the mandatory standard is ACP145
-          (Gateway-to-Gateway Messaging Protocols) and X.500 (based on CMI
-          authentication framework)
-        </rationale>
-      </sp-view>
-      <sp-view idx="d0e5244" category="a">
-        <select id="unknown-dummy" mode="emerging"/>
-        <remarks>
-          For CCEB interoperability the mandatory standard is ACP145 (Gateway-to-Gateway
-          Messaging Protocols) (based on digital signatures within the CMI authentication
-          framework and associated PKI)
-        </remarks>
-        <rationale>
-          For CCEB interoperability the mandatory standard is ACP145 (Gateway-to-Gateway
-          Messaging Protocols) (based on digital signatures within the CMI authentication
-          framework and associated PKI)
-        </rationale>
-      </sp-view>
-      <sp-view idx="d0e5250" category="a">
-        <select id="unknown-dummy" mode="emerging"/>
-        <remarks>
-          For CCEB interoperability the mandatory standard is ACP145 (Gateway-to-Gateway
-          Messaging Protocols) (based on digital signatures within the CMI authentication
-          framework and associated PKI)
-        </remarks>
-        <rationale>
-          For CCEB interoperability the mandatory standard is ACP145 (Gateway-to-Gateway
-          Messaging Protocols) (based on digital signatures within the CMI authentication framework and
-          associated PKI)
-        </rationale>
-      </sp-view>
-      <sp-view idx="d0e5256" category="a">
-        <ncoe>Security</ncoe>
-        <select id="itu-t-x.411" mode="emerging">ITU-T X.411:1999</select>
-        <rationale>X.411:1995 updated with X.411:1999 in NCSP v.6</rationale>
-      </sp-view>
-      <sp-view idx="d0e5263" category="a">
-        <select id="unknown-dummy" mode="emerging"/>
-        <remarks>
-          For CCEB interoperability the mandatory standard is ACP145 (Gateway-to-Gateway
-          Messaging Protocols) (based on digitally signed receipts and PKI)
-        </remarks>
-        <rationale>
-          For CCEB interoperability the mandatory standard is ACP145 (Gateway-to-Gateway
-          Messaging Protocols) (based on digitally signed receipts and PKI)
-        </rationale>
       </sp-view>
     </sp-list>
     <sp-list tref="ts-ces-mes">
@@ -2079,14 +2110,12 @@ table:
           H.323:2006)
         </select>
       </sp-view>
-      
       <sp-view idx="d0e5962" category="a">
         <ncoe>Comms</ncoe>
         <select id="ietf-rfc3261" mode="emerging">Session Initialisation Protocol
 	  (SIP) (IETF RFC 3261:2002)</select>
 	<rationale>Included in v.4 through RFCP 3-46</rationale>
       </sp-view>
-      
       <sp-view idx="d0e5966" category="a">
         <ncoe>Comms</ncoe>
         <select id="cceb-acp220" mode="mandatory">
@@ -2135,20 +2164,7 @@ table:
         </rationale>
       </sp-view>
     </sp-list>
-    <sp-list tref="ces-esm-UNKNOWN">
-      <sp-view idx="d0e6006" category="b">
-        <select id="unknown-dummy" mode="emerging"/>
-        <remarks>
-          Same standards as within LAN Management for SNMP
-          <para>For CCEB interoperability this standard is not applicable</para>
-        </remarks>
-        <rationale>
-          Same standards as within LAN Management for SNMP
-          <para>For CCEB interoperability this standard is not applicable</para>
-        </rationale>
-      </sp-view>
-    </sp-list>
-    <sp-list tref="ces-esm-UNKNOWN">
+    <sp-list tref="ces-esm-sys">
       <sp-view idx="d0e6017" category="b">
         <ncoe>Mgmt.</ncoe>
         <select id="ietf-rfc3411" mode="mandatory">SNMPv3 Applications (IETF RFC 3413:2002)</select>
@@ -2351,62 +2367,6 @@ table:
       </sp-view>
     </sp-list>
     <sp-list tref="ces-app-app">
-      <sp-view idx="d0e6734" category="a">
-        <ncoe>Comms</ncoe>
-        <select id="cceb-acp133" mode="emerging">Common Directory Services and Procedures (ACP 133C)</select>
-        <select id="cceb-acp133" mode="fading">ACP 133B</select>
-        <remarks>
-          Contains schema.ACP 133B contains the upper layer
-          protocol profile down to the requested Transport Service
-        </remarks>
-        <rationale>ACP 133C included in NCSP v.6</rationale>
-      </sp-view>
-      <sp-view idx="d0e6745" category="a">
-        <ncoe>Comms</ncoe>
-        <select id="ietf-rfc1823" mode="mandatory">
-          LDAP v3 (IETF RFC 4510:2006, 4511:2006,
-          4512:2006, 4513:2006)
-        </select>
-        <remarks>
-          LDAP is an IETF protocol and close to a functional subset of DAP.
-          Many Web-browsers can act as LDAP clients, which is highly desirable.
-        </remarks>
-      </sp-view>
-      <sp-view idx="d0e6752" category="a">
-        <ncoe>Comms</ncoe>
-        <select id="ietf-rfc2849" mode="mandatory">LDIF (IETF RFC 2849:2000)</select>
-        <remarks>
-          LDIF defines a flexible and almost universally accepted means of
-          exchanging directory information via flat files.
-        </remarks>
-        <rationale>Included in v.5 through RFCP 4-12</rationale>
-      </sp-view>
-      <sp-view idx="d0e6761" category="a">
-        <ncoe>Comms</ncoe>
-        <select id="iso-iec-9594" mode="fading">DSP (ITU-T X.500:2005)</select>
-        <remarks>
-          DSP defines X.500 server to server communication, including chaining.
-          <para>For CCEB interoperability this standard is not applicable</para>
-        </remarks>
-      </sp-view>
-      <sp-view idx="d0e6770" category="a">
-        <ncoe>Comms</ncoe>
-        <select id="iso-iec-9594" mode="fading">DSIP (ITU-T X.500:2005)</select>
-        <remarks>
-          DISP defines X.500 based information shadowing/replication.
-          <para>For CCEB interoperability this standard is not applicable</para>
-        </remarks>
-      </sp-view>
-      <sp-view idx="d0e6779" category="a">
-        <ncoe>Comms</ncoe>
-        <select id="iso-iec-9594" mode="fading">DOP (ITU-T X.500:2005)</select>
-        <remarks>
-          Contains operational management. <para>
-            For CCEB interoperability this
-            standard is not applicable
-          </para>
-        </remarks>
-      </sp-view>
       <sp-view idx="d0e6788" category="a">
         <ncoe>Comms</ncoe>
         <select id="ietf-rfc959" mode="mandatory">
@@ -2430,22 +2390,6 @@ table:
           0855:1983)
         </select>
         <rationale>RFC 0854:1983, 0855:1983 changed in NCSP v.6</rationale>
-      </sp-view>
-      <sp-view idx="d0e6809" category="a">
-        <ncoe>Comms</ncoe>
-        <select id="ietf-rfc2616" mode="mandatory">
-          HTTP v. 1.1 (IETF RFC 2616:1999 updated by RFC 2817:2000),
-          URL (RFC 4248:2005, 4266:2005), URI (RFC 3986:2005)
-        </select>
-        <rationale>
-          RFC 2616:1999 updated with RFC 2817:2000; RFC 2368:1998, 4248:2005, 4266:2005; RFC 2396:1998 updated
-          by RFC 2732:1999 changed in NCSP v.6
-        </rationale>
-      </sp-view>
-      <sp-view idx="d0e6816" category="a">
-        <ncoe>Comms</ncoe>
-        <select id="ietf-rfc2818" mode="mandatory">HTTPS (IETF RFC 2818:2000)</select>
-        <rationale>RFC 2818 added in NISP v.3 through RFCP 2-1</rationale>
       </sp-view>
       <sp-view idx="d0e6823" category="a">
         <ncoe>Comms</ncoe>
@@ -2813,108 +2757,8 @@ table:
         <select id="iso-8879" mode="mandatory">SGML (ISO 8879:1986)</select>
         <remarks>For high value complex documents</remarks>
       </sp-view>
-      <sp-view idx="d0e7816" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xml-20040204" mode="mandatory">XML 1.0 2nd ed:2003, W3C</select>
-        <remarks>
-          Where semantic tags are required, the NC3 Repository serves as an XML
-          registry (see Data Management).
-        </remarks>
-      </sp-view>
-      <sp-view idx="d0e7823" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xml-20040204" mode="emerging">XML 1.0 3rd ed:2004, W3C</select>
-        <rationale>XML 1.0 3rd ed:2004 added in NCSP v.6 through RFCP 5-3</rationale>
-      </sp-view>
-      <sp-view idx="d0e7830" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xlink-20010627" mode="emerging">XLink 1.0:2001, W3C</select>
-        <remarks>XLink is used to point to resources from XML documents.</remarks>
-        <rationale>XLink 1.0:2001 added in NCSP v.6 through RFCP 5-23</rationale>
-      </sp-view>
-      <sp-view idx="d0e7839" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xptr-framework-20030325" mode="emerging">XPointer 1.0:2001, W3C</select>
-        <remarks>
-          XPointer is used to identify XML fragment inside any given XML
-          documents.
-        </remarks>
-        <rationale>XPointer 1.0:2001 added in NCSP v.6 through RFCP 5-24</rationale>
-      </sp-view>
-      <sp-view idx="d0e7848" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="iso-iec-19757-2" mode="emerging">Relax NG (ISO/IEC 19757-2:2008)</select>
-        <remarks>Relax NG may be a replacement for XML schema languages.</remarks>
-        <rationale>Relax NG added in NCSP v.6 through RFCP 5-22</rationale>
-      </sp-view>
-      <sp-view idx="d0e7857" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xmlbase-20010627" mode="mandatory">XML Base:2001, W3C</select>
-        <rationale>XML Base added in NCSP v.6 through RFCP 5-11</rationale>
-      </sp-view>
-      <sp-view idx="d0e7864" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xml-infoset-20011024" mode="mandatory">XML Infoset:2001, W3C</select>
-        <rationale>XML Infoset added in NCSP v.6 through RFCP 5-12</rationale>
-      </sp-view>
-      <sp-view idx="d0e7871" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xml-stylesheet-19990629" mode="mandatory">XSL Association:1999, W3C</select>
-        <rationale>XSL Association added in NCSP v.6 through RFCP 5-13</rationale>
-      </sp-view>
-      <sp-view idx="d0e7878" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xml-names-19990114" mode="mandatory">
-          Namespaces in XML
-          (xml-names-19990114:1999)
-        </select>
-        <rationale>xml-names-19990114:1999 corrected in NCSP v.6</rationale>
-      </sp-view>
-      <sp-view idx="d0e7885" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xslt-19991116" mode="mandatory">
-          Extensible Stylesheet Language Transformation
-          (XSLT) 1.0:1999
-        </select>
-      </sp-view>
-      <sp-view idx="d0e7890" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xsl-20011015" mode="mandatory">Extensible Stylesheet Language (XSL) 1.0:2001</select>
-      </sp-view>
-      <sp-view idx="d0e7895" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xmlschema-0-20010502" mode="mandatory">XML Schema, Part 0-2:2001</select>
-      </sp-view>
-      <sp-view idx="d0e7900" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="wapforum-wap-238-wml-20010911-a" mode="mandatory">Wireless Markup Language (WML) 2.0:2001</select>
-        <remarks>
-          WML to be used with Wireless Application Protocol (WAP)
-          for constrained environments
-        </remarks>
-        <rationale>
-          WML to be used with Wireless Application Protocol (WAP) for constrained
-          environments
-        </rationale>
-      </sp-view>
-      <sp-view idx="d0e7909" category="a">
-        <select id="w3c-wd-exi-20070716" mode="emerging">Efficient XML Interchange Format (EXI) v1.0 </select>
-        <remarks>Efficient implementations of XML in the tactical environment</remarks>
-        <rationale>EXI to be used in tactical environments</rationale>
-      </sp-view>
     </sp-list>
     <sp-list tref="ts-ces-med">
-      <sp-view idx="d0e8554" category="a">
-        <ncoe>Data Mgmt</ncoe>
-        <select id="nato-stanag5523" mode="mandatory">NC3 Repository</select>
-        <remarks>
-          Common repository for standard data elements and their
-          related tool for the NATO Corporate Data Model for Data
-          Administration. See also XML.<para/>For CCEB interoperability this standard
-          is partially applicable
-        </remarks>
-        <rationale>For CCEB interoperability this standard is partially applicable</rationale>
-      </sp-view>
     </sp-list>
     <sp-list tref="ts-ces-med">
       <sp-view idx="d0e8566" category="a">
@@ -3109,11 +2953,6 @@ table:
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
         <rationale>NVG added in NISP v.3 through RFCP 2-20.</rationale>
       </sp-view>
-      <sp-view idx="d0e9015" category="a">
-        <select id="nato-nmrr" mode="emerging">NATO METADATA REGISTRY AND REPOSITORY (NMRR)</select>
-        <remarks>For CCEB interoperability this standard is not applicable.</remarks>
-        <rationale>NMRR added in NISP v.3 through RFCP 2-24.</rationale>
-      </sp-view>
       <sp-view idx="d0e9022" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="iso-iec-15444" mode="mandatory">
@@ -3229,10 +3068,6 @@ table:
           orders, invoices, and electronic funds transfer information. ebXML is a UN standard
         </remarks>
         <rationale>ISO 9735:1998 canceled, new ISO 9735:2002. Changed in NCSP v.6</rationale>
-      </sp-view>
-      <sp-view idx="d0e9493" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="ebxml-ebta" mode="mandatory">ebXML Messaging Service v. 2:2002 (OASIS)</select>
       </sp-view>
       <sp-view idx="d0e9498" category="a">
         <ncoe>Data Interchange</ncoe>
@@ -3670,6 +3505,21 @@ table:
       </sp-view>
     </sp-list>
     <sp-list tref="ts-ces-ws">
+      <sp-view idx="d0e6809" category="a">
+        <ncoe>Comms</ncoe>
+        <select id="ietf-rfc2616" mode="mandatory">HTTP v. 1.1 (IETF RFC 2616:1999
+	  updated by RFC 2817:2000), URL (RFC 4248:2005, 4266:2005), URI (RFC 3986:2005)
+        </select>
+        <rationale>
+          RFC 2616:1999 updated with RFC 2817:2000; RFC 2368:1998, 4248:2005, 4266:2005; RFC 2396:1998 updated
+          by RFC 2732:1999 changed in NCSP v.6
+        </rationale>
+      </sp-view>
+      <sp-view idx="d0e6816" category="a">
+        <ncoe>Comms</ncoe>
+        <select id="ietf-rfc2818" mode="mandatory">HTTPS (IETF RFC 2818:2000)</select>
+        <rationale>RFC 2818 added in NISP v.3 through RFCP 2-1</rationale>
+      </sp-view>
       <sp-view idx="d0e11281" category="a">
         <ncoe/>
         <select id="oasis-ws-bpel" mode="emerging">Web Services Business Process Execution Language (WSBPEL) v.2:2007, OASIS</select>
@@ -3712,11 +3562,6 @@ table:
         <remarks>DSML provides a Dircetory Access via a Web interface</remarks>
         <rationale>Included in NCSP v.5 through RFCP 6-5</rationale>
       </sp-view>
-      <sp-view idx="d0e11337" category="a">
-        <select id="oasis-regrep-rim-3.0-os" mode="midterm">ebRIM v3.0, OASIS</select>
-        <remarks>ebXML Registry Information Model</remarks>
-        <rationale>Included in NISP v.3 through RFCP 2-12.</rationale>
-      </sp-view>
       <sp-view idx="d0e11344" category="a">
         <select id="nato-tide-id-rr" mode="emerging">NATO TIDE Information Discovery (Request-Response), ACT</select>
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
@@ -3733,17 +3578,90 @@ table:
         <remarks>For CCEB interoperability WSDL v1.1 is mandatory</remarks>
         <rationale>Included in v.5 through RFCP 4-38; date added in NCSP v.6 through RFCP 5-25</rationale>
       </sp-view>
-      <sp-view idx="d0e11367" category="a">
-        <ncoe>Distr. Comp.</ncoe>
-        <select id="ebxml-ebta" mode="emerging">
-          ISO/TS 15000-1:2004, -2:2004, -3:2004, -4:2004,
-          -5:2005 Electronic Business Extensible Markup Language (ebXML)
-        </select>
+      <sp-view idx="d0e7816" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xml-20040204" mode="mandatory">XML 1.0 2nd ed:2003, W3C</select>
+	<select id="w3c-rec-xml-20040204" mode="emerging">XML 1.0 3rd ed:2004, W3C</select>
         <remarks>
-          ebXML is a suite of specifications for standardizing XML based business
-          messages to facilitate trading between organisation.
+          Where semantic tags are required, the NC3 Repository serves as an XML
+          registry (see Data Management).</remarks>
+	<rationale>XML 1.0 3rd ed:2004 added in NCSP v.6 through RFCP 5-3</rationale>
+      </sp-view>
+      <sp-view idx="d0e7830" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xlink-20010627" mode="emerging">XLink 1.0:2001, W3C</select>
+        <remarks>XLink is used to point to resources from XML documents.</remarks>
+        <rationale>XLink 1.0:2001 added in NCSP v.6 through RFCP 5-23</rationale>
+      </sp-view>
+      <sp-view idx="d0e7839" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xptr-framework-20030325" mode="emerging">XPointer 1.0:2001, W3C</select>
+        <remarks>
+          XPointer is used to identify XML fragment inside any given XML
+          documents.
         </remarks>
-        <rationale>Included in NCSP v.7 through RFCP 6-16</rationale>
+        <rationale>XPointer 1.0:2001 added in NCSP v.6 through RFCP 5-24</rationale>
+      </sp-view>
+      <sp-view idx="d0e7848" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="iso-iec-19757-2" mode="emerging">Relax NG (ISO/IEC 19757-2:2008)</select>
+        <remarks>Relax NG may be a replacement for XML schema languages.</remarks>
+        <rationale>Relax NG added in NCSP v.6 through RFCP 5-22</rationale>
+      </sp-view>
+      <sp-view idx="d0e7857" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xmlbase-20010627" mode="mandatory">XML Base:2001, W3C</select>
+        <rationale>XML Base added in NCSP v.6 through RFCP 5-11</rationale>
+      </sp-view>
+      <sp-view idx="d0e7864" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xml-infoset-20011024" mode="mandatory">XML Infoset:2001, W3C</select>
+        <rationale>XML Infoset added in NCSP v.6 through RFCP 5-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e7871" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xml-stylesheet-19990629" mode="mandatory">XSL Association:1999, W3C</select>
+        <rationale>XSL Association added in NCSP v.6 through RFCP 5-13</rationale>
+      </sp-view>
+      <sp-view idx="d0e7878" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xml-names-19990114" mode="mandatory">
+          Namespaces in XML
+          (xml-names-19990114:1999)
+        </select>
+        <rationale>xml-names-19990114:1999 corrected in NCSP v.6</rationale>
+      </sp-view>
+      <sp-view idx="d0e7885" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xslt-19991116" mode="mandatory">
+          Extensible Stylesheet Language Transformation
+          (XSLT) 1.0:1999
+        </select>
+      </sp-view>
+      <sp-view idx="d0e7890" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xsl-20011015" mode="mandatory">Extensible Stylesheet Language (XSL) 1.0:2001</select>
+      </sp-view>
+      <sp-view idx="d0e7895" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="w3c-rec-xmlschema-0-20010502" mode="mandatory">XML Schema, Part 0-2:2001</select>
+      </sp-view>
+      <sp-view idx="d0e7900" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="wapforum-wap-238-wml-20010911-a" mode="mandatory">Wireless Markup Language (WML) 2.0:2001</select>
+        <remarks>
+          WML to be used with Wireless Application Protocol (WAP)
+          for constrained environments
+        </remarks>
+        <rationale>
+          WML to be used with Wireless Application Protocol (WAP) for constrained
+          environments
+        </rationale>
+      </sp-view>
+      <sp-view idx="d0e7909" category="a">
+        <select id="w3c-wd-exi-20070716" mode="emerging">Efficient XML Interchange Format (EXI) v1.0 </select>
+        <remarks>Efficient implementations of XML in the tactical environment</remarks>
+        <rationale>EXI to be used in tactical environments</rationale>
       </sp-view>
       <sp-view idx="d0e11376" category="a">
         <ncoe>Distr. Comp.</ncoe>
@@ -4171,6 +4089,7 @@ table:
     </profile-list>
   </lists>
   <records>
+    <standardrecord tref="omat" id="unknown-dummy" tag=""/>
     <standardrecord tref="ts-rep-eds" id="cceb-acp133" tag="ACP 133">
       <standard orgid="cceb" pubnum="ACP 133" date="2007" title="Common Directory Services and Procedures, ACP 133 ed. C"/>
       <applicability>
@@ -6647,8 +6566,8 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="nis-ns-disa" id="unknown-wusb" tag="WUSB">
-      <standard date="" orgid="" pubnum="" title="Certified Wireless USB"/>
+    <standardrecord tref="nis-ns-disa" id="usb.org-wusb" tag="WUSB">
+      <standard date="2005-05-12" orgid="usb.org" pubnum="" title="Wireless USB Specification"/>
       <applicability>
         Wireless USB is a short-range, high-bandwidth wireless extension
         to USB that combines the speed and ease-of-use of USB 2.0 with the convenience
@@ -6660,6 +6579,7 @@ table:
       <status stage="10.10" mode="unknown">
         <history>
           <event date="2007-02-23" flag="added" version="1.0"/>
+	  <event date="2009-12-09" flag="changed" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -6682,7 +6602,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="nis-ns-disa" id="unknown-4G" tag="4G">
-      <standard date="" orgid="" pubnum="" title="Mobile Telephone"/>
+      <standard date="" orgid="" pubnum="" title="Mobile Phone 4G"/>
       <applicability>
         Although the new 3G systems (mobile phone companies have invested
         heavily in this technology) have just been launched not long ago, many companies
@@ -6703,7 +6623,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="nis-ns-disa" id="unknown-5G" tag="5G">
-      <standard date="" orgid="" pubnum="" title="Mobile Phone"/>
+      <standard date="" orgid="" pubnum="" title="Mobile Phone 5G"/>
       <applicability/>
       <status stage="10.10" mode="unknown">
         <history>
@@ -6878,6 +6798,7 @@ table:
       <status stage="10.10" mode="unknown">
         <history>
           <event date="2007-02-23" flag="added" version="1.0"/>
+	  
         </history>
       </status>
     </standardrecord>
@@ -11619,7 +11540,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-ias-con" id="netscape-draft302" tag="SSL">
+    <standardrecord tref="ias-con" id="netscape-draft302" tag="SSL">
       <standard orgid="netscape" pubnum="draft302" date="1996" title="Secure Socket Layer, vers. 3.0"/>
       <applicability>
         This standard specifies Version 3.0 of the Secure Sockets Layer
@@ -11639,7 +11560,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-ias-con" id="ietf-rfc5246" tag="TLS v1.2">
+    <standardrecord tref="ias-con" id="ietf-rfc5246" tag="TLS v1.2">
       <standard orgid="ietf" pubnum="RFC 5246" date="2008" title="Transport Layer Security (TLS)"/>
       <applicability>
         This document specifies Version 1.1 of the Transport Layer Security
@@ -12004,7 +11925,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-10165" tag="SMI (Structure of Management Information)">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-10165" tag="SMI (Structure of Management Information)">
       <standard orgid="iso-iec" pubnum="10165" date="1993" title="Management Information Services - Structure of Management information">
         <alsoknown orgid="nato" pubnum="STANAG 4407" date=""/>
         <parts>
@@ -12056,7 +11977,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc1212" tag="SMI IETF">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc1212" tag="SMI IETF">
       <standard orgid="ietf" pubnum="RFC 1212" date="1991" title="Structure of Management Information"/>
       <applicability>
         This memo describes a straight-forward approach
@@ -12071,7 +11992,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-10164" tag="System Management">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-10164" tag="System Management">
       <standard orgid="iso-iec" pubnum="10164" date="1993" title="Systems Management">
         <alsoknown orgid="nato" pubnum="STANAG 4407" date=""/>
         <parts>
@@ -12151,7 +12072,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="dmtf-dsp0004" tag="CIM">
+    <standardrecord tref="ces-esm-sys" id="dmtf-dsp0004" tag="CIM">
       <standard orgid="dmtf" pubnum="DSP0004" date="1999" title="Common Information Model (CIM) v2.2"/>
       <applicability>
         The DMTF Common Information Model (CIM) is an
@@ -12175,7 +12096,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-9596" tag="CMIP">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-9596" tag="CMIP">
       <standard orgid="iso-iec" pubnum="9596" date="1998" title="Common Management Information Protocol (CMIP)">
         <parts>
           <standard orgid="iso-iec" pubnum="9596-1" date="1998" title="CMIP Specification">
@@ -12210,7 +12131,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-9595" tag="CMIS">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-9595" tag="CMIS">
       <standard orgid="iso-iec" pubnum="9595" date="1998" title="Common Management Information Service (CMIS) Definition">
         <alsoknown orgid="itu-t" pubnum="X.710" date="1997"/>
       </standard>
@@ -12227,7 +12148,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc1643" tag="Definition of Management Objects">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc1643" tag="Definition of Management Objects">
       <standard orgid="ietf" pubnum="RFC 1643" date="1994" title="Definitions of Managed Objects for the Ethernet-like Interface Types"/>
       <applicability>
         This standard defines a portion of the Management
@@ -12244,7 +12165,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-10165-4" tag="GDMO">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-10165-4" tag="GDMO">
       <standard orgid="iso-iec" pubnum="10165-4" date="1992" title="Guidelines for the Definition of Managed Objects">
         <correction cpubnum="TC1" date="1996"/>
         <correction cpubnum="TC2" date="2003"/>
@@ -12289,7 +12210,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc2790" tag="Host Resources MIB">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc2790" tag="Host Resources MIB">
       <standard orgid="ietf" pubnum="RFC 2790" date="2000" title="Host Resources Management Information Base (MIB)"/>
       <applicability>
         This RFC specifies an Internet standards track
@@ -12314,7 +12235,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc2465" tag="IPv6 MIB">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc2465" tag="IPv6 MIB">
       <standard orgid="ietf" pubnum="RFC 2465" date="1998" title="IPv6  MIB"/>
       <applicability>
         This document is one in the series of documents that provide MIB
@@ -12336,7 +12257,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc5519" tag="Multicast Group Membership Discovery MIB">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc5519" tag="Multicast Group Membership Discovery MIB">
       <standard orgid="ietf" pubnum="RFC5519" date="2009" title="Multicast Group Membership Discovery MIB"/>
       <applicability>
         This document defines a portion of the Management Information
@@ -12353,7 +12274,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc2466" tag="ICMPv6 MIB">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc2466" tag="ICMPv6 MIB">
       <standard orgid="ietf" pubnum="RFC 2466" date="1998" title="ICMPv6  MIB"/>
       <applicability>
         This document is one in the series of documents that define
@@ -12375,7 +12296,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc2452" tag="IPv6 MIB for TCP">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc2452" tag="IPv6 MIB for TCP">
       <standard orgid="ietf" pubnum="RFC 2452" date="1998" title="IPv6  MIB for TCP"/>
       <applicability>
         This memo defines an experimental portion of the Management
@@ -12389,7 +12310,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc2454" tag="IPv6 MIB for UDP">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc2454" tag="IPv6 MIB for UDP">
       <standard orgid="ietf" pubnum="RFC 2454" date="1998" title="IPv6  MIB for UDP"/>
       <applicability>
         This memo defines an experimental portion of the Management
@@ -12403,7 +12324,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc1213" tag="MIB II">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc1213" tag="MIB II">
       <standard orgid="ietf" pubnum="RFC 1213" date="1991" title="Management Information Base v2 (MIB II)"/>
       <applicability>
         This memo defines the second version of the Management Information
@@ -12422,7 +12343,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="unknown-omnipoint" tag="OMNIPoint">
+    <standardrecord tref="ces-esm-sys" id="unknown-omnipoint" tag="OMNIPoint">
       <standard orgid="" pubnum="" date="" title="OMNIPoint, Network Management Forum (NMF)"/>
       <applicability>
         OMNIPoint stands for Open Management Network Interoperability Point.
@@ -12439,7 +12360,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc4750" tag="OSPF MIB">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc4750" tag="OSPF MIB">
       <standard orgid="ietf" pubnum="RFC 4750" date="2006" title="OSPF version 2 Management Information Base"/>
       <applicability>
         This memo defines a portion of the Management Information Base (MIB)
@@ -12456,7 +12377,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc2819" tag="RMON MIB v1">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc2819" tag="RMON MIB v1">
       <standard orgid="ietf" pubnum="RFC 2819" date="2000" title="Remote Network Monitoring Management Information Base, RMON-MIB version 1"/>
       <applicability>
         Use with SNMP to provide managers with the ability to monitor
@@ -12473,7 +12394,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ietf-rfc2021" tag="RMON MIB v2">
+    <standardrecord tref="ces-esm-sys" id="ietf-rfc2021" tag="RMON MIB v2">
       <standard orgid="ietf" pubnum="RFC 2021" date="1997" title="Remote Network Monitoring Management Information Base, RMON-MIB version 2 using SMIv2"/>
       <applicability>
         Emerging standard that may be used on SNMP networks to provide
@@ -12489,7 +12410,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <profilerecord tref="ces-esm-UNKNOWN" id="ietf-rfc1157" tag="SNMP Version 1">
+    <profilerecord tref="ces-esm-sys" id="ietf-rfc1157" tag="SNMP Version 1">
       <parts>
         <standard orgid="ietf" pubnum="RFC 1157" date="1990" title="Simple Network Management Protocol (SNMP)"/>
         <standard orgid="ietf" pubnum="RFC 1155" date="1990" title="SNMP Structure of Management Information (SMI)">
@@ -12517,7 +12438,7 @@ table:
         </history>
       </status>
     </profilerecord>
-    <profilerecord tref="ces-esm-UNKNOWN" id="ietf-rfc3416" tag="SNMPv2">
+    <profilerecord tref="ces-esm-sys" id="ietf-rfc3416" tag="SNMPv2">
       <parts>
         <standard orgid="ietf" pubnum="RFC 3416" date="2002" title="Protocol Operations for Version 2 of the Simple Network Management Protocol (SNMPv2)"/>
         <standard orgid="ietf" pubnum="RFC 2578" date="1999" title="Structure of Management Information for Version 2 of the Simple Network Management Protocol (SNMPv2)">
@@ -12557,7 +12478,7 @@ table:
         </history>
       </status>
     </profilerecord>
-    <profilerecord tref="ces-esm-UNKNOWN" id="ietf-rfc3411" tag="SNMPv3">
+    <profilerecord tref="ces-esm-sys" id="ietf-rfc3411" tag="SNMPv3">
       <parts>
         <standard orgid="ietf" pubnum="RFC 3411" date="2002" title="Architecture for Describing SNMP Management Frameworks (SNMPv3 Architecture)"/>
         <standard orgid="ietf" pubnum="RFC 3412" date="2002" title="Message Processing and Dispatching for the Simple Nemwork Management Protocol (SNMPv3 Management Protocol)"/>
@@ -12598,7 +12519,7 @@ table:
         </history>
       </status>
     </profilerecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-10164-dublet" tag="OSI Performance Management">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-10164-dublet" tag="OSI Performance Management">
       <standard orgid="iso-iec" pubnum="10164" date="1994" title="OSI Performance Management">
         <parts>
           <standard orgid="iso-iec" pubnum="10164-11" date="1994" title="OSI Performance Management Part 11: Metric Objects and Attributes">
@@ -12642,7 +12563,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ansi-x3.102" tag="ANSI - User Oriented Performance Parameters">
+    <standardrecord tref="ces-esm-sys" id="ansi-x3.102" tag="ANSI - User Oriented Performance Parameters">
       <standard orgid="ansi" pubnum="X3.102" date="1992" title="Data Communications Systems and Services - User Oriented Performance Parameters"/>
       <applicability>
         This standard defines parameters that can be used to describe
@@ -12658,7 +12579,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="ansi-x3.141" tag="ANSI Measurement Methods">
+    <standardrecord tref="ces-esm-sys" id="ansi-x3.141" tag="ANSI Measurement Methods">
       <standard orgid="ansi" pubnum="X3.141" date="1987" title="Data Communications Systems and Services - Measurement Methods for User-Oriented Performance Evaluation">
         <comment>R1992</comment>
       </standard>
@@ -12676,7 +12597,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-10164-dublet1" tag="OSI Fault Management">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-10164-dublet1" tag="OSI Fault Management">
       <standard orgid="iso-iec" pubnum="10164" date="1992" title="Fault Management">
         <alsoknown orgid="nato" pubnum="STANAG 4407" date=""/>
         <parts>
@@ -12714,7 +12635,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-10164-dublet2" tag="OSI Security Management">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-10164-dublet2" tag="OSI Security Management">
       <standard orgid="iso-iec" pubnum="10164" date="1992" title="Security Management">
         <parts>
           <standard orgid="iso-iec" pubnum="10164-7" date="1992" title="OSI Security Management Part 7: Security alarm reporting function">
@@ -12749,7 +12670,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="opengroup-c430" tag="Distributed Software Administration">
+    <standardrecord tref="ces-esm-sys" id="opengroup-c430" tag="Distributed Software Administration">
       <standard orgid="opengroup" pubnum="C430" date="1997" title="X/Open Systems Management: Distributed Software Administration"/>
       <applicability>
         This standard defines a mechanism for addressing the interoperability
@@ -12766,7 +12687,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-7498-4" tag="Management Framework">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-7498-4" tag="Management Framework">
       <standard orgid="iso-iec" pubnum="7498-4" date="1989" title="OSI Basic Reference Model, Management Framework Part 4: Management Framework"/>
       <applicability>
         This reference model provides a management framework describing
@@ -12784,7 +12705,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-esm-UNKNOWN" id="iso-iec-10040" tag="System Management Overview">
+    <standardrecord tref="ces-esm-sys" id="iso-iec-10040" tag="System Management Overview">
       <standard orgid="iso-iec" pubnum="10040" date="1998" title="Systems Management Overview"/>
       <applicability>
         This document provides the system management overview for monitoring,
@@ -19061,7 +18982,6 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="coi-ci-trak" id="unknown-dummy" tag=""/>
     <standardrecord tref="coi-logistics-scs" id="oagi-oagis" tag="OAGIS 9.0">
       <standard orgid="oagi" pubnum="OAGIS" date="2006" title="xxx"/>
       <applicability/>
@@ -19176,6 +19096,7 @@ table:
     <orgkey key="rsa" text="RSA"/>
     <orgkey key="sun" text="SUN Microsystems"/>
     <orgkey key="teletrust" text="Teletrust"/>
+    <orgkey key="usb.org" text="USB.org"/>
     <orgkey key="w3c" text="W3C"/>
     <orgkey key="wapforum" text="WAP Forum"/>
     <orgkey key="ws-i" text="Web Services Interoperability Organisation"/>
