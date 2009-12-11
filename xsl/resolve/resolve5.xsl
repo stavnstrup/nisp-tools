@@ -140,7 +140,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:template match="ncoe"/>
 
-<xsl:template match="select|remarks">
+<xsl:template match="select|remarks|rationale">
   <xsl:apply-templates/>
 </xsl:template>
 
