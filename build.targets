@@ -663,7 +663,7 @@
    </target>
    <target name="vol5.html" description="* Create Volume 5 in XHTML" depends="vol5.svg, vol5.resolve, vol5.html.check" unless="vol5-html.notRequired">
       <echo message="Create Volume 5 as chunked XHTML pages"/>
-      <java fork="yes" classname="${xslt.class}" dir="${build.vol5}">
+      <java fork="yes" classname="${xslt.class}" dir="${build.vol5}" maxmemory="400m">
          <arg line="${xslt.opts} ${build.resolve}/${vol5.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${internet.opts} docid=vol5 pdf.prefix=NISP-Vol5 use.para.numbering=${use.para.numbering} use.portal.design=${use.portal.design}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
@@ -682,7 +682,10 @@
          <classpath refid="lib-saxon-classpath"/>
       </java>
       <echo message="Transforming Volume 5.fo to PDF"/>
-      <fop basedir="${build.fo}/" fofile="${build.fo}/vol5.fo" outfile="${build.fo}/vol5.pdf" format="application/pdf" messagelevel="${fop.message}"/>
+      <java classname="org.apache.fop.apps.Fop" fork="yes" dir="${build.fo}" maxmemory="400m">
+         <arg line=" vol5.fo vol5.pdf"/>
+         <classpath refid="lib-fop-classpath"/>
+      </java>
       <echo message="Creating Volume 5 meta information using pdffix"/>
       <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
          <arg line="&#34;${tool-version}&#34; &#34;Rationale Document&#34; vol5.pdf ${vol5.pdf.file}"/>
