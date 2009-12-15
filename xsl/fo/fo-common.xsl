@@ -186,9 +186,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <xsl:param name="for.internet.publication" select="0"/> <!--  Do not change this Wouter ! -->
 
-<!--
-<xsl:param name="class.label" select="'NATO/EAPC UNCLASSIFIED'"/>
--->
+
 <xsl:param name="class.label" select="'NATO/EAPC UNCLASSIFIED / RELEASABLE TO THE PUBLIC'"/>
 <xsl:param name="releasability.label"
            select="'RELEASABLE FOR INTERNET TRANSMISSION'"/>
@@ -530,7 +528,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <!-- sequence can be odd, even, first, blank -->
     <!-- position can be left, center, right -->
     <xsl:choose>
-      <xsl:when test="$position='center'">
+      <xsl:when test="$position='center' and $for.internet.publication=0">
         <xsl:value-of select="$class.label"/>
       </xsl:when>
       <xsl:when test="$pageclass='titlepage' or $sequence='first' or $sequence='odd'">
@@ -648,7 +646,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:text>Original</xsl:text>
       <fo:block>(Reverse blank)</fo:block>
     </xsl:if>
-    <xsl:if test="$position='center'">
+    <xsl:if test="$position='center' and $for.internet.publication=0">
       <xsl:value-of select="$class.label"/>
     </xsl:if>
   </fo:block>
