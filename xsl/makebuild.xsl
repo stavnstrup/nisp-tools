@@ -642,10 +642,19 @@
         <xsl:text>}</xsl:text>
       </xsl:attribute>
 
-      <xsl:if test=".//target[@type='html'][@memory]">
+      <xsl:if test=".//target[@type='html'][@heapmemory]">
          <xsl:attribute name="maxmemory">
-            <xsl:value-of select=".//target[@type='html']/@memory"/>
+            <xsl:value-of select=".//target[@type='html']/@heapmemory"/>
          </xsl:attribute>
+      </xsl:if>
+
+      <xsl:if test=".//target[@type='html'][@stackmemory]">
+        <jvmarg>
+          <xsl:attribute name="value">
+            <xsl:text>-Xss</xsl:text>
+            <xsl:value-of select=".//target[@type='html']/@stackmemory"/>
+          </xsl:attribute>
+        </jvmarg>
       </xsl:if>
 
       <arg>
@@ -732,6 +741,14 @@
     <java fork="yes">
       <xsl:attribute name="classname"><xsl:text>${xslt.class}</xsl:text></xsl:attribute>
       <xsl:attribute name="dir"><xsl:text>${build.fo}</xsl:text></xsl:attribute>
+      <xsl:if test=".//target[@type='pdf'][@stackmemory]">
+        <jvmarg>
+          <xsl:attribute name="value">
+            <xsl:text>-Xss</xsl:text>
+            <xsl:value-of select=".//target[@type='pdf']/@stackmemory"/>
+          </xsl:attribute>
+        </jvmarg>
+      </xsl:if>
       <arg>
         <xsl:attribute name="line">
           <xsl:text>${xslt.opts} -o </xsl:text> 
@@ -750,7 +767,7 @@
     <echo message="Transforming {$title}.fo to PDF"/>
 
     <xsl:choose>
-      <xsl:when test=".//target[@type='pdf'][@memory]">
+      <xsl:when test=".//target[@type='pdf'][@heapmemory]">
 
     
         <java classname="org.apache.fop.apps.Fop" fork="yes">
@@ -762,7 +779,7 @@
             <xsl:text>${build.fo}</xsl:text>
           </xsl:attribute>
           <xsl:attribute name="maxmemory">
-            <xsl:value-of select=".//target[@type='pdf']/@memory"/>
+            <xsl:value-of select=".//target[@type='pdf']/@heapmemory"/>
           </xsl:attribute>
           <arg>
             <xsl:attribute name="line">

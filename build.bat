@@ -12,7 +12,7 @@ set NISP_HOME=.
 :gotAntHome
 @cd %NISP_HOME%
 
-set FIRSTJAR=%NISP_HOME%\lib\xercesImpl-2.8.1.jar
+set FIRSTJAR=%NISP_HOME%\lib\xercesImpl-2.9.1.jar
 
 call %NISP_HOME%\bin\ant -lib %FIRSTJAR% %1 %2 %3 %4 %5 %6 %7 %8 %9
 

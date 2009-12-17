@@ -1,8 +1,8 @@
 <!-- ...................................................................... -->
-<!-- Documents XML DTD V1.0 ............................................... -->
+<!-- Documents XML DTD V1.1 ............................................... -->
 <!-- File documents.dtd ................................................... -->
 
-<!-- Copyright 2003-2005 Danish Defence Research Establishment and
+<!-- Copyright 2003-2009 Danish Defence Research Establishment and
      NATO Command, Control and Consultation Organisation (NC3O).
 
      Permission to use, copy, modify and distribute the Standards XML
@@ -20,21 +20,21 @@
 
 <!-- ...................................................................... -->
 
-<!-- This is the driver file for V1.0 of the Documents DTD.
+<!-- This is the driver file for V1.1 of the Documents DTD.
      Please use the following formal public identifier to identify it:
 
-     "-//DDRE//DTD Documents XML V1.0//EN"
+     "-//DDRE//DTD Documents XML V1.1//EN"
 
      Example, use the FPI in the DOCTYPE declaration:
 
-     <!DOCTYPE documents PUBLIC "-//DDRE//DTD Documents XML V1.0//EN"
+     <!DOCTYPE documents PUBLIC "-//DDRE//DTD Documents XML V1.1//EN"
                                 "documents.dtd"
                [...]>
 
      Or, if you have a higher-level driver file that customizes Documentss,
      use the FPI in the parameter entity declaration:
 
-     <!ENTITY % DocumentsDTD PUBLIC "-//DDRE//DTD Documents XML V1.0//EN"
+     <!ENTITY % DocumentsDTD PUBLIC "-//DDRE//DTD Documents XML V1.1//EN"
                 "documents.dtd">
      %DocumentsDTD;
 
@@ -100,5 +100,6 @@
 <!ATTLIST target 
           type CDATA #REQUIRED
           embedsvg (yes|no) "no"
-          memory CDATA #IMPLIED>
+          heapmemory CDATA #IMPLIED
+          stackmemory CDATA #IMPLIED>
 

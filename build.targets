@@ -663,7 +663,8 @@
    </target>
    <target name="vol5.html" description="* Create Volume 5 in XHTML" depends="vol5.svg, vol5.resolve, vol5.html.check" unless="vol5-html.notRequired">
       <echo message="Create Volume 5 as chunked XHTML pages"/>
-      <java fork="yes" classname="${xslt.class}" dir="${build.vol5}" maxmemory="400m">
+      <java fork="yes" classname="${xslt.class}" dir="${build.vol5}">
+         <jvmarg value="-Xss512k"/>
          <arg line="${xslt.opts} ${build.resolve}/${vol5.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${internet.opts} docid=vol5 pdf.prefix=NISP-Vol5 use.para.numbering=${use.para.numbering} use.portal.design=${use.portal.design}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
@@ -678,14 +679,12 @@
    <target name="vol5.pdf" description="* Create Volume 5 in PDF" depends="layout-fo, vol5.svg, vol5.resolve, vol5.pdf.check" unless="vol5-pdf.notRequired">
       <echo message="Create Volume 5 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
+         <jvmarg value="-Xss512k"/>
          <arg line="${xslt.opts} -o vol5.fo ${build.resolve}/${vol5.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${internet.opts} pdf.prefix=NISP-Vol5 use.para.numbering=${use.para.numbering}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
       <echo message="Transforming Volume 5.fo to PDF"/>
-      <java classname="org.apache.fop.apps.Fop" fork="yes" dir="${build.fo}" maxmemory="400m">
-         <arg line=" vol5.fo vol5.pdf"/>
-         <classpath refid="lib-fop-classpath"/>
-      </java>
+      <fop basedir="${build.fo}/" fofile="${build.fo}/vol5.fo" outfile="${build.fo}/vol5.pdf" format="application/pdf" messagelevel="${fop.message}"/>
       <echo message="Creating Volume 5 meta information using pdffix"/>
       <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
          <arg line="&#34;${tool-version}&#34; &#34;Rationale Document&#34; vol5.pdf ${vol5.pdf.file}"/>
