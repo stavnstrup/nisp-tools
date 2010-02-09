@@ -186,11 +186,14 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <xsl:param name="for.internet.publication" select="0"/> <!--  Do not change this Wouter ! -->
 
-
+<!--
 <xsl:param name="class.label" select="'NATO/EAPC UNCLASSIFIED / RELEASABLE TO THE PUBLIC'"/>
 <xsl:param name="releasability.label"
            select="'RELEASABLE FOR INTERNET TRANSMISSION'"/>
-
+-->
+<xsl:param name="class.label" select="'DRAFT'"/>
+<xsl:param name="releasability.label"
+           select="' '"/>
 
 <!-- Put special text on the blank page (This will properly be part of the
      official DocBook stylesheet collection) -->
