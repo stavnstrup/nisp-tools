@@ -9,6 +9,7 @@
 ]>
 
 <!--
+$Id: $
 
 Name        : fo-common.xsl
 
