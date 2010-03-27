@@ -191,8 +191,12 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="class.label" select="'NATO/EAPC UNCLASSIFIED / RELEASABLE TO THE PUBLIC'"/>
 <xsl:param name="releasability.label"
            select="'RELEASABLE FOR INTERNET TRANSMISSION'"/>
--->
+USE the line below for NOSWG review
 <xsl:param name="class.label" select="'DRAFT'"/>
+USE the line below for NC3B approval
+<xsl:param name="class.label" select="' '"/>
+-->
+<xsl:param name="class.label" select="' '"/>
 <xsl:param name="releasability.label"
            select="' '"/>
 
