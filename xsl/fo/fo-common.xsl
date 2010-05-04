@@ -192,13 +192,13 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="releasability.label"
            select="'RELEASABLE FOR INTERNET TRANSMISSION'"/>
 USE the line below for NOSWG review
+-->
 <xsl:param name="class.label" select="'DRAFT'"/>
+<!--
 USE the line below for NC3B approval
 <xsl:param name="class.label" select="' '"/>
 -->
-<xsl:param name="class.label" select="' '"/>
-<xsl:param name="releasability.label"
-           select="' '"/>
+<xsl:param name="releasability.label" select="' '"/>
 
 <!-- Put special text on the blank page (This will properly be part of the
      official DocBook stylesheet collection) -->
@@ -827,3 +827,4 @@ USE the line below for NC3B approval
 
 
 </xsl:stylesheet>
+

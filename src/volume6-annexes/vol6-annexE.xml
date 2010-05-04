@@ -1,910 +1,685 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ *****************************************************************
+                   Vol 6 - A P P E N D I X - E 
+ ***************************************************************** 
+-->
+
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../schema/dtd/docbkx45/docbookx.dtd">
-<appendix id="v6e-drguide">
-  <title>Guidelines using design rules in NATO NEC federated
-  environment</title>
-
-  <simpara><emphasis role="bold">Summary</emphasis></simpara>
-
-  <para>This guideline document describes a concept and model for how
-  knowledge of proven solutions can be documented and packaged in order to
-  form a shared basis for supporting the development and the implementation of
-  NNEC based systems for NATO.</para>
-
-  <sect1>
-    <title>Introduction</title>
-
-    <para>This document introduces the concept of design rules by describing
-    what design rules are and how they shall be applied in a NATO Network
-    Enabled Capabilities context.</para>
-
-    <para>Design rules are about reusing knowledge of proven solutions for
-    reoccurring problems. Reuse of solutions that give NNEC-specific
-    characteristics is particularly important. These solutions should solve
-    frequent and/or difficult problems, promote important system
-    characteristics and/or improve the quality of the resulting product in a
-    cost effective way.</para>
-
-    <para>A design rule consists mainly of the following three parts:</para>
-
-    <itemizedlist>
-      <listitem>
-        <para>Context; describes under what circumstances the design rule is
-        valid</para>
-      </listitem>
-
-      <listitem>
-        <para>Problem/Opportunity; is a description of the problem it solves
-        or the opportunity it exploits.</para>
-      </listitem>
-
-      <listitem>
-        <para>Solution; is a description how the problem/opportunity
-        shall/should be resolved in the given context</para>
-      </listitem>
-    </itemizedlist>
-
-    <para>Design rules can give solutions on all levels, but it is anticipated
-    that the produced design rules mainly takes care of the higher system
-    levels (relating to the breakdown patterns in a system design) in order to
-    avoid a cumbersome number of rules. If possible design rules shall be
-    based on standards and/or NISP/NAF and will preferably be associated with
-    as concept (generic concept of design).</para>
-
-    <para>The introduction of design rules in the NISP will also need to be
-    integrated with other design related artefacts and frameworks within NATO
-    such as the NATO Architectural Framework (NAF).</para>
-  </sect1>
-
-  <sect1>
-    <title>General</title>
-
-    <sect2>
-      <title>Target Group</title>
-
-      <para condition="ignore"></para>
-    </sect2>
-
-    <sect2>
-      <title>Definitions, Abbreviations and Acronyms</title>
-
-      <informaltable frame="all">
-        <tgroup cols="4">
-          <colspec colwidth="16*" />
-
-          <colspec colwidth="22*" />
-
-          <colspec colwidth="22*" />
-
-          <colspec colwidth="50*" />
-
-          <thead>
-            <row>
-              <entry><para>Acronym</para></entry>
-
-              <entry><para>Explanation</para></entry>
-
-              <entry><para>Reference</para></entry>
-
-              <entry><para>Definition</para></entry>
-            </row>
-          </thead>
-
-          <tbody>
-            <row>
-              <entry><para>DR</para></entry>
-
-              <entry><para>Design Rule</para></entry>
-
-              <entry><para>NOSWG</para></entry>
-
-              <entry><para>A standardized, reusable solution to a design
-              problem in a specific context within a problem space that
-              provides value to the user.</para> <para>Note: There are four
-              (4) types of design rules:</para> <para>a. A development method
-              that supports the life cycle perspective;</para> <para>b. A
-              defined structure that supports descriptions of complex
-              relations;</para> <para>c. A detailed description of suggested
-              technical solutions;</para> <para>d. A proven and reusable
-              solution for a generic problem.</para></entry>
-            </row>
-
-            <row>
-              <entry><para>DRP</para></entry>
-
-              <entry><para>Design Rule Package</para></entry>
-
-              <entry><para>NOSWG</para></entry>
-
-              <entry><para>A specific set of design rules that make up a
-              solution package within a defined problem area.</para></entry>
-            </row>
-
-            <row>
-              <entry><para>SIOP</para></entry>
-
-              <entry><para>service interoperability point</para>
-              <para></para></entry>
-
-              <entry><para>EAPC(AC/322)D(2006)0002-REV1</para>
-              <para></para></entry>
-
-              <entry><para>A reference point within an architecture where one
-              or more service interfaces are physically or logically
-              instantiated to allow systems delivering the same service using
-              different protocols to interoperate.</para> <para>Note: A
-              service interoperability point serves as the focal point for
-              service interoperability between interconnected systems, and may
-              be logically located at any level within the components, and its
-              detailed technical specification is contained within a service
-              interface profile.</para></entry>
-            </row>
-
-            <row>
-              <entry><para>SIP</para></entry>
-
-              <entry><para>service interface profile</para>
-              <para></para></entry>
-
-              <entry><para>EAPC(AC/322)D(2006)0002-REV1</para>
-              <para></para></entry>
-
-              <entry><para>A set of attributes that specifies the
-              characteristics of a service interface between interoperable
-              systems in the Networking and Information Infrastructure.</para>
-              <para>Note: A service interface profile is identified at a
-              service interoperability point in an architecture system
-              view.</para> <para></para></entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </informaltable>
-    </sect2>
-
-    <sect2>
-      <title>References</title>
-
-      <para condition="ignore"></para>
-
-      <bibliography>
-        <title>Referenced documents</title>
-
-        <bibliomixed><author>
-            <surname>Alexander</surname>
-
-            <firstname>C.</firstname>
-          </author> et al. <pubdate>1997</pubdate> <title>A Pattern
-        Language</title>, <publishername>Oxford University
-        Press</publishername>, <address>New York</address>,</bibliomixed>
-
-        <bibliomixed><author>
-            <firstname>E.</firstname>
-
-            <surname>Gamma</surname>
-          </author>, <author>
-            <firstname>R.</firstname>
-
-            <surname>Helm</surname>
-          </author>, <author>
-            <firstname>J.</firstname>
-
-            <surname>Vlissides</surname>
-          </author> <pubdate>1995</pubdate>. <title>Design Patterns: Elements
-        of Reusable Object-Oriented Software</title>. <address>Reading, MA</address>:
-        <publishername>Addison-Wesley</publishername></bibliomixed>
-
-        <bibliomixed><author>
-            <surname>Buschmann</surname>
-
-            <firstname>F.</firstname>
-          </author>, <author>
-            <surname>Meunier</surname>
-
-            <firstname>R.</firstname>
-          </author>, <author>
-            <surname>Rohnert</surname>
-
-            <firstname>H.</firstname>
-          </author>, <author>
-            <surname>Sommerlad</surname>
-
-            <firstname>P.</firstname>
-          </author> and <author>
-            <firstname>M.</firstname>
-
-            <surname>Stal</surname>
-          </author>. <pubdate>1996</pubdate>. <title>Pattern-Oriented Software
-        Architecture, A System of Patterns</title>. <address>New York</address>:
-        <publishername>John Wiley and Sons</publishername></bibliomixed>
-
-        <bibliomixed><title>Designrules, in the commercial world</title>.
-        <author>
-            <firstname>David B. Kim</firstname>
-
-            <surname>Clark</surname>
-          </author></bibliomixed>
-      </bibliography>
-    </sect2>
-  </sect1>
-
-  <sect1>
-    <title>Background</title>
-
-    <para>Packaging knowledge into something reusable is nothing new in the
-    software engineering field of science. Almost ten years ago a book was
-    published that made a huge impact on how software engineers look upon
-    packaging and sharing knowledge of proven solutions. The Design
-    Pattern-book gave the engineers a tool not only on how to describe,
-    formalize, package and distribute their knowledge and experience but also
-    a tool on how to discuss different possible solution alternatives to a
-    specific problem. It enables efficiency in both the communication and the
-    implementation of software design, based upon a common vocabulary and
-    reference.</para>
-
-    <para>The design pattern concept described in this book was not an
-    original idea but the adaptation of the ideas from a building architect,
-    Dr Christopher Alexander, who wrote a book on patterns found when
-    categorizing floor plans, buildings, neighbourhoods, town, cities, etc. In
-    that book Alexander writes:</para>
-
-    <para>&ldquo;Each pattern is a three-part rule, which expresses a relation
-    between a certain context, a problem, and a solution.&rdquor;</para>
-
-    <para>This is the central thing about being able to package our knowledge
-    and experience. It is not enough to describe a solution. To make a
-    solution useful you also have to state what problem the solution solves or
-    what opportunity that the solution makes possible as well as the context
-    in which the problem/opportunity &ndash; solution pair is valid. For
-    instance, the optimal solution to the problem on how to enter and exit a
-    building will be very different in the context of a building situated in
-    Stockholm or somewhere in the arctic.</para>
-
-    <para>The design patterns from the Design Pattern-book are the type of
-    patterns that have become most widely known. These patterns solve problems
-    or makes opportunities possible at a analysis or design level of
-    abstraction. However, this is not the only level of abstraction covered by
-    patterns. 1996 an important piece of work regarding patterns was published
-    dealing with patterns on an architectural level of abstraction. This book
-    identified patterns for system architecture at a higher level than the
-    original design patterns. The patterns relate to the macro-design of
-    system components such as operating systems or network stacks.</para>
-
-    <para>After this, patterns of higher and higher level of abstraction have
-    been published, sometimes, but not very often, also on lower levels. A
-    specific level of interest to us is the system level-of abstraction.
-    System-level patterns identify and describe the overall structure and
-    interactions that can occur between components of a system. Furthermore,
-    Enterprise-level patterns are possible, showing how to efficiently
-    organise ones enterprise and what type of services to offer to its
-    clients.</para>
-
-    <para>Consequently, mechanisms similar to the design rules described in
-    this guideline have been used in different contexts and at different
-    levels of abstraction. In many cases they have been quite popular and
-    proven practical. Thus, it can be assumed that the design rule concept can
-    be an efficient means to provide reuse of knowledge within the future
-    development of the NNEC.</para>
-  </sect1>
-
-  <sect1>
-    <title>Design rules summary</title>
-
-    <sect2>
-      <title>Introduction to design rules</title>
-
-      <para>Design rules are about reusing knowledge of proven solutions for
-      reoccurring problems. Reuse of solutions that give NNEC-specific
-      characteristics is particularly important. These solutions should solve
-      frequent and/or difficult problems, promote important system
-      characteristics and/or improve the quality of the resulting product in a
-      cost effective way.</para>
-
-      <para>Design rules consist mainly of the following three parts:</para>
+"../schema/dtd/docbkx45/docbookx.dtd" [
+<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+]>
+<appendix id="v6e-rdsi">
+    <title>NISP Rationale - Supplementary Information</title>
+
+    <sect1 id="rdsi-A-1-int">
+      <title>Introduction</title>
+
+      <para>This annex provides additional explanatory material in support of
+      the standards assessment in the NISP.</para>
+    </sect1>
+
+    <sect1 id="rdsi-A-2-ent">
+      <title>Enterprise-level data management</title>
+
+      <para>For inter-nation interoperability purposes, it is only necessary
+      to standardise the definitions of information exchanged between systems
+      in different nations and, even then, it is sufficient to standardise
+      external schema representations only.</para>
+
+      <para>There are other reasons why more extensive standardisation of data
+      might be advantageous (e.g. application portability) and these concerns
+      are relevant to NCF systems.</para>
+
+      <para>To support unanticipated exchanges of information (for which
+      provision was not made at design time), it would clearly be beneficial
+      if the format and meaning of that data had been agreed in advance.
+      However, such universal standardisation is highly costly and its
+      benefits are at best difficult to quantify (and at worst might never
+      materialise). Speculative standardisation also has the disadvantage
+      (demonstrated repeatedly by previous 'open' computing initiatives) that
+      the standards produced are seldom usable; by its very nature the process
+      for production of such standards is pre-emptive and therefore unable to
+      take into account specific requirements. Subsequent failure to adopt
+      those standards leads to their being undermined and eventually displaced
+      altogether by de facto substitutes.</para>
+
+      <para>Nevertheless, the increasingly unpredictable nature of military
+      operations, together with changing concepts of operations demanding
+      increased interchange of data from the strategic to tactical levels,
+      suggests that local interchange agreements (e.g. within a nation,
+      bilateral between systems) will become increasingly unsustainable.
+      Emphasis will need to shift towards NATO-wide agreements, encapsulated
+      within the NISP.</para>
+
+      <para>These issues, and the wider role of data management within NATO
+      must be reviewed. The eventual scope and form of the NISP will therefore
+      be influenced by this work.</para>
+
+      <para>It has been suggested in some quarters that object-based
+      approaches providing data encapsulation ('data hiding') can obviate the
+      need for the widespread data standardisation to support remote data
+      access, and thus that any other approach to data management may be
+      inappropriate once extensive use is made of object-based mechanisms.
+      Both of these assertions are true to a degree, but need qualification.
+      This Data encapsulation does not remove the need to standardise the data
+      that is exchanged between systems. Moreover, encapsulation only limits
+      the degree of inter-system data agreement needed if the specific
+      requests for information exchange (the 'methods' in object terminology)
+      can be determined in advance. Therefore, even if object mechanisms are
+      widely employed it will still be necessary to standardise core data
+      elements relevant to inter-domain interoperability within the NISP, and
+      to pre-determine the nature of requests for information exchange.</para>
+    </sect1>
+
+    <sect1 id="rd-A-3-data">
+      <title>Database to database replication</title>
+
+      <para>Database to database replication excludes simplistic transfer
+      mechanisms using business-transaction-oriented data interchange formats,
+      e.g. ADatP3; such interoperability mechanisms are considered under
+      another heading. The mechanisms considered under this area are the more
+      sophisticated protocols employed within commercial products capable of
+      transaction management, selective attribute-based replication,
+      etc.</para>
+
+      <para>At present, each commercial database product provides its own
+      proprietary replication mechanisms. Effective standards do not exist for
+      protocols, nor for the data formats employed, or the integrity services
+      provided. Replication between dissimilar products is only possible to a
+      limited degree. It would be possible to adopt a proprietary product as
+      an NCOE standard but no product currently has sufficient market
+      dominance to justify this.</para>
+    </sect1>
+
+    <sect1 id="rd-A-4-oa">
+      <title>OA interchange formats</title>
+
+      <para><emphasis>De jure</emphasis>document interchange standards have
+      neither the richness nor the product support to be credible interchange
+      standards. (An exception to this is XML, a specific application of SGML,
+      which is considered under a separate class.) Interchange between
+      different OA applications (e.g. between Microsoft Word and Applixware)
+      is generally much more effective where one of the proprietary formats is
+      used rather than where vendor-neutral formats (e.g. RTF) are
+      used.</para>
+
+      <para>More recently products (such as VMWare) have emerged that allow
+      the Windows operating system to be run in a UNIX environment thus
+      permitting native Windows applications to be hosted. Although this is
+      not a new idea, it is only recently that the products have become
+      sufficiently mature and an acceptable performance achieved. It is,
+      therefore, a practical option for high levels of cross-platform
+      interoperability to be achieved by using the same applications on both
+      Windows and UNIX platforms.</para>
+    </sect1>
+
+    <sect1 id="rd-A-5-hyp">
+      <title>Hypertext interchange formats</title>
+
+      <para>The requirement for document interchange can be satisfied to a
+      degree by the adoption of hypertext formats (and other mark-up formats
+      such as XML) as interchange formats. This offers more limited
+      functionality than the OA formats themselves but can be useful in those
+      circumstances where native support for the OA formats is not available.
+      With the widespread adoption of XML (and XSL) the functionality gaps are
+      narrowing.</para>
+    </sect1>
+
+    <sect1 id="rd-A-6-msg">
+      <title>Messaging</title>
+
+      <para>The X.400 functional model and a typical client/server messaging
+      configuration are shown in <xref linkend="rdsi-f-03" />.</para>
+
+      <para>Whilst many mail server products support X.400, this is generally
+      only for server-to-server connections (i.e. the products support the
+      X.400 P1 protocol but not the P3 or P7 protocols). Moreover, whilst
+      X.400-compliant UA and MS components are commercially available, they
+      offer very limited functionality compared with mainstream COTS messaging
+      products. These often include Groupware functionality as well as
+      messaging functionality that would force many systems adopting
+      X.400-compliant MS and UA products to provide more mainstream
+      products.</para>
+
+      <para>For interoperability between domains, conformance with the P1
+      protocol standard (plus body part formats) is necessary but conformance
+      with other protocol standards (i.e. P3, P7) is not.<footnote>
+          <para>It is assumed that domain boundaries are organised such that
+          direct access by a mail client in one domain to a server in another
+          domain is not required; this will usually be precluded on security
+          grounds in any event.</para>
+        </footnote></para>
+
+      <figure id="rdsi-f-03">
+        <title>X.400 Functional Model</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/rd-funcmod.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </sect1>
+
+    <sect1 id="rd-A-7-dir">
+      <title>Directory</title>
+
+      <para>Projects' selection of a directory product is usually dictated by
+      their choice of messaging product (e.g. Microsoft Exchange requires the
+      use of Active Directory in order to provide a messaging service).
+      However, X.500-compliant products (as required by NATO) are commercially
+      available, and are becoming more de-coupled from the messaging service.
+      Meta-directories now offer a viable solution to the integration of
+      different directory products. LDAP v3 is the internationally accepted
+      access protocol supported by all vendors.</para>
+    </sect1>
+
+    <sect1 id="rd-A-8-key">
+      <title>Key management and distribution</title>
+
+      <para>Few Defence IT systems presently employ asymmetric cryptographic
+      algorithms and their future use is dependent upon the approval of
+      algorithms for Defence use and the existence of suitable
+      implementations. Therefore there is little possibility of standardising
+      an asymmetric key distribution service within the NISP (although open
+      standards for such services, and widely used implementations of
+      commercial algorithms, do exist). There are no acceptably open standards
+      for the distribution of symmetric encryption keys (other than in
+      conjunction with a wider asymmetric distribution service).</para>
+
+      <para>Clearly, however, if widespread use is to be made of
+      cryptographically-delivered security services within other NISP services
+      (notably messaging), there will ultimately be a requirement to
+      standardise key distribution services. Progress on this front within the
+      NISP is contingent upon current NATO security architecture work.</para>
+    </sect1>
+
+    <sect1 id="rd-A-9-sys">
+      <title>System management</title>
+
+      <para>This area is taken to mean the exchange of management information
+      and services between systems in order to permit remote management or the
+      management of several systems as a single whole.<footnote>
+          <para>The management of interconnected systems in a coordinated
+          manner to maintain interoperability (e.g. by carrying out software
+          upgrades simultaneously to minize backwards compatibility problems)
+          will be necessary but is expected to be achieved by procedural
+          means.</para>
+        </footnote></para>
+
+      <para>With an ever-increasing level of integration between NATO and
+      national CIS, system management responsibility is one of the few
+      remaining criteria by which system boundaries are drawn. Strong control
+      and management of a system is a prerequisite to the implementation of an
+      effective security policy, which will also limit the degree to which
+      management control can be federated amongst allies and coalition
+      partners.</para>
+    </sect1>
+
+    <sect1 id="rd-A-10-net">
+      <title>Network management</title>
+
+      <para>This area is taken to mean the exchange of management information
+      and services among end-systems and between end-systems and the wide-area
+      communications infrastructure in order to permit remote network
+      management or the simultaneous management of several systems' local
+      network components. Strong local network management control is therefore
+      usually required to enforce local system security policies.</para>
+    </sect1>
+
+    <sect1 id="rd-A-11-name">
+      <title>Name services</title>
+
+      <para>Irrespective of whether X.500 services are provided directly, an
+      X.500 naming policy will be required because X.500 names are used in
+      X.509 certificates; these in turn are used to support secure
+      messaging.</para>
+    </sect1>
+
+    <sect1 id="rd-A-12-obj">
+      <title>Object Interchange</title>
+
+      <para>There are a number of competing standards for the interchange of
+      objects between applications. All are emerging and there is no clear
+      leader at present. There are no opestandards. Most use remote procedure
+      call (RPC) mechanisms to effect distribution of computational effort,
+      the exception being Java The main contendees are:</para>
 
       <itemizedlist>
         <listitem>
-          <para>Context; describes under what circumstances the design rule is
-          valid</para>
+          <para>Active X: this is Microsoft s standard based on its
+          Distributed Component Object Model (DCOM) technology. It is being
+          ported to most UNIX platforms.</para>
         </listitem>
 
         <listitem>
-          <para>Problem/Opportunity; is a description of the problem it solves
-          or the opportunity it exploits.</para>
+          <para>CORBA: Common Object Request Broker Architecture is the Object
+          Management Groups (OMG) attempt to introduce open standards into
+          distributed computing. The OMG is a consortium of companies
+          developing these standards but relying on individual companies to
+          provide products.</para>
         </listitem>
 
         <listitem>
-          <para>Solution; is a description how the problem/opportunity
-          shall/should be resolved in the given context</para>
+          <para>DCE: Distributed Computing Environment is the Open Group's
+          standard for distributed computing.</para>
+        </listitem>
+
+        <listitem>
+          <para>JAVA: Sun's attempt to produce truly portable programs has
+          been taken up by a number of vendors. It uses a Java Virtual Machine
+          (JVM) to execute Java code. Any platform that support a JVM should
+          (in theory) be able to execute any Java program. Java programs can
+          be distributed (and executed) across a federation of computing
+          platforms. It should be noted that practice and theory have not yet
+          fully converged.</para>
+        </listitem>
+
+        <listitem>
+          <para>SOAP: is a W3C, XML-based, commercially supported protocol
+          that is widely adopted. Unlike the currently mandated standards
+          (CORBA &amp; COM) it uses an open transport mechanisms (e.g. HTTP)
+          which is mandated in the NISP.</para>
+        </listitem>
+      </itemizedlist>
+    </sect1>
+
+    <sect1 id="rd-A-13-alert">
+      <title>Alert services</title>
+
+      <para>An alert is a message which can contain multiple information
+      types, as with other messages. Alerts services are normally
+      distinguished from messaging services on the basis that they:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>are commonly sent on all-informed or multicast basis and, on
+          efficieny grounds, use different distribution mechanisms;</para>
+        </listitem>
+
+        <listitem>
+          <para>need to be brought directly to the attention of the user, and
+          usually require positive acknowledgment before other tasks can be
+          continued.</para>
         </listitem>
       </itemizedlist>
 
-      <para>Design rules can give solutions on all levels, but it is
-      anticipated that the produced design rules mainly takes care of the
-      higher system levels (relating to the breakdown patterns in a system
-      design) in order to avoid a cumbersome number of rules. If possible
-      design rules shall be based on standards and/or NISP/NAF and will
-      preferably be associated with as concept (generic concept of
-      design).</para>
+      <para>Requirements for alerts arise in two ways in NATO CIS:</para>
 
-      <para>A design rule package is a mechanism for packaging of design rules
-      (by reference) within a certain domain or for a specific kind of system.
-      The dependencies between design rules that are part of a design rule
-      package shall be defined and minimized.</para>
-    </sect2>
+      <itemizedlist>
+        <listitem>
+          <para>for distribution of urgent system management messages or
+          instructions;</para>
+        </listitem>
 
-    <sect2>
-      <title>Benefits from using design rules</title>
+        <listitem>
+          <para>for rapid dissemination of operationally significant
+          information such as warnings.</para>
+        </listitem>
+      </itemizedlist>
+    </sect1>
 
-      <para>In today&rsquor;s knowledge oriented organizations it is very
-      important to make sure that the knowledge of people is preserved in the
-      organization even if the people change positions or leave the company.
-      Design rules are important tools to be able to aid the process of
-      managing this knowledge since they force documentation of knowledge in a
-      structured way.</para>
+    <sect1 id="rd-A-14-arch">
+      <title>Architectural concepts</title>
 
-      <para>The use of design rules to document and package proven solutions
-      is expected to speed up development, and reduce cost and risk, by
-      reusing knowledge on how to solve recurring problems and by providing
-      verified solutions to those problems.</para>
+      <para>The NISP is predominately based upon the concept of a federation
+      of fixed and mobile systems that together form a NATO Intranet. Embodied
+      within the NISP, therefore, is the concept of a technical architecture
+      that has the Internet standards and protocols at its heart. Central to
+      these is the four-layer TCP/IP protocol stack which many applications
+      (e.g. SMTP email) are designed to use. The layers are:</para>
 
-      <para>Moreover, the use of design rules provide the means to coordinate
-      development of different federated systems in order to make them network
-      enabled and facilitate the evolvement of combined capabilities. Another
-      important aspect is also that design rules aid organisations in creating
-      a common understanding of the problems and challenges they are
-      facing.</para>
-    </sect2>
+      <itemizedlist>
+        <listitem>
+          <para>communications network layer;</para>
+        </listitem>
 
-    <sect2>
-      <title>Consequences of using design rules</title>
+        <listitem>
+          <para>Internet Protocol (IP) layer;</para>
+        </listitem>
 
-      <para>In order for design rules to have effect in an organization there
-      must be a framework which describes what design rules are and how they
-      shall be used, i.e. this document. Design rules will also affect the way
-      solutions are described and must be an integral part of the architecture
-      description framework.</para>
+        <listitem>
+          <para>TCP and UDP layer;</para>
+        </listitem>
 
-      <para>Another important thing to remember is that design rules will
-      affect the way we work, thus putting new requirements on the processes
-      and people within our organization.</para>
-    </sect2>
-  </sect1>
+        <listitem>
+          <para>applications layer;</para>
+        </listitem>
+      </itemizedlist>
 
-  <sect1>
-    <title>Design rules in a NATO NEC federated environment</title>
+      <para>Other mandated applications, however, (e.g. X.400 messaging) have
+      been designed to use the seven-layer OSI protocol stack (see <xref
+      linkend="rd-f-tcp-stack" />) which has the following seven layers:</para>
 
-    <para>This guideline document describes a concept and model for how
-    knowledge of proven solutions in the form of design rules can be
-    documented and packaged in order to form a shared basis for the future
-    development of NNEC based systems for NATO.</para>
+      <itemizedlist>
+        <listitem>
+          <para>physical layer;</para>
+        </listitem>
 
-    <para>The processes in which design rules are identified, produced and
-    used are not described within this guideline.</para>
+        <listitem>
+          <para>data link layer;</para>
+        </listitem>
 
-    <sect2>
-      <title>Problems or opportunity description</title>
+        <listitem>
+          <para>network layer;</para>
+        </listitem>
 
-      <para>In the development of large systems of systems or federated
-      systems for the future needs of the NATO there are several problems to
-      be solved as well as opportunities to exploit. The problems range from
-      what methods to use for requirements capture and design to how to solve
-      detailed technical matters.</para>
+        <listitem>
+          <para>transport layer;</para>
+        </listitem>
 
-      <para>In order to be able to establish a set of building blocks that can
-      be used to meet the needs of the future NNEC, design regulations are
-      absolutely essential if the building blocks shall be possible to be used
-      together and combined in different ways, from a technical as well as
-      from a business point of view.</para>
+        <listitem>
+          <para>session layer;</para>
+        </listitem>
 
-      <para>Design regulations in this context are the descriptive or
-      normative regulation work necessary for NATO nations to be able to
-      implement, configure and use systems in a federated environment. This
-      includes not only technical and business design, but also the ability to
-      manage and maintain these regulations to be able to provide the NATO
-      nations with flexible component based systems.</para>
+        <listitem>
+          <para>presentation layer;</para>
+        </listitem>
 
-      <para>Moreover, there is a strong incentive to endorse reuse of proven
-      solutions or implementations and thus get a more cost-effective
-      solution. The overall quality is also expected to benefit from this kind
-      of reuse.</para>
+        <listitem>
+          <para>application layer;</para>
+        </listitem>
+      </itemizedlist>
 
-      <para>In this document we will focus on the model for design rules, and
-      the patterns for setting up the SIOP and SIP:s between federations, this
-      in order to be able to exchange information services between
-      parties.</para>
+      <para>These two protocol stacks align as shown in <xref
+      linkend="rd-f-tcp-stack" />. Their use creates a dichotomy in the NISP
+      that requires ISO transport services to be layered on top of TCP/IP (as
+      defined in RFC 1006).</para>
 
-      <para>Design rules patterns and knowledge for supporting NATO Nations in
-      designing NNEC compliant components and services can also be retrieved
-      from different Nations repositories as reference architectures, Sweden
-      Design rules (releasable to NATO) will be included as one of the Partner
-      nations reference architecture as recommended and proven patterns in
-      order to achieve NNEC interoperability.</para>
-    </sect2>
+      <figure id="rd-f-tcp-stack">
+        <title>OSI and TCP/IP Protocol Stacks</title>
 
-    <sect2>
-      <title>Solution</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/rd-p-stack.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
 
-      <sect3>
-        <title>Design rules in the NNEC context</title>
+      <para>Both of these stacks are embodied in the NISP, although their
+      purpose may not be immediately obvious, so that ISO-based applications
+      such as X.400 and X.500 can be supported as illustrated in <xref
+      linkend="rd-f-tcp-app" />.</para>
 
-        <para>Design rules are about reusing knowledge of proven solutions. In
-        the context of NNEC we are especially interested in reuse of solutions
-        that provide typical NNEC characteristics. In addition to this, the
-        use of design rules aim at making the development of NNEC more
-        cost-effective and improve the quality in the resulting
-        products.</para>
+      <figure id="rd-f-tcp-app">
+        <title>OSI and TCP/IP Applications</title>
 
-        <para>As mentioned before, a design rule is in the most general
-        description a three-part rule, which expresses a relation between a
-        certain context, a problem or an opportunity and a solution.</para>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/rd-applic.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </sect1>
 
-        <para>Different design rules may be in conflict with each other, e.g.
-        in that the solution of one design rule can be incompatible with the
-        solution of the other.</para>
+    <sect1 id="rd-A-15-cwan">
+      <title>Coalition Wide Area Network (CWAN) Management</title>
 
-        <para>Moreover, design rules can be singular or aggregates meaning
-        that it either is an atomic rule or an aggregate of rules that
-        together constitute the rule. The aggregate may include rules on how
-        to combine the possibly conflicting aggregated rules in order to
-        generate a rule according to the current priorities.</para>
+      <para>The CWAN, along with associated systems, applications, and
+      services; is managed with remote monitoring and control capabilities via
+      the Coalition Communications Control Center (CCCC or QuadC) and the Alt
+      CCCC. It has links that electronically exchange information between
+      management systems at all levels.</para>
 
-        <para>Design rules may be implemented for solutions on different
-        levels. There may be design rules for specific technical design
-        problems or rules, how to handle a major business opportunities. It is
-        however anticipated that the majority of design rules valid for an
-        NNEC-system will be focused on the higher levels.</para>
+      <sect2 id="rd-A-16-cccc">
+        <title>CCCC Management Overview</title>
 
-        <para>Design rules can be used in order to meet functional as well as
-        non-functional needs of the system of interest. It should be clear
-        from all design rules which problem or opportunity it is supposed to
-        solve.</para>
-      </sect3>
+        <para>The purpose of the CCCC is to provide seamless, secure
+        information products and services to JWID participants, especially
+        warfighters, in support of decision-making and mission
+        accomplishment.</para>
 
-      <sect3>
-        <title>General guidance for using design rules</title>
+        <para>Within the Commander-in-Chief(CINC), Service and Agency (C/S/A)
+        organisations today, network, system, application, and service
+        management functions are performed by a wide range of individuals,
+        activities, and organisations. These management and/or controlling
+        functions are performed at all levels. However, in the JWID
+        environment, these functions must be performed at the CCCC and
+        Alternative CCCC (ACCCC). These control centers can be located within
+        any domains. While it can provide virtual presence at any location on
+        the network, each control center can perform independent and
+        integrated management functions supporting communications and
+        information systems. These systems include local area network (LAN)
+        management and the CWAN. Each provides operational support essential
+        to sustaining the CWAN. The CCCC CONOPS is aimed at realigning,
+        consolidating, and integrating these functions to fulfill the
+        following goals:</para>
 
-        <para>The prime prerequisites for implementing a design rule
-        are:</para>
+        <para>The CCCC structure enables the capability to:</para>
 
         <itemizedlist>
           <listitem>
-            <para>The use of the design rule shall make the resulting design
-            &ldquo;NNEC-compliant&rdquor;, i.e. the design rules shall provide
-            essential NNEC-characteristics such as flexibility,
-            interoperability, security and usability</para>
+            <para>reloutionize information exchange accross the CWAN;</para>
           </listitem>
 
           <listitem>
-            <para>A design rule shall provide a solution to frequently shown
-            problems, to enable reuse of solutions or implementations and thus
-            get a more cost-effective solution.</para>
+            <para>strengthen the ability to apply computing, communications
+            and information management capabilities effectively to accomplish
+            the JWID mission;</para>
           </listitem>
 
           <listitem>
-            <para>A design rule shall provide a solution to difficult
-            problems, or explore an opportunity, i.e. be a part of the
-            corporate or federated memory</para>
+            <para>significantly reduce information technology burdens on
+            operational and functional staffs; and</para>
           </listitem>
 
           <listitem>
-            <para>A design rule shall improve the quality of the resulting
-            product relative a product solution not using the design
-            rule.</para>
+            <para>facilitate the capability for the operational and functional
+            staffs to access, share and exchange information worldwide, with
+            minimal knowledge of communication and computing
+            technologies.</para>
           </listitem>
         </itemizedlist>
 
-        <para>At least one of the mentioned prerequisites should be fulfilled.
-        There may of course be other valid prerequisites, which will be
-        assessed and used to initiate the design of a design rule.</para>
-
-        <para>Design rules shall consist of either atomic rules or aggregates
-        of rules that together shall constitute the rule. The aggregate may
-        include rules on how to combine the possibly conflicting rules in
-        order to generate a rule according to the priorities.</para>
-
-        <para>An atomic design rule must not contain solutions for more than
-        one subject area, e.g. mixing of business and technical subjects shall
-        be avoided. Detailed technical rules shall in the same way be
-        separated from rules of information or logical nature.</para>
-
-        <para>Design rules shall where applicable be based on concepts and
-        rules in an extended NATO Architecture Framework.</para>
-
-        <para>A design rule shall not be of too low granularity or too trivial
-        in order to avoid an explosion in the number produced of design rules.
-        To achieve the approved mandatory validity, a design rule shall
-        specify the way to solve the problem it is intended for. Rules that
-        can be expressed in single sentences are collected in general sections
-        in the design rule solution part.</para>
-
-        <para>Great efforts shall be made to ensure that the design rule is
-        maintainable. This is primarily achieved by limiting the problem area
-        that the design rule is intended for. More complex problems or
-        opportunities shall be supported by aggregates of rules.</para>
-      </sect3>
-
-      <sect3>
-        <title>Design rule model</title>
-
-        <figure>
-          <title>Design rule model</title>
-
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="figures/dr-guide-designrulemodel.svg" />
-            </imageobject>
-          </mediaobject>
-        </figure>
-
-        <para>The design rule product consists of:</para>
+        <para>A wide range of individuals, activities and organizations
+        perform network, system, application and service management functions
+        within C/S/As, at all levels. However, in the JWID environment, these
+        functions must be performed at the CCCC and Alternative CCCC (ACCCC).
+        These control centers can be located within any domain. While it can
+        provide virtual presence at any network location, each control center
+        can perform independent and integrated management functions supporting
+        communications and information systems. These systems, including local
+        area network (LAN) management and the CWAN, provide operational
+        support essential to sustaining the CWAN. The CCCC CONOPS realigns,
+        consolidates and integrates these functions to fulfill the following
+        goals:</para>
 
         <itemizedlist>
           <listitem>
-            <para>The basic design rule which, as already described, is a
-            three part rule consisting of context, problem and solution. This
-            shall also be complemented with one or more rejected solutions,
-            i.e. solutions which shall not be used.</para>
+            <para>Enhanced C4IFTW support;</para>
           </listitem>
 
           <listitem>
-            <para>An analysis and motivation why the solution fits the problem
-            in the given context. This needs to be linked to direct business
-            benefits such as cost savings or increased efficacy in
-            operations.</para>
+            <para>Secure operations;</para>
           </listitem>
 
           <listitem>
-            <para>A description of the consequences from the proposed solution
-            which is used to create an understanding at what cost the solution
-            comes. This could include financial impacts, but also how people,
-            processes or technology needs to be adjusted in order to achieve
-            the solution. When describing the consequences from a design rule
-            solution the impact on (at least) the following areas should
-            always be considered:</para>
-
-            <itemizedlist>
-              <listitem>
-                <para>Security</para>
-              </listitem>
-
-              <listitem>
-                <para>Interoperability</para>
-              </listitem>
-
-              <listitem>
-                <para>Cost</para>
-              </listitem>
-
-              <listitem>
-                <para>Usability</para>
-              </listitem>
-
-              <listitem>
-                <para>Flexibility and</para>
-              </listitem>
-
-              <listitem>
-                <para>Procedures</para>
-              </listitem>
-            </itemizedlist>
+            <para>Shared management information (status, availability);</para>
           </listitem>
 
           <listitem>
-            <para>Verification information which explains how the application
-            of the rule can be verified.</para>
+            <para>Global visibility;</para>
+          </listitem>
+
+          <listitem>
+            <para>Interoperable resources;</para>
           </listitem>
         </itemizedlist>
+      </sect2>
 
-        <para>A template for design rules, including guidelines, is defined in
-        a separate document.</para>
+      <sect2 id="rd-A-17-cccc">
+        <title>CCCC Management Functions</title>
 
-        <para>A design rule product is like Standards in the NISP related to
-        near, mid and far term. A design rule can also exist in different
-        versions with different status. The status of the design rule
-        indicates which state of development the design rule is in.</para>
+        <para><emphasis role="bold">Fault Management</emphasis> is the
+        detection, isolation, and correction of problems in, or abnormal
+        operation of, disabled network or information processing system
+        components. Appendix A of the CCCC CONOPS explains the functions
+        associated with fault management.</para>
+
+        <para><emphasis role="bold">Configuration Management</emphasis>
+        identifies, exercises control over, collects data from, and provides
+        data to networks for the purpose of preparing for, initialising,
+        starting, providing for the continuous operation of, and terminating
+        interconnection of processing services. Configuration management
+        functions and tasks may overlap with both fault management and
+        performance management, along with long-term planning of the network's
+        topology, the information processing system's configuration, and
+        inventory. Appendix A of the CCCC CONOPS summarises the functions
+        associated with configuration management.</para>
+
+        <para><emphasis role="bold">Performance Management</emphasis> monitors
+        and controls the quality of network communications or information
+        processing. It involves the processes of monitoring and analysing;
+        tuning and controlling; and reporting on network or information
+        processing system components and on the network or information
+        processing system as a whole. Appendix A of the CCCC CONOPS summarises
+        the functions associated with performance management.</para>
+
+        <para><emphasis role="bold">Security Management</emphasis> includes
+        the confidentiality, authenticity, and integrity of network management
+        data such as routing tables, access lists, audit data protection, and
+        accounting and billing information. Security management is the
+        management of the following network or information processing system
+        security services: authentication, access control, encryption, and
+        audit trail. Security management controls and monitors the mechanisms
+        that protect selected network or information processing system
+        resources and user information, or security objects. Security
+        management includes controlling access to resources, archiving and
+        retrieving security information, and managing the encryption process.
+        The management functions associated with security management are found
+        in Appendix A of the CCCC CONOPS.</para>
+
+        <para>The CCCC has oversight responsibility for the entire CWAN and
+        interfaces directly with the network participants. The CCCC will
+        provide the overall management control and technical direction of the
+        CWAN. As the direct interface for the customers, the CCCC performs
+        demonstration participant assistance and provides contemporary
+        operational network services. It serves as a central point of contact
+        in operational and emergency provisioning aspects of customer service
+        when the needs are beyond the capability of the site engineers.
+        Operational policies and procedures for the CCCC are under
+        development. Additional C/S/A policies will also apply based on the
+        mission being supported by the CCCC. The CCCC is responsible for the
+        following functional responsibilities and requirements:</para>
 
         <itemizedlist>
           <listitem>
-            <para>Candidates</para>
+            <para>Providing CWAN policy, standards, and guidance for systems
+            and network management</para>
           </listitem>
 
           <listitem>
-            <para>Approved</para>
+            <para>Monitoring status, in real-time or near-real-time, of CWAN
+            applications, networks systems, and JJPO concerns</para>
           </listitem>
 
           <listitem>
-            <para>Disposed</para>
+            <para>Providing access to Global CWAN status for authorized users
+            as required</para>
+          </listitem>
+
+          <listitem>
+            <para>Implementing tool suites, processes, and databases that
+            provide the “global” view for applications, systems, and network
+            assets</para>
           </listitem>
         </itemizedlist>
 
-        <para>The solution described in a design rule may refer to other
-        design rules to form an aggregate design rule. This may be the case
-        for instance in a design rule describing a configuration to use in a
-        specific context or for a specific type of system. If so, the validity
-        of the referenced design rule within the current context shall be
-        stated.</para>
+        <para>The vulnerabilities of networks to information security attacks
+        dictate that network management and information security management
+        information be shared across multiple communities of interest. The
+        end-user/JWID customer, upon discovering an information security
+        anomaly, would report it to the CCCC, which would report
+        enterprise-level anomalies to the CTFC. Anomalies to circuits or
+        systems that are not of CTFC interest would be processed and resolved
+        at the CCCC. The CCCC and/or ACCCC would be responsible for
+        aggregating information reported to them and passing it to the CTFC
+        and JJPO for fusion. Doctrine associated with such actions are under
+        way to address, refine, and integrate the reporting structures.</para>
+
+        <para>Successful CCCC operations rely on compatibility,
+        interoperability and integration of policies, procedures, standards
+        and tools.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="rd-A-18-cis">
+      <title>Deployed CIS</title>
+
+      <para>The NISP has focused on CIS that are principally static in nature
+      and has given limited consideration to the operation of deployed CIS.
+      The constraints that exist in theatre typically relate to the
+      communications systems (i.e. bandwidth, availability, quality of
+      service) and must be resolved appropriately. The NISP has a part to play
+      in resolving these issues.</para>
+
+      <para>It is now considered possible that coalition forces may federate
+      their CIS in a deployment so that local autonomous services are provided
+      within the constrained environment. In other words, the coalition forces
+      may interconnect systems or LANs locally “on the ground” forming one or
+      more sub-networks. This would also mean that one nation could be
+      responsible for providing services such as Naming, Addressing and
+      Directory to other nation's systems. In this case each nation's systems
+      would have to conform to additional standards such as CIDR VLSM for
+      sub-netting, DHCP for IP address allocation and LDAP for directory
+      access. This means that local services could be used thus reducing any
+      dependency on premium resources such as long haul communications.</para>
+    </sect1>
+
+    <sect1 id="rd-A-19-dcis">
+      <title>Deployed CIS</title>
+
+      <para>Linux (R) is the fastest growing operating system in the world. It
+      already holds 34% of the Web market share. More and more developers,
+      especially software companies, are focusing their efforts on creating
+      Linux products. Even major corporations are currently responding. For
+      instance, IBM, HP, Dell, Sun, and Oracle have all launched major
+      initiatives, spending billions of dollars on Linux and Open Source
+      software. It is anticipated that Linux and Linux based products, will
+      provide a secure environment for defense oriented Web applications. Many
+      defense organizations (e.g., the U.S. DoD) are moving toward Web-based
+      architectures, even for combat operations. It is anticipated that the
+      business decision to use freeware in conjunction with a simplified Web
+      interface will save NATO, as well as NATO nations, billions of dollars.
+      For military applications, the traffic needs to be encrypted and in
+      dedicated networks using firewalls. However, such an environment will
+      allow us to use this less expensive, dependable, and essentially common
+      operating system. Linux DNS server, running BIND, can be configured to
+      service Win95/98/2000/NT/XB clients. Linux also allows for the
+      protection of data by using OpenSSH.</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Linux is Interoperable: Linux is compatible with the World
+          Wide Web and can be configured to work with non-Linux clients and to
+          network with non-Linux servers. Using this capability, NATO could
+          set up multiple intranets which are Web-based to capitalize on
+          potential interoperability concerns.</para>
+        </listitem>
+
+        <listitem>
+          <para>Linux is Mature: Over one-third of the Web servers used today
+          run Linux OS. Major vendors (see above) are investing billions of
+          dollars in open source, Linux based, application solutions. LSB is
+          based on POSIX (IEEE 1003.1-1990). Since the Open Group is currently
+          developing test suites for LSB 1.1 and 1.2, it is anticipated that
+          future versions of the LSB will fully conform to
+          POSIX.1-2001.</para>
+        </listitem>
+
+        <listitem>
+          <para>Linux is Implementable now: The fact that Linux is in used in
+          over a third of the Web servers and used to develop real-time and
+          embedded commercial products attests to the implementability of
+          Linux.</para>
+        </listitem>
+
+        <listitem>
+          <para>Linux is readily available: The LSB specifications are fee and
+          publicly available at www.linuxbase.org.</para>
+        </listitem>
+      </itemizedlist>
+    </sect1>
 
-        <para>Each design rule is configured in one, and only one, Design Rule
-        Package.</para>
-
-        <para>The status of a design rule indicates in which state of
-        development it is.</para>
-
-        <para>Validity of a design rule is only used when referring as e.g. to
-        form aggregates. The validity labels that can be used are defined in
-        the table below.</para>
-
-        <table frame="all">
-          <title>Rule validities</title>
-
-          <tgroup cols="2">
-            <colspec colwidth="20*" />
-
-            <colspec colwidth="80*" />
-
-            <thead>
-              <row>
-                <entry><para>Validity</para></entry>
-
-                <entry><para>Description</para></entry>
-              </row>
-            </thead>
-
-            <tbody>
-              <row>
-                <entry><para>Mandatory</para></entry>
-
-                <entry><para>The rule shall be treated as a norm and is
-                mandatory to use.</para></entry>
-              </row>
-
-              <row>
-                <entry><para>Optional</para></entry>
-
-                <entry><para>The rule gives good design principles and is
-                recommended for use.</para></entry>
-              </row>
-
-              <row>
-                <entry><para>Candidate</para></entry>
-
-                <entry><para>The rule is planned for future use in this
-                context. The design rule exist but is not appropriate to use
-                due to reasons like cost, compatibility etc.</para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
-
-        <para>The lifecycle for a design rule must be coordinated with
-        profiles and standards in the manner, following the NOSWG NISP
-        model</para>
-      </sect3>
-
-      <sect3>
-        <title>Packaging of Rules (Rule Package)</title>
-
-        <para>Design rules are configured in packages named DRP, Design Rule
-        Package. A DRP may also configure other DRPs, thus creating a
-        hierarchy of packages. A design rule or DRP belongs to one, and only
-        one, DRP.</para>
-
-        <para>DRPs are defined so that each DRP-structure covers rules that
-        are specific to one particular domain defined for a specific subject
-        area of norms.</para>
-
-        <para>Dependencies between DRPs shall be defined, and the dependencies
-        shall be minimized. Circular dependencies must not exist. The
-        visibility of design rules configured by a DRP may in addition be
-        limited to the DRP only; default is however that only the DRP exposes
-        the external visibility for a design rule.</para>
-
-        <para>No design rule shall be part of more than one DRP, if necessary
-        cross-references between DRPs according to the rules for dependencies
-        between DRPs shall be used. Common design rules must for this reason
-        be allocated to higher levels in a DRP hierarchy.</para>
-      </sect3>
-    </sect2>
-
-    <sect2>
-      <title>Consequences</title>
-
-      <para>If the design rule concept is going to be successfully
-      implemented, it is important to understand how they impact the other
-      frameworks and processes used in design. These frameworks and processes
-      also have to be adjusted so it becomes clear as to what is documented
-      where and when.</para>
-
-      <sect3>
-        <title>Standards with the use of design rules</title>
-
-        <para>Standards is often about WHAT but not always about HOW. A vast
-        number of standards are applicable for NNEC, what are applied where,
-        how and together with what, does not always mean that complex system
-        will work. In order to support profiling development when using NISP,
-        Designrules is adopted by NATO as a complementary set of tools for
-        :</para>
-
-        <itemizedlist>
-          <listitem>
-            <para>Helping to choose the right standard</para>
-          </listitem>
-
-          <listitem>
-            <para>How to apply the standard on a specific problem</para>
-          </listitem>
-
-          <listitem>
-            <para>Understanding the relations between different
-            standards</para>
-          </listitem>
-
-          <listitem>
-            <para>Applicability in different domains</para>
-          </listitem>
-
-          <listitem>
-            <para>Helping with best practice and good patters in order to
-            speed up the development of a profile.</para>
-          </listitem>
-        </itemizedlist>
-      </sect3>
-
-      <sect3>
-        <title>Profiling with the use of NAF and Standards and Designrules in
-        the NISP</title>
-
-        <para>The relations between the NISP and NAF objects in focus. The
-        following picture shows the relations between the NISP objects
-        Profile, Standards and Designrules. For more information about Profile
-        guidance document.</para>
-
-        <figure>
-          <title>Releationship between NISP objects Profiles, standards and
-          Designrules</title>
-
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="figures/dr-guide-profiling.svg" />
-            </imageobject>
-          </mediaobject>
-        </figure>
-      </sect3>
-    </sect2>
-  </sect1>
-
-  <sect1>
-    <title>Reference architecture - National design rules</title>
-
-    <sect2>
-      <title>The Swedish Design rules contributions</title>
-
-      <simpara><emphasis role="bold">FMLS Architecture Framework
-      Designrules</emphasis></simpara>
-
-      <simpara>LT9O P05-0486 Executive Summary 1.0</simpara>
-
-      <simpara>Leif Nyberg, JV Network Based Defence, Framework Service
-      Description LT1K P04-0320 Version 7.0 December 2006.</simpara>
-
-      <simpara>LT1K P05-0074 Overarching Architecture 4.0</simpara>
-
-      <simpara>LT1K P05-0075 Systems Engineering Vision FMLS 2010
-      5.0</simpara>
-
-      <simpara>LT1K P05-0026 - SOA for NBD Principles 3.0</simpara>
-
-      <simpara>LT1K P05-0507 Architecture Description Framework 2.0</simpara>
-
-      <simpara>LT1K P06-0025 Integrated Dictionary for FMLS 2010 Technical
-      Systems rev 1.0</simpara>
-
-      <simpara><emphasis role="bold">FMLS Generic
-      Designrules</emphasis></simpara>
-
-      <simpara>LT1K P04-0438 Definition of service Service Registry
-      3.0</simpara>
-
-      <simpara>LT1K P05-0235 Definition of service User Registry 2.0</simpara>
-
-      <simpara>LT1K P05-0446 NERE metadata specs for tech and softw syst
-      2.0</simpara>
-
-      <simpara>LT1K P06-0036 SD Provide Report 2.0</simpara>
-
-      <simpara>LT1K P06-0039 SD Access COP Information 2.0</simpara>
-
-      <simpara>LT1K P06-0061 Definition of Service SW and Data Distribution
-      1.0</simpara>
-
-      <simpara>LT1K P06-0064 Definition of Service Configuration 1.0</simpara>
-
-      <simpara>LT1K P06-0102 Definition of Service GetRevocation 1.0</simpara>
-
-      <simpara>LT1K P06-0269 Definition of Service TimeStamp 1.0</simpara>
-
-      <simpara>LT1K P06-0272 Definition of Service ComBroker 1.0</simpara>
-
-      <simpara>LT1K P06-0298 D3C 1.0</simpara>
-
-      <simpara>LT1K P05-0034 Infrastructure Overview 3.0</simpara>
-
-      <simpara>LT1K P05-0236 Definition of service Organization Registry
-      2.0</simpara>
-
-      <simpara>LT1K P05-0557 Design Target Architecture NERE 2.0</simpara>
-
-      <simpara>LT1K P06-0037 SD Process intelligence 2.0</simpara>
-
-      <simpara>LT1K P06-0059 Definition of Service Policy 1.0</simpara>
-
-      <simpara>LT1K P06-0062 Definition of Service Action 1.0</simpara>
-
-      <simpara>LT1K P06-0091 COPS Information model 1.0</simpara>
-
-      <simpara>LT1K P06-0134 Definition of Service DNS 1.0</simpara>
-
-      <simpara>LT1K P06-0270 Definition of Service AccessControl 1.0</simpara>
-
-      <simpara>LT1K P06-0274 Definition of API data validation 1.0</simpara>
-
-      <simpara>LT1K P05-0035 Communication Infrastructure Overview
-      4.0</simpara>
-
-      <simpara>LT1K P05-0443 NCES Reference Architecture 2.0</simpara>
-
-      <simpara>LT1K P06-0035 SD Provide Streaming Data 2.0</simpara>
-
-      <simpara>LT1K P06-0038 SD Support COPS 2.0</simpara>
-
-      <simpara>LT1K P06-0060 Definition of Service Log 1.0</simpara>
-
-      <simpara>LT1K P06-0063 Definition of Service Monitoring 1.0</simpara>
-
-      <simpara>LT1K P06-0095 NCES Management Information and Data models
-      1.0</simpara>
-
-      <simpara>LT1K P06-0145 Design Overview 1.0</simpara>
-
-      <simpara>LT1K P06-0271 Definition of Service NereRegistryAdmin
-      1.0</simpara>
-
-      <simpara>LT1K P06-0279 Definition of Service Network Time
-      synchronization 1.0</simpara>
-
-      <simpara><emphasis role="bold">FMLS Technical
-      Designrules</emphasis></simpara>
-
-      <simpara>LT1K P05-0217 - DR Data Incest Prevention 2.0</simpara>
-
-      <simpara>LT1K P06-0049 DR Risk management 2.0</simpara>
-
-      <simpara>LT1K P06-0106 Design Rule Mobility 2.0</simpara>
-
-      <simpara>LT1K P06-0350 DRP Flexibility 1.0</simpara>
-
-      <simpara>LT1K P05-0547 - DRP Common Operational Picture 2.0</simpara>
-
-      <simpara>LT1K P06-0050 DR Flexibility 2.0</simpara>
-
-      <simpara>LT1K P06-0108 DR security aspects of information 1.0</simpara>
-
-      <simpara>LT1K P06-0351 DRP Interoperability 1.0</simpara>
-
-      <simpara>LT1K P06-0008 Design Rule Legacy Integration 1.0</simpara>
-
-      <simpara>LT1K P06-0051 DR Interoperability 2.0</simpara>
-
-      <simpara>LT1K P06-0321 DR Scalability 1.0</simpara>
-
-      <simpara>LT1K P06-0352 DRP Security 1.0</simpara>
-    </sect2>
-
-    <sect2>
-      <title>Nation x &hellip;</title>
-
-      <para condition="ignore"></para>
-    </sect2>
-  </sect1>
 </appendix>
