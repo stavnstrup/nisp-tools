@@ -403,7 +403,7 @@
       <fop basedir="${build.fo}/" fofile="${build.fo}/vol3.fo" outfile="${build.fo}/vol3.pdf" format="application/pdf" messagelevel="${fop.message}"/>
       <echo message="Creating Volume 3 meta information using pdffix"/>
       <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
-         <arg line="&#34;${tool-version}&#34; &#34;Mid term&#34; vol3.pdf ${vol3.pdf.file}"/>
+         <arg line="&#34;${tool-version}&#34; &#34;Mid to Far term&#34; vol3.pdf ${vol3.pdf.file}"/>
          <classpath refid="lib-fop-classpath"/>
       </java>
       <delete file="${build.fo}/vol3.pdf"/>
@@ -544,7 +544,7 @@
       <fop basedir="${build.fo}/" fofile="${build.fo}/vol4.fo" outfile="${build.fo}/vol4.pdf" format="application/pdf" messagelevel="${fop.message}"/>
       <echo message="Creating Volume 4 meta information using pdffix"/>
       <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
-         <arg line="&#34;${tool-version}&#34; &#34;Far Term&#34; vol4.pdf ${vol4.pdf.file}"/>
+         <arg line="&#34;${tool-version}&#34; &#34;Interoperability Profile Guidance&#34; vol4.pdf ${vol4.pdf.file}"/>
          <classpath refid="lib-fop-classpath"/>
       </java>
       <delete file="${build.fo}/vol4.pdf"/>
@@ -561,8 +561,8 @@
 
   
     <!-- Directories -->
-   <property name="src.vol5" value="${src.dir}/volume5-rationale"/>
-   <property name="build.vol5" value="${build.dir}/volume5-rationale"/><!-- Source file names -->
+   <property name="src.vol5" value="${src.dir}/volume5"/>
+   <property name="build.vol5" value="${build.dir}/volume5"/><!-- Source file names -->
    <property name="vol5.main.src" value="vol5.xml"/>
    <property name="vol5.all.src" value="vol5.xml"/>
    <property name="vol5.resolve.src" value="vol5-resolved.xml"/>
@@ -604,7 +604,7 @@
    <target name="vol5.resolve" unless="vol5-resolve.notRequired" depends="init, vol5.db-resolve, vol5.resolve.check">
       <echo message="Resolve Volume 5"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol5}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol5.resolve.src} ${src.vol5}/${vol5.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol5} dbname=resolved-standards.xml docid=vol5 documentdir=volume5-rationale use.show.indexterms=${use.show.indexterms}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol5.resolve.src} ${src.vol5}/${vol5.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol5} dbname=resolved-standards.xml docid=vol5 documentdir=volume5 use.show.indexterms=${use.show.indexterms}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -618,7 +618,7 @@
       </uptodate>
    </target>
    <target name="vol5.olinks" depends="init, vol5.resolve, vol5-olinks.check" unless="vol5-olinks.notRequired">
-      <mkdir dir="${build.dir}/volume5-rationale"/>
+      <mkdir dir="${build.dir}/volume5"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol5}">
          <arg line="${build.resolve}/${vol5.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} target.database.document=${src.dir}/olinks/olinksdb.xml current.docid=vol5 collect.xref.targets=only"/>
          <classpath refid="lib-saxon-classpath"/>
@@ -626,36 +626,36 @@
       <move file="${build.vol5}/target.db" tofile="${src.dir}/olinks/vol5-target.db"/>
    </target>
    <target name="vol5-svg.required">
-      <mkdir dir="${build.dir}/volume5-rationale/figures"/>
-      <copy preservelastmodified="true" todir="${build.dir}/volume5-rationale/figures">
+      <mkdir dir="${build.dir}/volume5/figures"/>
+      <copy preservelastmodified="true" todir="${build.dir}/volume5/figures">
          <fileset dir="${src.vol5}/figures">
             <include name="*.svg"/>
             <exclude name="obsolete/*.svg"/>
          </fileset>
       </copy>
       <uptodate property="vol5-svg.notRequired">
-         <srcfiles includes="*.svg" dir="${build.dir}/volume5-rationale/figures"/>
-         <mapper type="glob" from="*.svg" to="${build.dir}/volume5-rationale/figures/*.jpg"/>
+         <srcfiles includes="*.svg" dir="${build.dir}/volume5/figures"/>
+         <mapper type="glob" from="*.svg" to="${build.dir}/volume5/figures/*.jpg"/>
       </uptodate>
    </target>
    <target name="vol5.svg" depends="init, vol5-svg.required" unless="vol5-svg.notRequired">
       <echo message="Create Volume 5 figures for HTML (${dpi.raster} dpi)"/>
-      <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume5-rationale/figures/">
-         <fileset dir="${build.dir}/volume5-rationale/figures/">
+      <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume5/figures/">
+         <fileset dir="${build.dir}/volume5/figures/">
             <include name="*.svg"/>
          </fileset>
       </rasterize>
    </target>
    <target name="vol5.getfigs" depends="vol5.svg">
-      <mkdir dir="${build.dir}/volume5-rationale/figures"/>
-      <copy preservelastmodified="true" todir="${build.dir}/htmlhelp/figures/volume5-rationale">
-         <fileset dir="${build.dir}/volume5-rationale/figures">
+      <mkdir dir="${build.dir}/volume5/figures"/>
+      <copy preservelastmodified="true" todir="${build.dir}/htmlhelp/figures/volume5">
+         <fileset dir="${build.dir}/volume5/figures">
             <include name="*.jpg"/>
          </fileset>
       </copy>
    </target>
    <target name="vol5.html.check" depends="init">
-      <mkdir dir="${build.dir}/volume5-rationale"/>
+      <mkdir dir="${build.dir}/volume5"/>
       <uptodate property="vol5-html.notRequired" targetfile="${build.vol5}/index.html">
          <srcfiles dir="${build.resolve}" includes="${vol5.resolve.src}"/>
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-xhtml}"/>
@@ -672,7 +672,7 @@
    <target name="vol5.pdf.check" depends="init">
       <uptodate property="vol5-pdf.notRequired" targetfile="${build.fo}/${vol5.pdf.file}">
          <srcfiles dir="${build.resolve}" includes="${vol5.resolve.src}"/>
-         <srcfiles dir="${build.dir}/volume5-rationale/figures/" includes="*.jpg"/>
+         <srcfiles dir="${build.dir}/volume5/figures/" includes="*.jpg"/>
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
@@ -687,7 +687,7 @@
       <fop basedir="${build.fo}/" fofile="${build.fo}/vol5.fo" outfile="${build.fo}/vol5.pdf" format="application/pdf" messagelevel="${fop.message}"/>
       <echo message="Creating Volume 5 meta information using pdffix"/>
       <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
-         <arg line="&#34;${tool-version}&#34; &#34;Rationale Document&#34; vol5.pdf ${vol5.pdf.file}"/>
+         <arg line="&#34;${tool-version}&#34; &#34;NISP Design Rules&#34; vol5.pdf ${vol5.pdf.file}"/>
          <classpath refid="lib-fop-classpath"/>
       </java>
       <delete file="${build.fo}/vol5.pdf"/>
@@ -697,7 +697,7 @@
       <echo message="Creating src archive of Volume 5"/>
       <mkdir dir="${zip.dir}"/>
       <zip zipfile="${zip.dir}/nisp-src-vol5-${DSTAMP}.zip">
-         <zipfileset dir="${src.dir}/volume5-rationale" prefix="volume5-rationale/" includes="**/*" excludes="**/*~,**/rtf/*.*, **/*/*.ced,**/*/*.fo"/>
+         <zipfileset dir="${src.dir}/volume5" prefix="volume5/" includes="**/*" excludes="**/*~,**/rtf/*.*, **/*/*.ced,**/*/*.fo"/>
       </zip>
    </target>
   
