@@ -79,6 +79,9 @@
       <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume1/figures/">
          <fileset dir="${build.dir}/volume1/figures/">
             <include name="*.svg"/>
+            <depend targetdir="${build.dir}/volume1/figures/">
+               <mapper type="glob" from="*.svg" to="*.jpg"/>
+            </depend>
          </fileset>
       </rasterize>
    </target>
@@ -220,6 +223,9 @@
       <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume2/figures/">
          <fileset dir="${build.dir}/volume2/figures/">
             <include name="*.svg"/>
+            <depend targetdir="${build.dir}/volume2/figures/">
+               <mapper type="glob" from="*.svg" to="*.jpg"/>
+            </depend>
          </fileset>
       </rasterize>
    </target>
@@ -361,6 +367,9 @@
       <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume3/figures/">
          <fileset dir="${build.dir}/volume3/figures/">
             <include name="*.svg"/>
+            <depend targetdir="${build.dir}/volume3/figures/">
+               <mapper type="glob" from="*.svg" to="*.jpg"/>
+            </depend>
          </fileset>
       </rasterize>
    </target>
@@ -502,6 +511,9 @@
       <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume4/figures/">
          <fileset dir="${build.dir}/volume4/figures/">
             <include name="*.svg"/>
+            <depend targetdir="${build.dir}/volume4/figures/">
+               <mapper type="glob" from="*.svg" to="*.jpg"/>
+            </depend>
          </fileset>
       </rasterize>
    </target>
@@ -643,6 +655,9 @@
       <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume5/figures/">
          <fileset dir="${build.dir}/volume5/figures/">
             <include name="*.svg"/>
+            <depend targetdir="${build.dir}/volume5/figures/">
+               <mapper type="glob" from="*.svg" to="*.jpg"/>
+            </depend>
          </fileset>
       </rasterize>
    </target>
@@ -768,6 +783,9 @@
       <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume6-annexes/figures/">
          <fileset dir="${build.dir}/volume6-annexes/figures/">
             <include name="*.svg"/>
+            <depend targetdir="${build.dir}/volume6-annexes/figures/">
+               <mapper type="glob" from="*.svg" to="*.jpg"/>
+            </depend>
          </fileset>
       </rasterize>
    </target>

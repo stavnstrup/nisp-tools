@@ -538,6 +538,14 @@
           <xsl:text>/figures/</xsl:text>
         </xsl:attribute>
         <include name="*.svg"/>
+        <depend>
+          <xsl:attribute name="targetdir">
+            <xsl:text>${build.dir}/</xsl:text>
+            <xsl:value-of select="$dir"/>
+            <xsl:text>/figures/</xsl:text>
+          </xsl:attribute>
+          <mapper type="glob" from="*.svg" to="*.jpg"/>
+        </depend>
       </fileset>
     </rasterize>
   </target>
