@@ -28,8 +28,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:import href="../docbook-xsl/xhtml/chunk.xsl"/>
 <xsl:import href="../common/common.xsl"/>
 
-
-
 <xsl:output method="saxon:xhtml" encoding="utf-8" omit-xml-declaration="yes"/>
 
 <!-- ==================================================================== -->
@@ -479,16 +477,229 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
         </div>
       </td>--></tr></table>
 
-      <div id="taFooter">Copyright &#x00A9; NATO - OTAN 1998-2008 | <a href="../disclaimer.html">Disclaimer</a></div>
+      <div id="taFooter">Copyright &#x00A9; NATO - OTAN 1998-2010 | <a href="../disclaimer.html">Disclaimer</a></div>
     </body>
   </html>
 </xsl:template>
 
+<!-- ==================================================================== -->
+
+<!-- ....................................................................
+
+     Copied from: xhtml/component.xsl, DocBook XSL 1.75.2
+     Rationale: Necessary to give this template the right priority
+
+     .................................................................... -->
+
+
+<xsl:template match="dedication/title|dedication/info/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="component.title">
+    <xsl:with-param name="node" select="ancestor::dedication[1]"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="acknowledgements/title|acknowledgements/info/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="component.title">
+    <xsl:with-param name="node" select="ancestor::acknowledgements[1]"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="preface/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="component.title">
+    <xsl:with-param name="node" select="ancestor::preface[1]"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="appendix/title|appendix/appendixinfo/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="component.title">
+    <xsl:with-param name="node" select="ancestor::appendix[1]"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="article/title|article/articleinfo/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="component.title">
+    <xsl:with-param name="node" select="ancestor::article[1]"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="chapter/title|chapter/chapterinfo/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="component.title">
+    <xsl:with-param name="node" select="ancestor::chapter[1]"/>
+  </xsl:call-template>
+</xsl:template>
 
 <!-- ==================================================================== -->
 
+<!-- ....................................................................
+
+     Copied from: xhtml/sections.xsl, DocBook XSL 1.75.2
+     Rationale: Necessary to give these templates the right priority
+
+     .................................................................... -->
+
+<xsl:template match="simplesect/title|simplesect/info/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="section.title"/>
+</xsl:template>
+
+<xsl:template match="section/title |section/info/title |sectioninfo/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="section.title"/>
+</xsl:template>
+
+<xsl:template match="sect1/title |sect1/info/title |sect1info/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="section.title"/>
+</xsl:template>
+
+<xsl:template match="sect2/title |sect2/info/title |sect2info/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="section.title"/>
+</xsl:template>
+
+<xsl:template match="sect3/title |sect3/info/title |sect3info/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="section.title"/>
+</xsl:template>
+
+<xsl:template match="sect4/title |sect4/info/title |sect4info/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="section.title"/>
+</xsl:template>
+
+<xsl:template match="sect5/title |sect5/info/title |sect5info/title" mode="titlepage.mode" priority="2">
+  <xsl:call-template name="section.title"/>
+</xsl:template>
+
+<!-- ==================================================================== -->
+
+<!-- ....................................................................
+
+     Derived from: xhtml/html.xsl, DocBook XSL 1.75.2
+     Effected lines: 169
+     Descr.: Line <a id="{$id}"/> changed into <a id="{$id}" style="display:none">&#160;</a>
+     Rationale: Ensure that no single <a>-elements like <a name="xxx"/> are generated,
+                but always elements <a>-elements with opening and closing tags <a name="xxx"></a>.
+                This solves the problem that <a>-elements are misinterpreted by the CSS-interpretors
+                of several webbrowsers.
+
+     .................................................................... -->
+
+<xsl:template name="anchor">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="conditional" select="1"/>
+  <xsl:variable name="id">
+    <xsl:call-template name="object.id">
+      <xsl:with-param name="object" select="$node"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xslo:if xmlns:xslo="http://www.w3.org/1999/XSL/Transform" xmlns:saxon="http://icl.com/saxon" test="not($node[parent::blockquote])"><xsl:if test="$conditional = 0 or $node/@id or $node/@xml:id">
+    <a id="{$id}" style="display:none">&#160;</a>
+  </xsl:if></xslo:if>
+</xsl:template>
+
+<!-- ==================================================================== -->
+
+<!-- ....................................................................
+
+     Derived from: xhtml/titlepage.xsl, DocBook XSL 1.75.2
+     Effected lines: 576 and 954
+     Descr.: Line <a id="{$id}"/> changed into <a id="{$id}" style="display:none">&#160;</a>
+     Rationale: Ensure that no single <a>-elements like <a name="xxx"/> are generated,
+                but always elements <a>-elements with opening and closing tags <a name="xxx"></a>.
+                This solves the problem that <a>-elements are misinterpreted by the CSS-interpretors
+                of several webbrowsers.
+
+     .................................................................... -->
+
+<xsl:template match="legalnotice" mode="titlepage.mode">
+  <xsl:variable name="id"><xsl:call-template name="object.id"/></xsl:variable>
+
+  <xsl:choose>
+    <xsl:when test="$generate.legalnotice.link != 0">
+      
+      <!-- Compute name of legalnotice file -->
+      <xsl:variable name="file">
+	<xsl:call-template name="ln.or.rh.filename"/>
+      </xsl:variable>
+
+      <xsl:variable name="filename">
+        <xsl:call-template name="make-relative-filename">
+          <xsl:with-param name="base.dir" select="$base.dir"/>
+	  <xsl:with-param name="base.name" select="$file"/>
+        </xsl:call-template>
+      </xsl:variable>
+
+      <xsl:variable name="title">
+        <xsl:apply-templates select="." mode="title.markup"/>
+      </xsl:variable>
+
+      <a href="{$file}">
+        <xsl:copy-of select="$title"/>
+      </a>
+
+      <xsl:call-template name="write.chunk">
+        <xsl:with-param name="filename" select="$filename"/>
+        <xsl:with-param name="quiet" select="$chunk.quietly"/>
+        <xsl:with-param name="content">
+        <xsl:call-template name="user.preroot"/>
+          <html>
+            <head>
+              <xsl:call-template name="system.head.content"/>
+              <xsl:call-template name="head.content"/>
+              <xsl:call-template name="user.head.content"/>
+            </head>
+            <body>
+              <xsl:call-template name="body.attributes"/>
+              <div>
+                <xsl:apply-templates select="." mode="common.html.attributes"/>
+                <xsl:apply-templates mode="titlepage.mode"/>
+              </div>
+            </body>
+          </html>
+          <xsl:value-of select="$chunk.append"/>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <div>
+        <xsl:apply-templates select="." mode="common.html.attributes"/>
+          <a id="{$id}" style="display:none">&#160;</a>
+        <xsl:apply-templates mode="titlepage.mode"/>
+      </div>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="title" mode="titlepage.mode">
+  <xsl:variable name="id">
+    <xsl:choose>
+      <!-- if title is in an *info wrapper, get the grandparent -->
+      <xsl:when test="contains(local-name(..), 'info')">
+        <xsl:call-template name="object.id">
+          <xsl:with-param name="object" select="../.."/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="object.id">
+          <xsl:with-param name="object" select=".."/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <h1>
+    <xsl:apply-templates select="." mode="common.html.attributes"/>
+    <xsl:if test="$generate.id.attributes = 0">
+      <a id="{$id}" style="display:none">&#160;</a>
+    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="$show.revisionflag != 0 and @revisionflag">
+	<span class="{@revisionflag}">
+	  <xsl:apply-templates mode="titlepage.mode"/>
+	</span>
+      </xsl:when>
+      <xsl:otherwise>
+	<xsl:apply-templates mode="titlepage.mode"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </h1>
+</xsl:template>
+
+<!-- ==================================================================== -->
 
 </xsl:stylesheet>
-
-
-
