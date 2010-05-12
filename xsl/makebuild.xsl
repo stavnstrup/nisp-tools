@@ -779,9 +779,7 @@
 
       <srcfiles>
         <xsl:attribute name="dir">
-          <xsl:text>${build.dir}/</xsl:text>
-          <xsl:value-of select="$dir"/> 
-          <xsl:text>/figures/</xsl:text>
+          <xsl:text>${build.dir}/figures/</xsl:text>
         </xsl:attribute>
         <xsl:attribute name="includes">
           <xsl:text>*.jpg</xsl:text>
