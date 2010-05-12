@@ -30,10 +30,12 @@
     <xsl:with-param name="othertargets" select="'init'"/>
   </xsl:call-template>
 
+<!--
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'svg'"/>
     <xsl:with-param name="othertargets" select="'init'"/>
   </xsl:call-template>
+-->
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'getfigs'"/>
@@ -52,16 +54,71 @@
     <xsl:with-param name="comment" select="'* Create a PDF version of NISP'"/>
   </xsl:call-template>
 
-<!--
-  <xsl:call-template name="alldocs">
-    <xsl:with-param name="ext" select="'wml'"/>
-    <xsl:with-param name="othertargets" select="'init'"/>
-    <xsl:with-param name="comment" select="'* Create a Word ML version of NISP'"/>
-  </xsl:call-template>
--->
 
-  <!-- Generate targets for each document -->
-  <xsl:apply-templates/>
+    <target name="svg.required">
+      <mkdir>
+        <xsl:attribute name="dir">
+          <xsl:text>${build.dir}/figures</xsl:text>
+        </xsl:attribute>
+      </mkdir>
+      <copy preservelastmodified="true">
+        <xsl:attribute name="todir">
+          <xsl:text>${build.dir}/figures</xsl:text>
+        </xsl:attribute>
+        <fileset>
+          <xsl:attribute name="dir">
+            <xsl:text>${src.dir}/figures/</xsl:text>
+          </xsl:attribute>
+          <include name="*.svg"/>
+          <exclude name="obsolete/*.svg"/>
+        </fileset>
+      </copy> 
+
+      <uptodate property="svg.notRequired">
+        <srcfiles includes="*.svg">
+          <xsl:attribute name="dir">
+            <xsl:text>${build.dir}/figures</xsl:text>
+          </xsl:attribute>
+        </srcfiles>
+        <mapper type="glob" from="*.svg"> 
+          <xsl:attribute name="to">
+            <xsl:text>${build.dir}/figures/*.jpg</xsl:text>
+          </xsl:attribute>
+        </mapper>
+      </uptodate>
+    </target>
+
+    <target name="svg" depends="init, svg.required"
+            unless="svg.notRequired">
+      <echo>
+        <xsl:attribute name="message">
+          <xsl:text>Create figures for HTML (${dpi.raster} dpi)</xsl:text>
+        </xsl:attribute>
+      </echo>
+      <rasterize result="image/jpeg" quality="0.9"> 
+        <xsl:attribute name="dpi">
+          <xsl:text>${dpi.raster}</xsl:text>
+        </xsl:attribute>
+        <xsl:attribute name="destdir">
+          <xsl:text>${build.dir}/figures/</xsl:text>
+        </xsl:attribute>
+        <fileset>
+          <xsl:attribute name="dir">
+            <xsl:text>${build.dir}/figures/</xsl:text>
+          </xsl:attribute>
+          <include name="*.svg"/>
+          <depend>
+            <xsl:attribute name="targetdir">
+              <xsl:text>${build.dir}/figures/</xsl:text>
+            </xsl:attribute>
+            <mapper type="glob" from="*.svg" to="*.jpg"/>
+          </depend>
+        </fileset>
+      </rasterize>
+    </target>
+
+    <!-- Generate targets for each document -->
+    <xsl:apply-templates/>
   
   </project>
 </xsl:template>
@@ -130,10 +187,12 @@
   <xsl:call-template name="makeOLINKS"/>
 
   <!-- SVG to Raster targets -->
+<!--
   <xsl:choose>
     <xsl:when test="figures"><xsl:call-template name="makeSVG"/></xsl:when>
     <xsl:otherwise><target name="{$docid}.svg"/></xsl:otherwise>
   </xsl:choose>
+-->
 
   <xsl:call-template name="getFIGS"/>
 
@@ -560,7 +619,7 @@
   <xsl:variable name="docid" select="./@id"/>
   <xsl:variable name="dir" select="../@dir"/>
 
-  <target name="{$docid}.getfigs" depends="{$docid}.svg">
+  <target name="{$docid}.getfigs" depends="svg">
 
     <!-- Copy to HTML dir -->
     <mkdir>
@@ -636,7 +695,7 @@
   </target>
 
   <target name="{$docid}.html" description="* Create {$title} in XHTML" 
-          depends="{$docid}.svg, {$docid}.resolve, {$docid}.html.check" 
+          depends="svg, {$docid}.resolve, {$docid}.html.check" 
           unless="{$docid}-html.notRequired">
     <echo message="Create {$title} as chunked XHTML pages"/>
     <java fork="yes">
@@ -743,7 +802,7 @@
 
   <target name="{$docid}.pdf"
           description="* Create {$title} in PDF"
-          depends="layout-fo, {$docid}.svg, {$docid}.resolve, {$docid}.pdf.check"
+          depends="layout-fo, svg, {$docid}.resolve, {$docid}.pdf.check"
           unless="{$docid}-pdf.notRequired">
     <echo message="Create {$title} print version"/>
     <java fork="yes">

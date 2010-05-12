@@ -3,10 +3,33 @@
    <target name="valid" depends="vol1.valid, vol2.valid, vol3.valid, vol4.valid, vol5.valid, vol6.valid" description="* Validate all source documents"/>
    <target name="resolve" depends="init, vol1.resolve, vol2.resolve, vol3.resolve, vol4.resolve, vol5.resolve, vol6.resolve"/>
    <target name="olinks" depends="init, vol1.olinks, vol2.olinks, vol3.olinks, vol4.olinks, vol5.olinks, vol6.olinks"/>
-   <target name="svg" depends="init, vol1.svg, vol2.svg, vol3.svg, vol4.svg, vol5.svg, vol6.svg"/>
    <target name="getfigs" depends="init, vol1.getfigs, vol2.getfigs, vol3.getfigs, vol4.getfigs, vol5.getfigs, vol6.getfigs"/>
    <target name="html" depends="init, master, acronyms, vol1.html, vol2.html, vol3.html, vol4.html, vol5.html, vol6.html" description="* Create all HTML files destined for the web"/>
    <target name="pdf" depends="init, vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf, vol5.pdf, vol6.pdf" description="* Create a PDF version of NISP"/>
+   <target name="svg.required">
+      <mkdir dir="${build.dir}/figures"/>
+      <copy preservelastmodified="true" todir="${build.dir}/figures">
+         <fileset dir="${src.dir}/figures/">
+            <include name="*.svg"/>
+            <exclude name="obsolete/*.svg"/>
+         </fileset>
+      </copy>
+      <uptodate property="svg.notRequired">
+         <srcfiles includes="*.svg" dir="${build.dir}/figures"/>
+         <mapper type="glob" from="*.svg" to="${build.dir}/figures/*.jpg"/>
+      </uptodate>
+   </target>
+   <target name="svg" depends="init, svg.required" unless="svg.notRequired">
+      <echo message="Create figures for HTML (${dpi.raster} dpi)"/>
+      <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/figures/">
+         <fileset dir="${build.dir}/figures/">
+            <include name="*.svg"/>
+            <depend targetdir="${build.dir}/figures/">
+               <mapper type="glob" from="*.svg" to="*.jpg"/>
+            </depend>
+         </fileset>
+      </rasterize>
+   </target>
   
     
     
@@ -61,31 +84,7 @@
       </java>
       <move file="${build.vol1}/target.db" tofile="${src.dir}/olinks/vol1-target.db"/>
    </target>
-   <target name="vol1-svg.required">
-      <mkdir dir="${build.dir}/volume1/figures"/>
-      <copy preservelastmodified="true" todir="${build.dir}/volume1/figures">
-         <fileset dir="${src.vol1}/figures">
-            <include name="*.svg"/>
-            <exclude name="obsolete/*.svg"/>
-         </fileset>
-      </copy>
-      <uptodate property="vol1-svg.notRequired">
-         <srcfiles includes="*.svg" dir="${build.dir}/volume1/figures"/>
-         <mapper type="glob" from="*.svg" to="${build.dir}/volume1/figures/*.jpg"/>
-      </uptodate>
-   </target>
-   <target name="vol1.svg" depends="init, vol1-svg.required" unless="vol1-svg.notRequired">
-      <echo message="Create Volume 1 figures for HTML (${dpi.raster} dpi)"/>
-      <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume1/figures/">
-         <fileset dir="${build.dir}/volume1/figures/">
-            <include name="*.svg"/>
-            <depend targetdir="${build.dir}/volume1/figures/">
-               <mapper type="glob" from="*.svg" to="*.jpg"/>
-            </depend>
-         </fileset>
-      </rasterize>
-   </target>
-   <target name="vol1.getfigs" depends="vol1.svg">
+   <target name="vol1.getfigs" depends="svg">
       <mkdir dir="${build.dir}/volume1/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/htmlhelp/figures/volume1">
          <fileset dir="${build.dir}/volume1/figures">
@@ -100,7 +99,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-xhtml}"/>
       </uptodate>
    </target>
-   <target name="vol1.html" description="* Create Volume 1 in XHTML" depends="vol1.svg, vol1.resolve, vol1.html.check" unless="vol1-html.notRequired">
+   <target name="vol1.html" description="* Create Volume 1 in XHTML" depends="svg, vol1.resolve, vol1.html.check" unless="vol1-html.notRequired">
       <echo message="Create Volume 1 as chunked XHTML pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol1}">
          <arg line="${xslt.opts} ${build.resolve}/${vol1.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${internet.opts} docid=vol1 pdf.prefix=NISP-Vol1 use.para.numbering=${use.para.numbering} use.portal.design=${use.portal.design}"/>
@@ -114,7 +113,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol1.pdf" description="* Create Volume 1 in PDF" depends="layout-fo, vol1.svg, vol1.resolve, vol1.pdf.check" unless="vol1-pdf.notRequired">
+   <target name="vol1.pdf" description="* Create Volume 1 in PDF" depends="layout-fo, svg, vol1.resolve, vol1.pdf.check" unless="vol1-pdf.notRequired">
       <echo message="Create Volume 1 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol1.fo ${build.resolve}/${vol1.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${internet.opts} pdf.prefix=NISP-Vol1 use.para.numbering=${use.para.numbering}"/>
@@ -205,31 +204,7 @@
       </java>
       <move file="${build.vol2}/target.db" tofile="${src.dir}/olinks/vol2-target.db"/>
    </target>
-   <target name="vol2-svg.required">
-      <mkdir dir="${build.dir}/volume2/figures"/>
-      <copy preservelastmodified="true" todir="${build.dir}/volume2/figures">
-         <fileset dir="${src.vol2}/figures">
-            <include name="*.svg"/>
-            <exclude name="obsolete/*.svg"/>
-         </fileset>
-      </copy>
-      <uptodate property="vol2-svg.notRequired">
-         <srcfiles includes="*.svg" dir="${build.dir}/volume2/figures"/>
-         <mapper type="glob" from="*.svg" to="${build.dir}/volume2/figures/*.jpg"/>
-      </uptodate>
-   </target>
-   <target name="vol2.svg" depends="init, vol2-svg.required" unless="vol2-svg.notRequired">
-      <echo message="Create Volume 2 figures for HTML (${dpi.raster} dpi)"/>
-      <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume2/figures/">
-         <fileset dir="${build.dir}/volume2/figures/">
-            <include name="*.svg"/>
-            <depend targetdir="${build.dir}/volume2/figures/">
-               <mapper type="glob" from="*.svg" to="*.jpg"/>
-            </depend>
-         </fileset>
-      </rasterize>
-   </target>
-   <target name="vol2.getfigs" depends="vol2.svg">
+   <target name="vol2.getfigs" depends="svg">
       <mkdir dir="${build.dir}/volume2/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/htmlhelp/figures/volume2">
          <fileset dir="${build.dir}/volume2/figures">
@@ -244,7 +219,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-xhtml}"/>
       </uptodate>
    </target>
-   <target name="vol2.html" description="* Create Volume 2 in XHTML" depends="vol2.svg, vol2.resolve, vol2.html.check" unless="vol2-html.notRequired">
+   <target name="vol2.html" description="* Create Volume 2 in XHTML" depends="svg, vol2.resolve, vol2.html.check" unless="vol2-html.notRequired">
       <echo message="Create Volume 2 as chunked XHTML pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol2}">
          <arg line="${xslt.opts} ${build.resolve}/${vol2.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${internet.opts} docid=vol2 pdf.prefix=NISP-Vol2 use.para.numbering=${use.para.numbering} use.portal.design=${use.portal.design}"/>
@@ -258,7 +233,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol2.pdf" description="* Create Volume 2 in PDF" depends="layout-fo, vol2.svg, vol2.resolve, vol2.pdf.check" unless="vol2-pdf.notRequired">
+   <target name="vol2.pdf" description="* Create Volume 2 in PDF" depends="layout-fo, svg, vol2.resolve, vol2.pdf.check" unless="vol2-pdf.notRequired">
       <echo message="Create Volume 2 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol2.fo ${build.resolve}/${vol2.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${internet.opts} pdf.prefix=NISP-Vol2 use.para.numbering=${use.para.numbering}"/>
@@ -349,31 +324,7 @@
       </java>
       <move file="${build.vol3}/target.db" tofile="${src.dir}/olinks/vol3-target.db"/>
    </target>
-   <target name="vol3-svg.required">
-      <mkdir dir="${build.dir}/volume3/figures"/>
-      <copy preservelastmodified="true" todir="${build.dir}/volume3/figures">
-         <fileset dir="${src.vol3}/figures">
-            <include name="*.svg"/>
-            <exclude name="obsolete/*.svg"/>
-         </fileset>
-      </copy>
-      <uptodate property="vol3-svg.notRequired">
-         <srcfiles includes="*.svg" dir="${build.dir}/volume3/figures"/>
-         <mapper type="glob" from="*.svg" to="${build.dir}/volume3/figures/*.jpg"/>
-      </uptodate>
-   </target>
-   <target name="vol3.svg" depends="init, vol3-svg.required" unless="vol3-svg.notRequired">
-      <echo message="Create Volume 3 figures for HTML (${dpi.raster} dpi)"/>
-      <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume3/figures/">
-         <fileset dir="${build.dir}/volume3/figures/">
-            <include name="*.svg"/>
-            <depend targetdir="${build.dir}/volume3/figures/">
-               <mapper type="glob" from="*.svg" to="*.jpg"/>
-            </depend>
-         </fileset>
-      </rasterize>
-   </target>
-   <target name="vol3.getfigs" depends="vol3.svg">
+   <target name="vol3.getfigs" depends="svg">
       <mkdir dir="${build.dir}/volume3/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/htmlhelp/figures/volume3">
          <fileset dir="${build.dir}/volume3/figures">
@@ -388,7 +339,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-xhtml}"/>
       </uptodate>
    </target>
-   <target name="vol3.html" description="* Create Volume 3 in XHTML" depends="vol3.svg, vol3.resolve, vol3.html.check" unless="vol3-html.notRequired">
+   <target name="vol3.html" description="* Create Volume 3 in XHTML" depends="svg, vol3.resolve, vol3.html.check" unless="vol3-html.notRequired">
       <echo message="Create Volume 3 as chunked XHTML pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol3}">
          <arg line="${xslt.opts} ${build.resolve}/${vol3.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${internet.opts} docid=vol3 pdf.prefix=NISP-Vol3 use.para.numbering=${use.para.numbering} use.portal.design=${use.portal.design}"/>
@@ -402,7 +353,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol3.pdf" description="* Create Volume 3 in PDF" depends="layout-fo, vol3.svg, vol3.resolve, vol3.pdf.check" unless="vol3-pdf.notRequired">
+   <target name="vol3.pdf" description="* Create Volume 3 in PDF" depends="layout-fo, svg, vol3.resolve, vol3.pdf.check" unless="vol3-pdf.notRequired">
       <echo message="Create Volume 3 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol3.fo ${build.resolve}/${vol3.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${internet.opts} pdf.prefix=NISP-Vol3 use.para.numbering=${use.para.numbering}"/>
@@ -493,31 +444,7 @@
       </java>
       <move file="${build.vol4}/target.db" tofile="${src.dir}/olinks/vol4-target.db"/>
    </target>
-   <target name="vol4-svg.required">
-      <mkdir dir="${build.dir}/volume4/figures"/>
-      <copy preservelastmodified="true" todir="${build.dir}/volume4/figures">
-         <fileset dir="${src.vol4}/figures">
-            <include name="*.svg"/>
-            <exclude name="obsolete/*.svg"/>
-         </fileset>
-      </copy>
-      <uptodate property="vol4-svg.notRequired">
-         <srcfiles includes="*.svg" dir="${build.dir}/volume4/figures"/>
-         <mapper type="glob" from="*.svg" to="${build.dir}/volume4/figures/*.jpg"/>
-      </uptodate>
-   </target>
-   <target name="vol4.svg" depends="init, vol4-svg.required" unless="vol4-svg.notRequired">
-      <echo message="Create Volume 4 figures for HTML (${dpi.raster} dpi)"/>
-      <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume4/figures/">
-         <fileset dir="${build.dir}/volume4/figures/">
-            <include name="*.svg"/>
-            <depend targetdir="${build.dir}/volume4/figures/">
-               <mapper type="glob" from="*.svg" to="*.jpg"/>
-            </depend>
-         </fileset>
-      </rasterize>
-   </target>
-   <target name="vol4.getfigs" depends="vol4.svg">
+   <target name="vol4.getfigs" depends="svg">
       <mkdir dir="${build.dir}/volume4/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/htmlhelp/figures/volume4">
          <fileset dir="${build.dir}/volume4/figures">
@@ -532,7 +459,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-xhtml}"/>
       </uptodate>
    </target>
-   <target name="vol4.html" description="* Create Volume 4 in XHTML" depends="vol4.svg, vol4.resolve, vol4.html.check" unless="vol4-html.notRequired">
+   <target name="vol4.html" description="* Create Volume 4 in XHTML" depends="svg, vol4.resolve, vol4.html.check" unless="vol4-html.notRequired">
       <echo message="Create Volume 4 as chunked XHTML pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol4}">
          <arg line="${xslt.opts} ${build.resolve}/${vol4.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${internet.opts} docid=vol4 pdf.prefix=NISP-Vol4 use.para.numbering=${use.para.numbering} use.portal.design=${use.portal.design}"/>
@@ -546,7 +473,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol4.pdf" description="* Create Volume 4 in PDF" depends="layout-fo, vol4.svg, vol4.resolve, vol4.pdf.check" unless="vol4-pdf.notRequired">
+   <target name="vol4.pdf" description="* Create Volume 4 in PDF" depends="layout-fo, svg, vol4.resolve, vol4.pdf.check" unless="vol4-pdf.notRequired">
       <echo message="Create Volume 4 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol4.fo ${build.resolve}/${vol4.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${internet.opts} pdf.prefix=NISP-Vol4 use.para.numbering=${use.para.numbering}"/>
@@ -637,31 +564,7 @@
       </java>
       <move file="${build.vol5}/target.db" tofile="${src.dir}/olinks/vol5-target.db"/>
    </target>
-   <target name="vol5-svg.required">
-      <mkdir dir="${build.dir}/volume5/figures"/>
-      <copy preservelastmodified="true" todir="${build.dir}/volume5/figures">
-         <fileset dir="${src.vol5}/figures">
-            <include name="*.svg"/>
-            <exclude name="obsolete/*.svg"/>
-         </fileset>
-      </copy>
-      <uptodate property="vol5-svg.notRequired">
-         <srcfiles includes="*.svg" dir="${build.dir}/volume5/figures"/>
-         <mapper type="glob" from="*.svg" to="${build.dir}/volume5/figures/*.jpg"/>
-      </uptodate>
-   </target>
-   <target name="vol5.svg" depends="init, vol5-svg.required" unless="vol5-svg.notRequired">
-      <echo message="Create Volume 5 figures for HTML (${dpi.raster} dpi)"/>
-      <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume5/figures/">
-         <fileset dir="${build.dir}/volume5/figures/">
-            <include name="*.svg"/>
-            <depend targetdir="${build.dir}/volume5/figures/">
-               <mapper type="glob" from="*.svg" to="*.jpg"/>
-            </depend>
-         </fileset>
-      </rasterize>
-   </target>
-   <target name="vol5.getfigs" depends="vol5.svg">
+   <target name="vol5.getfigs" depends="svg">
       <mkdir dir="${build.dir}/volume5/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/htmlhelp/figures/volume5">
          <fileset dir="${build.dir}/volume5/figures">
@@ -676,7 +579,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-xhtml}"/>
       </uptodate>
    </target>
-   <target name="vol5.html" description="* Create Volume 5 in XHTML" depends="vol5.svg, vol5.resolve, vol5.html.check" unless="vol5-html.notRequired">
+   <target name="vol5.html" description="* Create Volume 5 in XHTML" depends="svg, vol5.resolve, vol5.html.check" unless="vol5-html.notRequired">
       <echo message="Create Volume 5 as chunked XHTML pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol5}">
          <jvmarg value="-Xss512k"/>
@@ -691,7 +594,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol5.pdf" description="* Create Volume 5 in PDF" depends="layout-fo, vol5.svg, vol5.resolve, vol5.pdf.check" unless="vol5-pdf.notRequired">
+   <target name="vol5.pdf" description="* Create Volume 5 in PDF" depends="layout-fo, svg, vol5.resolve, vol5.pdf.check" unless="vol5-pdf.notRequired">
       <echo message="Create Volume 5 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <jvmarg value="-Xss512k"/>
@@ -765,31 +668,7 @@
       </java>
       <move file="${build.vol6}/target.db" tofile="${src.dir}/olinks/vol6-target.db"/>
    </target>
-   <target name="vol6-svg.required">
-      <mkdir dir="${build.dir}/volume6-annexes/figures"/>
-      <copy preservelastmodified="true" todir="${build.dir}/volume6-annexes/figures">
-         <fileset dir="${src.vol6}/figures">
-            <include name="*.svg"/>
-            <exclude name="obsolete/*.svg"/>
-         </fileset>
-      </copy>
-      <uptodate property="vol6-svg.notRequired">
-         <srcfiles includes="*.svg" dir="${build.dir}/volume6-annexes/figures"/>
-         <mapper type="glob" from="*.svg" to="${build.dir}/volume6-annexes/figures/*.jpg"/>
-      </uptodate>
-   </target>
-   <target name="vol6.svg" depends="init, vol6-svg.required" unless="vol6-svg.notRequired">
-      <echo message="Create Volume 6 figures for HTML (${dpi.raster} dpi)"/>
-      <rasterize result="image/jpeg" quality="0.9" dpi="${dpi.raster}" destdir="${build.dir}/volume6-annexes/figures/">
-         <fileset dir="${build.dir}/volume6-annexes/figures/">
-            <include name="*.svg"/>
-            <depend targetdir="${build.dir}/volume6-annexes/figures/">
-               <mapper type="glob" from="*.svg" to="*.jpg"/>
-            </depend>
-         </fileset>
-      </rasterize>
-   </target>
-   <target name="vol6.getfigs" depends="vol6.svg">
+   <target name="vol6.getfigs" depends="svg">
       <mkdir dir="${build.dir}/volume6-annexes/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/htmlhelp/figures/volume6-annexes">
          <fileset dir="${build.dir}/volume6-annexes/figures">
@@ -804,7 +683,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-xhtml}"/>
       </uptodate>
    </target>
-   <target name="vol6.html" description="* Create Volume 6 in XHTML" depends="vol6.svg, vol6.resolve, vol6.html.check" unless="vol6-html.notRequired">
+   <target name="vol6.html" description="* Create Volume 6 in XHTML" depends="svg, vol6.resolve, vol6.html.check" unless="vol6-html.notRequired">
       <echo message="Create Volume 6 as chunked XHTML pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol6}">
          <arg line="${xslt.opts} ${build.resolve}/${vol6.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${internet.opts} docid=vol6 pdf.prefix=NISP-Vol6 use.para.numbering=${use.para.numbering} use.portal.design=${use.portal.design}"/>
@@ -818,7 +697,7 @@
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol6.pdf" description="* Create Volume 6 in PDF" depends="layout-fo, vol6.svg, vol6.resolve, vol6.pdf.check" unless="vol6-pdf.notRequired">
+   <target name="vol6.pdf" description="* Create Volume 6 in PDF" depends="layout-fo, svg, vol6.resolve, vol6.pdf.check" unless="vol6-pdf.notRequired">
       <echo message="Create Volume 6 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol6.fo ${build.resolve}/${vol6.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${internet.opts} pdf.prefix=NISP-Vol6 use.para.numbering=${use.para.numbering}"/>
