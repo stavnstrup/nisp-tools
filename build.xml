@@ -198,14 +198,18 @@ For additional help, type
     </fileset>
   </path>
 
+<!--
+      <include name="fop-0.20.5-jsfix.jar"/>
+      <include name="fop-hyph*.jar"/>
+-->
   <path id="lib-fop-classpath">
     <fileset dir="${lib.dir}">
       <include name="batik*.jar"/>
       <include name="xml-apis*.jar"/>
       <include name="resolver*.jar"/>
       <include name="xercesImpl*.jar"/>
-      <include name="fop-0.20.5-jsfix.jar"/>
-      <include name="fop-hyph*.jar"/>
+      <include name="fop-*.jar"/>
+      <include name="xmlgraphics-commons-*.jar"/>
       <include name="avalon*.jar"/>
       <include name="xml*.jar"/>
       <include name="common*.jar"/>
@@ -239,6 +243,8 @@ For additional help, type
        classpathref="lib-batik-classpath"/>
 
   <!-- FOP Ant task (as of FOP 0.20.5) -->
+<!--
+-->
   <taskdef name="fop"
            classname="org.apache.fop.tools.anttasks.Fop"
            classpathref="lib-fop-classpath"/>
