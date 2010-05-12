@@ -70,8 +70,11 @@
 
 <xsl:template match="imagedata/@fileref">
   <xsl:attribute name="fileref">
+    <xsl:text>figures</xsl:text>
+<!--
     <xsl:text>figures/</xsl:text>
     <xsl:value-of select="ancestor::book/@condition"/>
+-->
     <xsl:value-of select="substring-after(.,'figures')"/>
   </xsl:attribute>
 </xsl:template>

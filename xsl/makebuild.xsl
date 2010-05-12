@@ -35,12 +35,12 @@
     <xsl:with-param name="ext" select="'svg'"/>
     <xsl:with-param name="othertargets" select="'init'"/>
   </xsl:call-template>
--->
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'getfigs'"/>
     <xsl:with-param name="othertargets" select="'init'"/>
   </xsl:call-template>
+-->
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'html'"/>
@@ -115,6 +115,23 @@
           </depend>
         </fileset>
       </rasterize>
+    </target>
+
+    <target name="getfigs" depends="svg">
+      <copy>
+        <xsl:attribute name="preservelastmodified">
+          <xsl:text>true</xsl:text>
+        </xsl:attribute>
+        <xsl:attribute name="todir">
+          <xsl:text>${build.dir}/htmlhelp/figures</xsl:text>
+        </xsl:attribute>
+        <fileset>
+          <xsl:attribute name="dir">
+            <xsl:text>${build.dir}/figures</xsl:text>
+          </xsl:attribute>
+          <include name="*.jpg"/>
+        </fileset>
+      </copy>
     </target>
 
     <!-- Generate targets for each document -->
@@ -192,9 +209,9 @@
     <xsl:when test="figures"><xsl:call-template name="makeSVG"/></xsl:when>
     <xsl:otherwise><target name="{$docid}.svg"/></xsl:otherwise>
   </xsl:choose>
--->
 
   <xsl:call-template name="getFIGS"/>
+-->
 
   <!-- XHTML targets -->
   <xsl:call-template name="makeHTML"/>
