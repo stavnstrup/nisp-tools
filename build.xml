@@ -529,6 +529,7 @@ For additional help, type
           unless="chunk.notRequired">
     <java classname="${xslt.class}" maxmemory="300M" fork="yes"
           dir="${build.dir}/htmlhelp">
+       <jvmarg value="-Xss512k"/>
        <arg line="${xslt.opts} ${build.dir}/htmlhelp/nisp.xml
                 ${basedir}/xsl/htmlhelp/htmlhelp.xsl
                 use.para.numbering=${use.para.numbering}"/>
