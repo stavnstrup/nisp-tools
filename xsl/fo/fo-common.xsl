@@ -135,6 +135,9 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- FO -->
 
+<xsl:param name="use.role.for.mediaobject" select="1"/>
+
+
 <xsl:param name="xref.with.number.and.title" select="0"/>
 
 
@@ -160,6 +163,10 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   <xsl:attribute name="font-size">
     <xsl:text>15pt</xsl:text>
   </xsl:attribute>
+</xsl:attribute-set>
+
+<xsl:attribute-set name="figure.properties">
+  <xsl:attribute name="text-align">center</xsl:attribute>
 </xsl:attribute-set>
 
 
@@ -203,7 +210,7 @@ USE the line below for NC3B approval
 <!-- Put special text on the blank page (This will properly be part of the
      official DocBook stylesheet collection) -->
 
-<xsl:param name="special.blankpage" select="0"/> <!-- Does not work with FOP yet -->
+<xsl:param name="special.blankpage" select="1"/> <!-- Does not work with FOP yet -->
 
 <xsl:param name="blank.text" select="'This page is left blank intentionally'"/>
 

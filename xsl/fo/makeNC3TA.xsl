@@ -49,9 +49,10 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- Select output mode -->
 
-<xsl:output method="xml" indent="no"
+<xsl:output method="xml" indent="no"/>
+<!--
             saxon:next-in-chain="fop-bugs/fo-post-for-fop-0.20.5.xsl"/>
-
+-->
 
 <!-- ==================================================================== -->
 <!--   Global parameters used to modify the functionality of the DocBook  -->
@@ -62,7 +63,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- Processor Extensions -->
 
 
-<xsl:param name="fop.extensions" select="1"/>
+<xsl:param name="fop.extensions" select="0"/>
+<xsl:param name="fop1.extensions" select="1"/>
 <xsl:param name="xep.extensions" select="0"/>
 
 <!-- Stylesheet Extensions -->

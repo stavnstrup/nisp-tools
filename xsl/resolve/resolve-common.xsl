@@ -77,7 +77,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
         <!-- FOP Version -->
         <xsl:element name="imageobject">
-          <xsl:attribute name="role">fop</xsl:attribute>
+          <xsl:attribute name="role">fo</xsl:attribute>
           <xsl:element name="imagedata">
             <xsl:attribute name="fileref">
                <xsl:text>../</xsl:text>
@@ -90,7 +90,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
                  <xsl:when test="$embedsvg='yes'"><xsl:text>.svg</xsl:text></xsl:when>
                  <xsl:otherwise><xsl:text>.jpg</xsl:text></xsl:otherwise>
 	       </xsl:choose>
-            </xsl:attribute>            
+            </xsl:attribute>
+	    <xsl:attribute name="scalefit">1</xsl:attribute>
+	    <xsl:attribute name="width">100%</xsl:attribute>
+	    <xsl:attribute name="contentdepth">100%</xsl:attribute>
             <xsl:apply-templates select="./imagedata/@*[not(@fileref)]"/>
           </xsl:element>
         </xsl:element>

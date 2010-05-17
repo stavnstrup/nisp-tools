@@ -885,15 +885,19 @@
           </xsl:attribute>
           <xsl:attribute name="outfile">
             <xsl:text>${build.fo}/</xsl:text>
+<xsl:text>${</xsl:text>	    
             <xsl:value-of select="$docid"/>
+<xsl:text>.pdf.file}</xsl:text>
+<!--
             <xsl:text>.pdf</xsl:text>
+-->
           </xsl:attribute>
           <xsl:attribute name="format"><xsl:text>application/pdf</xsl:text></xsl:attribute>
           <xsl:attribute name="messagelevel"><xsl:text>${fop.message}</xsl:text></xsl:attribute>
         </fop>
       </xsl:otherwise>
     </xsl:choose>
-
+<!--
     <echo message="Creating {$title} meta information using pdffix"/>
     <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes">
       <xsl:attribute name="dir"><xsl:text>${build.fo}</xsl:text></xsl:attribute>
@@ -917,6 +921,7 @@
         <xsl:text>.pdf</xsl:text>
       </xsl:attribute>
     </delete>
+-->
   </target>
 </xsl:template>
 

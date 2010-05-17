@@ -118,13 +118,7 @@
          <classpath refid="lib-saxon-classpath"/>
       </java>
       <echo message="Transforming Volume 1.fo to PDF"/>
-      <fop basedir="${build.fo}/" fofile="${build.fo}/vol1.fo" outfile="${build.fo}/vol1.pdf" format="application/pdf" messagelevel="${fop.message}"/>
-      <echo message="Creating Volume 1 meta information using pdffix"/>
-      <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
-         <arg line="&#34;${tool-version}&#34; &#34;Introduction and Management&#34; vol1.pdf ${vol1.pdf.file}"/>
-         <classpath refid="lib-fop-classpath"/>
-      </java>
-      <delete file="${build.fo}/vol1.pdf"/>
+      <fop basedir="${build.fo}/" fofile="${build.fo}/vol1.fo" outfile="${build.fo}/${vol1.pdf.file}" format="application/pdf" messagelevel="${fop.message}"/>
    </target>
    <target name="vol1.zip" description="* Create source archive of Volume 1">
       <tstamp/>
@@ -230,13 +224,7 @@
          <classpath refid="lib-saxon-classpath"/>
       </java>
       <echo message="Transforming Volume 2.fo to PDF"/>
-      <fop basedir="${build.fo}/" fofile="${build.fo}/vol2.fo" outfile="${build.fo}/vol2.pdf" format="application/pdf" messagelevel="${fop.message}"/>
-      <echo message="Creating Volume 2 meta information using pdffix"/>
-      <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
-         <arg line="&#34;${tool-version}&#34; &#34;Near Term&#34; vol2.pdf ${vol2.pdf.file}"/>
-         <classpath refid="lib-fop-classpath"/>
-      </java>
-      <delete file="${build.fo}/vol2.pdf"/>
+      <fop basedir="${build.fo}/" fofile="${build.fo}/vol2.fo" outfile="${build.fo}/${vol2.pdf.file}" format="application/pdf" messagelevel="${fop.message}"/>
    </target>
    <target name="vol2.zip" description="* Create source archive of Volume 2">
       <tstamp/>
@@ -342,13 +330,7 @@
          <classpath refid="lib-saxon-classpath"/>
       </java>
       <echo message="Transforming Volume 3.fo to PDF"/>
-      <fop basedir="${build.fo}/" fofile="${build.fo}/vol3.fo" outfile="${build.fo}/vol3.pdf" format="application/pdf" messagelevel="${fop.message}"/>
-      <echo message="Creating Volume 3 meta information using pdffix"/>
-      <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
-         <arg line="&#34;${tool-version}&#34; &#34;Mid to Far term&#34; vol3.pdf ${vol3.pdf.file}"/>
-         <classpath refid="lib-fop-classpath"/>
-      </java>
-      <delete file="${build.fo}/vol3.pdf"/>
+      <fop basedir="${build.fo}/" fofile="${build.fo}/vol3.fo" outfile="${build.fo}/${vol3.pdf.file}" format="application/pdf" messagelevel="${fop.message}"/>
    </target>
    <target name="vol3.zip" description="* Create source archive of Volume 3">
       <tstamp/>
@@ -454,13 +436,7 @@
          <classpath refid="lib-saxon-classpath"/>
       </java>
       <echo message="Transforming Volume 4.fo to PDF"/>
-      <fop basedir="${build.fo}/" fofile="${build.fo}/vol4.fo" outfile="${build.fo}/vol4.pdf" format="application/pdf" messagelevel="${fop.message}"/>
-      <echo message="Creating Volume 4 meta information using pdffix"/>
-      <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
-         <arg line="&#34;${tool-version}&#34; &#34;Interoperability Profile Guidance&#34; vol4.pdf ${vol4.pdf.file}"/>
-         <classpath refid="lib-fop-classpath"/>
-      </java>
-      <delete file="${build.fo}/vol4.pdf"/>
+      <fop basedir="${build.fo}/" fofile="${build.fo}/vol4.fo" outfile="${build.fo}/${vol4.pdf.file}" format="application/pdf" messagelevel="${fop.message}"/>
    </target>
    <target name="vol4.zip" description="* Create source archive of Volume 4">
       <tstamp/>
@@ -568,13 +544,7 @@
          <classpath refid="lib-saxon-classpath"/>
       </java>
       <echo message="Transforming Volume 5.fo to PDF"/>
-      <fop basedir="${build.fo}/" fofile="${build.fo}/vol5.fo" outfile="${build.fo}/vol5.pdf" format="application/pdf" messagelevel="${fop.message}"/>
-      <echo message="Creating Volume 5 meta information using pdffix"/>
-      <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
-         <arg line="&#34;${tool-version}&#34; &#34;NISP Design Rules&#34; vol5.pdf ${vol5.pdf.file}"/>
-         <classpath refid="lib-fop-classpath"/>
-      </java>
-      <delete file="${build.fo}/vol5.pdf"/>
+      <fop basedir="${build.fo}/" fofile="${build.fo}/vol5.fo" outfile="${build.fo}/${vol5.pdf.file}" format="application/pdf" messagelevel="${fop.message}"/>
    </target>
    <target name="vol5.zip" description="* Create source archive of Volume 5">
       <tstamp/>
@@ -662,13 +632,7 @@
          <classpath refid="lib-saxon-classpath"/>
       </java>
       <echo message="Transforming Volume 6.fo to PDF"/>
-      <fop basedir="${build.fo}/" fofile="${build.fo}/vol6.fo" outfile="${build.fo}/vol6.pdf" format="application/pdf" messagelevel="${fop.message}"/>
-      <echo message="Creating Volume 6 meta information using pdffix"/>
-      <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes" dir="${build.fo}">
-         <arg line="&#34;${tool-version}&#34; &#34;NISP - Annexes&#34; vol6.pdf ${vol6.pdf.file}"/>
-         <classpath refid="lib-fop-classpath"/>
-      </java>
-      <delete file="${build.fo}/vol6.pdf"/>
+      <fop basedir="${build.fo}/" fofile="${build.fo}/vol6.fo" outfile="${build.fo}/${vol6.pdf.file}" format="application/pdf" messagelevel="${fop.message}"/>
    </target>
    <target name="vol6.zip" description="* Create source archive of Volume 6">
       <tstamp/>
