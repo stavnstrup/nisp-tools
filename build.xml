@@ -69,7 +69,6 @@ For additional help, type
   <property name="doc-rev" value="&document-revision;"/>
 
 
-
   <!-- Release date of the NISP tools -->
   <property name="tool-date" value="&tools-release-date;"/>
 
@@ -80,14 +79,17 @@ For additional help, type
   <property name="build.compiler" value="modern"/>
   <property name="debug" value="off"/>
 
-
+  <!-- Image conversion parameters -->
+  <property name="nisp.image.ext" value="jpg"/>
+  <property name="nisp.image.mimetype" value="image/jpeg"/>
+  <property name="nisp.image.dpi" value="90"/>
+  <property name="nisp.image.quality" value="0.9"/>
 
   <!-- =================================================================== -->
   <!-- Defines paths/names of prerequisite jar files we compile against    -->
   <!-- =================================================================== -->
 
   <property name="lib.dir" value="${basedir}/lib"/>
-
 
   <!-- Relative locations of source directories  -->
   <property name="src.dir" value="${basedir}/src"/>
@@ -96,10 +98,6 @@ For additional help, type
   <property name="build.dir" value="${basedir}/build"/>
   <property name="build.resolve" value="${basedir}/build.src"/>
   <property name="build.fo" value="${build.dir}/pdf"/>
-<!--
-  <property name="build.wml" value="${build.dir}/wml"/>
-  <property name="build.ihb" value="${build.dir}/ihb"/>
--->
   <property name="dist.dir" value="${basedir}/dist"/>
   <property name="zip.dir" value="${basedir}/zip"/>
 
@@ -198,10 +196,6 @@ For additional help, type
     </fileset>
   </path>
 
-<!--
-      <include name="fop-0.20.5-jsfix.jar"/>
-      <include name="fop-hyph*.jar"/>
--->
   <path id="lib-fop-classpath">
     <fileset dir="${lib.dir}">
       <include name="batik*.jar"/>
@@ -243,8 +237,6 @@ For additional help, type
        classpathref="lib-batik-classpath"/>
 
   <!-- FOP Ant task (as of FOP 0.20.5) -->
-<!--
--->
   <taskdef name="fop"
            classname="org.apache.fop.tools.anttasks.Fop"
            classpathref="lib-fop-classpath"/>
@@ -252,7 +244,6 @@ For additional help, type
   <!-- =================================================================== -->
   <!-- Creates output build directories and doc prerequistes               -->
   <!-- =================================================================== -->
-
 
   <target name="init" depends="-newbuild">
     <echo  message="NISP Build system - ver. ${tool-version}. Released on ${tool-date}"/>

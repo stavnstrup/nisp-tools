@@ -54,6 +54,9 @@
     <xsl:with-param name="comment" select="'* Create a PDF version of NISP'"/>
   </xsl:call-template>
 
+<!-- =================================================================== -->
+<!-- Create SVG target                                                   -->
+<!-- =================================================================== -->
 
     <target name="svg.required">
       <mkdir>
@@ -82,7 +85,7 @@
         </srcfiles>
         <mapper type="glob" from="*.svg"> 
           <xsl:attribute name="to">
-            <xsl:text>${build.dir}/figures/*.jpg</xsl:text>
+            <xsl:text>${build.dir}/figures/*.${nisp.image.ext}</xsl:text>
           </xsl:attribute>
         </mapper>
       </uptodate>
@@ -95,7 +98,13 @@
           <xsl:text>Create figures for HTML (${dpi.raster} dpi)</xsl:text>
         </xsl:attribute>
       </echo>
-      <rasterize result="image/jpeg" quality="0.9"> 
+      <rasterize> 
+        <xsl:attribute name="result">
+          <xsl:text>${nisp.image.mimetype}</xsl:text>
+        </xsl:attribute>
+        <xsl:attribute name="quality">
+          <xsl:text>${nisp.image.quality}</xsl:text>
+        </xsl:attribute> 
         <xsl:attribute name="dpi">
           <xsl:text>${dpi.raster}</xsl:text>
         </xsl:attribute>
@@ -111,7 +120,11 @@
             <xsl:attribute name="targetdir">
               <xsl:text>${build.dir}/figures/</xsl:text>
             </xsl:attribute>
-            <mapper type="glob" from="*.svg" to="*.jpg"/>
+            <mapper type="glob" from="*.svg">
+              <xsl:attribute name="to">
+                <xsl:text>*.${nisp.image.ext}</xsl:text>
+              </xsl:attribute>
+            </mapper>
           </depend>
         </fileset>
       </rasterize>
@@ -129,7 +142,11 @@
           <xsl:attribute name="dir">
             <xsl:text>${build.dir}/figures</xsl:text>
           </xsl:attribute>
-          <include name="*.jpg"/>
+          <include>
+            <xsl:attribute name="name">
+              <xsl:text>*.${nisp.image.ext}</xsl:text>
+            </xsl:attribute>
+          </include>
         </fileset>
       </copy>
     </target>
@@ -185,7 +202,6 @@
     </xsl:attribute>
   </property>
 
-  <property name="{$docid}.wml.file" value="{$docid}.wml"/>
 
   <xsl:variable name="resolve" select="./resolve"/>
 
@@ -219,10 +235,6 @@
   <!-- PDF target -->
   <xsl:call-template name="makePDF"/>
 
-  <!-- WML target -->
-<!--
-  <xsl:call-template name="makeWML"/>
--->
   <!-- ZIP target -->
   <xsl:call-template name="makeZIP"/>
 </xsl:template>
@@ -923,91 +935,6 @@
     </delete>
 -->
   </target>
-</xsl:template>
-
-
-
-<!-- =================================================================== -->
-<!-- Create WML targets                                                  -->
-<!-- =================================================================== -->
-
-<xsl:template name="makeWML">
-  <xsl:variable name="docid" select="./@id"/>
-  <xsl:variable name="dir" select="../@dir"/>
-  <xsl:variable name="title" select="./titles/title"/>
-  <xsl:variable name="pdf.prefix" select="./targets/target[@type='pdf']"/>
-
-  <target name="{$docid}.wml.check" depends="init">
-    <uptodate  property="{$docid}-wml.notRequired">
-      <xsl:attribute name="targetfile">
-        <xsl:text>${build.wml}/${</xsl:text>
-        <xsl:value-of select="$docid"/>
-        <xsl:text>.wml.file}</xsl:text>
-      </xsl:attribute>
-
-      <srcfiles>
-        <xsl:attribute name="dir">
-          <xsl:text>${build.resolve}</xsl:text>
-        </xsl:attribute>
-
-        <xsl:attribute name="includes">
-          <xsl:text>${</xsl:text>
-          <xsl:value-of select="$docid"/>
-          <xsl:text>.resolve.src}</xsl:text>
-        </xsl:attribute>
-      </srcfiles>
-
-      <srcfiles>
-        <xsl:attribute name="dir">
-          <xsl:text>${xsl-styles.dir}</xsl:text>
-        </xsl:attribute>
-
-        <xsl:attribute name="includes">
-          <xsl:text>${xsl-all-xhtml}</xsl:text>
-        </xsl:attribute>
-      </srcfiles>
-    </uptodate>
-  </target>
-
-  <target name="{$docid}.wml" description="* Create {$title} in WML" 
-          depends="{$docid}.svg, {$docid}.resolve, {$docid}.wml.check" 
-          unless="{$docid}-wml.notRequired">
-    <echo message="Create {$title} as Word ML pages"/>
-    <java fork="yes">
-      <xsl:attribute name="classname">
-        <xsl:text>${xslt.class}</xsl:text>
-      </xsl:attribute>
-
-      <xsl:attribute name="dir">
-        <xsl:text>${build.wml}</xsl:text>
-      </xsl:attribute>
-
-      <xsl:if test=".//target[@type='wml'][@memory]">
-         <xsl:attribute name="maxmemory">
-            <xsl:value-of select=".//target[@type='wml']/@memory"/>
-         </xsl:attribute>
-      </xsl:if>
-
-      <arg>
-        <xsl:attribute name="line">
-          <xsl:text>${xslt.opts} -o </xsl:text>
-
-          <xsl:value-of select="$docid"/>
-          <xsl:text>.wml ${build.resolve}/${</xsl:text>
-          <xsl:value-of select="$docid"/>
-          <xsl:text>.resolve.src} ${xsl-wml.dir}/${xsl-wml} ${internet.opts}</xsl:text>
-          <xsl:text> docid=</xsl:text>
-          <xsl:value-of select="$docid"/>
-          <xsl:text> pdf.prefix=</xsl:text>
-          <xsl:value-of select="$pdf.prefix"/>
-          <xsl:text> use.para.numbering=${use.para.numbering}</xsl:text>
-          <xsl:text> use.portal.design=${use.portal.design}</xsl:text>
-        </xsl:attribute>
-      </arg>
-      <classpath refid="lib-saxon-classpath"/>
-    </java>
-  </target>
-
 </xsl:template>
 
 
