@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<!-- ===================================================================
+
+NATO Interoperability Standards and Profiles (NISP)
+
+Configuration file for final draft under NOSWG silence procedure
+
+All output will be placed in the build.final/ directory
+
+========================================================================
+
+See the file build.xml for additional information
+
+-->
+
+<project name="NISP (Final DRAFT under NOSWG silence procedure)" default="web" basedir=".">
+
+
+<property name="build.dir" value="${basedir}/build.final"/>
+
+<!-- =================================================================== -->
+<!-- Publication parameters (DON'T MODIFY ANY OF THESE)                  -->
+<!-- =================================================================== -->
+
+<property name="nisp.lifecycle.stage" value="final"/>
+<property name="nisp.lifecycle.postfix" value="-final"/>
+
+<!-- =================================================================== -->
+<!-- Targets                                                             -->
+<!-- =================================================================== -->
+
+
+<target name="web" description="* Create website archive (FINAL)">
+  <ant target="web"/>
+</target>
+
+<target name="pdf-only" description="* Create a zip containing only PDF files (FINAL)">
+  <ant target="pdf-only"/>
+</target>
+
+
+<target name="clean" description="* Clean all the generated files">
+  <ant target="clean-build"/>
+</target>
+
+
+</project>

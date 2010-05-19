@@ -152,9 +152,6 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
           </a>
         </li>
       </xsl:for-each>
-<!--
-      <li><a href="ihb/ihb{$internet.postfix}.pdf">Implementation Handbook</a></li>
--->
       <li><img src="images/cgey/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
     </ul>
   </div>
@@ -212,7 +209,7 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
         </div>
       </td>
     </tr></table>
-    <div id="taFooter">Copyright &#x00A9; NATO - OTAN 1998-2008 | <a href="disclaimer.html">Disclaimer</a></div>
+    <div id="taFooter">Copyright &#x00A9; NATO - OTAN 1998-2010 | <a href="disclaimer.html">Disclaimer</a></div>
 
   </body>
   </html>
@@ -222,9 +219,7 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
 <xsl:template match="ulink[@condition='fix.for.internet']">
   <xsl:variable name="new.file.name">
     <xsl:value-of select="substring-before(./@url,'.')"/>
-    <xsl:if test="$for.internet.publication=1">
-      <xsl:value-of select="$internet.postfix"/>
-    </xsl:if>
+    <xsl:value-of select="$nisp.lifecycle.postfix"/>
     <xsl:text>.</xsl:text>
     <xsl:value-of select="substring-after(./@url,'.')"/>
   </xsl:variable>

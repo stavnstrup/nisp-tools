@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<!-- ===================================================================
+
+NATO Interoperability Standards and Profiles (NISP)
+
+Configuration file for approved and releasable edition
+
+All output will be placed in the build.release/ directory
+
+========================================================================
+
+See the file build.xml for additional information
+
+-->
+
+<project name="NISP (Approved and releasable edition)" default="web" basedir=".">
+
+
+<property name="build.dir" value="${basedir}/build.release"/>
+
+<!-- =================================================================== -->
+<!-- Publication parameters (DON'T MODIFY ANY OF THESE)                  -->
+<!-- =================================================================== -->
+
+<property name="nisp.lifecycle.stage" value="release"/>
+<property name="nisp.lifecycle.postfix" value="-release"/>
+<property name="nisp.draft.watermark" value="'no'"/>
+
+<!-- =================================================================== -->
+<!-- Targets                                                             -->
+<!-- =================================================================== -->
+
+
+<target name="web" description="* Create website archive (RELEASE)">
+  <ant target="web"/>
+</target>
+
+<target name="pdf-only" description="* Create a zip containing only PDF files (RELEASE)">
+  <ant target="pdf-only"/>
+</target>
+
+
+<target name="clean" description="* Clean all the generated files">
+  <ant target="clean-build"/>
+</target>
+
+
+</project>

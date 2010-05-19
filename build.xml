@@ -2,12 +2,15 @@
 
 <!-- =====================================================================
 
-Build file for the NATO Interoperability Standards and Profiles (NISP)
+NATO Interoperability Standards and Profiles (NISP)
 
-All documents will be classified NATO/EAPC UNCLASSIFIED
+Configuration file for draft editions
 
-The NISP build system is based on the Apache Ant,
-which is a Java building tool.
+All output will be placed in the build/ directory
+
+==========================================================================
+
+The NISP build system is based on the Apache Ant, which is a Java building tool.
 
 Ant uses a  file written in XML (this file) as its building instructions.
 
@@ -34,13 +37,12 @@ by the main ones.
 
 For additional help, type
 
-
  [unix]  ./build.sh  -help
  [win32] .\build.bat -help
   
 -->
 
-<!DOCTYPE project PUBLIC "-//Apache//DTD ANT XML 1.6.5 (NISP specific)//EN"
+<!DOCTYPE project PUBLIC "-//Apache//DTD ANT XML 1.8.1 (NISP specific)//EN"
                          "schema/dtd/ant.dtd" [
 
 
@@ -61,13 +63,13 @@ For additional help, type
   <!-- Project specific parameters                                         -->
   <!-- =================================================================== -->
 
+  <!-- Project NISP -->
   <property name="name" value="nisp"/>
 
   <!-- Version of the NISP tools  -->
   <property name="tool-version" value="&tools-version;"/>
   <property name="style-rev" value="&style-revision;"/>
   <property name="doc-rev" value="&document-revision;"/>
-
 
   <!-- Release date of the NISP tools -->
   <property name="tool-date" value="&tools-release-date;"/>
@@ -76,6 +78,7 @@ For additional help, type
   <property name="src-version" value="&src-version;"/>
   <property name="src-version-major" value="&src-version-major;"/>
   
+  <!-- Java compiler options -->
   <property name="build.compiler" value="modern"/>
   <property name="debug" value="off"/>
 
@@ -84,6 +87,8 @@ For additional help, type
   <property name="nisp.image.mimetype" value="image/jpeg"/>
   <property name="nisp.image.dpi" value="90"/>
   <property name="nisp.image.quality" value="0.9"/>
+
+  <property name="dpi.raster" value="100"/>
 
   <!-- =================================================================== -->
   <!-- Defines paths/names of prerequisite jar files we compile against    -->
@@ -102,10 +107,8 @@ For additional help, type
   <property name="zip.dir" value="${basedir}/zip"/>
 
   <!-- NISP XSLT stylesheets used in the building process -->
-
   <property file="xsl/user.build.properties"/>
   <property file="xsl/xsl.properties"/>
-
 
 
   <!-- =================================================================== -->
@@ -115,16 +118,30 @@ For additional help, type
   <property file="local.user.properties"/>
   <property file="user.properties"/>
 
+  <!-- =================================================================== -->
+  <!-- NISP lifecycle parameters (DO NOT MODIFY ANY OF THESE)              -->
+  <!-- =================================================================== -->
 
-  <!-- =================================================================== -->
-  <!-- Internet publication parameters (DON'T MODIFY ANY OF THESE)         -->
-  <!-- =================================================================== -->
+  <!-- possiple values (draft, final, board, release) -->
+  <property name="nisp.lifecycle.stage" value="draft"/>
+  <property name="nisp.lifecycle.postfix" value=""/>
+  <property name="nisp.class.label" value="'NATO/EAPC UNCLASSIFIED'"/>
+  <property name="nisp.release.label" value="'RELEASABLE TO AUS, NZL &amp; SGP'"/>  
+  <property name="nisp.draft.watermark" value="'yes'"/>
+
+  <property name="nisp.lifecycle.opts" 
+            value="nisp.lifecycle.stage=${nisp.lifecycle.stage}
+                   nisp.class.label=${nisp.class.label}
+                   nisp.release.label=${nisp.release.label}
+                   draft.mode=${nisp.draft.watermark}"/>
+
+  <!-- Obsolete parameters -->
 
   <property name="for.internet.publication" value="0"/>
   <property name="internet.postfix" value=""/>
 
   <property name="internet.opts" 
-            value="for.internet.publication=${for.internet.publication}"/>
+            value="for.internet.publicatione=${for.internet.publication}"/>
 
   <!-- =================================================================== -->
   <!-- External application specific parameter                             -->
@@ -133,7 +150,6 @@ For additional help, type
 
   <!-- Saxon XSLT extension functions jar -->
   <property name="jar-saxon-ext" value="saxon65.jar"/>
-
 
   <!-- XSLT Processor -->
   <property name="xslt.class" value="com.icl.saxon.StyleSheet"/>
@@ -152,16 +168,16 @@ For additional help, type
 -->
 
   <!-- Allows XInclude procesing -->
-  <property name="use.dom" value="-Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl"/>
-  <property name="use.sax" value="-Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl"/>
-  <property name="use.xinc" value="-Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration"/>
-
+  <property name="use.dom" 
+            value="-Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl"/>
+  <property name="use.sax"
+            value="-Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl"/>
+  <property name="use.xinc"
+            value="-Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration"/>
 
   <!-- Batik Class -->
   <property name="batik-class" 
             value="org.apache.batik.apps.rasterizer.Main"/>
-
-  <property name="dpi.raster" value="100"/>
 
   <!-- Validation Class -->
   <property name="valid.class"
@@ -253,9 +269,7 @@ For additional help, type
 
     <mkdir dir="${build.acronyms}"/>
     <mkdir dir="${build.resolve}"/>
-<!--
-  <mkdir dir="${build.ihb}"/>
--->
+
     <mkdir dir="${build.fo}"/>
     <mkdir dir="${build.dir}/db-stat"/>
 
@@ -341,13 +355,13 @@ For additional help, type
     <xslt basedir="${src.dir}/master" destdir="${build.dir}"
           style="${xsl-xhtml.dir}/master.xsl"
           includes="*.xml">
-       <param name="for.internet.publication" expression="${for.internet.publication}"/>      
-       <param name="internet.postfix" expression="${internet.postfix}"/>
+       <param name="nisp.lifecycle.stage" expression="${nisp.lifecycle.stage}"/>      
+       <param name="nisp.lifecycle.postfix" expression="${nisp.lifecycle.postfix}"/>
     </xslt> 
 -->
     <java classname="${xslt.class}" fork="yes" dir="${build.dir}">
       <arg line="${xslt.opts} -o ${build.dir}/ ${src.dir}/master/ 
-                  ${xsl-xhtml.dir}/master.xsl ${internet.opts}"/>
+                  ${xsl-xhtml.dir}/master.xsl ${nisp.lifecycle.opts}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
     <!-- After upgrading to Java 1.4 and Saxon 6.5.3 all output files
@@ -358,20 +372,6 @@ For additional help, type
     </move>
   </target>
 
-  <!-- =================================================================== -->
-  <!-- NISP Implementation Handbook                                        -->
-  <!-- =================================================================== -->
-
-  <target name="get-ihb">
-<!--
-    <copy todir="${build.dir}/ihb" preservelastmodified="yes">
-      <fileset dir="${src.dir}/ihb/">
-        <include name="ihb${internet.postfix}.pdf*"/>
-      </fileset>
-    </copy>
--->
-  </target>
-  
 
   <!-- =================================================================== -->
   <!-- Various targets to build the acronyms documents                     -->
@@ -410,8 +410,8 @@ For additional help, type
          <attribute name="http://saxon.icl.com/feature/output_uri_reslver"
                     value="com.sun.resolver.tools.CatalogResolver"/>
        </factory>
-       <param name="for.internet.publication" expression="${for.internet.publication}"/>      
-       <param name="internet.postfix" expression="${internet.postfix}"/>
+       <param name="nisp.lifecycle.stage" expression="${nisp.lifecycle.stage}"/>      
+       <param name="nisp.lifecycle.postfix" expression="${nisp.lifecycle.postfix}"/>
     </xslt> 
 -->
     <java classname="${xslt.class}" fork="yes" dir="${build.acronyms}">
@@ -717,7 +717,7 @@ For additional help, type
   <target name="web" description="* Create the website containing the NISP"
           depends="all, htmlhelp"> 
     <mkdir dir="${zip.dir}"/>
-    <zip zipfile="${zip.dir}/${name}-web-${src-version}${internet.postfix}.zip">
+    <zip zipfile="${zip.dir}/${name}-web-${src-version}${nisp.lifecycle.postfix}.zip">
       <zipfileset dir="${build.dir}"
                   prefix="${name}-${src-version}"
                   excludes="pdf/*.fo, 
@@ -860,7 +860,7 @@ For additional help, type
 
   <target name="pdf-only" description="* Create a zip containing only PDF files"
           depends="pdf">
-    <zip zipfile="${zip.dir}/${name}-pdf-${src-version}${internet.postfix}.zip">
+    <zip zipfile="${zip.dir}/${name}-pdf-${src-version}${nisp.lifecycle.postfix}.zip">
       <zipfileset dir="${build.dir}/pdf" includes="*.pdf"/>
     </zip>
   </target>

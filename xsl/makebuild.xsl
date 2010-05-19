@@ -198,7 +198,7 @@
   <property name="{$docid}.pdf.file">
     <xsl:attribute name="value">
       <xsl:value-of select=".//target[@type='pdf']"/>
-      <xsl:text>-v${src-version-major}${internet.postfix}.pdf</xsl:text>
+      <xsl:text>-v${src-version-major}${nisp.lifecycle.postfix}.pdf</xsl:text>
     </xsl:attribute>
   </property>
 
@@ -757,7 +757,7 @@
         <xsl:attribute name="line">
           <xsl:text>${xslt.opts} ${build.resolve}/${</xsl:text>
           <xsl:value-of select="$docid"/>
-          <xsl:text>.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${internet.opts}</xsl:text>
+          <xsl:text>.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp-lifecycle.opts}</xsl:text>
           <xsl:text> docid=</xsl:text>
           <xsl:value-of select="$docid"/>
           <xsl:text> pdf.prefix=</xsl:text>
@@ -849,7 +849,7 @@
           <xsl:value-of select="$docid"/>
           <xsl:text>.fo ${build.resolve}/${</xsl:text>
           <xsl:value-of select="$docid"/>
-          <xsl:text>.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${internet.opts}</xsl:text>
+          <xsl:text>.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts}</xsl:text>
           <xsl:text> pdf.prefix=</xsl:text>
           <xsl:value-of select="$pdf.prefix"/>
           <xsl:text> use.para.numbering=${use.para.numbering}</xsl:text>
