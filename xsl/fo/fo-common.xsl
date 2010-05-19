@@ -55,13 +55,12 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   book toc,title
 </xsl:param>
 
-<xsl:variable name="toc.section.depth">2</xsl:variable>
+<xsl:param name="toc.section.depth">2</xsl:param>
 
 
 <!-- Automatic labelling -->
 
 <xsl:param name="appendix.autolabel" select="'A'"/>
-
 <xsl:param name="section.autolabel" select="1"/>
 <xsl:param name="section.label.includes.component.label" select="1"/>
 
@@ -76,21 +75,32 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   figure after
   table after
 </xsl:param>
-
 <xsl:param name="show.comments" select="0"/>
 <xsl:param name="ulink.show" select="1"/>
 <xsl:param name="ulink.hyphenate" select="''"/>
 
 
+<!-- Graphics -->
+
+<xsl:param name="preferred.mediaobject.role" select="'fop'"/>
+
+
 <!-- Pagination and General Styles-->
+
+
+<!-- The letter A-H refers to the figure describing page 
+     setup in the DocBook XSL-FO documentation
+
+     http://docbook.sourceforge.net/release/xsl/current/doc/fo/general.html
+ -->
+
+<xsl:param name="page.margin.inner" select="'25mm'"/>      <!-- G -->
+<xsl:param name="page.margin.outer" select="'25mm'"/>      <!-- H -->
+<xsl:param name="page.margin.top" select="'15mm'"/>        <!-- A -->
 
 <xsl:param name="paper.type" select="'A4'"/>
 <xsl:param name="double.sided" select="1"/>
 
-<!-- The letter A-H refers to the figure describing page 
-     setup in the DocBook XSL-FO documentation -->
-
-<xsl:param name="page.margin.top" select="'15mm'"/>        <!-- A -->
 <xsl:param name="region.before.extent" select="'42pt'"/>   <!-- B -->
 <xsl:param name="body.margin.top" select="'56pt'"/>        <!-- C -->
 
@@ -98,17 +108,14 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="page.margin.bottom" select="'15mm'"/>     <!-- E -->
 <xsl:param name="body.margin.bottom" select="'57pt'"/>     <!-- F -->
 
-<xsl:param name="page.margin.inner" select="'25mm'"/>      <!-- G -->
-<xsl:param name="page.margin.outer" select="'25mm'"/>      <!-- H -->
-
 <xsl:param name="body.start.indent" select="'0pc'"/>
 
 <xsl:param name="body.font.master" select="12"/>
 
 <xsl:param name="title.margin.left" select="'0pc'"/>
 
-<xsl:param name="draft.mode" select="'no'"/> <!-- maybee -->
-<xsl:param name="draft.watermark.image" select="''"/>
+<xsl:param name="draft.mode" select="'yes'"/> <!-- maybee -->
+<xsl:param name="draft.watermark.image" select="'../images/draft-nisp.png'"/>
 
 <xsl:param name="headers.on.blank.pages" select="1"/>
 <xsl:param name="footers.on.blank.pages" select="1"/>
@@ -131,11 +138,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="sans.font.family" select="'Helvetica'"/>
 
 
-<xsl:param name="preferred.mediaobject.role" select="'fop'"/>
 
 <!-- FO -->
-
-<xsl:param name="use.role.for.mediaobject" select="1"/>
 
 
 <xsl:param name="xref.with.number.and.title" select="0"/>
@@ -182,8 +186,10 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 </xsl:attribute-set>
 
 <!-- ==================================================================== -->
-<!--   NC3TA Specific Parameters .                                        -->
+<!--   NISP Specific Parameters .                                         -->
 <!-- ==================================================================== -->
+
+
 
 
 <!-- External stylesheet parameter -->
@@ -198,20 +204,15 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="class.label" select="'NATO/EAPC UNCLASSIFIED / RELEASABLE TO THE PUBLIC'"/>
 <xsl:param name="releasability.label"
            select="'RELEASABLE FOR INTERNET TRANSMISSION'"/>
-USE the line below for NOSWG review
 -->
+
 <xsl:param name="class.label" select="'DRAFT'"/>
-<!--
-USE the line below for NC3B approval
-<xsl:param name="class.label" select="' '"/>
--->
 <xsl:param name="releasability.label" select="' '"/>
 
 <!-- Put special text on the blank page (This will properly be part of the
      official DocBook stylesheet collection) -->
 
-<xsl:param name="special.blankpage" select="1"/> <!-- Does not work with FOP yet -->
-
+<xsl:param name="special.blankpage" select="0"/> <!-- Does not work with FOP yet. Last tested on 2010-05-19 -->
 <xsl:param name="blank.text" select="'This page is left blank intentionally'"/>
 
 
