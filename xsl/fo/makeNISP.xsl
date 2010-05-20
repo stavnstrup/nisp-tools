@@ -35,7 +35,9 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                 xmlns:xtbl="com.nwalsh.xalan.Table"
                 xmlns:saxon="http://icl.com/saxon"
                 xmlns:fox="http://xml.apache.org/fop/extensions"
-                exclude-result-prefixes="#default stbl xtbl fox saxon">
+                xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions"
+                xmlns:rx="http://www.renderx.com/XSL/Extensions"
+                exclude-result-prefixes="#default stbl xtbl fox saxon axf rx">
 
 
 <xsl:import href="../docbook-xsl/fo/docbook.xsl"/>
