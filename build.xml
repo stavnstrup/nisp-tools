@@ -223,13 +223,6 @@ For additional help, type
       <include name="avalon*.jar"/>
       <include name="xml*.jar"/>
       <include name="common*.jar"/>
-      <include name="pdffix*.jar"/>
-      <include name="iText*.jar"/>
-    </fileset>
-  </path>
-
-  <path id="lib-pdffix-classpath">
-    <fileset dir="${lib.dir}">
     </fileset>
   </path>
 
@@ -252,7 +245,7 @@ For additional help, type
        classname="org.apache.tools.ant.taskdefs.optional.RasterizerTask"
        classpathref="lib-batik-classpath"/>
 
-  <!-- FOP Ant task (as of FOP 0.20.5) -->
+  <!-- FOP Ant task -->
   <taskdef name="fop"
            classname="org.apache.fop.tools.anttasks.Fop"
            classpathref="lib-fop-classpath"/>

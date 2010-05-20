@@ -757,7 +757,7 @@
         <xsl:attribute name="line">
           <xsl:text>${xslt.opts} ${build.resolve}/${</xsl:text>
           <xsl:value-of select="$docid"/>
-          <xsl:text>.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp-lifecycle.opts}</xsl:text>
+          <xsl:text>.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts}</xsl:text>
           <xsl:text> docid=</xsl:text>
           <xsl:value-of select="$docid"/>
           <xsl:text> pdf.prefix=</xsl:text>
@@ -897,43 +897,15 @@
           </xsl:attribute>
           <xsl:attribute name="outfile">
             <xsl:text>${build.fo}/</xsl:text>
-<xsl:text>${</xsl:text>	    
+            <xsl:text>${</xsl:text>	    
             <xsl:value-of select="$docid"/>
-<xsl:text>.pdf.file}</xsl:text>
-<!--
-            <xsl:text>.pdf</xsl:text>
--->
+            <xsl:text>.pdf.file}</xsl:text>
           </xsl:attribute>
           <xsl:attribute name="format"><xsl:text>application/pdf</xsl:text></xsl:attribute>
           <xsl:attribute name="messagelevel"><xsl:text>${fop.message}</xsl:text></xsl:attribute>
         </fop>
       </xsl:otherwise>
     </xsl:choose>
-<!--
-    <echo message="Creating {$title} meta information using pdffix"/>
-    <java classname="dk.stavnstrup.nisp.apps.MakeDocInfo" fork="yes">
-      <xsl:attribute name="dir"><xsl:text>${build.fo}</xsl:text></xsl:attribute>
-      <arg>
-        <xsl:attribute name="line">
-          <xsl:text>"${tool-version}" "</xsl:text>
-          <xsl:value-of select="$ltitle"/>
-          <xsl:text>" </xsl:text>
-          <xsl:value-of select="$docid"/>
-          <xsl:text>.pdf ${</xsl:text>
-          <xsl:value-of select="$docid"/>
-          <xsl:text>.pdf.file}</xsl:text>
-        </xsl:attribute>
-      </arg>
-      <classpath refid="lib-fop-classpath"/>
-    </java>
-    <delete>
-      <xsl:attribute name="file">
-        <xsl:text>${build.fo}/</xsl:text>
-        <xsl:value-of select="$docid"/>
-        <xsl:text>.pdf</xsl:text>
-      </xsl:attribute>
-    </delete>
--->
   </target>
 </xsl:template>
 

@@ -129,6 +129,14 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="docid" select="''"/>
 <xsl:param name="pdf.prefix" select="''"/>
 
+<!-- Set by build file -->
+<xsl:param name="nisp.lifecycle.stage" select="''"/>
+<xsl:param name="nisp.lifecycle.postfix" select="''"/>
+<xsl:param name="nisp.class.label" select="''"/>
+<xsl:param name="nisp.release.label" select="''"/>
+
+
+
 <!-- ==================================================================== -->
 <!-- Customized Docbook templates                                         -->
 <!-- ==================================================================== -->
