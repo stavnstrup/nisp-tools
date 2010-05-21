@@ -2618,111 +2618,11 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 
 
-
-
-
-
-
-
-<!-- ....................................................................
-
-     Source: fo/pagesetup.xsl, v 1.27 - DocBook XSL 1.58.0
-
-     Descr.: Since 1.58.0 a static xsl-footnote-separator flow is
-     generated, this seems not to be implemented by FOP.
-
-     .................................................................... -->
-
-
-<xsl:template name="footnote-separator">
-<!--
-  <fo:static-content flow-name="blank-page">
-    <fo:block text-align="center">
-      This page is intentionally left blank.
-    </fo:block>
-  </fo:static-content>
--->
-</xsl:template>
-
-<!-- ....................................................................
-
-     Source: fo/footnote.xsl, v 1.8 - DocBook XSL 1.57.0
-
-     Descr.: Footnotes are created using baseline-shift super. This does not 
-     seems to work in FOP. So instead we embed footnotes in square brackets.
-     .................................................................... -->
-
-
-<xsl:template name="format.footnote.mark">
-  <xsl:param name="mark" select="'?'"/>
-  <fo:inline>
-    <xsl:text>[</xsl:text><xsl:copy-of 
-      select="$mark"/><xsl:text>]</xsl:text>
-  </fo:inline>
-</xsl:template>
-
-
 <!-- ==================================================================== -->
 <!-- Potential bugs in the DocBook XSL stylesheet                         -->
 <!-- ==================================================================== -->
 
-<!--
-<xsl:template match="address">
-  <fo:block text-align="start">
-    <xsl:apply-imports/>
-  </fo:block>
-</xsl:template>
--->
 
-<!-- ....................................................................
-
-     Source: fo/verbatim.xsl, v 1.10 - DocBook XSL 1.62.0 
-
-     Descr: The Address should be text-aligned="start" (In Fop 0.20.4
-     embedding the attribut was inherited (corretly or not ??), now it isn't.
-     
-     .................................................................... -->
-
-<!-- Does not work in 1.62.4 -->
-
-<xsl:template match="address">
-  <xsl:param name="suppress-numbers" select="'0'"/>
-
-  <xsl:variable name="content">
-    <xsl:choose>
-      <xsl:when test="$suppress-numbers = '0'
-                      and @linenumbering = 'numbered'
-                      and $use.extensions != '0'
-                      and $linenumbering.extension != '0'">
-        <xsl:call-template name="number.rtf.lines">
-          <xsl:with-param name="rtf">
-            <xsl:apply-templates/>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <fo:block wrap-option='no-wrap'
-
-            text-align="start"   
-
-            white-space-collapse='false'
-            linefeed-treatment="preserve"
-            xsl:use-attribute-sets="verbatim.properties">
-    <xsl:copy-of select="$content"/>
-  </fo:block>
-</xsl:template>
-
-
-
-
-<xsl:template match="address/email">
-  <fo:inline><xsl:value-of select="."/></fo:inline>
-</xsl:template>
 
 
 </xsl:stylesheet>
