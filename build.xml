@@ -464,6 +464,7 @@ For additional help, type
   
   <target name="info" description="* Show infomation about all document"
           depends="resolve, svg">
+    <echo message="Building infofile in build/figures/index.html"/>
     <java classname="${xslt.class}" fork="yes">
        <arg line="${xslt.opts} -o ${build.dir}/figures/index.html
                   ${basedir}/src/documents.xml

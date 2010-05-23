@@ -27,8 +27,8 @@
      </style>
     </head>
     <body>
-      <h1>NISP inrmation</h1>
-      <p>Acording to the <strong>documents.xml</strong> file, he NATO
+      <h1>NISP information</h1>
+      <p>According to the <strong>documents.xml</strong> file, the NATO
       Interoperability Standards and Profiles (NISP) consists of 6
       documents.</p>
       <xsl:apply-templates select="$alldocs//docinfo"/>
@@ -99,7 +99,7 @@
     <xsl:value-of select="titles/title"/>
     <xsl:text> consists of </xsl:text>
     <xsl:if test="$chap > 0">
-      <strong><xsl:value-of select="$chap"/></strong>
+      <xsl:value-of select="$chap"/>
       <xsl:text> chapter</xsl:text>
       <xsl:if test="$chap > 1">s</xsl:if>
     </xsl:if>
@@ -122,7 +122,7 @@
     <tr>
       <th>Subtitle</th><td><xsl:value-of select="$thisdoc/book/bookinfo/subtitle"/>
       <xsl:if test="$thisdoc/book/bookinfo/subtitle != titles/short">
-        <xsl:text> - </xsl:text><span class="warning">Different from Longtitle in documents.xml</span>
+        <xsl:text> - </xsl:text><span class="warning">N.B different from long title in documents.xml</span>
       </xsl:if></td>
     </tr>
     <tr>
@@ -136,6 +136,12 @@
     </tr>
     <tr>
       <th>Volume number</th><td><xsl:value-of select="$thisdoc/book/bookinfo/volumenum"/></td>
+    </tr>
+    <tr>
+     <th>Version</th><td><xsl:value-of select="$thisdoc/book/bookinfo/revhistory/revision[1]/revnumber"/></td>
+    </tr>
+    <tr>
+     <th>Date</th><td><xsl:value-of select="$thisdoc/book/bookinfo/revhistory/revision[1]/date"/></td>
     </tr>
   </table>
 
