@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:svg="http://www.w3.org/2000/svg"
                 version='1.1'
                 exclude-result-prefixes="#default">
 
@@ -26,8 +27,10 @@
      </style>
     </head>
     <body>
-      <h1>documents.xml</h1>
-      The NATO Interoperability Standards and Profiles (NISP) consists of 6 documents.
+      <h1>NISP inrmation</h1>
+      <p>Acording to the <strong>documents.xml</strong> file, he NATO
+      Interoperability Standards and Profiles (NISP) consists of 6
+      documents.</p>
       <xsl:apply-templates select="$alldocs//docinfo"/>
     </body>
   </html>
@@ -153,6 +156,31 @@
      </xsl:attribute>
     </img>
     <p><strong>Title</strong>: <xsl:value-of select="./title"/></p>
+
+    <p>The source SVG file contains the following data:</p>
+
+    <xsl:variable name="svglocation">
+      <xsl:text>../build/figures/</xsl:text>
+      <xsl:value-of select="substring-after(substring-before(./mediaobject[1]/imageobject/imagedata/@fileref,'.jpg'),'../figures/')"/>
+      <xsl:text>.svg</xsl:text>
+    </xsl:variable>
+
+    <xsl:variable name="svg" select="document($svglocation)"/>
+
+    <table>
+      <tr>
+        <th>Width</th><td><xsl:value-of select="$svg//svg:svg/@width"/></td>
+      </tr>
+      <tr>
+        <th>Height</th><td><xsl:value-of select="$svg//svg:svg/@height"/></td>
+      </tr>
+      <tr>
+        <th>Title</th><td><xsl:value-of select="$svg//svg:svg/title"/></td>
+      </tr>
+      <tr>
+        <th></th><td></td>
+      </tr>
+    </table>
   </div>
 </xsl:template>
 
