@@ -288,7 +288,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- ==================================================================== -->
 <!--  We need to put some extra text on the titlepage, besides what is    -->
-<!--  specified in nc3ta-layout.xml                                       -->
+<!--  specified in nisp-layout.xml                                       -->
 <!-- ==================================================================== -->
 
 <!-- The volume number should be preceded with the text "Volume", except for 
@@ -307,9 +307,11 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- The Document number should be embraced in a parentesis -->
 
+
 <xsl:template match="biblioid" mode="titlepage.mode">(<xsl:value-of 
      select="."/>(<xsl:value-of select="$adatp34edition"/>))
 </xsl:template>
+
 
 <!-- We only want to use the first revision element. Print version and date on 
      seperate lines, preceeded with the text "Version" and "Date" -->
@@ -338,10 +340,12 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- Don't prefix Chapters or Appendixes, with the text Chapter/Appendix the
      format described below (component number and title).
      
-     This may look very weird, but what we actually do is modifying the 
-     in-memory copy of the file: "xsl/docbook-xsl/common/l10n.xml", and more 
-     precisely the subtree represented by the file: 
-     xsl/docbook-xsl/common/en.xml -->
+     This may look very weird, but what we actually do is to redefine a 
+     part (subtree) of thee in-memory copy of the file:
+     "xsl/docbook-xsl/common/l10n.xml", and more precisely the subtree 
+     represented by the file: xsl/docbook-xsl/common/en.xml
+
+-->
 
 <xsl:param name="local.l10n.xml" select="document('')"/>
 
@@ -675,7 +679,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <!-- sequence can be odd, even, first, blank -->
     <!-- position can be left, center, right -->
     <xsl:choose>
-      <xsl:when test="$position='center' and $nisp.lifecycle.stage != 'release'">
+      <xsl:when test="$position='center' and
+                      ($nisp.lifecycle.stage = 'draft' or $nisp.lifecycle.stage = 'final')">
         <xsl:value-of select="$nisp.class.label"/>
         <fo:block><xsl:value-of select="$nisp.release.label"/></fo:block>
         <fo:block font-size="9pt" font-family="mono">revision: <xsl:value-of select="/book/bookinfo/productnumber"/></fo:block>

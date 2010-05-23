@@ -17,7 +17,11 @@
      If you modify the Documents XML DTD in any way, except for
      declaring and referencing additional sets of general entities and
      declaring additional notations, label your DTD as a variant of
-     Documents DTD. -->
+     Documents DTD.
+
+     $Id$
+
+-->
 
 <!-- ...................................................................... -->
 
@@ -48,7 +52,7 @@
 <!ATTLIST documents
           coverdocid CDATA #IMPLIED>
 
-<!ELEMENT versioninfo (package, release, ihb)>
+<!ELEMENT versioninfo (package, release)>
 
 <!ELEMENT package EMPTY>
 
@@ -59,12 +63,6 @@
 <!ELEMENT release EMPTY>
 
 <!ATTLIST release date CDATA #REQUIRED>
-
-<!ELEMENT ihb EMPTY>
-
-<!ATTLIST ihb 
-          major CDATA #REQUIRED
-          minor CDATA #REQUIRED>
 
 <!ELEMENT directory (docinfo)>
 

@@ -253,7 +253,7 @@ For additional help, type
   <!-- =================================================================== -->
   <!-- Creates output build directories and doc prerequistes               -->
   <!-- =================================================================== -->
-
+<target name="zz"/>
   <target name="init" depends="-newbuild">
     <echo  message="NISP Build system - ver. ${tool-version}. Released on ${tool-date}"/>
     <echo message="compiling sources ver. ${src-version}."/>
@@ -462,8 +462,14 @@ For additional help, type
   <!-- Utility function                                                    -->
   <!-- =================================================================== -->
   
-  <target name="info" description="* Show infomation about all document">
-    
+  <target name="info" description="* Show infomation about all document"
+          depends="resolve, svg">
+    <java classname="${xslt.class}" fork="yes">
+       <arg line="${xslt.opts} -o ${build.dir}/figures/index.html
+                  ${basedir}/src/documents.xml
+                  ${basedir}/xsl/makeInfo.xsl"/>
+       <classpath refid="lib-saxon-classpath"/>
+    </java>
   </target>
 
 
