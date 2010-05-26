@@ -10,6 +10,8 @@
 <!-- omit-xml-declaration="yes"/> -->
 
 
+<xsl:param name="nisp.image.ext" select="''"/>
+
 <xsl:variable name="alldocs" select="document('../src/documents.xml')"/>
 
 
@@ -163,12 +165,20 @@
     </img>
     <p><strong>Title</strong>: <xsl:value-of select="./title"/></p>
 
+    <xsl:variable name="svgname">
+      <xsl:value-of select="substring-after(substring-before(./mediaobject[1]/imageobject/imagedata/@fileref, concat('.', $nisp.image.ext)),'../figures/')"/>
+      <xsl:text>.svg</xsl:text>
+    </xsl:variable>
+
+
+    <p><strong>Filename</strong>: <xsl:value-of select="$svgname"/></p>
+
     <p>The source SVG file contains the following data:</p>
+    
 
     <xsl:variable name="svglocation">
       <xsl:text>../build/figures/</xsl:text>
-      <xsl:value-of select="substring-after(substring-before(./mediaobject[1]/imageobject/imagedata/@fileref,'.jpg'),'../figures/')"/>
-      <xsl:text>.svg</xsl:text>
+      <xsl:value-of select="$svgname"/>
     </xsl:variable>
 
     <xsl:variable name="svg" select="document($svglocation)"/>

@@ -472,7 +472,7 @@ For additional help, type
     <java classname="${xslt.class}" fork="yes">
        <arg line="${xslt.opts} -o ${build.dir}/figures/index.html
                   ${basedir}/src/documents.xml
-                  ${basedir}/xsl/makeInfo.xsl"/>
+                  ${basedir}/xsl/makeInfo.xsl nisp.image.ext=${nisp.image.ext}"/>
        <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
