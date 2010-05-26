@@ -83,8 +83,12 @@ For additional help, type
   <property name="debug" value="off"/>
 
   <!-- Image conversion parameters -->
+<!--
   <property name="nisp.image.ext" value="jpg"/>
   <property name="nisp.image.mimetype" value="image/jpeg"/>
+-->
+  <property name="nisp.image.ext" value="png"/>
+  <property name="nisp.image.mimetype" value="image/png"/>
   <property name="nisp.image.dpi" value="90"/>
   <property name="nisp.image.quality" value="0.9"/>
 
@@ -253,7 +257,7 @@ For additional help, type
   <!-- =================================================================== -->
   <!-- Creates output build directories and doc prerequistes               -->
   <!-- =================================================================== -->
-<target name="zz"/>
+
   <target name="init" depends="-newbuild">
     <echo  message="NISP Build system - ver. ${tool-version}. Released on ${tool-date}"/>
     <echo message="compiling sources ver. ${src-version}."/>

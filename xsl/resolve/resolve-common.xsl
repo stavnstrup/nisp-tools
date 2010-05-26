@@ -3,7 +3,7 @@
 
 This stylesheet contains templates used by all resolver stylesheets.
 
-Copyright (c) 2003-2008, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2003-2010, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and 
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -20,8 +20,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <!-- The directory relevant for this document, we need this with PDF and HTMLHelp -->
 <xsl:param name="documentdir" select="''"/>
-
 <xsl:param name="docid" select="''"/>
+<xsl:param name="nisp.image.ext" select="''"/>
 
 <xsl:param name="use.show.indexterms" select="0"/>
 
@@ -69,7 +69,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
                <xsl:value-of 
                   select="substring-before(./imageobject/imagedata/@fileref,
                   '.svg')"/>
-               <xsl:text>.jpg</xsl:text>
+               <xsl:text>.</xsl:text>
+               <xsl:value-of select="$nisp.image.ext"/>
             </xsl:attribute>
             <xsl:apply-templates select="./imagedata/@*[not(@fileref)]"/>
           </xsl:element>
@@ -88,7 +89,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
                   '.svg')"/>
                <xsl:choose>
                  <xsl:when test="$embedsvg='yes'"><xsl:text>.svg</xsl:text></xsl:when>
-                 <xsl:otherwise><xsl:text>.jpg</xsl:text></xsl:otherwise>
+                 <xsl:otherwise>
+                   <xsl:text>.</xsl:text>
+                   <xsl:value-of select="$nisp.image.ext"/>
+                 </xsl:otherwise>
 	       </xsl:choose>
             </xsl:attribute>
 	    <xsl:attribute name="scalefit">1</xsl:attribute>

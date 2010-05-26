@@ -452,6 +452,8 @@
           <xsl:value-of select="$dir"/>
           <xsl:text> use.show.indexterms=</xsl:text>
           <xsl:text>${use.show.indexterms}</xsl:text>
+          <xsl:text> nisp.image.ext=</xsl:text>
+          <xsl:text>${nisp.image.ext}</xsl:text>
         </xsl:attribute>
       </arg>
 

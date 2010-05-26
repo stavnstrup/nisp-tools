@@ -68,7 +68,7 @@
    <target name="vol1.resolve" unless="vol1-resolve.notRequired" depends="init, vol1.resolve.check">
       <echo message="Resolve Volume 1"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol1}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol1.resolve.src} ${src.vol1}/${vol1.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol1} docid=vol1 documentdir=volume1 use.show.indexterms=${use.show.indexterms}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol1.resolve.src} ${src.vol1}/${vol1.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol1} docid=vol1 documentdir=volume1 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -172,7 +172,7 @@
    <target name="vol2.resolve" unless="vol2-resolve.notRequired" depends="init, vol2.db-resolve, vol2.resolve.check">
       <echo message="Resolve Volume 2"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol2}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol2.resolve.src} ${src.vol2}/${vol2.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol2} dbname=resolved-standards.xml docid=vol2 documentdir=volume2 use.show.indexterms=${use.show.indexterms}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol2.resolve.src} ${src.vol2}/${vol2.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol2} dbname=resolved-standards.xml docid=vol2 documentdir=volume2 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -277,7 +277,7 @@
    <target name="vol3.resolve" unless="vol3-resolve.notRequired" depends="init, vol3.db-resolve, vol3.resolve.check">
       <echo message="Resolve Volume 3"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol3}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol3.resolve.src} ${src.vol3}/${vol3.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol3} dbname=resolved-standards.xml docid=vol3 documentdir=volume3 use.show.indexterms=${use.show.indexterms}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol3.resolve.src} ${src.vol3}/${vol3.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol3} dbname=resolved-standards.xml docid=vol3 documentdir=volume3 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -382,7 +382,7 @@
    <target name="vol4.resolve" unless="vol4-resolve.notRequired" depends="init, vol4.db-resolve, vol4.resolve.check">
       <echo message="Resolve Volume 4"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol4}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol4.resolve.src} ${src.vol4}/${vol4.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol4} dbname=resolved-standards.xml docid=vol4 documentdir=volume4 use.show.indexterms=${use.show.indexterms}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol4.resolve.src} ${src.vol4}/${vol4.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol4} dbname=resolved-standards.xml docid=vol4 documentdir=volume4 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -487,7 +487,7 @@
    <target name="vol5.resolve" unless="vol5-resolve.notRequired" depends="init, vol5.db-resolve, vol5.resolve.check">
       <echo message="Resolve Volume 5"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol5}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol5.resolve.src} ${src.vol5}/${vol5.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol5} dbname=resolved-standards.xml docid=vol5 documentdir=volume5 use.show.indexterms=${use.show.indexterms}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol5.resolve.src} ${src.vol5}/${vol5.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol5} dbname=resolved-standards.xml docid=vol5 documentdir=volume5 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -577,7 +577,7 @@
    <target name="vol6.resolve" unless="vol6-resolve.notRequired" depends="init, vol6.resolve.check">
       <echo message="Resolve Volume 6"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol6}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol6.resolve.src} ${src.vol6}/${vol6.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol6} docid=vol6 documentdir=volume6-annexes use.show.indexterms=${use.show.indexterms}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol6.resolve.src} ${src.vol6}/${vol6.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol6} docid=vol6 documentdir=volume6-annexes use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
