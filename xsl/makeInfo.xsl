@@ -20,6 +20,9 @@
     <head>
      <title>NISP Info</title>
      <style type="text/css">
+       body {
+         font-family: sans-serif;
+       }
        .warning {
           color: red;
        }
