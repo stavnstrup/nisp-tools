@@ -11,15 +11,23 @@ TO BE DONE
 
   + Document Graphic conventions
 
-  + Adapt FO stylesheets for FOP 0.95 
-
   + Eleminate design elements, which was required by the OLD NOSWG web
     site CMS.
 
   + Create a new layout/design respecting standard typography
     conventions to increase legibility.  
 
+  + Check is XMP data is complete according to NATO NDIS Stanag
+
 DONE
+
+
+  * Added DocBook 5.0 Relax NG schema to source distribution
+
+  * EXPERIMENTAL ONLY - Now all SVG files are rasterized to PNG instead of JPG
+
+  * Added info target - primary to show images used in NISP
+    The resulting file is build/figures/index.html
 
   * The marking "This page is intentionally left blank" will now be placed
     on all pages
@@ -38,8 +46,13 @@ DONE
                           edition
 
   * DRAFT watermark added to all pages during development
+
+  * Removed iText and homegrown tool pdffix to add meta-data to PDF files
+    Unnecessary since FOP 0,95 are capable to generate meta data
   
-  * Upgraded FOP to 0.95 or 0.95+ SVN version (Try using XMP to create meta-data)
+  * Adapt FO stylesheets for FOP 0.95+
+
+  * Upgraded FOP to 0.95+ (SVN rev. 938005) (Try using XMP to create meta-data)
 
   * Updated rasterization mechanism. Only new/modified SVGs will be rasterized.
 
