@@ -5,10 +5,12 @@
 This stylesheet is created for the NATO Interoperability Standard and
 profiles (NISP), and is intended for resolving volume 4.
 
-Copyright (c) 2002-2009, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2002-2010, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and 
 NATO Command, Control and Consultation Organisation (NC3O).
+
+$Id$
 
 -->
 

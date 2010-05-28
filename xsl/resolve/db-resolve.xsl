@@ -7,10 +7,12 @@ transforming the standards database from a relational structure to
 clean tree-structure.
 
 
-Copyright (c) 2009, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2009-2010, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and 
 NATO Command, Control and Consultation Organisation (NC3O).
+
+$Id$
 
 -->
 
