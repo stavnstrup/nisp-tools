@@ -64,7 +64,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- Select output mode -->
 
-<xsl:output method="xml" indent="no">
+<xsl:output method="xml" indent="no"/>
 
 
 <!-- ==================================================================== -->
