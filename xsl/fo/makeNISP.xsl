@@ -46,12 +46,15 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                 xmlns:stbl="http://nwalsh.com/xslt/ext/com.nwalsh.saxon.Table"
                 xmlns:xtbl="com.nwalsh.xalan.Table"
                 xmlns:saxon="http://icl.com/saxon"
-                xmlns:fox="http://xml.apache.org/fop/extensions"
+                xmlns:psmi="http://www.CraneSoftwrights.com/resources/psmi"
+                exclude-result-prefixes="#default  saxon  stbl xtbl"
+                version="1.0">
+
+<!--
                 xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions"
                 xmlns:rx="http://www.renderx.com/XSL/Extensions"
-                xmlns:psmi="http://www.CraneSoftwrights.com/resources/psmi"
-                exclude-result-prefixes="#default stbl xtbl fox saxon axf rx"
-                version="1.0">
+
+-->
 
 
 <xsl:import href="../docbook-xsl/fo/docbook.xsl"/>

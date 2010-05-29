@@ -597,7 +597,7 @@
         <xsl:attribute name="to">
           <xsl:text>${build.dir}/</xsl:text>
           <xsl:value-of select="$dir"/>
-          <xsl:text>/figures/*.jpg</xsl:text>
+          <xsl:text>/figures/*.${nisp.image.ext}</xsl:text>
         </xsl:attribute>
       </mapper>
     </uptodate>
@@ -612,7 +612,10 @@
         <xsl:text> figures for HTML (${dpi.raster} dpi)</xsl:text>
       </xsl:attribute>
     </echo>
-    <rasterize result="image/jpeg" quality="0.9"> 
+    <rasterize  quality="0.9">
+      <xsl:attribute name="result">
+        <xsl:text>${nisp.image.mimetype}</xsl:text>
+      </xsl:attribute> 
       <xsl:attribute name="dpi">
         <xsl:text>${dpi.raster}</xsl:text>
       </xsl:attribute>
@@ -671,7 +674,11 @@
           <xsl:value-of select="$dir"/>
           <xsl:text>/figures</xsl:text>
         </xsl:attribute>
-        <include name="*.jpg"/>
+        <include>
+          <xsl:attribute name="name">
+            <xsl:text>*.${nisp.image.ext}</xsl:text>
+          </xsl:attribute>
+        </include>
       </fileset>
     </copy>
   </target>
@@ -813,7 +820,7 @@
           <xsl:text>${build.dir}/figures/</xsl:text>
         </xsl:attribute>
         <xsl:attribute name="includes">
-          <xsl:text>*.jpg</xsl:text>
+          <xsl:text>*.${nisp.image.ext}</xsl:text>
         </xsl:attribute>
       </srcfiles>
 
