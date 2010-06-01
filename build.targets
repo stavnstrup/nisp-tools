@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-   <target name="valid" depends="vol1.valid, vol2.valid, vol3.valid, vol4.valid, vol5.valid, vol6.valid" description="* Validate all source documents"/>
    <target name="resolve" depends="init, vol1.resolve, vol2.resolve, vol3.resolve, vol4.resolve, vol5.resolve, vol6.resolve"/>
    <target name="olinks" depends="init, vol1.olinks, vol2.olinks, vol3.olinks, vol4.olinks, vol5.olinks, vol6.olinks"/>
    <target name="html" depends="init, master, acronyms, vol1.html, vol2.html, vol3.html, vol4.html, vol5.html, vol6.html" description="* Create all HTML files destined for the web"/>
@@ -54,9 +53,11 @@
    <target name="vol1.valid">
       <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
          <fileset dir="${src.vol1}" includes="${vol1.main.src}"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
          <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
+         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+         <attribute name="http://xml.org/sax/features/validation" value="true"/>
          <xmlcatalog refid="allcatalogs"/>
+         <classpath refid="lib-saxon-classpath"/>
       </xmlvalidate>
    </target>
    <target name="vol1.resolve.check">
@@ -141,9 +142,11 @@
    <target name="vol2.valid">
       <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
          <fileset dir="${src.vol2}" includes="${vol2.main.src}"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
          <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
+         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+         <attribute name="http://xml.org/sax/features/validation" value="true"/>
          <xmlcatalog refid="allcatalogs"/>
+         <classpath refid="lib-saxon-classpath"/>
       </xmlvalidate>
    </target>
    <target name="vol2.db-resolve.check">
@@ -246,9 +249,11 @@
    <target name="vol3.valid">
       <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
          <fileset dir="${src.vol3}" includes="${vol3.main.src}"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
          <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
+         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+         <attribute name="http://xml.org/sax/features/validation" value="true"/>
          <xmlcatalog refid="allcatalogs"/>
+         <classpath refid="lib-saxon-classpath"/>
       </xmlvalidate>
    </target>
    <target name="vol3.db-resolve.check">
@@ -351,9 +356,11 @@
    <target name="vol4.valid">
       <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
          <fileset dir="${src.vol4}" includes="${vol4.main.src}"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
          <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
+         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+         <attribute name="http://xml.org/sax/features/validation" value="true"/>
          <xmlcatalog refid="allcatalogs"/>
+         <classpath refid="lib-saxon-classpath"/>
       </xmlvalidate>
    </target>
    <target name="vol4.db-resolve.check">
@@ -456,9 +463,11 @@
    <target name="vol5.valid">
       <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
          <fileset dir="${src.vol5}" includes="${vol5.main.src}"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
          <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
+         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+         <attribute name="http://xml.org/sax/features/validation" value="true"/>
          <xmlcatalog refid="allcatalogs"/>
+         <classpath refid="lib-saxon-classpath"/>
       </xmlvalidate>
    </target>
    <target name="vol5.resolve.check">
@@ -543,9 +552,11 @@
    <target name="vol6.valid">
       <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
          <fileset dir="${src.vol6}" includes="${vol6.main.src}"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
          <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
+         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+         <attribute name="http://xml.org/sax/features/validation" value="true"/>
          <xmlcatalog refid="allcatalogs"/>
+         <classpath refid="lib-saxon-classpath"/>
       </xmlvalidate>
    </target>
    <target name="vol6.db-resolve.check">

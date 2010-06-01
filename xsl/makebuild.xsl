@@ -13,12 +13,12 @@
   <project>
   
   <!-- Generate multitarget -->
-
+<!--
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'valid'"/>
     <xsl:with-param name="comment" select="'* Validate all source documents'"/>
   </xsl:call-template>
-
+-->
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'resolve'"/>
@@ -270,12 +270,16 @@
           <xsl:text>.main.src}</xsl:text>	  
 	</xsl:attribute>
       </fileset>
-      <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
       <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
+      <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
+      <attribute name="http://xml.org/sax/features/validation" value="true"/>
+
 <!--
-       <attribute name="" value="org.apache.xerces.parsers.XIncludeParserConfiguration
+
+       <attribute name="" value="org.apache.xerces.parsers.XIncludeParserConfiguration"/>
 -->
-       <xmlcatalog refid="allcatalogs"/> 
+       <xmlcatalog refid="allcatalogs"/>
+       <classpath refid="lib-saxon-classpath"/>
     </xmlvalidate>
   </target>
 </xsl:template>
