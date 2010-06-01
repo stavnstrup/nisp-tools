@@ -451,7 +451,7 @@
    <property name="vol5.all.src" value="vol5.xml"/>
    <property name="vol5.resolve.src" value="vol5-resolved.xml"/>
    <property name="vol5.pdf.file" value="NISP-Vol5-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
-   <property name="xsl-resolve-vol5" value="resolve5.xsl"/>
+   <property name="xsl-resolve-vol5" value="resolve.xsl"/>
    <target name="vol5" description="* Create Volume 5 in XHTML and PDF" depends="vol5.html, vol5.pdf"/>
    <target name="vol5.valid">
       <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
@@ -461,33 +461,16 @@
          <xmlcatalog refid="allcatalogs"/>
       </xmlvalidate>
    </target>
-   <target name="vol5.db-resolve.check">
-      <uptodate property="vol5.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
-         <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
-         <srcfiles dir="${xsl-styles.dir}/resolve" includes="${xsl-resolve-db}"/>
-      </uptodate>
-   </target>
-   <target name="vol5.db-resolve" depends="init, vol5.db-resolve.check" unless="vol5.db-resolve.notRequired">
-      <echo message="Resolve Volume 5 DB"/>
-      <java fork="yes" classname="${xslt.class}" dir="${src.vol5}">
-         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db}"/>
-         <classpath refid="lib-saxon-classpath"/>
-         <jvmarg value="${use.sax}"/>
-         <jvmarg value="${use.dom}"/>
-         <jvmarg value="${use.xinc}"/>
-      </java>
-   </target>
    <target name="vol5.resolve.check">
       <uptodate property="vol5-resolve.notRequired" targetfile="${build.resolve}/${vol5.resolve.src}">
          <srcfiles dir="${src.vol5}" includes="${vol5.all.src}"/>
-         <srcfiles includes="resolved-standards.xml" dir="${build.resolve}/"/>
          <srcfiles dir="${xsl-styles.dir}/resolve" includes="${xsl-resolve-vol5}"/>
       </uptodate>
    </target>
-   <target name="vol5.resolve" unless="vol5-resolve.notRequired" depends="init, vol5.db-resolve, vol5.resolve.check">
+   <target name="vol5.resolve" unless="vol5-resolve.notRequired" depends="init, vol5.resolve.check">
       <echo message="Resolve Volume 5"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol5}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol5.resolve.src} ${src.vol5}/${vol5.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol5} dbname=resolved-standards.xml docid=vol5 documentdir=volume5 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol5.resolve.src} ${src.vol5}/${vol5.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol5} docid=vol5 documentdir=volume5 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -497,7 +480,6 @@
    <target name="vol5-olinks.check" depends="init">
       <uptodate property="vol5-olinks.notRequired" targetfile="${src.dir}/olinks/vol5-target.db">
          <srcfiles dir="${build.resolve}" includes="${vol5.resolve.src}"/>
-         <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
       </uptodate>
    </target>
    <target name="vol5.olinks" depends="init, vol5.resolve, vol5-olinks.check" unless="vol5-olinks.notRequired">
@@ -518,7 +500,6 @@
    <target name="vol5.html" description="* Create Volume 5 in XHTML" depends="svg, vol5.resolve, vol5.html.check" unless="vol5-html.notRequired">
       <echo message="Create Volume 5 as chunked XHTML pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol5}">
-         <jvmarg value="-Xss512k"/>
          <arg line="${xslt.opts} ${build.resolve}/${vol5.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol5 pdf.prefix=NISP-Vol5 use.para.numbering=${use.para.numbering} use.portal.design=${use.portal.design}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
@@ -533,7 +514,6 @@
    <target name="vol5.pdf" description="* Create Volume 5 in PDF" depends="layout-fo, svg, vol5.resolve, vol5.pdf.check" unless="vol5-pdf.notRequired">
       <echo message="Create Volume 5 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
-         <jvmarg value="-Xss512k"/>
          <arg line="${xslt.opts} -o vol5.fo ${build.resolve}/${vol5.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol5 use.para.numbering=${use.para.numbering}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
@@ -558,7 +538,7 @@
    <property name="vol6.all.src" value="vol6.xml"/>
    <property name="vol6.resolve.src" value="vol6-resolved.xml"/>
    <property name="vol6.pdf.file" value="NISP-Vol6-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
-   <property name="xsl-resolve-vol6" value="resolve.xsl"/>
+   <property name="xsl-resolve-vol6" value="resolve6.xsl"/>
    <target name="vol6" description="* Create Volume 6 in XHTML and PDF" depends="vol6.html, vol6.pdf"/>
    <target name="vol6.valid">
       <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
@@ -568,16 +548,33 @@
          <xmlcatalog refid="allcatalogs"/>
       </xmlvalidate>
    </target>
+   <target name="vol6.db-resolve.check">
+      <uptodate property="vol6.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
+         <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
+         <srcfiles dir="${xsl-styles.dir}/resolve" includes="${xsl-resolve-db}"/>
+      </uptodate>
+   </target>
+   <target name="vol6.db-resolve" depends="init, vol6.db-resolve.check" unless="vol6.db-resolve.notRequired">
+      <echo message="Resolve Volume 6 DB"/>
+      <java fork="yes" classname="${xslt.class}" dir="${src.vol6}">
+         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db}"/>
+         <classpath refid="lib-saxon-classpath"/>
+         <jvmarg value="${use.sax}"/>
+         <jvmarg value="${use.dom}"/>
+         <jvmarg value="${use.xinc}"/>
+      </java>
+   </target>
    <target name="vol6.resolve.check">
       <uptodate property="vol6-resolve.notRequired" targetfile="${build.resolve}/${vol6.resolve.src}">
          <srcfiles dir="${src.vol6}" includes="${vol6.all.src}"/>
+         <srcfiles includes="resolved-standards.xml" dir="${build.resolve}/"/>
          <srcfiles dir="${xsl-styles.dir}/resolve" includes="${xsl-resolve-vol6}"/>
       </uptodate>
    </target>
-   <target name="vol6.resolve" unless="vol6-resolve.notRequired" depends="init, vol6.resolve.check">
+   <target name="vol6.resolve" unless="vol6-resolve.notRequired" depends="init, vol6.db-resolve, vol6.resolve.check">
       <echo message="Resolve Volume 6"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol6}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol6.resolve.src} ${src.vol6}/${vol6.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol6} docid=vol6 documentdir=volume6-annexes use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol6.resolve.src} ${src.vol6}/${vol6.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol6} dbname=resolved-standards.xml docid=vol6 documentdir=volume6-annexes use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -587,6 +584,7 @@
    <target name="vol6-olinks.check" depends="init">
       <uptodate property="vol6-olinks.notRequired" targetfile="${src.dir}/olinks/vol6-target.db">
          <srcfiles dir="${build.resolve}" includes="${vol6.resolve.src}"/>
+         <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
       </uptodate>
    </target>
    <target name="vol6.olinks" depends="init, vol6.resolve, vol6-olinks.check" unless="vol6-olinks.notRequired">
@@ -607,6 +605,7 @@
    <target name="vol6.html" description="* Create Volume 6 in XHTML" depends="svg, vol6.resolve, vol6.html.check" unless="vol6-html.notRequired">
       <echo message="Create Volume 6 as chunked XHTML pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol6}">
+         <jvmarg value="-Xss512k"/>
          <arg line="${xslt.opts} ${build.resolve}/${vol6.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol6 pdf.prefix=NISP-Vol6 use.para.numbering=${use.para.numbering} use.portal.design=${use.portal.design}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
@@ -621,6 +620,7 @@
    <target name="vol6.pdf" description="* Create Volume 6 in PDF" depends="layout-fo, svg, vol6.resolve, vol6.pdf.check" unless="vol6-pdf.notRequired">
       <echo message="Create Volume 6 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
+         <jvmarg value="-Xss512k"/>
          <arg line="${xslt.opts} -o vol6.fo ${build.resolve}/${vol6.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol6 use.para.numbering=${use.para.numbering}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
