@@ -50,16 +50,6 @@
    <property name="vol1.pdf.file" value="NISP-Vol1-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="xsl-resolve-vol1" value="resolve.xsl"/>
    <target name="vol1" description="* Create Volume 1 in XHTML and PDF" depends="vol1.html, vol1.pdf"/>
-   <target name="vol1.valid">
-      <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
-         <fileset dir="${src.vol1}" includes="${vol1.main.src}"/>
-         <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
-         <attribute name="http://xml.org/sax/features/validation" value="true"/>
-         <xmlcatalog refid="allcatalogs"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </xmlvalidate>
-   </target>
    <target name="vol1.resolve.check">
       <uptodate property="vol1-resolve.notRequired" targetfile="${build.resolve}/${vol1.resolve.src}">
          <srcfiles dir="${src.vol1}" includes="${vol1.all.src}"/>
@@ -139,16 +129,6 @@
    <property name="vol2.pdf.file" value="NISP-Vol2-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="xsl-resolve-vol2" value="resolve2.xsl"/>
    <target name="vol2" description="* Create Volume 2 in XHTML and PDF" depends="vol2.html, vol2.pdf"/>
-   <target name="vol2.valid">
-      <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
-         <fileset dir="${src.vol2}" includes="${vol2.main.src}"/>
-         <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
-         <attribute name="http://xml.org/sax/features/validation" value="true"/>
-         <xmlcatalog refid="allcatalogs"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </xmlvalidate>
-   </target>
    <target name="vol2.db-resolve.check">
       <uptodate property="vol2.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
          <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
@@ -246,16 +226,6 @@
    <property name="vol3.pdf.file" value="NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="xsl-resolve-vol3" value="resolve3.xsl"/>
    <target name="vol3" description="* Create Volume 3 in XHTML and PDF" depends="vol3.html, vol3.pdf"/>
-   <target name="vol3.valid">
-      <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
-         <fileset dir="${src.vol3}" includes="${vol3.main.src}"/>
-         <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
-         <attribute name="http://xml.org/sax/features/validation" value="true"/>
-         <xmlcatalog refid="allcatalogs"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </xmlvalidate>
-   </target>
    <target name="vol3.db-resolve.check">
       <uptodate property="vol3.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
          <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
@@ -353,16 +323,6 @@
    <property name="vol4.pdf.file" value="NISP-Vol4-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="xsl-resolve-vol4" value="resolve4.xsl"/>
    <target name="vol4" description="* Create Volume 4 in XHTML and PDF" depends="vol4.html, vol4.pdf"/>
-   <target name="vol4.valid">
-      <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
-         <fileset dir="${src.vol4}" includes="${vol4.main.src}"/>
-         <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
-         <attribute name="http://xml.org/sax/features/validation" value="true"/>
-         <xmlcatalog refid="allcatalogs"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </xmlvalidate>
-   </target>
    <target name="vol4.db-resolve.check">
       <uptodate property="vol4.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
          <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
@@ -460,16 +420,6 @@
    <property name="vol5.pdf.file" value="NISP-Vol5-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="xsl-resolve-vol5" value="resolve.xsl"/>
    <target name="vol5" description="* Create Volume 5 in XHTML and PDF" depends="vol5.html, vol5.pdf"/>
-   <target name="vol5.valid">
-      <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
-         <fileset dir="${src.vol5}" includes="${vol5.main.src}"/>
-         <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
-         <attribute name="http://xml.org/sax/features/validation" value="true"/>
-         <xmlcatalog refid="allcatalogs"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </xmlvalidate>
-   </target>
    <target name="vol5.resolve.check">
       <uptodate property="vol5-resolve.notRequired" targetfile="${build.resolve}/${vol5.resolve.src}">
          <srcfiles dir="${src.vol5}" includes="${vol5.all.src}"/>
@@ -549,16 +499,6 @@
    <property name="vol6.pdf.file" value="NISP-Vol6-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="xsl-resolve-vol6" value="resolve6.xsl"/>
    <target name="vol6" description="* Create Volume 6 in XHTML and PDF" depends="vol6.html, vol6.pdf"/>
-   <target name="vol6.valid">
-      <xmlvalidate failonerror="no" classname="org.apache.xerces.parsers.SAXParser">
-         <fileset dir="${src.vol6}" includes="${vol6.main.src}"/>
-         <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
-         <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
-         <attribute name="http://xml.org/sax/features/validation" value="true"/>
-         <xmlcatalog refid="allcatalogs"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </xmlvalidate>
-   </target>
    <target name="vol6.db-resolve.check">
       <uptodate property="vol6.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
          <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>

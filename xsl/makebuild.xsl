@@ -54,105 +54,101 @@
     <xsl:with-param name="comment" select="'* Create a PDF version of NISP'"/>
   </xsl:call-template>
 
-<!-- =================================================================== -->
-<!-- Create SVG target                                                   -->
-<!-- =================================================================== -->
+  <target name="svg.required">
+    <mkdir>
+      <xsl:attribute name="dir">
+        <xsl:text>${build.dir}/figures</xsl:text>
+      </xsl:attribute>
+    </mkdir>
+    <copy preservelastmodified="true">
+      <xsl:attribute name="todir">
+        <xsl:text>${build.dir}/figures</xsl:text>
+      </xsl:attribute>
+      <fileset>
+        <xsl:attribute name="dir">
+          <xsl:text>${src.dir}/figures/</xsl:text>
+        </xsl:attribute>
+        <include name="*.svg"/>
+        <exclude name="obsolete/*.svg"/>
+      </fileset>
+    </copy> 
 
-    <target name="svg.required">
-      <mkdir>
+    <uptodate property="svg.notRequired">
+      <srcfiles includes="*.svg">
         <xsl:attribute name="dir">
           <xsl:text>${build.dir}/figures</xsl:text>
         </xsl:attribute>
-      </mkdir>
-      <copy preservelastmodified="true">
-        <xsl:attribute name="todir">
-          <xsl:text>${build.dir}/figures</xsl:text>
+      </srcfiles>
+      <mapper type="glob" from="*.svg"> 
+        <xsl:attribute name="to">
+          <xsl:text>${build.dir}/figures/*.${nisp.image.ext}</xsl:text>
         </xsl:attribute>
-        <fileset>
-          <xsl:attribute name="dir">
-            <xsl:text>${src.dir}/figures/</xsl:text>
-          </xsl:attribute>
-          <include name="*.svg"/>
-          <exclude name="obsolete/*.svg"/>
-        </fileset>
-      </copy> 
+      </mapper>
+    </uptodate>
+  </target>
 
-      <uptodate property="svg.notRequired">
-        <srcfiles includes="*.svg">
-          <xsl:attribute name="dir">
-            <xsl:text>${build.dir}/figures</xsl:text>
-          </xsl:attribute>
-        </srcfiles>
-        <mapper type="glob" from="*.svg"> 
-          <xsl:attribute name="to">
-            <xsl:text>${build.dir}/figures/*.${nisp.image.ext}</xsl:text>
-          </xsl:attribute>
-        </mapper>
-      </uptodate>
-    </target>
-
-    <target name="svg" depends="init, svg.required"
-            unless="svg.notRequired">
-      <echo>
-        <xsl:attribute name="message">
-          <xsl:text>Create figures for HTML (${dpi.raster} dpi)</xsl:text>
-        </xsl:attribute>
-      </echo>
-      <rasterize> 
-        <xsl:attribute name="result">
-          <xsl:text>${nisp.image.mimetype}</xsl:text>
-        </xsl:attribute>
-        <xsl:attribute name="quality">
-          <xsl:text>${nisp.image.quality}</xsl:text>
-        </xsl:attribute> 
-        <xsl:attribute name="dpi">
-          <xsl:text>${dpi.raster}</xsl:text>
-        </xsl:attribute>
-        <xsl:attribute name="destdir">
+  <target name="svg" depends="init, svg.required"
+          unless="svg.notRequired">
+    <echo>
+      <xsl:attribute name="message">
+        <xsl:text>Create figures for HTML (${dpi.raster} dpi)</xsl:text>
+      </xsl:attribute>
+    </echo>
+    <rasterize> 
+      <xsl:attribute name="result">
+        <xsl:text>${nisp.image.mimetype}</xsl:text>
+      </xsl:attribute>
+      <xsl:attribute name="quality">
+        <xsl:text>${nisp.image.quality}</xsl:text>
+      </xsl:attribute> 
+      <xsl:attribute name="dpi">
+        <xsl:text>${dpi.raster}</xsl:text>
+      </xsl:attribute>
+      <xsl:attribute name="destdir">
+        <xsl:text>${build.dir}/figures/</xsl:text>
+      </xsl:attribute>
+      <fileset>
+        <xsl:attribute name="dir">
           <xsl:text>${build.dir}/figures/</xsl:text>
         </xsl:attribute>
-        <fileset>
-          <xsl:attribute name="dir">
+        <include name="*.svg"/>
+        <depend>
+          <xsl:attribute name="targetdir">
             <xsl:text>${build.dir}/figures/</xsl:text>
           </xsl:attribute>
-          <include name="*.svg"/>
-          <depend>
-            <xsl:attribute name="targetdir">
-              <xsl:text>${build.dir}/figures/</xsl:text>
-            </xsl:attribute>
-            <mapper type="glob" from="*.svg">
-              <xsl:attribute name="to">
-                <xsl:text>*.${nisp.image.ext}</xsl:text>
-              </xsl:attribute>
-            </mapper>
-          </depend>
-        </fileset>
-      </rasterize>
-    </target>
-
-    <target name="getfigs" depends="svg">
-      <copy>
-        <xsl:attribute name="preservelastmodified">
-          <xsl:text>true</xsl:text>
-        </xsl:attribute>
-        <xsl:attribute name="todir">
-          <xsl:text>${build.dir}/htmlhelp/figures</xsl:text>
-        </xsl:attribute>
-        <fileset>
-          <xsl:attribute name="dir">
-            <xsl:text>${build.dir}/figures</xsl:text>
-          </xsl:attribute>
-          <include>
-            <xsl:attribute name="name">
+          <mapper type="glob" from="*.svg">
+            <xsl:attribute name="to">
               <xsl:text>*.${nisp.image.ext}</xsl:text>
             </xsl:attribute>
-          </include>
-        </fileset>
-      </copy>
-    </target>
+          </mapper>
+        </depend>
+      </fileset>
+    </rasterize>
+  </target>
 
-    <!-- Generate targets for each document -->
-    <xsl:apply-templates/>
+  <target name="getfigs" depends="svg">
+    <copy>
+      <xsl:attribute name="preservelastmodified">
+        <xsl:text>true</xsl:text>
+      </xsl:attribute>
+      <xsl:attribute name="todir">
+        <xsl:text>${build.dir}/htmlhelp/figures</xsl:text>
+      </xsl:attribute>
+      <fileset>
+        <xsl:attribute name="dir">
+          <xsl:text>${build.dir}/figures</xsl:text>
+        </xsl:attribute>
+        <include>
+          <xsl:attribute name="name">
+            <xsl:text>*.${nisp.image.ext}</xsl:text>
+          </xsl:attribute>
+        </include>
+      </fileset>
+    </copy>
+  </target>
+
+  <!-- Generate targets for each document -->
+  <xsl:apply-templates/>
   
   </project>
 </xsl:template>
@@ -211,7 +207,9 @@
   <target name="{$docid}" description="* Create {$title} in XHTML and PDF" depends="{$docid}.html, {$docid}.pdf"/>
 
   <!-- Validate targets -->
+<!--
   <xsl:call-template name="makeValid"/>
+-->
 
   <!-- Resolve targets -->
   <xsl:call-template name="makeResolve"/>
