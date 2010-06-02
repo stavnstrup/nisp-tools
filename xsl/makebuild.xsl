@@ -182,13 +182,6 @@
     </xsl:attribute>
   </property>
 
-  <property name="{$docid}.all.src">
-    <xsl:attribute name="value">
-      <xsl:value-of select=".//main"/>
-      <xsl:apply-templates select=".//part"/>
-    </xsl:attribute>
-  </property>
-
   <property name="{$docid}.resolve.src" value="{$docid}-resolved.xml"/>
 
   <property name="{$docid}.pdf.file">
@@ -271,13 +264,8 @@
       <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
       <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
       <attribute name="http://xml.org/sax/features/validation" value="true"/>
-
-<!--
-
-       <attribute name="" value="org.apache.xerces.parsers.XIncludeParserConfiguration"/>
--->
-       <xmlcatalog refid="allcatalogs"/>
-       <classpath refid="lib-saxon-classpath"/>
+      <xmlcatalog refid="allcatalogs"/>
+      <classpath refid="lib-saxon-classpath"/>
     </xmlvalidate>
   </target>
 </xsl:template>
@@ -377,9 +365,7 @@
         </xsl:attribute>
 
         <xsl:attribute name="includes">
-          <xsl:text>${</xsl:text>
-          <xsl:value-of select="$docid"/>
-          <xsl:text>.all.src}</xsl:text>
+          <xsl:text>*.xml</xsl:text>
         </xsl:attribute>
       </srcfiles>
 
