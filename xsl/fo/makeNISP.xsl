@@ -848,14 +848,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   </fo:block>
 -->
 
-<!--
-  <xsl:variable name="foot">
-    <xsl:if test="$nisp.lifecycle.stage != 'release'"> 
-      <fo:block><xsl:value-of select="$nisp.class.label"/></fo:block>
-    </xsl:if>
-    <fo:block space-before="5pt">- <fo:page-number/> -</fo:block>
-  </xsl:variable>
--->
   <fo:block>
     <!-- pageclass can be front, body, back -->
     <!-- sequence can be odd, even, first, blank -->
@@ -879,10 +871,12 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 -->
     </xsl:if>
     <xsl:if test="$position='center' and $nisp.lifecycle.stage!='release'">
+<!--
       <xsl:value-of select="$nisp.class.label"/>
       <fo:block><xsl:value-of select="$nisp.release.label"/></fo:block>
+-->
     </xsl:if>
-    <xsl:if test="$pageclass!='titlepage' and $position='center'">
+    <xsl:if test="$pageclass != 'titlepage' and $position='center'">
       <fo:block space-before="4pt">- <fo:page-number/> -</fo:block>
     </xsl:if>  
   </fo:block>
