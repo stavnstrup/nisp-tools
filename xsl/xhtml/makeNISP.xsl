@@ -258,8 +258,12 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
             <xsl:text>../pdf/</xsl:text>
             <xsl:value-of select="$pdf.prefix"/>
             <xsl:text>-v</xsl:text>
+            <xsl:value-of select="$docs/documents/versioninfo/package/@major"/>
+
+<!--
             <xsl:value-of select=
               "substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
+-->
            <xsl:value-of select="$nisp.lifecycle.postfix"/>
             <xsl:text>.pdf</xsl:text>
           </xsl:attribute>
