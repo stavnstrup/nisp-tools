@@ -760,7 +760,6 @@
           <xsl:text> pdf.prefix=</xsl:text>
           <xsl:value-of select="$pdf.prefix"/>
           <xsl:text> use.para.numbering=${use.para.numbering}</xsl:text>
-          <xsl:text> use.portal.design=${use.portal.design}</xsl:text>
         </xsl:attribute>
       </arg>
       <classpath refid="lib-saxon-classpath"/>
