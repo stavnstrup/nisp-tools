@@ -46,7 +46,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                 xmlns:stbl="http://nwalsh.com/xslt/ext/com.nwalsh.saxon.Table"
                 xmlns:xtbl="com.nwalsh.xalan.Table"
                 xmlns:saxon="http://icl.com/saxon"
-                xmlns:psmi="http://www.CraneSoftwrights.com/resources/psmi"
                 exclude-result-prefixes="#default  saxon  stbl xtbl"
                 version="1.0">
 
@@ -969,7 +968,260 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                       display-align="after"/>
   </fo:simple-page-master>
 
+  <!-- setup for title page(s) -->
+  <fo:page-sequence-master master-name="nisp.titlepage">
+    <fo:repeatable-page-master-alternatives>
+      <fo:conditional-page-master-reference master-reference="nisp.blank"
+                                            blank-or-not-blank="blank"/>
+      <fo:conditional-page-master-reference master-reference="titlepage-first"
+                                            page-position="first"/>
+      <fo:conditional-page-master-reference master-reference="titlepage-odd"
+                                            odd-or-even="odd"/>
+      <fo:conditional-page-master-reference 
+                                            odd-or-even="even">
+        <xsl:attribute name="master-reference">
+          <xsl:choose>
+            <xsl:when test="$double.sided != 0">titlepage-even</xsl:when>
+            <xsl:otherwise>titlepage-odd</xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </fo:conditional-page-master-reference>
+    </fo:repeatable-page-master-alternatives>
+  </fo:page-sequence-master>
 
+  <!-- setup for lots -->
+  <fo:page-sequence-master master-name="nisp.lot">
+    <fo:repeatable-page-master-alternatives>
+      <fo:conditional-page-master-reference master-reference="nisp.blank"
+                                            blank-or-not-blank="blank"/>
+      <fo:conditional-page-master-reference master-reference="lot-first"
+                                            page-position="first"/>
+      <fo:conditional-page-master-reference master-reference="lot-odd"
+                                            odd-or-even="odd"/>
+      <fo:conditional-page-master-reference 
+                                            odd-or-even="even">
+        <xsl:attribute name="master-reference">
+          <xsl:choose>
+            <xsl:when test="$double.sided != 0">lot-even</xsl:when>
+            <xsl:otherwise>lot-odd</xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </fo:conditional-page-master-reference>
+    </fo:repeatable-page-master-alternatives>
+  </fo:page-sequence-master>
+
+  <!-- setup front matter -->
+  <fo:page-sequence-master master-name="nisp.front">
+    <fo:repeatable-page-master-alternatives>
+      <fo:conditional-page-master-reference master-reference="nisp.blank"
+                                            blank-or-not-blank="blank"/>
+      <fo:conditional-page-master-reference master-reference="front-first"
+                                            page-position="first"/>
+      <fo:conditional-page-master-reference master-reference="front-odd"
+                                            odd-or-even="odd"/>
+      <fo:conditional-page-master-reference 
+                                            odd-or-even="even">
+        <xsl:attribute name="master-reference">
+          <xsl:choose>
+            <xsl:when test="$double.sided != 0">front-even</xsl:when>
+            <xsl:otherwise>front-odd</xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </fo:conditional-page-master-reference>
+    </fo:repeatable-page-master-alternatives>
+  </fo:page-sequence-master>
+
+  <!-- setup for body pages -->
+  <fo:page-sequence-master master-name="nisp.body">
+    <fo:repeatable-page-master-alternatives>
+      <fo:conditional-page-master-reference master-reference="nisp.blank"
+                                            blank-or-not-blank="blank"/>
+      <fo:conditional-page-master-reference master-reference="body-first"
+                                            page-position="first"/>
+      <fo:conditional-page-master-reference master-reference="body-odd"
+                                            odd-or-even="odd"/>
+      <fo:conditional-page-master-reference 
+                                            odd-or-even="even">
+        <xsl:attribute name="master-reference">
+          <xsl:choose>
+            <xsl:when test="$double.sided != 0">body-even</xsl:when>
+            <xsl:otherwise>body-odd</xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </fo:conditional-page-master-reference>
+    </fo:repeatable-page-master-alternatives>
+  </fo:page-sequence-master>
+
+  <!-- setup back matter -->
+  <fo:page-sequence-master master-name="nisp.back">
+    <fo:repeatable-page-master-alternatives>
+      <fo:conditional-page-master-reference master-reference="nisp.blank"
+                                            blank-or-not-blank="blank"/>
+      <fo:conditional-page-master-reference master-reference="back-first"
+                                            page-position="first"/>
+      <fo:conditional-page-master-reference master-reference="back-odd"
+                                            odd-or-even="odd"/>
+      <fo:conditional-page-master-reference 
+                                            odd-or-even="even">
+        <xsl:attribute name="master-reference">
+          <xsl:choose>
+            <xsl:when test="$double.sided != 0">back-even</xsl:when>
+            <xsl:otherwise>back-odd</xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </fo:conditional-page-master-reference>
+    </fo:repeatable-page-master-alternatives>
+  </fo:page-sequence-master>
+
+  <!-- setup back matter -->
+  <fo:page-sequence-master master-name="nisp.index">
+    <fo:repeatable-page-master-alternatives>
+      <fo:conditional-page-master-reference master-reference="nisp.blank"
+                                            blank-or-not-blank="blank"/>
+      <fo:conditional-page-master-reference master-reference="index-first"
+                                            page-position="first"/>
+      <fo:conditional-page-master-reference master-reference="index-odd"
+                                            odd-or-even="odd"/>
+      <fo:conditional-page-master-reference 
+                                            odd-or-even="even">
+        <xsl:attribute name="master-reference">
+          <xsl:choose>
+            <xsl:when test="$double.sided != 0">index-even</xsl:when>
+            <xsl:otherwise>index-odd</xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </fo:conditional-page-master-reference>
+    </fo:repeatable-page-master-alternatives>
+  </fo:page-sequence-master>
+
+  
+  <xsl:if test="$draft.mode != 'no'">
+    <!-- setup for draft title page(s) -->
+    <fo:page-sequence-master master-name="nisp.titlepage-draft">
+      <fo:repeatable-page-master-alternatives>
+        <fo:conditional-page-master-reference master-reference="nisp.blank-draft"
+                                              blank-or-not-blank="blank"/>
+        <fo:conditional-page-master-reference master-reference="titlepage-first-draft"
+                                              page-position="first"/>
+        <fo:conditional-page-master-reference master-reference="titlepage-odd-draft"
+                                              odd-or-even="odd"/>
+        <fo:conditional-page-master-reference 
+                                              odd-or-even="even">
+          <xsl:attribute name="master-reference">
+            <xsl:choose>
+              <xsl:when test="$double.sided != 0">titlepage-even-draft</xsl:when>
+              <xsl:otherwise>titlepage-odd-draft</xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
+        </fo:conditional-page-master-reference>
+      </fo:repeatable-page-master-alternatives>
+    </fo:page-sequence-master>
+
+    <!-- setup for draft lots -->
+    <fo:page-sequence-master master-name="nisp.lot-draft">
+      <fo:repeatable-page-master-alternatives>
+        <fo:conditional-page-master-reference master-reference="nisp.blank-draft"
+                                              blank-or-not-blank="blank"/>
+        <fo:conditional-page-master-reference master-reference="lot-first-draft"
+                                              page-position="first"/>
+        <fo:conditional-page-master-reference master-reference="lot-odd-draft"
+                                              odd-or-even="odd"/>
+        <fo:conditional-page-master-reference 
+                                              odd-or-even="even">
+          <xsl:attribute name="master-reference">
+            <xsl:choose>
+              <xsl:when test="$double.sided != 0">lot-even-draft</xsl:when>
+              <xsl:otherwise>lot-odd-draft</xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
+        </fo:conditional-page-master-reference>
+      </fo:repeatable-page-master-alternatives>
+    </fo:page-sequence-master>
+
+    <!-- setup draft front matter -->
+    <fo:page-sequence-master master-name="nisp.front-draft">
+      <fo:repeatable-page-master-alternatives>
+        <fo:conditional-page-master-reference master-reference="nisp.blank-draft"
+                                              blank-or-not-blank="blank"/>
+        <fo:conditional-page-master-reference master-reference="front-first-draft"
+                                              page-position="first"/>
+        <fo:conditional-page-master-reference master-reference="front-odd-draft"
+                                              odd-or-even="odd"/>
+        <fo:conditional-page-master-reference 
+                                              odd-or-even="even">
+          <xsl:attribute name="master-reference">
+            <xsl:choose>
+              <xsl:when test="$double.sided != 0">front-even-draft</xsl:when>
+              <xsl:otherwise>front-odd-draft</xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
+        </fo:conditional-page-master-reference>
+      </fo:repeatable-page-master-alternatives>
+    </fo:page-sequence-master>
+
+    <!-- setup for draft body pages -->
+    <fo:page-sequence-master master-name="nisp.body-draft">
+      <fo:repeatable-page-master-alternatives>
+        <fo:conditional-page-master-reference master-reference="nisp.blank-draft"
+                                              blank-or-not-blank="blank"/>
+        <fo:conditional-page-master-reference master-reference="body-first-draft"
+                                              page-position="first"/>
+        <fo:conditional-page-master-reference master-reference="body-odd-draft"
+                                              odd-or-even="odd"/>
+        <fo:conditional-page-master-reference 
+                                              odd-or-even="even">
+          <xsl:attribute name="master-reference">
+            <xsl:choose>
+              <xsl:when test="$double.sided != 0">body-even-draft</xsl:when>
+              <xsl:otherwise>body-odd-draft</xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
+        </fo:conditional-page-master-reference>
+      </fo:repeatable-page-master-alternatives>
+    </fo:page-sequence-master>
+
+    <!-- setup draft back matter -->
+    <fo:page-sequence-master master-name="nisp.back-draft">
+      <fo:repeatable-page-master-alternatives>
+        <fo:conditional-page-master-reference master-reference="nisp.blank-draft"
+                                              blank-or-not-blank="blank"/>
+        <fo:conditional-page-master-reference master-reference="back-first-draft"
+                                              page-position="first"/>
+        <fo:conditional-page-master-reference master-reference="back-odd-draft"
+                                              odd-or-even="odd"/>
+        <fo:conditional-page-master-reference 
+                                              odd-or-even="even">
+          <xsl:attribute name="master-reference">
+            <xsl:choose>
+              <xsl:when test="$double.sided != 0">back-even-draft</xsl:when>
+              <xsl:otherwise>back-odd-draft</xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
+        </fo:conditional-page-master-reference>
+      </fo:repeatable-page-master-alternatives>
+    </fo:page-sequence-master>
+
+    <!-- setup draft index pages -->
+    <fo:page-sequence-master master-name="nisp.index-draft">
+      <fo:repeatable-page-master-alternatives>
+        <fo:conditional-page-master-reference master-reference="nisp.blank-draft"
+                                              blank-or-not-blank="blank"/>
+        <fo:conditional-page-master-reference master-reference="index-first-draft"
+                                              page-position="first"/>
+        <fo:conditional-page-master-reference master-reference="index-odd-draft"
+                                              odd-or-even="odd"/>
+        <fo:conditional-page-master-reference 
+                                              odd-or-even="even">
+          <xsl:attribute name="master-reference">
+            <xsl:choose>
+              <xsl:when test="$double.sided != 0">index-even-draft</xsl:when>
+              <xsl:otherwise>index-odd-draft</xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
+        </fo:conditional-page-master-reference>
+      </fo:repeatable-page-master-alternatives>
+    </fo:page-sequence-master>
+  </xsl:if>
 </xsl:template>
 
 
@@ -980,8 +1232,42 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   <xsl:param name="default-pagemaster"/>
 
   <xsl:choose>
-    <xsl:when test="$default-pagemaster = 'blank'">nisp.blank</xsl:when>
-    <xsl:when test="$default-pagemaster = 'blank-draft'">nisp.blank-draft</xsl:when>
+    <xsl:when test="$default-pagemaster = 'titlepage'">
+      <xsl:value-of select="'nisp.titlepage'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'lot'">
+      <xsl:value-of select="'nisp.lot'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'front'">
+      <xsl:value-of select="'nisp.front'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'body'">
+      <xsl:value-of select="'nisp.body'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'back'">
+      <xsl:value-of select="'nisp.back'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'index'">
+      <xsl:value-of select="'nisp.index'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'titlepage-draft'">
+      <xsl:value-of select="'nisp.titlepage-draft'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'lot-draft'">
+      <xsl:value-of select="'nisp.lot-draft'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'front-draft'">
+      <xsl:value-of select="'nisp.front-draft'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'body-draft'">
+      <xsl:value-of select="'nisp.body-draft'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'back-draft'">
+      <xsl:value-of select="'nisp.back-draft'"/>
+    </xsl:when>
+    <xsl:when test="$default-pagemaster = 'index-draft'">
+      <xsl:value-of select="'nisp.index-draft'"/>
+    </xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="$default-pagemaster"/>
     </xsl:otherwise>
