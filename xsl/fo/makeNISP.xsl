@@ -969,6 +969,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   </fo:simple-page-master>
 
   <!-- setup for title page(s) -->
+<!--
   <fo:page-sequence-master master-name="nisp.titlepage">
     <fo:repeatable-page-master-alternatives>
       <fo:conditional-page-master-reference master-reference="nisp.blank"
@@ -988,6 +989,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       </fo:conditional-page-master-reference>
     </fo:repeatable-page-master-alternatives>
   </fo:page-sequence-master>
+-->
 
   <!-- setup for lots -->
   <fo:page-sequence-master master-name="nisp.lot">
@@ -1074,6 +1076,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   </fo:page-sequence-master>
 
   <!-- setup back matter -->
+<!--
   <fo:page-sequence-master master-name="nisp.index">
     <fo:repeatable-page-master-alternatives>
       <fo:conditional-page-master-reference master-reference="nisp.blank"
@@ -1093,10 +1096,11 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       </fo:conditional-page-master-reference>
     </fo:repeatable-page-master-alternatives>
   </fo:page-sequence-master>
-
+-->
   
   <xsl:if test="$draft.mode != 'no'">
     <!-- setup for draft title page(s) -->
+<!--
     <fo:page-sequence-master master-name="nisp.titlepage-draft">
       <fo:repeatable-page-master-alternatives>
         <fo:conditional-page-master-reference master-reference="nisp.blank-draft"
@@ -1116,6 +1120,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
         </fo:conditional-page-master-reference>
       </fo:repeatable-page-master-alternatives>
     </fo:page-sequence-master>
+-->
 
     <!-- setup for draft lots -->
     <fo:page-sequence-master master-name="nisp.lot-draft">
@@ -1202,6 +1207,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     </fo:page-sequence-master>
 
     <!-- setup draft index pages -->
+<!--
     <fo:page-sequence-master master-name="nisp.index-draft">
       <fo:repeatable-page-master-alternatives>
         <fo:conditional-page-master-reference master-reference="nisp.blank-draft"
@@ -1221,6 +1227,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
         </fo:conditional-page-master-reference>
       </fo:repeatable-page-master-alternatives>
     </fo:page-sequence-master>
+-->
   </xsl:if>
 </xsl:template>
 
@@ -1232,9 +1239,11 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   <xsl:param name="default-pagemaster"/>
 
   <xsl:choose>
+<!--
     <xsl:when test="$default-pagemaster = 'titlepage'">
       <xsl:value-of select="'nisp.titlepage'"/>
     </xsl:when>
+-->
     <xsl:when test="$default-pagemaster = 'lot'">
       <xsl:value-of select="'nisp.lot'"/>
     </xsl:when>
@@ -1247,12 +1256,14 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <xsl:when test="$default-pagemaster = 'back'">
       <xsl:value-of select="'nisp.back'"/>
     </xsl:when>
+<!--
     <xsl:when test="$default-pagemaster = 'index'">
       <xsl:value-of select="'nisp.index'"/>
     </xsl:when>
     <xsl:when test="$default-pagemaster = 'titlepage-draft'">
       <xsl:value-of select="'nisp.titlepage-draft'"/>
     </xsl:when>
+-->
     <xsl:when test="$default-pagemaster = 'lot-draft'">
       <xsl:value-of select="'nisp.lot-draft'"/>
     </xsl:when>
@@ -1265,9 +1276,11 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <xsl:when test="$default-pagemaster = 'back-draft'">
       <xsl:value-of select="'nisp.back-draft'"/>
     </xsl:when>
+<!--
     <xsl:when test="$default-pagemaster = 'index-draft'">
       <xsl:value-of select="'nisp.index-draft'"/>
     </xsl:when>
+-->
     <xsl:otherwise>
       <xsl:value-of select="$default-pagemaster"/>
     </xsl:otherwise>
