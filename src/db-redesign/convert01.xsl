@@ -10,7 +10,7 @@
        <xsl:apply-templates select="standard/@*"/>
        <xsl:apply-templates select="standard/*"/>
     </document>
-    <xsl:apply-templates select="*[node()!='standard']"/>
+    <xsl:apply-templates select="*[name()!='standard']"/>
   </newstandard>
 </xsl:template>
 
