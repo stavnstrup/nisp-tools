@@ -8,6 +8,7 @@
     <xsl:apply-templates select="@*"/>
     <document>
        <xsl:apply-templates select="standard/@*"/>
+       <xsl:apply-templates select="standard/*"/>
     </document>
     <xsl:apply-templates select="*[node()!='standard']"/>
   </newstandard>
