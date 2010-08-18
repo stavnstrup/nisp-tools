@@ -89,12 +89,14 @@ table:
         <category id="coi-gen-mw" title="Map View"/>
         <category id="coi-gen-mm" title="Map Mgmt"/>
         <category id="coi-gen-sgv" title="Spatial Geography Visualisation"/>
+        <category id="coi-gen-doc" title="Document Management"/>
       </servicecategory>  
       <servicecategory id="ts-coi-sp" title="Specific COI Services">
         <category id="coi-ci" title="Communicate and Inform">
           <subcategory id="coi-ci-bm" title="Battlespace Mgmt"/>
           <subcategory id="coi-ci-orm" title="Orbat Mgmt"/>
           <subcategory id="coi-ci-ovm" title="Overlay Mgmt"/>
+          <subcategory id="coi-ci-met" title="Meteo Svc"/>
           <subcategory id="coi-ci-sm" title="Symbol Mgmt"/>
           <subcategory id="coi-ci-trak" title="Tracking"/>
           <subcategory id="coi-ci-sync" title="Synchronisation"/>
@@ -200,6 +202,100 @@ table:
   </servicearea>
 
   <lists>
+    <sp-list tref="coi-gen-doc">
+      <sp-view idx="d0e641" category="a">
+        <select id="nato-stanag1401" mode="mandatory">Joint Brevity Words Publication (APP-7, STANAG 1401 ed.13:2010)</select>
+        <rationale>STANAG 1401 ed.1, aadded in NISP v.5 through RFCP 4-7</rationale>
+      </sp-view>
+    </sp-list>
+    <sp-list tref="coi-ci-met">
+      <sp-view idx="d0e630" category="a">
+        <select id="nato-stanag1116" mode="mandatory">Specifications for Naval Mine Warfare Information and for Data Transfer - AMP 11 (STANAG 1116 ed.9:2010)</select>
+        <rationale>STANAG 1116 ed.9, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e631" category="a">
+        <select id="nato-stanag1171" mode="mandatory">NATO Handbook of Military Oceanographic Information and Services(STANAG 1171 ed.9:2008)</select>
+        <rationale>STANAG 1171 ed.9, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e632" category="a">
+        <select id="nato-stanag1317" mode="mandatory">NATO Oceanographic Data Exchange Format (STANAG 1317 ed.3:2008)</select>
+        <rationale>STANAG 1317 ed.3, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e633" category="a">
+        <select id="nato-stanag1456" mode="mandatory">Interoperability between Naval Mine Warfare Data Centres (STANAG 1456 ed.2:2010)</select>
+        <rationale>STANAG 1456 ed.2, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e634" category="a">
+        <select id="nato-stanag2103" mode="mandatory">Warning and Reporting and Hazard Prediction of Chemical, Biological, Radiological and Nuclear Incidents (STANAG 2103 ed.10:2010)</select>
+        <rationale>STANAG 2103 ed.10, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e635" category="a">
+        <select id="nato-stanag4061" mode="mandatory">Adoption of a Standard Ballistic Meteorological Message (STANAG 4061 ed.4:2000)</select>
+        <rationale>STANAG 4061 ed.4, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e636" category="a">
+        <select id="nato-stanag4082" mode="mandatory">Adoption of a Standard Artillery Computer Meteorological Message (STANAG 4082 ed.2:2000)</select>
+        <select id="nato-stanag4082" mode="emerging">Adoption of a Standard Artillery Computer Meteorological Message (STANAG 4082 ed.3:2010 RD)</select>
+        <rationale>STANAG 4082 ed.2, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e637" category="a">
+        <select id="nato-stanag4103" mode="mandatory">Format of Requests for Meteorological Messages for Ballistic and Special Purposes (STANAG 4103 ed.4:2001)</select>
+        <rationale>STANAG 4103 ed.4, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e638" category="a">
+        <select id="nato-stanag4140" mode="mandatory">Adoption of a Standard Target Acquisition Meteorological Message (STANAG 4140 ed.2:2001)</select>
+        <rationale>STANAG 4140 ed.2, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e639" category="a">
+        <select id="nato-stanag6015" mode="mandatory">NATO Meteorological Codes Manual (STANAG 6015 ed.4:2005)</select>
+        <rationale>STANAG 6015 ed.4, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+      <sp-view idx="d0e640" category="a">
+        <select id="nato-stanag6022" mode="mandatory">Adoption of a Standard Gridded Data Meteorological Message (STANAG 6022 ed.2:2010)</select>
+        <rationale>STANAG 6022 ed.2, added in NISP v.5 through RFCP 4-12</rationale>
+      </sp-view>
+    </sp-list>
+    <sp-list tref="coi-ci-ovm">     
+      <sp-view idx="d0e9607" category="a">
+        <select id="nato-stanag7170" mode="mandatory">Additional military Layers
+	  for digital geospatial data products (AML), STANAG 7170 ed.1:2003</select>
+	<select id="nato-stanag7170" mode="emerging">AAML, STANAG 7170 RD ed.2:2010</select>  
+        <remarks>STANAG 7170 is the reference to the NATO Maritime Concepts standard
+          and describes the product Additional Military Layers. This standard includes
+          the Features, Attributes and enumerations specified by AML, but not covered
+          by the IHO S-57 version 3.1.2 (June 2009) Object Catalogue. Once all required
+          maritime definitions are included in DFDD/NGFCD, reference to STANAG 7170
+          may be unnecessary.</remarks>
+        <rationale>
+          Included in v.5 through RFCP 4-2; STANAG 7170 ed.1 included and
+          changed to mandatory in NCSP v.6
+        </rationale>
+      </sp-view>
+      <sp-view idx="d0e9498" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="nato-stanag7074" mode="emerging">DIGEST V2.0 and  DIGEST V2.1, STANAG 7074 ed.2:1998, AgeoP-3 (VMaps, USRP, ASRP)</select>
+        <remarks>
+          IGEOWG is in the process of implementing DFDD as a STANAG called the NGFCD
+          (NATO Geospatial Feature Concept Dictionary). The IGEOWG will regulate
+          any proposals that DGIWG may put forward with respect to DIGEST replacements.
+        </remarks>
+        <rationale>
+          STANAG 7074 ed.2 changed in NCSP v.6 through RFCP 5-27; DIGEST V 2.1
+          moved to mandatory in v.7 through RFCP 6-16 and changed in NISP v.5 through RFCP 4-6.
+        </rationale>
+      </sp-view>
+            <sp-view idx="d0e9522" category="a">
+        <ncoe>Data Interchange</ncoe>
+        <select id="nato-stanag3809" mode="mandatory">DTED (STANAG 3809 ed.4:2006)</select>
+        <remarks>Digital Terrain Elevation Exchange Format STANAG 3809 is based on
+          US MIL-PRF-89020B, Digital Terrain Elevation Data (DTED), dated 23 May 2000.
+          The USA, custodians of DTED, are working with the DGIWG to define and develop
+          appropriate replacement standards for the exchange format in order to address
+          new and emerging elevation requirements.
+        </remarks>
+        <rationale>STANAG 3809 ed.4 changed in NCSP v.6</rationale>
+      </sp-view>
+    </sp-list>
     <sp-list tref="ts-ces-infr">
       <sp-view idx="d0e642" category="a">
         <ncoe>Distr. Comp.</ncoe>
@@ -207,39 +303,39 @@ table:
       </sp-view>
       <sp-view idx="d0e647" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="sun-" mode="emerging">Open Network Computing (ONC) 1.1 (The Open Group)</select>
+        <select id="SUN-RPC" mode="emerging">ONC RPC v.2 (IETF RFC 1831:1995)</select>
       </sp-view>
       <sp-view idx="d0e652" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="opengroup-" mode="emerging">DCE RPC v1.1 (The Open Group)</select>
+        <select id="opengroup-" mode="emerging">DCE RPC v1.1:1997 (The Open Group)</select>
       </sp-view>
       <sp-view idx="d0e657" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="microsoft-isbn-1-55615-804-1" mode="emerging"> Remote Procedure Call (MS-RPC) (MS)</select>
+        <select id="microsoft-isbn-1-55615-804-1" mode="emerging"> Remote Procedure Call (MS-RPC:2003) (MS)</select>
         <remarks>As part of MS Windows 2000 Interfaces</remarks>
       </sp-view>
       <sp-view idx="d0e664" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="x-consortium-x11r6.6" mode="mandatory">X Window (see UI Svc)</select>
+        <select id="x-consortium-x11r7.5" mode="mandatory">X Window X11R7.5:2009, (X.Org) (see UI Svc)</select>
       </sp-view>
       <sp-view idx="d0e669" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="opengroup-f209a" mode="emerging">DCE DFS v1.1</select>
+        <select id="opengroup-f209a" mode="emerging">DCE DFS v1.1:1997 (The Open Group)</select>
       </sp-view>
       <sp-view idx="d0e674" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="opengroup-c702" mode="emerging">X/Open Network File System (XNFS) 3W (The Open Group)</select>
+        <select id="opengroup-c702" mode="emerging">X/Open Network File System (XNFS) v.3W:1998 (The Open Group)</select>
         <remarks>Includes RFC 1094:1989 (NFS 89) and RFC 1813:1995 (NFS95)</remarks>
         <rationale>Includes RFC 1094:1989 (NFS 89) and RFC 1813:1995 (NFS95)</rationale>
       </sp-view>
       <sp-view idx="d0e683" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="microsoft-smb" mode="emerging">Server Message Block (MS-SMB) (MS)</select>
+        <select id="microsoft-smb" mode="emerging">Server Message Block (MS-SMB) v20100711:2010 (MS)</select>
         <remarks>As part of MS Windows 2000</remarks>
       </sp-view>
       <sp-view idx="d0e690" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="osf-p313" mode="emerging">DCE DTS v1.1</select>
+        <select id="opengroup-c310" mode="emerging">DCE DTS v1.1:1995 (The Open Group)</select>
         <remarks>
           DCE DTS uses TPI (Time Provider Interface) to access
           other distributed time services (such as NTP as mentioned under
@@ -248,11 +344,11 @@ table:
       </sp-view>
       <sp-view idx="d0e697" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="omg-formal-2002-12-06" mode="emerging">CORBA/IIOP 2.2</select>
+        <select id="omg-formal-2002-12-06" mode="emerging">CORBA/IIOP 2.2:2009 (OMG)</select>
       </sp-view>
       <sp-view idx="d0e702" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="microsoft-isbn-1-55615-804-1" mode="fading">MS-DCOM</select>
+        <select id="microsoft-isbn-1-55615-804-1" mode="fading">MS-DCOM v.12.0:2010 (MS)</select>
         <remarks>
           As part of MS Windows 2000 Interfaces; DCOM only
           in local environment, not for outside.
@@ -261,13 +357,9 @@ table:
       </sp-view>
       <sp-view idx="d0e711" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="ieee-p1278" mode="mandatory">
-          Standardised Information technology
-          Protocols for Distributed Interactive Simulation (DIS)(STANAG 4482 ed.1:1995)
-        </select>
         <select id="ieee-p1278" mode="fading">
-          STANAG 4482 should be migrated to IEEE
-          Std 1278:1998
+          Standardised Information technology
+          Protocols for Distributed Interactive Simulation (DIS)(STANAG 4482 ed.1:2010)
         </select>
         <remarks>
           For CCEB interoperability the mandatory standard is IEEE Std 1278.1a:1998
@@ -339,17 +431,17 @@ table:
         <rationale>Included in NISP v.3 through RFCP 2-12.</rationale>
       </sp-view>
       <sp-view idx="d0e1171" category="a">
-        <select id="w3c-rdf" mode="emerging">Resource Description Framework (RDF) (W3C)</select>
+        <select id="w3c-rdf" mode="emerging">Resource Description Framework (RDF):2004 (W3C)</select>
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
         <rationale>Included in NISP v.3 by RFCP 2-18</rationale>
       </sp-view>
       <sp-view idx="d0e1178" category="a">
-        <select id="w3c-rec-rdf-sparql-query-20080115" mode="emerging">Protocol and RDF Query Language (SPARQL) (W3C)</select>
+        <select id="w3c-rec-rdf-sparql-query-20080115" mode="emerging">Protocol and RDF Query Language (SPARQL):2008 (W3C)</select>
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
         <rationale>Included in NISP v.3 by RFCP 2-19</rationale>
       </sp-view>
       <sp-view idx="d0e4970" category="a">
-        <select id="ietf-draft-lee-sip-dns-sd-uri-03.txt" mode="emerging">DNS Service Disvovery (DNS-SD) (ACT TIDE)</select>
+        <select id="ietf-draft-lee-sip-dns-sd-uri-03.txt" mode="emerging">DNS Service Disvovery (DNS-SD):2010 (ACT TIDE)</select>
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
         <rationale>DNS-SD included in NISP v.3 by RFCP 2-15</rationale>
       </sp-view>
@@ -357,7 +449,7 @@ table:
     <sp-list tref="ts-rep-eds">
       <sp-view idx="d0e6734" category="a">
         <ncoe>Comms</ncoe>
-        <select id="cceb-acp133" mode="emerging">Common Directory Services and Procedures (ACP 133C)</select>
+        <select id="cceb-acp133" mode="mandatory">Common Directory Services and Procedures (ACP 133C:2009)</select>
         <select id="cceb-acp133" mode="fading">ACP 133B</select>
         <remarks>
           Contains schema.ACP 133B contains the upper layer
@@ -385,7 +477,7 @@ table:
       </sp-view>
       <sp-view idx="d0e6761" category="a">
         <ncoe>Comms</ncoe>
-        <select id="iso-iec-9594" mode="fading">DSP (ITU-T X.500:2005)</select>
+        <select id="iso-iec-9594" mode="fading">DSP (ITU-T X.500:2008)</select>
         <remarks>
           DSP defines X.500 server to server communication, including chaining.
           <para>For CCEB interoperability this standard is not applicable</para>
@@ -393,7 +485,7 @@ table:
       </sp-view>
       <sp-view idx="d0e6770" category="a">
         <ncoe>Comms</ncoe>
-        <select id="iso-iec-9594" mode="fading">DSIP (ITU-T X.500:2005)</select>
+        <select id="iso-iec-9594" mode="fading">DSIP (ITU-T X.500:2008)</select>
         <remarks>
           DISP defines X.500 based information shadowing/replication.
           <para>For CCEB interoperability this standard is not applicable</para>
@@ -401,7 +493,7 @@ table:
       </sp-view>
       <sp-view idx="d0e6779" category="a">
         <ncoe>Comms</ncoe>
-        <select id="iso-iec-9594" mode="fading">DOP (ITU-T X.500:2005)</select>
+        <select id="iso-iec-9594" mode="fading">DOP (ITU-T X.500:2008)</select>
         <remarks>
           Contains operational management. <para>
             For CCEB interoperability this
@@ -413,7 +505,7 @@ table:
     <sp-list tref="ts-ces-rep">
       <sp-view idx="d0e8554" category="a">
         <ncoe>Data Mgmt</ncoe>
-        <select id="nato-stanag5523" mode="mandatory">NC3 Repository</select>
+        <select id="nato-stanag5523" mode="fading">NC3 Repository</select>
         <remarks>
           Common repository for standard data elements and their
           related tool for the NATO Corporate Data Model for Data
@@ -425,7 +517,7 @@ table:
     </sp-list>
     <sp-list tref="ts-rep-meta">
       <sp-view idx="d0e9015" category="a">
-        <select id="nato-nmrr" mode="emerging">NATO Metadata Registry and Repository (NMRR)</select>
+        <select id="nato-nmrr" mode="emerging">NATO Metadata Registry and Repository (NMRR) (NC3A TN-1313:2008)</select>
         <remarks>For CCEB interoperability this standard is not applicable.</remarks>
         <rationale>NMRR added in NISP v.3 through RFCP 2-24.</rationale>
       </sp-view>
@@ -455,7 +547,7 @@ table:
       </sp-view>
       <sp-view idx="d0e8643" category="">
         <ncoe>Data Mgmt</ncoe>
-        <select id="sun-jsr221" mode="mandatory">JAVA DBC (JDBC)</select>
+        <select id="sun-jsr221" mode="mandatory">JAVA DBC version 4.1:2006 (JDBC)</select>
         <select id="sun-jsr221" mode="fading">JDBC separated from ODBC</select>
         <rationale>JDBC separated from ODBC in NCSP v.6 through RFCP 5-28</rationale>
       </sp-view>
@@ -611,7 +703,7 @@ table:
         <rationale>SVGMobile added in NCSP v.6 through RFCP 5-14</rationale>
       </sp-view>
       <sp-view idx="d0e9008" category="a">
-        <select id="nato-tide-nvg" mode="emerging">NVG - NATO Vector Graphics Protocol, ACT</select>
+        <select id="nato-tide-nvg" mode="emerging">NVG - NATO Vector Graphics Protocol v.1.5:2010 (ACT)</select>
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
         <rationale>NVG added in NISP v.3 through RFCP 2-20.</rationale>
       </sp-view>
@@ -706,8 +798,7 @@ table:
       </sp-view>
       <sp-view idx="d0e9418" category="a">
         <ncoe>Data Mgmt</ncoe>
-        <select id="nato-app-11" mode="mandatory">APP-11(B)/ STANAG 7149 ed.3:2008 NATO Message Catalogue</select>
-        <select id="nato-app-11" mode="emerging">APP-11(C)/ STANAG 7149 ed.4</select>
+        <select id="nato-app-11" mode="mandatory">APP-11(C)/ STANAG 7149 ed.4:2009 NATO Message Catalogue</select>
         <remarks>
           APP-11 (STANAG 7149) as the single source for NATO Military Messages
           for command and control of NATO forces at all levels of the Chain of Command
@@ -727,29 +818,6 @@ table:
         </remarks>
         <rationale>ISO 9735:1998 canceled, new ISO 9735:2002. Changed in NCSP v.6</rationale>
       </sp-view>
-      <sp-view idx="d0e9498" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="nato-stanag7074" mode="mandatory">DIGEST V2.0 and  DIGEST V2.1, STANAG 7074 ed.2:1998, AgeoP-3 (VMaps, USRP, ASRP)</select>
-        <remarks>
-          Source data may be provided in this format for conversion to the
-          neutral database format by the CWS.<para>
-            Note: DGIWG is in the process of
-            restructuring DIGEST based on the ISO 19*** standards. They are generating
-            military specific profiles of the ISO standards. Of particular interest to
-            the Core GIS project are profiles of: Spatial Schema (19107), General Feature
-            Model (19109), Metadata (19115), Portrayal (19117),  and FACC Data Dictionary
-            (19126).
-          </para>
-          <para>
-            For CCEB interoperability the mandatory standard is
-            DGIWG Feature Data Directory 2006 and DIGEST v2.1 is fading.
-          </para>
-        </remarks>
-        <rationale>
-          STANAG 7074 ed.2 changed in NCSP v.6 through RFCP 5-27; DIGEST V 2.1
-          moved to mandatory in v.7 through RFCP 6-16
-        </rationale>
-      </sp-view>
       <sp-view idx="d0e9511" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="iso-19136" mode="fading">GML v3.2 (ISO 19136:2007)</select>
@@ -766,15 +834,9 @@ table:
           in NCSP v.7 and to fading in v.8
         </rationale>
       </sp-view>
-      <sp-view idx="d0e9522" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="nato-stanag3809" mode="mandatory">DLMS/DTED (STANAG 3809 ed.4:2006)</select>
-        <remarks>Digital Terrain Elevation Exchange Format</remarks>
-        <rationale>STANAG 3809 ed.4 changed in NCSP v.6</rationale>
-      </sp-view>
       <sp-view idx="d0e9531" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="nima-mil-prf89005" mode="mandatory">DLMS/DFAD1</select>
+        <select id="nima-mil-prf89005" mode="mandatory">DLMS/DFAD1, Mil-PRF-89005:1994 (NGA)</select>
         <remarks>
           DLMS/DFAD1 must be used until DIGEST/VMAP 1 covers the whole world.
           <para>For CCEB interoperability this standard is not applicable</para>
@@ -856,16 +918,6 @@ table:
         <select id="nato-stanag2211ed.6" mode="mandatory">Geodetic Projections, STANAG 2211 ed.6:2001</select>
         <rationale>Included in v.5 through RFCP 4-1; STANAG 2211 ed.6 included in NCSP v.6</rationale>
       </sp-view>
-      <sp-view idx="d0e9607" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="nato-stanag7170" mode="mandatory">Additional military Layers
-	  for digital geospatial data products (AML), STANAG 7170 ed.1:2003</select>
-        <remarks/>
-        <rationale>
-          Included in v.5 through RFCP 4-2; STANAG 7170 ed.1 included and
-          changed to mandatory in NCSP v.6
-        </rationale>
-      </sp-view>
       <sp-view idx="d0e10072" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="dod-mil-std2525b" mode="mandatory"></select>
@@ -899,17 +951,10 @@ table:
         </remarks>
         <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
       </sp-view>
-      <sp-view idx="d0e10108" category="a">
-        <ncoe>Data Interchange</ncoe>
-        <select id="nato-stanag3675ed.2" mode="mandatory">
-          Symbols on Land Maps, Aeronautical
-          Charts and special Naval Charts (STANAG 3675 ed.2:2000)
-        </select>
-      </sp-view>
       <sp-view idx="d0e10113" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="iho-s-57" mode="mandatory">IHO S-57, Version 3.1, 2000</select>
-        <select id="iho-s-57" mode="emerging">IHO S-57, Version 4.0</select>
+        <select id="iho-s-57" mode="mandatory">IHO S-57 v.3.1, 2000</select>
+        <select id="iho-s-57" mode="emerging">IHO S-57 v.4.0</select>
         <remarks>
           Standard defined by IHO for digital maritime information. Currently
           in harmonisation with DIGEST. Access to S-57 data may be required by maritime
@@ -928,7 +973,7 @@ table:
       </sp-view>
       <sp-view idx="d0e10167" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="ogc-ogc04-024" mode="mandatory">Web Map Service v.1.3 (OGC 04-024)</select>
+        <select id="ogc-ogc04-024" mode="mandatory">Web Map Service v.1.3:2010 (OGC 04-024)</select>
         <select id="iso-iso19128" mode="emerging">ISO 19128:2005 Web Map Service</select>
         <remarks>
           Used as a means of distributing compiled mapping data between
@@ -939,7 +984,7 @@ table:
       <sp-view idx="d0e10178" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="ogc-ogc04-094" mode="mandatory">
-          Web Feature Service v.1.1 (OGC 04-094)
+          Web Feature Service v.1.1:2010 (OGC 04-094)
         </select>
         <remarks>
           Used as a means of distributing geo feature (vector) data between
@@ -952,7 +997,7 @@ table:
       <sp-view idx="d0e10189" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="ogc-ogc02-065r6" mode="mandatory">
-          Web Coverage Service v.1.0 (OGC 03-065r6)
+          Web Coverage Service v.1.0:2010 (OGC 03-065r6)
         </select>
         <remarks>
           Used as a means of distributing geo coverages (raster) data between
@@ -965,7 +1010,7 @@ table:
       <sp-view idx="d0e10200" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="ogc-ogc05-047r2" mode="emerging">
-          GML in JPEG 2000 for Geographic Imagery (GMLJP2) (OGC 05-047r)
+          GML in JPEG 2000 for Geographic Imagery (GMLJP2) v.0.3.0 (OGC 05-047r):2005
         </select>
         <remarks>
           This evolving OGC standard describes minimally required GML definition
@@ -978,7 +1023,7 @@ table:
       <sp-view idx="d0e10209" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="ogc-ogc03-081r2" mode="emerging">
-          OGC Web Terrain Service and OGC Web3DService
+          OGC GIS Web Terrain Service RFC v.05:2004 
         </select>
         <remarks>
           Used as a means to perform Web Service based Terrain analysis and
@@ -1001,7 +1046,7 @@ table:
       <sp-view idx="d0e10227" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="ogc-ogc01-024r1" mode="emerging">
-          Web Registry Service v.0.0.2 (OGC Ref. 01-024r1)
+          Web Registry Service v.0.0.2:2001 (OGC Ref. 01-024r1)
         </select>
         <remarks>Used as a means of publishing and finding geo services.</remarks>
         <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
@@ -1009,7 +1054,7 @@ table:
       <sp-view idx="d0e10236" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="ogc-ogc02-087r3" mode="emerging">
-          Catalog Interface v.1.1.1 (OGC Ref. 02-087r3 )
+          Catalog Interface v.1.1.1:2002 (OGC Ref. 02-087r3 )
         </select>
         <remarks>Used as a means of discovering geo metadata.</remarks>
         <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
@@ -1023,13 +1068,12 @@ table:
       </sp-view>
       <sp-view idx="d0e10383" category="b">
         <ncoe>Data Interchange</ncoe>
-        <select id="opengl-glspec14" mode="mandatory">OpenGL v2.0:2004</select>
-        <select id="opengl-glspec14" mode="fading">OpenGL v1.5:2003</select>
+        <select id="opengl-glspec14" mode="mandatory">OpenGL v4.0:2010</select>
         <remarks>For CCEB interoperability this standard is not applicable</remarks>
       </sp-view>
       <sp-view idx="d0e10393" category="b">
         <ncoe>Data Interchange</ncoe>
-        <select id="omg-formal03-03-01" mode="mandatory">Unified Modeling Language (UML) v2.0:2003 (OMG)</select>
+        <select id="omg-formal03-03-01" mode="mandatory">Unified Modeling Language (UML) v2.0:2010 (OMG)</select>
         <remarks>For CCEB interoperability this standard is not applicable</remarks>
       </sp-view>
       <sp-view idx="d0e10512" category="a">
@@ -1041,7 +1085,7 @@ table:
       </sp-view>
       <sp-view idx="d0e10517" category="a">
         <ncoe>Internationalisation</ncoe>
-        <select id="nato-stanag1059" mode="mandatory">Letters for Geographic Entities, STANAG 1059, ed.8:2004</select>
+        <select id="nato-stanag1059" mode="mandatory">Letters for Geographic Entities, STANAG 1059, ed.8:2005</select>
         <select id="nato-stanag1059" mode="emerging">Letters for Geographic Entities, STANAG 1059, ed.9</select>
         <remarks>
           For CCEB interoperability the country codes standard is ISO 3166
@@ -1053,7 +1097,7 @@ table:
         <ncoe>SW Engineering</ncoe>
         <select id="ecma-ecma-262" mode="mandatory">
           ECMA Script Language Specification (ECMA
-          262)
+          262) ed.3:2009
         </select>
         <remarks>
           Scripting required for enhanced Web pages
@@ -1103,11 +1147,7 @@ table:
         <ncoe>Data Interchange</ncoe>
         <select id="nato-stanag4329" mode="mandatory">
           NATO Standard Bar Code Symbology (STANAG
-          4329 ed.2:2004)
-        </select>
-        <select id="nato-stanag4329" mode="emerging">
-          NATO Standard Bar Code Symbology (STANAG
-          4329 ed.3)
+          4329 ed.3:2010)
         </select>
         <remarks>
           STANAG 4329 is a cover STANAG of ISO 16388:1999 - Bar
@@ -1630,7 +1670,7 @@ table:
         </select>
         <select id="nato-stanag5616ed.4" mode="emerging">
           Standards for Data Forwarding between
-          Tactical Data Systems employing Link-11/11B and Link-16 (STANAG 5616 ed.5)
+          Tactical Data Systems employing Link-11/11B and Link-16 (STANAG 5616 ed.5:2009)
         </select>
         <remarks>
           Gateway between Link-11 and Link-16. <para>
@@ -1649,7 +1689,7 @@ table:
       <sp-view idx="d0e1845" category="a">
         <ncoe>Comms</ncoe>
         <select id="nato-stanag5511ed.6" mode="mandatory">Link 11 STANAG 5511 ed.6:2008</select>
-        <select id="nato-stanag5511ed.6" mode="emerging">Link 11 STANAG 5511 ed.7</select>
+        <select id="nato-stanag5511ed.6" mode="emerging">Link 11 STANAG 5511 ed.7:2008</select>
         <remarks>
           Communications part for Link-11 <para>
             For CCEB interoperability the
@@ -1666,7 +1706,7 @@ table:
       <sp-view idx="d0e1863" category="a">
         <ncoe>Comms</ncoe>
         <select id="nato-stanag4175ed.3-dublet" mode="mandatory">STANAG 4175 ed.3:2001</select>
-        <select id="nato-stanag4175ed.3-dublet" mode="emerging">STANAG 4175 ed.4</select>
+        <select id="nato-stanag4175ed.3-dublet" mode="emerging">STANAG 4175 ed.4:2009</select>
         <remarks>Communications part for Link-16</remarks>
         <rationale>STANAG 4175 ed.4 changed to ed.3 in NCSP v.6</rationale>
       </sp-view>
@@ -1687,6 +1727,7 @@ table:
       <sp-view idx="d0e1883" category="a">
         <ncoe>Comms</ncoe>
         <select id="nato-stanag4586" mode="mandatory">STANAG 4586 ed.2:2007</select>
+        <select id="nato-stanag4586" mode="emerging">STANAG 4586 ed.3:2008</select>
         <remarks>
           STANAG 4586 facilitates communication between a UCS and
           different UAVs and their payloads as well as multiple C4I users.
@@ -1762,10 +1803,12 @@ table:
 
       <sp-view idx="d0e1921" category="a">
         <select id="nato-stanag5046" mode="mandatory">The NATO Military Communications Directory System, STANAG 5046 ed.3</select>
+        <select id="nato-stanag5046" mode="emerging">The NATO Military Communications Directory System, STANAG 5046 ed.4:2010</select>
         <rationale>Included in NISP v.4 through RFCP 3-3</rationale>
       </sp-view>
       <sp-view idx="d0e1926" category="a">
         <select id="nato-stanag5067" mode="emerging">Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels, STANAG 5067 ed.1 (RD)</select>
+        <select id="nato-stanag5067" mode="emerging">Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels, STANAG 5067 ed.1:2007 (RD)</select>
         <rationale>Included in NISP v.4 through RFCP 3-3</rationale>
       </sp-view>
     </sp-list>
@@ -1875,7 +1918,7 @@ table:
       </sp-view>
       <sp-view idx="d0e4495" category="a">
         <ncoe>Comms</ncoe>
-        <select id="nato-stanag4444ed.1-draft" mode="emerging">STANAG 4444 ed.1 (Slow hop ECCM)</select>
+        <select id="nato-stanag4444ed.1-draft" mode="emerging">STANAG 4444 ed.1:1999 RD (Slow hop ECCM)</select>
         <remarks>
           HF standard for Link-22.<para>
             For CCEB interoperability this
@@ -1886,7 +1929,7 @@ table:
       </sp-view>
       <sp-view idx="d0e4506" category="a">
         <ncoe>Comms</ncoe>
-        <select id="dod-mil-std3011" mode="emerging">JREAP, MIL-STD 3011</select>
+        <select id="dod-mil-std3011" mode="mandatory">JREAP, MIL-STD 3011</select>
         <rationale>JREAP: Included in v.7 through RFCP 6-17</rationale>
       </sp-view>
       <sp-view idx="d0e4513" category="a">
@@ -2073,22 +2116,22 @@ table:
       <sp-view idx="d0e4662" category="a">
         <ncoe>Comms</ncoe>
         <select id="nato-stanag4175ed.3-dublet" mode="mandatory">MIDS terminals STANAG 4175 ed. 3:2001</select>
-        <select id="nato-stanag4175ed.3-dublet" mode="emerging">MIDS terminals STANAG 4175 ed. 4</select>
+        <select id="nato-stanag4175ed.3-dublet" mode="emerging">MIDS terminals STANAG 4175 ed. 4:2009</select>
         <rationale>Changed with erratum list with NCSP v.4; STANAG 4175 ed. 4 changed to ed.3 in NCSP v.6</rationale>
       </sp-view>
       <sp-view idx="d0e4671" category="a">
         <ncoe>Comms</ncoe>
-        <select id="eia-rs-232" mode="fading">Single serial line interface (RS-232)</select>
+        <select id="eia-rs-232" mode="fading">Single serial line interface (TIA-232-E:1991)</select>
       </sp-view>
       <sp-view idx="d0e4676" category="a">
         <ncoe>Comms</ncoe>
-        <select id="eia-rs-422-423" mode="fading">Multi-point serial line (RS-422/RS-423)</select>
+        <select id="eia-rs-422-423" mode="fading">Multi-point serial line (TIA-422-B:2005)</select>
       </sp-view>
       <sp-view idx="d0e4681" category="a">
         <ncoe>Comms</ncoe>
         <select id="eia-rs-530" mode="mandatory">
           Serial binary data exchange at DTE and DCE
-          (RS-530)
+          (TIA-530-A)
         </select>
       </sp-view>
       <sp-view idx="d0e4686" category="a">
@@ -2101,7 +2144,7 @@ table:
     </sp-list>
     <sp-list tref="nis-ts-vlf">
       <sp-view idx="d0e4693" category="a">
-        <select id="nato-stanag5030ed.4" mode="mandatory">VLF and LF Broadcast OOK Systems, STANAG 5030ed.4</select>
+        <select id="nato-stanag5030ed.4" mode="mandatory">VLF and LF Broadcast OOK Systems, STANAG 5030ed.4:1995</select>
         <rationale>Added in NISP v.4 through RFCP 3-3</rationale>
       </sp-view>
     </sp-list>
@@ -2151,7 +2194,7 @@ table:
       </sp-view>
       <sp-view idx="d0e4742" category="a">
         <ncoe>Comms</ncoe>
-        <select id="nato-stanag4444ed.1-draft" mode="emerging">HF Radios STANAG 4444 ed.1</select>
+        <select id="nato-stanag4444ed.1-draft" mode="emerging">HF Radios STANAG 4444 ed.1:1999</select>
       </sp-view>
       <sp-view idx="d0e4747" category="a">
         <select id="nato-stanag4481" mode="mandatory">Minimum Standards for Naval Shore-to-Ship Broadcast Systems, STANAG 4481 ed.1</select>
@@ -2391,7 +2434,7 @@ table:
     <sp-list tref="ts-inf-dis">
       <sp-view idx="d0e1158" category="a">
         <ncoe/>
-        <select id="w3c-owl" mode="emerging">Web Ontology Language (OWL), W3C</select>
+        <select id="w3c-owl" mode="emerging">Web Ontology Language (OWL):2009, W3C</select>
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
         <rationale/>
       </sp-view>
@@ -2405,7 +2448,7 @@ table:
     <sp-list tref="ias">
       <sp-view idx="d0e4990" category="a">
         <ncoe>Security</ncoe>
-        <select id="iso-iec-15408" mode="mandatory">Common Criteria (ISO/IEC 15408-1to-3:2005)</select>
+        <select id="iso-iec-15408" mode="mandatory">Common Criteria (ISO/IEC 15408-1to-3:2009)</select>
         <remarks>Procedural document dealing with the evaluation criteria for IT security.</remarks>
         <rationale>Procedural document dealing with security risk assessment</rationale>
       </sp-view>
@@ -2435,7 +2478,7 @@ table:
         <ncoe>Security</ncoe>
         <select id="ps-sc-wg-" mode="mandatory">
           Interface between the card aware applications
-          and cards, PC/SC Specs. 1.0
+          and cards, PC/SC Specs. v.2.0.1.9:2005
         </select>
         <rationale>Included in v.4 through RFCP 3-10</rationale>
       </sp-view>
@@ -2443,7 +2486,7 @@ table:
         <ncoe>Security</ncoe>
         <select id="sun-java_card_kit-2_2_1-fr-spec" mode="mandatory">
           Card-resistance allications,
-          JAVACard
+          JAVACARDkit v.2.2.2:2006
         </select>
         <rationale>Included in NCSP v.4 through RFCP 3-10</rationale>
       </sp-view>
@@ -2457,7 +2500,7 @@ table:
       <sp-view idx="d0e5166" category="a">
         <select id="oasis-oasis-sstc-saml-core-1.1" mode="emerging">
           Security Assertion Markup
-          Language, SAML v1.1 (OASIS)
+          Language, SAML v2.0 (OASIS)
         </select>
         <remarks>
           For CCEB interoperability the Security Ascertion Markup Language
@@ -2470,7 +2513,7 @@ table:
         <rationale>SAML added in NISP v.3 through RFCP 2-8</rationale>
       </sp-view>
       <sp-view idx="d0e5183" category="a">
-        <select id="w3c-xkms" mode="emerging">XKMS (W3C)</select>
+        <select id="w3c-xkms" mode="emerging">XKMS (W3C):2001</select>
         <rationale>XKMS added in NISP v.3 through RFCP 2-7</rationale>
       </sp-view>
       <sp-view idx="d0e5236" category="a">
@@ -2520,7 +2563,7 @@ table:
       </sp-view>
       <sp-view idx="d0e5217" category="a">
         <ncoe>Security</ncoe>
-        <select id="nato-stanag4406" mode="mandatory">Military Messaging (STANAG 4406 Ed.2)</select>
+        <select id="nato-stanag4406" mode="mandatory">Military Messaging (STANAG 4406 Ed.2:2006)</select>
         <select id="nato-stanag4406" mode="fading">ACP120 replaced by ACP145</select>
         <remarks>
           This includes PCT (protected content type). PCT may be used for protection
@@ -2543,6 +2586,21 @@ table:
         <select id="itu-t-x.411" mode="emerging">ITU-T X.411:1999</select>
         <rationale>X.411:1995 updated with X.411:1999 in NCSP v.6</rationale>
       </sp-view>
+      <sp-view idx="d0e5257" category="a">
+        <ncoe>Security</ncoe>
+        <select id="iicwg-scip-210" mode="emerging">SCIP Signalling Plan, SCIP-210 rev.3:2006 (IICWG)(</select>
+        <rationale>SCIP included in NISP in v.5 through RFCP 4-3</rationale>
+      </sp-view>
+      <sp-view idx="d0e5258" category="a">
+        <ncoe>Security</ncoe>
+        <select id="iicwg-scip-214" mode="emerging">Minimum Requuirements for SCIP, SCIP-214 rev.1.1:2010 (IICWG)(</select>
+        <rationale>SCIP included in NISP in v.5 through RFCP 4-3</rationale>
+      </sp-view>
+      <sp-view idx="d0e5259" category="a">
+        <ncoe>Security</ncoe>
+        <select id="iicwg-scip-231" mode="emerging">Cryptography Specification for SCIP, SCIP-231 rev.1.1:2007 (IICWG)(</select>
+        <rationale>SCIP included in NISP in v.5 through RFCP 4-3</rationale>
+      </sp-view>
     </sp-list>
     <sp-list tref="ias-enc">
       <sp-view idx="d0e5049" category="a">
@@ -2553,14 +2611,14 @@ table:
         <rationale>SSL excluded and RFC 4366:2006 updated in NCSP v.6</rationale>
       </sp-view>
       <sp-view idx="d0e5193" category="a">
-        <select id="w3c-xmldsig-core" mode="emerging">XML Encryption (W3C)</select>
+        <select id="w3c-xmldsig-core" mode="emerging">XML Encryption (W3C):2008</select>
         <rationale>XML Encryption added in NISP v.3 through RFCP 2-7</rationale>
       </sp-view>
       <sp-view idx="d0e5034" category="a">
         <ncoe>Security</ncoe>
         <select id="nist-fips-pub197" mode="mandatory">
           Key Wrap Advanced Encryption Standard 128 (AES
-          128, NIST FIPS 197)
+          128, NIST FIPS 197:2002)
         </select>
         <select id="nist-fips-pub197" mode="emerging">
           Key Wrap Advanced Encryption Standard 256 (AES
@@ -2665,7 +2723,7 @@ table:
     <sp-list tref="ias-auth">
       <sp-view idx="d0e4999" category="a">
         <ncoe>Security</ncoe>
-        <select id="ietf-rfc2058" mode="mandatory">Radius, IETF RFC 2865:2000 updated by RFC 2868:2000, 3575:2003, 5080:2007</select>
+        <select id="ietf-rfc2058" mode="mandatory">Radius, IETF RFC 2865:2006 updated by RFC 2868:2000, 3575:2003, 5080:2007</select>
         <select id="ietf-rfc3162" mode="emerging">Radius and IPv6, IETF RFC 3162:2001</select>
       </sp-view>
       <sp-view idx="d0e5011" category="a">
@@ -2675,9 +2733,7 @@ table:
       </sp-view>
       <sp-view idx="d0e5018" category="a">
         <ncoe>Security</ncoe>
-        <select id="iso-iec-9594-8" mode="mandatory">
-          Dir Authentication Framework (ITU-T X.509 v3,
-          ISO 9594:2001)
+        <select id="iso-iec-9594-8" mode="emerging">Public-key and attribute certificate frameworks, X.509 v3:2005 (ITU-T)
         </select>
       </sp-view>
       <sp-view idx="d0e5130" category="a">
@@ -2686,18 +2742,18 @@ table:
         <rationale>Included in v.4 through RFCP 3-10</rationale>
       </sp-view>
       <sp-view idx="d0e5178" category="a">
-        <select id="w3c-xmlenc-core" mode="emerging">XML Signature (W3C)</select>
+        <select id="w3c-xmlenc-core" mode="emerging">XML Signature (W3C):2008</select>
         <rationale>XML Signature added in NISP v.3 through RFCP 2-7</rationale>
       </sp-view>
       <sp-view idx="d0e5188" category="a">
-        <select id="oasis-oasis-access_control-xacml-2.0-core-spec-os" mode="emerging">XACML v2.0 (OASIS)</select>
+        <select id="oasis-oasis-access_control-xacml-2.0-core-spec-os" mode="emerging">XACML v2.0:2008 (OASIS)</select>
         <rationale>XACML added in NISP v.3 through RFCP 2-7</rationale>
       </sp-view>
     </sp-list>
     <sp-list tref="ts-ces-mes">
       <sp-view idx="d0e5853" category="a">
         <ncoe>Comms</ncoe>
-        <select id="nato-stanag4406" mode="mandatory">Military Messaging (STANAG 4406 Ed.2)</select>
+        <select id="nato-stanag4406" mode="mandatory">Military Messaging (STANAG 4406 Ed.2:2006)</select>
         <select id="nato-stanag4406" mode="fading">Use of PCT within STANAG 4406 is fading</select>
         <remarks>
           Used for Formal Messaging. STANAG 4406 contains the
@@ -2713,7 +2769,7 @@ table:
       </sp-view>
       <sp-view idx="d0e5870" category="a">
         <ncoe>Comms</ncoe>
-        <select id="nato-stanag4631" mode="mandatory">Enhanced Security Services (ESS) for S/MIME, STANAG 4631 Ed.1</select>
+        <select id="nato-stanag4631" mode="mandatory">Enhanced Security Services (ESS) for S/MIME, STANAG 4631 Ed.1:2008</select>
         <remarks>
           STANAG 4631 contains an additional S/MIME profile for MMMHS
           (in addition to PCT)<para>
@@ -2776,14 +2832,14 @@ table:
       </sp-view>
       <sp-view idx="d0e5920" category="a">
         <ncoe>Comms</ncoe>
-        <select id="ietf-rfc3501" mode="mandatory">IMAP4 (IETF RFC 3501:2003 updated by 4466:2006, 4469:2006, 4551:2006, 5032:2007, 5182:2008)</select>
+        <select id="ietf-rfc3501" mode="mandatory">IMAP4 (IETF RFC 3501:2003 updated by 4466:2006, 4469:2006, 4551:2006, 5032:2007, 5182:2008, 5738:2010)</select>
         <remarks>For CCEB interoperability this standard is not applicable</remarks>
         <rationale>For CCEB interoperability this standard is not applicable</rationale>
       </sp-view>
       <sp-view idx="d0e5931" category="a">
         <ncoe>Comms</ncoe>
         <select id="cceb-acp145" mode="emerging">Interim Implementation Guide
-	  for ACP 123/STANAG 4406 Messaging Services between Nations (ACP 145)</select>
+	  for ACP 123/STANAG 4406 Messaging Services between Nations (ACP 145:2006)</select>
         <remarks>
           Provides gateway between ACP 123A messaging services.<para/>
           For CCEB interoperability this standard is mandatory
@@ -2801,20 +2857,20 @@ table:
         <ncoe>Comms</ncoe>
         <select id="itu-t-h.323" mode="mandatory">
           Packet-based Multimedia Comms System (ITU-T
-          H.323:2006)
+          H.323:2009)
         </select>
       </sp-view>
       <sp-view idx="d0e5962" category="a">
         <ncoe>Comms</ncoe>
         <select id="ietf-rfc3261" mode="emerging">Session Initialisation Protocol
-	  (SIP) (IETF RFC 3261:2002)</select>
+	  (SIP) (IETF RFC 3261:2002, updated by 3265:2002, 3853:2004, 4320:2006, 4916:2007, 5393:2008, 5621:2009, 5626:2009, 5630:2009, 5922:2010)</select>
 	<rationale>Included in v.4 through RFCP 3-46</rationale>
       </sp-view>
       <sp-view idx="d0e5966" category="a">
         <ncoe>Comms</ncoe>
         <select id="cceb-acp220" mode="mandatory">
           Multinational Videoconferencing Services
-          (ACP 220:2003)
+          (ACP 220:2008)
         </select>
         <rationale>Included in v.5 through RFCP 4-39; changed to mandatory in NCSP v.8</rationale>
       </sp-view>
@@ -3016,7 +3072,7 @@ table:
       </sp-view>
       <sp-view idx="d0e6176" category="b">
         <ncoe>Mgmt.</ncoe>
-        <select id="ietf-rfc4750" mode="mandatory">OSPF MIB v.2 (RFC 4750:1995)</select>
+        <select id="ietf-rfc4750" mode="mandatory">OSPF MIB v.2 (RFC 4750:1996)</select>
         <remarks>For CCEB interoperability this standard is not applicable</remarks>
         <rationale>
           RFC 2328:1998 only OSPF V2, RFC 1850:1995/4750:2006 OSPF MIB, changed in NCSP
@@ -3057,7 +3113,7 @@ table:
       </sp-view>
       <sp-view idx="d0e6223" category="b">
         <ncoe>Mgmt.</ncoe>
-        <select id="iso-iec-10165-4" mode="fading">GDMO (ISO/IEC 10165-4:1992) deleted in NISP v.1</select>
+        <select id="iso-iec-10165-4" mode="fading">GDMO (ISO/IEC 10165-4:1996) deleted in NISP v.1</select>
       </sp-view>
     </sp-list>
     <sp-list tref="ces-app-app">
@@ -3095,7 +3151,7 @@ table:
       </sp-view>
       <sp-view idx="d0e6833" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="iso-iec-11172" mode="fading">MPEG-1 (ISO/IEC 11172:1993)</select>
+        <select id="iso-iec-11172" mode="fading">MPEG-1 (ISO/IEC 11172:1996)</select>
       </sp-view>
       <sp-view idx="d0e6838" category="a">
         <ncoe>Data Interchange</ncoe>
@@ -3134,14 +3190,14 @@ table:
       </sp-view>
       <sp-view idx="d0e6878" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="etsi-en300-961" mode="mandatory">GSM-Modulation (GSM 06.10, GSM 06.20)</select>
+        <select id="etsi-en300-961" mode="mandatory">GSM-Modulation (GSM 06.10, GSM 06.20 v.8.1.1:1999)</select>
         <remarks>Used for mobile phones</remarks>
       </sp-view>
       <sp-view idx="d0e6885" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="nato-stanag4444ed.1-draft" mode="emerging">
           Voice Coding Algorithm (STANAG
-          4444 ed.1).
+          4444 ed.1:1999).
         </select>
         <remarks>Used for HF voice communications as defined in STANAG 4444.</remarks>
         <rationale>STANAG 4444 ed.1 changed in NCSP v.6</rationale>
@@ -3170,7 +3226,7 @@ table:
         <ncoe>Data Interchange</ncoe>
         <select id="nato-stanag4591" mode="mandatory">
           Mixed Excitation Linear Predictive coding
-          (MELPe) (STANAG 4591 Ed.1)
+          (MELPe) (STANAG 4591 ed.1:2008)
         </select>
         <remarks>MELPe is used for HF voice communications in narrow band systems.</remarks>
       </sp-view>
@@ -3192,8 +3248,7 @@ table:
       </sp-view>
       <sp-view idx="d0e7316" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="nato-stanag5602ed.2" mode="mandatory">SIMPLE (STANAG 5602 ed.2)</select>
-        <select id="nato-stanag5602ed.2" mode="emerging">SIMPLE (STANAG 5602 ed.3)</select>
+        <select id="nato-stanag5602ed.3" mode="mandatory">SIMPLE (STANAG 5602 ed.3:2010)</select>
         <remarks>
           SIMPLE provides specifications to interconnect ground rigs of all
           types for TDL interoperability testing
@@ -3221,7 +3276,7 @@ table:
       </sp-view>
       <sp-view idx="d0e7341" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="nato-stanag4559ed.2" mode="mandatory">NSILI (STANAG 4559 ed.2:2007)</select>
+        <select id="nato-stanag4559ed.2" mode="mandatory">NSILI (STANAG 4559 ed.3:2010)</select>
         <remarks>
           NSILI provides interoperability between NATO nations reconnaissance
           databases and product libraries
@@ -3235,14 +3290,15 @@ table:
         <rationale>NADS (STANAG 4575): Included in v.5 through RFCP 4-14</rationale>
       </sp-view>
       <sp-view idx="d0e7359" category="a">
-        <select id="nato-stanag4607ed.2" mode="mandatory">GMTIF (STANAG 4607 ed.2:2007)</select>
+        <select id="nato-stanag4607ed.3" mode="mandatory">GMTIF (STANAG 4607 ed.2:2007)</select>
+        <select id="nato-stanag4607ed.3" mode="mandatory">GMTIF (STANAG 4607 ed.3:2010 RD)</select>
         <remarks>
           GMTIF defines a ground moving target indicator format.
         </remarks>
         <rationale>GMTIF (STANAG 4607): Included in v.8 through RFCP 7-8</rationale>
       </sp-view>
       <sp-view idx="d0e7366" category="a">
-        <select id="nato-stanag4609ed.2" mode="mandatory">DMIS (STANAG 4609 ed.2:2007)</select>
+        <select id="nato-stanag4609ed.2" mode="mandatory">DMIS (STANAG 4609 ed.3:2009)</select>
         <remarks>
           DMIS defines a digital motion imagery standard.
           <para>For CCEB interoperability this standard is not applicable.</para>
@@ -3251,8 +3307,7 @@ table:
       </sp-view>
       <sp-view idx="d0e7375" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="nato-stanag7023ed.3" mode="mandatory">NPIF (STANAG 7023 ed.3:2004)</select>
-        <select id="nato-stanag7023ed.3" mode="emerging">NPIF (STANAG 7023 ed.4)</select>
+        <select id="nato-stanag7023ed.4" mode="mandatory">NPIF (STANAG 7023 ed.4:2009)</select>
         <remarks>
           NPIF establishes a standard data format and a standard transport
           architecture for the transfer of reconnaissance and surveillance imagery
@@ -3277,7 +3332,7 @@ table:
       <sp-view idx="d0e7402" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="iso-iec-10918-4" mode="mandatory">
-          Implementing JPEG 2000 in NITFS/BIIF/NSIF (SC24 ISO Registered Profile)
+          Implementing JPEG 2000 in NITFS/BIIF/NSIF (ISO 10918-4:1999)
         </select>
         <remarks>
           This profile defines the limits of the international
@@ -3288,7 +3343,7 @@ table:
       <sp-view idx="d0e7525" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="nato-stanag5511ed.6" mode="mandatory">Link-11 (STANAG 5511 ed.6:2008, M-Series)</select>
-        <select id="nato-stanag5511ed.6" mode="emerging">Link-11 (STANAG 5511 ed.7, M-Series)</select>
+        <select id="nato-stanag5511ed.6" mode="emerging">Link-11 (STANAG 5511 ed.7:2008 RD, M-Series)</select>
         <remarks>
           For further guidance refer to the Bi-SC Data Link Migration Strategy, November 2000.
           <para>
@@ -3303,7 +3358,7 @@ table:
       <sp-view idx="d0e7543" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="nato-stanag5516-edition4" mode="mandatory">Link-16 (STANAG 5516 ed.4:2008, J-Series)</select>
-        <select id="nato-stanag5516-edition4" mode="emerging">Link-16 (STANAG 5516 ed.5, J-Series)</select>
+        <select id="nato-stanag5516-edition4" mode="emerging">Link-16 (STANAG 5516 ed.5:2009 RD, J-Series)</select>
         <remarks>
           For CCEB interoperability the mandatory standard is
           MIL-STD 6016C Change 1<indexterm significance="normal">
@@ -3326,7 +3381,7 @@ table:
       <sp-view idx="d0e7565" category="a">
         <ncoe>Data Interchange</ncoe>
         <select id="nato-stanag5522j" mode="mandatory">Link-22 (STANAG 5522 ed.2:2008, J-Series)</select>
-        <select id="nato-stanag5522j" mode="emerging">Link-22 (STANAG 5522 ed.3, J-Series)</select>
+        <select id="nato-stanag5522j" mode="emerging">Link-22 (STANAG 5522 ed.3:2009 RD, J-Series)</select>
         <rationale>STANAG 5522 ed.1 changed in NCSP v.6</rationale>
       </sp-view>
       <sp-view idx="d0e7574" category="a">
@@ -3340,7 +3395,7 @@ table:
       </sp-view>
       <sp-view idx="d0e7694" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="adobe-pdf14" mode="mandatory">PDF-Format 1.4</select>
+        <select id="adobe-pdf14" mode="mandatory">PDF-Format 1.4 ed.1 (ISO 19005-1:2005)</select>
         <select id="nato-stanag5500" mode="fading">Formets deleted in NCSP v.6</select>
         <remarks>
           Portable document presentation format, realised in Adobe product
@@ -3369,7 +3424,7 @@ table:
       </sp-view>
       <sp-view idx="d0e7724" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="microsoft-application-note-gc0165" mode="mandatory">Rich Text Format (RTF)</select>
+        <select id="microsoft-application-note-gc0165" mode="mandatory">Rich Text Format (RTF) v.1.9.1:2007 (MS)</select>
         <remarks>Basic document interchange format</remarks>
         <rationale>Basic document interchange format</rationale>
       </sp-view>
@@ -3386,14 +3441,14 @@ table:
       </sp-view>
       <sp-view idx="d0e7749" category="a">
         <ncoe>Data Interchange</ncoe>
-	<select id="w3c-dom3" mode="mandatory">Document Object Model (DOM) Level 3</select>
-        <select id="w3c-dom2" mode="fading">Document Object Model (DOM) Level 2</select>
+	<select id="w3c-dom3" mode="mandatory">Document Object Model (DOM) Level 3:2004 (MS)</select>
+        <select id="w3c-dom2" mode="fading">Document Object Model (DOM) Level 2 (MS)</select>
         <remarks>Basic Document Object Model .</remarks>
         <rationale>DOM 2 and 3 included in NCSP v.6 through RFCP 5-6 and 5-7</rationale>
       </sp-view>
       <sp-view idx="d0e7763" category="a">
         <ncoe>Data Interchange</ncoe>
-	<select id="microsoft-officeXP" mode="mandatory">Office XP formats</select>
+	<select id="microsoft-officeXP" mode="mandatory">Office XP formats:2003 (MS)</select>
         <select id="microsoft-office2000" mode="fading">Office 2000 formats: Office XP</select>
         <remarks>Office200-formats Not to be used for new systems.
 	  <para>Pertains to the interchange formats of MS Word, Excel and PowerPoint,
@@ -3404,7 +3459,7 @@ table:
       </sp-view>
       <sp-view idx="d0e7779" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="iso-iec-26300" mode="mandatory">OpenDocument ISO/IEC 26300:2006</select>
+        <select id="iso-iec-26300" mode="mandatory">OpenDocument (ODF) ISO/IEC 26300:2006</select>
         <remarks>Formerly published as OASIS standard.</remarks>
         <rationale>
           OpenDocument included in NCSP v.7 through RFCP 6-10 and modified
@@ -3462,7 +3517,7 @@ table:
       </sp-view>
       <sp-view idx="d0e11293" category="a">
         <ncoe/>
-        <select id="bpmi-" mode="emerging">Business Process Management Language (BPML) v.0.4</select>
+        <select id="bpmi-" mode="emerging">Business Process Model and Notation (BPMN) v.2.0:2010</select>
         <remarks/>
         <rationale/>
       </sp-view>
@@ -3474,42 +3529,41 @@ table:
       </sp-view>
       <sp-view idx="d0e11305" category="a">
         <ncoe/>
-        <select id="jcp-jsr155" mode="emerging">Java Enterprise Edition 1.4 Specification (J2EE 1.4), (JCP:2002)</select>
+        <select id="jcp-jsr155" mode="emerging">Java Enterprise Edition 1.4 Specification (JAVA EE v.6:2009), (JCP:2002)</select>
         <remarks/>
         <rationale/>
       </sp-view>
       <sp-view idx="d0e11311" category="a">
         <ncoe/>
-        <select id="jcp-" mode="emerging">Java Remote Method Invocation (JRMI), (JCP)</select>
+        <select id="jcp-" mode="emerging">Java Remote Method Invocation (JRMI), (JCP)ed.1.5.0:2004</select>
         <remarks/>
         <rationale/>
       </sp-view>
       <sp-view idx="d0e11317" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="oasis-dsml" mode="emerging">DSML v2.0:2001, OASIS</select>
+        <select id="oasis-dsml" mode="emerging">DSML v2.0:2002, OASIS</select>
         <remarks>DSML provides a Dircetory Access via a Web interface</remarks>
         <rationale>Included in NCSP v.5 through RFCP 6-5</rationale>
       </sp-view>
       <sp-view idx="d0e11344" category="a">
-        <select id="nato-tide-id-rr" mode="emerging">NATO TIDE Information Discovery (Request-Response), ACT</select>
+        <select id="nato-tide-id-rr" mode="emerging">NATO TIDE Information Discovery (Request-Response), v.2.2:2009 (ACT)</select>
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
         <rationale>Included in NISP v.3 through RFCP 2-21.</rationale>
       </sp-view>
       <sp-view idx="d0e11351" category="a">
-        <select id="nato-tide-id-sp" mode="emerging">NATO TIDE Information Discovery (Subscribe-Publish), ACT</select>
+        <select id="nato-tide-id-sp" mode="emerging">NATO TIDE Information Discovery (Subscribe-Publish), v.2.2.0:2007 (ACT)</select>
         <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
         <rationale>Included in NISP v.3 through RFCP 2-22.</rationale>
       </sp-view>
       <sp-view idx="d0e11358" category="a">
         <ncoe>Distr. Comp.</ncoe>
-        <select id="w3c-note-wsdl-20010315" mode="emerging">WSDL v1.1:2001, W3C</select>
+        <select id="w3c-note-wsdl-20010315" mode="mandatory">WSDL v1.1:2001, W3C</select>
         <remarks>For CCEB interoperability WSDL v1.1 is mandatory</remarks>
-        <rationale>Included in v.5 through RFCP 4-38; date added in NCSP v.6 through RFCP 5-25</rationale>
+        <rationale>Included in v.5 through RFCP 4-38; date added in NCSP v.6 through RFCP 5-25 and changed to mandatory through RFCP 4-6</rationale>
       </sp-view>
       <sp-view idx="d0e7816" category="a">
         <ncoe>Data Interchange</ncoe>
-        <select id="w3c-rec-xml-20040204" mode="mandatory">XML 1.0 2nd ed:2003, W3C</select>
-	<select id="w3c-rec-xml-20040204" mode="emerging">XML 1.0 3rd ed:2004, W3C</select>
+        <select id="w3c-rec-xml-20040204" mode="mandatory">XML 1.0 3rd ed:2004, W3C</select>
         <remarks>
           Where semantic tags are required, the NC3 Repository serves as an XML
           registry (see Data Management).</remarks>
@@ -3555,7 +3609,7 @@ table:
         <ncoe>Data Interchange</ncoe>
         <select id="w3c-rec-xml-names-19990114" mode="mandatory">
           Namespaces in XML
-          (xml-names-19990114:1999)
+          (xml-names-19990114:1999) W3C
         </select>
         <rationale>xml-names-19990114:1999 corrected in NCSP v.6</rationale>
       </sp-view>
@@ -3641,7 +3695,7 @@ table:
     <sp-list tref="ces-uas-dic">
       <sp-view idx="d0e11643" category="b">
         <ncoe>Graphical UI</ncoe>
-        <select id="x-consortium-x11r6.6" mode="mandatory">X Window System 11 R6.6</select>
+        <select id="x-consortium-x11r7.5" mode="mandatory">X Window System 11 R7.5:2009</select>
         <select id="x-consortium-x11r5.5" mode="fading">X Window System 11 R5</select>
         <remarks>
           The R6.6 release addresses a portion of the backlog of bug reports
@@ -3656,7 +3710,7 @@ table:
       </sp-view>
       <sp-view idx="d0e11660" category="b">
         <ncoe>UAS</ncoe>
-        <select id="microsoft-isbn-1-55615-804-1" mode="mandatory">Win 32 APIs</select>
+        <select id="microsoft-isbn-1-55615-804-1" mode="fading">Win 32 APIs</select>
         <remarks>
           As part of MS Windows 2000 Interfaces
           <para>For CCEB interoperability this standard is not applicable</para>
@@ -3668,7 +3722,7 @@ table:
       </sp-view>
       <sp-view idx="d0e11703" category="b">
         <ncoe>Graphical UI</ncoe>
-        <select id="opengroup-t525" mode="mandatory">CDE 2.1</select>
+        <select id="opengroup-t525" mode="mandatory">CDE 2.1:1997</select>
         <select id="opengroup-x98xd" mode="fading">CDE 1.0</select>
         <remarks>
           Common Desktop Environment is the UNIX Windows Desktop equivalent.
@@ -3677,7 +3731,7 @@ table:
       </sp-view>
       <sp-view idx="d0e11714" category="b">
         <ncoe>Graphical UI</ncoe>
-        <select id="opengroup-t525" mode="mandatory">Motif/CDE Style Guide Rev 2.1</select>
+        <select id="opengroup-t525" mode="mandatory">Motif/CDE Style Guide Rev 2.1:1997</select>
         <select id="opengroup-m922p" mode="fading">Motif Style Guide Rev 1.2</select>
         <remarks>
           Toolkit specific style guides
@@ -3691,7 +3745,7 @@ table:
       </sp-view>
       <sp-view idx="d0e11729" category="b">
         <ncoe>Graphical UI</ncoe>
-        <select id="microsoft-isbn-1-55615-804-1" mode="mandatory">
+        <select id="microsoft-isbn-1-55615-804-1" mode="fading">
           MS Windows Interface Guidelines for Software
           Design
         </select>
@@ -3702,7 +3756,7 @@ table:
       </sp-view>
       <sp-view idx="d0e11738" category="b">
         <ncoe>Graphical UI</ncoe>
-        <select id="opengroup-t525" mode="mandatory">Motif 2.1</select>
+        <select id="opengroup-t525" mode="mandatory">Motif 2.1:1997</select>
         <select id="opengroup-m922p" mode="fading">Motif 1.2</select>
         <remarks>For CCEB interoperability this standard is not applicable</remarks>
       </sp-view>
@@ -3738,15 +3792,38 @@ table:
         </remarks>
       </sp-view>
     </sp-list>
+    <sp-list tref="coi-logistics">
+      <sp-view idx="d0e11901" category="b">
+        <select id="iso-15961" mode="mandatory">RFID Application Interface, ISO 15961:2004</select>
+      </sp-view>
+      <sp-view idx="d0e11902" category="b">
+        <select id="iso-15962" mode="mandatory">RFID Data Encoding Rules, ISO 15962:2004</select>
+      </sp-view>
+      <sp-view idx="d0e11903" category="b">
+        <select id="iso-17363" mode="mandatory">RFID - Freight containers, ISO 17363:2007</select>
+      </sp-view>
+      <sp-view idx="d0e11904" category="b">
+        <select id="iso-17364" mode="mandatory">RFID - Returnable transport items, ISO 17364:2009</select>
+      </sp-view>
+      <sp-view idx="d0e11905" category="b">
+        <select id="iso-17365" mode="mandatory">RFID - Transport units, ISO 17365:2009</select>
+      </sp-view>
+      <sp-view idx="d0e11906" category="b">
+        <select id="iso-17366" mode="mandatory">RFID - Product packaging, ISO 17366:2009</select>
+      </sp-view>
+      <sp-view idx="d0e11907" category="b">
+        <select id="iso-17367" mode="mandatory">RFID - Product tagging, ISO 17367:2009</select>
+      </sp-view>
+    </sp-list>
     <sp-list tref="coi-logistics-scs">
       <sp-view idx="d0e11917" category="b">
-        <select id="oagi-oagis" mode="emerging">OAGIS 9.0, OAGi</select>
+        <select id="oagi-oagis" mode="emerging">OAGIS 3.9.4.1:2009, OAGi</select>
       </sp-view>
       <sp-view idx="d0e11920" category="b">
         <select id="iso-10303-239" mode="emerging">PLCS, ISO 10303-239:2005</select>
       </sp-view>
       <sp-view idx="d0e11923" category="b">
-        <select id="asd-s1000d-i9005-01000-00" mode="emerging">S1000D issue 4, ASD</select>
+        <select id="asd-s1000d-i9005-01000-00" mode="emerging">S1000D issue 4:2008, ASD</select>
       </sp-view>
       <sp-view idx="d0e11926" category="b">
         <select id="nato-c-m2005-0108" mode="mandatory">NATO Policy for Systems Life Cycle Mgmt (SLCM), C-M(2005)0108</select>
@@ -4016,8 +4093,229 @@ table:
   </lists>
   <records>
     <standardrecord tref="omat" id="unknown-dummy" tag=""/>
+    <standardrecord tref="coi-gen-doc" id="nato-stanag1401" tag="STANAG 1401">
+      <standard orgid="nato" pubnum="STANAG 1401" date="2010-04-08" title="Joint Brevity Words Publication"/>
+      <applicability>This publication standardizes air-to-air, and air-to-surface,
+        surface-to-air brevity code words. The scope is limited to those brevity
+        codes used in multiservice operations and does not include words unique to
+        single-service operations. While not authoritative in nature, all services
+        agree to these brevity code meanings.</applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-7" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag1116" tag="STANAG 1116 Ed9">
+      <standard orgid="nato" pubnum="STANAG 1116" date="2010-07-30" title="Specifications for Naval Mine Warfare Information and for Data Transfer - AMP 11 (STANAG 1116 ed.9:2010)"/>
+      <applicability>
+        CLASSIFIED CONTENT
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag1171" tag="STANAG 1171 Ed9">
+      <standard orgid="nato" pubnum="STANAG 1171" date="2008-05-14" title="NATO Handbook of Military Oceanographic Information and Services (STANAG 1171 ed.9:2008"/>
+      <applicability>
+        CLASSIFIED CONTENT
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>    
+    <standardrecord tref="coi-ci-met" id="nato-stanag1317" tag="STANAG 1317 Ed.3">
+      <standard orgid="nato" pubnum="STANAG 1317" date="2008-12-18" title="NATO Oceanographic Data Exchange Format (STANAG 1317 ed.3:2008)"/>
+      <applicability>
+        The aim of this STANAG is to standardise the data format for exchanging
+        processed oceanographic data in digital form, in support of military purposes
+        within the NATO nations.
+        <para>Physical oceanographic data is collected, processed and digitised by
+          Nations and held in data banks on a variety of computers and in various
+          formats. NODEF-1 is not intended to supplant individual data centre storage
+          formats but is to be used for exchange purposes only. The use of NODEF-1
+          will reduce the NATO exchange problem for each data centre to a requirement
+          for only two conversion programs - one to convert from the exchange format
+          to its own format (when receiving data) and the other to do the converse
+          when supplying data.</para>
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag1456" tag="STANAG 1456 Ed.2">
+      <standard orgid="nato" pubnum="STANAG 1456" date="2010-05-17" title="Interoperability between Naval Mine Warfare Data Centres (STANAG 1456 ed.2:2010)"/>
+      <applicability>
+        The aim of this STANAG is to standardise the exchange of MW environmental,
+        geographical and tactical data between NATO, PfP and other Nations securely
+        (when required), effectively and expeditiously.
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag2103" tag="STANAG 2103 Ed.10">
+      <standard orgid="nato" pubnum="STANAG 2103" date="2010-05-26" title="Warning and Reporting and Hazard Prediction of Chemical, Biological, Radiological and Nuclear Incidents (STANAG 2103 ed.10:2010)"/>
+      <applicability>
+        The purpose of this publication is to prescribe the CBRN procedures to be
+        followed by Land, Air and Naval forces for the:
+        <itemizedlist>
+          <listitem>
+            <para>Reporting of all chemical, biological or radiological attacks and
+              nuclear detonations and resulting contamination.</para>
+          </listitem>
+          <listitem>
+            <para>Predicting and warning of hazard areas from CBRN incidents.</para>
+          </listitem>
+          <listitem>
+            <para>Contributing to the evaluation of CBRN information in order to
+              complete the common operational picture for the commander.</para>
+          </listitem>
+          <listitem>
+            <para>Warning of friendly nuclear strikes and the interception of an
+              adversary incoming missile.</para>
+          </listitem>
+          <listitem>
+            <para>Transmitting of advanced hazard warning of a potential CBRN agent
+              or Toxic Industrial Materials (TIM) release.</para>
+          </listitem>
+          <listitem>
+            <para>Interchange of reports, quoted above, as required.</para>
+          </listitem>
+        </itemizedlist>
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag4061" tag="STANAG 4061 Ed.4">
+      <standard orgid="nato" pubnum="STANAG 4061" date="2000-10-03" title="Adoption of a Standard Ballistic Meteorological Message (STANAG 4061 ed.4:2000)"/>
+      <applicability>
+        The aim of this STANAG is to define a ballistical meteorological message
+        and to standardize the number of its information digits and their meanings
+        for the use by any artillery service of any country. This will make it possible
+        for all armed forces to understand and be able tu use ballistic meteorological
+        information issued by any service of any country.
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag4082" tag="STANAG 4082 Ed.2">
+      <standard orgid="nato" pubnum="STANAG 4082" date="1969-05-28" title="Adoption of a Standard Artillery Computer Meteorological Message (STANAG 4082 ed.2:2000)"/>
+      <applicability>
+        The aim of this STANAG is to define a computer meteorological message and
+        to standardize the number of its information digits and their meanings for
+        use by any artillery service of any country. This will make it possible for
+        all armed forces to understand and be able to use an unweighted artillery
+        meteorological message which is compatible with computers.
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag4103" tag="STANAG 4103 Ed.4">
+      <standard orgid="nato" pubnum="STANAG 4103" date="2001-05-28" title="Format of Requests for Meteorological Messages for Ballistic and Special Purposes (STANAG 4103 ed.4:2001)"/>
+      <applicability>
+        The aim of this STANAG is to define the format of a request for meteorological
+        messages for ballisitc and special purposes.
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag4140" tag="STANAG 4140 Ed.2">
+      <standard orgid="nato" pubnum="STANAG 4140" date="2001-05-28" title="Adoption of a Standard Target Acquisition Meteorological Message (STANAG 4140 ed.2:2001)"/>
+      <applicability>
+        The aim of this STANAG is to define a target acquisition meteorological message
+        for remotely-piloted vehicle, drone, weapon locating radar and sound ranging
+        systems, and to standardise the number of its information digits and their
+        meanings for the use by any service of any country. This will make it possible
+        for all armed forces to
+        <itemizedlist>
+          <listitem>
+            <para>Produce the message either by conventional or automatic data processing
+              (ADP) methods;</para>
+          </listitem>
+          <listitem>
+            <para>Understand and use the message with either conventional or ADP
+              based drone, weapon location radar and sound ranging systems.</para>
+          </listitem>
+        </itemizedlist>
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag6015" tag="STANAG 6015 Ed.4">
+      <standard orgid="nato" pubnum="STANAG 6015" date="2005-08-03" title="NATO Meteorological Codes Manual (STANAG 6015 ed.4:2005)"/>
+      <applicability>
+        The purpose of this manual is to describe in detail the Standard NATO Meteorological
+        Codes, and those national exceptions to the Meteorological Airfield Report
+        (METAR) Code, the Terminal Aerodrome Forecast (TAF) Code and the Airfield
+        Weather Colour Code used in NATO. In some circumstances, it is recognized
+        that information on the weather may be used for internal national or command
+        use. These differences from standard codes are not detailed in this publication.
+        In addition, examples of codes used in NATO that contain meteorological information,
+        but are not meteorological codes, are listed for completeness.
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-ci-met" id="nato-stanag6022" tag="STANAG 6022 Ed.2">
+      <standard orgid="nato" pubnum="STANAG 6022" date="2010-03-22" title="Adoption of a Standard Gridded Data Meteorological Message (STANAG 6022 ed.2:2010)"/>
+      <applicability>
+        The aim of this STANAG is to define a meteorological message for gridded
+        meteorological data, and to standardise the number of information digits and
+        their meanings, for use by the Armed Forces of any country. This will make
+        it possible for the Armed Forces of all NATO nations to be able to receive
+        gridded meteorological data for operational use in S4 software within Artillery
+        fire control systems, NBC Automated Warning, Reporting and Prediction Systems
+        (NBC AWRAPS), and various computer-based Battlefield (or Tactical) Decision
+        Aids (BDAs).
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    
     <standardrecord tref="ts-rep-eds" id="cceb-acp133" tag="ACP 133">
-      <standard orgid="cceb" pubnum="ACP 133" date="2007" title="Common Directory Services and Procedures, ACP 133 ed. C"/>
+      <standard orgid="cceb" pubnum="ACP 133" date="2007" title="Common Directory Services and Procedures, ACP 133 ed. D:2009"/>
       <applicability>
         ACP 133 has been agreed as the basis for NATO
         directory standards. It is required that directories supporting
@@ -4034,6 +4332,8 @@ table:
           <event flag="changed" date="2001-11-20" rfcp="" version="0.3"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
           <event flag="changed" date="2008-12-10" rfcp="" version="3.0"/>
+          <event flag="changed" date="2010-08-04" rfcp="" version="4.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -4195,7 +4495,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-net" id="itu-t-h.323" tag="Audio/Video Teleconferencing">
-      <standard orgid="itu-t" pubnum="H.323" date="2006" title="Packet-based Multimedia Communication System"/>
+      <standard orgid="itu-t" pubnum="H.323" date="2006" title="Packet-based Multimedia Communication System:2009"/>
       <applicability>
         The H.323 specification describes terminals and other entities
         that provide multimedia communication services over packet based networks which
@@ -4214,6 +4514,7 @@ table:
           <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
           <event flag="changed" date="2007-07-27" rfcp="" version="2.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -4836,7 +5137,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-mes" id="nato-stanag4406" tag="STANAG 4406">
-      <standard orgid="nato" pubnum="STANAG 4406" date="2006" title="Military Message Handling System (MMHS 2005), Ed. 2">
+      <standard orgid="nato" pubnum="STANAG 4406" date="2006" title="Military Message Handling System (MMHS 2005), Ed. 2:2006">
         <comment>
           (Series includes gateway specification to ACP 127
           systems)
@@ -4861,10 +5162,11 @@ table:
           <event flag="changed" date="2001-11-20" rfcp="" version="0.3"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
           <event flag="changed" date="2007-07-27" rfcp="" version="2.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ias" id="nato-stanag4631" tag="STANAG 4631 Ed.1">
+    <standardrecord tref="ias" id="nato-stanag4631" tag="STANAG 4631 Ed.1:2008">
       <standard orgid="nato" pubnum="STANAG 4631" date="2008" title="Profile for the Use of 
 	  S/MIME protocols Cryptographic Message Syntax (CMS) and Enhanced Security Services (ESS) for S/MIME (STANAG 4631)"/>
       <applicability>
@@ -4894,6 +5196,7 @@ table:
         <history>
           <event flag="added" date="2005-07-31" version="0.7"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -5119,7 +5422,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-rep-eds" id="iso-iec-9594" tag="X.500">
-      <standard orgid="iso-iec" pubnum="9594" date="2001" title="OSI - Directory Services (DS)">
+      <standard orgid="iso-iec" pubnum="9594" date="2001" title="OSI - Directory Services (DS):2008">
         <alsoknown orgid="itu-t" pubnum="X500" date="2005"/>
       </standard>
       <applicability>
@@ -5142,11 +5445,12 @@ table:
           <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
           <event flag="changed" date="2007-07-27" rfcp="" version="2.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="coi-logistics-scs" id="nato-stanag4329" tag="Barcode">
-      <standard orgid="nato" pubnum="STANAG 4329" date="2004" title="NATO Standard Bar Code Symbology"/>
+      <standard orgid="nato" pubnum="STANAG 4329" date="2004" title="NATO Standard Bar Code Symbology:2010"/>
       <applicability>
         A bar code is an array of parallel lines of varying
         width used to represent data. The bar code is designed to be
@@ -5163,6 +5467,7 @@ table:
           <event flag="changed" date="2000-09-07" rfcp="" version="0.2"/>
           <event flag="changed" date="2005-09-07" rfcp="" version="0.7"/>
           <event flag="changed" date="2007-08-03" rfcp="" version="2.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -5340,8 +5645,8 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ts-ces-infr" id="sun-" tag="ONC">
-      <standard orgid="sun" pubnum="" date="" title="Open Network Computing, ver. 3.0"/>
+    <standardrecord tref="ts-ces-infr" id="SUN-RPC" tag="ONC RPC">
+      <standard orgid="ietf" pubnum="RFC 1831" date="1995" title="ONC Remote Procedure Call Protocol, ver. 2.0"/>
       <applicability>
         ONC complies with RFC 1831:1995 (RPC: Remote
         Procedure Call Protocol Specification Version 2) and RFC 1832:1995
@@ -5357,6 +5662,7 @@ table:
         <history>
           <event flag="added" date="1996-03-13" version="0.1"/>
           <event flag="changed" date="2000-03-21" rfcp="" version="0.2"/>
+          <event flag="changed" date="2010-08-12" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -5511,7 +5817,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-infr" id="opengroup-" tag="DCE RPC">
-      <standard orgid="opengroup" pubnum="" date="" title="Remote Procedure Call (RPC), DCE RPC"/>
+      <standard orgid="opengroup" pubnum="C706" date="1997" title="Remote Procedure Call (RPC), DCE RPC"/>
       <applicability>
         Distributed computing services include specifications for
         remote procedure calls and distributed real-time support in
@@ -5644,7 +5950,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-infr" id="microsoft-smb" tag="SMB (Microsoft)">
-      <standard orgid="microsoft" pubnum="" date="" title="Server Message Block (SMB)"/>
+      <standard orgid="microsoft" pubnum="MS-SMB - v20100711" date="2010-07-11" title="Server Message Block (SMB)"/>
       <applicability>
         SMB provides a file and print sharing service which
         preserves, as well as is possible, the semantics of a DOS or MS
@@ -5659,6 +5965,7 @@ table:
         <history>
           <event flag="added" date="1997-05-26" version="0.1"/>
           <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-07-12" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -5750,10 +6057,10 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ts-ces-infr" id="osf-p313" tag="DTS DCE">
-      <standard orgid="osf" pubnum="P313" date="1995" title="SF DCE Distributed Time Service"/>
+    <standardrecord tref="ts-ces-infr" id="opengroup-c310" tag="DCE DTS">
+      <standard orgid="opengroup" pubnum="C310" date="1995" title="DCE 1.1: Time Services"/>
       <applicability>
-        The OSF DCE DTS provides a provable, bounded time
+        The DCE DTS provides a provable, bounded time
         over an arbitrary network. This standard is recommended only if used
         in conjunction with other OSF DCE components (e.g. DCE
         Kerberos-based authentication services). The potential benefit of
@@ -5800,7 +6107,7 @@ table:
       </status>
     </profilerecord>
     <standardrecord tref="ts-ces-infr" id="omg-formal-2002-12-06" tag="CORBA">
-      <standard orgid="omg" pubnum="formal/2002-12-06" date="2002" title="Common Object Request Broker Architecture (CORBA)"/>
+      <standard orgid="omg" pubnum="formal/2002-12-06" date="2002" title="Common Object Request Broker Architecture (CORBA):2009"/>
       <applicability>
         The Object Request Broker (ORB) provides a mechanism for
         accessing objects anywhere in a distributed computing
@@ -5828,6 +6135,7 @@ table:
         <uri>http://www.omg.org/technology/documents/formal/corba_iiop.htm</uri>
         <history>
           <event flag="added" date="1998-11-10" version="0.1"/>
+          <event flag="changed" date="2010-08-09" version="4.0"/>
           <!-- corba 2.0 -->
           <event flag="changed" date="2000-03-21" rfcp="" version="0.2"/>
           <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
@@ -6039,6 +6347,7 @@ table:
         <history>
           <event flag="added" date="1997-03-24" version="0.1"/>
           <event flag="changed" date="2001-11-21" rfcp="" version="0.3"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </profilerecord>
@@ -6080,7 +6389,7 @@ table:
         </parts>
       </standard>
       <applicability>
-        TThe Resource Description Framework (RDF) is a framework for
+        The Resource Description Framework (RDF) is a framework for
         representing information in the Web.
       </applicability>
       <status stage="10.10" mode="unknown">
@@ -6406,7 +6715,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="nis-ns-tact" id="nato-stanag5046" tag="STANAG 5046">
-      <standard date="1995" orgid="nato" pubnum="STANAG 5046 ed.3" title="The NATO Military Communications Directory System"/>
+      <standard date="1995" orgid="nato" pubnum="STANAG 5046 ed.3" title="The NATO Military Communications Directory System ed.4:2010"/>
       <applicability>
         This STANAG explains the system for the communications directory
         applicable to the military organisations of NATO member nations from the level
@@ -6419,11 +6728,12 @@ table:
         <uri>http://nsa.nato.int:9000/documents/stanags/5046eed03.pdf</uri>
         <history>
           <event date="2009-09-15" flag="added" rfcp="3-3" version="3.0"/>
+          <event date="2010-08-10" flag="changed" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="nis-ns-tact" id="nato-stanag5067" tag="STANAG 5067">
-      <standard date="2007" orgid="nato" pubnum="STANAG 5067 ed.1 (RD)" title="Standard for Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels"/>
+      <standard date="2007" orgid="nato" pubnum="STANAG 5067 ed.1 (RD)" title="Standard for Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels ed.1:2007"/>
       <applicability>
         This STANAG defines the interface for network
         interconnections based on Internet Protocol version 4 (IPv4) between NATO
@@ -6443,6 +6753,7 @@ table:
         <uri>http://nsa.nato.int:9000/documents/stanags/5067eed01.pdf</uri>
         <history>
           <event date="2009-09-15" flag="added" rfcp="3-3" version="3.0"/>
+          <event date="2010-08-10" flag="changed" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -9933,7 +10244,7 @@ table:
       </status>
     </profilerecord>
     <standardrecord tref="ts-con" id="eia-rs-232" tag="RS-232">
-      <standard orgid="eia" pubnum="RS-232" date="" title="Interface Between Data Terminal Equipment and Data Communications Equipment Employing Serial Binary Data Interchange (identical with ITU-T V.24/V.28)"/>
+      <standard orgid="eia" pubnum="RS-232" date="" title="Interface Between Data Terminal Equipment and Data Communications Equipment Employing Serial Binary Data Interchange (identical with ITU-T V.24/V.28:1991)"/>
       <applicability>
         RS-232 has been around as a standard for decades is an electrical
         interface between Data Terminal Equipment (DTE) and Data Circuit-Terminating
@@ -9958,11 +10269,12 @@ table:
         <history>
           <event flag="added" date="2001-11-20" rfcp="" version="0.3"/>
           <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ts-con" id="eia-rs-422-423" tag="RS-422/423">
-      <standard orgid="eia" pubnum="RS-422/423" date="" title="RS-422/423,Serial binary data interchange between a DTE and a DCE"/>
+      <standard orgid="eia" pubnum="RS-422/423" date="" title="RS-422/423,Serial binary data interchange between a DTE and a DCE:2005"/>
       <applicability>
         The limitations of RS-232 are largely eliminated by the balanced
         line interface.
@@ -9995,11 +10307,12 @@ table:
         <history>
           <event flag="added" date="2001-11-20" rfcp="" version="0.3"/>
           <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ts-con" id="eia-rs-530" tag="RS-530">
-      <standard orgid="eia" pubnum="RS-530" date="" title="RS-530,Serial binary data interchange between a DTE and a DCE, EIA/TIA"/>
+      <standard orgid="eia" pubnum="RS-530" date="" title="TIA-530-A,Serial binary data interchange between a DTE and a DCE, EIA/TIA:2004"/>
       <applicability>
         RS-530 - Supersedes RS-449 and complements RS-232. Based on a
         25-pin connection, it works in conjunction with either electrical interface
@@ -10014,6 +10327,7 @@ table:
         <history>
           <event flag="added" date="2001-11-20" rfcp="" version="0.3"/>
           <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -10811,7 +11125,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-inf-dis" id="ietf-draft-lee-sip-dns-sd-uri-03.txt" tag="DNS SD">
-      <standard orgid="ietf" pubnum="draft-lee-sip-dns-sd-uri-03.txt" date="2008" title="SIP URI Service Discovery using DNS-SD"/>
+      <standard orgid="ietf" pubnum="draft-lee-sip-dns-sd-uri-03.txt" date="2008" title="SIP URI Service Discovery using DNS-SD:2010"/>
       <applicability>
         This document describes how to use the DNS-based Service Discovery
         (DNS-SD), better known as Apple Bonjour, for advertising Session
@@ -10824,11 +11138,12 @@ table:
         <uri>http://tools.ietf.org/html/draft-lee-sip-dns-sd-uri-03.txt</uri>
         <history>
           <event flag="added" date="2008-12-10" rfcp="2-15" version="3.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ias-enc" id="nist-fips-pub197" tag="AES 128">
-      <standard orgid="nist" pubnum="FIPS PUB 197" date="2001" title="Advanced Encryption Standard 128"/>
+      <standard orgid="nist" pubnum="FIPS PUB 197" date="2001" title="Advanced Encryption Standard 128:2002"/>
       <applicability>
         AES 128 specifies an approved cryptographic algorithm that can
         be used to protect electronic data.  AES is a symmetric block cipher that
@@ -10839,10 +11154,11 @@ table:
         locally stored keys generated by the Root Certification Authority.
       </applicability>
       <status stage="20.40" mode="unknown">
-        <uri>http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf</uri>
+        <uri>http://www.ietf.org</uri>
         <history>
           <event flag="added" date="2005-07-26" rfcp="6-1" version="0.7"/>
           <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -10898,11 +11214,9 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ias-auth" id="iso-iec-9594-8" tag="Directory Authentication Framework">
-      <standard orgid="iso-iec" pubnum="9594-8" date="2001" title="Directory Authentication Framework">
-        <correction cpubnum="TC1" date="2002"/>
-        <correction cpubnum="TC2" date="2002"/>
-        <alsoknown orgid="ccitt" pubnum="X.509" date="2000"/>
+    <standardrecord tref="ias-auth" id="iso-iec-9594-8" tag="X.509">
+      <standard orgid="iso-iec" pubnum="9594-8" date="2005" title="The Directory: Public-key and attribute certificate frameworks">
+        <alsoknown orgid="ccitt" pubnum="X.509" date="2005"/>
       </standard>
       <applicability>
         This document provides a framework for the provision of authentication
@@ -10919,6 +11233,7 @@ table:
           <event flag="added" date="2000-03-21" rfcp="" version="0.2"/>
           <event flag="changed" date="2003-08-01" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-13" rfcp="4-4" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -11150,7 +11465,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ias-auth" id="sun-java_card_kit-2_2_1-fr-spec" tag="JAVACard">
-      <standard orgid="sun" pubnum="java_card_kit-2_2_1-fr-spec" date="2003" title="JAVACard 2.2.1 Platform Specification"/>
+      <standard orgid="sun" pubnum="java_card_kit-2_2_1-fr-spec" date="2003" title="JAVACard 2.2.1 Platform Specification v.2.2.2:2006"/>
       <applicability>
         The JAVA Card specifications enable JAVA technology to run
         on smart cards and other devices with limited memory.
@@ -11160,6 +11475,7 @@ table:
         <history>
           <event flag="added" date="2002-08-02" rfcp="" version="0.4"/>
           <event flag="changed" date="2003-11-20" rfcp="" version="0.5"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -11214,7 +11530,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ias-auth" id="ps-sc-wg-" tag="PC/SC Specifications">
-      <standard orgid="ps-sc-wg" pubnum="" date="1996" title="PC/SC Workgroup Specifications Overview">
+      <standard orgid="ps-sc-wg" pubnum="" date="1996" title="PC/SC Workgroup Specifications Overview:v.2.0.1.9:2005">
         <parts>
           <standard orgid="ps-sc-wg" pubnum="PCSC_Part_1" date="1997" title="PC/SC Part 1: Introduction and Architecture Overview"/>
           <standard orgid="ps-sc-wg" pubnum="PCSC_Part_2" date="1997" title="PC/SC Part 2: Interface Requirements for Compatible IC Cards and Readers"/>
@@ -11237,11 +11553,12 @@ table:
         <history>
           <event flag="added" date="2002-08-02" rfcp="" version="0.4"/>
           <event flag="changed" date="2003-11-20" rfcp="" version="0.5"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ias-auth" id="ietf-rfc2058" tag="Radius">
-      <standard orgid="ietf" pubnum="RFC 2058" date="1997" title="Remote Authentication Dial In User Service (RADIUS)"/>
+      <standard orgid="ietf" pubnum="RFC 2058" date="1997" title="Remote Authentication Dial In User Service (RADIUS):2006"/>
       <applicability>
         TThis document describes a protocol for carrying authentication,
         authorization, and configuration information between a Network Access Server
@@ -11251,6 +11568,7 @@ table:
         <uri>http://www.ietf.org/rfcs/rfc2058.txt</uri>
         <history>
           <event flag="added" date="2006-10-23" rfcp="" version="1.0"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -11353,7 +11671,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ias-integ" id="nist-fips180-2-change-notice1" tag="SHA 256">
-      <standard orgid="nist" pubnum="FIPS 180-2 with Change Notice 1" date="2004" title="Secure Hash Algorithm 256, SHA-256"/>
+      <standard orgid="nist" pubnum="FIPS 180-2 with Change Notice 1" date="2004" title="Secure Hash Algorithm 256, SHA-256:2002"/>
       <applicability>
         Hash algorithm to accompany the DSA and RSA for use in NMS.
         FIPS 180-2 specifies four secure hash algorithms SHA-1, SHA-256, SHA-384 and
@@ -11368,6 +11686,7 @@ table:
         <uri>http://csrc.nist.gov/publications/fips/fips180-2/fips180-2withchangenotice.pdf</uri>
         <history>
           <event flag="added" date="2005-07-26" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -11527,6 +11846,7 @@ table:
         </history>
       </status>
     </standardrecord>
+    
     <standardrecord tref="ias" id="itu-t-x.411" tag="X.411">
       <standard orgid="itu-t" pubnum="X.411" date="1995" title="Message transfer system: Abstract service definition and procedures"/>
       <applicability>
@@ -11551,6 +11871,76 @@ table:
         </history>
       </status>
     </standardrecord>
+    
+    <standardrecord tref="ias" id="iicwg-scip-210" tag="SCIP-210">
+      <standard orgid="IICWG" pubnum="SCIP-210" date="2006-04-28" title="SCIP Signalling Plan rev.3"/>
+      <applicability>
+        This document specifies the signaling requirements for the Secure Communication
+        Interoperability Protocol (SCIP) operational modes. The requirements represent
+        the efforts of a working group established for the development, analysis,
+        selection, definition and refinement of signaling for the operational modes
+        of a new class of secure voice and data terminals intended for use on the
+        emerging digital narrowband channels. These channels include digital cellular
+        systems such as GSM and CDMA, digital mobile satellite systems, and a variety
+        of other narrowband digital systems that are also within the scope of interest
+        for the working group. The SCIP signaling is designed to be sufficiently
+        flexible so that subsequent updates and revisions may include various future
+        networks of interest.
+        <para>
+          For details, contact AC/322 (SC/4).
+        </para>
+      </applicability>
+      <status stage="20.40" mode="unknown">
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-3" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    
+    <standardrecord tref="ias" id="iicwg-scip-214" tag="SCIP-214">
+      <standard orgid="IICWG" pubnum="SCIP-214" date="2010-01-16" title="Network-Specific Minimum Essential Requirements (MERs) for SCIP Devices, rev.1.1"/>
+      <applicability>
+        This document provides an index to the specifications of the network-specific
+        interface Minimum Essential Requirements (MERs) for Secure Communication
+        Interoperability Protocol (SCIP) devices. The MERs for each network-specific
+        interface are defined in separate SCIP-214 modules that are independently
+        under configuration control. This document also provides a SCIP network
+        architecture diagram and the SCIP Document Family Tree of Interface Requirements.
+        <para>
+          For details, contact AC/322 (SC/4).
+        </para>
+      </applicability>
+      <status stage="20.40" mode="unknown">
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-3" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    
+    <standardrecord tref="ias" id="iicwg-scip-231" tag="SCIP-231">
+      <standard orgid="IICWG" pubnum="SCIP-231" date="2007-03-15" title="Secure Communications Interoperability Protocol ECMQV/AES Cryptography Specification, rev.1.1"/>
+      <applicability>
+        This document specifies the cryptography requirements and associated Interoperable
+        Non-Type 1 Operational Modes for the Secure Communications Interoperability
+        Protocol (SCIP) family of equipment. The key negotiation primitive is Elliptic
+        Curve Cryptography (ECC) MQV using the Full MQV scheme. AES-256 is the traffic
+        encryption algorithm. The Certification Authority (CA) will generate X.509
+        Certificates to be delivered with the ECC static private component in key
+        material loads that will be incorporated into a software download via PC
+        compatible means. Counter mode cryptography will be used in conjunction with
+        the AES algorithm. Encrypted Packet methodology for Traffic key validation
+        is used. All standard SCIP voice and data applications are supported.
+        <para>
+          For details, contact AC/322 (SC/4).
+        </para>
+      </applicability>
+      <status stage="20.40" mode="unknown">
+        <history>
+          <event flag="added" date="2010-08-13" rfcp="4-3" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    
     <standardrecord tref="ias" id="ietf-rfc3920" tag="XMPP">
       <standard orgid="ietf" pubnum="RFC 3920" date="2004" title="Extensible Messaging and Presence Protocol (XMPP)">
         <parts>
@@ -11609,7 +11999,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ias-smi" id="iso-iec-15408" tag="ITSEC/CC">
-      <standard orgid="iso-iec" pubnum="15408" date="2005" title="Security Techniques - Evaluation criteria for IT security">
+      <standard orgid="iso-iec" pubnum="15408" date="2005" title="Security Techniques - Evaluation criteria for IT security:2009">
         <parts>
           <standard orgid="iso-iec" pubnum="15408-1" date="2005" title="ITSEC/CC Part 1: Introduction and general model"/>
           <standard orgid="iso-iec" pubnum="15408-2" date="2005" title="ITSEC/CC Part 2: Security functional requirements"/>
@@ -11676,6 +12066,7 @@ table:
           <event flag="changed" date="2003-09-12" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
           <event flag="changed" date="2007-07-27" rfcp="" version="2.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -12092,7 +12483,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ces-esm-sys" id="iso-iec-10165-4" tag="GDMO">
-      <standard orgid="iso-iec" pubnum="10165-4" date="1992" title="Guidelines for the Definition of Managed Objects">
+      <standard orgid="iso-iec" pubnum="10165-4" date="1992" title="Guidelines for the Definition of Managed Objects:1996">
         <correction cpubnum="TC1" date="1996"/>
         <correction cpubnum="TC2" date="2003"/>
         <correction cpubnum="AMD1" date="1996"/>
@@ -12133,6 +12524,7 @@ table:
           <event flag="added" date="2001-11-21" rfcp="" version="0.3"/>
           <event flag="changed" date="2003-08-01" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -12287,7 +12679,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ces-esm-sys" id="ietf-rfc4750" tag="OSPF MIB">
-      <standard orgid="ietf" pubnum="RFC 4750" date="2006" title="OSPF version 2 Management Information Base"/>
+      <standard orgid="ietf" pubnum="RFC 4750" date="2006" title="OSPF version 2 Management Information Base:2006"/>
       <applicability>
         This memo defines a portion of the Management Information Base (MIB)
         for use with network management protocols in TCP/IP-based internets. In particular,
@@ -12300,6 +12692,7 @@ table:
           <event flag="changed" date="2003-08-01" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
           <event flag="changed" date="2009-09-08" rfcp="" version="3.0"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -12724,8 +13117,8 @@ table:
     </standardrecord>
     <profilerecord tref="ces-app-app" id="etsi-en300-961" tag="GSM">
       <parts>
-        <standard orgid="etsi" pubnum="EN 300 961" date="1999" title="Digital cellular telecommunications system (Phase 2+) (GSM); Full rate speech, Transcoding, version 8.1.1"/>
-        <standard orgid="etsi" pubnum="EN 300 969" date="1999" title="Digital cellular telecommunications system (Phase 2+), Half rate speech, Half rate speech transcoding, version 8.0.1"/>
+        <standard orgid="etsi" pubnum="EN 300 961" date="1999" title="Digital cellular telecommunications system (Phase 2+) (GSM); Full rate speech, Transcoding, version 8.1.1:1999"/>
+        <standard orgid="etsi" pubnum="EN 300 969" date="1999" title="Digital cellular telecommunications system (Phase 2+), Half rate speech, Half rate speech transcoding, version 8.0.1:2000"/>
       </parts>
       <applicability>
         GSM 06.10 specifies the detailed mapping between input blocks
@@ -12744,6 +13137,7 @@ table:
           <event flag="added" date="2001-11-09" rfcp="" version="0.3"/>
           <event flag="changed" date="2003-07-31" rfcp="" version="0.5">GSM has changed to 3GPP</event>
           <event flag="changed" date="2005-09-12" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </profilerecord>
@@ -12786,7 +13180,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ces-app-app" id="iso-iec-11172" tag="MPEG-1">
-      <standard orgid="iso-iec" pubnum="11172" date="1993" title="Coding of Moving Pictures and Associated Audio for Digital Storage Media at up to about 1.5 Mbit/s">
+      <standard orgid="iso-iec" pubnum="11172" date="1993" title="Coding of Moving Pictures and Associated Audio for Digital Storage Media at up to about 1.5 Mbit/s:">
         <parts>
           <standard orgid="iso-iec" pubnum="11172-1" date="1993" title="MPEG-1 Part 1: Systems">
             <correction cpubnum="TC1" date="1996"/>
@@ -13073,17 +13467,18 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ces-app-app" id="nato-stanag5030ed.4" tag="STANAG 5030 ed.4">
-      <standard orgid="nato" pubnum="STANAG 5030 ed.4" date="" title="Single and Multichannel VLF and LF On-Line Broadcast and Off-Line OOK Systems"/>
+      <standard orgid="nato" pubnum="STANAG 5030 ed.4" date="" title="Single and Multichannel VLF and LF On-Line Broadcast and Off-Line OOK Systems:1995"/>
       <applicability/>
       <status stage="30.40" mode="unknown">
         <uri>http://nsa.nato.int:9000/documents/stanags/dr%20en/5030e.pdf</uri>
         <history>
           <event flag="added" date="2009-09-15" rfcp="3-3" version="3.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ces-app-app" id="nato-stanag4444ed.1-draft" tag="STANAG 4444 ed.1">
-      <standard orgid="nato" pubnum="STANAG 4444 ed.1 (Draft)" date="" title="Voice Coding Algorithm"/>
+      <standard orgid="nato" pubnum="STANAG 4444 ed.1 (Draft)" date="" title="Voice Coding Algorithm ed.1:1999"/>
       <applicability>
         The aim of this STANAG is to define the technical
         specifications (standards) to ensure the interoperability of land, air and
@@ -13102,6 +13497,7 @@ table:
         <history>
           <event flag="added" date="2002-12-04" rfcp="" version="0.4"/>
           <event flag="changed" date="2005-09-14" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -13249,8 +13645,8 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-app-app" id="nato-stanag5602ed.2" tag="SIMPLE">
-      <standard orgid="nato" pubnum="STANAG 5602 ed.2" date="2006" title="Standard Interface for Multiple Platform Link Evaluation (SIMPLE)"/>
+    <standardrecord tref="ces-app-app" id="nato-stanag5602ed.3" tag="SIMPLE">
+      <standard orgid="nato" pubnum="STANAG 5602 ed.3" date="2010" title="Standard Interface for Multiple Platform Link Evaluation (SIMPLE)"/>
       <applicability>
         The aim of this STANAG is to provide specifications for a common
         standard to interconnect ground rigs of all types (e.g. simulation, integration
@@ -13264,6 +13660,7 @@ table:
           <event flag="added" date="2003-05-14" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
           <event flag="changed" date="2007-08-02" rfcp="" version="2.0"/>
+          <event flag="changed" date="2010-06-23" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -13298,7 +13695,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ces-app-app" id="nato-stanag4559ed.2" tag="NSILI">
-      <standard orgid="nato" pubnum="STANAG 4559 ed. 2" date="2007" title="NATO Standard Imagery Library Interface (NSILI)"/>
+      <standard orgid="nato" pubnum="STANAG 4559 ed. 2" date="2007" title="NATO Standard Imagery Library Interface (NSILI) ed.3:2010"/>
       <applicability>
         This STANAG is to provide interoperability between NATO nations
         reconnaissance databases and product libraries by defining an interoperable
@@ -13316,6 +13713,7 @@ table:
         <history>
           <event flag="added" date="2003-05-14" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -13341,8 +13739,8 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-app-app" id="nato-stanag4607ed.2" tag="GMTIF">
-      <standard orgid="nato" pubnum="STANAG 4607 ed.1" date="2007" title="NATO Ground Moving Target Indicator Format (GMTIF)"/>
+    <standardrecord tref="ces-app-app" id="nato-stanag4607ed.3" tag="GMTIF">
+      <standard orgid="nato" pubnum="STANAG 4607 ed.3" date="2010" title="NATO Ground Moving Target Indicator Format (GMTIF)ed.3:2010"/>
       <applicability>
         The data format described in this document provides a means for
         the transmission of Ground Moving Target Indicator (GMTI) detection data.
@@ -13360,11 +13758,12 @@ table:
         <uri>http://nsa.nato.int:9000/documents/stanags/4607Eed01.pdf</uri>
         <history>
           <event flag="added" date="2007-01-25" rfcp="7-8" version="1.0"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ces-app-app" id="nato-stanag4609ed.2" tag="DMIS">
-      <standard orgid="nato" pubnum="STANAG 4609 ed.2" date="2007" title="NATO Digital Motion Imagery Format"/>
+      <standard orgid="nato" pubnum="STANAG 4609 ed.2" date="2007" title="NATO Digital Motion Imagery Format ed.3:2009"/>
       <applicability>
         STANAG 4609 is intended to provide common methods for exchange of
         across systems within and among NATO nations. STANAG 4609 is intended users
@@ -13382,11 +13781,12 @@ table:
         <uri>http://nsa.nato.int:9000/documents/stanags/4607Eed01.pdf</uri>
         <history>
           <event flag="added" date="2007-01-25" rfcp="7-9" version="1.0"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-app-app" id="nato-stanag7023ed.3" tag="NPIF">
-      <standard orgid="nato" pubnum="STANAG 7023 ed.3" date="2004" title="NATO Primary Imagery Format (NPIF)"/>
+    <standardrecord tref="ces-app-app" id="nato-stanag7023ed.4" tag="NPIF">
+      <standard orgid="nato" pubnum="STANAG 7023 ed.4" date="2009" title="NATO Primary Imagery Format (NPIF)"/>
       <applicability>
         This STANAG establishes a standard data format and a standard
         transport architecture for the transfer of reconnaissance and surveillance
@@ -13404,6 +13804,7 @@ table:
         <history>
           <event flag="added" date="2003-05-14" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-12" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -13701,7 +14102,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ces-app-app" id="nato-stanag4586" tag="UCS">
-      <standard orgid="nato" pubnum="STANAG 4586" date="2007" title="UAV Control System (UCS) Architecture (Draft)"/>
+      <standard orgid="nato" pubnum="STANAG 4586" date="2007" title="Standard Interfaces of UAV Control System (UCS) for NATO UAV Interoperability"/>
       <applicability>
         The objective of this STANAG is to facilitate communication between
         a UCS and different UAVs and their payloads as well as multiple C4I users.
@@ -13716,6 +14117,7 @@ table:
         <history>
           <event flag="added" date="2003-05-14" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -13802,7 +14204,7 @@ table:
       </status>
     </profilerecord>
     <standardrecord tref="ces-app-app" id="oasis-dsml" tag="DSML">
-      <standard orgid="oasis" pubnum="" date="2001" title="Directory Service Markup Language v2"/>
+      <standard orgid="oasis" pubnum="" date="2001" title="Directory Service Markup Language v2:2002"/>
       <applicability>
         DSML is a way to access (i.e. query and update) LDAP directory
         information as XML documents:
@@ -13920,6 +14322,7 @@ table:
         <history>
           <event flag="added" date="2005-07-31" rfcp="6-5" version="0.7"/>
           <event flag="changed" date="2005-09-07" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -14156,7 +14559,7 @@ table:
       </status>
     </profilerecord>
     <standardrecord tref="ces-app-app" id="iso-iec-26300" tag="OpenDocument">
-      <standard orgid="iso-iec" pubnum="26300" date="2006-12-01" title="Open Document Format for Office Applications (OpenDocument) v1.0"/>
+      <standard orgid="iso-iec" pubnum="26300" date="2006-12-01" title="Open Document Format (ODF) for Office Applications (OpenDocument) v1.0"/>
       <applicability>
         This document defines an XML schema for office applications
         and its semantics. The schema is suitable for office documents, including
@@ -14285,7 +14688,7 @@ table:
     <profilerecord tref="ces-app-app" id="oasis-oasis-sstc-saml-core-1.1" tag="SAML 1.1">
       <profilenote>Security Assertion Markup Language (SAML) v1.1</profilenote>
       <parts>
-        <standard orgid="oasis" pubnum="oasis-sstc-saml-core-1.1" date="2003-09-02" title="SAML Assertions and Protocol"/>
+        <standard orgid="oasis" pubnum="oasis-sstc-saml-core-1.1" date="2003-09-02" title="SAML Assertions and Protocol v.2.2"/>
         <standard orgid="oasis" pubnum="oasis-sstc-saml-bindings-1.1" date="2003-09-02" title="SAML Bindings and Profiles"/>
         <standard orgid="oasis" pubnum="oasis-sstc-saml-sec-consider-1.1" date="2003-09-02" title="SAML Security and Privacy Considerations"/>
         <standard orgid="oasis" pubnum="oasis-sstc-saml-conform-1.1" date="2003-09-02" title="SAML Conformance Program Specification"/>
@@ -14301,11 +14704,13 @@ table:
         <uri>http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=security</uri>
         <history>
           <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
+          <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </profilerecord>
     <standardrecord tref="ces-app-app" id="w3c-xmlenc-core" tag="XML Encryption">
-      <standard orgid="w3c" pubnum="xmlenc-core" date="2002-12-10" title="XML Encryption Syntax and Processing"/>
+      <standard orgid="w3c" pubnum="xmlenc-core" date="2002-12-10" title="XML Encryption Syntax and Processing:2008"/>
       <applicability>
         This document specifies a process for encrypting data and representing
         the result in XML. The data may be arbitrary data (including an XML document),
@@ -14316,11 +14721,12 @@ table:
         <uri>http://www.w3.org/TR/xmlenc-core</uri>
         <history>
           <event flag="added" date="2008-10-14" rfcp="2-7" version="3.0"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ces-app-app" id="w3c-xmldsig-core" tag="XML Signature">
-      <standard orgid="w3c" pubnum="xmldsig-core" date="2008-06-10" title="XML Signature Syntax and Processing (2nd ed.)"/>
+      <standard orgid="w3c" pubnum="xmldsig-core" date="2008-06-10" title="XML Signature Syntax and Processing (2nd ed.):2008"/>
       <applicability>
         This document specifies XML digital signature processing rules and
         syntax. XML Signatures provide integrity, message authentication, and/or signer
@@ -14331,11 +14737,12 @@ table:
         <uri>http://www.w3.org/TR/xmldsig-core</uri>
         <history>
           <event flag="added" date="2008-10-14" rfcp="2-7" version="3.0"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ces-app-app" id="w3c-xkms" tag="XKMS">
-      <standard orgid="w3c" pubnum="xkms" date="2001-03-30" title="XML Key Management Specification"/>
+      <standard orgid="w3c" pubnum="xkms" date="2001-03-30" title="XML Key Management Specification:2001"/>
       <applicability>
         This document specifies protocols for distributing and registering
         public keys, suitable for use in conjunction with the proposed standard for XML
@@ -14349,13 +14756,14 @@ table:
         <uri>http://www.w3.org/TR/xkms</uri>
         <history>
           <event flag="added" date="2008-10-14" rfcp="2-7" version="3.0"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <profilerecord tref="ces-app-app" id="oasis-oasis-access_control-xacml-2.0-core-spec-os" tag="XACML 2.0">
       <profilenote>eXtensible Access Control Markup Language (XACML) Version 2.0</profilenote>
       <parts>
-        <standard orgid="oasis" pubnum="oasis-access_control-xacml-2.0-core-spec-os" date="2005-02-01" title="eXtensible Access Control Markup Language core specification v2.0"/>
+        <standard orgid="oasis" pubnum="oasis-access_control-xacml-2.0-core-spec-os" date="2005-02-01" title="eXtensible Access Control Markup Language core specification v2.0:2008"/>
         <standard orgid="oasis" pubnum="oasis-access_control-xacml-2.0-rbac-profile1-spec-os" date="2005-02-01" title="Core and hierarchical role based access control (RBAC) profile of XACML v2.0"/>
         <standard orgid="oasis" pubnum="oasis-access_control-xacml-2.0-hier-profile-spec-os" date="2005-02-01" title="Hierarchical resource profile of XACML v2.0"/>
         <standard orgid="oasis" pubnum="oasis-access_control-xacml-2.0-mult-profile-spec-os" date="2005-02-01" title="Multiple resource profile of XACML v2.0"/>
@@ -14960,7 +15368,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="sun-jsr221" tag="JDBC">
-      <standard orgid="sun" pubnum="JSR 221" date="" title="Java DataBase Connection"/>
+      <standard orgid="sun" pubnum="JSR 221" date="" title="Java DataBase Connection version 4.0:2006"/>
       <applicability>
         JDBC is a JAVA API for executing SQL statements. It consists of
         a set of classes and interfaces written in the Java programming language. JDBC
@@ -14981,6 +15389,7 @@ table:
         <history>
           <event flag="added" date="2002-10-10" rfcp="" version="0.4"/>
           <event flag="changed" date="2005-09-06" rfcp="" version="0.7"/>
+           <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -15663,7 +16072,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="nato-tide-nvg" tag="NVG">
-      <standard orgid="nato" pubnum="TIDE/NVG" date="2008" title="NATO Vector Graphics (NVG) Protocol v1.4"/>
+      <standard orgid="nato" pubnum="TIDE/NVG" date="2008" title="NATO Vector Graphics (NVG) Protocol version 1.5:2010 (ACT)"/>
       <applicability>
         The NATO Vector Graphics (NVG) Data Format was created to ease
         the encoding and sharing of battle-space information between command and control
@@ -15676,20 +16085,34 @@ table:
         <uri>http://tide.act.nato.int/mediawiki/index.php/NATO_Vector_Graphics_%28NVG%29_Protocol</uri>
         <history>
           <event flag="added" date="2008-12-11" rfcp="2-20" version="3.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="nato-nmrr" tag="NMRR">
-      <standard orgid="nato" pubnum="NMRR" date="2008" title="NATO Metadata Registry and Repository (NMRR)"/>
+      <standard orgid="nato" pubnum="TN-1313" date="2008" title="NATO Metadata Registry and Repository (NMRR):2008 (NC3A)"/>
       <applicability>
-        The NATO Metadata Registry and Repository (NMRR) specifications document
-	the administartive and operational metadata requirements and core enterprise
-	service descriptions in support of the NATO Networked Environment Capability (NNEC).
+        The NATO Metadata Registry and Repository (NMRR) is an important service in the movement
+        towards NATO Network-Enabled Capability (NNEC) and it is essential that its development be based
+        on a well-founded and complete framework. Three NC3A Technical Notes (TN) establish the
+        framework for the NMRR procurement: a user requirements specification (TN-1311), a functional
+        requirements specification (TN-1312), and an architecture and design specification (TN-1313).
+        This series of documents focuses on the NMRR from an administrative perspective rather than
+        an operational perspective. The administrative NMRR is distinguished from the operational NMRR by
+        the nature of the artefacts being registered. The artefacts are rather static, as a result of the formal
+        approval process, and therefore the NMRR is also static. Moreover, the administrative NMRR is
+        mainly used by human users (e.g. data administrators, developers) whereas the operational NMRR is
+        mainly used by automated clients (e.g. air, land, and maritime joint C2 functional services). In contrast
+        to the operational NMRR, which is mainly accessed during run-time, the administrative NMRR is
+        mostly consulted during the time XML artefacts are designed, and during configuration and life-cycle
+        management.
+        This document, TN-1313, addresses the architecture and design of the administrative NMRR.
       </applicability>
       <status stage="20.40" mode="unknown">
         <uri>http://si.nc3a.nato.int/projects/metadata-registry</uri>
         <history>
           <event flag="added" date="2009-02-06" rfcp="2-24" version="3.0"/>
+          <event flag="changed" date="2010-08-12" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -15944,7 +16367,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="nato-app-11" tag="APP-11(A) / STANAG 7149 ed.3">
-      <standard orgid="nato" pubnum="APP-11" date="2008" title="NATO Message Catalogue"/>
+      <standard orgid="nato" pubnum="APP-11" date="2008" title="NATO Message Catalogue ed.4:2009"/>
       <applicability>
         The purpose of APP-11 is to provide user's with definitive reference
         of messages and supporting tables mandated for use in Joint, Land, Maritime
@@ -15960,6 +16383,7 @@ table:
         <uri>http://nsa.nato.int:9000/documents/stanags/dr%20en/7149Eed02.pdf</uri>
         <history>
           <event flag="added" date="2007-11-02" rfcp="1-9" version="2.0"/>
+           <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -16748,20 +17172,21 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ts-ces-med" id="nato-stanag7170" tag="STANAG 7170">
-      <standard orgid="nato" pubnum="STANAG 7170 ed.1" date="2003" title="Additional Military Layers (AML)(Draft)"/>
+    <standardrecord tref="coi-ci-ovm" id="nato-stanag7170" tag="STANAG 7170">
+      <standard orgid="nato" pubnum="STANAG 7170 ed.1" date="2003" title="Additional Military Layers (AML)"/>
       <applicability>
         This STANAG aims to define a set of geospatial data products for
         the publication and exchange of all of types of hydrographic information
         beyond that necessary solely for maritime navigation, oceanographic
         climatological information, and meterological climatological information.
       </applicability>
-      <status stage="30.10" mode="unknown">
+      <status stage="30.40" mode="unknown">
         <uri>http://nsa.nato.int:9000/documents/stanags/7170eed01.pdf</uri>
         <history>
           <event flag="added" date="2003-03-18" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
           <event flag="changed" date="2007-08-03" rfcp="" version="2.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -16911,6 +17336,7 @@ table:
         <history>
           <event flag="added" date="2002-12-03" rfcp="" version="0.4"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+          <event flag="deleted" date="2010-08-13" rfcp="4-8" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -16944,7 +17370,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="ogc-ogc04-024" tag="OGC WMS">
-      <standard orgid="ogc" pubnum="OGC 04-024" date="2004" title="Open GIS Web Map Service Implementation Specification v1.3"/>
+      <standard orgid="ogc" pubnum="OGC 04-024" date="2004" title="Open GIS Web Map Service Implementation Specification v1.3:2010"/>
       <applicability>
         A WMS (OGC Web Map Server) is capable of producing maps drawn
         into a standard image format (PNG, JPEG, etc). based on a standard set of
@@ -16956,11 +17382,12 @@ table:
       <status stage="20.10" mode="unknown">
         <history>
           <event flag="added" date="2005-11-22" rfcp="6-16" version="0.7"/>
+           <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="ogc-ogc04-094" tag="WFS">
-      <standard orgid="ogc" pubnum="OGC 04-094" date="2005" title="Web Feature Service Implementation Specification v1.1"/>
+      <standard orgid="ogc" pubnum="OGC 04-094" date="2005" title="Web Feature Service Implementation Specification v1.1:2010"/>
       <applicability>
         The Web Map Service allows a client to overall map images for
         display served from multiple Web Map Services on a network. In a similar
@@ -16996,11 +17423,12 @@ table:
         <history>
           <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
           <event flag="changed" date="2005-11-22" rfcp="6-16" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="ogc-ogc02-065r6" tag="WCS">
-      <standard orgid="ogc" pubnum="OGC 02-065r6" date="2003-08-27" title="Web Coverage Service (WCS)"/>
+      <standard orgid="ogc" pubnum="OGC 02-065r6" date="2003-08-27" title="Web Coverage Service (WCS):2010"/>
       <applicability>
         A Web Coverage Service supports the networked interchange of
         geospatial data as coverages (i.e. raster, matrix and imagery data). Unlike
@@ -17027,11 +17455,12 @@ table:
       <status stage="20.10" mode="unknown">
         <history>
           <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="ogc-ogc05-047r2" tag="GMLJP2">
-      <standard orgid="ogc" pubnum="OGC 05-047r2" date="2005" title="GML in JPEG 2000 for Geographic Imagery (GMLJP2)"/>
+      <standard orgid="ogc" pubnum="OGC 05-047r2" date="2005" title="GML in JPEG 2000 for Geographic Imagery (GMLJP2):2010"/>
       <applicability>
         The GML (Geography Markup Language) is an XML grammar for the
         encoding geographic information including geographic features, coverages,
@@ -17059,6 +17488,7 @@ table:
       <status stage="20.10" mode="unknown">
         <history>
           <event flag="added" date="2005-11-22" rfcp="6-16" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -17102,7 +17532,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="ogc-ogc01-024r1" tag="WRS">
-      <standard orgid="ogc" pubnum="OGC 01-024r1" date="2001-01-26" title="Web Registry Server (WRS)"/>
+      <standard orgid="ogc" pubnum="OGC 01-024r1" date="2001-01-26" title="Web Registry Server (WRS):2001"/>
       <applicability>
         A Web Coverage Service supports ?one stop shopping? for the
         registration, metadata publishing, descriptor ingest, push and pull update
@@ -17114,11 +17544,12 @@ table:
         <history>
           <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="ogc-ogc02-087r3" tag="CAT">
-      <standard orgid="ogc" pubnum="OGC 02-087r3" date="2003-12-13" title="OpenGIS Catalog Interface (CAT)"/>
+      <standard orgid="ogc" pubnum="OGC 02-087r3" date="2003-12-13" title="OpenGIS Catalog Interface (CAT):2002"/>
       <applicability>
         The OpenGIS Catalog Interface services support the ability to
         publish and search collections of geospatial metadata for data, services,
@@ -17135,6 +17566,7 @@ table:
         <history>
           <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
           <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -17217,23 +17649,20 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="opengl-glspec14" tag="OpenGL">
-      <standard orgid="opengl" pubnum="glspec14" date="2002" title="Open Graphics Library (OpenGL) v1.4">
+      <standard orgid="opengl" pubnum="glspec40.Core.20100311" date="2010" title="The Open Graphics Library (OpenGL) System v.4.0">
         <comment>OpenGL Architecture Review Board (ARB)</comment>
       </standard>
       <applicability>
-        OpenGL provides an easy-to-use, full-featured, network transparent
-        API for developing applications that wish to use 3D graphics. OpenGL consists
-        of several functional pieces: a rendering library (for basic 3D rendering,
-        anti-aliasing, sub-pixel rasterisation, clipping, texture mapping, fog and
-        atmospheric effects, etc.), a utility toolkit (for Non-Uniform Rational B-Spline
-        support, quadric capabilities, multi-contour polygon tesselation capabilities,
-        etc.), an X Window System integration suite (the OpenGL rendering library is
-        integrated in with the X Window System, using the standard X11 Extension mechanism),
-        and a networking protocol (for network transparency purposes). OpenGL does
-        not provide support for windowing, input, events, cursors and popup menus;
-        these functions are provided in the X11 library (Xlib), Xt and OSF/Motif. It
-        is expected that most OpenGL applications will be using OSF/Motif for their
-        user interface.
+        OpenGL - for Open Graphics Library - is a software interface to graphics hardware.
+        The interface consists of a set of several hundred procedures and functions
+        that allow a programmer to specify the objects and operations involved in producing
+        high-quality graphical images, specifically color images of three-dimensional
+        objects.<para>
+        Most of OpenGL requires that the graphics hardware contain a framebuffer.
+        Many OpenGL calls pertain to drawing objects such as points, lines, and polygons,
+        but the way that some of this drawing occurs (such as when antialiasing is enabled)
+        relies on the existence of a framebuffer. Further, some of OpenGL is specifically
+        concerned with framebuffer manipulation.</para>
       </applicability>
       <status stage="20.40" mode="unknown">
         <uri>http://www.opengl.org/documentation/spec.html</uri>
@@ -17242,10 +17671,11 @@ table:
           <event flag="changed" date="2000-03-15" rfcp="" version="0.2"/>
           <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
           <event flag="changed" date="2005-09-07" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-12" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ts-ces-med" id="x-consortium-" tag="PEX">
+    <standardrecord tref="ts-ces-med" id="x-consortium-pex" tag="PEX">
       <standard orgid="x-consortium" pubnum="" date="" title="PHIGS Extensions to X (PEX), and PEXlib 5.2"/>
       <applicability>
         PEX is an extension to the X Window System protocol that enables
@@ -17291,7 +17721,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="omg-formal03-03-01" tag="UML">
-      <standard orgid="omg" pubnum="formal/03-03-01" date="2003" title="Unified Modeling Language, v2.0"/>
+      <standard orgid="omg" pubnum="formal/03-03-01" date="2003" title="Unified Modeling Language, v2.0:2010"/>
       <applicability>
         The Unified Modeling Language (UML) is a graphical language for
         visualizing, specifying, constructing, and documenting the artifacts of a
@@ -17306,6 +17736,7 @@ table:
           <event flag="added" date="1997-02-20" version="0.1"/>
           <event flag="changed" date="2001-11-19" rfcp="" version="0.3"/>
           <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -17477,7 +17908,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="nato-stanag1059" tag="STANAG 1059">
-      <standard orgid="nato" pubnum="STANAG 1059" date="2004" title="Letters for Geographic Entities, ed.8">
+      <standard orgid="nato" pubnum="STANAG 1059" date="2004" title="Letters for Geographic Entities, ed.8:2005">
         <comment>A NATO standard of codes for distinguishing geographical entities, nations and countries.</comment>
       </standard>
       <applicability>
@@ -17492,6 +17923,7 @@ table:
           <event flag="deleted" date="2000-12-01" rfcp="" version="0.2"/>
           <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
           <event flag="changed" date="2007-12-04" rfcp="" version="2.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -17655,7 +18087,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="ecma-ecma-262" tag="ECMA Script">
-      <standard orgid="ecma" pubnum="ECMA-262" date="1999-12" title="ECMAScript Language Specification"/>
+      <standard orgid="ecma" pubnum="ECMA-262" date="1999-12" title="ECMAScript Language Specification ed.3:2009"/>
       <applicability>
         ECMAScript (originally known as JavaScript before it became an
         open standard) is used to deliver enhanced web page features. It is supported
@@ -17679,6 +18111,7 @@ table:
         <history>
           <event flag="added" date="2002-09-18" rfcp="" version="0.4"/>
           <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -18356,7 +18789,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-ws" id="bpmi-" tag="BPML">
-      <standard date="" orgid="bpmi" pubnum="" title="BPML Business Process Management Language version 0.4"/>
+      <standard date="" orgid="bpmi" pubnum="" title="BPML Business Process Model and Notation version 2.0:2010"/>
       <applicability>
         BPML is "a meta-language for the modeling of business processes.
         BPML provides an abstracted execution model for collaborative and transactional
@@ -18366,6 +18799,7 @@ table:
       <status stage="10.10" mode="unknown">
         <history>
           <event date="2007-02-23" flag="added" version="1.0"/>
+          <event date="2010-08-09" flag="changed" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -18388,7 +18822,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-ws" id="jcp-jsr155" tag="J2EE">
-      <standard date="2004-04-26" orgid="jcp" pubnum="JSR 155" title="JavaTM 2 Platform, Enterprise Edition 1.4 (J2EE 1.4) Specification"/>
+      <standard date="2004-04-26" orgid="jcp" pubnum="JSR 155" title="JavaTM 2 Platform, Enterprise Edition 1.4 (JAVA EE v.6:2009) Specification ed. 1.5.0:2004"/>
       <applicability>
         Java Platform, Enterprise Edition (Java EE) is the industry standard
         for developing portable, robust, scalable and secure server-side Java applications.
@@ -18397,6 +18831,7 @@ table:
         <uri>http://www.jcp.org/en/jsr/detail?id=151</uri>
         <history>
           <event date="2007-02-23" flag="added" version="1.0"/>
+          <event date="2010-08-09" flag="changed" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -18597,7 +19032,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-pub" id="nato-tide-id-sp" tag="TIDE-ID-SP">
-      <standard orgid="nato" pubnum="TIDE/TIDE-ID-SP" date="2008" title="TIDE Information Discovery (Subscribe-Publish) Protocol v2.2"/>
+      <standard orgid="nato" pubnum="TIDE/TIDE-ID-SP" date="2008" title="TIDE Information Discovery (Subscribe-Publish) Protocol v2.2:2009"/>
       <applicability>
         The main objective of the Subscribe-Publish Protocol is to provide
         a means of getting asychronous information from a TIDE Producer without the
@@ -18611,6 +19046,7 @@ table:
         <uri>http://tide.act.nato.int/mediawiki/index.php/TIDE_Information_Discovery_%28Subscribe-Publish%29</uri>
         <history>
           <event flag="added" date="2008-12-11" rfcp="2-22" version="3.0"/>
+          <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -18731,8 +19167,8 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ces-uas-dic" id="x-consortium-x11r6.6" tag="X Window System V 11 R.6.6">
-      <standard orgid="x-consortium" pubnum="X11R6.6" date="2001-04-24" title="X Window System, Version 11, release 6.6"/>
+    <standardrecord tref="ces-uas-dic" id="x-consortium-x11r7.5" tag="X Window System V 11 R.7.5">
+      <standard orgid="x-consortium" pubnum="X11R7.5" date="2009-10-26" title="X Window System, Version 11, release 7.5:2009"/>
       <applicability>
         The X Window System is the de-facto standard for GUI in the Open
         Systems Environment. Its software, written in C, has proven to be highly portable
@@ -18744,6 +19180,7 @@ table:
         <history>
           <event flag="added" date="1996-03-27" version="0.1"/>
           <event flag="changed" date="2001-11-09" rfcp="" version="0.3"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -18809,7 +19246,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ces-uas-dic" id="opengroup-t525" tag="Motif 2.1">
-      <standard orgid="opengroup" pubnum="T525" date="1997" title="CDE 2.1/Motif Release 2.1."/>
+      <standard orgid="opengroup" pubnum="T525" date="1997" title="CDE 2.1/Motif Release 2.1:1997."/>
       <applicability>
         The Motif user interface was developed for applications running
         on any system which can support the X Window System. Motif 2.1 includes the
@@ -18838,6 +19275,7 @@ table:
         <history>
           <event flag="added" date="1998-11-06" version="0.1"/>
           <event flag="changed" date="2005-09-06" rfcp="" version="0.7"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -18910,13 +19348,279 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="coi-logistics-scs" id="oagi-oagis" tag="OAGIS 9.0">
+    <standardrecord tref="coi-logistics" id="iso-15961" tag="RFID Application Interface">
+      <standard orgid="iso-iec" pubnum="15961" date="2004" title="RFID Data protocol: application interface"/>
+      <applicability>
+        The data protocol used to exchange information in a radio-frequency identification
+        (RFID) system for item management is specified in ISO/IEC 15961:2004 and
+        in ISO/IEC 15962:2004. Both are required for a complete understanding of
+        the data protocol in its entirety; but each focuses on one particular interface:
+        <itemizedlist>
+          <listitem>
+            <para>ISO/IEC 15961:2004 addresses the information interface with the
+              application system.</para>
+          </listitem>
+          <listitem>
+            <para>ISO/IEC 15962:2004 deals with the processing of data and its presentation
+              to the RF tag, and the initial processing of data captured from the
+              RF tag.</para>
+          </listitem>
+        </itemizedlist>
+        ISO/IEC 15961:2004 focuses on the interface between the application and
+        the data protocol processor, and includes the specification of the transfer
+        syntax and definition of application commands and responses. It allows data
+        and commands to be specified in a standardized way, independent of the particular
+        air interface of ISO/IEC 18000.
+        <para>ISO/IEC 15961:2004</para>
+        <itemizedlist>
+          <listitem>
+            <para>provides guidelines on how data shall be presented as objects;</para>
+          </listitem>
+          <listitem>
+            <para>defines the structure of object identifiers, based on ISO/IEC 9834-1;</para>
+          </listitem>
+          <listitem>
+            <para>specifies the commands that are supported for transferring data
+              between the application and the RF tag;</para>
+          </listitem>
+          <listitem>
+            <para>specifies the responses that are supported for transferring data
+              between the RF tag and the application;</para>
+          </listitem>
+          <listitem>
+            <para>provides a formal description of all the processes using ASN.1,
+              as specified in ISO/IEC 8824-1;</para>
+          </listitem>
+          <listitem>
+            <para>specifies the transfer syntax, based on the Basic Encoding Rules
+              of ISO/IEC 8825-1, for data to be transferred from and to the application.
+            </para>
+          </listitem>
+        </itemizedlist>
+        It is expected that ISO/IEC 15961:2004 will be used as a reference to develop
+        software appropriate for particular applications, or for particular RF equipment.
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=30528</uri>
+        <history>
+          <event flag="added" date="2010-08-14" rfcp="4-14" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-logistics" id="iso-15962" tag="RFID Data Encoding Rules">
+      <standard orgid="iso-iec" pubnum="15962" date="2004" title="RFID Data protocol: data encoding rules and logical memory functions"/>
+      <applicability>
+        The data protocol used to exchange information in a radio-frequency identification
+        (RFID) system for item management is specified in ISO/IEC 15961:2004 and
+        in ISO/IEC 15962:2004. Both are required for a complete understanding of
+        the data protocol in its entirety; but each focuses on one particular interface:
+        <itemizedlist>
+          <listitem>
+            <para>ISO/IEC 15961:2004 addresses the information interface with the
+              application system.</para>
+          </listitem>
+          <listitem>
+            <para>ISO/IEC 15962:2004 deals with the processing of data and its presentation
+              to the RF tag, and the initial processing of data captured from the
+              RF tag.</para>
+          </listitem>
+        </itemizedlist>
+          ISO/IEC 15962:2004 focuses on encoding the transfer syntax, as defined in
+          ISO/IEC 15961:2004 according to the application commands defined in that
+          International Standard. The encodation is in a Logical Memory as a software
+          analogue of the physical memory of the RF tag being addressed by the interrogator.
+        <para>ISO/IEC 15962:2004</para>
+        <itemizedlist>
+          <listitem>
+            <para>defines the encoded structure of object identifiers;</para>
+          </listitem>
+          <listitem>
+            <para>specifies the data compaction rules that apply to the encoded data;</para>
+          </listitem>
+          <listitem>
+            <para>specifies a Precursor for encoding syntax features efficiently;</para>
+          </listitem>
+          <listitem>
+            <para>specifies formatting rules for the data, e.g. depending on whether
+              a directory is used or not;</para>
+          </listitem>
+          <listitem>
+            <para>defines how application commands, e.g. to lock data, are transferred
+              to the Tag Driver;</para>
+          </listitem>
+          <listitem>
+            <para>defines other communication to the application.
+            </para>
+          </listitem>
+        </itemizedlist>
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=30529</uri>
+        <history>
+          <event flag="added" date="2010-08-14" rfcp="4-14" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>
+    <standardrecord tref="coi-logistics" id="iso-17363" tag="RFID Freight containers">
+      <standard orgid="iso-iec" pubnum="17363" date="2007" title="Supply chain applications of RFID -- Freight containers"/>
+      <applicability>
+        ISO 17363:2007 defines the usage of read/write radio-frequency identification
+        technology (RFID) cargo shipment-specific tags on freight containers for supply
+        chain management purposes (shipment tags). It defines the air-interface communications,
+        a common set of required data structures, and a commonly organized set of
+        optional data requirements (through common syntax and semantics).
+        <para>It contains recommendations about a containerized cargo supply chain
+          RFID system, based on shipment tags; specific recommendations about mandatory
+          non-reprogrammable information on the shipment tag; and specific recommendations
+          about optional, re-programmable information on the shipment tag.</para>
+        <para>Identified within ISO 17363:2007 are the air-interface and communication
+          parameters for active radio-frequency identification communications using
+          ISO/IEC 18000-7.</para>
+        <para>ISO 17363:2007 is applicable to freight containers as defined in ISO
+          668 and to freight containers that are not defined by other ISO standards.
+          It complements ISO 10374 for permanent container license-plate tags.</para>
+        <para>It fully describes cargo shipment-specific tags.</para>
+        <para>It does not address smart container technologies affixed to, or inside,
+          freight containers (e.g. sensors) for supply chain management purposes. 
+        </para>
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38331</uri>
+        <history>
+          <event flag="added" date="2010-08-14" rfcp="4-14" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>    
+    <standardrecord tref="coi-logistics" id="iso-17364" tag="RFID  Returnable transport items ">
+      <standard orgid="iso-iec" pubnum="17364" date="2009" title="Supply chain applications of RFID -- Returnable transport items (RTIs)"/>
+      <applicability>
+        ISO 17364:2009 defines the basic features of RFID for the use in the supply
+        chain when applied to returnable transport items. In particular it:
+        <itemizedlist>
+          <listitem>
+            <para>provides specifications for the identification of the RTI,</para>
+          </listitem>
+          <listitem>
+            <para>makes recommendations about additional information on the RF tag,</para>
+          </listitem>
+          <listitem>
+            <para>specifies the semantics and data syntax to be used,</para>
+          </listitem>
+          <listitem>
+            <para>specifies the data protocol to be used to interface with business
+              applications and the RFID system,</para>
+          </listitem>
+          <listitem>
+            <para>specifies the minimum performance requirements,</para>
+          </listitem>
+          <listitem>
+            <para>specifies the air interface standards between the RF interrogator
+              and RF tag, and</para>
+          </listitem>
+          <listitem>
+            <para>specifies the reuse and recyclability of the RF tag.</para>
+          </listitem>
+        </itemizedlist>
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38333</uri>
+        <history>
+          <event flag="added" date="2010-08-14" rfcp="4-14" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord> 
+    <standardrecord tref="coi-logistics" id="iso-17365" tag="RFID Transport units">
+      <standard orgid="iso-iec" pubnum="17365" date="2009" title="Supply chain applications of RFID -- Transport units"/>
+      <applicability>
+        ISO 17365:2009 defines the basic features of RFID for the use in the supply
+        chain when applied to transport units. In particular it:
+        <itemizedlist>
+          <listitem>
+            <para>provides specifications for the identification of the transport unit,</para>
+          </listitem>
+          <listitem>
+            <para>makes recommendations about additional information on the RF tag,</para>
+          </listitem>
+          <listitem>
+            <para>specifies the semantics and data syntax to be used,</para>
+          </listitem>
+          <listitem>
+            <para>specifies the data protocol to be used to interface with business
+              applications and the RFID system,</para>
+          </listitem>
+          <listitem>
+            <para>specifies the minimum performance requirements,</para>
+          </listitem>
+          <listitem>
+            <para>specifies the air interface standards between the RF interrogator
+              and RF tag, and</para>
+          </listitem>
+          <listitem>
+            <para>specifies the reuse and recyclability of the RF tag.</para>
+          </listitem>
+        </itemizedlist>
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38335</uri>
+        <history>
+          <event flag="added" date="2010-08-14" rfcp="4-14" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord>     
+    <standardrecord tref="coi-logistics" id="iso-17366" tag="RFID Product packaging">
+      <standard orgid="iso-iec" pubnum="17366" date="2009" title="Supply chain applications of RFID -- Product packaging"/>
+      <applicability>
+        TBD
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38336</uri>
+        <history>
+          <event flag="added" date="2010-08-14" rfcp="4-14" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord> 
+    <standardrecord tref="coi-logistics" id="iso-17367" tag="RFID Product tagging">
+      <standard orgid="iso-iec" pubnum="17367" date="2009" title="Supply chain applications of RFID -- Product tagging"/>
+      <applicability>
+        ISO 17367:2009 defines the basic features of RFID for the use in the supply
+        chain when applied to product tagging. In particular it:
+        <itemizedlist>
+          <listitem>
+            <para>provides specific recommendations about the encoded identification
+              of the product,</para>
+          </listitem>
+          <listitem>
+            <para>makes recommendations about additional information about the product 
+              on the RF tag,</para>
+          </listitem>
+          <listitem>
+            <para>makes recommendations about the semantics and data syntax to be used,</para>
+          </listitem>
+          <listitem>
+            <para>makes recommendations about the data protocol to be used to interface
+              with business applications and the RFID system, and</para>
+          </listitem>
+          <listitem>
+            <para>makes recommendations about the air interface standards between
+              the RF interrogator and RF tag.</para>
+          </listitem>
+        </itemizedlist>
+      </applicability>
+      <status stage="30.40" mode="unknown">
+        <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38337</uri>
+        <history>
+          <event flag="added" date="2010-08-14" rfcp="4-14" version="4.0"/>
+        </history>
+      </status>
+    </standardrecord> 
+    <standardrecord tref="coi-logistics-scs" id="oagi-oagis" tag="OAGIS 3.9.4.1:2009">
       <standard orgid="oagi" pubnum="OAGIS" date="2006" title="xxx"/>
       <applicability/>
       <status stage="30.40" mode="unknown">
         <uri>http://www.openapplications.org/oagis/9/</uri>
         <history>
           <event flag="added" date="2008-12-10" rfcp="2-5" version="3.0"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -18940,7 +19644,7 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="coi-logistics-scs" id="asd-s1000d-i9005-01000-00" tag="S1000D">
-      <standard orgid="asd" pubnum="S1000D-I9005-01000-00" date="2008" title="International Specification for Technical Publications"/>
+      <standard orgid="asd" pubnum="S1000D-I9005-01000-00" date="2008" title="International Specification for Technical Publications:2008"/>
       <applicability>
         S1000D covers the planning and management, production, exchange,
         distribution and use of technical documentation that support the life cycle
@@ -18951,6 +19655,7 @@ table:
         <uri>http://www.s1000d.org/S1000D_4-0/</uri>
         <history>
           <event flag="added" date="2008-12-10" rfcp="2-4" version="3.0"/>
+          <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
         </history>
       </status>
     </standardrecord>
@@ -18989,6 +19694,7 @@ table:
     <orgkey key="fas" text="Federation of American Scientists"/>
     <orgkey key="fsb" text="Free Standards Group"/>
     <orgkey key="ggf" text="Global Grid Forum"/>
+    <orgkey key="IICWG" text="International Interface Control Working Group"/>
     <orgkey key="iec" text="IEC"/>
     <orgkey key="ieee" text="IEEE"/>
     <orgkey key="ieee-ansi" text="IEEE/ANSI"/>
