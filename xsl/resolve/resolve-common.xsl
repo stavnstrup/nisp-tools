@@ -83,9 +83,11 @@ $Id$
           <xsl:attribute name="role">fo</xsl:attribute>
           <xsl:element name="imagedata">
             <xsl:attribute name="fileref">
+<!--
                <xsl:text>../</xsl:text>
                <xsl:value-of select="$documentdir"/>
                <xsl:text>/</xsl:text>
+-->
                <xsl:value-of 
                   select="substring-before(./imageobject/imagedata/@fileref,
                   '.svg')"/>
