@@ -264,7 +264,10 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
             <xsl:value-of select=
               "substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
 -->
-           <xsl:value-of select="$nisp.lifecycle.postfix"/>
+           <xsl:if test="$nisp.lifecycle.stage != 'draft'">
+             <xsl:text>-</xsl:text>
+             <xsl:value-of select="$nisp.lifecycle.stage"/>
+            </xsl:if>
             <xsl:text>.pdf</xsl:text>
           </xsl:attribute>
           <xsl:text>PDF of </xsl:text><xsl:value-of 
@@ -374,7 +377,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 
 <xsl:template name="user.header.navigation">
-  <xsl:if test="$for.internet.publication=0">
+  <xsl:if test="$nisp.lifecycle.stage != 'release'">
     <div class="classification">
       <xsl:value-of select="$class.label"/>
     </div>
@@ -383,7 +386,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 
 <xsl:template name="user.footer.navigation">
-  <xsl:if test="$for.internet.publication=0">
+  <xsl:if test="$nisp.lifecycle.stage != 'release'">
     <div class="classification">
       <xsl:value-of select="$class.label"/>
     </div>
