@@ -4,14 +4,14 @@
                 exclude-result-prefixes="#default">
 
 <xsl:template match="standardrecord[count(.//standard)=1]">
-  <newstandard>
+  <singlestandard>
     <xsl:apply-templates select="@*"/>
     <document>
        <xsl:apply-templates select="standard/@*"/>
        <xsl:apply-templates select="standard/*"/>
     </document>
     <xsl:apply-templates select="*[name()!='standard']"/>
-  </newstandard>
+  </singlestandard>
 </xsl:template>
 
 
