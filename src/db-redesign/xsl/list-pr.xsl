@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                version='1.1'
-                exclude-result-prefixes="#default">
-
-
+                version='2.0'
+                xmlns:fn="http://www.w3.org/2005/02/xpath-functions"
+                exclude-result-prefixes="fn">
 
 
 
@@ -21,7 +20,7 @@
 </xsl:template>
 
 <xsl:template match="standard">
-  <tr><td/><td><xsl:value-of select="@orgid"/><xsl:text>-</xsl:text><xsl:value-of select="@pubnum"/></td><td><xsl:value-of select="@title"/></td></tr>
+  <tr><td/><td><xsl:value-of select="@orgid"/><xsl:text>-</xsl:text><xsl:value-of select="lower-case(@pubnum)"/></td><td><xsl:value-of select="@title"/></td></tr>
 </xsl:template>
 
 
