@@ -9,6 +9,7 @@
 
 <xsl:template match="/">
   <html><body><table border="1">
+    <tr><td><strong>Id</strong></td><td><strong>Title</strong></td></tr>
      <xsl:apply-templates select=".//standardrecord[count(.//standard)=1]"/>
   </table></body></html>
 </xsl:template>

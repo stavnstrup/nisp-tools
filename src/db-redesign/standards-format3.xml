@@ -1912,7 +1912,7 @@ table:
       </sp-view>
       <sp-view idx="d0e2065" category="a">
         <ncoe/>
-        <select id="unknown-gff" mode="midterm">OSGi</select>
+        <select id="p-osgi" mode="midterm">OSGi</select>
         <remarks/>
         <rationale/>
       </sp-view>
@@ -7729,14 +7729,11 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="nis-ns-disa" id="unknown-gff" tag="OSGi">
-      <standard date="" orgid="gff" pubnum="" title="Open Grid Service Infrastructure">
-        <parts>
-          <standard date="2006-09-01" orgid="gff" pubnum="" title="OSGi Release 4 (R4)"/>
-          <standard date="2005-10-01" orgid="gff" pubnum="" title="OSGi Core Specification (R4 Core)"/>
-          <standard date="2006-09-01" orgid="gff" pubnum="" title="OSGi Mobile Specification (R4 Mobile / JSR-232)"/>
-        </parts>
-      </standard>
+    <profilerecord tref="nis-ns-disa" id="p-osgi" tag="OSGi R4">
+      <parts>
+        <standard date="2005-10-01" orgid="osgi" pubnum="r4core" title="OSGi Core Specification (R4 Core)"/>
+        <standard date="2006-09-01" orgid="osgi" pubnum="r4mobile" title="OSGi Mobile Specification (R4 Mobile / JSR-232)"/>
+      </parts>
       <applicability>
         OSGi is a standard for a framework for remotely manageable networked
         devices. Applications can be securely provisioned to a network node running an
@@ -7744,11 +7741,12 @@ table:
         manage the services and functionality of the network node.
       </applicability>
       <status stage="10.10" mode="unknown">
+        <uri>http://www.osgi.org/</uri>
         <history>
           <event date="2007-02-23" flag="added" version="1.0"/>
         </history>
       </status>
-    </standardrecord>
+    </profilerecord>
     <standardrecord tref="ts-net" id="cceb-acp200" tag="ACP 200">
       <standard orgid="cceb" pubnum="ACP 200" date="2003" title="Maritime Tactical Wide Area Networking"/>
       <applicability>
@@ -18288,8 +18286,8 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ts-ces-med" id="iso-iec-12089" tag="IPI and IIF">
-      <standard orgid="iso-iec" pubnum="12089" date="1997" title="Encoding for the Image Processing and Interchange Standard (IPI) - Encoding for the Imaging Interchange Facility (IIF)">
+    <standardrecord tref="ts-ces-med" id="iso-iec-12087" tag="IPI and IIF">
+      <standard orgid="iso-iec" pubnum="12087" date="1997" title="Encoding for the Image Processing and Interchange Standard (IPI) - Encoding for the Imaging Interchange Facility (IIF)">
         <parts>
           <standard orgid="iso-iec" pubnum="12087-1" date="1995" title="IPI - Functional Specification, Part 1: Common Architecture for Imaging"/>
           <standard orgid="iso-iec" pubnum="12087-2" date="1994" title="IPI - Functional Specification, Part 2: Programmer's Imaging Kernel System Application Programme Interface">
@@ -20398,6 +20396,7 @@ table:
     <orgkey key="opengl" text="OpenGL"/>
     <orgkey key="opengroup" text="The Open Group"/>
     <orgkey key="osf" text="OSF"/>
+    <orgkey key="osgi" text="OSGi Alliance"/>
     <orgkey key="omg" text="OMG"/>
     <orgkey key="odmg" text="ODMG"/>
     <orgkey key="opensis" text="Open Services Infra-Structure Initiative"/>
