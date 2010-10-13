@@ -25,7 +25,7 @@
 </xsl:template>
 
 <xsl:template match="standard">
-  <tr><td/><td/><td><xsl:value-of select="@orgid"/><xsl:text>-</xsl:text><xsl:value-of select="translate(lower-case(@pubnum),'_. ','--')"/></td><td><xsl:value-of select="@titl"/></td></tr>
+  <tr><td/><td/><td><xsl:value-of select="@orgid"/><xsl:text>-</xsl:text><xsl:value-of select="translate(lower-case(@pubnum),'_. ','--')"/></td><td><xsl:value-of select="@title"/></td></tr>
 </xsl:template>
 
 
