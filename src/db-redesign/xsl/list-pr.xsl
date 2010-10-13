@@ -4,7 +4,7 @@
                 xmlns:fn="http://www.w3.org/2005/02/xpath-functions"
                 exclude-result-prefixes="fn">
 
-
+<xsl:strip-space elements="td"/>
 
 <xsl:template match="/">
   <html><body><table border="1">
