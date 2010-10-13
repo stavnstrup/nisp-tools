@@ -9,14 +9,14 @@
 
 <xsl:template match="/">
   <html><body><table border="1">
-    <tr><td><strong>Id</strong></td><td><strong>Title</strong></td></tr>
+    <tr><td><strong>STD</strong></td><td><strong>Id</strong></td><td><strong>Title</strong></td></tr>
      <xsl:apply-templates select=".//standardrecord[count(.//standard)=1]"/>
   </table></body></html>
 </xsl:template>
 
 
 <xsl:template match="standardrecord[count(.//standard)=1]">
-  <tr><td><xsl:value-of select="@id"/></td>
+  <tr><td><xsl:value-of select="position()"/></td><td><xsl:value-of select="@id"/></td>
   <td><xsl:value-of select="./standard/@title"/></td></tr>
 </xsl:template>
 

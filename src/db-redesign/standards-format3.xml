@@ -1629,7 +1629,7 @@ table:
       </sp-view>
       <sp-view idx="d0e1778" category="a">
         <ncoe>Comms</ncoe>
-        <select id="itu-t-" mode="mandatory">ISDN: ITU-T G, I Series</select>
+        <select id="itu-tgi" mode="mandatory">ISDN: ITU-T G, I Series</select>
         <remarks>ISDN Telephony</remarks>
         <rationale>ISDN Telephony</rationale>
       </sp-view>
@@ -2485,7 +2485,7 @@ table:
       </sp-view>
       <sp-view idx="d0e5144" category="a">
         <ncoe>Security</ncoe>
-        <select id="ps-sc-wg-" mode="mandatory">
+        <select id="pc-sc-spec" mode="mandatory">
           Interface between the card aware applications
           and cards, PC/SC Specs. v.2.0.1.9:2005
         </select>
@@ -3520,7 +3520,7 @@ table:
       </sp-view>
       <sp-view idx="d0e11287" category="a">
         <ncoe/>
-        <select id="w3c-" mode="emerging">Web Service Choreography Interface (WSCI) v.1:2002</select>
+        <select id="w3c-NOTE-wsci-20020808" mode="emerging">Web Service Choreography Interface (WSCI) v.1:2002</select>
         <remarks/>
         <rationale/>
       </sp-view>
@@ -3826,7 +3826,7 @@ table:
     </sp-list>
     <sp-list tref="coi-logistics-scs">
       <sp-view idx="d0e11917" category="b">
-        <select id="oagi-oagis" mode="emerging">OAGIS 3.9.4.1:2009, OAGi</select>
+        <select id="oagi-oagis" mode="emerging">OAGIS 9.4.1:2009, OAGi</select>
       </sp-view>
       <sp-view idx="d0e11920" category="b">
         <select id="iso-10303-239" mode="emerging">PLCS, ISO 10303-239:2005</select>
@@ -10043,7 +10043,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ts-con" id="itu-t-" tag="ITU-T G,I Series">
+    <standardrecord tref="ts-con" id="itu-tgi" tag="ITU-T G,I Series">
       <standard orgid="itu-t" pubnum="" date="" title="ISDN: ITU-T G, I Series"/>
       <applicability>
         The ITU-T G and I Series contain the standards for digital narrowband
@@ -10523,7 +10523,7 @@ table:
         </standard>
         <standard orgid="itu-t" pubnum="X.31" date="1995" title="X.25 over ISDN B or D channels"/>
         <standard orgid="itu-t" pubnum="E.164" date="1997" title="Numbering standard for ISDN era"/>
-        <standard orgid="itu-t" pubnum="" date="" title="ISDN-PCI, ETSI ISDN Program Control Interface (ISDN API)"/>
+        <standard orgid="etsi" pubnum="unknown" date="" title="ISDN-PCI, ETSI ISDN Program Control Interface (ISDN API)"/>
         <standard orgid="capi" pubnum="CAPI v2" date="2001" title="Common ISDN API (CAPI) v2"/>
       </parts>
       <applicability>
@@ -10564,6 +10564,7 @@ table:
         </history>
       </status>
     </profilerecord>
+
     <profilerecord id="bp-b-isdn" tref="ts-con" tag="B-ISDN Standards">
       <profilenote>
         The following standards specifications are
@@ -12107,12 +12108,12 @@ table:
         </history>
       </status>
     </standardrecord>
-    <profilerecord id="bp-wss" tref="ias" tag="OASIS WSS">
+    <profilerecord id="bp-wss" tref="ias" tag="OASIS WSS 1.0">
       <profilenote>Web Services Security 1.0</profilenote>
       <parts>
-        <standard orgid="oasis" pubnum="" date="2004-04-06" title="Web Services Security: SOAP Message Security V1.0"/>
-        <standard orgid="oasis" pubnum="" date="2004-04-06" title="Web Services Security: Username Token Profile V1.0"/>
-        <standard orgid="oasis" pubnum="" date="2004-04-06" title="Web Services Security: X.509 Token Profile V1.0"/>
+        <standard orgid="oasis" pubnum="wss-soap-message-security-1.0" date="2004-04-06" title="Web Services Security: SOAP Message Security V1.0"/>
+        <standard orgid="oasis" pubnum="wss-username-token-profile-1.0" date="2004-04-06" title="Web Services Security: Username Token Profile V1.0"/>
+        <standard orgid="oasis" pubnum="wss-x509-token-profile-1.0" date="2004-04-06" title="Web Services Security: X.509 Token Profile V1.0"/>
       </parts>
       <applicability>
         WS-Security describes enhancements to SOAP messaging to provide
@@ -12157,8 +12158,8 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ias-auth" id="ps-sc-wg-" tag="PC/SC Specifications">
-      <standard orgid="ps-sc-wg" pubnum="" date="1996" title="PC/SC Workgroup Specifications Overview:v.2.0.1.9:2005">
+    <standardrecord tref="ias-auth" id="pc-sc-spec" tag="PC/SC Specifications">
+      <standard orgid="ps-sc-wg" pubnum="pc-sc-spec" date="1996" title="PC/SC Workgroup Specifications Overview:v.2.0.1.9:2005">
         <parts>
           <standard orgid="ps-sc-wg" pubnum="PCSC_Part_1" date="1997" title="PC/SC Part 1: Introduction and Architecture Overview"/>
           <standard orgid="ps-sc-wg" pubnum="PCSC_Part_2" date="1997" title="PC/SC Part 2: Interface Requirements for Compatible IC Cards and Readers"/>
@@ -12391,7 +12392,7 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ias-auth" id="emv-" tag="Smartcard Specifications for Payment Systems">
+    <standardrecord tref="ias-auth" id="emv-emv40" tag="Smartcard Specifications for Payment Systems 4.0">
       <standard orgid="emv" pubnum="" date="1996" title="Integrated Circuit Card Specifications for Payment Systems">
         <parts>
           <standard orgid="emv" pubnum="EMV_1" date="2000" title="Smartcard Specifications - Book 1: Application Independent ICC to Terminal Interface Requirements"/>
@@ -12708,8 +12709,8 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ias" id="nato-" tag="NOSA">
-      <standard orgid="nato" pubnum="" date="1992" title="NATO OSI Security Architecture, NOSA"/>
+    <standardrecord tref="ias" id="nato-nosa" tag="NOSA">
+      <standard orgid="nato" pubnum="nosa" date="1992" title="NATO OSI Security Architecture, NOSA"/>
       <applicability>
         NOSA was developed by the TSGCE SG9 Ad Hoc Working
         Group (AHWG) on Security to give guidance to contractors and
@@ -13398,7 +13399,7 @@ table:
             protocol profiles
           </comment>
         </standard>
-        <standard orgid="ietf" pubnum="2576" date="2000" title="Coexistence between Version 1 and Version 2 of the Internet-standard Network Management Framework"/>
+        <standard orgid="ietf" pubnum="RFC 2576" date="2000" title="Coexistence between Version 1 and Version 2 of the Internet-standard Network Management Framework"/>
       </parts>
       <applicability>
         SNMPv2 is a protocol used to exchange management information
@@ -14745,11 +14746,11 @@ table:
     </standardrecord>
     <profilerecord id="bp-dom2" tref="ces-app-app" tag="DOM 2">
       <parts>
-        <standard orgid="w3c" pubnum="" date="2000-11-13" title="Document Object Model (DOM) Level 2 Core Specification"/>
-        <standard orgid="w3c" pubnum="" date="2000-11-13" title="Document Object Model (DOM) Level 2 Events Specification"/>
-        <standard orgid="w3c" pubnum="" date="2000-11-13" title="Document Object Model (DOM) Level 2 Style Specification"/>
-        <standard orgid="w3c" pubnum="" date="2000-11-13" title="Document Object Model (DOM) Level 2 Traversal and Range Specification"/>
-        <standard orgid="w3c" pubnum="" date="2000-11-13" title="Document Object Model (DOM) Level 2 Views Specification"/>
+        <standard orgid="w3c" pubnum="REC-DOM-Level-2-Core-20001113" date="2000-11-13" title="Document Object Model (DOM) Level 2 Core Specification"/>
+        <standard orgid="w3c" pubnum="REC-DOM-Level-2-Events-20001113" date="2000-11-13" title="Document Object Model (DOM) Level 2 Events Specification"/>
+        <standard orgid="w3c" pubnum="REC-DOM-Level-2-Style-20001113" date="2000-11-13" title="Document Object Model (DOM) Level 2 Style Specification"/>
+        <standard orgid="w3c" pubnum="REC-DOM-Level-2-Traversal-Range-20001113" date="2000-11-13" title="Document Object Model (DOM) Level 2 Traversal and Range Specification"/>
+        <standard orgid="w3c" pubnum="REC-DOM-Level-2-Views-20001113" date="2000-11-13" title="Document Object Model (DOM) Level 2 Views Specification"/>
       </parts>
       <applicability>
         The specification defines the Document Object Model Level 2 HTML,
@@ -14789,7 +14790,7 @@ table:
         DTDs.
       </applicability>
       <status stage="10.10" mode="unknown">
-        <uri>http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/</uri>
+        <uri>http://www.w3.org/</uri>
         <history>
           <event flag="added" date="2004-05-25" rfcp="" version="0.6"/>
           <event flag="changed" date="2005-09-07" rfcp="" version="0.7"/>
@@ -14798,9 +14799,9 @@ table:
     </profilerecord>
     <profilerecord id="bp-dom3" tref="ces-app-app" tag="DOM 3">
       <parts>
-        <standard orgid="w3c" pubnum="" date="2004-04-07" title="Document Object Model (DOM) Level 3 Core Specification"/>
-        <standard orgid="w3c" pubnum="" date="2004-04-07" title="Document Object Model (DOM) Level 3 Load and Save Specification"/>
-        <standard orgid="w3c" pubnum="" date="2004-01-27" title="Document Object Model (DOM) Level 3 Validation Specification"/>
+        <standard orgid="w3c" pubnum="REC-DOM-Level-3-Core-20040407" date="2004-04-07" title="Document Object Model (DOM) Level 3 Core Specification"/>
+        <standard orgid="w3c" pubnum="REC-DOM-Level-3-LS-20040407" date="2004-04-07" title="Document Object Model (DOM) Level 3 Load and Save Specification"/>
+        <standard orgid="w3c" pubnum="REC-DOM-Level-3-Val-20040127" date="2004-01-27" title="Document Object Model (DOM) Level 3 Validation Specification"/>
       </parts>
       <applicability>
         This specification defines the Document Object Model Core Level
@@ -15262,10 +15263,10 @@ table:
     <profilerecord id="bp-relaxng" tref="ces-app-app" tag="Relax NG">
       <parts>
         <standard orgid="iso-iec" pubnum="19757-2" date="2003" title="RELAX NG Specification"/>
-        <standard orgid="oasis" pubnum="" date="2001-12-03" title="RELAX NG Tutorial"/>
-        <standard orgid="oasis" pubnum="" date="2001-12-03" title="RELAX NG Compact Syntax"/>
-        <standard orgid="oasis" pubnum="" date="2001-12-03" title="Guidelines for using W3C XML Schema Datatypes with RELAX NG"/>
-        <standard orgid="oasis" pubnum="" date="2001-12-03" title="RELAX NG DTD Compatibility"/>
+        <standard orgid="oasis" pubnum="relaxng-tutorial-20011203" date="2001-12-03" title="RELAX NG Tutorial"/>
+        <standard orgid="oasis" pubnum="relaxng-compact-20021121" date="2001-12-03" title="RELAX NG Compact Syntax"/>
+        <standard orgid="oasis" pubnum="relaxng-xsd-20010907" date="2001-12-03" title="Guidelines for using W3C XML Schema Datatypes with RELAX NG"/>
+        <standard orgid="oasis" pubnum="relaxng-compatibility-20011203" date="2001-12-03" title="RELAX NG DTD Compatibility"/>
       </parts>
       <applicability>
         RELAX NG is a simple schema language for XML, based on [RELAX]
@@ -18342,6 +18343,7 @@ table:
         </history>
       </status>
     </standardrecord>
+
     <standardrecord tref="ts-ces-med" id="omg-formal03-03-01" tag="UML">
       <standard orgid="omg" pubnum="formal/03-03-01" date="2003" title="Unified Modeling Language, v2.0:2010"/>
       <applicability>
@@ -18362,6 +18364,7 @@ table:
         </history>
       </status>
     </standardrecord>
+
     <standardrecord tref="ts-ces-med" id="x-consortium-xie" tag="XIE">
       <standard orgid="x-consortium" pubnum="" date="" title="X Window System Image Extension (XIE), v.5.02"/>
       <applicability>
@@ -19069,6 +19072,12 @@ table:
         </history>
       </status>
     </standardrecord>
+
+<!--
+
+stavnstrup (2010-10-13) deleted - both official deleted and not really a standard
+
+
     <profilerecord id="bp-omt" tref="ts-ces-med" tag="OMT">
       <parts>
         <standard orgid="rational" pubnum="" date="1994" title="Object Oriented Modelling and Design">
@@ -19094,6 +19103,12 @@ table:
         </history>
       </status>
     </profilerecord>
+-->
+
+<!-- 
+
+stavnstrup (2010-10-13) Another UML standard exists in the database
+
     <standardrecord tref="ts-ces-med" id="omg-formal" tag="UML">
       <standard orgid="omg" pubnum="formal" date="2003-03" title="UML, version 2.0">
         <parts>
@@ -19124,6 +19139,9 @@ table:
         </history>
       </status>
     </standardrecord>
+
+-->
+
     <standardrecord tref="ts-ces-med" id="nato-ac317-d42" tag="AC/317-D/42">
       <standard orgid="nato" pubnum="AC/317-D42" date="1990-12-18" title="NATO Policy Guidance for the Utilisation of Simulation, Prototyping and Testing in the Development and Acquisition of Complex Software Based Systems"/>
       <applicability>
@@ -19393,8 +19411,9 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ts-ces-ws" id="w3c-" tag="WSCI">
-      <standard date="2002-08-02" orgid="w3c" pubnum="" title="W3C Web Service Choreography Interface version 1.0"/>
+
+    <standardrecord tref="ts-ces-ws" id="w3c-NOTE-wsci-20020808" tag="WSCI">
+      <standard date="2002-08-02" orgid="w3c" pubnum="NOTE-wsci-20020808" title="W3C Web Service Choreography Interface version 1.0"/>
       <applicability>
         WSCI is a Web service orchestration and choreography spec defined
         by the BPMI (Business Process Management Initiative) corporation. Note that
@@ -19409,13 +19428,21 @@ table:
         </history>
       </status>
     </standardrecord>
-    <standardrecord tref="ts-ces-ws" id="bpmi-" tag="BPML">
-      <standard date="" orgid="bpmi" pubnum="" title="BPML Business Process Model and Notation version 2.0:2010"/>
+
+    <standardrecord tref="ts-ces-ws" id="omg-dtc2010-06-05" tag="BPMN">
+      <standard date="2006-06-05" orgid="omg" pubnum="dtc/2010-06-05" title="BPML Business Process Model and Notation version 2.0:2010"/>
       <applicability>
-        BPML is "a meta-language for the modeling of business processes.
-        BPML provides an abstracted execution model for collaborative and transactional
-        business processes that span multiple applications and business partners, behind
-        the firewall and over the Internet,across multiple verticals."
+        BPML is "a meta-language for the modeling of business
+        processes.  BPML provides an abstracted execution model for
+        collaborative and transactional business processes that span
+        multiple applications and business partners, behind the
+        firewall and over the Internet,across multiple verticals."
+        BMPN provide a notation that is readily understandable by all
+        business users, from the business analysts that create the
+        initial drafts of the processes, to the technical developers
+        responsible for implementing the technology that will perform
+        those processes, and finally, to the business people who will
+        manage and monitor those processes.
       </applicability>
       <status stage="10.10" mode="unknown">
         <history>
@@ -20234,8 +20261,8 @@ table:
         </history>
       </status>
     </standardrecord> 
-    <standardrecord tref="coi-logistics-scs" id="oagi-oagis" tag="OAGIS 3.9.4.1:2009">
-      <standard orgid="oagi" pubnum="OAGIS" date="2006" title="xxx"/>
+    <standardrecord tref="coi-logistics-scs" id="oagi-oagis" tag="OAGIS 9.4.1:2009">
+      <standard orgid="oagi" pubnum="OAGIS" date="2006" title="The Open Applications Group Integration Specification"/>
       <applicability/>
       <status stage="30.40" mode="unknown">
         <uri>http://www.openapplications.org/oagis/9/</uri>
@@ -20309,7 +20336,7 @@ table:
     <orgkey key="ebxml" text="EBXML"/>
     <orgkey key="ecma" text="ECMA"/>
     <orgkey key="eia" text="Electronic Industries Association"/>
-    <orgkey key="emv" text="EUROPAY-MASTERCARD-VISA"/>
+    <orgkey key="emv" text="EMVco"/>
     <orgkey key="erdas" text=""/>
     <orgkey key="etsi" text="European Telecommunication Standardisation Institute"/>
     <orgkey key="eurocom" text="EUROCOM Specifications"/>

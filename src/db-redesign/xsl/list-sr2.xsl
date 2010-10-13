@@ -20,12 +20,12 @@
 
 <xsl:template match="standardrecord[count(.//standard)>1]">
   <tr><td><xsl:value-of select="position()"/></td><td>COVER</td><td><xsl:value-of select="@id"/></td>
-  <td><xsl:value-of select="./standard/@title"/></td></tr>
+  <td><xsl:value-of select="./standard/@titl"/></td></tr>
   <xsl:apply-templates select="standard/parts/standard"/>
 </xsl:template>
 
 <xsl:template match="standard">
-  <tr><td/><td/><td><xsl:value-of select="@orgid"/><xsl:text>-</xsl:text><xsl:value-of select="lower-case(@pubnum)"/></td><td><xsl:value-of select="@title"/></td></tr>
+  <tr><td/><td/><td><xsl:value-of select="@orgid"/><xsl:text>-</xsl:text><xsl:value-of select="translate(lower-case(@pubnum),'_. ','--')"/></td><td><xsl:value-of select="@titl"/></td></tr>
 </xsl:template>
 
 
