@@ -7,67 +7,56 @@
 
 
 
-<xsl:output indent="yes"/>
+<xsl:output indent="yes" doctype-system="../schema/dtd/stddb39.dtd"/>
 
 
 
-<xsl:strip-space elements="records substandards"/>
+<xsl:strip-space elements="substandards"/>
 
 
 
-
-
-<xsl:template match="revhistory|servicearea|lists"/>
-
-
-
-
+<xsl:template match="standardrecord[@id='unknown-dummy']">
+   <standard tref="omat" id="unknown-dummy" tag=""/>
+</xsl:template>
 
 <!-- Transform standardrecords with one standard -->
 
 
-<xsl:template match="standardrecord[count(.//standard)=1]"/>
-
-<!--
 <xsl:template match="standardrecord[count(.//standard)=1]">
-  <singlestandard>
+  <standard>
     <xsl:apply-templates select="@*"/>
     <document>
        <xsl:apply-templates select="standard/@*"/>
        <xsl:apply-templates select="standard/*"/>
     </document>
     <xsl:apply-templates select="*[name()!='standard']"/>
-  </singlestandard>
+  </standard>
 </xsl:template>
--->
 
 
 
 <!-- Transform standardrecords with multiple standards -->
 
-<xsl:template match="standardrecord[count(.//standard)>1]"/>
 
-<!--
 <xsl:template match="standardrecord[count(.//standard)>1]">
   <xsl:apply-templates select="standard/parts/standard" mode="s2substandards"/>
-  <coverstandard>
+  <standard>
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates select="standard" mode="coverstandard"/>
     <xsl:apply-templates select="*[name()!='standard']"/>
-  </coverstandard>
+  </standard>
 </xsl:template>
--->
 
 
 <xsl:template match="standard" mode="s2substandards">
-  <substandard ss="yes" id="{@orgid}-{translate(lower-case(@pubnum),'_. ','--')}" tref="{../../../@tref}" tag="">
+  <standard ss="yes" id="{@orgid}-{translate(lower-case(@pubnum),'_. ','--')}" tref="{../../../@tref}" tag="">
     <document>
       <xsl:apply-templates select="@*"/>
       <xsl:apply-templates/>
     </document>
     <xsl:copy-of select="../../../applicability"/>
     <xsl:copy-of select="../../../status"/>
-  </substandard>
+  </standard>
 </xsl:template>
 
 
@@ -95,18 +84,6 @@
 </xsl:template>
 
 
-<!-- Kan slettes
-
-<xsl:template name="make-coverstandard">
-  <coverstandard>
-    <xsl:apply-templates select="@*"/>
-    <xsl:apply-templates mode="ccc"/>
-  </coverstandard>
-</xsl:template>
-
--->
-
-
 
 
 <!-- Transform profilerecords -->
@@ -126,27 +103,22 @@
 
 
 
-
 <xsl:template match="standard" mode="psubstandards">
-  <substandard ss="yes" id="{@orgid}-{translate(lower-case(@pubnum),'_:/() ','--')}" tref="{../../@tref}" tag="">
+  <standard ss="yes" id="{@orgid}-{translate(lower-case(@pubnum),'_:/() ','--')}" tref="{../../@tref}" tag="">
     <document>
       <xsl:apply-templates select="@*"/>
       <xsl:apply-templates/>
     </document>
     <xsl:copy-of select="../../applicability"/>
     <xsl:copy-of select="../../status"/>
-  </substandard>
+  </standard>
 </xsl:template>
 
 
 <!-- ========================================== -->
 
 
-
 <xsl:template match="@category"/>
-
-
-
 
 
 
@@ -161,12 +133,6 @@
 </xsl:template>
 
 
-<xsl:template match="@*|node()" mode="ccc">
-  <xsl:copy>
-    <xsl:apply-templates select="@*" mode="ccc"/> 
-    <xsl:apply-templates mode="ccc"/>
-  </xsl:copy>
-</xsl:template>
 
 
 </xsl:stylesheet>
