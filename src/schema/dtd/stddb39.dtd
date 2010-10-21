@@ -57,8 +57,9 @@
 <!-- ...................................................................... -->
 
 
-<!ELEMENT standards (revhistory, taxonomy, lists, records, externalrefs?, organisations)>
-
+<!ELEMENT standards (taxonomy, lists, records, community-of-interest, externalrefs?, organisations)>
+<!ATTLIST standards
+          revision CDATA #REQUIRED>
 
 <!-- .......................... TAXONOMY .................................. -->
 
@@ -154,11 +155,23 @@
           ss (no | yes) "no"
           tref IDREF #IMPLIED>
 
-<!ELEMENT profile (debug?, ((profilenote | parts | applicability | status)*))>
+<!ELEMENT profile (debug?, ((profilenote | profilespec | configuration | parts | applicability | status)*))>
 <!ATTLIST profile
+          type (base | coi-minor | coi) "base"
           tag CDATA #REQUIRED
           id ID #REQUIRED
-          tref IDREF #REQUIRED>
+          tref IDREF #IMPLIED>
+
+
+<!ELEMENT profilespec EMPTY>
+<!ATTLIST profilespec
+          orgid  CDATA #IMPLIED
+          pubnum CDATA #IMPLIED
+          date   CDATA #IMPLIED
+          title  CDATA #IMPLIED>
+
+
+<!ELEMENT configuration (#PCDATA)>
 
 
 <!ELEMENT debug (#PCDATA)>
@@ -200,6 +213,9 @@
 <!ELEMENT profilenote (#PCDATA)>
 
 
+
+
+
 <!-- applicability content model identical to DocBook entry -->
 
 <!ELEMENT applicability %ho; (%tbl.entry.mdl;)*>
@@ -229,6 +245,18 @@
 
 <!ATTLIST exref
           id     ID      #REQUIRED>
+
+
+<!-- ................. COMMUNITY OF INTERESTS ............................ -->
+
+<!ELEMENT community-of-interest (community*)>
+
+<!ELEMENT community (profile*)>
+<!ATTLIST community
+          coi     CDATA      #REQUIRED>
+
+
+<!-- ....................... ORGANISATION ................................ -->
 
 
 <!ELEMENT organisations (orgkey*)>
