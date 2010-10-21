@@ -7154,8 +7154,9 @@ table:
         </history>
       </status>
     </standardrecord>
-    <profilerecord id="bp-asn1" tref="ts-ces-med" tag="ASN.1">
-      <parts>
+    
+    
+    <standardrecord id="iso-iec-8824" tref="ts-ces-med" tag="ASN.1">
         <standard orgid="iso-iec" pubnum="8824" date="1998" title="Abstract Syntax Notation One (ASN.1)">
           <parts>
             <standard orgid="iso-iec" pubnum="8824-1" date="1998" title="ASN.1 Part 1: Specification of basic notation">
@@ -7180,6 +7181,26 @@ table:
             </standard>
           </parts>
         </standard>
+     <applicability>
+        Abstract Syntax Notation One (ASN.1) describes data
+        types in a machine-independent manner, thus freeing data
+        representation from machine restrictions and inner
+        representation. By applying the Basic Encoding Rules (BER)
+        mechanism to the abstract representation of the data, the data is
+        translated either for machine storage or transmission; this is the
+        so-called transfer syntax.
+      </applicability>
+      <status stage="10.40" mode="unknown">
+        <uri>http://www.iso.ch/iso/en/CombinedQueryResult.CombinedQueryResult?queryString=8825</uri>
+        <history>
+          <event flag="added" date="1998-11-10" version="0.1"/>
+          <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
+          <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+        </history>
+      </status>    
+    </standardrecord>
+    
+    <standardrecord id="iso-iec-8825" tref="ts-ces-med" tag="ASN.1 Encoding Rules">
         <standard orgid="iso-iec" pubnum="8825" date="1998" title="Encoding Rules">
           <parts>
             <standard orgid="iso-iec" pubnum="8825-1" date="1998" title="Part 1: Specification of Basic Encoding Rules (BER), Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)">
@@ -7194,7 +7215,30 @@ table:
               <correction cpubnum="TC3" date="2002"/>
             </standard>
           </parts>
-        </standard>
+        </standard>    
+     <applicability>
+        Abstract Syntax Notation One (ASN.1) describes data
+        types in a machine-independent manner, thus freeing data
+        representation from machine restrictions and inner
+        representation. By applying the Basic Encoding Rules (BER)
+        mechanism to the abstract representation of the data, the data is
+        translated either for machine storage or transmission; this is the
+        so-called transfer syntax.
+      </applicability>
+      <status stage="10.40" mode="unknown">
+        <uri>http://www.iso.ch/iso/en/CombinedQueryResult.CombinedQueryResult?queryString=8825</uri>
+        <history>
+          <event flag="added" date="1998-11-10" version="0.1"/>
+          <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
+          <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+        </history>
+      </status>    
+    </standardrecord>
+     
+    <profilerecord id="bp-asn1" tref="ts-ces-med" tag="ASN.1 profile">
+      <parts>
+        <refstandard refid="iso-iec-8824"/>
+        <refstandard refid="iso-iec-8825"/>
       </parts>
       <applicability>
         Abstract Syntax Notation One (ASN.1) describes data
@@ -18916,7 +18960,6 @@ table:
       </status>
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="ieee-iec-j-std-016" tag="IEEE/IEC J-STD-016:1996">
-      <debug>use both 1995 and 1996 (see TA version 4.0) </debug>
       <standard orgid="ieee-iec" pubnum="J-STD-016" date="1995" title="Software Life Cycle Processes - Software Development, Acquirer-Supplier Agreement">
         <comment>formerly: IEEE Std 1498/EIA IS 640, Draft 3</comment>
       </standard>
@@ -19289,7 +19332,6 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
     </standardrecord>
     <standardrecord tref="ts-ces-med" id="iso-iec-8859" tag="8-Bit">
       <standard orgid="iso-iec" pubnum="8859" date="1998" title="8-Bit Single Byte Coded Graphic Character Sets, Parts 1-15">
-        <comment>The ten parts address the following languages:</comment>
         <parts>
           <standard orgid="iso-iec" pubnum="8859-1" date="1998" title="8-Bit Code Set Part 1: Latin Alphabet No. 1 (Europe/Latin America)"/>
           <standard orgid="iso-iec" pubnum="8859-2" date="1999" title="8-Bit Code Set Part 2: Latin Alphabet No. 2 (Eastern Europe)"/>
