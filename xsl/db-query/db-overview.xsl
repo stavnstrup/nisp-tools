@@ -9,7 +9,7 @@
 This stylesheet is created for the NISP , and is
 intended to create an overview of the starndard database.
 
-Copyright (c) 2003, 2008  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -34,7 +34,14 @@ Copyright (c) 2003, 2008  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:template match="standards">
   <xsl:message>Generating DB Overview.</xsl:message>
   <html>
-    <head><title>Overview of the NISO Standard Database</title></head>
+    <head>
+      <title>Overview of the NISP Standard Database</title>
+      <style type="text/css">
+        .deleted { background-color: red;}
+        .missing { background-color: yellow;}
+        .head { }
+      </style>
+    </head>
     <body>
 
     <h1>Overview of the NISP Standard Database</h1>
@@ -53,7 +60,7 @@ Copyright (c) 2003, 2008  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
     </p>
    
-    <h2>Record Statistics</h2>
+    <h2>Statistics</h2>
 
     <table border="0">
       <tr>
@@ -62,40 +69,21 @@ Copyright (c) 2003, 2008  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td><b>Deleted</b></td>
       </tr>
       <tr>
-        <td>standardrecord</td>
-        <td align="right"><xsl:value-of select="count(.//standardrecord)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::standardrecord])"/></td>
+        <td>standards</td>
+        <td align="right"><xsl:value-of select="count(.//standard)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::standard])"/></td>
       </tr>
       <tr>
-        <td>profilerecord</td>
-        <td align="right"><xsl:value-of select="count(.//profilerecord)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::profilerecord])"/></td>
+        <td>profiles</td>
+        <td align="right"><xsl:value-of select="count(.//profile)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::profile])"/></td>
        </tr>
     </table>
 
-  <h1>Service Areas</h1>
 
-  <dl>
-    <xsl:for-each select="servicearea">
-     <dt><a><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="@id"/></xsl:attribute><xsl:value-of select="@title"/></a></dt>
-     <dd>
-       <dl>
-        <xsl:for-each select="servicecategory">
-          <dt><a><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="@id"/></xsl:attribute><xsl:value-of select="@title"/></a></dt>
-	  <dd>
-	    <dl>
-	      <xsl:for-each select="category">
-                <dt><a><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="@id"/></xsl:attribute><xsl:value-of select="@title"/></a></dt>     
-	      </xsl:for-each>
-	    </dl>
-	  </dd>
-        </xsl:for-each>
-       </dl>
-     </dd>
-    </xsl:for-each>
-  </dl>
+  <h1>Standards</h1>
 
-  <p>This section describes all standards included in the database.</p>
+  <p>This section describes all standards and profiles included in the database.</p>
 
   <p>The database is organised in the following way. The database
   consists of a number of <em>servicearea</em> elements. Each
@@ -117,29 +105,33 @@ Copyright (c) 2003, 2008  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <em>profilerecord</em> or a <em>referencerecord</em></p>
 
    <ul>
-     <li><b>Rec</b> - The position of the record</li>
-     <li><b>Type</b> - Is this a <i>standardrecord</i> (S) or a <i>profilerecord</i> (P)</li>
-     <li><b>ID</b> - What ID is assiciated with this record</li>
+     <li><b>ID</b> - What ID is associated with this <i>standard</i></li>
+     <li><b>Type</b> - Is this a <i>coverstandard</i> (CS), a <i>single standard</i> or a <i>sub standard</i> (SS)</li>
+     <li><b>Org</b> - What organisation have published this standard</li>
+     <li><b>Pubnum</b> - The publication number of the <i>standard</i></li>
+     <li><b>Title</b> - The title of the <i>standard</i></li>
+     <li><b>Date</b> - The publication date of the <i>standard</i></li>
+     <li><b>Correction</b> - Correction info for
+        this <i>standard</i>. There might be multiple corrections
+        records (Technical Correction, Ammentment etc.). Each record
+        begins on a new line</li>
+     <li><b>AKA</b> - (Also Known As) A standard can be published by
+        another organisation. There might be multiple AKA record. Each
+        record begins on a new line</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
      <li><b>Stage</b> - Stage info for this record</li>
      <li><b>Select</b> - Is this record selected by NATO</li>
+<!--
      <li><b>History</b> - What is the history of the record</li>
-     <li><b>Debug</b> - A comment, which are only used to remember observed problems with this record.</li>
+-->
    </ul>
 
    <p>The following properties are related to the <i>standard</i> elements in are part of the enclosing record element.</p>
  
    <ul>
+     <li><b>Rec</b> - The position of the record</li>
+     <li><b>Debug</b> - A comment, which are only used to remember observed problems with this record.</li>
      <li><b>Std</b> - The position of the <i>standard</i> in the database</li>
-     <li><b>Org</b> - What organisation have published this standard</li>
-     <li><b>Pubnum</b> - The publication number of the <i>standard</i></li>
-     <li><b>Title</b> - The title of the <i>standard</i></li>
-     <li><b>Date</b> - The publication date of the <i>standard</i></li>
-     <li><b>Correction</b> -
-        Correction info for this <i>standard</i>. There
-        might be multiple corrections records (Technical Correction, Ammentment etc.). Each record begins on a new line</li>
-     <li><b>AKA</b> - (Also Known As) A standard can be published by another organisation. There
-        might be multiple AKA record. Each record begins on a new line</li>
    </ul>
   <p></p>
   
@@ -148,9 +140,154 @@ Copyright (c) 2003, 2008  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:call-template name="htmlheader"/>
     </table>
   </xsl:if>
+<!--
   <xsl:apply-templates select="servicearea"/>
+-->
+
+  <table border="1">
+    <xsl:call-template name="htmlheader"/>
+    <xsl:apply-templates select="records/standard">
+      <xsl:sort select="@id" order="ascending"/>
+    </xsl:apply-templates>
+  </table>
+
+  
   </body></html>
 </xsl:template>
+
+
+<xsl:template name="htmlheader">
+  <tr>
+<td/>
+    <td><b>ID</b></td>
+    <td><b>Type</b></td>
+    <td><b>Org</b></td>
+    <td><b>PubNum</b></td>
+    <td><b>Title</b></td>
+    <td><b>Date</b></td>
+    <td><b>Correction</b></td>
+    <td><b>AKA</b></td>
+    <td><b>Tag</b></td>
+    <td><b>Stage</b></td>
+    <td><b>Select</b></td>
+<!--
+    <td><b>History</b></td>
+-->
+<!--
+    <td><b>Rec</b></td>
+    <td><b>Type</b></td>
+    <td><b>Debug</b></td>
+
+    <td><b>Std</b></td>
+-->
+   </tr>
+</xsl:template>
+
+
+<xsl:template match="standard">
+  <xsl:variable name="myid" select="@id"/>
+  <tr>
+    <xsl:if test=".//event[@flag = 'deleted']">
+      <xsl:attribute name="class">deleted</xsl:attribute>
+    </xsl:if>
+    <td align="right"><xsl:number from="standards" count="standard" format="1" level="any"/></td>
+    <td><xsl:value-of select="@id"/></td>
+    <td>
+      <xsl:choose>
+        <xsl:when test="document/substandards">CS</xsl:when>
+        <xsl:when test="//substandards/refstandard/@refid=$myid">SS</xsl:when>
+        <xsl:otherwise>S</xsl:otherwise>
+      </xsl:choose>
+    </td>
+    <td>
+      <xsl:if test="@orgid =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="document/@orgid"/>
+    </td>
+    <td>
+      <xsl:if test="document/@pubnum =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="document/@pubnum"/>
+    </td>
+    <td>
+      <xsl:if test="document/@title =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="document/@title"/>
+    </td>
+    <td>
+      <xsl:if test="document/@date =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="document/@date"/>
+    </td>        
+    <td><xsl:apply-templates select="document/correction"/>&nbsp;</td>
+    <td><xsl:apply-templates select="document/alsoknown"/>&nbsp;</td>
+    <td><xsl:value-of select="@tag"/>&nbsp;</td>
+    <td>
+      <xsl:if test="status/@stage =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="status/@stage"/>&nbsp;
+    </td>
+    <td align="center">
+      <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='midterm') and (@id=$myid)]">EM</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='longterm') and (@id=$myid)]">EL</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F</xsl:if>
+      &nbsp;
+    </td>
+<!--
+    <td><xsl:apply-templates select=".//event"/>&nbsp;</td>
+-->
+  </tr>
+</xsl:template>
+
+
+
+
+<xsl:template match="correction">
+  <xsl:if test="position()=1 and (@cpubnum = ''or @date = '')">
+    <xsl:attribute name="bgcolor">yellow</xsl:attribute>
+  </xsl:if>
+  <xsl:value-of select="@cpubnum"/><xsl:text>:</xsl:text><xsl:value-of select="@date"/>
+  <xsl:if test=".!=''"><xsl:text> (</xsl:text><xsl:value-of select="."/><xsl:text>)</xsl:text></xsl:if>
+  <xsl:if test="following-sibling::correction[position()=1]"><br /></xsl:if>
+</xsl:template>
+
+
+<xsl:template match="alsoknown">
+  <xsl:if test="position()=1 and (@orgid='' or @pubnum='' or @date='')"><xsl:attribute name="bgcolor">yellow</xsl:attribute></xsl:if>
+
+  <xsl:value-of select="@orgid"/><xsl:text>:</xsl:text><xsl:value-of 
+       select="@pubnum"/><xsl:text>:</xsl:text><xsl:value-of select="@date"/>
+  <xsl:if test="following-sibling::alsoknown[position()=1]"><br /></xsl:if>
+</xsl:template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <xsl:template match="servicearea">
@@ -164,7 +301,7 @@ Copyright (c) 2003, 2008  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template name="htmlheader">
+<xsl:template name="zhtmlheader">
   <tr>
     <td><b>Rec</b></td>
     <td><b>Type</b></td>
@@ -245,22 +382,13 @@ Copyright (c) 2003, 2008  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="referencerecord">
-  <tr>
-    <td align="right"><xsl:number from="ta-standards" count="standardrecord|profilerecord|referencerecord" format="1" level="any"/></td>    
-    <td align="center">R</td>
-    <td bgcolor="#cecece">&nbsp;</td>
-    <td><xsl:value-of select="@tag"/>&nbsp;</td>
-    <td colspan="11" bgcolor="#cecece">&nbsp;</td>
-  </tr>
-</xsl:template>
 
 <xsl:template match="parts">
   <xsl:apply-templates select="standard"/>
 </xsl:template>
 
 
-<xsl:template match="standard">
+<xsl:template match="zstandard">
 
   <tr>
     <!-- Use bgcolor=red for deleted records -->
@@ -283,22 +411,6 @@ Copyright (c) 2003, 2008  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="correction">
-  <xsl:if test="position()=1 and (@cpubnum = '' or  @date = '')"><xsl:attribute name="bgcolor">yellow</xsl:attribute></xsl:if>
-
-  <xsl:value-of select="@cpubnum"/><xsl:text>:</xsl:text><xsl:value-of select="@date"/>
-  <xsl:if test=".!=''"><xsl:text> (</xsl:text><xsl:value-of select="."/><xsl:text>)</xsl:text></xsl:if>
-  <xsl:if test="following-sibling::correction[position()=1]"><br /></xsl:if>
-</xsl:template>
-
-
-<xsl:template match="alsoknown">
-  <xsl:if test="position()=1 and (@orgid='' or @pubnum='' or @date='')"><xsl:attribute name="bgcolor">yellow</xsl:attribute></xsl:if>
-
-  <xsl:value-of select="@orgid"/><xsl:text>:</xsl:text><xsl:value-of 
-       select="@pubnum"/><xsl:text>:</xsl:text><xsl:value-of select="@date"/>
-  <xsl:if test="following-sibling::alsoknown[position()=1]"><br /></xsl:if>
-</xsl:template>
 
 
 <xsl:template match="event">

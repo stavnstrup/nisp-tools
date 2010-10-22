@@ -3,12 +3,12 @@
 <!--
 
 This stylesheet is created for the NISP, and is
-intended to identify duplex records in  the starndard database.
+intended to identify duplex standards in  the standard database.
 
 Output from the transformation should be piped into the stylesheet
 db-date2.xsl
 
-Copyright (c) 2003,2008  Jens Stavnstrup/DDRE <js@ddre.dk>
+Copyright (c) 2003,2010  Jens Stavnstrup/DDRE <js@ddre.dk>
 
 -->
 
@@ -31,23 +31,23 @@ Copyright (c) 2003,2008  Jens Stavnstrup/DDRE <js@ddre.dk>
 </xsl:template>
 
 <xsl:template match="event">
-  <xsl:variable name="myid" select="ancestor::standardrecord/@id|ancestor::profilerecord/@id"/>
+  <xsl:variable name="myid" select="ancestor::standard/@id|ancestor::profile/@id"/>
 
   <event>
-    <rec><xsl:number from="ta-standards" count="standardrecord|profilerecord" format="1" level="any"/></rec>
+    <rec><xsl:number from="standards" count="standard|profile" format="1" level="any"/></rec>
     <type>
       <xsl:choose>
-        <xsl:when test="ancestor::profilerecord">
+        <xsl:when test="ancestor::profile">
           <xsl:text>P</xsl:text>
         </xsl:when>
-        <xsl:when test="ancestor::standardrecord">
+        <xsl:when test="ancestor::standard">
           <xsl:text>S</xsl:text>
         </xsl:when>
       </xsl:choose>
     </type>
-    <id><xsl:value-of select="ancestor::standardrecord/@id|ancestor::profilerecord/@id"/></id>
-    <tag><xsl:value-of select="ancestor::standardrecord/@tag|ancestor::profilerecord/@tag"/></tag>
-    <stage><xsl:value-of select="ancestor::standardrecord/status/@stage|ancestor::profilerecord/status/@stage"/></stage>
+    <id><xsl:value-of select="ancestor::standard/@id|ancestor::profile/@id"/></id>
+    <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::profile/@tag"/></tag>
+    <stage><xsl:value-of select="ancestor::standard/status/@stage|ancestor::profile/status/@stage"/></stage>
     <ncsp>
       <xsl:if test="/*/servicearea/servicecategory/*/sp-list/sp-view/mandatory[@id=$myid]">M</xsl:if>
       <xsl:if test="/*/servicearea/servicecategory/*/sp-list/sp-view/emerging[@id=$myid]">E</xsl:if>
