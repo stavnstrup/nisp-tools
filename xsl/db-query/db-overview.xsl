@@ -37,8 +37,10 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <head>
       <title>Overview of the NISP Standard Database</title>
       <style type="text/css">
-        .deleted { background-color: red;}
-        .missing { background-color: yellow;}
+        .head {background-color: #808080;  }
+        .body,table {font-family: sans-serif;}
+        .deleted { background-color: #FF5A41; color: white; font-weight: bold;}
+        .missing { background-color: #FFFEA0;}
         .head { }
       </style>
     </head>
@@ -64,7 +66,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
     <table border="0">
       <tr>
-        <td></td>
+        <td><b>Rec</b></td>
         <td><b>Total</b></td>
         <td><b>Deleted</b></td>
       </tr>
@@ -81,7 +83,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </table>
 
 
-  <h1>Standards</h1>
+  <h2>Standards</h2>
 
   <p>This section describes all standards and profiles included in the database.</p>
 
@@ -151,14 +153,24 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </xsl:apply-templates>
   </table>
 
+  <h2>Profiles</h2>
+  
+  
+  <table border="1">
+    <xsl:call-template name="htmlheader"/>
+    <xsl:apply-templates select="//profile">
+      <xsl:sort select="@id" order="ascending"/>
+    </xsl:apply-templates>
+  </table>
+
   
   </body></html>
 </xsl:template>
 
 
 <xsl:template name="htmlheader">
-  <tr>
-<td/>
+  <tr class="head">
+    <td/>
     <td><b>ID</b></td>
     <td><b>Type</b></td>
     <td><b>Org</b></td>
@@ -184,15 +196,83 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
+
+
+
+<xsl:template match="profile">
+  <xsl:variable name="myid" select="@id"/>
+  <tr>
+    <xsl:if test=".//event[@flag = 'deleted']">
+      <xsl:attribute name="class">deleted</xsl:attribute>
+    </xsl:if>
+    <td align="right"><xsl:number from="records" count="profile" format="1" level="any"/></td>
+    <td><xsl:value-of select="@id"/></td>
+    <td align="center">
+      <xsl:choose>
+        <xsl:when test="@type='base'">BP</xsl:when>
+        <xsl:when test="@type='coi'">C</xsl:when>
+        <xsl:otherwise>CM</xsl:otherwise>
+      </xsl:choose>
+    </td>
+    <td>
+      <xsl:if test="@orgid =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="profilenote/@orgid"/>
+    </td>
+    <td>
+      <xsl:if test="d/@pubnum =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="document/@pubnum"/>
+    </td>
+    <td>
+      <xsl:if test="document/@title =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="document/@title"/>
+    </td>
+    <td>
+      <xsl:if test="document/@date =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="document/@date"/>
+    </td>        
+    <td><xsl:apply-templates select="document/correction"/>&nbsp;</td>
+    <td><xsl:apply-templates select="document/alsoknown"/>&nbsp;</td>
+    <td><xsl:value-of select="@tag"/>&nbsp;</td>
+    <td>
+      <xsl:if test="status/@stage =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="status/@stage"/>&nbsp;
+    </td>
+    <td align="center">
+      <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='midterm') and (@id=$myid)]">EM</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='longterm') and (@id=$myid)]">EL</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F</xsl:if>
+      &nbsp;
+    </td>
+<!--
+    <td><xsl:apply-templates select=".//event"/>&nbsp;</td>
+-->
+  </tr>
+</xsl:template>
+
+
+
+
 <xsl:template match="standard">
   <xsl:variable name="myid" select="@id"/>
   <tr>
     <xsl:if test=".//event[@flag = 'deleted']">
       <xsl:attribute name="class">deleted</xsl:attribute>
     </xsl:if>
-    <td align="right"><xsl:number from="standards" count="standard" format="1" level="any"/></td>
+    <td align="right"><xsl:number from="records" count="atandard" format="1" level="any"/></td>
     <td><xsl:value-of select="@id"/></td>
-    <td>
+    <td align="center">
       <xsl:choose>
         <xsl:when test="document/substandards">CS</xsl:when>
         <xsl:when test="//substandards/refstandard/@refid=$myid">SS</xsl:when>
@@ -249,6 +329,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 
+
 <xsl:template match="correction">
   <xsl:if test="position()=1 and (@cpubnum = ''or @date = '')">
     <xsl:attribute name="bgcolor">yellow</xsl:attribute>
@@ -269,6 +350,14 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 
+<xsl:template match="event">
+  <xsl:if test="position()=1 and (@date = '')">
+    <xsl:attribute name="class">missing</xsl:attribute>
+  </xsl:if>
+  <xsl:value-of select="translate(substring(@flag,1,1), 'acd', 'ACD')"/>
+  <xsl:text>:</xsl:text><xsl:value-of select="@date"/>
+  <xsl:if test="following-sibling::event[position()=1]"><br /></xsl:if>
+</xsl:template>
 
 
 
@@ -413,13 +502,6 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 
-<xsl:template match="event">
-  <xsl:if test="position()=1 and (@date = '')"><xsl:attribute name="bgcolor">yellow</xsl:attribute></xsl:if>
-
-  <xsl:value-of select="translate(substring(@flag,1,1), 'acd', 'ACD')"/>
-  <xsl:text>:</xsl:text><xsl:value-of select="@date"/>
-  <xsl:if test="following-sibling::event[position()=1]"><br /></xsl:if>
-</xsl:template>
 
 
 <xsl:template match="*"/>
