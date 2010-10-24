@@ -270,7 +270,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:if test=".//event[@flag = 'deleted']">
       <xsl:attribute name="class">deleted</xsl:attribute>
     </xsl:if>
-    <td align="right"><xsl:number from="records" count="atandard" format="1" level="any"/></td>
+    <td align="right"><xsl:number from="records" count="standard" format="1" level="any"/></td>
     <td><xsl:value-of select="@id"/></td>
     <td align="center">
       <xsl:choose>
