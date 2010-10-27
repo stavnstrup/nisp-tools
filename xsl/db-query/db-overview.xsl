@@ -39,6 +39,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <style type="text/css">
         .head {background-color: #808080;  }
         .body,table {font-family: sans-serif;}
+        .table {width: 100%;}
         .deleted { background-color: #FF5A41; color: white; font-weight: bold;}
         .missing { background-color: #FFFEA0;}
         .head { }
@@ -123,15 +124,13 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
      <li><b>Tag</b> - What Tag is associated with this record</li>
      <li><b>Stage</b> - Stage info for this record</li>
      <li><b>Select</b> - Is this record selected by NATO</li>
-<!--
+
      <li><b>History</b> - What is the history of the record</li>
--->
    </ul>
 
    <p>The following properties are related to the <i>standard</i> elements in are part of the enclosing record element.</p>
  
    <ul>
-     <li><b>Rec</b> - The position of the record</li>
      <li><b>Debug</b> - A comment, which are only used to remember observed problems with this record.</li>
      <li><b>Std</b> - The position of the <i>standard</i> in the database</li>
    </ul>
@@ -170,7 +169,6 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template name="htmlheader">
   <tr class="head">
-    <td/>
     <td><b>ID</b></td>
     <td><b>Type</b></td>
     <td><b>Org</b></td>
@@ -182,9 +180,9 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td><b>Tag</b></td>
     <td><b>Stage</b></td>
     <td><b>Select</b></td>
-<!--
+
     <td><b>History</b></td>
--->
+
 <!--
     <td><b>Rec</b></td>
     <td><b>Type</b></td>
@@ -205,7 +203,9 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:if test=".//event[@flag = 'deleted']">
       <xsl:attribute name="class">deleted</xsl:attribute>
     </xsl:if>
+<!--
     <td align="right"><xsl:number from="records" count="profile" format="1" level="any"/></td>
+-->
     <td><xsl:value-of select="@id"/></td>
     <td align="center">
       <xsl:choose>
@@ -255,9 +255,8 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F</xsl:if>
       &nbsp;
     </td>
-<!--
     <td><xsl:apply-templates select=".//event"/>&nbsp;</td>
--->
+
   </tr>
 </xsl:template>
 
@@ -270,7 +269,9 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:if test=".//event[@flag = 'deleted']">
       <xsl:attribute name="class">deleted</xsl:attribute>
     </xsl:if>
+<!--
     <td align="right"><xsl:number from="records" count="standard" format="1" level="any"/></td>
+-->
     <td><xsl:value-of select="@id"/></td>
     <td align="center">
       <xsl:choose>
@@ -320,9 +321,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F</xsl:if>
       &nbsp;
     </td>
-<!--
     <td><xsl:apply-templates select=".//event"/>&nbsp;</td>
--->
   </tr>
 </xsl:template>
 
