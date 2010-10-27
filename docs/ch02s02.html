@@ -15,9 +15,10 @@ element.</p><pre class="programlisting">
 &lt;!ELEMENT records ((standard | profile )*)&gt;
 
 
-</pre><div class="sect2" title="2.2.1. Standards"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e307"/>2.2.1. Standards</h3></div></div></div><p>All standards are implemented using a single <code class="code">&lt;standard&gt;</code> 
-element describing both the standard and historical aspect about the standard.
-A standard consists of:
+</pre><div class="sect2" title="2.2.1. Standards"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e307"/>2.2.1. Standards</h3></div></div></div><p>All standards are implemented using a
+single <code class="code">&lt;standard&gt;</code> element describing both the
+standard and historical aspect about the standard.  A standard
+consists of:
 
 </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>document - describes the actual standard</p></li><li class="listitem"><p>applicability - when and where should the standard be used</p></li><li class="listitem"><p>status - contains historical data</p></li></ul></div><p>
 </p><pre class="programlisting">
@@ -30,13 +31,15 @@ A standard consists of:
           ss (no | yes) "no"
           tref IDREF #IMPLIED&gt;
 
-</pre><p>The standard exposes the attributes <code class="code">tag</code> and <code class="code">id</code>. 
-The <code class="code">tag</code> attribute was previously used the volume 3 of the NC3TA, 
-and a is short title identifying the standard. A few furture use could be to 
-provide a title when selecting standards.</p><div class="sect3" title="2.2.1.1. Document"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e339"/>2.2.1.1. Document</h4></div></div></div><p>The <code class="code">&lt;document&gt;</code> element exposes the publish organisation,
-publication number, publishing date and title through the attributes <code class="code">orgid</code>,
+</pre><p>The standard exposes the attributes <code class="code">tag</code>
+and <code class="code">id</code>.  The <code class="code">tag</code> attribute was previously
+used the volume 3 of the NC3TA, and a is short title identifying the
+standard. A few furture use could be to provide a title when selecting
+standards.</p><div class="sect3" title="2.2.1.1. Document"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e339"/>2.2.1.1. Document</h4></div></div></div><p>The <code class="code">&lt;document&gt;</code> element exposes the publish
+organisation, publication number, publishing date and title through
+the attributes <code class="code">orgid</code>,
 <code class="code">pubnum</code>, <code class="code">date</code> and <code class="code">title</code>. The <code class="code">orgid</code> 
-referes to an organisation is embedded in the <code class="code">organisations</code> element.</p><pre class="programlisting">
+refers to an organisation is embedded in the <code class="code">organisations</code> element.</p><pre class="programlisting">
 
 &lt;!ELEMENT document ((substandards | correction | alsoknown | comment)*)&gt;
 &lt;!ATTLIST document
@@ -45,7 +48,8 @@ referes to an organisation is embedded in the <code class="code">organisations</
           date   CDATA #REQUIRED
           title  CDATA #REQUIRED&gt;
 
-</pre><p>If a standard is a coverstandard (e.g ISO-8859), it may implement the 
+</pre><p>If a standard is a coverstandard (e.g ISO-8859), it may
+implement the
 <code class="code">&lt;substandards&gt;</code> element, which contains a list of 
 <code class="code">&lt;refstandard&gt;</code> element. Each <code class="code">&lt;refstandard&gt;</code> 
 element will trough the attribute <code class="code">refid</code> contain a reference to the 
@@ -57,7 +61,7 @@ substandard.</p><pre class="programlisting">
 &lt;!ATTLIST refstandard
           refid IDREF #REQUIRED&gt;
 
-</pre><p>Some standard organisations publishes document which are correction to 
+</pre><p>Some standard organisations publish documents which are correction to 
 the standard.</p><pre class="programlisting">
 
 &lt;!ELEMENT correction (#PCDATA)&gt;
@@ -66,8 +70,10 @@ the standard.</p><pre class="programlisting">
           cpubnum  CDATA #REQUIRED
           date     CDATA #REQUIRED&gt;
 
-</pre><p>A alsoknown element contains a describtion which might be
-empty. A alsoknown element must also contain a orgid, pubnum and date
+</pre><p>Sometime a standard is republished by another standard organisation. An 
+<code class="code">&lt;alsoknown&gt;</code> element contains a description which might be
+empty. A <code class="code">&lt;alsoknown&gt;</code> element must also contain a 
+<code class="code">orgid</code>, <code class="code">pubnum</code> and <code class="code">date</code>
 attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation
  Data (DTED) is also know as  ISO/IEC 8211.</p><pre class="programlisting">
 
@@ -78,19 +84,23 @@ attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation
           pubnum  CDATA #REQUIRED
           date    CDATA #REQUIRED&gt;
 
-&lt;!ELEMENT comment (#PCDATA | ulink)*&gt;
-
 </pre><p>A <code class="code">&lt;comment&gt;</code> element contain data in the form of text or DocBook
 <code class="code">&lt;ulink&gt;</code> elements.</p><pre class="programlisting">
 
 &lt;!ELEMENT comment (#PCDATA | ulink)*&gt;
 
-</pre></div><div class="sect3" title="2.2.1.2. Applicability"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e401"/>2.2.1.2. Applicability</h4></div></div></div><pre class="programlisting">
+</pre></div><div class="sect3" title="2.2.1.2. Applicability"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e416"/>2.2.1.2. Applicability</h4></div></div></div><pre class="programlisting">
 
 &lt;!ELEMENT applicability %ho; (%tbl.entry.mdl;)*&gt;
 
-</pre><p>The applicability element uses the same content model as the
-DocBook element entry.</p></div><div class="sect3" title="2.2.1.3. Status"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e408"/>2.2.1.3. Status</h4></div></div></div><pre class="programlisting">
+</pre><p>The <code class="code">&lt;applicability&gt;</code> element uses the same content model as the
+DocBook <code class="code">&lt;element&gt;</code> entry and contains a description of the 
+standard.</p></div><div class="sect3" title="2.2.1.3. Status"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e429"/>2.2.1.3. Status</h4></div></div></div><p>The status element can contain in the following order an 
+<code class="code">&lt;info&gt;</code>, <code class="code">&lt;uri&gt;</code>
+and <code class="code">&lt;history&gt;</code> element. The <code class="code">&lt;history&gt;</code>
+element is mandatory, the <code class="code">&lt;info&gt;</code> and
+<code class="code">&lt;uri&gt;</code> elements are not. The <code class="code">&lt;uri&gt;</code>
+element is defined in the DocBook DTD.</p><pre class="programlisting">
 
 &lt;!ELEMENT status (info?, uri?, history)&gt;
 
@@ -98,17 +108,14 @@ DocBook element entry.</p></div><div class="sect3" title="2.2.1.3. Status"><div
           mode   (unknown|rejected|retired) #IMPLIED "unknown"
           stage  CDATA #REQUIRED&gt;
 
-</pre><p>The status element contains in the following order an info, uri
-and history element. The history element is mandatoty, the infor and
-uri elements are not. The uri element is defined in the DocBook
-DTD.</p><p>The status element contains the attributes mode and stage. The
+</pre><p>The status element contains the attributes <code class="code">mode</code> and <code class="code">stage</code>. The
 first is implied and the second is required.</p><pre class="programlisting">
 
   &lt;!ELEMENT info (#PCDATA | ulink)*&gt;
 
 </pre><p>The info element contains textual information, which is not
-appropiate to put in e.g. the applicability element. It can also
-contain ulink elements, whiche e.g. could point to the standard.</p><pre class="programlisting">
+appropriate to put in e.g. the applicability element. It can also
+contain ulink elements, which e.g. could point to the standard.</p><pre class="programlisting">
 
 &lt;!ELEMENT history (event)+&gt;
 
@@ -121,12 +128,12 @@ contain ulink elements, whiche e.g. could point to the standard.</p><pre class="
           version CDATA   #REQUIRED
 &gt;
 
-</pre><p>The histoty element contains historical infomation about a
+</pre><p>The history element contains historical information about a
 standard. When was it added, changed or deleted and through which
 RFCP. The history element contains of one or more event
 elements.</p><p>The event element may contain a rfcp attribute and must contain
 the attributes flag, date and version.</p><p>The date attribute must use the following wellknown pattern
-YYYY-MM-DD.</p></div></div><div class="sect2" title="2.2.2. Profiles"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e429"/>2.2.2. Profiles</h3></div></div></div><p>Profiles are describes using
+YYYY-MM-DD.</p></div></div><div class="sect2" title="2.2.2. Profiles"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e477"/>2.2.2. Profiles</h3></div></div></div><p>Profiles are describes using
 the <code class="code">&lt;profile&gt;</code> element an contains references to the standards,
 on which the profiles are build.</p><pre class="programlisting">
 

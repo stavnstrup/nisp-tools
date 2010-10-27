@@ -14,12 +14,12 @@ tools are used throughout the publication cycle process except when
 editing the NISP documents, and are also used by the editor and tool
 package maintainer to create new distributions of the source- and tool
 packages.</p><p>The following sections will describe the content of the source
-distribution<sup>[<a id="d0e3250" href="#ftn.d0e3250" class="footnote">10</a>]</sup>, and describe all the steps necessarry in
+distribution<sup>[<a id="d0e3298" href="#ftn.d0e3298" class="footnote">10</a>]</sup>, and describe all the steps necessarry in
 order to create human readable versions of the architecture
-documents.</p><div class="sect1" title="7.1. Inside the Source Distribution"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e3254"/>7.1. Inside the Source Distribution</h2></div></div></div><p>The sources to the NATO Interoperability Standards and Profiles is distributed separately from the tools
+documents.</p><div class="sect1" title="7.1. Inside the Source Distribution"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e3302"/>7.1. Inside the Source Distribution</h2></div></div></div><p>The sources to the NATO Interoperability Standards and Profiles is distributed separately from the tools
 distribution in a compressed archive. The name of the latest
 distribution is <code class="filename">nisp-src-5.0.zip</code> and
-is organised in the following way: </p><div class="sect2" title="7.1.1. Structure of distribution"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e3262"/>7.1.1. Structure of distribution</h3></div></div></div><p>The source distribution consists of the following
+is organised in the following way: </p><div class="sect2" title="7.1.1. Structure of distribution"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e3310"/>7.1.1. Structure of distribution</h3></div></div></div><p>The source distribution consists of the following
 elements:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>a number of directories, one for each of the documents in the
  distribution (<code class="filename">volume1</code>, <code class="filename">volume2</code>, <code class="filename">vol2-sup1</code>, <code class="filename">vol2-sup2</code>, <code class="filename">volume3</code>, <code class="filename">volume4</code>, <code class="filename">volume5</code>, <code class="filename">rationale</code> and <code class="filename">ihb</code>), where the <code class="filename">ihb</code> directory should contain
  pdf versions of the <span class="emphasis"><em>Implementation HandBook</em></span>.</p></li><li class="listitem"><p>The directory <code class="filename">schema</code>, which contains all the schemas used in
@@ -39,7 +39,7 @@ elements:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li 
  database is also used by volume 4 (NCSP) and the rationale
  document.</p></li><li class="listitem"><p>The file <code class="filename">catalog.xml</code>, which is a
  XML Catalog used to resolve public identifiers in the
- documents.</p></li></ul></div></div><div class="sect2" title="7.1.2. Database driven documents"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e3346"/>7.1.2. Database driven documents</h3></div></div></div><p>In the original word version of volume 3 (Base Standards), the
+ documents.</p></li></ul></div></div><div class="sect2" title="7.1.2. Database driven documents"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e3394"/>7.1.2. Database driven documents</h3></div></div></div><p>In the original word version of volume 3 (Base Standards), the
 description of each of the standards were presented in a similar
 fashion, in the form of a table. During the transformation from the
 Word version to XML, all the standards were extracted from chapter 2
@@ -51,11 +51,11 @@ tables. When the translation of volume 3 to HTML and FO takes place, a
 merged version volume 3 is created using processing instructions as
 described in <a class="xref" href="ch04.html#PI" title="4.1.4. Processing Instructions">Section 4.1.4, “Processing Instructions”</a>, i.e. the database
 <code class="filename">standards/ta-standards.xml</code> is merged back into
-the document<sup>[<a id="d0e3356" href="#ftn.d0e3356" class="footnote">11</a>]</sup>, which
+the document<sup>[<a id="d0e3404" href="#ftn.d0e3404" class="footnote">11</a>]</sup>, which
 is then translated to HTML and FO as illustrated in <a class="xref" href="ch07.html#fig-ddd" title="Figure 7.1. Database driven documents">Figure 7.1, “Database driven documents”</a>. As of version 4 of the NATO Interoperability Standards and Profiles, both volume 4 and
 the rationale document uses a similar approach. In this way, we will
 avoid the problem of selecting standards for the NCSP, which have not
-been defined in volume 3.</p><div class="figure"><a xmlns:saxon="http://icl.com/saxon" id="fig-ddd"/><p class="title"><b>Figure 7.1. Database driven documents</b></p><div class="figure-contents"><div class="mediaobject" align="center"><img src="no-fig-yet.jpg" align="middle" alt="Database driven documents"/></div></div><p/></div><br class="figure-break"/></div><div class="sect2" title="7.1.3. The standards database"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e3368"/>7.1.3. The standards database</h3></div></div></div><p>The standard database was designed to mirror the original
+been defined in volume 3.</p><div class="figure"><a xmlns:saxon="http://icl.com/saxon" id="fig-ddd"/><p class="title"><b>Figure 7.1. Database driven documents</b></p><div class="figure-contents"><div class="mediaobject" align="center"><img src="no-fig-yet.jpg" align="middle" alt="Database driven documents"/></div></div><p/></div><br class="figure-break"/></div><div class="sect2" title="7.1.3. The standards database"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e3416"/>7.1.3. The standards database</h3></div></div></div><p>The standard database was designed to mirror the original
 document structure, where the chapter was split into eight service
 areas. Each service area was grouped into miscellaneous service
 classes, which again contained a list of standards. The following code
@@ -127,8 +127,8 @@ NATO Interoperability Standards and Profiles document.</p><div class="itemizedli
  <a class="xref" href="ch02.html" title="Chapter 2. The standard database DTD">Chapter 2, <i>The standard database DTD</i></a></p></li><li class="listitem"><p><code class="filename">svg10.dtd</code> - This is the official
  DTD describing Scalable Vector Graphics documents.</p></li><li class="listitem"><p><code class="filename">targetdatabase.dtd</code> - This DTD
  describes a target database, used to create cross-references between
- documents.</p></li></ul></div></div><div class="sect2" title="7.1.5. Figures"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e3435"/>7.1.5. Figures</h3></div></div></div><p>The directory <code class="filename">figures</code>
+ documents.</p></li></ul></div></div><div class="sect2" title="7.1.5. Figures"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e3483"/>7.1.5. Figures</h3></div></div></div><p>The directory <code class="filename">figures</code>
 contains an SVG implementation for each of the images used in the NATO Interoperability Standards and Profiles
-documents.</p></div></div><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.d0e3250" href="#d0e3250" class="para">10</a>] </sup>Where all the editing takes
-place.</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e3356" href="#d0e3356" class="para">11</a>] </sup>Currently volume 3 consists of the
+documents.</p></div></div><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.d0e3298" href="#d0e3298" class="para">10</a>] </sup>Where all the editing takes
+place.</p></div><div class="footnote"><p><sup>[<a id="ftn.d0e3404" href="#d0e3404" class="para">11</a>] </sup>Currently volume 3 consists of the
 skeleton files vol3.xml, and v3appendixA.xml</p></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch06s04.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="pt03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch07s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">6.4. TA Stylesheets for XSL-FO </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 7.2. Editing the NATO Interoperability Standards and Profiles</td></tr></table></div></body></html>

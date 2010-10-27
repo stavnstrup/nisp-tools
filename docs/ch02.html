@@ -9,7 +9,7 @@ different volumes, the database have been extented to be able to
 describe the selection of mandatory-, emerging- and fading standards
 and profiles. These selection are justified in the traceability matrix
 included in the rationale document, which are also part of the
-database. Recently the database have been reorganized to reflect
+database. Recently the database have been reorganised to reflect
 additional requirements, but also to prepare the database for
 inclusion in the NATO Architecture Repository (NAR)</p><p>In order to enable validation of the database a schema in form
 of a DTD have been defined. This DTD is located in the source
@@ -21,22 +21,27 @@ in order to avoid name conflicts, but that is very complicated when
 using a simple schema language such as DTD. A better approach will be
 to implement the standard database schema in a modern schema language
 such as Relax NG.</p><p>In the following pages, the syntax of the database is described
-in detail and when appropiate, examples of the actual implementation is
+in detail and when appropriate, examples of the actual implementation is
 included.</p><p>The standard database DTD is logically separated in four
-different parts:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>service taxonomy</p></li><li class="listitem"><p>standard selction</p></li><li class="listitem"><p>standard and profile description</p></li><li class="listitem"><p>Community of interest profiles</p></li></ul></div><p>The root element of the DTD is the element <code class="code">&lt;standards&gt;</code> 
+different parts:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>service taxonomy</p></li><li class="listitem"><p>standard selection</p></li><li class="listitem"><p>standard and profile description</p></li><li class="listitem"><p>Community of interest profiles</p></li></ul></div><p>The root element of the DTD is the element <code class="code">&lt;standards&gt;</code> 
 and is described by:</p><pre class="programlisting">
 
 &lt;!ELEMENT standards (taxonomy, lists, records, 
                      community-of-interest, organisations)&gt;
 
-</pre><p>The <code class="code">&lt;organisations&gt;</code> element contains a mapping between k
-eywords and organisation names and is used to ensure, that only registered organisation are used.</p><div class="sect1" title="2.1. Service taxonomy"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e259"/>2.1. Service taxonomy</h2></div></div></div><p>The services taxonomy describes how the standards and profiles
-are organised and is based on the taxanomy decribed in the 
-Service Framework.</p><p>The service taxonomy is a hierical structure, consisting of <code class="code">&lt;servicearea&gt;</code>,
-<code class="code">&lt;subarea&gt;</code>, <code class="code">&lt;servicecategory&gt;</code>, <code class="code">&lt;category&gt;</code> and 
-<code class="code">&lt;subcategory&gt;</code> elements as described below. All the taxonomy 
-elements must have an <code class="code">id</code> and <code class="code">title</code> attribute. The <code class="code">id</code> 
-attribute is used to identify the relationship between selected standards and the service taxonomy.</p><pre class="programlisting">
+</pre><p>The <code class="code">&lt;organisations&gt;</code> element contains a
+mapping between keywords and organisation names and is used to ensure,
+that only registered organisation are used.</p><div class="sect1" title="2.1. Service taxonomy"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e259"/>2.1. Service taxonomy</h2></div></div></div><p>The services taxonomy describes how the standards and profiles
+are organised and is based on the taxonomy described in the 
+Service Framework.</p><p>The service taxonomy is a hierical structure, consisting
+of <code class="code">&lt;servicearea&gt;</code>,
+<code class="code">&lt;subarea&gt;</code>, <code class="code">&lt;servicecategory&gt;</code>, <code class="code">&lt;category&gt;</code>
+and
+<code class="code">&lt;subcategory&gt;</code> elements as described below. All the
+taxonomy elements must have an <code class="code">id</code> and <code class="code">title</code>
+attribute. The <code class="code">id</code> attribute is used to identify the
+relationship between selected standards and the service
+taxonomy.</p><pre class="programlisting">
 
 
 &lt;!ELEMENT taxonomy (servicearea+)&gt;
