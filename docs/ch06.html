@@ -3,7 +3,7 @@
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 6. Design of the TA Stylesheets</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="pt03.html" title="Part III. Old manual"/><link rel="prev" href="ch05s03.html" title="5.3. DocBook Markup in the NISP"/><link rel="next" href="ch06s02.html" title="6.2. The DocBook Stylesheets"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 6. Design of the TA Stylesheets</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05s03.html">Prev</a> </td><th width="60%" align="center">Part III. Old manual</th><td width="20%" align="right"> <a accesskey="n" href="ch06s02.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 6. Design of the TA Stylesheets"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="design.ta.style"/>Chapter 6. Design of the TA Stylesheets</h2></div></div></div><p>XML documents are usually transformed into a format suitable to
 most readers. For the TA documents, the current choices of output
-medias, is either in the form of HTML<sup>[<a id="d0e3065" href="#ftn.d0e3065" class="footnote">7</a>]</sup> pages suitable to be displayed by a web browser, or in
+medias, is either in the form of HTML<sup>[<a id="d0e3178" href="#ftn.d0e3178" class="footnote">8</a>]</sup> pages suitable to be displayed by a web browser, or in
 a form suitable for output on regular paper, which in our case will be
 PDF, which both can be viewed on screen, og printed out on
 paper.</p><p>The best tool for transforming XML documents is the XML
@@ -11,17 +11,17 @@ Stylesheet language (XSL). The XSL standard consists of two parts
 "the XSL Transformation" (XSLT) <a class="xref" href="bi01.html#xslt" title="XSL Transformations (XSLT) Version 1.0">[<abbr class="abbrev">XSLT</abbr>]</a>and
 the XSL formatting object language (XSL-FO) <a class="xref" href="bi01.html#xsl" title="Extensible Styesheet Language (XSL) Version 1.0">[<abbr class="abbrev">XSL</abbr>]</a>, the
 first being a tool to transform XML documents, and the later is a
-highly complicated formatting language.</p><div class="sect1" title="6.1. Basic XSLT"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e3075"/>6.1. Basic XSLT</h2></div></div></div><p>An XSLT stylesheet consists of a number of templates, which
+highly complicated formatting language.</p><div class="sect1" title="6.1. Basic XSLT"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e3188"/>6.1. Basic XSLT</h2></div></div></div><p>An XSLT stylesheet consists of a number of templates, which
 describes, how to transform the different elements from XML to another
 language like HTML, or potentially another XML language. XSLT is also
 a declarative XML language, with a number of pre-defined elements,
 which defines how to handle XML elements, common programming language
 constructs like loops and conditional statements etc. XSLT utilises
 the XPath standard <a class="xref" href="bi01.html#xpath" title="XML Path Language (XPath) 1.0">[<abbr class="abbrev">XPath</abbr>]</a> to define the patterns,
-which describes elements of the source language.</p><div class="figure"><a xmlns:saxon="http://icl.com/saxon" id="d0e3082"/><p class="title"><b>Figure 6.1. Applying XSLT to an XML document</b></p><div class="figure-contents"><div class="mediaobject" align="center"><img src="no-fig-yet.jpg" align="middle" alt="Applying XSLT to an XML document"/></div></div><p/></div><br class="figure-break"/><p>There will be no further description of XSLT in this
+which describes elements of the source language.</p><div class="figure"><a xmlns:saxon="http://icl.com/saxon" id="d0e3195"/><p class="title"><b>Figure 6.1. Applying XSLT to an XML document</b></p><div class="figure-contents"><div class="mediaobject" align="center"><img src="no-fig-yet.jpg" align="middle" alt="Applying XSLT to an XML document"/></div></div><p/></div><br class="figure-break"/><p>There will be no further description of XSLT in this
 document. Instead, the user are can read the introductory article
 <a class="xref" href="bi01.html#hol-2000-xslt" title="What is XSLT?">[<abbr class="abbrev">Ho00</abbr>]</a>. For a comprehensive information on
 XSLT, see the excelent book<a class="xref" href="bi01.html#Kay2001" title="XSLT - Programmers Reference">[<abbr class="abbrev">Kay01</abbr>]</a> written by
-Michael Kay, the current editor of XSLT.</p></div><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.d0e3065" href="#d0e3065" class="para">7</a>] </sup>We are actaully
+Michael Kay, the current editor of XSLT.</p></div><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.d0e3178" href="#d0e3178" class="para">8</a>] </sup>We are actaully
 creating XHTML pages, which is an XML implementation of
 HTML</p></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch05s03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="pt03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch06s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">5.3. DocBook Markup in the NISP </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 6.2. The DocBook Stylesheets</td></tr></table></div></body></html>

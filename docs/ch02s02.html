@@ -53,7 +53,11 @@ implement the
 <code class="code">&lt;substandards&gt;</code> element, which contains a list of 
 <code class="code">&lt;refstandard&gt;</code> element. Each <code class="code">&lt;refstandard&gt;</code> 
 element will trough the attribute <code class="code">refid</code> contain a reference to the 
-substandard.</p><pre class="programlisting">
+substandard.</p><p>The DTD allows a <code class="code">&lt;standard&gt;</code> element using  
+<code class="code">&lt;refstandard&gt;</code> elements to refer to other standards 
+(<span class="emphasis"><em>the substandards</em></span>), and in principle these substandards 
+could refer to other <code class="code">&lt;standard&gt;</code> elements. However, that 
+really does not make any sense.</p><pre class="programlisting">
 
 &lt;!ELEMENT substandards (refstandard+)&gt;
 
@@ -89,13 +93,13 @@ attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation
 
 &lt;!ELEMENT comment (#PCDATA | ulink)*&gt;
 
-</pre></div><div class="sect3" title="2.2.1.2. Applicability"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e416"/>2.2.1.2. Applicability</h4></div></div></div><pre class="programlisting">
+</pre></div><div class="sect3" title="2.2.1.2. Applicability"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e430"/>2.2.1.2. Applicability</h4></div></div></div><pre class="programlisting">
 
 &lt;!ELEMENT applicability %ho; (%tbl.entry.mdl;)*&gt;
 
 </pre><p>The <code class="code">&lt;applicability&gt;</code> element uses the same content model as the
 DocBook <code class="code">&lt;element&gt;</code> entry and contains a description of the 
-standard.</p></div><div class="sect3" title="2.2.1.3. Status"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e429"/>2.2.1.3. Status</h4></div></div></div><p>The status element can contain in the following order an 
+standard.</p></div><div class="sect3" title="2.2.1.3. Status"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e443"/>2.2.1.3. Status</h4></div></div></div><p>The <code class="code">&lt;status&gt;</code> element can contain in the following order an 
 <code class="code">&lt;info&gt;</code>, <code class="code">&lt;uri&gt;</code>
 and <code class="code">&lt;history&gt;</code> element. The <code class="code">&lt;history&gt;</code>
 element is mandatory, the <code class="code">&lt;info&gt;</code> and
@@ -108,14 +112,15 @@ element is defined in the DocBook DTD.</p><pre class="programlisting">
           mode   (unknown|rejected|retired) #IMPLIED "unknown"
           stage  CDATA #REQUIRED&gt;
 
-</pre><p>The status element contains the attributes <code class="code">mode</code> and <code class="code">stage</code>. The
-first is implied and the second is required.</p><pre class="programlisting">
+</pre><p>The <code class="code">&lt;status&gt;</code> element contains the attributes <code class="code">mode</code> and <code class="code">stage</code>. The
+first is implied and the second is required.The <code class="code">mode</code> attribute are used to indicate 
+standards, which were either rejected or retired.</p><pre class="programlisting">
 
   &lt;!ELEMENT info (#PCDATA | ulink)*&gt;
 
-</pre><p>The info element contains textual information, which is not
-appropriate to put in e.g. the applicability element. It can also
-contain ulink elements, which e.g. could point to the standard.</p><pre class="programlisting">
+</pre><p>The <code class="code">&lt;info&gt;</code> element contains textual information, which is not
+appropriate to put in e.g. the <code class="code">&lt;applicability&gt;</code> element. It can also
+contain <code class="code">&lt;ulink&gt;</code> elements, which e.g. could point to the standard.</p><pre class="programlisting">
 
 &lt;!ELEMENT history (event)+&gt;
 
@@ -125,75 +130,67 @@ contain ulink elements, which e.g. could point to the standard.</p><pre class="p
           flag    (added|changed|deleted)   #REQUIRED
           date    CDATA   #REQUIRED
           rfcp    CDATA   #IMPLIED
-          version CDATA   #REQUIRED
-&gt;
+          version CDATA   #REQUIRED&gt;
 
-</pre><p>The history element contains historical information about a
+</pre><p>The <code class="code">&lt;history&gt;</code> element contains historical information about a
 standard. When was it added, changed or deleted and through which
-RFCP. The history element contains of one or more event
-elements.</p><p>The event element may contain a rfcp attribute and must contain
-the attributes flag, date and version.</p><p>The date attribute must use the following wellknown pattern
-YYYY-MM-DD.</p></div></div><div class="sect2" title="2.2.2. Profiles"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e477"/>2.2.2. Profiles</h3></div></div></div><p>Profiles are describes using
-the <code class="code">&lt;profile&gt;</code> element an contains references to the standards,
-on which the profiles are build.</p><pre class="programlisting">
+RFCP. The <code class="code">&lt;history&gt;</code> element contains of one or more event
+elements.</p><p>The <code class="code">&lt;event&gt;</code> element may contain a <code class="code">rfcp</code> 
+attribute and must contain the attributes <code class="code">flag</code>, <code class="code">date</code>
+and <code class="code">version</code>.</p><p>The <code class="code">date</code> attribute must use the following wellknown pattern
+YYYY-MM-DD.</p></div></div><div class="sect2" title="2.2.2. Profiles"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e533"/>2.2.2. Profiles</h3></div></div></div><p>Profiles are describes using the <code class="code">&lt;profile&gt;</code> element and 
+contains references to the standards and potential profiles,
+on which the profiles are build.</p><p>A <code class="code">&lt;profile&gt;</code> element may contain <code class="code">&lt;profilenote&gt;</code>, 
+<code class="code">&lt;profilespec&gt;</code>, <code class="code">&lt;configuration&gt;</code>, 
+<code class="code">&lt;parts&gt;</code>, <code class="code">&lt;applicability&gt;</code> or 
+<code class="code">&lt;status&gt;</code> elements.</p><p>A <code class="code">&lt;profile&gt;</code> element must contain a <code class="code">tag</code>,
+<code class="code">id</code> and <code class="code">tref</code><sup>[<a id="d0e577" href="#ftn.d0e577" class="footnote">2</a>]</sup> attribute.
+A <code class="code">type</code> attribute are implicit defined with one of the values 
+<code class="code">base</code>, <code class="code">coi-minor</code> or <code class="code">coi</code>. If the attribute 
+has not been defined, it will by default be anned and initialized 
+with the value <code class="code">base</code>.</p><pre class="programlisting">
 
-
-
-</pre><pre class="programlisting">
-
-&lt;!ELEMENT profilerecord (debug?, ((profilenote | parts | applicability | status)* |
-                          sremark))&gt;
-
-&lt;!ATTLIST profilerecord
+&lt;!ELEMENT profile ((profilenote | profilespec | configuration
+                    | parts | applicability | status)*)&gt;
+&lt;!ATTLIST profile
+          type (base | coi-minor | coi) "base"
           tag CDATA #REQUIRED
-          id ID #IMPLIED&gt;
+          id ID #REQUIRED
+          tref IDREF #IMPLIED&gt;
 
-</pre><p>A profilerecord element may contain a debug element followed by 0
-or more profilenote, parts, applicability or status elements. Or a
-profilerecord may contain a debug element followed by an sremark
-element.</p><p>A profilerecord element must contain an tag attribute and may
-contain an id attribute.</p><pre class="programlisting">
+</pre><p>The <code class="code">&lt;profilespec&gt;</code> element describes the organisation, 
+publication number, oublication data and title. NB - most base profiles have no 
+<code class="code">&lt;profilespec&gt;</code> element.</p><pre class="programlisting">
 
-&lt;!ELEMENT parts (standard)+&gt;
+&lt;!ELEMENT profilespec EMPTY&gt;
+&lt;!ATTLIST profilespec
+          orgid  CDATA #IMPLIED
+          pubnum CDATA #IMPLIED
+          date   CDATA #IMPLIED
+          title  CDATA #REQUIRED&gt;
 
-</pre><p>The parts element contains one or more standard elements.</p><pre class="programlisting">
+</pre><p>The <code class="code">&lt;configuration&gt;</code> element describes - how the 
+standards and sub-profiles should be configured. For now, it is just a textelement,
+as we have do not have any experience with this element yet.</p><pre class="programlisting">
+
+&lt;!ELEMENT configuration (#PCDATA)&gt;
+
+</pre><p>A <code class="code">&lt;profile&gt;</code> element consists of one or more references to
+standards or other profiles. Contrary to the <code class="code">&lt;standard&gt;</code>
+element, profiles can in principle use recursion (for profiles only) 
+indefinitely</p><pre class="programlisting">
+
+&lt;!ELEMENT parts (refstandard|refprofile)+&gt;
+
+&lt;!ELEMENT refprofile EMPTY&gt;
+&lt;!ATTLIST refprofile
+          refid IDREF #REQUIRED&gt;
+
+</pre><p>The <code class="code">&lt;profile&gt;</code> element contains text describing 
+the profile. This element is similar to the comment element used by a standard, 
+and those elements might therefore be combined in the near future.</p><pre class="programlisting">
 
 &lt;!ELEMENT profilenote (#PCDATA)&gt;
 
-</pre><p>The profilenote element contains text.</p><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre><pre class="programlisting">
-
-
-</pre></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. The standard database DTD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 2.3. Standard Selection</td></tr></table></div></body></html>
+</pre></div><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.d0e577" href="#d0e577" class="para">2</a>] </sup>The <code class="code">tref</code> attribute is 
+currently only defined with the keyword #IMPLIED</p></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. The standard database DTD </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 2.3. Standard Selection</td></tr></table></div></body></html>

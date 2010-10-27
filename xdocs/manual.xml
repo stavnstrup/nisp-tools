@@ -93,7 +93,7 @@
   <pubdate><?dbtimestamp format="Y-m-d H:M:S"?></pubdate>
   <copyright>
     <year>2001</year>
-    <year>2007</year>
+    <year>2010</year>
     <holder>Danish Defence Research Establishment</holder>
   </copyright>
   <biblioid class="pubnumber">DDRE M-XX/2006</biblioid>
@@ -114,7 +114,7 @@ using the DocBook Document Type Definition (DTD). The following
 chapters describes how to install install and also cover a brief
 description of the most common DocBook elements used by the &nisp;
 documents. For a more comprehensive understanding of the technologies
-used a bibography is included.</para>
+used a biography is included.</para>
 </preface>
 
 
@@ -168,7 +168,7 @@ with Java 2 SDK 1.4, so you are entirely on your own, if you choose
 this platform.</para></footnote></para>
 
 <para>The user <emphasis>must</emphasis> always add the directory,
-where Java executables are located to the <envar>PATH</envar>
+where Java executable are located to the <envar>PATH</envar>
 environment variable. Typical values for <envar>PATH</envar>
 are:</para>
 
@@ -266,11 +266,11 @@ distribution.</para>
 <sect1><title>Installation of the HTMLHELP compiler</title>
 
 
-<para>The current webversion of the NISP also comes with a HTML Help
-version.  This requires installation of the Microsofts HTML Help
+<para>The current web version of the NISP also comes with a HTML Help
+version.  This requires installation of the Microsoft's HTML Help
 compiler, which due to license restrictions can not be included in the
 NISP tools package. The user is required to download this distribution
-from the Microsofts website. Search for "html help downloads".</para>
+from the Microsoft's website. Search for "html help downloads".</para>
 
 <para>The configuration file "user.properties", which is located in the root
 of the tools distribution contains the property "hcc", which must point
@@ -385,11 +385,11 @@ always return to the original sets of stylesheets. </para>
 document. The original design of the database reflected the structure
 of the list of standard and profiles described in the NC3 Technical
 Architecture version 1. In order to enable consistency across the
-different volumes, the database have been extented to be able to
+different volumes, the database have been ex tented to be able to
 describe the selection of mandatory-, emerging- and fading standards
 and profiles. These selection are justified in the traceability matrix
 included in the rationale document, which are also part of the
-database. Recently the database have been reorganized to reflect
+database. Recently the database have been reorganised to reflect
 additional requirements, but also to prepare the database for
 inclusion in the NATO Architecture Repository (NAR)</para>
 
@@ -405,7 +405,7 @@ to implement the standard database schema in a modern schema language
 such as Relax NG.</para>
 
 <para>In the following pages, the syntax of the database is described
-in detail and when appropiate, examples of the actual implementation is
+in detail and when appropriate, examples of the actual implementation is
 included.</para>
 
 
@@ -414,7 +414,7 @@ different parts:</para>
 
 <itemizedlist>
   <listitem><para>service taxonomy</para></listitem>
-  <listitem><para>standard selction</para></listitem>
+  <listitem><para>standard selection</para></listitem>
   <listitem><para>standard and profile description</para></listitem>
   <listitem><para>Community of interest profiles</para></listitem>
 </itemizedlist>
@@ -429,20 +429,25 @@ and is described by:</para>
 ]]>
 </programlisting>
 
-<para>The <code>&lt;organisations&gt;</code> element contains a mapping between k
-eywords and organisation names and is used to ensure, that only registered organisation are used.</para>
+<para>The <code>&lt;organisations&gt;</code> element contains a
+mapping between keywords and organisation names and is used to ensure,
+that only registered organisation are used.</para>
 
 <sect1><title>Service taxonomy</title>
 
 <para>The services taxonomy describes how the standards and profiles
-are organised and is based on the taxanomy decribed in the 
+are organised and is based on the taxonomy described in the 
 Service Framework.</para>
 
-<para>The service taxonomy is a hierical structure, consisting of <code>&lt;servicearea&gt;</code>,
-<code>&lt;subarea&gt;</code>, <code>&lt;servicecategory&gt;</code>, <code>&lt;category&gt;</code> and 
-<code>&lt;subcategory&gt;</code> elements as described below. All the taxonomy 
-elements must have an <code>id</code> and <code>title</code> attribute. The <code>id</code> 
-attribute is used to identify the relationship between selected standards and the service taxonomy.</para>
+<para>The service taxonomy is a hierarchical structure, consisting
+of <code>&lt;servicearea&gt;</code>,
+<code>&lt;subarea&gt;</code>, <code>&lt;servicecategory&gt;</code>, <code>&lt;category&gt;</code>
+and
+<code>&lt;subcategory&gt;</code> elements as described below. All the
+taxonomy elements must have an <code>id</code> and <code>title</code>
+attribute. The <code>id</code> attribute is used to identify the
+relationship between selected standards and the service
+taxonomy.</para>
 
 
 <programlisting>
@@ -507,9 +512,10 @@ element.</para>
 
 <sect2><title>Standards</title>
 
-<para>All standards are implemented using a single <code>&lt;standard&gt;</code> 
-element describing both the standard and historical aspect about the standard.
-A standard consists of:
+<para>All standards are implemented using a
+single <code>&lt;standard&gt;</code> element describing both the
+standard and historical aspect about the standard.  A standard
+consists of:
 
 <itemizedlist>
   <listitem><para>document - describes the actual standard</para></listitem>
@@ -531,17 +537,19 @@ A standard consists of:
 </programlisting>
 
 
-<para>The standard exposes the attributes <code>tag</code> and <code>id</code>. 
-The <code>tag</code> attribute was previously used the volume 3 of the NC3TA, 
-and a is short title identifying the standard. A few furture use could be to 
-provide a title when selecting standards.</para>
+<para>The standard exposes the attributes <code>tag</code>
+and <code>id</code>.  The <code>tag</code> attribute was previously
+used the volume 3 of the NC3TA, and a is short title identifying the
+standard. A few furture use could be to provide a title when selecting
+standards.</para>
 
 <sect3><title>Document</title>
 
-<para>The <code>&lt;document&gt;</code> element exposes the publish organisation,
-publication number, publishing date and title through the attributes <code>orgid</code>,
+<para>The <code>&lt;document&gt;</code> element exposes the publish
+organisation, publication number, publishing date and title through
+the attributes <code>orgid</code>,
 <code>pubnum</code>, <code>date</code> and <code>title</code>. The <code>orgid</code> 
-referes to an organisation is embedded in the <code>organisations</code> element.</para>
+refers to an organisation is embedded in the <code>organisations</code> element.</para>
 
 
 <programlisting>
@@ -555,11 +563,18 @@ referes to an organisation is embedded in the <code>organisations</code> element
 ]]>
 </programlisting>
 
-<para>If a standard is a coverstandard (e.g ISO-8859), it may implement the 
+<para>If a standard is a coverstandard (e.g ISO-8859), it may
+implement the
 <code>&lt;substandards&gt;</code> element, which contains a list of 
 <code>&lt;refstandard&gt;</code> element. Each <code>&lt;refstandard&gt;</code> 
 element will trough the attribute <code>refid</code> contain a reference to the 
 substandard.</para>
+
+<para>The DTD allows a <code>&lt;standard&gt;</code> element using  
+<code>&lt;refstandard&gt;</code> elements to refer to other standards 
+(<emphasis>the substandards</emphasis>), and in principle these substandards 
+could refer to other <code>&lt;standard&gt;</code> elements. However, that 
+really does not make any sense.</para>
 
 <programlisting>
 <![CDATA[
@@ -571,7 +586,7 @@ substandard.</para>
 ]]>
 </programlisting>
 
-<para>Some standard organisations publishes document which are correction to 
+<para>Some standard organisations publish documents which are correction to 
 the standard.</para>
 
 <programlisting>
@@ -585,8 +600,10 @@ the standard.</para>
 </programlisting>
 
 
-<para>A alsoknown element contains a describtion which might be
-empty. A alsoknown element must also contain a orgid, pubnum and date
+<para>Sometime a standard is republished by another standard organisation. An 
+<code>&lt;alsoknown&gt;</code> element contains a description which might be
+empty. A <code>&lt;alsoknown&gt;</code> element must also contain a 
+<code>orgid</code>, <code>pubnum</code> and <code>date</code>
 attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation
  Data (DTED) is also know as  ISO/IEC 8211.</para>
 
@@ -598,8 +615,6 @@ attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation
           orgid   CDATA #REQUIRED
           pubnum  CDATA #REQUIRED
           date    CDATA #REQUIRED>
-
-<!ELEMENT comment (#PCDATA | ulink)*>
 ]]>
 </programlisting>
 
@@ -622,14 +637,21 @@ attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation
 ]]>
 </programlisting>
 
-<para>The applicability element uses the same content model as the
-DocBook element entry.</para>
+<para>The <code>&lt;applicability&gt;</code> element uses the same content model as the
+DocBook <code>&lt;element&gt;</code> entry and contains a description of the 
+standard.</para>
 
 </sect3>
 
 
 <sect3><title>Status</title>
 
+<para>The <code>&lt;status&gt;</code> element can contain in the following order an 
+<code>&lt;info&gt;</code>, <code>&lt;uri&gt;</code>
+and <code>&lt;history&gt;</code> element. The <code>&lt;history&gt;</code>
+element is mandatory, the <code>&lt;info&gt;</code> and
+<code>&lt;uri&gt;</code> elements are not. The <code>&lt;uri&gt;</code>
+element is defined in the DocBook DTD.</para>
 
 <programlisting>
 <![CDATA[
@@ -641,13 +663,10 @@ DocBook element entry.</para>
 ]]>
 </programlisting>
 
-<para>The status element contains in the following order an info, uri
-and history element. The history element is mandatoty, the infor and
-uri elements are not. The uri element is defined in the DocBook
-DTD.</para>
 
-<para>The status element contains the attributes mode and stage. The
-first is implied and the second is required.</para>
+<para>The <code>&lt;status&gt;</code> element contains the attributes <code>mode</code> and <code>stage</code>. The
+first is implied and the second is required.The <code>mode</code> attribute are used to indicate 
+standards, which were either rejected or retired.</para>
 
 <programlisting>
 <![CDATA[
@@ -655,9 +674,9 @@ first is implied and the second is required.</para>
 ]]>
 </programlisting>
 
-<para>The info element contains textual information, which is not
-appropiate to put in e.g. the applicability element. It can also
-contain ulink elements, whiche e.g. could point to the standard.</para>
+<para>The <code>&lt;info&gt;</code> element contains textual information, which is not
+appropriate to put in e.g. the <code>&lt;applicability&gt;</code> element. It can also
+contain <code>&lt;ulink&gt;</code> elements, which e.g. could point to the standard.</para>
 
 <programlisting>
 <![CDATA[
@@ -669,20 +688,20 @@ contain ulink elements, whiche e.g. could point to the standard.</para>
           flag    (added|changed|deleted)   #REQUIRED
           date    CDATA   #REQUIRED
           rfcp    CDATA   #IMPLIED
-          version CDATA   #REQUIRED
->
+          version CDATA   #REQUIRED>
 ]]>
 </programlisting>
 
-<para>The histoty element contains historical infomation about a
+<para>The <code>&lt;history&gt;</code> element contains historical information about a
 standard. When was it added, changed or deleted and through which
-RFCP. The history element contains of one or more event
+RFCP. The <code>&lt;history&gt;</code> element contains of one or more event
 elements.</para>
 
-<para>The event element may contain a rfcp attribute and must contain
-the attributes flag, date and version.</para>
+<para>The <code>&lt;event&gt;</code> element may contain a <code>rfcp</code> 
+attribute and must contain the attributes <code>flag</code>, <code>date</code>
+and <code>version</code>.</para>
 
-<para>The date attribute must use the following wellknown pattern
+<para>The <code>date</code> attribute must use the following wellknown pattern
 YYYY-MM-DD.</para>
 
 </sect3>
@@ -693,115 +712,82 @@ YYYY-MM-DD.</para>
 <sect2><title>Profiles</title>
 
 
-<para>Profiles are describes using
-the <code>&lt;profile&gt;</code> element an contains references to the standards,
+<para>Profiles are describes using the <code>&lt;profile&gt;</code> element and 
+contains references to the standards and potential profiles,
 on which the profiles are build.</para>
 
+<para>A <code>&lt;profile&gt;</code> element may contain <code>&lt;profilenote&gt;</code>, 
+<code>&lt;profilespec&gt;</code>, <code>&lt;configuration&gt;</code>, 
+<code>&lt;parts&gt;</code>, <code>&lt;applicability&gt;</code> or 
+<code>&lt;status&gt;</code> elements.</para>
+
+<para>A <code>&lt;profile&gt;</code> element must contain a <code>tag</code>,
+<code>id</code> and <code>tref</code><footnote><para>The <code>tref</code> attribute is 
+currently only defined with the keyword #IMPLIED</para></footnote> attribute.
+A <code>type</code> attribute are implicit defined with one of the values 
+<code>base</code>, <code>coi-minor</code> or <code>coi</code>. If the attribute 
+has not been defined, it will by default be anned and initialized 
+with the value <code>base</code>.</para>
+
 <programlisting>
 <![CDATA[
-
-]]>
-</programlisting>
-
-
-
-<programlisting>
-<![CDATA[
-<!ELEMENT profilerecord (debug?, ((profilenote | parts | applicability | status)* |
-                          sremark))>
-
-<!ATTLIST profilerecord
+<!ELEMENT profile ((profilenote | profilespec | configuration
+                    | parts | applicability | status)*)>
+<!ATTLIST profile
+          type (base | coi-minor | coi) "base"
           tag CDATA #REQUIRED
-          id ID #IMPLIED>
+          id ID #REQUIRED
+          tref IDREF #IMPLIED>
 ]]>
 </programlisting>
 
-<para>A profilerecord element may contain a debug element followed by 0
-or more profilenote, parts, applicability or status elements. Or a
-profilerecord may contain a debug element followed by an sremark
-element.</para>
-
-<para>A profilerecord element must contain an tag attribute and may
-contain an id attribute.</para>
-
-
-
+<para>The <code>&lt;profilespec&gt;</code> element describes the organisation, 
+publication number, oublication data and title. NB - most base profiles have no 
+<code>&lt;profilespec&gt;</code> element.</para> 
 
 <programlisting>
 <![CDATA[
-<!ELEMENT parts (standard)+>
+<!ELEMENT profilespec EMPTY>
+<!ATTLIST profilespec
+          orgid  CDATA #IMPLIED
+          pubnum CDATA #IMPLIED
+          date   CDATA #IMPLIED
+          title  CDATA #REQUIRED>
 ]]>
 </programlisting>
 
-<para>The parts element contains one or more standard elements.</para>
+<para>The <code>&lt;configuration&gt;</code> element describes - how the 
+standards and sub-profiles should be configured. For now, it is just a textelement,
+as we have do not have any experience with this element yet.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT configuration (#PCDATA)>
+]]>
+</programlisting>
+
+<para>A <code>&lt;profile&gt;</code> element consists of one or more references to
+standards or other profiles. Contrary to the <code>&lt;standard&gt;</code>
+element, profiles can in principle use recursion (for profiles only) 
+indefinitely</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT parts (refstandard|refprofile)+>
+
+<!ELEMENT refprofile EMPTY>
+<!ATTLIST refprofile
+          refid IDREF #REQUIRED>
+]]>
+</programlisting>
+
+<para>The <code>&lt;profile&gt;</code> element contains text describing 
+the profile. This element is similar to the comment element used by a standard, 
+and those elements might therefore be combined in the near future.</para>
 
 <programlisting>
 <![CDATA[
 <!ELEMENT profilenote (#PCDATA)>
-]]>
-</programlisting>
-
-<para>The profilenote element contains text.</para>
-
-
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
 ]]>
 </programlisting>
 
@@ -812,72 +798,108 @@ contain an id attribute.</para>
 
 <sect1><title>Standard Selection</title>
 
+<programlisting>
+<![CDATA[
+<!ELEMENT lists ((sp-list |  profile-list)*)>
+]]>
+</programlisting>
+
+
+
 
 <programlisting>
 <![CDATA[
+<!ELEMENT sp-list (sp-view*)>
+<!ATTLIST sp-list
+          tref IDREF #IMPLIED>
 ]]>
 </programlisting>
 
 <programlisting>
 <![CDATA[
+<!ELEMENT sp-view (ncoe?, (header?), select*, remarks?, rationale?)>
+<!ATTLIST sp-view
+          idx ID #IMPLIED
+          category CDATA #IMPLIED>
 ]]>
 </programlisting>
+
 
 <programlisting>
 <![CDATA[
+<!ELEMENT select (#PCDATA)>
+<!ATTLIST select
+          id IDREF #REQUIRED
+          mode (unknown|mandatory|emerging|midterm|farterm|fading) #REQUIRED>
 ]]>
 </programlisting>
+
 
 <programlisting>
 <![CDATA[
+<!ELEMENT remarks (#PCDATA|para|indexterm)*>
 ]]>
 </programlisting>
+
+
 
 <programlisting>
 <![CDATA[
+<!ELEMENT rationale (#PCDATA | para | indexterm)*>
 ]]>
 </programlisting>
+
+
+
+<sect2><title>What is this</title>
+
+<para>Hartmut and Joachim</para>
+
+<para>What is this? For profiles? The p in sp-list means profile. Do we really 
+need duplicate structures?</para> 
+
 
 <programlisting>
 <![CDATA[
+
+<!ELEMENT profile-list (pf-view*)>
+<!ATTLIST profile-list
+          id ID #REQUIRED
+          tag CDATA #REQUIRED
+          tref IDREF #IMPLIED>
+
+
+<!ELEMENT pf-view (parea?, (header?), pcatego? , pselect*, remarks?, rationale?)>
+<!ATTLIST pf-view
+          idx ID #IMPLIED
+          category CDATA #IMPLIED>
+
+<!ELEMENT parea (#PCDATA|para|indexterm)*>
+<!ATTLIST parea
+          svcarea IDREF #IMPLIED>
+
+<!ELEMENT pcatego (#PCDATA|para|indexterm)*>
+<!ATTLIST pcatego
+          svcarea IDREF #IMPLIED>
+
+<!ELEMENT protocol (#PCDATA|para|indexterm)*>
+
+<!ELEMENT pselect (#PCDATA)>
+<!ATTLIST pselect
+          id IDREF #REQUIRED>
 ]]>
 </programlisting>
 
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
-<programlisting>
-<![CDATA[
-]]>
-</programlisting>
-
+</sect2>
 
 </sect1>
 
 
+<sec1><title>NAF 3 complience</title>
 
+<para></para>
+
+</sec1>
 
 </chapter>
 
