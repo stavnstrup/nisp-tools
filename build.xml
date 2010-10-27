@@ -683,12 +683,16 @@ $Id$
         ${basedir}/xdocs/manual.xml ${xsl-fo.dir}/doc.xsl"/>
       <classpath refid="lib-saxon-classpath"/> 
     </java>
-
+<!--
     <java classname="org.apache.fop.apps.Fop" fork="yes"
           dir="${basedir}/docs">
         <arg line=" manual.fo manual.pdf"/>
         <classpath refid="lib-fop-classpath"/>
     </java>
+-->
+    <fop basedir="${basedir}/docs/" fofile="${basedir}/docs/manual.fo" 
+         outfile="${basedir}/docs/manual.pdf" format="application/pdf" 
+         messagelevel="${fop.message}"/> 
     <delete file="${basedir}/manual.fo"/>
   </target>
 

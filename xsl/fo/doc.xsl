@@ -30,9 +30,11 @@ Copyright (c) 2001,2002,2003 Jens Stavnstrup/DDRE <js@ddre.dk>
 <!-- Fix FOP Bugs -->
 
 
-<xsl:output method="xml" indent="no"
-            saxon:next-in-chain="fop-bugs/fo-post-for-fop.xsl"/>
+<xsl:output method="xml" indent="no"/>
 
+<!--
+            saxon:next-in-chain="fop-bugs/fo-post-for-fop.xsl"/>
+-->
 
 <!-- ToC/LoT/Index Generation -->
 
@@ -44,7 +46,7 @@ book  toc,figure
 <!-- Processor Extensions -->
 
 <xsl:param name="xep.extensions" select="0"/>
-<xsl:param name="fop.extensions" select="1"/> <!-- For now, only PDF bookmarks -->
+<xsl:param name="fop1.extensions" select="1"/> <!-- For now, only PDF bookmarks -->
 
 
 <!-- Extensions -->
