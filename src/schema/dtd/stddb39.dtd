@@ -136,7 +136,7 @@
 <!ELEMENT select (#PCDATA)>
 <!ATTLIST select
           id IDREF #REQUIRED
-	        mode (unknown|mandatory|emerging|midterm|farterm|fading) #REQUIRED>
+          mode (unknown|mandatory|emerging|midterm|farterm|fading) #REQUIRED>
 
 <!ELEMENT remarks (#PCDATA|para|indexterm)*>
 
@@ -148,34 +148,15 @@
 
 <!ELEMENT records ((standard | profile )*)>
 
-<!ELEMENT standard (debug?, ((document | applicability | status)*))>
+<!ELEMENT standard ((document, applicability, status)?)>
 <!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED
           ss (no | yes) "no"
           tref IDREF #IMPLIED>
 
-<!ELEMENT profile (debug?, ((profilenote | profilespec | configuration | parts | applicability | status)*))>
-<!ATTLIST profile
-          type (base | coi-minor | coi) "base"
-          tag CDATA #REQUIRED
-          id ID #REQUIRED
-          tref IDREF #IMPLIED>
-
-
-<!ELEMENT profilespec EMPTY>
-<!ATTLIST profilespec
-          orgid  CDATA #IMPLIED
-          pubnum CDATA #IMPLIED
-          date   CDATA #IMPLIED
-          title  CDATA #REQUIRED>
-
-
-<!ELEMENT configuration (#PCDATA)>
-
-
-<!ELEMENT debug (#PCDATA)>
-
+<!-- document -->
+          
 <!ELEMENT document ((substandards | correction | alsoknown | comment)*)>
 <!ATTLIST document
           orgid  CDATA #REQUIRED
@@ -184,6 +165,11 @@
           title  CDATA #REQUIRED>
 
 <!ELEMENT substandards (refstandard+)>
+
+<!ELEMENT refstandard EMPTY>
+<!ATTLIST refstandard
+          refid IDREF #REQUIRED>
+
 
 <!ELEMENT correction (#PCDATA)>
 <!ATTLIST correction
@@ -198,28 +184,12 @@
 
 <!ELEMENT comment (#PCDATA | ulink)*>
 
-<!ELEMENT parts (refstandard|refprofile)+>
 
-
-<!ELEMENT refstandard EMPTY>
-<!ATTLIST refstandard
-          refid IDREF #REQUIRED>
-
-<!ELEMENT refprofile EMPTY>
-<!ATTLIST refprofile
-          refid IDREF #REQUIRED>
-
-
-<!ELEMENT profilenote (#PCDATA)>
-
-
-
-
-
-<!-- applicability content model identical to DocBook entry -->
+<!-- applicability -->
 
 <!ELEMENT applicability %ho; (%tbl.entry.mdl;)*>
 
+<!-- status -->
 
 <!ELEMENT status (info?, uri?, history)>
 <!ATTLIST status
@@ -239,12 +209,44 @@
 
 
 
-<!ELEMENT externalrefs (exref*)>
+<!-- profile -->          
 
-<!ELEMENT exref EMPTY>
+<!ELEMENT profile ((profilenote | profilespec | configuration | parts | applicability | status)*)>
+<!ATTLIST profile
+          type (base | coi-minor | coi) "base"
+          tag CDATA #REQUIRED
+          id ID #REQUIRED
+          tref IDREF #IMPLIED>
 
-<!ATTLIST exref
-          id     ID      #REQUIRED>
+
+<!ELEMENT profilespec EMPTY>
+<!ATTLIST profilespec
+          orgid  CDATA #IMPLIED
+          pubnum CDATA #IMPLIED
+          date   CDATA #IMPLIED
+          title  CDATA #REQUIRED>
+
+
+<!ELEMENT configuration (#PCDATA)>
+
+
+
+<!ELEMENT parts (refstandard|refprofile)+>
+
+
+<!ELEMENT refprofile EMPTY>
+<!ATTLIST refprofile
+          refid IDREF #REQUIRED>
+
+
+<!ELEMENT profilenote (#PCDATA)>
+
+
+
+
+
+<!-- applicability content model identical to DocBook entry -->
+
 
 
 <!-- ................. COMMUNITY OF INTERESTS ............................ -->
