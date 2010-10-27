@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 1. Installation and Configuration</title><meta name="generator" content="DocBook XSL Stylesheets V1.74.0"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="pt01.html" title="Part I. Quick Guide"/><link rel="prev" href="pt01.html" title="Part I. Quick Guide"/><link rel="next" href="ch01s02.html" title="1.2. Installation of NISP Tools"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 1. Installation and Configuration</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pt01.html">Prev</a> </td><th width="60%" align="center">Part I. Quick Guide</th><td width="20%" align="right"> <a accesskey="n" href="ch01s02.html">Next</a></td></tr></table><hr/></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="install.config"/>Chapter 1. Installation and Configuration</h2></div></div></div><p>Working with DocBook XML files, requires quite a bit of
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 1. Installation and Configuration</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="pt01.html" title="Part I. Quick Guide"/><link rel="prev" href="pt01.html" title="Part I. Quick Guide"/><link rel="next" href="ch01s02.html" title="1.2. Installation of NISP Tools 4.1+"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 1. Installation and Configuration</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pt01.html">Prev</a> </td><th width="60%" align="center">Part I. Quick Guide</th><td width="20%" align="right"> <a accesskey="n" href="ch01s02.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 1. Installation and Configuration"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="install.config"/>Chapter 1. Installation and Configuration</h2></div></div></div><p>Working with DocBook XML files, requires quite a bit of
 software. However, the number of packages necessary, depends on the
 requirements of the user. To simplify things, most of the tools have
 been bundled in the nisp-tools package. In order
-e.g. to generate a HTML version of the , the users only have to
+e.g. to generate a HTML version of the NATO Interoperability Standards and Profiles, the users only have to
 install Java, the nisp tools distribution and the sources for the XML
-version of the . A detailed description of all the different tools
+version of the NATO Interoperability Standards and Profiles. A detailed description of all the different tools
 included in this package can be found in <a class="xref" href="apa.html" title="Appendix A. Inside the NISP tools distribution">Appendix A, <i>Inside the NISP tools distribution</i></a>.</p><p>All software packages can in principle be installed anywhere,
 but everything should work without a glitch, if some of the packages
-are installed in a couple of predefined places.</p><div class="sidebar"><p class="title"><b>File paths in archives</b></p><p>The user should be aware, that some distributions are archived
+are installed in a couple of predefined places.</p><div class="sidebar" title="File paths in archives"><p class="title"><b>File paths in archives</b></p><p>The user should be aware, that some distributions are archived
 inside a sub directory, and some are not., e.g. the NISP tools
 distribution is unpacked into the sub directory
-nisp-tools-3.1, where all the files in the NISP tools
+nisp-tools-4.1+, where all the files in the NISP tools
 distribution are located. It is up to the user to ensure this issue is
 resolved properly. So if the installation instructions recommends that
 the NISP package should be installed under Windows in the directory
@@ -21,8 +21,8 @@ the NISP package should be installed under Windows in the directory
 <code class="filename">README</code> file from the NISP tools distribution,
 should be the file path <code class="filename">c:\nisp-tools\README</code> and
 not the file path
-<code class="filename">c:\nisp-tools\nc3ta-tools-3.1\README</code>.
-</p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e64"/>1.1. Installation of Java Runtime Environment 1.4.2_06</h2></div></div></div><p>The installation of the Java 1.4.2_06 is straight forward. The
+<code class="filename">c:\nisp-tools\nc3ta-tools-4.1+\README</code>.
+</p></div><div class="sect1" title="1.1. Installation of Java Runtime Environment 1.4.2_06"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e64"/>1.1. Installation of Java Runtime Environment 1.4.2_06</h2></div></div></div><p>The installation of the Java 1.4.2_06 is straight forward. The
 Java 2 Software Development Kit or the Java 2 Run-time environment
 comes as an archived executable, and is by default installed under
 windows at <code class="filename">c:\jdk1.4.2_06</code>. If
@@ -32,11 +32,11 @@ Sun catalog resolver and Ant to identify the system requirements for
 these tools.<sup>[<a id="d0e72" href="#ftn.d0e72" class="footnote">1</a>]</sup></p><p>The user <span class="emphasis"><em>must</em></span> always add the directory,
 where Java executables are located to the <code class="envar">PATH</code>
 environment variable. Typical values for <code class="envar">PATH</code>
-are:</p><h3><a id="d0e86"/>Java 2 Software Development Kit</h3><pre class="programlisting">
+are:</p><h3><a xmlns:saxon="http://icl.com/saxon" id="d0e86"/>Java 2 Software Development Kit</h3><pre class="programlisting">
    c:\jdk1.4.2_06\bin            (Win32)
 
    /usr/java/jdk1.4.2_06/bin     (Unix)
-</pre><h3><a id="d0e90"/>Java 2 Runtime Environment</h3><pre class="programlisting">
+</pre><h3><a xmlns:saxon="http://icl.com/saxon" id="d0e90"/>Java 2 Runtime Environment</h3><pre class="programlisting">
    c:\Program Files\JavaSoft\JRE\1.4.2_06\bin     (Win32)
 
    /usr/java/jdk1.4.2_06/bin                      (Unix)
@@ -44,14 +44,14 @@ are:</p><h3><a id="d0e86"/>Java 2 Software Development Kit</h3><pre class="progr
 <code class="envar">JAVA_HOME</code>. Although normally not required by Java
 1.4.2_06, the Ant program requires this variable set for reasons of
 backward compatibility. Typical values for <code class="envar">JAVA_HOME</code>
-are:</p><h3><a id="d0e102"/>Java 2 Software Development Kit</h3><pre class="programlisting">
+are:</p><h3><a xmlns:saxon="http://icl.com/saxon" id="d0e102"/>Java 2 Software Development Kit</h3><pre class="programlisting">
    c:\jdk1.4.2_06            (Win32)
 
    /usr/java/jdk1.4.2_06     (Unix)
-</pre><h3><a id="d0e106"/>Java 2 Runtime Environment</h3><pre class="programlisting">
+</pre><h3><a xmlns:saxon="http://icl.com/saxon" id="d0e106"/>Java 2 Runtime Environment</h3><pre class="programlisting">
    c:\Program Files\JavaSoft\JRE\1.4.2_06     (Win32)
 
    /usr/java/jdk1.4.2_06                      (Unix)
 </pre></div><div class="footnotes"><br/><hr width="100" align="left"/><div class="footnote"><p><sup>[<a id="ftn.d0e72" href="#d0e72" class="para">1</a>] </sup>Note, that the tools have not been tested
 with Java 2 SDK 1.4, so you are entirely on your own, if you choose
-this platform.</p></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pt01.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="pt01.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch01s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Part I. Quick Guide </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 1.2. Installation of NISP Tools </td></tr></table></div></body></html>
+this platform.</p></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pt01.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="pt01.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch01s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Part I. Quick Guide </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 1.2. Installation of NISP Tools 4.1+</td></tr></table></div></body></html>

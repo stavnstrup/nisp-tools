@@ -42,6 +42,7 @@
 
   <!ENTITY ta "Technical Architecture">
   <!ENTITY TA "Technical Architecture">
+  <!ENTITY nisp "NATO Interoperability Standards and Profiles"> 
 
   <!-- Distribution related general entities  -->
 
@@ -408,179 +409,145 @@ in detail and when appropiate, examples of the actual implementation is
 included.</para>
 
 
-<para>The standard database DTD is logically separated in three
+<para>The standard database DTD is logically separated in four
 different parts:</para>
 
 <itemizedlist>
-  <listitem><para>standards taxonomy</para></listitem>
-  <listitem><para>standard and profile description</para></listitem>
+  <listitem><para>service taxonomy</para></listitem>
   <listitem><para>standard selction</para></listitem>
+  <listitem><para>standard and profile description</para></listitem>
+  <listitem><para>Community of interest profiles</para></listitem>
 </itemizedlist>
 
-
-<para>It could be tempting also to separate the database into three
-physical parts - although not necessary in three different files.
-However</para>
-
-<sect1><title>Standard taxonomy</title>
-
-<para>The standard taxonomy describes how the standards and profiles
-are organised and is based on the taxanomy decribed in the NNEC
-Feasibility study </para>
-
-<para>The root element of the DTD is the element standards.</para>
+<para>The root element of the DTD is the element <code>&lt;standards&gt;</code> 
+and is described by:</para>
 
 <programlisting>
 <![CDATA[
-<!ELEMENT standards (servicearea+, externalrefs?, organisations)>
+<!ELEMENT standards (taxonomy, lists, records, 
+                     community-of-interest, organisations)>
 ]]>
 </programlisting>
 
+<para>The <code>&lt;organisations&gt;</code> element contains a mapping between k
+eywords and organisation names and is used to ensure, that only registered organisation are used.</para>
 
-<para>The standard database represented by the standards element
-consists on one or more servicearea and some eksta elements used for
-different purposes.</para>
+<sect1><title>Service taxonomy</title>
+
+<para>The services taxonomy describes how the standards and profiles
+are organised and is based on the taxanomy decribed in the 
+Service Framework.</para>
+
+<para>The service taxonomy is a hierical structure, consisting of <code>&lt;servicearea&gt;</code>,
+<code>&lt;subarea&gt;</code>, <code>&lt;servicecategory&gt;</code>, <code>&lt;category&gt;</code> and 
+<code>&lt;subcategory&gt;</code> elements as described below. All the taxonomy 
+elements must have an <code>id</code> and <code>title</code> attribute. The <code>id</code> 
+attribute is used to identify the relationship between selected standards and the service taxonomy.</para>
 
 
 <programlisting>
 <![CDATA[
-<!ELEMENT servicearea ((servicecategory |  standardrecord | 
-                        profilerecord | referencerecord | sp-list)*)>
 
+<!ELEMENT taxonomy (servicearea+)>
+
+<!ELEMENT servicearea ((subarea | servicecategory)*)>
 <!ATTLIST servicearea
           id ID #REQUIRED
-          mid CDATA #IMPLIED
           title CDATA #REQUIRED>
-]]>
-</programlisting>
 
-<para>A servicearea<footnote><para>A servicearea element should
-properly only contain servicecategory elements, but the initial
-database have all these elements.</para></footnote> may contain 0 or
-more servicecategory, standardrecord, profilerecord, referencerecord
-or sp-list elements. As servicearea element must have an id and title
-attribute.</para>
+<!ELEMENT subarea ((servicecategory)*)>
+<!ATTLIST subarea
+          id ID #REQUIRED
+          title CDATA #REQUIRED>
 
-
-<programlisting>
-<![CDATA[
-<!ELEMENT servicecategory ((category | standardrecord | profilerecord | referencerecord | sp-list)*)>
-
+          <!ELEMENT servicecategory ((category)*)>
 <!ATTLIST servicecategory
           id ID #REQUIRED
-          mid CDATA #IMPLIED
           title CDATA #REQUIRED>
-]]>
-</programlisting>
 
-<para>A servicecategory<footnote><para>A servicecategory element
-should properly only contain category elements, but the initial
-database have all these elements.</para></footnote> element may
-contain 0 or more category, standardrecord, profilerecord,
-referencerecord or sp-list elements. As servicecategory element must
-have an id and title attribute.</para>
-
-
-<programlisting>
-<![CDATA[
-<!ELEMENT category ((standardrecord | profilerecord | referencerecord | sp-list)*)>
-
+<!ELEMENT category ((subcategory)*)>
 <!ATTLIST category
           id ID #REQUIRED
-          mid CDATA #IMPLIED
           title CDATA #REQUIRED>
+
+<!ELEMENT subcategory EMPTY>
+<!ATTLIST subcategory
+          id ID #REQUIRED
+          title CDATA #REQUIRED>
+
+
 ]]>
 </programlisting>
-
-
-<para>A category element may contain 0 or more standardrecord,
-profilerecord, referencerecord or sp-list elements. As service
-category element must have an id and title attribute.</para>
-
 
 </sect1>
 
 <sect1><title>Standard and profile definition</title>
 
 <para>Both de-jure and de-facto standards from many different standard
-<emphasis>organisations</emphasis> are labeled different. Some
-standards have multiple parts each have a standard number, where for
+<emphasis>organisations</emphasis> are labeled differently. Some
+standards have multiple parts each having a standard number, where for
 other standards only the cover standard have a number. Some standards
 are registered by multiple standard bodies. Some standards are
 updated, but the actual update are released as a separate document
-instead of releasing a new version of the stabdard. The same is true
+instead of releasing a new version of the standard. The same is true
 for profiles.</para>
 
-<para>To distinguish between information about a standard provided a
-standard body and infomation only relevant to this database, an
-element standardrecord is used to describe a standard and also to
-describe historical aspect of the inclusion of the standard in the
-database. A profilerecord element is similar introduced to describe a
-profile.</para>
-
-<para>In the NISP volume 3, a referencerecord element, was used to
-refer to a standard or profile, which was described in another
-location in standard hieracy.</para>
-
-<programlisting>
-<![CDATA[
-<!ELEMENT standardrecord (debug?, ((standard | applicability | status)*))>
-
-<!ATTLIST standardrecord
-          tag CDATA #REQUIRED
-          id ID #IMPLIED>
-
-]]>
-</programlisting>
-
-<para>A standardrecord element may contain a debug<footnote><para>The
-historical reason of this element is unknown, maybee a stylesheet will
-reviel the reason.</para></footnote> element followed by 0 or more
-standard, applicability or status elements<footnote><para>This looks
-strange</para></footnote></para>
-
-<para>A standardrecord element must contain an tag attribute and may
-contain an id attribute.</para>
-
-<programlisting>
-<![CDATA[
-<!ELEMENT profilerecord (debug?, ((profilenote | parts | applicability | status)* |
-                          sremark))>
-
-<!ATTLIST profilerecord
-          tag CDATA #REQUIRED
-          id ID #IMPLIED>
-]]>
-</programlisting>
-
-<para>A profilerecord element may contain a debug element followed by 0
-or more profilenote, parts, applicability or status elements. Or a
-profilerecord may contain a debug element followed by an sremark
+<para>All standards and profiles are contained in the <code>&lt;records&gt;</code> 
 element.</para>
 
-<para>A profilerecord element must contain an tag attribute and may
-contain an id attribute.</para>
-
 <programlisting>
 <![CDATA[
-<!ELEMENT referencerecord (sremark)>
 
+<!ELEMENT records ((standard | profile )*)>
 
-<!ATTLIST referencerecord
-          tag CDATA #REQUIRED>
 ]]>
 </programlisting>
 
 
-<para>A referencerecord element contains an sremark element. A
-referencerecord must contain a tag attribute,</para>
+
+<sect2><title>Standards</title>
+
+<para>All standards are implemented using a single <code>&lt;standard&gt;</code> 
+element describing both the standard and historical aspect about the standard.
+A standard consists of:
+
+<itemizedlist>
+  <listitem><para>document - describes the actual standard</para></listitem>
+  <listitem><para>applicability - when and where should the standard be used</para></listitem>
+  <listitem><para>status - contains historical data</para></listitem>
+</itemizedlist>
+</para>
+
+<programlisting>
+<![CDATA[
+
+<!ELEMENT standard ((document, applicability, status)?)>
+<!ATTLIST standard
+          tag CDATA #REQUIRED
+          id ID #REQUIRED
+          ss (no | yes) "no"
+          tref IDREF #IMPLIED>
+]]>
+</programlisting>
+
+
+<para>The standard exposes the attributes <code>tag</code> and <code>id</code>. 
+The <code>tag</code> attribute was previously used the volume 3 of the NC3TA, 
+and a is short title identifying the standard. A few furture use could be to 
+provide a title when selecting standards.</para>
+
+<sect3><title>Document</title>
+
+<para>The <code>&lt;document&gt;</code> element exposes the publish organisation,
+publication number, publishing date and title through the attributes <code>orgid</code>,
+<code>pubnum</code>, <code>date</code> and <code>title</code>. The <code>orgid</code> 
+referes to an organisation is embedded in the <code>organisations</code> element.</para>
 
 
 <programlisting>
 <![CDATA[
-<!ELEMENT standard ((correction | alsoknown | comment)*,  parts?)>
-
-<!ATTLIST standard
+<!ELEMENT document ((substandards | correction | alsoknown | comment)*)>
+<!ATTLIST document
           orgid  CDATA #REQUIRED
           pubnum CDATA #REQUIRED
           date   CDATA #REQUIRED
@@ -588,11 +555,24 @@ referencerecord must contain a tag attribute,</para>
 ]]>
 </programlisting>
 
-<para>A standard element may contain 0 or more correction, alsoknown
-or comments elements possibly followed by a parts element.</para>
+<para>If a standard is a coverstandard (e.g ISO-8859), it may implement the 
+<code>&lt;substandards&gt;</code> element, which contains a list of 
+<code>&lt;refstandard&gt;</code> element. Each <code>&lt;refstandard&gt;</code> 
+element will trough the attribute <code>refid</code> contain a reference to the 
+substandard.</para>
 
-<para>A standard element must contain the attributes orgid, pubnum,
-date and title.</para>
+<programlisting>
+<![CDATA[
+<!ELEMENT substandards (refstandard+)>
+
+<!ELEMENT refstandard EMPTY>
+<!ATTLIST refstandard
+          refid IDREF #REQUIRED>
+]]>
+</programlisting>
+
+<para>Some standard organisations publishes document which are correction to 
+the standard.</para>
 
 <programlisting>
 <![CDATA[
@@ -604,7 +584,11 @@ date and title.</para>
 ]]>
 </programlisting>
 
-<para>A correction element  </para>
+
+<para>A alsoknown element contains a describtion which might be
+empty. A alsoknown element must also contain a orgid, pubnum and date
+attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation
+ Data (DTED) is also know as  ISO/IEC 8211.</para>
 
 <programlisting>
 <![CDATA[
@@ -614,15 +598,13 @@ date and title.</para>
           orgid   CDATA #REQUIRED
           pubnum  CDATA #REQUIRED
           date    CDATA #REQUIRED>
+
+<!ELEMENT comment (#PCDATA | ulink)*>
 ]]>
 </programlisting>
 
-<para>A alsoknown element contains a describtion which might be
-empty. A alsoknown element must also contain a orgid, pubnum and date
-attribute.</para>
-
-<para>NATO stanag 3809 for Digital Terrain Elevation
- Data (DTED) is also know as  ISO/IEC 8211.</para>
+<para>A <code>&lt;comment&gt;</code> element contain data in the form of text or DocBook
+<code>&lt;ulink&gt;</code> elements.</para>
 
 <programlisting>
 <![CDATA[
@@ -630,25 +612,9 @@ attribute.</para>
 ]]>
 </programlisting>
 
-<para>A comment element contain data in the form of text or DocBook
-ulink elements.</para>
+</sect3>
 
-<programlisting>
-<![CDATA[
-<!ELEMENT parts (standard)+>
-]]>
-</programlisting>
-
-<para>The parts element contains one or more standard elements.</para>
-
-<programlisting>
-<![CDATA[
-<!ELEMENT profilenote (#PCDATA)>
-]]>
-</programlisting>
-
-<para>The profilenote element contains text.</para>
-
+<sect3><title>Applicability</title>
 
 <programlisting>
 <![CDATA[
@@ -659,7 +625,12 @@ ulink elements.</para>
 <para>The applicability element uses the same content model as the
 DocBook element entry.</para>
 
- 
+</sect3>
+
+
+<sect3><title>Status</title>
+
+
 <programlisting>
 <![CDATA[
 <!ELEMENT status (info?, uri?, history)>
@@ -714,6 +685,64 @@ the attributes flag, date and version.</para>
 <para>The date attribute must use the following wellknown pattern
 YYYY-MM-DD.</para>
 
+</sect3>
+
+</sect2>
+
+
+<sect2><title>Profiles</title>
+
+
+<para>Profiles are describes using
+the <code>&lt;profile&gt;</code> element an contains references to the standards,
+on which the profiles are build.</para>
+
+<programlisting>
+<![CDATA[
+
+]]>
+</programlisting>
+
+
+
+<programlisting>
+<![CDATA[
+<!ELEMENT profilerecord (debug?, ((profilenote | parts | applicability | status)* |
+                          sremark))>
+
+<!ATTLIST profilerecord
+          tag CDATA #REQUIRED
+          id ID #IMPLIED>
+]]>
+</programlisting>
+
+<para>A profilerecord element may contain a debug element followed by 0
+or more profilenote, parts, applicability or status elements. Or a
+profilerecord may contain a debug element followed by an sremark
+element.</para>
+
+<para>A profilerecord element must contain an tag attribute and may
+contain an id attribute.</para>
+
+
+
+
+<programlisting>
+<![CDATA[
+<!ELEMENT parts (standard)+>
+]]>
+</programlisting>
+
+<para>The parts element contains one or more standard elements.</para>
+
+<programlisting>
+<![CDATA[
+<!ELEMENT profilenote (#PCDATA)>
+]]>
+</programlisting>
+
+<para>The profilenote element contains text.</para>
+
 
 
 <programlisting>
@@ -776,7 +805,7 @@ YYYY-MM-DD.</para>
 ]]>
 </programlisting>
 
-
+</sect2>
 
 </sect1>
 

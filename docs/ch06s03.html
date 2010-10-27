@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>6.3. TA Stylesheets for HTML</title><meta name="generator" content="DocBook XSL Stylesheets V1.74.0"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="ch06.html" title="Chapter 6. Design of the TA Stylesheets"/><link rel="prev" href="ch06s02.html" title="6.2. The DocBook Stylesheets"/><link rel="next" href="ch06s04.html" title="6.4. TA Stylesheets for XSL-FO"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.3. TA Stylesheets for HTML</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch06s02.html">Prev</a> </td><th width="60%" align="center">Chapter 6. Design of the TA Stylesheets</th><td width="20%" align="right"> <a accesskey="n" href="ch06s04.html">Next</a></td></tr></table><hr/></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e2977"/>6.3. TA Stylesheets for HTML</h2></div></div></div><p>The  currently consists of volume 1 to 5, the rationale
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>6.3. TA Stylesheets for HTML</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="ch06.html" title="Chapter 6. Design of the TA Stylesheets"/><link rel="prev" href="ch06s02.html" title="6.2. The DocBook Stylesheets"/><link rel="next" href="ch06s04.html" title="6.4. TA Stylesheets for XSL-FO"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.3. TA Stylesheets for HTML</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch06s02.html">Prev</a> </td><th width="60%" align="center">Chapter 6. Design of the TA Stylesheets</th><td width="20%" align="right"> <a accesskey="n" href="ch06s04.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="6.3. TA Stylesheets for HTML"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e3068"/>6.3. TA Stylesheets for HTML</h2></div></div></div><p>The NATO Interoperability Standards and Profiles currently consists of volume 1 to 5, the rationale
 document and a couple of suplements, all in the form of XML
 files. Besides these files, a number of files exists in the <code class="filename">src/master</code> firectory , which describes
 three pages: one is the front page shown in the web version of the
- and the other two pages are both available from the front page
+NATO Interoperability Standards and Profiles and the other two pages are both available from the front page
 through the links <span class="emphasis"><em>User Information</em></span> and
 <span class="emphasis"><em>Introduction</em></span>. All of the volumes are in the XHTML
 version being displayed as chunked pages.</p><p>The current XSLT standard does not support the creation of
@@ -13,11 +13,11 @@ multiple target documents, but a now depreciated working draft of
 version 1.1 of the standard, and more recently a working draft<a class="xref" href="bi01.html#xslt2" title="XSL Transformations (XSLT) Version 2.0">[<abbr class="abbrev">XSLT2</abbr>]</a> of what is to become version 2 of the XSLT standard,
 support this and several other additions, and are already being
 supported by most XSLT processors, although sometimes through a
-proprietary extension. The Saxon XSLT processor used in the , have
+proprietary extension. The Saxon XSLT processor used in the NATO Interoperability Standards and Profiles, have
 the advantage of being developed by the current editor of the XSLT
 document and are therefore usually way ahead of the competition. The
-- and the master pages all uses the same layout as described in
-the following figure.  </p><div class="figure"><a id="fig-genfrmlayout"/><p class="title"><b>Figure 6.2. Generic Frame Layout</b></p><div class="figure-contents"><div class="mediaobject" align="center"><img src="flayout.jpg" align="middle" alt="Generic Frame Layout"/></div></div><p/></div><br class="figure-break"/><p>The gray areas represent the frames with actual contents, while
+NATO Interoperability Standards and Profiles- and the master pages all uses the same layout as described in
+the following figure.  </p><div class="figure"><a xmlns:saxon="http://icl.com/saxon" id="fig-genfrmlayout"/><p class="title"><b>Figure 6.2. Generic Frame Layout</b></p><div class="figure-contents"><div class="mediaobject" align="center"><img src="flayout.jpg" align="middle" alt="Generic Frame Layout"/></div></div><p/></div><br class="figure-break"/><p>The gray areas represent the frames with actual contents, while
 the two other rectangles are just containers in the form of
 <span class="emphasis"><em>frameset</em></span> definitions as described in <a class="xref" href="bi01.html#Musc-html-x-2000" title="HTML &amp; XHTML: The Definitive Guide">[<abbr class="abbrev">Mu02</abbr>]</a>. Each of the three frames are given a
 name as illustrated in <a class="xref" href="ch06s03.html#fig-genfrmlayout" title="Figure 6.2. Generic Frame Layout">Figure 6.2, “Generic Frame Layout”</a>, which then
@@ -34,8 +34,8 @@ for the layout of frames are shown below.</p><pre class="programlisting">
      &lt;/frameset&gt;
    &lt;/frameset&gt;
  &lt;/html&gt;
- </pre><p>The above frame layout code is used in all  documents and
-also for the master document forming the frontend to the  web
+ </pre><p>The above frame layout code is used in all NATO Interoperability Standards and Profiles documents and
+also for the master document forming the frontend to the NATO Interoperability Standards and Profiles web
 portal. This layoutcode will be saved in a file named
 <code class="filename">index.html</code> for each document in a seperate
 directory. Besides this file, two additional files will also be
