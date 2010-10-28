@@ -11,9 +11,7 @@ instead of releasing a new version of the standard. The same is true
 for profiles.</p><p>All standards and profiles are contained in the <code class="code">&lt;records&gt;</code> 
 element.</p><pre class="programlisting">
 
-
 &lt;!ELEMENT records ((standard | profile )*)&gt;
-
 
 </pre><div class="sect2" title="2.2.1. Standards"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e307"/>2.2.1. Standards</h3></div></div></div><p>All standards are implemented using a
 single <code class="code">&lt;standard&gt;</code> element describing both the
@@ -23,8 +21,8 @@ consists of:
 </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>document - describes the actual standard</p></li><li class="listitem"><p>applicability - when and where should the standard be used</p></li><li class="listitem"><p>status - contains historical data</p></li></ul></div><p>
 </p><pre class="programlisting">
 
-
 &lt;!ELEMENT standard ((document, applicability, status)?)&gt;
+
 &lt;!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED
@@ -42,6 +40,7 @@ the attributes <code class="code">orgid</code>,
 refers to an organisation is embedded in the <code class="code">organisations</code> element.</p><pre class="programlisting">
 
 &lt;!ELEMENT document ((substandards | correction | alsoknown | comment)*)&gt;
+
 &lt;!ATTLIST document
           orgid  CDATA #REQUIRED
           pubnum CDATA #REQUIRED
@@ -116,7 +115,7 @@ element is defined in the DocBook DTD.</p><pre class="programlisting">
 first is implied and the second is required.The <code class="code">mode</code> attribute are used to indicate 
 standards, which were either rejected or retired.</p><pre class="programlisting">
 
-  &lt;!ELEMENT info (#PCDATA | ulink)*&gt;
+&lt;!ELEMENT info (#PCDATA | ulink)*&gt;
 
 </pre><p>The <code class="code">&lt;info&gt;</code> element contains textual information, which is not
 appropriate to put in e.g. the <code class="code">&lt;applicability&gt;</code> element. It can also

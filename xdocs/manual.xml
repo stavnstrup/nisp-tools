@@ -465,7 +465,7 @@ taxonomy.</para>
           id ID #REQUIRED
           title CDATA #REQUIRED>
 
-          <!ELEMENT servicecategory ((category)*)>
+<!ELEMENT servicecategory ((category)*)>
 <!ATTLIST servicecategory
           id ID #REQUIRED
           title CDATA #REQUIRED>
@@ -502,9 +502,7 @@ element.</para>
 
 <programlisting>
 <![CDATA[
-
 <!ELEMENT records ((standard | profile )*)>
-
 ]]>
 </programlisting>
 
@@ -526,8 +524,8 @@ consists of:
 
 <programlisting>
 <![CDATA[
-
 <!ELEMENT standard ((document, applicability, status)?)>
+
 <!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED
@@ -555,6 +553,7 @@ refers to an organisation is embedded in the <code>organisations</code> element.
 <programlisting>
 <![CDATA[
 <!ELEMENT document ((substandards | correction | alsoknown | comment)*)>
+
 <!ATTLIST document
           orgid  CDATA #REQUIRED
           pubnum CDATA #REQUIRED
@@ -670,7 +669,7 @@ standards, which were either rejected or retired.</para>
 
 <programlisting>
 <![CDATA[
-  <!ELEMENT info (#PCDATA | ulink)*>
+<!ELEMENT info (#PCDATA | ulink)*>
 ]]>
 </programlisting>
 
@@ -851,46 +850,6 @@ and those elements might therefore be combined in the near future.</para>
 
 
 
-<sect2><title>What is this</title>
-
-<para>Hartmut and Joachim</para>
-
-<para>What is this? For profiles? The p in sp-list means profile. Do we really 
-need duplicate structures?</para> 
-
-
-<programlisting>
-<![CDATA[
-
-<!ELEMENT profile-list (pf-view*)>
-<!ATTLIST profile-list
-          id ID #REQUIRED
-          tag CDATA #REQUIRED
-          tref IDREF #IMPLIED>
-
-
-<!ELEMENT pf-view (parea?, (header?), pcatego? , pselect*, remarks?, rationale?)>
-<!ATTLIST pf-view
-          idx ID #IMPLIED
-          category CDATA #IMPLIED>
-
-<!ELEMENT parea (#PCDATA|para|indexterm)*>
-<!ATTLIST parea
-          svcarea IDREF #IMPLIED>
-
-<!ELEMENT pcatego (#PCDATA|para|indexterm)*>
-<!ATTLIST pcatego
-          svcarea IDREF #IMPLIED>
-
-<!ELEMENT protocol (#PCDATA|para|indexterm)*>
-
-<!ELEMENT pselect (#PCDATA)>
-<!ATTLIST pselect
-          id IDREF #REQUIRED>
-]]>
-</programlisting>
-
-</sect2>
 
 </sect1>
 

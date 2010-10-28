@@ -10,12 +10,12 @@ briefly describe the structure, and the usual components of a XML
 document. Additional information can also be found in the books
 
 <a class="xref" href="bi01.html#HaMe2001" title="XML in a Nutshell - A Desktop Quick Reference">[<abbr class="abbrev">HaMe01</abbr>]</a> and  <a class="xref" href="bi01.html#Ma2001" title="Professional XML">[<abbr class="abbrev">Ma01</abbr>]</a>.  The user can also read the
-articles <a class="xref" href="bi01.html#Walsh-1998-xml" title="A Technical Introduction to XML?">[<abbr class="abbrev">Wa98</abbr>]</a> and <a class="xref" href="bi01.html#walsh-2001-xml-mag" title="XML Basics">[<abbr class="abbrev">Wa01b</abbr>]</a> online. </p><div class="sect1" title="4.1. The building blocks of XML"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e729"/>4.1. The building blocks of XML</h2></div></div></div><p>A XML document consists of a number of syntactical constructs,
-which will be defined in the following.</p><div class="sect2" title="4.1.1. XML Prologue Statement"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e734"/>4.1.1. XML Prologue Statement</h3></div></div></div><p>All documents may and should begin with a XML prologue statement</p><pre class="programlisting">
+articles <a class="xref" href="bi01.html#Walsh-1998-xml" title="A Technical Introduction to XML?">[<abbr class="abbrev">Wa98</abbr>]</a> and <a class="xref" href="bi01.html#walsh-2001-xml-mag" title="XML Basics">[<abbr class="abbrev">Wa01b</abbr>]</a> online. </p><div class="sect1" title="4.1. The building blocks of XML"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a xmlns:saxon="http://icl.com/saxon" id="d0e720"/>4.1. The building blocks of XML</h2></div></div></div><p>A XML document consists of a number of syntactical constructs,
+which will be defined in the following.</p><div class="sect2" title="4.1.1. XML Prologue Statement"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e725"/>4.1.1. XML Prologue Statement</h3></div></div></div><p>All documents may and should begin with a XML prologue statement</p><pre class="programlisting">
    &lt;?xml version="1.0"?&gt;
  </pre><p>This statement must be placed on the first line of any XML
 document and might besides the version attribute, contain additional
-attributes such as the encoding- and standalone attribute.</p></div><div class="sect2" title="4.1.2. Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e743"/>4.1.2. Elements</h3></div></div></div><p>The main building block of XML documents is the element. An
+attributes such as the encoding- and standalone attribute.</p></div><div class="sect2" title="4.1.2. Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e734"/>4.1.2. Elements</h3></div></div></div><p>The main building block of XML documents is the element. An
 element is delimited by a <span class="emphasis"><em>start tag</em></span> and an
 <span class="emphasis"><em>end tag</em></span>. Everything between the start tag and the
 end tag is the <span class="emphasis"><em>content</em></span> of the element. Every XML
@@ -58,7 +58,7 @@ some space are semantically important or not, unless a document is
 also <span class="emphasis"><em>validated</em></span>. In the DocBook DTD, this can be
 significant, when we are working with table cells.</p><p>If an element does not contain other elements but only
  attributes, then it can be written using the shortcut
- &lt;myelement/&gt;.</p></div><div class="sect2" title="4.1.3. Attributes"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e824"/>4.1.3. Attributes</h3></div></div></div><p>Each element can contain one or more attributes in the form of a
+ &lt;myelement/&gt;.</p></div><div class="sect2" title="4.1.3. Attributes"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e815"/>4.1.3. Attributes</h3></div></div></div><p>Each element can contain one or more attributes in the form of a
 key value pair. Keys and values are separated by an equals sign and
 values are enclosed in single- or double quotes.</p><pre class="programlisting">
  
@@ -89,14 +89,14 @@ below.</p><pre class="programlisting">
 meets such a processing instruction, the appropriate standard is
 selected from the standard database
 <code class="filename">standards/ta-standards.xml</code> located in the NATO Interoperability Standards and Profiless
-source distribution.</p></div><div class="sect2" title="4.1.5. Comments"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e865"/>4.1.5. Comments</h3></div></div></div><p>Comments in XML are syntactical identical to the comments in
+source distribution.</p></div><div class="sect2" title="4.1.5. Comments"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e856"/>4.1.5. Comments</h3></div></div></div><p>Comments in XML are syntactical identical to the comments in
 HTML. Comment are used only to comment the document. A XML parser is
 not required to pass the comments up to the application, so comments
 should only be used for informational purposes. Comments can appear
 anywhere in a document, except inside tags and inside other
 comments.</p><pre class="programlisting">
   &lt;-- This is an example of a comment --&gt;
-</pre></div><div class="sect2" title="4.1.6. Entities"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e872"/>4.1.6. Entities</h3></div></div></div><p>When parsing a XML document, it is sometimes necessary to use
+</pre></div><div class="sect2" title="4.1.6. Entities"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="d0e863"/>4.1.6. Entities</h3></div></div></div><p>When parsing a XML document, it is sometimes necessary to use
 characters normally reserved for marking-up a XML document, such as
 the bracket characters ('&lt;' and '&gt;') which
 are used to embed tags. In order for the user to be able to use these
