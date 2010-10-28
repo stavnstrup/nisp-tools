@@ -3842,7 +3842,16 @@ table:
    </lists>
 
    <records>
-      <standard tref="omat" id="unknown-dummy" tag=""/>
+      <standard tref="omat" id="unknown-dummy" tag="">
+        <document orgid="" pubnum="" date="" title="unknown title"/>
+        <applicability/>
+        <status stage="30.40">
+          <history>
+            <event date="2001-08-12" flag="added" version="0.1" rfcp=""/>
+          </history>
+        </status>
+      </standard>
+
       <!-- base standards refered to by profiles -->
       
       <standard id="ietf-rfc4246" tag="">
@@ -3857,6 +3866,10 @@ table:
       </standard>
 
       <profile id="bp-ipv4" tag="">
+        <parts>
+          <refstandard refid="unknown-dummy"/>
+        </parts>
+        <applicability/>
         <status stage="30.40">
           <history>
             <event date="2010-10-22" flag="added" version="5.0"/>
@@ -3865,6 +3878,10 @@ table:
       </profile>
       
       <profile id="bp-pwsipro2" tag="">
+        <parts>
+          <refstandard refid="unknown-dummy"/>
+        </parts>
+        <applicability/>
         <status stage="30.40">
           <history>
             <event date="2010-10-22" flag="added" version="5.0"/>
@@ -5237,9 +5254,9 @@ table:
       <standard ss="yes" id="iso-iec-8650-1" tref="ts-net" tag="">
          <document orgid="iso-iec" pubnum="8650-1" date="1996"
                    title="ACSE CO protocol/Authentication">
-            <alsoknown orgid="itu-t" pubnum="X.227" date=""/>
             <correction cpubnum="AMD1" date="1997"/>
             <correction cpubnum="AMD2" date="1998"/>
+            <alsoknown orgid="itu-t" pubnum="X.227" date=""/>
          </document>
          <applicability>
         ACSE provides for connection-oriented and connection-less services
@@ -7226,8 +7243,8 @@ table:
       <standard tref="ts-ces-mes" id="iso-iec-10021" tag="X.400/MOTIS">
          <document orgid="iso-iec" pubnum="10021" date="1999"
                    title="Message Handling Systems (MHS)">
-            <comment>(MOTIS; series)</comment>
             <alsoknown orgid="itu-t" pubnum="X.400" date="1992">MHS; series</alsoknown>
+            <comment>(MOTIS; series)</comment>
          </document>
          <applicability>
         The ISO/ITU-T X.400 Message Handling Systems (MHS) is
@@ -40582,9 +40599,7 @@ table:
       <profile id="bp-cdif" tref="ts-ces-med" tag="CDIF">
          <profilenote>
         Electronic Industries Association (EIA) CASE Data
-        Interchange Format (CDIF),
-      </profilenote>
-         <profilenote>Note: EIA/IS = EIA Interim Standard.</profilenote>
+        Interchange Format (CDIF), Note: EIA/IS = EIA Interim Standard.</profilenote>
          <parts>
             <refstandard refid="eia-is-106"/>
             <refstandard refid="eia-is-107"/>
@@ -43673,7 +43688,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
    </records>
 
    <community-of-interest>
-      <community coi="NATO">
+      <community coi="NATO" text="NATO">
          <profile type="coi" id="cp-ces-spiral1"  tag="">
             <parts>
                <refprofile refid="cp-spir1-gen"/>
@@ -43691,6 +43706,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
                <refprofile refid="cp-spir1-conf"/>
                <refprofile refid="cp-spir1-auth"/>
             </parts>
+            <applicability/>
             <status stage="30.40" mode="unknown">
                <history>
                  <event flag="added" date="2010-08-27" rfcp="" version="5.0"/>
@@ -43708,6 +43724,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
                <refprofile refid="cp-march-transp"/>
                <refprofile refid="cp-march-net"/>
             </parts>
+            <applicability/>
             <status stage="30.40" mode="unknown">
                <history>
                  <event flag="added" date="2010-08-27" rfcp="" version="5.0"/>
@@ -44023,7 +44040,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
             </status>
          </profile> 
       </community>
-      <community coi="AMN">
+      <community coi="AMN" text="Afghan Mission Network">
          <profile type="coi" id="cp-cp-amn"  tag="">
             <parts>
                <refprofile refid="cp-amn-bsp"/>
@@ -44046,6 +44063,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
                <refprofile refid="cp-amn-conf"/>
                <refprofile refid="cp-amn-auth"/>
             </parts>
+            <applicability/>
             <status stage="30.40" mode="unknown">
               <history>
                 <event flag="added" date="2010-08-27" rfcp="" version="5.0"/>

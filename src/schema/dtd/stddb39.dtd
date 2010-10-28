@@ -116,41 +116,13 @@
 
 <!ELEMENT rationale (#PCDATA | para | indexterm)*>
 
-<!-- ??????? -->
-
-<!ELEMENT profile-list (pf-view*)>
-<!ATTLIST profile-list
-          id ID #REQUIRED
-          tag CDATA #REQUIRED
-          tref IDREF #IMPLIED>
-
-
-<!ELEMENT pf-view (parea?, (header?), pcatego? , pselect*, remarks?, rationale?)>
-<!ATTLIST pf-view
-          idx ID #IMPLIED
-          category CDATA #IMPLIED>
-
-<!ELEMENT parea (#PCDATA|para|indexterm)*>
-<!ATTLIST parea
-          svcarea IDREF #IMPLIED>
-
-<!ELEMENT pcatego (#PCDATA|para|indexterm)*>
-<!ATTLIST pcatego
-          svcarea IDREF #IMPLIED>
-
-<!ELEMENT protocol (#PCDATA|para|indexterm)*>
-
-<!ELEMENT pselect (#PCDATA)>
-<!ATTLIST pselect
-          id IDREF #REQUIRED>
-
 
 <!-- .......................... RECORDS .................................. -->
 
 
 <!ELEMENT records ((standard | profile )*)>
 
-<!ELEMENT standard ((document, applicability, status)?)>
+<!ELEMENT standard (document, applicability, status)>
 <!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED
@@ -159,7 +131,7 @@
 
 <!-- document -->
           
-<!ELEMENT document ((substandards | correction | alsoknown | comment)*)>
+<!ELEMENT document (substandards?, correction*, alsoknown?, comment?)>
 <!ATTLIST document
           orgid  CDATA #REQUIRED
           pubnum CDATA #REQUIRED
@@ -213,7 +185,7 @@
 
 <!-- profile -->          
 
-<!ELEMENT profile ((profilenote | profilespec | configuration | parts | applicability | status)*)>
+<!ELEMENT profile (profilespec?, profilenote?, parts, configuration?,  applicability, status)>
 <!ATTLIST profile
           type (base | coi-minor | coi) "base"
           tag CDATA #REQUIRED
@@ -257,7 +229,8 @@
 
 <!ELEMENT community (profile*)>
 <!ATTLIST community
-          coi     CDATA      #REQUIRED>
+          coi     CDATA      #REQUIRED
+          text    CDATA      #REQUIRED>
 
 
 <!-- ....................... ORGANISATION ................................ -->
