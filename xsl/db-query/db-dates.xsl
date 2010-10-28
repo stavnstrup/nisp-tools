@@ -17,7 +17,7 @@ Copyright (c) 2003,2010  Jens Stavnstrup/DDRE <js@ddre.dk>
                 version='1.1'
                 exclude-result-prefixes="#default saxon">
   
-<xsl:output method="xml" indent="no" saxon:next-in-chain="db-dates2.xsl"/>
+<xsl:output method="xml" indent="no" saxon:next-in-chain="p2-dates.xsl"/>
 
 
 <xsl:template match="standards">
@@ -47,14 +47,6 @@ Copyright (c) 2003,2010  Jens Stavnstrup/DDRE <js@ddre.dk>
     </type>
     <id><xsl:value-of select="ancestor::standard/@id|ancestor::profile/@id"/></id>
     <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::profile/@tag"/></tag>
-    <stage><xsl:value-of select="ancestor::standard/status/@stage|ancestor::profile/status/@stage"/></stage>
-    <ncsp>
-      <xsl:if test="/*/servicearea/servicecategory/*/sp-list/sp-view/mandatory[@id=$myid]">M</xsl:if>
-      <xsl:if test="/*/servicearea/servicecategory/*/sp-list/sp-view/emerging[@id=$myid]">E</xsl:if>
-      <xsl:if test="/*/servicearea/servicecategory/*/sp-list/sp-view/midterm[@id=$myid]">EM</xsl:if>
-      <xsl:if test="/*/servicearea/serviceclass/*/sp-list/sp-view/farterm[@id=$myid]">EF</xsl:if>
-      <xsl:if test="/*/servicearea/serviceclass/*/sp-list/sp-view/fading[@id=$myid]">F</xsl:if>
-    </ncsp>
     <date><xsl:value-of select="@date"/></date>
     <flag><xsl:value-of select="@flag"/></flag>
     <rfcp><xsl:value-of select="@rfcp"/></rfcp>

@@ -59,8 +59,6 @@ Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
      <li><b>Type</b> - Is this a <i>standardrecord</i> (S) or a <i>profilerecord</i> (P)</li>
      <li><b>ID</b> - What ID is assiciated with this record</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
-     <li><b>Stage</b> - Stage info for this <i>record</i></li>
-     <li><b>NCSP</b> - Is this record refered to from the NCSP (Volume 4)</li>
      <li><b>Date</b> - The date of the <i>event</i></li>
      <li><b>Flag</b> - The type of the <i>event</i> (added, changed or deleted)</li>
      <li><b>RFCP</b> - What RFCP (if any) resulted in this event</li>
@@ -80,8 +78,6 @@ Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
     <td><b>Type</b></td>
     <td><b>Id</b></td>
     <td><b>Tag</b></td>
-    <td><b>Stage</b></td>
-    <td><b>NCSP</b></td>
     <td><b>Date</b></td>
     <td><b>Flag</b></td>
     <td><b>RFCP</b></td>
@@ -97,7 +93,7 @@ Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
   <xsl:variable name="thisversion" select="version"/>
 
   <xsl:if test="position()=1 or (preceding::event[position()=1]/version != $thisversion)">
-    <tr><td colspan="10" bgcolor="#00c0f2"><b>Version <xsl:value-of select="$thisversion"/></b></td></tr>
+    <tr><td colspan="8" bgcolor="#00c0f2"><b>Version <xsl:value-of select="$thisversion"/></b></td></tr>
   </xsl:if>
 
   <tr>
@@ -105,11 +101,14 @@ Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
     <td align="center"><xsl:value-of select="type"/></td>
     <td><xsl:value-of select="id"/>&nbsp;</td>
     <td><xsl:value-of select="tag"/>&nbsp;</td>
-    <td align="center"><xsl:value-of select="stage"/>&nbsp;</td>
-    <td align="center"><xsl:value-of select="ncsp"/>&nbsp;</td>
-    <td><xsl:value-of select="date"/></td>
+     <td><xsl:value-of select="date"/></td>
     <td><xsl:value-of select="flag"/></td>
-    <td><xsl:value-of select="rfcp"/>&nbsp;</td>
+    <td>
+      <xsl:if test="(rfcp='') and ((flag='added') or (flag='deleted'))">
+        <xsl:attribute name="bgcolor">#FFFEA0</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="rfcp"/>&nbsp;
+    </td>
     <td align="center"><xsl:value-of select="$thisversion"/>&nbsp;</td>
   </tr>
 </xsl:template>

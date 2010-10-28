@@ -70,16 +70,22 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td><b>Rec</b></td>
         <td><b>Total</b></td>
         <td><b>Deleted</b></td>
+        <td><b>Rejected</b></td>
+        <td><b>Retired</b></td>
       </tr>
       <tr>
         <td>standards</td>
         <td align="right"><xsl:value-of select="count(.//standard)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::standard])"/></td>
+        <td align="right"><xsl:value-of select="count(.//standard[status='rejected'])"/></td>
+        <td align="right"><xsl:value-of select="count(.//standard[status='retired'])"/></td>
       </tr>
       <tr>
         <td>profiles</td>
         <td align="right"><xsl:value-of select="count(.//profile)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::profile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//profile[status='rejected'])"/></td>
+        <td align="right"><xsl:value-of select="count(.//profile[status='retired'])"/></td>
        </tr>
     </table>
 
@@ -218,25 +224,25 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:if test="@orgid =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="profilenote/@orgid"/>
+      <xsl:value-of select="profilespec/@orgid"/>
     </td>
     <td>
       <xsl:if test="d/@pubnum =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="document/@pubnum"/>
+      <xsl:value-of select="profilespec/@pubnum"/>
     </td>
     <td>
       <xsl:if test="document/@title =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="document/@title"/>
+      <xsl:value-of select="profilespec/@title"/>
     </td>
     <td>
       <xsl:if test="document/@date =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="document/@date"/>
+      <xsl:value-of select="profilespec/@date"/>
     </td>        
     <td><xsl:apply-templates select="document/correction"/>&nbsp;</td>
     <td><xsl:apply-templates select="document/alsoknown"/>&nbsp;</td>

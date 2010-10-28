@@ -16,7 +16,7 @@ Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
                 version='1.1'
                 exclude-result-prefixes="#default saxon">
   
-<xsl:output method="xml" indent="no" saxon:next-in-chain="db-duplex2.xsl"/>
+<xsl:output method="xml" indent="no" saxon:next-in-chain="p2-duplex.xsl"/>
 
 
 <xsl:template match="standards">

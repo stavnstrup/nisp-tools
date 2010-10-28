@@ -569,7 +569,10 @@ $Id$
   <!-- =================================================================== -->
 
   <target name="db-all" description="* Create misc. database reports"
+          depends="db-overview, db-family, db-dates">
+<!--
           depends="db-overview, db-duplex, db-dates, db-ncsp">
+-->
   </target>
 
 
@@ -577,42 +580,55 @@ $Id$
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/db-stat/">
       <arg line="${xslt.opts} -o overview.html
-                 ${build.resolve}/resolved-standards.xml
+                 ${basedir}/src/standards/standards.xml
                  ${xsl-dbquery.dir}/db-overview.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
 
+
+  <target name="db-family" description="* Create DB parent/child relationship list">
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/db-stat/">
+      <arg line="${xslt.opts} -o family.html 
+                 ${basedir}/src/standards/standards.xml
+                 ${xsl-dbquery.dir}/db-family.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+<!--
   <target name="db-duplex" description="* Create DB Duplex list">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/db-stat/">
       <arg line="${xslt.opts} -o duplex.html 
-                 ${build.resolve}/resolved-standards.xml
+                 ${basedir}/src/standards/standards.xml
                  ${xsl-dbquery.dir}/db-duplex.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
+-->
 
   <target name="db-dates" description="* Create DB Dated list">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/db-stat/">
       <arg line="${xslt.opts} -o dates.html
-                 ${build.resolve}/resolved-standards.xml
+                 ${basedir}/src/standards/standards.xml
                  ${xsl-dbquery.dir}/db-dates.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
 
+<!--
   <target name="db-ncsp" description="* Create NCSP Stat">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/db-stat/">
       <arg line="${xslt.opts} -o ncsp.html
-                 ${build.resolve}/resolved-standards.xml
+                 ${basedir}/src/standards/standards.xml
                  ${xsl-dbquery.dir}/db-ncsp.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
-
+-->
 
   <!-- =================================================================== -->
   <!-- Create documentation                                                -->
