@@ -57,6 +57,14 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </p>
    
 
+    <p>Note:
+      <ul>
+        <li>Standards and profiles marked with redbackground have been deleted</li>
+        <li>Cells with yellow background should be filled out.</li>
+        <li>If a reference to a child/parent standard/profile is prefixed with '@ ' it has been deleted. N.B. It is ok if a parent standard/profile have been deleted, but it is NOT OK if a child standard/profile have been deleted. It does not make sence to refere to a deleted child standard/profile.</li>
+      </ul>
+    </p>
+
   <h2>Standards</h2>
   
 
@@ -195,24 +203,29 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:if test="position() != 1">
     <xsl:text>, </xsl:text>
   </xsl:if>
-  <xsl:if test=".//event[@flag = 'deleted']"><span class="deleted">*</span></xsl:if><a href="#{@id}"><xsl:value-of select="@id"/></a>
+  <xsl:if test=".//event[@flag = 'deleted']"><emphasis role="bold">@ </emphasis></xsl:if><a href="#{@id}"><xsl:value-of select="@id"/></a>
 </xsl:template>
 
 
 <xsl:template match="refstandard">
+  <xsl:variable name="myrefid" select="@refid"/>
   <xsl:if test="position() != 1">
     <xsl:text>, </xsl:text>
   </xsl:if>
-  <xsl:if test="/standards/records/standard[@id=./@refid]//event[@flag='deleted']">
-    <span class="deleted">*</span>
+  <xsl:if test="/standards/records/standard[@id=$myrefid]//event[@flag='deleted']">
+    <emphasis role="bold">@ </emphasis>
   </xsl:if>
   <a href="#{@refid}"><xsl:value-of select="@refid"/></a>
 </xsl:template>
 
 
 <xsl:template match="refprofile">
+  <xsl:variable name="myrefid" select="@refid"/>
   <xsl:if test="position() != 1">
     <xsl:text>, </xsl:text>
+  </xsl:if>
+  <xsl:if test="//profile[@id=$myrefid]//event[@flag='deleted']">
+    <emphasis role="bold">@ </emphasis>
   </xsl:if>
   <a href="#{@refid}"><xsl:value-of select="@refid"/></a>
 </xsl:template>
