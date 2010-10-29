@@ -524,7 +524,7 @@ consists of:
 
 <programlisting>
 <![CDATA[
-<!ELEMENT standard ((document, applicability, status)?)>
+<!ELEMENT standard (document, applicability, status)>
 
 <!ATTLIST standard
           tag CDATA #REQUIRED
@@ -552,7 +552,7 @@ refers to an organisation is embedded in the <code>organisations</code> element.
 
 <programlisting>
 <![CDATA[
-<!ELEMENT document ((substandards | correction | alsoknown | comment)*)>
+<!ELEMENT document (substandards?, correction*, alsoknown?, comment?)>
 
 <!ATTLIST document
           orgid  CDATA #REQUIRED
@@ -730,8 +730,8 @@ with the value <code>base</code>.</para>
 
 <programlisting>
 <![CDATA[
-<!ELEMENT profile ((profilenote | profilespec | configuration
-                    | parts | applicability | status)*)>
+<!ELEMENT profile (profilespec?, profilenote?, parts, configuration?,
+                   applicability, status)>
 <!ATTLIST profile
           type (base | coi-minor | coi) "base"
           tag CDATA #REQUIRED

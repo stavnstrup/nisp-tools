@@ -21,7 +21,7 @@ consists of:
 </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>document - describes the actual standard</p></li><li class="listitem"><p>applicability - when and where should the standard be used</p></li><li class="listitem"><p>status - contains historical data</p></li></ul></div><p>
 </p><pre class="programlisting">
 
-&lt;!ELEMENT standard ((document, applicability, status)?)&gt;
+&lt;!ELEMENT standard (document, applicability, status)&gt;
 
 &lt;!ATTLIST standard
           tag CDATA #REQUIRED
@@ -39,7 +39,7 @@ the attributes <code class="code">orgid</code>,
 <code class="code">pubnum</code>, <code class="code">date</code> and <code class="code">title</code>. The <code class="code">orgid</code> 
 refers to an organisation is embedded in the <code class="code">organisations</code> element.</p><pre class="programlisting">
 
-&lt;!ELEMENT document ((substandards | correction | alsoknown | comment)*)&gt;
+&lt;!ELEMENT document (substandards?, correction*, alsoknown?, comment?)&gt;
 
 &lt;!ATTLIST document
           orgid  CDATA #REQUIRED
@@ -149,8 +149,8 @@ A <code class="code">type</code> attribute are implicit defined with one of the 
 has not been defined, it will by default be anned and initialized 
 with the value <code class="code">base</code>.</p><pre class="programlisting">
 
-&lt;!ELEMENT profile ((profilenote | profilespec | configuration
-                    | parts | applicability | status)*)&gt;
+&lt;!ELEMENT profile (profilespec?, profilenote?, parts, configuration?,
+                   applicability, status)&gt;
 &lt;!ATTLIST profile
           type (base | coi-minor | coi) "base"
           tag CDATA #REQUIRED
