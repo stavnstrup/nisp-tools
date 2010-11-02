@@ -174,6 +174,7 @@ $Id$
 
 
 <xsl:template match="servicearea">
+  <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
   <tgroup cols="6">
     <colspec colwidth="18*" colname="c1" />
@@ -200,7 +201,7 @@ $Id$
 -->
     </thead>
     <tbody>
-      <xsl:apply-templates select="sp-list" mode="sa-children"/>
+      <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
       <xsl:apply-templates select="servicecategory" mode="sa-children"/>
       <xsl:apply-templates select="subarea" mode="sa-children"/>
     </tbody>
@@ -210,43 +211,47 @@ $Id$
 
 
 <xsl:template match="subarea" mode="sa-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     <entry/><entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="sa-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
   <xsl:apply-templates select="servicecategory" mode="sa-children"/>
 </xsl:template>
 
 
 <xsl:template match="servicecategory" mode="sa-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><xsl:value-of select="@title"/></entry>
     <entry/><entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="sa-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
   <xsl:apply-templates select="category" mode="sa-children"/>
 </xsl:template>
 
 
 <xsl:template match="category" mode="sa-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry/>
     <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="sa-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
   <xsl:apply-templates select="subcategory" mode="sa-children"/>
 </xsl:template>
 
 
 <xsl:template match="subcategory" mode="sa-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry/>
     <entry><xsl:value-of select="@title"/></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="sa-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
 </xsl:template>
 
 
