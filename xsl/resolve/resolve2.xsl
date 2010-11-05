@@ -73,6 +73,12 @@ $Id$
         </xsl:call-template>
       </xsl:variable>
       <xsl:if test="not($subarea='')">
+<!--
+        <xsl:message>
+          <xsl:text>subarea: </xsl:text>
+          <xsl:value-of select="$subarea"/>
+        </xsl:message>
+-->
         <xsl:apply-templates select="$db//subarea[@id=$subarea]"/>
       </xsl:if>
     </xsl:when>
@@ -289,6 +295,7 @@ $Id$
 
 
 <xsl:template match="subarea">
+  <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
   <tgroup cols="5">
     <colspec colwidth="20*" colname="c1" />
@@ -313,7 +320,7 @@ $Id$
 -->
     </thead>
     <tbody>
-      <xsl:apply-templates select="sp-list" mode="subarea-children"/>
+      <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
       <xsl:apply-templates select="servicecategory" mode="subarea-children"/>
     </tbody>
   </tgroup>
@@ -322,31 +329,34 @@ $Id$
 
 
 <xsl:template match="servicecategory" mode="subarea-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="subarea-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
   <xsl:apply-templates select="category" mode="subarea-children"/>
 </xsl:template>
 
 
 <xsl:template match="category" mode="subarea-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><xsl:value-of select="@title"/></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="subarea-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
   <xsl:apply-templates select="subcategory" mode="subarea-children"/>
 </xsl:template>
 
 
 <xsl:template match="subcategory" mode="subarea-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><emphasis><xsl:value-of select="@title"/></emphasis></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="subarea-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
 </xsl:template>
 
 
