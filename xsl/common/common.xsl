@@ -69,12 +69,14 @@
     </div>
 
     <div id="bottomhead">
+<!--
       <div id="searchBox">
         <form name="form1" method="post" action=""> 
           <input name="textfield" type="text" class="invoerVeld"/>
           <img src="{$prefix}images/cgey/button_search.gif" alt="Search Button" width="48" height="16"/>
         </form> 
       </div>
+-->
     </div>
   </div>
 </xsl:template>
