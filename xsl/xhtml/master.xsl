@@ -198,6 +198,19 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
       <xsl:with-param name="prefix" select="''"/>
     </xsl:call-template>
 
+
+    <div id="mainbody" class="yui3-g">
+      <div id="nav" class="yui3-u">
+        <xsl:call-template name="create-navbar"/>
+      </div>
+      <div id="main" class="yui3-u">
+        <div id="docbook">
+          <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
+          <xsl:apply-templates/>
+        </div>
+      </div>
+    </div>
+<!--
       <table id="mainbody" cellspacing="0" cellpadding="0"><tr><td class="wNavigationBox">
         <div id="taNavigationBox" class="left mainmenu wNavigationBox">
           <xsl:call-template name="create-navbar"/>
@@ -209,6 +222,7 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
         </div>
       </td>
     </tr></table>
+-->
     <div id="taFooter">Copyright &#x00A9; NATO - OTAN 1998-2010 | <a href="disclaimer.html">Disclaimer</a></div>
 
   </body>

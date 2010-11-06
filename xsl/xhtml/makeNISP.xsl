@@ -2,16 +2,18 @@
 
 <!--
 
-Name        : chunk.xsl
+Name        : makeNISP.xsl
 
-Description : This stylesheet is a customization of Norman Walsh DocBook
-              XSL/XHTML stylesheets and is used to create a XHTML version of 
-              the technical architecture. The stylesheet create as output 
-              XHTML files according to the Word Wide Webs Consortiums 
-              specification: "Extensible Stylesheet Language" version 1.0. 
-              (see: http://www.w3c.org/REC/2001/XSL.html).
+Description : This stylesheet is a customization of Norman Walsh
+              DocBook XSL/XHTML stylesheets and is used to create a
+              XHTML version of the NATO Interoperability Standards and
+              Profiles (NISP).  The stylesheet create as output XHTML
+              files according to the Word Wide Webs Consortiums
+              specification: "Extensible Stylesheet Language" version
+              1.0.  (see: http://www.w3c.org/REC/2001/XSL.html).
 
-              Copyright (C) 2001,2006 Jens Stavnstrup/DDRE <js@ddre.dk>,
+              Copyright (C) 2001,2010 Jens Stavnstrup/DALO <stavnatrup@mil.dk>,
+              Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
 -->
@@ -429,13 +431,45 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:call-template name="create-header"/>
       <xsl:call-template name="create-menubar"/>
 
+      <div class="yui3-g" id="mainbody">
+        <div class="yui3-u" id="nav">
+          <div id="navHeader">NISP Volumes</div>
+          <xsl:call-template name="create-navbar"/>
+        </div>
+        <div class="yui3-u" id="main">
+          <div id="docbook">
+          <xsl:call-template name="user.header.navigation"/>
+
+          <xsl:call-template name="header.navigation">
+	    <xsl:with-param name="prev" select="$prev"/>
+	    <xsl:with-param name="next" select="$next"/>
+	    <xsl:with-param name="nav.context" select="$nav.context"/>
+          </xsl:call-template>
+
+          <xsl:call-template name="user.header.content"/>
+
+          <xsl:copy-of select="$content"/>
+
+          <xsl:call-template name="user.footer.content"/>
+
+          <xsl:call-template name="footer.navigation">
+	    <xsl:with-param name="prev" select="$prev"/>
+	    <xsl:with-param name="next" select="$next"/>
+	    <xsl:with-param name="nav.context" select="$nav.context"/>
+          </xsl:call-template>
+          </div>
+
+          <xsl:call-template name="user.footer.navigation"/>
+        </div>
+      </div>
+<!--
       <table id="mainbody" cellspacing="0" cellpadding="0"><tr><td class="wNavigationBox">
         <div id="taNavigationBox" class="left mainmenu wNavigationBox">
           <div id="navHeader">NISP Volumes</div>
           <xsl:call-template name="create-navbar"/>
         </div>
       </td><td>
-        <div id="taContents">  <!-- NEVER CHANGE this id, that will break the CGEY portal -->
+        <div id="taContents">
           <xsl:call-template name="user.header.navigation"/>
 
           <xsl:call-template name="header.navigation">
@@ -458,37 +492,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
           <xsl:call-template name="user.footer.navigation"/>
         </div>
-      </td><!--<td class="wInfoBox">
-        <div id="taInfoBox" class="wInfoBox">
-
-          <ul>
-            <li class="pdf"><span class="h">PDF</span>
-              <a>
-                <xsl:attribute name="href">
-                  <xsl:text>../pdf/</xsl:text>
-                  <xsl:value-of select="$pdf.prefix"/>
-                  <xsl:text>-v</xsl:text>
-                  <xsl:value-of select=
-                    "substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
-                  <xsl:if test="$for.internet.publication=1">
-                    <xsl:value-of select="$internet.postfix"/>
-                  </xsl:if>
-                  <xsl:text>.pdf</xsl:text>
-                </xsl:attribute>
-                <xsl:text>Download </xsl:text><xsl:value-of 
-                   select="$db//docinfo[@id=$docid]/titles/short"/>
-              </a>
-            </li>
-            <li><span class="h">Forum discussion</span><a href="#">Join the discussion
-              about the latest version of the NISP.</a></li>
-            <li><span class="h">Enter a RFCP</span><a href="#">Use the webform to
-              submit a change proposal.</a></li>
-            <li><span class="h">Create an Architecture
-              template</span><a href="#">Use one of 7 different
-            available webforms.</a></li>
-          </ul>
-        </div>
-      </td>--></tr></table>
+      </td></tr></table>
+-->
 
       <div id="taFooter">Copyright &#x00A9; NATO - OTAN 1998-2010 | <a href="../disclaimer.html">Disclaimer</a></div>
     </body>
