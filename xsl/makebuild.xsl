@@ -94,7 +94,7 @@
         <xsl:text>Create figures for HTML (${dpi.raster} dpi)</xsl:text>
       </xsl:attribute>
     </echo>
-    <rasterize> 
+    <rasterize bg="255,255,255"> 
       <xsl:attribute name="result">
         <xsl:text>${nisp.image.mimetype}</xsl:text>
       </xsl:attribute>

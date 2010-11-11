@@ -19,7 +19,7 @@
    </target>
    <target name="svg" depends="init, svg.required" unless="svg.notRequired">
       <echo message="Create figures for HTML (${dpi.raster} dpi)"/>
-      <rasterize result="${nisp.image.mimetype}" quality="${nisp.image.quality}" dpi="${dpi.raster}" destdir="${build.dir}/figures/">
+      <rasterize bg="255,255,255" result="${nisp.image.mimetype}" quality="${nisp.image.quality}" dpi="${dpi.raster}" destdir="${build.dir}/figures/">
          <fileset dir="${build.dir}/figures/">
             <include name="*.svg"/>
             <depend targetdir="${build.dir}/figures/">
