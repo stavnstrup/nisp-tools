@@ -133,10 +133,11 @@
           
 <!ELEMENT document (substandards?, correction*, alsoknown?, comment?)>
 <!ATTLIST document
-          orgid  CDATA #REQUIRED
-          pubnum CDATA #REQUIRED
-          date   CDATA #REQUIRED
-          title  CDATA #REQUIRED>
+          orgid   CDATA #REQUIRED
+          pubnum  CDATA #REQUIRED
+          date    CDATA #REQUIRED
+          title   CDATA #REQUIRED
+          version CDATA #IMPLIED>
 
 <!ELEMENT substandards (refstandard+)>
 
@@ -195,10 +196,11 @@
 
 <!ELEMENT profilespec EMPTY>
 <!ATTLIST profilespec
-          orgid  CDATA #IMPLIED
-          pubnum CDATA #IMPLIED
-          date   CDATA #IMPLIED
-          title  CDATA #REQUIRED>
+          orgid   CDATA #IMPLIED
+          pubnum  CDATA #IMPLIED
+          date    CDATA #IMPLIED
+          title   CDATA #REQUIRED
+          version CDATA #IMPLIED>
 
 
 <!ELEMENT configuration (#PCDATA)>
