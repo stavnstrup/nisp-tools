@@ -159,8 +159,8 @@ $Id$
 <xsl:template match="@*" mode="addindexentry">
   <xsl:variable name="id" select="."/>
 
-  <xsl:variable name="record" select="$db//standardrecord[@id=$id]|$db//profilerecord[@id=$id]"/>
-  <xsl:for-each select="$record//standard">
+  <xsl:variable name="record" select="$db//standard[@id=$id]|$db//profile[@id=$id]"/>
+  <xsl:for-each select="$record//document">
      <xsl:variable name="org" select="@orgid"/>
      <indexterm>
        <xsl:choose>
