@@ -79,33 +79,6 @@ $Id$
   </xsl:choose>  
 </xsl:template>
 
-<!-- ==================================================================== -->
-
-<xsl:template name="dbmerge-attribute">
-  <xsl:param name="pi" select="./processing-instruction('dbmerge')"/>
-  <xsl:param name="attribute"/>
-  <xsl:param name="count" select="1"/>
-
-  <xsl:choose>
-    <xsl:when test="contains($pi, concat($attribute, '='))">
-      <xsl:variable name="rest" 
-            select="substring-after($pi, concat($attribute, '='))"/>    
-      <xsl:variable name="quote" select="substring($rest, 1, 1)"/>
-      <xsl:value-of select="substring-before(substring($rest,2), $quote)"/>
-    </xsl:when>
-    <xsl:otherwise>
-      <!-- not found -->
-      <xsl:choose>
-        <xsl:when test="$attribute='area'">
-          <xsl:message terminate="yes">Servicearea id not found.</xsl:message>
-	</xsl:when>
-        <xsl:when test="$attribute='subarea'">
-	  <xsl:message terminate="yes">Subarea id not found</xsl:message>
-        </xsl:when>
-      </xsl:choose>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
 
 <!-- ==================================================================== -->
 
@@ -153,8 +126,8 @@ $Id$
 <xsl:template match="@*" mode="addindexentry">
   <xsl:variable name="id" select="."/>
 
-  <xsl:variable name="record" select="$db//standardrecord[@id=$id]|$db//profilerecord[@id=$id]"/>
-  <xsl:for-each select="$record//standard">
+  <xsl:variable name="record" select="$db//standard[@id=$id]|$db//profile[@id=$id]"/>
+  <xsl:for-each select="$record//document">
      <xsl:variable name="org" select="@orgid"/>
      <indexterm>
        <xsl:choose>
@@ -174,6 +147,8 @@ $Id$
 
 
 <xsl:template match="servicearea">
+  <xsl:variable name="id" select="@id"/>
+
   <informaltable frame="all" pgwide="1">
   <tgroup cols="6">
     <colspec colwidth="18*" colname="c1" />
@@ -200,7 +175,7 @@ $Id$
 -->
     </thead>
     <tbody>
-      <xsl:apply-templates select="sp-list" mode="sa-children"/>
+      <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
       <xsl:apply-templates select="servicecategory" mode="sa-children"/>
       <xsl:apply-templates select="subarea" mode="sa-children"/>
     </tbody>
@@ -210,43 +185,47 @@ $Id$
 
 
 <xsl:template match="subarea" mode="sa-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     <entry/><entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="sa-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
   <xsl:apply-templates select="servicecategory" mode="sa-children"/>
 </xsl:template>
 
 
 <xsl:template match="servicecategory" mode="sa-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><xsl:value-of select="@title"/></entry>
     <entry/><entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="sa-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
   <xsl:apply-templates select="category" mode="sa-children"/>
 </xsl:template>
 
 
 <xsl:template match="category" mode="sa-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry/>
     <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="sa-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
   <xsl:apply-templates select="subcategory" mode="sa-children"/>
 </xsl:template>
 
 
 <xsl:template match="subcategory" mode="sa-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry/>
     <entry><xsl:value-of select="@title"/></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="sa-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
 </xsl:template>
 
 
@@ -284,6 +263,7 @@ $Id$
 
 
 <xsl:template match="subarea">
+  <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
   <tgroup cols="5">
     <colspec colwidth="20*" colname="c1" />
@@ -308,7 +288,7 @@ $Id$
 -->
     </thead>
     <tbody>
-      <xsl:apply-templates select="sp-list" mode="subarea-children"/>
+      <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
       <xsl:apply-templates select="servicecategory" mode="subarea-children"/>
     </tbody>
   </tgroup>
@@ -317,31 +297,34 @@ $Id$
 
 
 <xsl:template match="servicecategory" mode="subarea-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="subarea-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
   <xsl:apply-templates select="category" mode="subarea-children"/>
 </xsl:template>
 
 
 <xsl:template match="category" mode="subarea-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><xsl:value-of select="@title"/></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="subarea-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
   <xsl:apply-templates select="subcategory" mode="subarea-children"/>
 </xsl:template>
 
 
 <xsl:template match="subcategory" mode="subarea-children">
+  <xsl:variable name="id" select="@id"/>
   <row>
     <entry><emphasis><xsl:value-of select="@title"/></emphasis></entry>
     <entry/><entry/><entry/><entry/>
   </row>
-  <xsl:apply-templates select="sp-list" mode="subarea-children"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
 </xsl:template>
 
 

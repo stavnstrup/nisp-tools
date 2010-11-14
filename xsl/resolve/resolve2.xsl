@@ -73,44 +73,10 @@ $Id$
         </xsl:call-template>
       </xsl:variable>
       <xsl:if test="not($subarea='')">
-<!--
-        <xsl:message>
-          <xsl:text>subarea: </xsl:text>
-          <xsl:value-of select="$subarea"/>
-        </xsl:message>
--->
         <xsl:apply-templates select="$db//subarea[@id=$subarea]"/>
       </xsl:if>
     </xsl:when>
   </xsl:choose>  
-</xsl:template>
-
-<!-- ==================================================================== -->
-
-<xsl:template name="dbmerge-attribute">
-  <xsl:param name="pi" select="./processing-instruction('dbmerge')"/>
-  <xsl:param name="attribute"/>
-  <xsl:param name="count" select="1"/>
-
-  <xsl:choose>
-    <xsl:when test="contains($pi, concat($attribute, '='))">
-      <xsl:variable name="rest" 
-            select="substring-after($pi, concat($attribute, '='))"/>    
-      <xsl:variable name="quote" select="substring($rest, 1, 1)"/>
-      <xsl:value-of select="substring-before(substring($rest,2), $quote)"/>
-    </xsl:when>
-    <xsl:otherwise>
-      <!-- not found -->
-      <xsl:choose>
-        <xsl:when test="$attribute='area'">
-          <xsl:message terminate="yes">Servicearea id not found.</xsl:message>
-	</xsl:when>
-        <xsl:when test="$attribute='subarea'">
-	  <xsl:message terminate="yes">Subarea id not found</xsl:message>
-        </xsl:when>
-      </xsl:choose>
-    </xsl:otherwise>
-  </xsl:choose>
 </xsl:template>
 
 <!-- ==================================================================== -->

@@ -110,6 +110,40 @@ $Id$
   </xsl:element>
 </xsl:template>
 
+<!-- ==================================================================== -->
+
+
+<xsl:template name="dbmerge-attribute">
+  <xsl:param name="pi" select="./processing-instruction('dbmerge')"/>
+  <xsl:param name="attribute"/>
+  <xsl:param name="count" select="1"/>
+
+  <xsl:variable name="pivalue">
+    <xsl:value-of select="concat(' ', normalize-space($pi))"/>
+  </xsl:variable>
+  <xsl:choose>
+    <xsl:when test="contains($pivalue, concat(' ', $attribute, '='))">
+      <xsl:variable name="rest" select="substring-after($pivalue, concat(' ', $attribute, '='))"/>    
+      <xsl:variable name="quote" select="substring($rest, 1, 1)"/>
+      <xsl:value-of select="substring-before(substring($rest,2), $quote)"/>
+    </xsl:when>
+
+    <xsl:otherwise>
+      <!-- not found -->
+<!--
+      <xsl:choose>
+        <xsl:when test="$attribute='area'">
+          <xsl:message terminate="yes">Servicearea id not found.</xsl:message>
+	</xsl:when>
+        <xsl:when test="$attribute='subarea'">
+	  <xsl:message terminate="yes">Subarea id not found</xsl:message>
+        </xsl:when>
+      </xsl:choose>
+-->
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
 
 <!-- ==================================================================== -->
 
