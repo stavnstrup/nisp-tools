@@ -42,10 +42,11 @@ refers to an organisation is embedded in the <code class="code">organisations</c
 &lt;!ELEMENT document (substandards?, correction*, alsoknown?, comment?)&gt;
 
 &lt;!ATTLIST document
-          orgid  CDATA #REQUIRED
-          pubnum CDATA #REQUIRED
-          date   CDATA #REQUIRED
-          title  CDATA #REQUIRED&gt;
+          orgid   CDATA #REQUIRED
+          pubnum  CDATA #REQUIRED
+          date    CDATA #REQUIRED
+          title   CDATA #REQUIRED
+          version CDATA #IMPLIED&gt;
 
 </pre><p>If a standard is a coverstandard (e.g ISO-8859), it may
 implement the
@@ -163,10 +164,11 @@ publication number, oublication data and title. NB - most base profiles have no
 
 &lt;!ELEMENT profilespec EMPTY&gt;
 &lt;!ATTLIST profilespec
-          orgid  CDATA #IMPLIED
-          pubnum CDATA #IMPLIED
-          date   CDATA #IMPLIED
-          title  CDATA #REQUIRED&gt;
+          orgid   CDATA #IMPLIED
+          pubnum  CDATA #IMPLIED
+          date    CDATA #IMPLIED
+          title   CDATA #REQUIRED
+          version CDATA #IMPLIED&gt;
 
 </pre><p>The <code class="code">&lt;configuration&gt;</code> element describes - how the 
 standards and sub-profiles should be configured. For now, it is just a textelement,
