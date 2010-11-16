@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-   <target name="resolve" depends="init, vol1.resolve, vol2.resolve, vol3.resolve, vol4.resolve, vol5.resolve, vol6.resolve"/>
-   <target name="olinks" depends="init, vol1.olinks, vol2.olinks, vol3.olinks, vol4.olinks, vol5.olinks, vol6.olinks"/>
-   <target name="html" depends="init, master, acronyms, vol1.html, vol2.html, vol3.html, vol4.html, vol5.html, vol6.html" description="* Create all HTML files destined for the web"/>
-   <target name="pdf" depends="init, vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf, vol5.pdf, vol6.pdf" description="* Create a PDF version of NISP"/>
+   <target name="resolve" depends="init, vol1.resolve, vol2.resolve, vol3.resolve, vol4.resolve, vol5.resolve"/>
+   <target name="olinks" depends="init, vol1.olinks, vol2.olinks, vol3.olinks, vol4.olinks, vol5.olinks"/>
+   <target name="html" depends="init, master, acronyms, vol1.html, vol2.html, vol3.html, vol4.html, vol5.html" description="* Create all HTML files destined for the web"/>
+   <target name="pdf" depends="init, vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf, vol5.pdf" description="* Create a PDF version of NISP"/>
    <target name="svg.required">
       <mkdir dir="${build.dir}/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/figures">
@@ -462,104 +462,6 @@
       <mkdir dir="${zip.dir}"/>
       <zip zipfile="${zip.dir}/nisp-src-vol5-${DSTAMP}.zip">
          <zipfileset dir="${src.dir}/volume5" prefix="volume5/" includes="**/*" excludes="**/*~,**/rtf/*.*, **/*/*.ced,**/*/*.fo"/>
-      </zip>
-   </target>
-  
-
-  
-    <!-- Directories -->
-   <property name="src.vol6" value="${src.dir}/volume6-annexes"/>
-   <property name="build.vol6" value="${build.dir}/volume6-annexes"/><!-- Source file names -->
-   <property name="vol6.main.src" value="vol6.xml"/>
-   <property name="vol6.resolve.src" value="vol6-resolved.xml"/>
-   <property name="vol6.pdf.file" value="NISP-Vol6-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
-   <property name="xsl-resolve-vol6" value="resolve6.xsl"/>
-   <target name="vol6" description="* Create Volume 6 in XHTML and PDF" depends="vol6.html, vol6.pdf"/>
-   <target name="vol6.db-resolve.check">
-      <uptodate property="vol6.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
-         <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
-         <srcfiles dir="${xsl-styles.dir}/resolve" includes="${xsl-resolve-db}"/>
-      </uptodate>
-   </target>
-   <target name="vol6.db-resolve" depends="init, vol6.db-resolve.check" unless="vol6.db-resolve.notRequired">
-      <echo message="Resolve Volume 6 DB"/>
-      <java fork="yes" classname="${xslt.class}" dir="${src.vol6}">
-         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db}"/>
-         <classpath refid="lib-saxon-classpath"/>
-         <jvmarg value="${use.sax}"/>
-         <jvmarg value="${use.dom}"/>
-         <jvmarg value="${use.xinc}"/>
-      </java>
-   </target>
-   <target name="vol6.resolve.check">
-      <uptodate property="vol6-resolve.notRequired" targetfile="${build.resolve}/${vol6.resolve.src}">
-         <srcfiles dir="${src.vol6}" includes="*.xml"/>
-         <srcfiles includes="resolved-standards.xml" dir="${build.resolve}/"/>
-         <srcfiles dir="${xsl-styles.dir}/resolve" includes="${xsl-resolve-vol6}"/>
-      </uptodate>
-   </target>
-   <target name="vol6.resolve" unless="vol6-resolve.notRequired" depends="init, vol6.db-resolve, vol6.resolve.check">
-      <echo message="Resolve Volume 6"/>
-      <java fork="yes" classname="${xslt.class}" dir="${src.vol6}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol6.resolve.src} ${src.vol6}/${vol6.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol6} dbname=resolved-standards.xml docid=vol6 documentdir=volume6-annexes use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
-         <classpath refid="lib-saxon-classpath"/>
-         <jvmarg value="${use.sax}"/>
-         <jvmarg value="${use.dom}"/>
-         <jvmarg value="${use.xinc}"/>
-      </java>
-   </target>
-   <target name="vol6-olinks.check" depends="init">
-      <uptodate property="vol6-olinks.notRequired" targetfile="${src.dir}/olinks/vol6-target.db">
-         <srcfiles dir="${build.resolve}" includes="${vol6.resolve.src}"/>
-         <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
-      </uptodate>
-   </target>
-   <target name="vol6.olinks" depends="init, vol6.resolve, vol6-olinks.check" unless="vol6-olinks.notRequired">
-      <mkdir dir="${build.dir}/volume6-annexes"/>
-      <java fork="yes" classname="${xslt.class}" dir="${build.vol6}">
-         <arg line="${build.resolve}/${vol6.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} target.database.document=${src.dir}/olinks/olinksdb.xml current.docid=vol6 collect.xref.targets=only"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </java>
-      <move file="${build.vol6}/target.db" tofile="${src.dir}/olinks/vol6-target.db"/>
-   </target>
-   <target name="vol6.html.check" depends="init">
-      <mkdir dir="${build.dir}/volume6-annexes"/>
-      <uptodate property="vol6-html.notRequired" targetfile="${build.vol6}/index.html">
-         <srcfiles dir="${build.resolve}" includes="${vol6.resolve.src}"/>
-         <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-xhtml}"/>
-      </uptodate>
-   </target>
-   <target name="vol6.html" description="* Create Volume 6 in XHTML" depends="svg, vol6.resolve, vol6.html.check" unless="vol6-html.notRequired">
-      <echo message="Create Volume 6 as chunked XHTML pages"/>
-      <java fork="yes" classname="${xslt.class}" dir="${build.vol6}">
-         <jvmarg value="-Xss512k"/>
-         <arg line="${xslt.opts} ${build.resolve}/${vol6.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol6 pdf.prefix=NISP-Vol6 use.para.numbering=${use.para.numbering}"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </java>
-   </target>
-   <target name="vol6.pdf.check" depends="init">
-      <uptodate property="vol6-pdf.notRequired" targetfile="${build.fo}/${vol6.pdf.file}">
-         <srcfiles dir="${build.resolve}" includes="${vol6.resolve.src}"/>
-         <srcfiles dir="${build.dir}/figures/" includes="*.${nisp.image.ext}"/>
-         <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
-      </uptodate>
-   </target>
-   <target name="vol6.pdf" description="* Create Volume 6 in PDF" depends="layout-fo, svg, vol6.resolve, vol6.pdf.check" unless="vol6-pdf.notRequired">
-      <echo message="Create Volume 6 print version"/>
-      <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
-         <jvmarg value="-Xss512k"/>
-         <arg line="${xslt.opts} -o vol6.fo ${build.resolve}/${vol6.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol6 use.para.numbering=${use.para.numbering}"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </java>
-      <echo message="Transforming Volume 6.fo to PDF"/>
-      <fop basedir="${build.fo}/" fofile="${build.fo}/vol6.fo" outfile="${build.fo}/${vol6.pdf.file}" format="application/pdf" messagelevel="${fop.message}"/>
-   </target>
-   <target name="vol6.zip" description="* Create source archive of Volume 6">
-      <tstamp/>
-      <echo message="Creating src archive of Volume 6"/>
-      <mkdir dir="${zip.dir}"/>
-      <zip zipfile="${zip.dir}/nisp-src-vol6-${DSTAMP}.zip">
-         <zipfileset dir="${src.dir}/volume6-annexes" prefix="volume6-annexes/" includes="**/*" excludes="**/*~,**/rtf/*.*, **/*/*.ced,**/*/*.fo"/>
       </zip>
    </target>
   
