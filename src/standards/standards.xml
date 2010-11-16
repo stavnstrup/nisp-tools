@@ -469,13 +469,18 @@ table:
       <sp-list tref="ts-rep-eds">
          <sp-view idx="d0e6734">
             <ncoe>Comms</ncoe>
-            <select id="cceb-acp133" mode="mandatory">Common Directory Services and Procedures (ACP 133C:2009)</select>
-            <select id="cceb-acp133" mode="fading">ACP 133B</select>
+            <select id="cceb-acp133edC" mode="mandatory">Common Directory Services and Procedures (ACP 133C:2007)</select>
+            <select id="cceb-acp133edD" mode="emerging">Common Directory Services and Procedures (ACP 133D:2009)</select>
+            <select id="cceb-acp133edC" mode="fading">ACP 133B</select>
             <remarks>
-              Contains schema.ACP 133B contains the upper layer
-              protocol profile down to the requested Transport Service
+              Contains a common directoryschema.
             </remarks>
-            <rationale>ACP 133C included in NCSP v.6</rationale>
+            <rationale>ACP 133C included in NCSP v.6, ACP 133D included in NISPv4 through RFCP 4-39</rationale>
+         </sp-view>
+         <sp-view idx="d0e6738">
+            <ncoe>Comms</ncoe>
+            <select id="cceb-acp133supp1" mode="mandatory">Common Directory Services and Procedures Supplement (ACP 133 Suppl.1:2009)</select>
+            <rationale>ACP 133 Suppl.1 included in NISP v.4 through RFCP 4-39</rationale>
          </sp-view>
          <sp-view idx="d0e6745">
             <ncoe>Comms</ncoe>
@@ -594,6 +599,7 @@ table:
           <sp-view idx="d0e8720">
             <ncoe>Data Mgmt</ncoe>
             <select id="bp-asterix" mode="emerging">ASTERIX, ed.1 (ADatP-35:2010)</select>
+            <remarks>This profile is based on ADatP-35 and a corresponding series of EUROCONTROL specifications</remarks>
          </sp-view>
          <sp-view idx="d0e8724">
             <ncoe>Data Mgmt</ncoe>
@@ -4978,17 +4984,52 @@ table:
          </status>
       </standard>
 
-      <standard tref="ts-rep-eds" id="cceb-acp133" tag="ACP 133">
-         <document orgid="cceb" pubnum="ACP 133" date="2007"
-                   title="Common Directory Services and Procedures, ACP 133 ed. D:2009"/>
+      <standard tref="ts-rep-eds" id="cceb-acp133edC" tag="ACP 133 ed.C">
+         <document orgid="cceb" pubnum="ACP 133 ed.C" date="2007"
+                   title="Common Directory Services and Procedures, ACP 133 ed. C:2007"/>
          <applicability>
-        ACP 133 has been agreed as the basis for NATO
-        directory standards. It is required that directories supporting
-        allied interoperability are in accordance with ACP133.
-        ACP 133 is based upon X.500(94) for the information model as
-        well as directory access and interconnection protocols. ACP133
-        mandates the use of DAP and LDAP (CCEB Publication 1008)
-      </applicability>
+           The function of this document, Allied Communication Publication (ACP) 133, is to
+           define the Directory services, architecture(s), protocols, schema, policies, and procedures to
+           support Allied communications, including Military Message Handling System (MMHS) services
+           based on ACP 123, in both the strategic and tactical environments. The Directory services are
+           based on the International Telecommunication Union Telecommunication Standardization Sector
+           (ITU-T) X.500 Series of Recommendations and the International Organization for
+           Standardization (ISO) / International Electrotechnical Commission (IEC) 9594. These Directory
+           specifications will be referred to as X.500 in this document. Note that familiarity with X.500 is
+           assumed.
+           <para>The Allied Directory Services defined in this document are based on the X.500
+             Directory recommendations. It is expected that an evolutionary period will be necessary for
+             existing directory services to become ACP 133-compliant. In this sense, ACP 133 is viewed
+             as a “target”. The manner, means, and duration of such evolution are outside the scope of ACP 
+             133.</para>
+           <para>This ACP applies to communication among the Allied Directory domains and within a
+             domain for combined operations. It defines a common Directory schema which shall be
+             supported by all Allies for international and combined operations. It offers support for Internet
+             mail users and transitional support for ACP 127/Joint Army, Navy, Air Force Procedure
+             (JANAP) 128. The Directory has the potential to support different views of directory
+             information such as white pages and yellow pages services.</para>
+           <para>Local interfaces and requirements, such as the specifics of terminal display and local
+             caching, are part of this publication where required to ensure interoperability. ACP 133 includes
+             requirements for which directory information must be displayed to the user, but the format of the
+             display is outside the scope of this document.</para>
+           <para>This third version of ACP 133 defines the services, schema, and protocols required of
+             X.500 Directory System Agents (DSAs) and Directory User Agents (DUAs) to support
+             electronic mail (e-mail), S/MIME, Message Handling System (MHS), MMHS, ACP 127
+             interworking and traditional communications. It also identifies security mechanisms that meet
+             the security requirements for strong authentication, confidentiality, integrity, availability, and
+             privilege/label management. As national systems and products mature, this document will be
+             expanded to include more procedural guidance for managing the directory, support for other
+             applications, and additional guidance for operation of tactical, mobile and deployed directories.
+           </para>
+           <para>In order to maximize the number of products supporting ACP 133, the schema definition
+             has been split into a core schema, to which all products must conform, plus optional schema
+             sections relating to PKI Infrastructures and legacy (ACP 127 / JANAP 128) messaging. In
+             addition, LDAP has been added as an alternative Directory Access Protocol, thus reflecting its
+             almost universal adoption over X.500 DAP for general user access to the Directory. Where
+             possible, to maximize compatibility with existing COTS Directory Products, the ACP 133
+             schema has been redefined to utilize standard attribute syntaxes in preference to proprietary ones
+             used in earlier versions of this document.</para>
+         </applicability>
          <status stage="30.40" mode="unknown">
             <uri>http://www.jcs.mil/j6/cceb/acps/ACP133c_full.pdf</uri>
             <history>
@@ -4997,7 +5038,87 @@ table:
                <event flag="changed" date="2001-11-20" rfcp="" version="0.3"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
                <event flag="changed" date="2008-12-10" rfcp="" version="3.0"/>
-               <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
+               <event flag="changed" date="2010-11-16" rfcp="" version="4.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard tref="ts-rep-eds" id="cceb-acp133supp1" tag="ACP 133 Suppl.1">
+         <document orgid="cceb" pubnum="ACP 133 Suppl.1" date="2009"
+                   title="Common Directory Services and Procedures Supplement, ACP 133 Suppl.-1:2009"/>
+         <applicability>
+           The function of this document, Allied Communication Publication (ACP) 133 
+           (SUPP-1(A)), is to provide the Directory schema definition for ACP 133. In 
+           addition to providing the schema reference for ACP 133, this supplement 
+           provides sufficient technical detail to guide a developer in this schema’s 
+           implementation.
+           <para>This document is comprised mainly of a set of tables defining Attributes,
+             Structure Rules, Object Class Hierarchy, Auxiliary Object Class and Structural 
+             Object Class relationships, and mappings between these Object Classes and 
+             ACP 133 attributes.</para>
+           <para>This document contains references to each Attribute’s source. That is,
+             where the attribute is defined by ITU, RFC, ISO, ACP or other military and 
+             international standards. Implementers should refer to these standards for 
+             technical details not covered in this supplement.</para>
+           <para>This supplement has been intended to capture any further changes to the ACP
+             133 Directory schema, and will be modified as change requests, or extensions, to 
+             the schema are approved.</para>
+         </applicability>
+         <status stage="30.40" mode="unknown">
+            <uri>http://www.jcs.mil/j6/cceb/acps/ACP133suppl1.pdf</uri>
+            <history>
+              <event flag="added" date="2010-11-16" rfcp="4-39" version="4.0"/>
+            </history>
+         </status>
+      </standard>
+      
+      <standard tref="ts-rep-eds" id="cceb-acp133edD" tag="ACP 133 ed.D">
+         <document orgid="cceb" pubnum="ACP 133" date="2009"
+                   title="Common Directory Services and Procedures, ACP 133 ed. D:2009"/>
+         <applicability>
+           The function of this document, Allied Communication Publication (ACP) 133, is 
+           to define the Directory services, architecture(s), protocols, schema, policies, 
+           and procedures to support Allied communications, including Military Message
+           Handling System (MMHS) services based on ACP 123, in both the strategic and 
+           tactical environments. The Directory services are based on the International 
+           Telecommunication Union Telecommunication Standardization Sector (ITU-T) X.500 
+           Series of Recommendations and the International Organization for Standardization 
+           (ISO) / International Electrotechnical Commission (IEC) 9594. These Directory 
+           specifications will be referred to as X.500 in this document. Note that familiarity 
+           with X.500 is assumed.
+           <para>The Allied Directory Services defined in this document are based on the 
+             X.500 Directory recommendations (exact documents and version numbers listed 
+             in References on page REF-1). It is expected that an evolutionary period will
+             be necessary for existing Directory Services to become ACP 133-compliant. In 
+             this sense, ACP 133 is viewed as a “target”. The manner, means, and duration
+             of such evolution are outside the scope of ACP 133.</para>
+           <para>This ACP applies to communication among the Allied Directory domains and
+             within a domain for combined operations. It defines a common Directory schema
+             which shall be supported by all Allies for international and combined operations.
+             It offers support for Internet mail users and transitional support for ACP 127/Joint 
+             Army, Navy, Air Force Procedure (JANAP) 128. The Directory has the potential to 
+             support different views of directory information such as white pages and yellow
+             pages services.</para>
+           <para>Local interfaces and requirements, such as the specifics of terminal display
+             and local caching, are part of this publication where required to ensure interoperability.
+             ACP 133 includes requirements for which directory information must be displayed to
+             the user, but the format of the display is outside the scope of this document.
+           </para>
+           <para>The forth version of ACP 133 defines the services, schema, and protocols
+             required of X.500 Directory System Agents (DSAs) and Directory User Agents (DUAs)
+             to support electronic mail (e-mail), S/MIME, Message Handling System (MHS), MMHS, 
+             ACP 127 interworking and traditional communications. It also identifies security
+             mechanisms that meet the security requirements for strong authentication, confidentiality,
+             integrity, availability, and privilege/label management. As national systems and
+             products mature, this document will be expanded to include more procedural guidance
+             for managing the directory, support for other applications, and additional guidance 
+             for operation of tactical, mobile and deployed directories.</para>
+         </applicability>
+         <status stage="30.40" mode="unknown">
+            <uri>http://www.jcs.mil/j6/cceb/acps/ACP133d_full.pdf</uri>
+            <history>
+               <event flag="added" date="2010-11-16" rfcp="4-39" version="4.0"/>
+               
             </history>
          </status>
       </standard>
