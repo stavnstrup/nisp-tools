@@ -3,7 +3,7 @@
 <!DOCTYPE standards PUBLIC "-//DDRE//DTDStandardDB XML V3.9//EN" "../schema/dtd/stddb39.dtd">
 
 
-<standards revision="4.6">
+<standards revision="4.8">
 
 <!-- 
 
@@ -599,7 +599,9 @@ table:
           <sp-view idx="d0e8720">
             <ncoe>Data Mgmt</ncoe>
             <select id="bp-asterix" mode="emerging">ASTERIX, ed.1 (ADatP-35:2010)</select>
-            <remarks>This profile is based on ADatP-35 and a corresponding series of EUROCONTROL specifications</remarks>
+            <remarks>This profile is based on ADatP-35 and a corresponding series of EUROCONTROL specifications
+              <para>For CCEB interoperability this profile is only applicable for NATO lead operations.</para>
+            </remarks>
          </sp-view>
          <sp-view idx="d0e8724">
             <ncoe>Data Mgmt</ncoe>
@@ -769,7 +771,7 @@ table:
          <sp-view idx="d0e9066">
             <ncoe>Data Interchange</ncoe>
             <select id="nato-stanag5000ed3" mode="mandatory">TDF (STANAG 5000 ed.3:2006)</select>
-            <remarks>For CCEB interoperability a SCIP device is mandatory</remarks>
+            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
             <rationale>STANAG 5000 ed.2 changed in NCSP v.6. For CCEB interoperability a 
               SCIP device is mandatory</rationale>
          </sp-view>
@@ -943,6 +945,14 @@ table:
             </remarks>
             <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
          </sp-view>
+         <sp-view idx="d0e10108" category="a">
+           <ncoe>Data Interchange</ncoe>
+           <select id="nato-stanag3675ed2" mode="fading">Symbols on Land Maps, Aeronautical
+             Charts and special Naval Charts (STANAG 3675 ed.2:2000)
+           </select>
+           <remarks>For CCEB interoperability this standard is applicable and fading.</remarks>
+           <rationale>STANAG 3675 moved to fading in NISP v.4 through RFCP 4-8</rationale>
+         </sp-view>
          <sp-view idx="d0e10113">
             <ncoe>Data Interchange</ncoe>
             <select id="iho-s-100" mode="mandatory">IHO S-100, 2000</select>
@@ -1053,6 +1063,7 @@ table:
          <sp-view idx="d0e10398">
             <ncoe>Data Interchange</ncoe>
             <select id="omg-c4i2008-08-13" mode="emerging">Unified Profile for DoDAF and MODAF (UPDM v.2):2008 (OMG)</select>
+            <remarks>For CCEB interoperability this standard is not applicable.</remarks>
          </sp-view>
          <sp-view idx="d0e10512">
             <ncoe>Internationalisation</ncoe>
@@ -2542,21 +2553,21 @@ table:
          <sp-view idx="d0e5257">
             <ncoe>Security</ncoe>
             <select id="iicwg-scip-210" mode="emerging">SCIP Signalling Plan, SCIP-210 rev.3:2006 (IICWG)(</select>
-            <remarks>For CCEB interoperability this standard is mandatory</remarks>
+            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
             <rationale>SCIP included in NISP in v.5 through RFCP 4-3. For CCEB interoperability  
              this standard is mandatory.</rationale>
          </sp-view>
          <sp-view idx="d0e5258">
             <ncoe>Security</ncoe>
             <select id="iicwg-scip-214" mode="emerging">Minimum Requuirements for SCIP, SCIP-214 rev.1.1:2010 (IICWG)(</select>
-            <remarks>For CCEB interoperability this standard is mandatory</remarks>
+            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
             <rationale>SCIP included in NISP in v.5 through RFCP 4-3. For CCEB interoperability 
               this standard is mandatory</rationale>
          </sp-view>
          <sp-view idx="d0e5259">
             <ncoe>Security</ncoe>
             <select id="iicwg-scip-231" mode="emerging">Cryptography Specification for SCIP, SCIP-231 rev.1.1:2007 (IICWG)(</select>
-            <remarks>For CCEB interoperability this standard is mandatory</remarks>
+            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
             <rationale>SCIP included in NISP in v.5 through RFCP 4-3. For CCEB interoperability 
               this standard is mandatory</rationale>
          </sp-view>
@@ -2587,6 +2598,7 @@ table:
                 components together with SHA-384 and 512. End entities can still utilize
                 AES 128 together with SHA-256.
               </para>
+              <para>For CCEB interoperability AES 128 is emerging.</para>
            </remarks>
            <rationale>AES added through RFCP 6-1.</rationale>
          </sp-view>
@@ -2793,10 +2805,9 @@ table:
          <sp-view idx="d0e5931">
             <ncoe>Comms</ncoe>
             <select id="cceb-acp145" mode="emerging">ACP 145(A) - Interim Implementation Guide for ACP 123/STANAG 4406 Messaging Services Between Nations - dated September 2008</select>
-            <remarks>
-          Provides gateway between ACP 123A messaging services.<para/>
-          For CCEB interoperability this standard is mandatory
-        </remarks>
+            <remarks>Provides gateway between ACP 123A messaging services.
+              <para>For CCEB interoperability this standard is mandatory.</para>
+            </remarks>
             <rationale>Included in v.5 through RFCP 4-7</rationale>
          </sp-view>
       </sp-list>
@@ -3767,7 +3778,13 @@ table:
             <select id="iso-10303-239" mode="emerging">PLCS, ISO 10303-239:2005</select>
          </sp-view>
          <sp-view idx="d0e11923">
-            <select id="asd-s1000d-i9005-01000-00" mode="emerging">S1000D issue 4:2008, ASD</select>
+            <select id="asd-s1000d-i9005-01000-00" mode="emerging">S1000D issue 4:2008, ASD-AIA-ATA</select>
+            <rationale>The specification was initially developed by the AeroSpace and Defence Industries 
+              Association of Europe (ASD). Issue 4 has been jointly produced by ASD, the Aerospace Industries
+              Association of America (AIA), and the Air Transport Assosiation of America (ATA) together with 
+              their customers. These form the S1000D Council and the S1000D Steering Committee to establish
+              standards for documentation agreed by the participating parties.  The S1000D™ suite of information
+              is the intellectual property of and is owned by ASD, AIA and ATA.</rationale>
          </sp-view>
          <sp-view idx="d0e11926">
             <select id="nato-c-m2005-0108" mode="mandatory">NATO Policy for Systems Life Cycle Mgmt (SLCM), C-M(2005)0108</select>
@@ -5031,7 +5048,7 @@ table:
              used in earlier versions of this document.</para>
          </applicability>
          <status stage="30.40" mode="unknown">
-            <uri>http://www.jcs.mil/j6/cceb/acps/ACP133c_full.pdf</uri>
+            <uri>http://www.jcs.dtic.mil/j6/cceb/acps/ACP133/</uri>
             <history>
                <event flag="added" date="1999-02-02" version="0.1"/>
                <event flag="changed" date="2000-03-14" rfcp="" version="0.2"/>
@@ -5065,7 +5082,7 @@ table:
              the schema are approved.</para>
          </applicability>
          <status stage="30.40" mode="unknown">
-            <uri>http://www.jcs.mil/j6/cceb/acps/ACP133suppl1.pdf</uri>
+            <uri>http://www.jcs.dtic.mil/j6/cceb/acps/ACP133/</uri>
             <history>
               <event flag="added" date="2010-11-16" rfcp="4-39" version="4.0"/>
             </history>
@@ -5115,7 +5132,7 @@ table:
              for operation of tactical, mobile and deployed directories.</para>
          </applicability>
          <status stage="30.40" mode="unknown">
-            <uri>http://www.jcs.mil/j6/cceb/acps/ACP133d_full.pdf</uri>
+            <uri>http://www.jcs.dtic.mil/j6/cceb/acps/ACP133/</uri>
             <history>
                <event flag="added" date="2010-11-16" rfcp="4-39" version="4.0"/>
                
