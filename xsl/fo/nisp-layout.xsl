@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="exsl">
 
-<!-- This stylesheet was created by template/titlepage.xsl; do not edit it by hand. -->
+<!-- This stylesheet was created by template/titlepage.xsl-->
 
 <xsl:template name="book.titlepage.recto">
   <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="bookinfo/productname"/>
@@ -53,7 +53,7 @@
 </xsl:template>
 
 <xsl:template name="book.titlepage">
-  <fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format">
+  <fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" font-family="{$title.fontset}">
     <xsl:variable name="recto.content">
       <xsl:call-template name="book.titlepage.before.recto"/>
       <xsl:call-template name="book.titlepage.recto"/>
@@ -266,7 +266,7 @@
 </xsl:template>
 
 <xsl:template match="title" mode="chapter.titlepage.recto.auto.mode">
-<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="chapter.titlepage.recto.style" font-size="16pt" font-weight="bold" font-family="{$title.font.family}" space-before="10mm" text-transform="uppercase" text-decoration="underline" text-align="center">
+<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="chapter.titlepage.recto.style" font-size="16pt" font-weight="bold" font-family="{$title.fontset}" space-before="10mm" text-transform="uppercase" text-decoration="underline" text-align="center">
 <xsl:call-template name="component.title">
 <xsl:with-param name="node" select="ancestor-or-self::chapter[1]"/>
 </xsl:call-template>
