@@ -34,7 +34,7 @@
     <body>
       <h1>NISP information</h1>
       <p>According to the <strong>documents.xml</strong> file, the NATO
-      Interoperability Standards and Profiles (NISP) consists of 6
+      Interoperability Standards and Profiles (NISP) consists of <xsl:value-of select="count(.//docinfo)"/>
       documents.</p>
       <xsl:apply-templates select="$alldocs//docinfo"/>
     </body>
