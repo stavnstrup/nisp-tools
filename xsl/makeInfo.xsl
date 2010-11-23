@@ -126,7 +126,7 @@
     </tr>
     <tr>
       <th>Subtitle</th><td><xsl:value-of select="$thisdoc/book/bookinfo/subtitle"/>
-      <xsl:if test="$thisdoc/book/bookinfo/subtitle != titles/short">
+      <xsl:if test="$thisdoc/book/bookinfo/subtitle != titles/longtitle">
         <xsl:text> - </xsl:text><span class="warning">N.B different from long title in documents.xml</span>
       </xsl:if></td>
     </tr>
