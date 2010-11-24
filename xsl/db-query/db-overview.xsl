@@ -21,7 +21,10 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
                 exclude-result-prefixes="#default saxon">
   
 
+<!--
 <xsl:output method="html" encoding="ISO-8859-1" indent="yes"/>
+-->
+<xsl:output method="xml" indent="no" saxon:next-in-chain="p2-overview.xsl"/>
 
 
 <!-- If this param is set to one, only one headline is generated.
@@ -151,7 +154,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:apply-templates select="servicearea"/>
 -->
 
-  <table border="1">
+  <table class="overview" border="1">
     <xsl:call-template name="htmlheader"/>
     <xsl:apply-templates select="records/standard">
       <xsl:sort select="@id" order="ascending"/>
@@ -161,7 +164,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <h2>Profiles</h2>
   
   
-  <table border="1">
+  <table class="overview" border="1">
     <xsl:call-template name="htmlheader"/>
     <xsl:apply-templates select="//profile">
       <xsl:sort select="@id" order="ascending"/>
@@ -175,6 +178,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template name="htmlheader">
   <tr class="head">
+    <td><b>Rec</b></td>
     <td><b>ID</b></td>
     <td><b>Type</b></td>
     <td><b>Org</b></td>
@@ -275,6 +279,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:if test=".//event[@flag = 'deleted']">
       <xsl:attribute name="class">deleted</xsl:attribute>
     </xsl:if>
+
 <!--
     <td align="right"><xsl:number from="records" count="standard" format="1" level="any"/></td>
 -->
