@@ -163,6 +163,7 @@
   <div class="figure">
     <img>
      <xsl:attribute name="src">
+       <xsl:text>../figures/</xsl:text>
        <xsl:value-of select="./mediaobject[1]/imageobject/imagedata/@fileref"/>
      </xsl:attribute>
     </img>

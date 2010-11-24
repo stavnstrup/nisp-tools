@@ -263,7 +263,7 @@ $Id$
     <mkdir dir="${build.resolve}"/>
 
     <mkdir dir="${build.fo}"/>
-    <mkdir dir="${build.dir}/db-stat"/>
+    <mkdir dir="${build.dir}/debug/"/>
 
     <copy todir="${build.dir}/style" 
       preservelastmodified="yes">
@@ -461,16 +461,6 @@ $Id$
   <!-- Utility function                                                    -->
   <!-- =================================================================== -->
   
-  <target name="info" description="* Show infomation about all document"
-          depends="resolve, svg">
-    <echo message="Building infofile in build/figures/index.html"/>
-    <java classname="${xslt.class}" fork="yes">
-       <arg line="${xslt.opts} -o ${build.dir}/figures/index.html
-                  ${basedir}/src/documents.xml
-                  ${basedir}/xsl/makeInfo.xsl nisp.image.ext=${nisp.image.ext}"/>
-       <classpath refid="lib-saxon-classpath"/>
-    </java>
-  </target>
 
 
   <!-- =================================================================== -->
@@ -566,20 +556,17 @@ $Id$
 
 
   <!-- =================================================================== -->
-  <!-- Create DB Reports                                                   -->
+  <!-- Create Debugging Reports                                            -->
   <!-- =================================================================== -->
 
-  <target name="db-all" description="* Create misc. database reports"
-          depends="db-overview, db-family, db-dates">
-<!--
-          depends="db-overview, db-duplex, db-dates, db-ncsp">
--->
+  <target name="debug" description="* [DEBUG] Create misc. debugging reports"
+          depends="init, db-overview, db-family, db-dates, db-figures">
   </target>
 
 
-  <target name="db-overview" description="* Create DB Overview">
+  <target name="db-overview" description="* [DEBUG] Create DB Overview">
     <java classname="${xslt.class}" fork="yes"
-          dir="${build.dir}/db-stat/">
+          dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o overview.html
                  ${basedir}/src/standards/standards.xml
                  ${xsl-dbquery.dir}/db-overview.xsl"/>
@@ -588,9 +575,9 @@ $Id$
   </target>
 
 
-  <target name="db-family" description="* Create DB parent/child relationship list">
+  <target name="db-family" description="* [DEBUG] Create DB parent/child relationship list">
     <java classname="${xslt.class}" fork="yes"
-          dir="${build.dir}/db-stat/">
+          dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o family.html 
                  ${basedir}/src/standards/standards.xml
                  ${xsl-dbquery.dir}/db-family.xsl"/>
@@ -609,9 +596,9 @@ $Id$
   </target>
 -->
 
-  <target name="db-dates" description="* Create DB Dated list">
+  <target name="db-dates" description="* [DEBUG] Create DB Dated list">
     <java classname="${xslt.class}" fork="yes"
-          dir="${build.dir}/db-stat/">
+          dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o dates.html
                  ${basedir}/src/standards/standards.xml
                  ${xsl-dbquery.dir}/db-dates.xsl"/>
@@ -630,6 +617,18 @@ $Id$
     </java>
   </target>
 -->
+
+  <target name="db-figures" description="* [DEBUG] Show infomation about all document"
+          depends="resolve, svg">
+    <echo message="Building infofile in debug/figures.html"/>
+    <java classname="${xslt.class}" fork="yes">
+       <arg line="${xslt.opts} -o ${build.dir}/debug/figures.html
+                  ${basedir}/src/documents.xml
+                  ${basedir}/xsl/makeInfo.xsl nisp.image.ext=${nisp.image.ext}"/>
+       <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
 
   <!-- =================================================================== -->
   <!-- Create documentation                                                -->
@@ -747,7 +746,7 @@ $Id$
                             **/rtf/**,
                             **/figures/*.svg,
 			    **/.svn,
-                            **/db-stat/**"/>
+                            **/debug/**"/>
 
     </zip>
   </target>
