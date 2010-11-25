@@ -899,6 +899,7 @@
           </xsl:attribute>
           <xsl:attribute name="format"><xsl:text>application/pdf</xsl:text></xsl:attribute>
           <xsl:attribute name="messagelevel"><xsl:text>${fop.message}</xsl:text></xsl:attribute>
+          <xsl:attribute name="userconfig"><xsl:text>${basedir}/lib/fop.xconf</xsl:text></xsl:attribute>
         </fop>
       </xsl:otherwise>
     </xsl:choose>
