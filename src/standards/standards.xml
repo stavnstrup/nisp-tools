@@ -3,64 +3,34 @@
 <!DOCTYPE standards PUBLIC "-//DDRE//DTDStandardDB XML V3.9//EN" "../schema/dtd/stddb39.dtd">
 
 
-<standards revision="4.8">
+<standards revision="4.9">
 
-<!-- 
-
-The stage attribute of the status element defines the current 
-implementation stage of a given standard/profile in the NC3TA
-standardization process.  Stage is defined as stage="X.Y", where X.Y
-is the current stage of a standard/profile as defined in the following
-table: 
-
+  <revhistory>
+    <revision>
+      <revnumber>4.9</revnumber>
+      <date>25 November 2010</date>
+      <revdescription>
+        <itemizedlist>
+          <listitem>
+            <para>Added to Volume 3 midterm emerging standard "OMG Systems Modeling Language(OMG SysML) Version 1.1, November 2008"</para>
+          </listitem>
+          <listitem>
+            <para>Added to Volume 3 midterm emerging standard "VDSL2"</para>
+          </listitem>
+          <listitem>
+            <para>Added to Volume 3 midterm emerging standard "Common Biometric Exchange Formats Framework (CBEFF)"</para>
+          </listitem>
+          <listitem>
+            <para>Several updates of organisation from "itu-t" to "itu"</para>
+          </listitem>
+          <listitem>
+            <para>Several corrections of erroneous change dates "2020" to "2010"</para>
+          </listitem>
+        </itemizedlist>
+      </revdescription>
+    </revision>
+  </revhistory>
  
- |====================================================================================|
- |             | Proposal                                      | Approval             |
- |=============|===============================================|======================|
- | 10          | 10.10                                         | 10.40                |
- | Preparatory | Approved by the NOSWG for inclusion in Vol3   | Approved by the ISSC |
- |             |                                               | on behalf of the     |
- |             |                                               | NC3Board for inclu-  |
- |             |                                               | sion in Vol 3        |
- |=============|===============================================|======================|
- | 20          | 20.10                                         | 20.40                |
- | Emerging    | Recommended by the NOSWG as Emerging standard | Approved by the ISSC |
- |             |                                               | on behalf of the     |
- |             |                                               | NC3Board as Emerging |
- |             |                                               | standard             |
- |=============|===============================================|======================|
- | 30          | 30.10                                         | 30.40                |
- | Mandatory   | Approved by the ISSC on behalf of the NC3Board| Approved by the ISSC |
- |             | as Emerging standard.                         | on behalf of the     |
- |             | Recommended by the NOSWG as Mandatory standard| NC3Board as Mandatory|
- |             |                                               | standard             |
- |=============|===============================================|======================|
- | 40          | 40.10                                         | 40.40                |
- | Extended    | Approved by the ISSC on behalf of the NC3Board| Approved by the ISSC |
- |             | as Mandatory standard                         | on behalf of the     |
- |             | Recommended by the NOSWG to be replaced by a  | NC3Board to be       |
- |             | new (version of the) standard, however it may | replaced by a new    |
- |             | be necessary that the current standard is     | (version of the)     |
- |             | required                                      | standard, however it | 
- |             |                                               | may be necessary that|
- |             |                                               | the current standard |
- |             |                                               | is required          |
- |=============|===============================================|======================|
- | 50          | 50.10         | 50.20         | 50.30         | 50.40                |
- | Withdrawal  | Approved by   | Approved by   | Approved by   | Recommended by the   |
- |             | the ISSC on   | the ISSC on   | the ISSC on   | ISSC  on behalf of   |
- |             | behalf of the | behalf of the | behalf of the | the NC3Board to be   |
- |             | NC3Board      | NC3Board      | NC3Board      | removed as either    |
- |             | as Emerging   | as Mandatory  | as Extended   | Emerging, Mandatory  |
- |             | standard      | standard      | standard      | or Extended standard |
- |             | Recommended by| Recommended by| Recommended by|                      |
- |             | the NOSWG to  | the NOSWG to  | the NOSWG to  |                      |
- |             | be removed as | be removed as | be removed as |                      |
- |             | Emerging      | Mandatory     | Extended      |                      |
- |             | standard      | standard      | standard      |                      |
- |====================================================================================|
-
--->
   <taxonomy>
 
   <!--
@@ -2111,8 +2081,8 @@ table:
         </select>
          </sp-view>
          <sp-view>
-            <select id="itu-g.993.2" mode="midterm">VDSL2</select>
             <ncoe>Comms</ncoe>
+            <select id="itu-g.993.2" mode="midterm">VDSL2</select>
             <remarks>VDSL2 is the next generation of Super Broadband
             DSL. Ericsson has demonstrated 500-Mbits/s transmission
             rates over copper cabling by using new crosstalk
@@ -4645,7 +4615,7 @@ table:
       </standard>
 
       <standard id="ansi-incits-398" tag="CBEFF">
-        <document org="ansi" pubnum="incits-398" date="2008-01-23"
+        <document orgid="ansi" pubnum="incits-398" date="2008-01-23"
                   title="Common Biometric Exchange Formats Framework (CBEFF)"/>
         <applicability/>
          <status stage="30.40" mode="unknown">
