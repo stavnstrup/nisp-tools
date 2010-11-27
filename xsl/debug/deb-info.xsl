@@ -4,16 +4,13 @@
                 version='1.1'
                 exclude-result-prefixes="#default">
 
-<xsl:import href="common/common.xsl"/>
+<xsl:import href="../common/common.xsl"/>
 
 <xsl:output method="xml" indent="yes"/>
-<!-- omit-xml-declaration="yes"/> -->
-
 
 <xsl:param name="nisp.image.ext" select="''"/>
 
-<xsl:variable name="alldocs" select="document('../src/documents.xml')"/>
-
+<xsl:variable name="alldocs" select="document('../../src/documents.xml')"/>
 
 <xsl:template match="documents">
   <html>
@@ -90,7 +87,7 @@
   <!-- something about targets -->
 
   <xsl:variable name="doclocation">
-    <xsl:text>../build.src/</xsl:text>
+    <xsl:text>../../build.src/</xsl:text>
     <xsl:value-of select="substring-before(main,'.')"/>
     <xsl:text>-resolved.xml</xsl:text>
   </xsl:variable>
@@ -161,28 +158,28 @@
 
 <xsl:template match="figure">
   <div class="figure">
+    <xsl:variable name="svgbasename">
+       <xsl:value-of select="substring-before(substring-after(mediaobject/imageobject[1]/imagedata/@fileref, '../figures/'),'.')"/>
+    </xsl:variable>
+
     <img>
-     <xsl:attribute name="src">
-       <xsl:text>../figures/</xsl:text>
-       <xsl:value-of select="./mediaobject[1]/imageobject/imagedata/@fileref"/>
-     </xsl:attribute>
+      <xsl:attribute name="src">
+        <xsl:text>../../build/figures/</xsl:text>
+        <xsl:value-of select="$svgbasename"/>
+        <xsl:text>.</xsl:text>
+        <xsl:value-of select="$nisp.image.ext"/>
+      </xsl:attribute>
     </img>
     <p><strong>Title</strong>: <xsl:value-of select="./title"/></p>
 
-    <xsl:variable name="svgname">
-      <xsl:value-of select="substring-after(substring-before(./mediaobject[1]/imageobject/imagedata/@fileref, concat('.', $nisp.image.ext)),'../figures/')"/>
-      <xsl:text>.svg</xsl:text>
-    </xsl:variable>
-
-
-    <p><strong>Filename</strong>: <xsl:value-of select="$svgname"/></p>
+    <p><strong>Filename</strong>: <xsl:value-of select="$svgbasename"/>.svg</p>
 
     <p>The source SVG file contains the following data:</p>
     
-
     <xsl:variable name="svglocation">
-      <xsl:text>../build/figures/</xsl:text>
-      <xsl:value-of select="$svgname"/>
+      <xsl:text>../../build/figures/</xsl:text>
+      <xsl:value-of select="$svgbasename"/>
+      <xsl:text>.svg</xsl:text>
     </xsl:variable>
 
     <xsl:variable name="svg" select="document($svglocation)"/>
@@ -203,7 +200,6 @@
     </table>
   </div>
 </xsl:template>
-
 
 
 </xsl:stylesheet>

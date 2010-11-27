@@ -560,73 +560,65 @@ $Id$
   <!-- =================================================================== -->
 
   <target name="debug" description="* [DEBUG] Create misc. debugging reports"
-          depends="init, db-overview, db-family, db-dates, db-figures">
+          depends="init, deb-overview, deb-family, deb-dates, deb-info, 
+                  deb-figures">
   </target>
 
 
-  <target name="db-overview" description="* [DEBUG] Create DB Overview">
+  <target name="deb-overview" description="* [DEBUG] Create DB Overview">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o overview.html
                  ${basedir}/src/standards/standards.xml
-                 ${xsl-dbquery.dir}/db-overview.xsl"/>
+                 ${xsl-debug.dir}/deb-overview.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
 
 
-  <target name="db-family" description="* [DEBUG] Create DB parent/child relationship list">
+  <target name="deb-family" description="* [DEBUG] Create DB parent/child relationship list">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o family.html 
                  ${basedir}/src/standards/standards.xml
-                 ${xsl-dbquery.dir}/db-family.xsl"/>
+                 ${xsl-debug.dir}/deb-family.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
-<!--
-  <target name="db-duplex" description="* Create DB Duplex list">
-    <java classname="${xslt.class}" fork="yes"
-          dir="${build.dir}/db-stat/">
-      <arg line="${xslt.opts} -o duplex.html 
-                 ${basedir}/src/standards/standards.xml
-                 ${xsl-dbquery.dir}/db-duplex.xsl"/>
-      <classpath refid="lib-saxon-classpath"/>
-    </java>
-  </target>
--->
 
-  <target name="db-dates" description="* [DEBUG] Create DB Dated list">
+  <target name="deb-dates" description="* [DEBUG] Create DB Dated list">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o dates.html
                  ${basedir}/src/standards/standards.xml
-                 ${xsl-dbquery.dir}/db-dates.xsl"/>
+                 ${xsl-debug.dir}/deb-dates.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
 
-<!--
-  <target name="db-ncsp" description="* Create NCSP Stat">
-    <java classname="${xslt.class}" fork="yes"
-          dir="${build.dir}/db-stat/">
-      <arg line="${xslt.opts} -o ncsp.html
-                 ${basedir}/src/standards/standards.xml
-                 ${xsl-dbquery.dir}/db-ncsp.xsl"/>
-      <classpath refid="lib-saxon-classpath"/>
-    </java>
-  </target>
--->
-
-  <target name="db-figures" description="* [DEBUG] Show infomation about all document"
+  <target name="deb-info" description="* [DEBUG] Show infomation about all documents"
           depends="resolve, svg">
-    <echo message="Building infofile in debug/figures.html"/>
+    <echo message="Building infofile in debug/info.html"/>
     <java classname="${xslt.class}" fork="yes">
-       <arg line="${xslt.opts} -o ${build.dir}/debug/figures.html
+       <arg line="${xslt.opts} -o ${build.dir}/debug/info.html
                   ${basedir}/src/documents.xml
-                  ${basedir}/xsl/makeInfo.xsl nisp.image.ext=${nisp.image.ext}"/>
+                  ${xsl-debug.dir}/deb-info.xsl nisp.image.ext=${nisp.image.ext}"/>
        <classpath refid="lib-saxon-classpath"/>
     </java>
+  </target>
+
+  <target name="deb-figures" description="* [DEBUG] Show all figures"
+          depends="resolve">
+    <echo message="Building all figures in debug/figures.pdf"/>
+    <java classname="${xslt.class}" fork="yes">
+       <arg line="${xslt.opts} -o ${build.dir}/debug/figures.fo
+                  ${basedir}/src/documents.xml
+                  ${xsl-debug.dir}/deb-figures.xsl nisp.image.ext=${nisp.image.ext}"/>
+       <classpath refid="lib-saxon-classpath"/>
+    </java>
+    <fop basedir="${build.dir}/debug" fofile="${build.dir}/debug/figures.fo" outfile="${build.dir}/debug/figures.pdf" format="application/pdf" userconfig="${basedir}/lib/fop.xconf"/>
+    <delete file="${build.dir}/debug/figures.fo"/>
+
   </target>
 
 
