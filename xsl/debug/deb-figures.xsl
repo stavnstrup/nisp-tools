@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns:saxon="http://icl.com/saxon"
+                xmlns:date="http://exslt.org/dates-and-times"
                 version='1.1'
                 exclude-result-prefixes="#default svg saxon">
 
@@ -23,9 +24,22 @@
 
 
 <xsl:template match="documents">
+  <xsl:variable name="date">
+    <xsl:value-of select="date:date-time()"/>
+  </xsl:variable>
+
   <article>
-     <title>All NISP figures</title>
-      <xsl:apply-templates select="$alldocs//docinfo"/>
+    <title>All NISP figures</title>
+    <subtitle>
+      <xsl:value-of select="date:month-abbreviation($date)"/>
+      <xsl:text> </xsl:text>
+      <xsl:value-of select="date:day-in-month()"/>
+      <xsl:text>, </xsl:text>
+      <xsl:value-of select="date:year()"/>
+      <xsl:text> - </xsl:text>
+      <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
+    </subtitle>
+    <xsl:apply-templates select="$alldocs//docinfo"/>
   </article>
 </xsl:template>
 
