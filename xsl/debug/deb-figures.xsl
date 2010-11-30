@@ -73,7 +73,12 @@
   </xsl:variable>
 
   <figure float="0">
-    <title><xsl:value-of select="./title"/></title>
+    <title>
+      <xsl:value-of select="./title"/>
+      <xsl:text> (</xsl:text>
+      <xsl:value-of select="$svgbasename"/>
+      <xsl:text>.svg)</xsl:text>
+    </title>
     <mediaobject>
       <imageobject>
         <imagedata scalefit="1" width="100%" contentdepth="100%">
