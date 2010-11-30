@@ -10,1505 +10,1825 @@
 <!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
 ]>
 <appendix id="v4-c">
-    <title>Enterprise Service Bus (ESB) Profile in the Service Oriented
-    Architecture (SOA) context</title>
+    <title>Tactical ESB (Tact ESB) Profile</title>
 
   <sect1>
     <title>Introduction</title>
 
-    <para>The aim of the document is to give at first an overview about Web
-    Service Fundamentals with the focus to define after this a layer model for
-    a common Enterprise Service Bus (ESB). Furthermore a draft proposal of an
-    Enterprise Service Bus (ESB) / Enterprise Message System (EMS) Profile is
-    defined based on this common ESB / EMS layer model.</para>
+    <para>The aim of this chapter is to describe a profile for a tactical Enterprise 
+    Service Bus (tact ESB) to be used in a coalition, highly mobile and disturbed 
+    environment. The profile focuses specifically on requirements from military 
+    usage and goes beyond the ESB specification, available in civil 
+    implementations/products.</para>
 
-    <para>At the end the document contains some hints related of the usage of
-    an ESB in the military environment with a look-out on a federated ESB
-    architecture.</para>
+    <para>The profile is a generic specification; following the principle construction 
+    elements, it allows for na-tional implementations a derivation from the proposed 
+    one, not losing the interoperability aspects.</para>
+
+    <sect2>
+      <title>General Context</title>
+      
+      <para>Within NATO, interoperability is defined as, the ability to act together 
+      coherently, effectively and efficiently to achieve Allied tactical, operational 
+      and strategic objectives. In the context of the information exchange, interoperability
+      means that a system, unit or forces of any service, nation can transmit data 
+      to and receive data from any other system, unit or forces of any service or 
+      nation, and use the exchanged data to operate effectively together. This tactical
+      ESB Interoperability Profile places the required tactical interoperability 
+      requirements, standards and specifications, to include the related reference
+      architecture elements, in context for those nations/organizations providing 
+      for or participating in the tactical capability development. Use of this
+      interoperability profile aims to help NATO, the Nations and non-NATO actors
+      achieve cost-effective solutions to common tactical requirements by leveraging 
+      significant tactical investments across the tactical community of interest.
+      </para>
+      
+      <para>This profile uses the terms “Service Interoperability Profile (SIP)” 
+      and “Service Interoperability Point (SIOP)” as defined in EAPC
+      (AC/322)D(2006)0002-REV1.</para>
+    </sect2>
+    
+    <sect2>
+      <title>Aim</title>
+      
+      <para>The aim of the tact ESB Interoperability Profile is to facilitate increased
+      tactical interoperability through enhanced federated sharing of tactical data
+      and information.</para>
+    </sect2>
+    
+    <sect2>
+      <title>Relevance</title>
+      
+      <para>The need for a profile is driven by the complexity of a federated battlefield. 
+      There are an ever-growing number of interrelated specifications, standards, 
+      and systems all at different stages of development and adoption, and often with 
+      conflicting requirements. The profile provides a ge-neric ESB specification 
+      which allows different nations/organizations in a federated environment to 
+      exchange data/information under harmonized security policies across national/organizational 
+      boundaries and to provide and use services to/from partners.</para>
+    </sect2>
+    
+    <sect2>
+      <title>Assumptions</title>
+      
+      <para>The following ten assumptions were made as part of the overall context 
+      for developing this pro-file:
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>The tact ESB Interoperability includes the ability to share 
+            information throughout the entire federated battlefield consistent with 
+            stakeholder information needs and stakeholder willingness to share 
+            information.</para></listitem>
+          <listitem><para>Tact ESB enables the NATO Network Enabled Capability (NNEC); 
+            the primary enabler of Information Superiority is NNEC in an tactical 
+            environment.</para></listitem>
+          <listitem><para>The tact ESB capabilities are developed along the lines 
+            of a service-oriented architecture (SOA) approach within a federated 
+            environment.</para></listitem>
+          <listitem><para>Tact ESB in support of NATO operations will be developed
+            in conformity with the relevant international norms and international 
+            law.</para></listitem>
+          <listitem><para>Promotion of an agreed set of common standards will be 
+            required in many areas for the effective and efficient transfer of the 
+            tact ESB data and information from and to participating nations and 
+            organizations.</para></listitem>
+          <listitem><para>A key principle for tact ESB interoperability and its 
+            underlying broad information sharing is Information Assurance. Information 
+            shall be managed with an emphasis on the “responsibility-to-share” 
+            balanced with security requirements.</para></listitem>
+          <listitem><para>Current assets (standards, frameworks, documents, systems, 
+            and services) will be used to the largest extent possible.</para></listitem>
+        </orderedlist>
+      </para>
+    </sect2>
   </sect1>
-
+  
   <sect1>
-    <title>References</title>
-    <itemizedlist>
-      <listitem>
-        <para>[1] Open Group SOA Definition</para>
-
-        <para>http://opengroup.org/projects/soa/doc.tpl?gdid=10632</para>
-      </listitem>
-
-      <listitem>
-        <para>[2] OASIS SOA Reference Model</para>
-
-        <para>http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=soa-rm</para>
-      </listitem>
-
-      <listitem>
-        <para>[3] OASIS: UDDI Version 3.0.2</para>
-
-        <para>(UDDI Spec Technical Committee Draft, Dated 20041019)</para>
-
-        <para>http://uddi.org/pubs/uddi_v3.htm</para>
-      </listitem>
-
-      <listitem>
-        <para>[4] W3C: Web Services Description Language (WSDL)</para>
-
-        <para>Version 2.0 Part 1: Core Language</para>
-
-        <para>http://www.w3.org/TR/wsdl</para>
-      </listitem>
-
-      <listitem>
-        <para>[5] W3C: SOAP Version 1.2</para>
-
-        <para>W3C Recommendation (Second Edition) 27 April 2007</para>
-
-        <para>http://www.w3.org/TR/soap/</para>
-      </listitem>
-
-      <listitem>
-        <para>[6] W3C: XML Encryption Syntax and Processing</para>
-
-        <para>W3C Recommendation 10 December 2002</para>
-
-        <para>http://www.w3.org/TR/xmlenc-core/</para>
-      </listitem>
-
-      <listitem>
-        <para>[7] W3C: XML Signature Syntax and Processing</para>
-
-        <para>W3C Recommendation 10 June 2008</para>
-
-        <para>http://www.w3.org/TR/xmldsig-core/</para>
-      </listitem>
-
-      <listitem>
-        <para>[8] W3C: XML Key Management Specification (XKMS)</para>
-
-        <para>http://www.w3.org/TR/xkms/</para>
-      </listitem>
-
-      <listitem>
-        <para>[9] OASI: SAML specs and outreach info page</para>
-
-        <para>http://www.oasis-open.org/committees/security</para>
-      </listitem>
-
-      <listitem>
-        <para>[10] Security Assertion Markup Language</para>
-
-        <para>(SAML) V2.0 Technical Overview</para>
-
-        <para>http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.pdf</para>
-      </listitem>
-
-      <listitem>
-        <para>[11] eXtensible Access Control Markup Language (XACML) Version
-        3.0</para>
-
-        <para>Policy Distribution Protocol Use-cases and Requirements</para>
-
-        <para>http://docs.oasis-open.org/xacml/access_control-xacml-3.0-distribution-requirements-wd-01.pdf</para>
-      </listitem>
-
-      <listitem>
-        <para>[12] Basic Profile Version 1.0 (Final Material Date: 2004/04/16
-        19:06:16)</para>
-
-        <para>http://www.ws-i.org/Profiles/BasicProfile-1.0-2004-04-16.html</para>
-      </listitem>
-
-      <listitem>
-        <para>[13] Basic Profile Version 1.1 (Final Material
-        2004-08-24)</para>
-
-        <para>http://www.ws-i.org/Profiles/BasicProfile-1.1-2004-08-24.html</para>
-      </listitem>
-
-      <listitem>
-        <para>[14] Simple SOAP Binding Profile Version 1.0 (Final Material
-        2004-08-24)</para>
-
-        <para>http://www.ws-i.org/Profiles/SimpleSoapBindingProfile-1.0.html</para>
-      </listitem>
-    </itemizedlist>
-  </sect1>
-
-  <sect1>
-    <title>Web Service Fundamentals</title>
-
-    <para>This chapter gives an overview about the Web Service Fundamentals
-    and about some Definitions.</para>
-
-    <sect2>
-      <title>SOA: Service Oriented Architecture</title>
-
-      <para>Service-oriented architecture (SOA) is a software architecture
-      where functionality is grouped around business processes and packaged as
-      interoperable services. SOA also describes IT infrastructure which
-      allows different applications to exchange data with one another as they
-      participate in business processes. The aim is a loose coupling of
-      services with operating systems, programming languages and other
-      technologies which underly applications. SOA separates functions into
-      distinct units, or services, which are made accessible over a network in
-      order that they can be combined and reused in the production of business
-      applications. These services communicate with each other by passing data
-      from one service to another, or by coordinating an activity between two
-      or more services.</para>
-
-      <para>The following figure shows an overview about the internal and
-      external Web Service Architecture:</para>
-
-      <figure id="v6f-wsa">
-        <title>Overview – Internal and External Web Service Architecture</title>
-
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/wsa-overv.svg" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-
-      <para>There are multiple definitions of SOA. The OASIS group and the
-      Open Group have created formal definitions which can be applied to both
-      the technology and business domains.</para>
-
+    <title>PROFILE ELEMENTS</title>
+    
+    <para>This section is the heart of the profile, and provides the required tact
+    ESB interoperability require-ments, standards and specifications in context for
+    those nations/organizations providing for or par-ticipating in the tactical
+    capability development.</para>
+    
+    <para>This section is subdivided into 4 parts as follows:
       <itemizedlist>
-        <listitem>
-          <para>Open Group SOA Definition (SOA-Definition)</para>
-        </listitem>
-
-        <listitem>
-          <para>OASIS SOA Reference Model (SOA-RM)</para>
-        </listitem>
+        <listitem><para>High Level Capability Aims</para></listitem>
+        <listitem><para>High Level Concept</para></listitem>
+        <listitem><para>Related Standards and Profiles</para></listitem>
+        <listitem><para>Emerging Services Framework</para></listitem>
+        <listitem><para>System Descriptions</para></listitem>
       </itemizedlist>
-
-      <para>In addition, SOA is an approach to architecture whereby business
-      services are the key organizing principles that drive the design of IT
-      to be aligned with business needs.</para>
-
-      <para>The following figure shows the Web Service Specification in an OSI
-      Stack Model.</para>
-
-      <figure id="v6f-wsa-osi">
-        <title>Web Service Architecture – OSI Stack Model</title>
-
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/wsa-osi.svg" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-
-      <para>On top of there are the applications (Server or Client
-      applications). In the Web Service Architecture the UDDI (Universal
-      Description Discovery and Integration) is signed as an
-      application.</para>
-
-    </sect2>
-
+    </para>
+    
     <sect2>
-      <title>UDDI: Universal Description Discovery and Integration</title>
-      <para>The Universal Description, Discovery, and Integration (UDDI)
-      protocol defines a standard method for publishing and discovering the
-      network-based software components of a service-oriented architecture
-      (SOA). The standard specifies protocols for accessing a registry for Web
-      services, methods for controlling access to the registry, and a
-      mechanism for distributing or delegating records to other registries. In
-      short, a UDDI registry provides a standard based approach to locate a
-      software service, to invoke that service, and to manage metadata about
-      that service. The following figure shows the principle of the UDDI
-      Architecture with SOAP (messaging) for the methods of the "Inquiry and
-      Publisher API".</para>
-
-      <figure id="v6f-uddi-soap">
-        <title>UDDI Overview Architecture based on SOAP</title>
-
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/uddi-soap.svg" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-
-      <para>The next figure shows the main extract of the UDDI Data Model
-      (used in the "Data Pool").</para>
-
-      <figure id="v6f-uddi-dm">
-        <title>Main extract of the UDDI Data Model</title>
-
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/uddi-dm.svg" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-
-      <para>An other very important feature is to exchange UDDI Data between
-      different UDDI Registries for example as show in the next figure. In
-      addition, it is necessary to distinguish between internal services and
-      external offered services.</para>
-
-      <figure id="v6f-uddi-tpc">
-        <title>UDDI illustration of Trading Partner Collaboration</title>
-
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/uddi-tpc.svg" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-    </sect2>
-
-    <sect2>
-      <title>WSDL: Web Services Description Language</title>
-      <para>Web Services Description Language (WSDL) is an XML-based Service /
-      Interface Definition Language that separates function from
-      implementation and enables design by SOA.</para>
-
-      <para>The value of WSDL is that it enables development tools and
-      middleware for any platform and language to understand service
-      operations and invocation mechanisms. For example, given the WSDL
-      interface to a service that is implemented in Java, running in a
-      HTTP-Server environment, and offering invocation through HTTP.</para>
-
-      <para>With SOAP, the WSDL specification is extensible and provides for
-      additional aspects of service interactions to be specified, such as
-      security and transactional.</para>
-
-      <para>The following figure shows the principle structure of a WSDL
-      Document and its usage:</para>
-
-      <figure id="v6f-wsdl">
-        <title>WSDL Document Structure (with usage)</title>
-
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/wsdl.svg" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-
-      <para>WSDL description contain:</para>
-
-      <itemizedlist>
-        <listitem>
-          <para><emphasis>Types</emphasis> – a container for data
-          type definitions using some type system (such as XSD).</para>
-        </listitem>
-
-        <listitem>
-          <para><emphasis>Message</emphasis> – an abstract, typed
-          definition of the data being communicated.</para>
-        </listitem>
-
-        <listitem>
-          <para><emphasis>Operation</emphasis> – an abstract
-          description of an action supported by the service.</para>
-        </listitem>
-
-        <listitem>
-          <para><emphasis>Port Type</emphasis> – an abstract set of
-          operations supported by one or more endpoints.</para>
-        </listitem>
-
-        <listitem>
-          <para><emphasis>Binding </emphasis> – a concrete protocol
-          and data format specification for a particular port type.</para>
-        </listitem>
-
-        <listitem>
-          <para><emphasis>Port </emphasis> – a single endpoint
-          defined as a combination of a binding and a network address.</para>
-        </listitem>
-
-        <listitem>
-          <para><emphasis>Service </emphasis> – a collection of
-          related endpoints.</para>
-        </listitem>
-      </itemizedlist>
-
-      <para>The WSDL Document format is based on XML as illustrated in the example figure below.</para>
-
-      <figure id="v6f-wsdl-docstruc">
-        <title>Example of a WSDL Document Structure</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/wsdl-docstruc.svg" format="SVG" contentwidth="369" contentdepth="521" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-    </sect2>
-
-    <sect2>
-      <title>SOAP: Simple Object Access Protocol</title>
-
-      <para>SOAP is an XML–based format for constructing messages in a
-      transport PDU independent way and a standard on how the message should
-      be handled. SOAP messages consist of an envelope that contains a header
-      and a body. It also defines a mechanism for indicating and communicating
-      problems that occurred while processing the message, which are known as
-      SOAP faults.</para>
-
-      <figure id="v6f-soap-msg">
-        <title>SOAP Message Structure</title>
-
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/soap-msg1.svg" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-
-      <figure id="v6f-soap-msg2">
-        <title>SOAP Message Example</title>
-
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/soap-msg2.svg" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-
-
-      <para>The <emphasis>headers</emphasis> section of a SOAP message is
-      extensible and can contain many different headers that are defined by
-      different schemas. The extra headers can be used to modify the behaviour
-      of the middleware infrastructure. For example, the headers can include
-      information about transactions that can be used to ensure that actions
-      performed by the service consumer and service provider are
-      coordinated.</para>
-
-      <para>The <emphasis>body</emphasis> section contains the content of the
-      SOAP message. When used by Web services, the SOAP body contains
-      XML – formatted data. This data is specified in the WSDL that describes
-      the Web service.</para>
-
-      <para><emphasis>Remark:</emphasis>The Header
-      Block and the Body Block are in XML format, but contain
-      customer designed content. SOAP doesn't define this content. For having
-      standards it is necessary to define data models (including metadata of
-      the content).</para>
-
-      <para>When talking about SOAP, it is common to talk about SOAP in
-      combination with the transport protocol that is used to communicate the
-      SOAP message. For example, SOAP that is transferred using HTTP is
-      referred to as SOAP over HTTP or SOAP/HTTP.</para>
-
-      <para>The most common transport protocol that is used to communicate
-      SOAP messages is HTTP. This is expected because Web services are
-      designed to make use of Web technologies.</para>
-
-      <para>However, SOAP can also be communicated using JMS as a transport
-      service. When using JMS, the address of the Web service is expressed in
-      terms of a JMS connection factory and a JMS destination. Although using
-      JMS provides a more reliable transport mechanism, it is not an open
-      standard, requires extra and potential expensive investment, and does
-      not interoperate.</para>
-
-      <para>SOAP is just XML and HTTP combined to send and receive messages
-      over the Internet. It is not constrained by the application language
-      (Java, C#, Perl) or the platform (Windows, UNIX, Mac), and this makes it
-      much more versatile than other solutions.</para>
-
-      <para>There are many successful implementations of the basic Web
-      services standards, particularly SOAP and WSDL but many aspects of
-      service interaction and integration are not directly supported by basic
-      standards, such as security, transactional, delivery assurance, and
-      process modelling – for example.</para>
-    </sect2>
-
-    <sect2>
-      <title>WEB Service Security</title>
-      <sect3>
-        <title>XML Encryption</title>
-        <para>XML Encryption is a W3C Standard to encrypt XML. It is done in
-        such a way that the encrypted data remains and can be treated as XML.
-        It uses both asymmetric and symmetric encryption algorithms, symmetric
-        to encrypt the data and asymmetric to encrypt the symmetric session
-        key. Both the session key and the cipher data are stored together in
-        an XML element called EncryptedData. The EncryptedData element
-        contains a series of child elements that describe the algorithms used
-        during the encryption process, as well as containing key information
-        and the cipher data.</para>
-
-        <para>The followings XML example illustrates a simple example of the
-        XML Encryption:</para>
-
-        <para>Consider the following fictitious payment information, which
-        includes identification information and information appropriate to a
-        payment method (e.g., credit card, money transfer, or electronic
-        check):</para>
-
-        <figure id="v6f-xmlenc1">
-          <title>XML Encryption</title>
-
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../figures/xmlenc1.svg" />
-            </imageobject>
-          </mediaobject>
-        </figure>
-
-        <para>This markup represents that John Smith is using his credit card
-        with a limit of $5,000USD. Smith's credit card number is sensitive
-        information! If the application wishes to keep that information
-        confidential, it can encrypt the CreditCard element:</para>
-
-        <figure id="v6f-xmlenc2">
-          <title>XML Encryption</title>
-
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../figures/xmlenc2.svg" />
-            </imageobject>
-          </mediaobject>
-        </figure>
-
-        <para>By encrypting the entire CreditCard element from its start to
-        end tags, the identity of the element itself is hidden. (An
-        eavesdropper doesn&amp;apos;t know whether he used a credit card or
-        money transfer). The CipherData element contains the encrypted
-        serialization of the CreditCard element.</para>
-      </sect3>
-
-      <sect3>
-        <title>XML Signature</title>
-        <para>XML Signature (also called XMLDsig, XML-DSig, XML-Sig) is a W3C
-        recommendation that defines an XML syntax for digital signatures. XML
-        signatures can be used to sign data –a resource– of any type, typically
-        XML documents, but anything that is accessible via a URL can be
-        signed. An XML signature used to sign a resource outside its
-        containing XML document is called a detached signature; if it is used
-        to sign some part of its containing document, it is called an
-        enveloped signature; if it contains the signed data within itself it
-        is called an enveloping signature.</para>
-
-        <para>XML digital signatures are represented by the Signature element
-        which has the following structure (where "?" denotes zero or one
-        occurrence; "+" denotes one or more occurrences; and "*" denotes zero
-        or more occurrences):</para>
-
-        <figure id="v6f-xmlsig">
-          <title>XML Signature</title>
-
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../figures/xmlsig.svg" />
-            </imageobject>
-          </mediaobject>
-        </figure>
-
-        <para>Within an XML document, signatures are related to local data
-        objects via fragment identifiers. Such local data can be included
-        within an enveloping signature or can enclose an enveloped signature.
-        Detached signatures are over external network resources or local data
-        objects that reside within the same XML document as sibling elements;
-        in this case, the signature is neither enveloping (signature is
-        parent) nor enveloped (signature is child). Since a Signature element
-        (and its ID attribute value/name) may co-exist or be combined with
-        other elements (and their IDs) within a single XML document, care
-        should be taken in choosing names such that there are no subsequent
-        collisions that violate the ID uniqueness validity constraint
-        [XML].</para>
-      </sect3>
-
-      <sect3>
-        <title>XML Token</title>
-        <para>A security token represents the user's claims and it's used by
-        the Authentication Service for authenticate him. There are two kinds
-        of security tokens:</para>
-
+      <title>High Level Capability Aims</title>
+      
+      <para>Based on commonly agreed scenarios in NATO like Joint Fire Support or 
+      Convoy Protection, the following capability requirements for services and 
+      service-infrastructure that are necessary for their operation are identified:
         <itemizedlist>
-          <listitem>
-            <para>X.509 certificate</para>
+          <listitem><para>Provision of services on the tactical level, that are 
+            characterized by mobility and radio communication;</para></listitem>
+          <listitem><para>Provision of services for joint use;</para></listitem>
+          <listitem><para>Provision of services to rear units / systems (e. g. to 
+            information systems in the homeland);</para>
+            <para>Command and control (C2) as well as the use of armed forces are 
+            based on a joint, interoperable information and communication network 
+            across command levels that links all relevant persons, agencies, units 
+            and institutions as well as sensors and effectors with each other to 
+            ensure a seamless, reliable and timely information sharing shaped to
+            the needs and command levels in almost real-time.</para>
+            <para>Basis for command and control and the use of armed forces are
+            interoperable information and communication systems used for the provision 
+            of the tactical situational picture (situation information). Out of
+            this tactical information space services on the tactical and operational
+            level shall provide selected data to the user based on his needs.</para>
+            <para>By NNEC capable armed forces, for example are better enabled to
+              <itemizedlist>
+                <listitem><para>obtain a actual joint situational picture;</para></listitem>
+                <listitem><para>accelerate the C2-process;</para></listitem>
+                <listitem><para>concentrate effects and by this achieve effect
+                  superiority;</para></listitem>
+                <listitem><para>minimize losses and to execute operations successfully 
+                  and more precise, more flexible and with less forces.</para></listitem>
+              </itemizedlist>
+            </para>
+            <para>For that reason they use a joint situational picture.</para>
           </listitem>
-
-          <listitem>
-            <para>SAML Assertion</para>
+          <listitem><para>Interoperability: Services are used in an alliance.</para>
+            <para>Interoperability is the capability of IT-Systems, equipment and
+            procedures to cooperate or the capability of information exchange between 
+            information systems through adaptation, e.g. by use of standardized 
+            interfaces and data formats. It includes systems, equipment as well as 
+            organization, training and operational procedures.</para>
+            <para>To conduct operations efficiently in a multinational environment, 
+            the capability for NCM (i.e. the ability to provide und accept services 
+            in the international environment) is required. Generally, in Germany
+            all armed operations of the Bundeswehr are executed exclusively multinational
+            within the framework of NATO/EU or UN.</para>
+            <para>Therefore Interoperability is defined as follows:
+              <itemizedlist>
+                <listitem><para>The existence of operational procedures, operating
+                  sequences and uniform stan-dards for Man-Machine-Interfaces (MMI) 
+                  is called operational interoperability;</para></listitem>
+                <listitem><para>Procedural interoperability is ensured if uniform 
+                  protocols for information exchange between platforms are used 
+                  and a uniform definition for that data exists in the soft-ware.
+                  </para></listitem>
+              </itemizedlist>
+            </para>
           </listitem>
         </itemizedlist>
-
-        <para>In this document we discuss only the "SAML Assertion" in an
-        additional point (not the X.509 certification).</para>
-
-        <para>The following XML example shows a SAML Token:</para>
-
-        <figure id="v6f-samltok">
-          <title>SAML Token</title>
-
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../figures/samltoken.svg" />
-            </imageobject>
-          </mediaobject>
-        </figure>
-
-        <para>The following figure shows the three XML security methods code
-        in a SOAP (XML) Message.</para>
-
-        <figure id="v6f-soapencsig">
-          <title>SOAP Security based on XML Encryption &amp; Signature &amp;
-          Token</title>
-
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../figures/soapencsig.svg" />
-            </imageobject>
-          </mediaobject>
-        </figure>
-      </sect3>
-
-      <sect3>
-        <title>XKMS: XML Key Management Specification</title>
-        <para>The XKMS specifies protocols for distributing and registering
-        public keys, suitable for use in conjunction with the proposed
-        standard for XML Signatures [XML-SIG] and an anticipated companion
-        standard for XML encryption. The XML Key Management Specification
-        (XKMS) comprises two parts – the XML Key Information Service
-        Specification (X-KISS) and the XML Key Registration Service
-        Specification (X-KRSS):</para>
-
+      </para>
+      
+      <para>Technical interoperability is ensured if uniform technical parameters/interfaces
+      for information transfer are used.
         <itemizedlist>
-          <listitem>
-            <para><emphasis>XML Key Information Service
-            Specification (X-KISS)</emphasis>: A protocol to support the
-            delegation by an application to a service of the processing of Key
-            Information associated with an XML signature, XML encryption, or
-            other public key. Its functions include the location of required
-            public keys and describing the binding of such keys to
-            identification information.</para>
+          <listitem><para>Caused by current changes during operations, a flexible 
+            service management (SOA-Management) is required.</para>
+            <para>Efficient application of services depends on an efficient C2-structure, 
+            which is able to react fast and decisive on changes of the environmental 
+            conditions of operations. Planning and operations of the services and 
+            of the service-infrastructure must be tuned to the operational planning 
+            and execution and have to be adaptable in an efficient manner.</para>
           </listitem>
-
-          <listitem>
-            <para><emphasis>XML Key Registration Service
-            Specification (X-KRSS):</emphasis> A protocol to support the
-            registration of a key pair by a key pair holder, with the intent
-            that the key pair subsequently is usable in conjunction with the
-            XML Key Information Service Specification or higher level trust
-            assertion service such as XML Trust Assertion Service
-            Specification (XTASS).</para>
+          <listitem><para>Real-time provision of information</para>
+            <para>Basically only such real-time, operations related information has
+            to be provided which is es-sential for the conduct of that operation. 
+            Information exchange for command and control, including information for 
+            weapon system platform coordination and planning, elements of the „Battle
+            Management Command, Control, Communications, Computers and Intelligence“
+            (BMC4I) and mission support elements is time critical and has to match
+            as well with the operations area and the operations method as with the 
+            needs of the user.</para>
+            <para>Basically, time critical data that influence current operations 
+            encompass, but are not limited to:
+              <itemizedlist>
+                <listitem><para>Data on air-, ground- and maritime situation (including 
+                  lower space), integrated air defense (IAD) and subsurface situation;
+                  </para></listitem>
+                <listitem><para>Data on electronic warfare;</para></listitem>
+                <listitem><para>Command and Control decision including weapons employment
+                  (C2);</para></listitem>
+                <listitem><para>Status reports of own and neighboring forces.</para></listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+          <listitem><para>Platform- (System-) requirements on autarchy and redundancy
+            </para>
+            <para>Dictated by the operations method on the tactical and operational 
+            level, the possible non-availability of communication-connections and 
+            requirements on the capability to operate (resistance to failure), platforms 
+            and systems selected for operations need high redundancy and resistance 
+            to failure.</para>
+            <para>Caused by the possible non-availability of communication-connections 
+            these platforms and systems must be autarkic, i.e. the use and the provision 
+            of services, respectively, must be ensured even if there is no connection 
+            to the own rear area.</para>
+            <para>Summarizing it is the most demanding challenge for the reference 
+            environment services (SRE) related to the provision of services and of 
+            the service-infrastructure is the realization of:
+              <itemizedlist>
+                <listitem><para>the transfer of information,</para></listitem>
+                <listitem><para>the management of information,</para></listitem>
+                <listitem><para>the processing of information,</para></listitem>
+                <listitem><para>the security of information systems (IT-security),
+                  </para></listitem>
+              </itemizedlist>
+            </para>
+            <para>on the tactical and operational level taking into account mobility, 
+            limited radio broadcast capacity, multinational use of services, near-real-time 
+            requirements as well as autarchy and redundancy of the service-infrastructure 
+            on the platforms and systems.</para>
           </listitem>
         </itemizedlist>
-
-        <para><emphasis>The underlying PKI may be based upon a
-        different specification such as X.509/PKIX, SPKI or PGP – proposal:
-        X.509/PKIX.</emphasis></para>
-
-        <para>Example for X-KISS:</para>
-
-        <para>The client is attempting to send an encrypted XML document and
-        requires the public key encryption parameters of the recipient.</para>
-
-        <figure id="v6f-kiss">
-          <title>SOAP Security based on XML Encryption &amp; Signature &amp;
-          Token</title>
-
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../figures/x-kiss.svg" />
-            </imageobject>
-          </mediaobject>
-        </figure>
-      </sect3>
-
-      <sect3>
-        <title>SAML: Security Assertion Markup Language / SAML
-        Architecture</title>
-
-        <sect4>
-          <title>SAML: Security Assertion Markup Language</title>
-          <para>Security Assertion Markup Language (SAML) is an XML-based
-          standard for exchanging authentication and authorization data
-          between security domains, that is between an identity provider (a
-          producer of assertions) and a service provider (a consumer of
-          assertions). SAML is a product of the OASIS Security Services
-          Technical Committee.</para>
-
-          <para>The normal use case of SAML is support the Single Sign-On
-          (SSO) issue, but SAML is also used for Identity Federation. SSO
-          represents the ability of a user to authenticate in one domain and
-          use resources in another domain WITHOUT re-authenticating. SAML is
-          an XML Framework for exchanging security information over the
-          internet. It enables different security services systems to
-          INTEROPERATE.</para>
-
-          <para>The core SAML specification defines the structure and content
-          of both assertions and protocol messages used to transfer this
-          information. The next Figure illustrates the relationship between
-          these basic SAML concepts.</para>
-
-          <para>SAML assertions carry statements about a principal that an
-          asserting party claims to be true. The valid structure and contents
-          of an assertion are defined by the SAML assertion XML schema.
-          Assertions are usually created by an asserting party based on a
-          request of some sort from a relying party, although under certain
-          circumstances, the assertions can be delivered to a relying party in
-          an unsolicited manner. SAML protocol messages are used to make the
-          SAML-defined requests and return appropriate responses. The
-          structure and contents of these messages are defined by the
-          SAML-defined protocol XML schema.</para>
-
-          <figure id="v6f-saml">
-            <title>Basic SAML Concepts</title>
-
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="../figures/saml.svg" />
-              </imageobject>
-            </mediaobject>
-          </figure>
-
-          <para>An assertion is a claim made by someone about someone else.
-          SAML assertions are structured as a series of statements about a
-          subject: Authentication, Attribute, Authorization Decision, or by an
-          own customized statements. SAML defines three kinds of statements
-          that can be carried within an assertion:</para>
-
-          <itemizedlist>
-            <listitem>
-              <para><emphasis>Authentication
-              statements:</emphasis> These are created by the party that
-              successfully authenticated a user. At a minimum, they describe
-              the particular means used to authenticate the user and the
-              specific time at which the authentication took place.</para>
+      </para>
+    </sect2>
+    
+    <sect2>
+      <title>High Level Concept</title>
+      
+      <para>The concept for a service-oriented architecture is based on the employment 
+      of services. The following figure points out the interrelations of the components
+      of a SOA.</para>
+     
+      <figure id="f1-soacomponents" float="0">
+        <title>Components of a SOA</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/soacomponents.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>The application frontend (MMI) and Consumer for interaction between the 
+      user and a service and for the presentation of messages addressed to the user.
+      </para>
+      
+      <para>The main element of an SOA is the service as standardized implementation 
+      of certain functionality. A service is a self-describing open component that 
+      enables a fast and economical combination of dis-tributed applications.</para>
+      
+      <figure id="f1-servicecomponents" float="0">
+        <title>Components of a Service</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/servicecomponents.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+          
+      <para>A service is made available by a provider und used by a consumer. The 
+      above figure shows the components of a service.</para>
+      
+      <para>In order to make a service available as a SOA-service it has to fulfill
+      certain conditions. It must be callable, show a defined functionality und stick
+      to defined conditions. As a minimum, each service consists of three components: 
+      the interface, the “service contract” and the service implementation:
+        <itemizedlist>
+          <listitem><para>Service: The service itself must have a name or, if it shall
+            be generally accessible, even a unique name.</para></listitem>
+          <listitem><para>Service Interface(s): Interfaces of the service that constitute 
+            the access point (one and the same service may have different interfaces).
+            </para></listitem>
+          <listitem><para>Service Contract: The Service Contract is an informal specification 
+            of the responsibilities, the functionalities, the conditions and limitations
+            and of the usage of the service.</para></listitem>
+          <listitem><para>Service Implementation: Is the technical realization of a 
+            service. Its main components are the reflection of the business-logic and 
+            the persistent storage of eventually necessary data.</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>A Service-Level-Agreement (SLA) or Quality-of-Service-Agreement (QSA) 
+      denotes a contract or interface, respectively between a consumer (customer) 
+      and a provider for recurring services.</para>
+      
+      <para>The aim is to provide transparency on control options for the consumer 
+      and the provider by describing exactly assured performance characteristics 
+      like amount of effort, reaction time, and speed of processing. Its main part 
+      is the description of the quality of the service (service level) that has been
+      agreed.</para>
+      
+      <para>The Service-Registry / -Repository ensures that services are being found
+      and executed and be deposited them through a service-bus.</para>
+      
+      <para>If, for example a function is initiated on the application frontend that
+      requires a service, the service-bus performs the necessary steps for connection. 
+      For that purpose the service-bus accesses the service-registry / repository and 
+      connects the right service (provider) with the right service client (consumer).
+      </para>
+      
+      <para>In summary, the function of a service-bus encompasses transmission, data
+      transformation and routing of a message.</para>
+      
+      <para>Beside its main task – to enable communication amongst the SOA-participants
+      – the service-bus is also responsible for the technical service. This comprises 
+      logging, security, message transformation and the administration of transactions.
+      </para>
+      
+      <para><emphasis role="bold">Differentiation to the Software Bus of the Enterprise 
+      Application Integration (EAI)</emphasis></para>
+      
+      <para>The concept of the service-bus guarantees a main advantage for the SOA-model
+      against the classic EAI (Enterprise Application Integration). The EAI-approach
+      uses a software bus, in order to connect two applications with the same technology
+      whilst the service bus of a SOA offers a lot more flexibility because of its
+      technological independence and the orientation of the services. The service 
+      bus supplements the EAI concept and so eliminates its weak points. These weak 
+      points are particularly its dependence on proprietary APIs, its uneven development
+      behavior and manufacturer-dependant message formats.</para>
+      
+      <para>Here the fundamental difference between a SOA and EAI becomes obvious.
+      An EAI is focused on the coupling of autonomous applications in order to achieve 
+      useful possibilities for data processing of the overall application. In a SOA 
+      services are coupled only loosely and existing systems shall remain untouche
+      d whenever possible. Specifically, in a SOA the services are in focus, not 
+      the application systems.</para>
+      
+      <para>Another advantage of SOA vs. EAI is the scalability of the service-bus.
+      The EAI-concept is based on the „Hub-and-Spoke Method“, where the software bus
+      as a central point of contact connects the involved enterprise applications.
+      </para>
+    
+      <para><emphasis role="bold">Definition of the SOA-(ESB-) Infrastructure and 
+      of the Enterprise Service Bus (ESB):</emphasis></para>
+      
+      <para>Unfortunately there is no universally applicable grouping of services,
+      because the business processes of the companies / organizations are very different.
+      </para>
+      
+      <para>To achieve comparability, different definitions and groupings of services
+      are considered and a corresponding mapping is made. For that purpose the following
+      definition of a SOA- (ESB)-infrastructure is used:
+        <itemizedlist>
+          <listitem><para><emphasis role="bold">SOA-(ESB-) Infrastructure:</emphasis></para>
+            <para>A SOA-(ESB-) infrastructure provides core- and general services for
+              operation and use of application services and applications.</para>
+            <para>The core of a SOA-(ESB-) infrastructure is formed by the service-registry
+              / repository, through which application services and applications are 
+              provided with service descriptions and policies. Additionally the SOA-
+              (ESB-) infrastructure comprises technical services for logging, security,
+              message formatting and for administration of transactions.</para></listitem>
+          <listitem><para><emphasis role="bold">Enterprise Service Bus (ESB):</emphasis></para>
+            <para>The Enterprise Service Bus combines the service bus with its functions
+              message transfer, date transformation and routing of the message with
+              the SOA-(ESB-) infrastructure and amongst consumers (clients) und providers
+              (service). So the ESB provides something like a service middleware to 
+              the consumers (clients) and providers (service) in order to use higher-value
+              (application-) services.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+    
+    <sect2>
+      <title>Basic Model of a Service Reference Environment</title>
+      
+      <para>A basic principle of SOA – Service Oriented Architecture – is a loose 
+      coupling of (web) services of operational systems, of different development 
+      languages and other technologies with underlaid applications. SOA separates
+      functions in different services which can be accessed, combined and reused 
+      via a network.</para>
+      
+      <para>The use of an Enterprise Service Bus (ESB), also named Enterprise Integration 
+      Bus, as a central component is meaningful for the connection of services for 
+      more complex, SOA-based solutions. Typically an ESB consists of a set of instruments 
+      for reliable and assured message-transfer, routing-mechanisms for message-distribution,
+      pre-designed adaptors for the integration of different systems, management- and 
+      supervision-tools and other components.</para>
+      
+      <para>The following figure depicts a general consumer-/ provider structure in
+      a SOA environment. This figure is the basis for the considerations to follow 
+      and, despite its simplicity, it contains some important statements.</para>
+      
+      <figure id="f1-general-p-c-structure" float="0">
+        <title>General Provider / Consumer Structure in an ESB environment</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/general-p-c-structure.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    
+      <para>Generally a SOA configuration – and thus the reference environment SRE –
+      consists of four main components:
+        <itemizedlist>
+          <listitem><para><emphasis role="bold">Provider:</emphasis>A provider makes
+            a service available to one or more consumers.</para></listitem>
+          <listitem><para><emphasis role="bold">Consumer:</emphasis>A consumer is
+            an application that uses a service of a provider. In turn, a consumer 
+            again may provide a service to other consumers.</para></listitem>
+          <listitem><para><emphasis role="bold">Enterprise Service Bus (ESB):</emphasis>
+            An ESB forms a kind of middleware that mediates between a service provider
+            and one or more users (consumers). As a minimum the ESB routing, messaging,
+            transformation, mapping and supervision etc.</para></listitem>
+          <listitem><para><emphasis role="bold">SOA-(ESB-) Infrastructure:</emphasis>
+            The SOA-(ESB-) Infrastructure-components is part of the ESB, by which 
+            basic services like e.g. directory- or security-services are provided.
+            </para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>In this generic, manufacturer-independent model the Enterprise Service
+      Bus (ESB) iaw a virtual bus, that consists of only one component – ESB-Stub – ,
+      through which any further component (e.g. provider, consumer) is connected
+      with the virtual bus. Depending on the type of component, either the provider,
+      through the ESB-stub, provides a service-endpoint or a consumer uses a service
+      of a provider trough the ESB-stub, respectively. The communication between
+      consumer and provider is effected through the ESB-stub exclusively, though
+      not via a central unit but directly. In the ESB-context, the infrastructure,
+      like a provider, provides further services, which contain the ESB-stub as well.
+      </para>
+      
+      <para>Because further services are needed for the use of a service e.g. to 
+      obtain the service-description or for security and as these services are needed
+      for every single use of a service, the ESB-stub executes these basic services
+      automatically. For that reason the infrastructure in many cases is also being
+      referred to as „SOA-(ESB-) Infrastructure“.</para>
+      
+      <para>The following SRE capabilities can be derived from that:
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>A SRE configuration (operational system) consists of four
+            main components: consumer, provider, SOA-(ESB-) Infrastructure and a 
+            virtual, distributed ESB.</para></listitem>
+          <listitem><para>A SRE configuration (operational) provides direct communication-relations
+            between consumer and provider (without central components).</para></listitem>
+          <listitem><para>A reference environment for services (SRE) is based on 
+            different classifications of the providers (classes of services).</para></listitem>
+          <listitem><para>The service consumers and providers are using the SOA-(ESB-)
+            Infrastructure for further services through an ESB (ESB-stub).</para></listitem>
+          <listitem><para>The SOA-(ESB-) Infrastructure-services form provider/service 
+            classes analogous to the classes of application-services.</para></listitem>
+          <listitem><para>The Enterprise Service Bus (ESB-Stub) takes over recurring
+            routines of the application e.g. usage of the SOA-(ESB-) Infrastructure.
+            </para></listitem>
+        </orderedlist>
+      </para>
+      
+      <para>A substantial capability of a SOA Enterprise Service Bus is the standardized 
+      provision of services, i.e. the standardized access on providers and the provision
+      of data, respectively. For that purpose the ESB, through its framework, provides
+      to the consumers open, standardized service-endpoints of providers.</para>
+      
+      <para>The following figure shows the structure of an open service-endpoint.
+      Here the provider-application is connected to the (virtual, distributed) ESB
+      through the ESB-stub (service container).</para>
+      
+      <para>The ESB-stub contains a framework which is able to do e.g. routing, 
+      messaging, transformation, mapping, supervision-functions etc. The service-endpoint-interface 
+      encompasses the WSDL-description of the service. Through the ESB service endpoint 
+      the service is provided to the consumer’s iaw the WSDL-service-description.
+      </para>
+      
+      <figure id="f1-esbstructure" float="0">
+        <title>Structure of an ESB Service Endpoint</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/esbstructure.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>Standardized access to a service or the provision of data of a service, 
+      respectively, is realized through open Service Endpoint Standards like for 
+      example:
+        <itemizedlist>
+          <listitem><para>HTTP / HTTPS;</para></listitem>
+          <listitem><para>JMS;</para></listitem>
+          <listitem><para>SOAP / HTTP(s);</para></listitem>
+          <listitem><para>FTP (File Transfer Protocol);</para></listitem>
+          <listitem><para>Email (SMTP);</para></listitem>
+          <listitem><para>WS-Reliability / WS-Reliable Messaging;</para></listitem>
+          <listitem><para>Bridges or Gateways to other ESB Core Systems;</para></listitem>
+          <listitem><para>HTTP / HTTPS;</para></listitem>
+          <listitem><para>Manufacturer specific connectors (e.g. a SAP Connector).</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>In literature, these open service endpoint standards are referred to as
+      Message Oriented Middleware (MOM) and form the core of an ESB-architecture
+      (see the following figure).</para>
+      
+      <figure id="f1-mom" float="0">
+        <title>Message Oriented Middleware with Service Endpoints</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/mom.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>Using MOM, the transmitter and the receiver need a SW framework for the
+      conversion of the message into or from MOM, respectively. The basic idea of MOM
+      is a Multi Protocol Messaging Bus that supports transmission and forwarding of 
+      messages asynchronously while considering QoS (Quality of Service).
+      </para>
+      
+      <para>In context with an<emphasis role="bold">ESB-Stub</emphasis>, that provides
+      an open service-endpoint, the application-server has to be looked at.</para>
+      
+      <para>In general an application-server is a server within a computer network, 
+      on which specialized services (application-services) are being executed. In 
+      the strict sense an application-server is software acting as a middleware 
+      representing a runtime environment for application-services. Depending on
+      scaling they are assigned special services like transaction-administration, 
+      authentication or access on databases through defined interfaces.</para>
+      
+      <para>The simplest variant of an application-server is an ESB-stub, that,
+      iaw the SOA-mechanisms / -standards provides or integrates one special service
+      whereas application-servers integrate multiple special services (application-services)
+      through an ESB-Stub and, depending on their realization, offer more capabilities 
+      (functions).</para>
+      
+      <para>Amongst others, through an ESB-stub / application-server the following
+      functions are available:
+        <itemizedlist>
+          <listitem><para>start service,</para></listitem>
+          <listitem><para>stop service,</para></listitem>
+          <listitem><para>request status of a service,</para></listitem>
+          <listitem><para>unlock service for use,</para></listitem>
+          <listitem><para>lock/deny service for use.</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>However the ESB-Stub cannot support the function „star service“, because
+      no component is active that can accept and execute the demand for start on
+      a provider that is shut down. This would require an additional agent. The 
+      functions being provided by an ESB-stub / application-server are used for 
+      example by a service management system.</para>
+      
+      <para>This gives the following requirements for SRE:
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>Through the ESB (ESB-stub) the providers have to provide 
+            open, standardized service-endpoints to the consumers.</para></listitem>
+          <listitem><para>Through application-servers multiple providers have to be
+            integrated and to be made available through a global, open service-endpoint.
+            </para></listitem>
+          <listitem><para>The ESB-stub / application-server has to provide a 
+            service-management-interface, that enables; start service(s), stop service(s), 
+            deny service(s), unlock service(s), supervise service(s). Limitation: 
+            it may happen that a service cannot be started via the ESB-stub if the 
+            ESB-stub is inactive due to a stopped service.</para></listitem>
+        </orderedlist>
+      </para>
+    </sect2>
+    
+    <sect2>
+      <title>Enterprise Service Bus OSI-Layer-Integration</title>
+      
+      <para>This chapter briefly reviews the fundamentals and the ESB of a reference
+      environment for services (SRE) will be assigned its place within the OSI reference
+      model. Based on this, in the following chapter, the standards will be identified
+      based on the WS-I profiles.</para>
+      
+      <para>The following figure shows the ESB within the OSI-Layer-Model and its
+      allocation to a specific layer, respectively.</para>
+      
+      <figure id="f1-esblayermodel" float="0">
+        <title>OSI-Layer Model with ESB Allocation</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/esblayermodel.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>The <emphasis role="bold">Data Link / physical Layer</emphasis> encompasses
+      the OSI-layers 1 (bit transfer) and 2 (security layer). On the bit-transfer-layer
+      the digital transfer of bits is done on either on a wired or a non-wired transmission
+      line. It is the task of the security layer (also being referred to as: section
+      security layer, data security layer, connectivity security layer, connection
+      layer or procedural layer) to ensure reliable transfer and to manage access 
+      onto the transmission media.</para>
+      
+      <para>The <emphasis role="bold">Network Layer</emphasis> represents OSI-Layer
+      3 (Mediation Layer). For circuit-based services the mediation layer (also: 
+      packet-layer or network layer) does the switching of connections and for
+      packet-oriented services it does the external distribution of data packages.
+      The main task of the mediation layer is the built-up and update of routing
+      tables and the fragmentation of data-packages.</para>
+      
+      <para>Within the above figure dedicated as <emphasis role="bold">TCP</emphasis>
+      and <emphasis role="bold">UDP</emphasis> – is the lowest layer that provides 
+      a complete end-to-end-communication between sender (transmitter) and recipient 
+      (receiver). It offers to the application-oriented layers 5 to 7 a standardized 
+      access, so they do not have to consider these features of the communication 
+      network.</para>
+      
+      <para>The <emphasis role="bold">Session Layer</emphasis> corresponds to OSI-layer
+      5 (Communication Control Layer). It provides control of logical connections 
+      and of process communication between two systems. Here we find the protocols 
+      like HTTP, RPC, CORBA (IIOP, ORB), JMS, etc.</para>
+      
+      <para>Above of the Communication Control Layer we find the <emphasis role="bold">
+      Presentation Layer</emphasis>, which is OSI-Layer 6. The presentation layer
+      translates the system-dependant presentation of data into a system-independent
+      presentation and thereby enables the syntactically correct data-exchange between 
+      different systems. Also data-compression and data-encryption is a task of layer
+      6. The presentation layer ensures that data being sent from the application 
+      layer of one system can be read by the application layer of another system. 
+      If necessary the presentation layer acts as a translator between various data 
+      formats by using a data format that is under-stood by both systems.</para>
+      
+      <para>The <emphasis role="bold">Enterprise Service Bus</emphasis> with its
+      capabilities forms a possible realization of an OSI layer 6 (presentation layer),
+      that is based on the functions of OSI layer 5 and enables access or provision
+      of data for the applications (<emphasis role="bold">consumer, provider</emphasis>)
+      at OSI layer 7.</para>
+      
+      <para>In the following figure the ESB at OSI-layer 6 (presentation layer) is 
+      depicted in more detail and amended by essential standards that an ESB is based
+      on.</para>
+      
+      <figure id="f1-esblayer" float="0">
+        <title>ESB Layer with Standards (excerpt)</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/esblayer.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>Through the service endpoint the provider provides a service that can 
+      be used by one or more con-sumers via the ESB. Additionally the ESB, through 
+      the SOA-(ESB-) infrastructure, currently offers an UDDI / ebXML-based directory
+      service. <emphasis role="bold">Universal Description Discovery and Integration 
+      (UDDI)</emphasis> is a standardized directory for publication and search of
+      services. UDDI is realized in numerous products; however there is no further
+      development of UDDI. <emphasis role="bold">Electronic Business using XML (ebXML)
+      </emphasis>is a family of different standards from UN/CEFACT and OASIS and 
+      comprises a registry service (Registry Service Specification) with a Registry 
+      Information Model (ebRIM). ebXML is relatively new, contains numerous urgently
+      needed expansions of UDDI and is still under further development. However, 
+      ebXML is not yet available in many products.</para>
+      
+      <para>UDDI and ebXML use <emphasis role="bold">Web Service Definition Language
+      (WSDL)</emphasis> as service description language.</para>
+      
+      <para>For example an ESB provides to a service-provider (Provider) and one 
+      or more users (Consumer) the following functions (extract):
+        <itemizedlist>
+          <listitem><para>Routing and Messaging as basic services;</para></listitem>
+          <listitem><para>Security (signature and encryption);</para></listitem>
+          <listitem><para>Transformation and Mapping, to execute various conversions 
+            and transformations;</para></listitem>
+          <listitem><para>Procedures for compression in order to reduce the amount
+            of data for transmission;</para></listitem>
+          <listitem><para>A virtual communication bus, that permits the integration 
+            of different systems through pre-designed adaptors;</para></listitem>
+          <listitem><para>Mechanisms for the execution of processes and rules;</para></listitem>
+          <listitem><para>Supervision functions for various components;</para></listitem>
+          <listitem><para>A set of standardized interfaces like e.g. JMS (Java Messaging 
+            Specification), JCA (Java Connector Architecture) and SOAP / HTTP.</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>A standard to be highlighted amongst the others like e.g. JMS, that an 
+      ESB is based on, is <emphasis role="bold">SOAP (Simple Object Access Protocol)
+      </emphasis>– a W3C-recommendation. SOAP is a “lightweight” protocol for the 
+      exchange of XML-based messages on a computer network. It establishes rules 
+      for message design. It regulates how data has to be represented in a message
+      and how it has to be interpreted. Further on it provides a convention for 
+      remote call-up of procedures by using messages.</para>
+      
+      <para>SOAP makes no rules on semantics of application-specific data that shall
+      be sent but provides a framework which enables the transmission of any application-specific
+      information.</para>
+      
+      <para>SOAP is used for the remote call-up of procedures as well as for simple 
+      message systems or for data exchange. For the transmission of messages any 
+      protocols (OSI-Layer 5) such as FTP, SMTP, HTTP or JMS can be used.</para>
+    </sect2>
+    
+    <sect2>
+      <title>Communication based on loose Coupling</title>
+      
+      <para>A loose coupling – a basic SOA principle – is a principle and not a tool.
+      When designing a SOA envi-ronment the amount of loose couplings to be established
+      has to be determined.</para>
+      
+      <para>Communication with an addressable communication partner can be effected
+      in two ways:
+        <itemizedlist>
+          <listitem><para>In a <emphasis role="bold">connectivity-oriented communication
+            </emphasis>environment the communication partner has to be dialed before
+            information exchange actually starts and so a communication path between 
+            the two endpoints evolved is established through the net (a connection).
+            Only then data can be exchanged (the data will always use the very same
+            path through the net). When data exchange is terminated, the communication 
+            path is shut down. In general the address of the communication partner
+            is only needed for the connection-built-up; then the net „remembers“, as 
+            well as the endpoints, which connection connects which endpoints.
+            </para></listitem>
+          <listitem><para>Alternatively the job can be done <emphasis role="bold">
+            connectionless: neither</emphasis>an explicit communication-build-up 
+            before data exchange nor a shutdown thereafter must be executed. From
+            the net perspective there is no established communication relation between
+            two endpoints. Consequently there is no pre-determination of the path 
+            through the net during connection build-up. Instead each piece of information
+            is addressed individually to the recipient and forwarded to the recipient
+            by all other pieces of information based on this address in the net. All
+            nodes in the net “know” on which paths to reach a certain destination.
+            If there is more than one path from the sender to the recipient, different
+            pieces of information may use different paths through the net.</para>
             </listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>From the communication technology-perspective the main difference is 
+      that in contrary to a connectivity-oriented communication no status information 
+      for each connection has to be stored in the connectionless communication environment. 
+      Two conclusions can be drawn from that:
+        <itemizedlist>
+          <listitem><para>The resistance to failure of the net increases. If in a 
+            connectivity-oriented communication a node in the net fails, all connections
+            via this node are terminated; in connectionless communications the pieces
+            of information are simply routed around the failing node and communication
+            between the endpoints is hardly disturbed.</para></listitem>
+          <listitem><para>The net is more scalable because dimensioning of the nodes 
+            (e.g. computing power, memory capacity) will limit the number of possible
+            connections via this node to a much smaller amount (because no status
+            data on connections has to be kept within that node).</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>From the different methods of communication (connectivity-oriented vs.
+      connectionless communica-tion) the following requirements for the application 
+      layer (service producer) can be drawn:
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>As radio-based communication systems cannot guarantee a 
+            connectivity-oriented communication, the radio-based communication 
+            between consumer and provider must be based on connectionless communication.
+            </para></listitem>
+          <listitem><para>In wideband nets or if connectivity-oriented communication 
+            between consumer and provider is supported, communication between consumer 
+            and provider may also be realized in a connectivity-oriented manner.
+            </para></listitem>
+        </orderedlist>
+      </para>
+      
+      <para>This also gives a requirement for management services of a reference
+      environment for services (SRE):
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>Through the service-registry (service-endpoint-definition)
+            the service-management portion of SRE must identify the communication
+            method to a service (provider) and provide it to the ESB-stub either
+            before use of a service or through a (customer) policy deposited in the
+            service registry. The communication method (connectivity-oriented or 
+            connectionless) gives a parameter for Quality of Service (QoS) for use
+            of a service, that must be provided by the service-management portion 
+            of SRE differently (dynamically) depending on network configuration.
+            </para></listitem>
+        </orderedlist>
+      </para>
+      
+      <para>Middleware can be distinguished by the basic technology it uses: Data
+      Oriented Middleware, Remote Procedure Call, Transaction Oriented Middleware,
+      Message Oriented Middleware and Component Oriented Middleware.</para>
+      
+      <para>The most common basic technology is the Message Oriented Middleware.
+      It will be applied further on in the SRE. Here information exchange is realized
+      with messages being transported by the middleware from one application to the
+      next, starting from the ESB-stub. If necessary, message queues will be used.
+      </para>
+      
+      <para>Based on the communication methods Message Oriented Middleware may apply
+      different message-exchange-patterns. The message-exchange-patterns differ in:
+        <itemizedlist>
+          <listitem><para><emphasis role="bold">Request / Response:</emphasis>
+            In this pattern the user sends a request to the service-provider and 
+            waits for a response. The components involved interact synchronously
+            (and in most cases block each other!). The reaction follows immediately
+            on the exchanged information. This pattern is mostly used by real-time-systems.
+            In order to prevent an application blockade, the response can be awaited 
+            asynchronously. Therefore, in general synchronous (blocking) and asynchronous 
+            (non-blocking) Request / Response can be distinguished, where the asynchronous
+            (non-blocking) Request / Response represents a kind of Request / Callback
+            Pattern.</para></listitem>
+          <listitem><para><emphasis role="bold">One-Way-Notification:</emphasis>
+            If no response or confirmation is needed for a service call-up, then 
+            there is a simpler pattern as the request/response pattern. In One-Way-Notification
+            a message is just sent („fire and forget“). An error message is then a
+            for example a One-Way-Notification.</para></listitem>
+          <listitem><para><emphasis role="bold">Request / Response via 2 One-Way-Notification:
+            </emphasis> This is a special pattern composed of the two patterns described
+            before. Here it has been taken into consideration that this causes an
+            additional requirement for the SOA-(ESB-) infrastructure because the 
+            concrete sender of an One-Way-Notification must in turn also be the 
+            recipient of another (second) One-Way-Notification. Also it has to be
+            noted that sequences of One-Way-Notifications are a process in itself.
+            </para></listitem>
+          <listitem><para><emphasis role="bold">Request / Callback:</emphasis>
+            Often a consumer needs data or a feed-back without being blocked until
+            it is received. This pattern is referred to as non-blocking or asynchronous 
+            Request / Response or Request / Callback, respectively. Here the consumer
+            sends a request without blocking. I.e., a response is received when it
+            is present or, if there is no response an autonomous response is sent, 
+            respectively. This higher flexibility however causes a higher amount 
+            of effort, because the application itself must ensure proper handling
+            of asynchronous responses.</para></listitem>
+          <listitem><para><emphasis role="bold">Publish / Subscribe:</emphasis>
+            In this pattern a user registers with a consumer for specific notifications 
+            or events. This pattern allows several consumers to subscribe. For specific
+            situations, events or state changes registered consumers are informed about
+            this. The later distribution of events or state changes is realized using 
+            One-Way-Notifications towards registered consumers.</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>From this the following requirement for the Message Oriented Middleware 
+      (ESB-Stub) of the refer-ence environment for services (SRE) can be derived:
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>A Message Oriented Middleware – ESB-Stub – must support 
+            the different Message-Exchange-Patterns (synchronous), Request / Response,
+            Request / Callback (asynchronous Request / Response), One-Way-Notification
+            and Publish / Subscribe.</para></listitem>
+        </orderedlist>
+      </para>
+      
+      <para>A message-exchange-pattern always depends on the characteristics of the
+      related transport layer or the used protocol, respectively. Things may look
+      different one layer above or below. Asynchronous message-exchange-patterns 
+      can be implemented on synchronous protocols and vice versa.</para>
+      
+      <figure id="f1-reliableservicecall" float="0">
+        <title>ESB Layer with Standards (excerpt)</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/reliableservicecall.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>Even if the transport-layer is not reliable and messages might get lost,
+      API may provide a virtually reliable message exchange. (This however may cause
+      the disadvantage of undesired additional delay having great influence on the
+      availability and QoS of that service). If, for instance, a consumer sends a
+      request and is then blocked and the request gets lost so that the consumer
+      would not be informed about it, then API could send a second request some time
+      later (see above figure).</para>
+      
+      <para>From the SOA perspective two things are important: Which Message-Exchange-Patterns
+      support the underlaid protocol and which Message-Exchange-Patterns eventually
+      support an API.</para>
+      
+      <para>If the ESB is protocol-driven, most likely the application is responsible
+      to embody a corresponding mechanisms of an API. If the ESB is API-driven, it 
+      is the responsibility of the ESB to support corresponding mechanisms.
+      </para>
+      
+      <para>Beyond the facts described above there are further complex requirements. 
+      For example they result from the situation, that an application performs a 
+      retry because it didn‘t get a response within time-out. In this case the application
+      might just have assumed a lost response. After the retry the application then
+      gets two responses. It could also happen that two requests (orders) had been
+      sent. This could result in a double debit entry on a bank account instead of 
+      only one – as was desired.</para>
+    </sect2>
+    
+    <sect2>
+      <title>Cross-domain Service Use and Interoperability</title>
+      
+      <para>As an information domain is not an island but is required to provide 
+      information across domain borders – part of a Networked Operation (NetOpFü)
+      – a cross-domain service use is necessary.</para>
+      
+      <para>With a cross-domain service use, it is important to note that Bundeswehr
+      assignments in SRE should be carried out in the Joint and Combined environment.
+      This means that cross-domain service use does not only occur within its own 
+      (national) technical domain but also within technical domains of external partners
+      (e.g. NATO partners).</para>
+      
+      <para><emphasis>For the purpose of implementing a cross-domain usage of services, 
+      no difference is made between internal and external usage. Instead, a united
+      mechanism is adopted.</emphasis></para>
+      
+      <para>A cross-domain use of services calls for an interoperability of the 
+      provider and consumer both internally and externally. In order to maintain a
+      common understanding, the definitions of interoperability are now briefly 
+      re-capped:
+        <itemizedlist>
+          <listitem><para><emphasis role="bold">Operational interoperability</emphasis>
+            denotes the existence of doctrines, operating procedures and common
+            standards for human-machine interfaces.</para></listitem>
+          <listitem><para><emphasis role="bold">Procedural interoperability</emphasis>
+            is then guaranteed when common protocols for exchanging in-formation
+            between platforms are applied and if there are common data definitions 
+            in the software.</para></listitem>
+          <listitem><para><emphasis role="bold">Technical interoperability</emphasis>
+            is ensured when common technical parameters / interfaces for transmitting
+            information are applied.</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>In addition, the ‘technical interoperability’ which forms the basis of 
+      the ‘procedural interoperability’ is considered in the context of an ESB.
+      </para>
+      
+      <para>The mechanisms of a cross-domain service use consist of two mechanisms,
+      in accordance with the domain concept. The cross-domain service use on technical
+      domains is based upon open standardized service end-points.</para>
+      
+      <para>If a provider makes an open standardized service end point available in 
+      a technical domain, the ser-vice end point can be used by a consumer of the
+      same domain, as well as by a consumer of a differ-ent technical domain.</para>
+      
+      <para>In the following figure, the basic principle of the use of open, standardized
+      service end points is depicted.</para>
+      
+      <figure id="f1-technicalserviceuse" float="0">
+        <title>Technical Cross-domain Service Use</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/technicalserviceuse.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>In general, a consumer needs information about the service (service 
+      description) in order to be able to use a service. The consumer typically
+      receives such information from their own SOA (ESB) Infrastructure. In doing
+      so, the SOA (ESB) Infrastructure of the technical domains to which the consumer
+      is assigned, requires this information for a cross-domain service use.</para>
+      
+      <para>So as to reduce interoperability problems and to guarantee self-sufficient
+      consumer / provider configurations in a technical domain, the consumer and 
+      provider are assigned to a technical domain and for all infrastructure requirements,
+      use the SOA (ESB) Infrastructure of the technical domains.</para>
+      
+      <para>In order to get the information needed from the local technical domain
+      to use a service beyond technical domain borders, this information must first 
+      be entered into the technical domain of the consumer.</para>
+      
+      <para>To this end, a synchronization mechanism between the technical domains
+      is provided through, which the relevant data for service use on technical 
+      domain borders is distributed (see the following figure).</para>
+      
+      <figure id="f1-infrastructuresynchronisation" float="0">
+        <title>SOA- (ESB-) Infrastructure Synchronization of Technical Domains</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/infrastructuresynchronisation.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>If every consumer in a cross-domain service use were to secure themselves
+      the information (service description and policies) from the respective technical
+      domains (SOA (ESB) Infrastructure), an exchange of this information would take 
+      place per consumer across domain borders. With targeted synchronization, the
+      information exchange (service descriptions and policies) across domain borders
+      would be restricted to a single exchange.</para>
+      
+      <para>In summary, service use across technical domains occurs by means of an
+      open, standardized service end-point and the synchronization of information 
+      (service description and policies).</para>
+      
+      <para>Information domains are, as previously mentioned, user-specific domains
+      which from an ESB perspective, are virtual and placed over technical domains.
+      Generally speaking, a consumer or a provider can only be assigned to one technical
+      domain. However, a provider can belong to several different information domains
+      whereby consumers can use providers from different information domains.</para>
+      
+      <para>The information domains are defined, among others, by authorization 
+      (policies) which are to be drawn up for services using the service description. 
+      The type of the authorization (policies) for a service can therefore vary greatly.
+      For example, the authorization regulations may be composed of:
+        <itemizedlist>
+          <listitem><para>The <emphasis role="bold">classification of data</emphasis>
+            of the service (security requirements);</para></listitem>
+          <listitem><para>The <emphasis role="bold">Quality of Service</emphasis>
+            of the transmission medium (for example, broadband / narrowband of the 
+            transmission medium) which the service requires;</para></listitem>
+          <listitem><para>etc.</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>Synchronization between the information domains is not provided for, 
+      since the information necessary for a cross-domain service use is provided 
+      to the consumer via the SOA (ESB) Infrastructure in which this is statically 
+      recorded.</para>
+      
+      <para>From the cross-domain use of services the following capabilities can be
+      derived for the ESB:
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>The cross-domain use of services across technical domains 
+            is based on open, standardized end points.</para></listitem>
+          <listitem><para>Every consumer and provider is assigned to a technical
+            domain which provides the consumer and provider with an SOA (ESB) Infrastructure.
+            Exceptions to this rule are special consumers / providers (e.g. sensor 
+            fields) in the mobile environment as these do not possess their own SOA
+            (ESB) Infrastructure.</para></listitem>
+          <listitem><para>The information (service description and policies) of a 
+            service, which is used across technical domain borders, is exchanged using
+            special synchronization mechanisms between technical domains.</para></listitem>
+          <listitem><para>Every provider / service can be simultaneously assigned to
+            several information zones (domains), yet at least one of these must be
+            an information domain.</para></listitem>
+          <listitem><para>The information domains overall use of providers / services
+            is regulated by means of authorizations (policies).</para></listitem>
+          <listitem><para>The authorizations (policies) are drawn up and supplied to the
+            consumer via the SOA (ESB) Infrastructure of the technical domain assigned
+            to him.</para></listitem>
+          <listitem><para>A consumer can, depending on his authorization, (policies) 
+            use provider /services of different information domains at the same time.
+            </para></listitem>
+          <listitem><para>The provider checks the authorization regulations (policies)
+            via the SOA (ESB) Infrastructure of the technical domains assigned to him.
+            </para></listitem>
+        </orderedlist>
+      </para>
+      
+    </sect2>
+    
+    <sect2>
+      <title>Synchronization of SOA (ESB) Infrastructures</title>
+      
+      <para>The number of technical domains on a national level will in the future
+      be relatively high. Furthermore, own technical domains in the respective nations
+      will exist with cross-nations service use and supply.</para>
+      
+      <para>So that a consumer can get the information he requires from his local
+      technical domain in order to gain access to a service beyond national or international
+      domain borders, this must first be entered into the local technical domain of 
+      the service. For this reason, a synchronization mechanism between the technical
+      domains is necessary via which the relevant data for the use of a service is 
+      distributed .</para>
+      
+      <para>The following figure depicts the starting point of two technical domains 
+      which have no physical connection to one another. Both technical domains are
+      self-sufficient and have consumer, provider and an SOA (ESB) Infrastructure
+      which provides the consumers in the domains with information regarding the use
+      of the locally assigned provider.</para>
 
-            <listitem>
-              <para><emphasis>Attribute statements:</emphasis>
-              These contain specific identifying attributes about the subject
-              (for example, that user "John Doe" has "Gold" card
-              status).</para>
+      <figure id="f1-2nonconnecteddomains" float="0">
+        <title>Starting Point of Two Non-connected Technical Domains</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/2nonconnecteddomains.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>If both technical domains were to be physically connected and services 
+      on the technical domain borders to be used or provided, an infrastructure 
+      service of the respective domain must detect a new / additional technical 
+      domain and send a trigger to the SOA (ESB) Infrastructure service for synchronization.
+      </para>
+      
+      <para>Based on this initialization both synchronization services of the SOA (ESB) 
+      Infrastructure exchange service information which could be used on domain borders
+      (see the following figure). Therefore, each domain only publishes local services
+      which are provided via these domain borders. The synchronization service must
+      thus take into account the underlying QoS parameters and policies. Using a
+      corresponding service classification, the services for which a cross-domain 
+      use is permitted are determined and published.</para>
+      
+      <figure id="f1-2connecteddomains" float="0">
+        <title>Synchronization of Two Connected Technical Domains</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/2connecteddomains.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>When two technical domains are synchronized, the respective synchronization 
+      service continuously checks whether the locally published service information 
+      has changed. If a change is detected, then a synchronizations update is conducted.
+      </para>
+      
+      <para>If both technical domains are physically separated (see the following 
+      figure), the network service detects that the other network is no longer 
+      available and subsequently informs the synchronization service which redelivers
+      the published service information of this technical domain.</para>
+      
+      <figure id="f1-2reseparateddomains" float="0">
+        <title>Synchronization of Two Re-separated Technical Domains</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/2reseparateddomains.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>In the mobile environment (radio), mechanisms (e.g. Caching) should however
+      be provided so as to compensate for any brief network fluctuations.</para>
+      
+      <para>The synchronizations mechanism is independent from the equipment / provision
+      of the technical domains. This means, for example, that the synchronization 
+      between mobile and portable / stationary domains can be identical to that in
+      a federation of cross-nation domains. The services to be synchronized between
+      different technical domains are determined according to a trust relationship
+      and the QoS parameters (e.g. transmission medium, IT security).</para>
+      
+      <para><emphasis role="bold">Synchronization Data</emphasis></para>
+      
+      <para>Generally speaking, the service information of a service used cross-domain
+      which must be synchronized is very extensive. The service information consists
+      of the service description (WSDL file), policies, IT security data (e.g. public
+      key) and the necessary QoS parameters. Overall, it is thought to be too expensive
+      for synchronization in a narrowband network. For synchronizations across narrow 
+      band networks, prepared service forms are on hand and only a small section (e.g.
+      provider name) is transmitted upon synchronization. For this reason, the synchronization
+      data of the service descrip-tion for cross-domain used services must be differently 
+      scalable depending on bandwidth.</para>
+      
+      <para>With broadband transmission mediums, more information can be exchanged,
+      up to a complete service description (WSDL File, policies, IT security data
+      and the necessary QoS parameters.</para>
+      
+      <para>Conversely, with narrowband transmission mediums, only the characteristics
+      of the service description are transmitted upon synchronization. Based on these 
+      characteristics, the services are registered in the SOA (ESB) infrastructure
+      with the help of a pre-defined template (form) and thus published.</para>
+      
+      <para>Due to this, the service descriptions of cross-domain used services are
+      to be categorized in advance via templates and the IT security settings and 
+      QoS parameters correspondingly defined so that only the necessary characteristics
+      are communicated during synchronization. The characteristics, IT security
+      settings, QoS parameters, templates (forms) and the synchronization protocol
+      used are to be standardized and – at least at NATO level – agreed upon.</para>
+      
+      <para>From the synchronizations mechanism, the following capabilities for the
+      ESB can be derived:
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>A synchronization service – assigned to SOA (ESB) Infrastructure
+            – distributes service information to other technical domains when it 
+            receives a corresponding notification from a network service via a new 
+            node. If the synchronization service receives the message that a node/network
+            is no longer available from the network service, it deletes the service
+            information received from the technical domain assigned to the node / 
+            network from its own local SOA (ESB) Infrastructure. When using radio 
+            networks, this should not occur until after the adjustable ‘timeout’ 
+            period or until a Schmitt-Trigger-Function has occurred in order to 
+            ‘compensate’ for recurrent fluctuations in a radio network.</para>
             </listitem>
-
-            <listitem>
-              <para><emphasis>Authorization decision
-              statements:</emphasis> These define something that the subject
-              is entitled to do (for example, whether "John Doe" is permitted
-              to buy a specified item).</para>
-            </listitem>
-          </itemizedlist>
-
-          <para>The following example shows a common portion Assertion:</para>
-
-          <figure id="v6f-ass">
-            <title>Assertion</title>
-
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="../figures/saml-assert.svg" />
-              </imageobject>
-            </mediaobject>
-          </figure>
-
-          <para>An assertion contains one or more statements and some common
-          information that applies to all contained statements or to the
-          assertion as a whole. A SAML assertion is typically carried between
-          parties in a SAML protocol response message, which itself must be
-          transmitted using some sort of transport or messaging
-          protocol.</para>
-
-          <para>The next Figure shows a typical example of containment: a SAML
-          assertion containing a series of statements, the whole being
-          contained within a SAML response, which itself is carried by some
-          kind of protocol.</para>
-
-          <figure id="v6f-saml-prot">
-            <title>Relationship of SAML Components and Protocol
-            Container</title>
-
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="../figures/saml-prot.svg" />
-              </imageobject>
-            </mediaobject>
-          </figure>
-
-          <para>The means by which lower-layer communication or messaging
-          protocols (such as HTTP or SOAP) are used to transport SAML protocol
-          messages between participants is defined by the SAML
-          bindings.</para>
-
-          <para>SAML defines a number of generalized request/response
-          protocols:</para>
-
-          <itemizedlist>
-            <listitem>
-              <para>Authentication Request Protocol</para>
-            </listitem>
-
-            <listitem>
-              <para>Single Logout Protocol</para>
-            </listitem>
-
-            <listitem>
-              <para>Assertion Query and Request Protocol</para>
-            </listitem>
-
-            <listitem>
-              <para>Artifact Resolution Protocol</para>
-            </listitem>
-
-            <listitem>
-              <para>Name Identifier Management Protocol</para>
-            </listitem>
-
-            <listitem>
-              <para>Name Identifier Mapping Protocol</para>
-            </listitem>
-          </itemizedlist>
-
-          <para>SAML profiles are defined to satisfy a particular business use
-          case, for example the Web Browser SSO profile. Profiles typically
-          define constraints on the contents of SAML assertions, protocols,
-          and bindings in order to solve the business use case in an
-          interoperable fashion.</para>
-        </sect4>
-
-        <sect4>
-          <title>SAML Architecture (Web Security Architecture)</title>
-
-          <para>The following figure shows the chain of an access to a Service
-          or to a Resource and the co-operation with the IT Security Services.
-          The main SAML IT Security Services are:</para>
-
-          <itemizedlist>
-            <listitem>
-              <para><emphasis>Policy Enforcement Point (PEP):
-              </emphasis>A Policy Enforcement Point (PEP) at the resource
-              provider formulates an authorization decision request (SAML or
-              XACML) using the attributes and other information in the
-              security context. The PEP sends this request to a Policy
-              Decision Point.</para>
-            </listitem>
-
-            <listitem>
-              <para><emphasis>Policy Decision Point (PDP):
-              </emphasis>The Policy Decision Point (PDP) combines the
-              information in the request with policy obtained from a central
-              policy store. The PDP renders an access control decision, which
-              is returned to the PEP.</para>
-            </listitem>
-
-            <listitem>
-              <para><emphasis>Policy retrieval point (PRP):
-              </emphasis>The component from which applicable policies may be
-              retrieved. The communication protocol between PDP and PRP is
-              XACML.</para>
-            </listitem>
-
-            <listitem>
-              <para><emphasis>Policy Administration Point (PAP):
-              </emphasis>A Policy Administration Point (PAP) maintains
-              authorization policy in a central location. The policy store is
-              made available to the PRP for access control decisions.</para>
-            </listitem>
-
-            <listitem>
-              <para><emphasis>Policy Information Point (PIP):
-              </emphasis>A Policy Information Point validates the specific
-              attributes that are used for authorization.</para>
-            </listitem>
-          </itemizedlist>
-
-          <figure id="v6f-saml-arch">
-            <title>SAML Architecture (Overview)</title>
-
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="../figures/saml-arch.svg" />
-              </imageobject>
-            </mediaobject>
-          </figure>
-
-          <para>The step sequence by an access of a client is:</para>
-
-          <itemizedlist>
-            <listitem>
-              <para>1. Login based on a certificate;</para>
-            </listitem>
-
-            <listitem>
-              <para>2. Before an access the user needs may be some keys, which
-              he can get via the Public Key Infrastructure using for example
-              XKISS.</para>
-            </listitem>
-
-            <listitem>
-              <para>3. Service Consumer invokes a Service which was published
-              earlier. The user (consumer) sends a request (SOAP message) via
-              the Middleware Service Broker to the Provider. The SOA
-              Middleware forwards the request to the PEP.</para>
-            </listitem>
-
-            <listitem>
-              <para>4. The PEP (Policy Enforcement Point) will capture the
-              requirement for a service and pass the SAML onto the PDP for
-              authentication and authorization validation of the obligation
-              service.</para>
-            </listitem>
-
-            <listitem>
-              <para>5. The PDP receives the 'Authorization Decision Request'
-              and requests a 'Policy Query' to the PRP. The PRP response with
-              a 'Policy Statement'.</para>
-            </listitem>
-
-            <listitem>
-              <para>6. In addition the PDP checks some more, the User,
-              Resource, and/or Context Attributes via some additional
-              'Statement Services'.</para>
-            </listitem>
-
-            <listitem>
-              <para>7. Based on the check results (Policy and Statements) the
-              PDP decides the access (permit, deny, not applicable or
-              indeterminate).</para>
-            </listitem>
-
-            <listitem>
-              <para>8. The PEP receives the access result, triggers the
-              logging and the flow control.</para>
-            </listitem>
-
-            <listitem>
-              <para>9. If all access requests are valid, the PEP forwards the
-              user request to the provider.</para>
-            </listitem>
-
-            <listitem>
-              <para>10. The Service Provider supports the user request.</para>
-            </listitem>
-          </itemizedlist>
-        </sect4>
-      </sect3>
+          <listitem><para>The synchronization service only publishes services across
+            domain borders whose use beyond domain borders and for the underlying 
+            QoS parameter of the transmitting medium has been approved.</para></listitem>
+          <listitem><para>Services which are published by the synchronization service
+            are categorized according to an approval for cross-domain use. Additionally,
+            the QoS parameter (e.g. broadcast mediums, IT security) plays a part in
+            the assessment of a cross-domain use.</para></listitem>
+          <listitem><para>A special operational case in the mobile area is ‘radio 
+            silence’. Here the status of the synchronization is controlled via manual
+            processes. In a one-sided radio silence, synchronization data is transmitted 
+            to the receiving nodes by a multicast process and incorporated there.
+            </para></listitem>
+          <listitem><para>The synchronizations data of the service description of 
+            cross-domain used services is scalable. On the one hand, even the complete
+            service description (WSDL file), policies, IT security data and the necessary
+            QoS Parameter can be exchanged in broadband networks. On the other, only
+            the characteristics of the service description are exchanged in narrowband 
+            networks, on the basis of which the remote service is recorded and published
+            in the SOA (ESB) Infrastructure.</para></listitem>
+        </orderedlist>
+      </para>
+      
+      <para>From the synchronizations mechanism, the following requirements on the
+        applications layer (service-producer) can be derived:
+         <orderedlist inheritnum="ignore" continuation="restarts">
+           <listitem><para>Based on pre-defined templates (forms) the services which
+             are used cross-domain should be categorized. Therefore, corresponding
+             IT security standards and QoS parameters are to be taken into account 
+             and specified. It is also to be indicated in the categorization whether
+             the service is permitted to be used nationally or multi-nationally.
+             </para></listitem>
+         </orderedlist>
+       </para>
+     </sect2>
+     
+     <sect2>
+       <title>Basic Security Considerations</title>
+       
+       <para>One of the basic protocols of the ESB is the Simple Object Access Protocol
+       (SOAP). SOAP is a standar-dized XML-based, platform-independent communication 
+       protocol for synchronous and asynchronous message exchanges between applications.
+       </para>
+       
+       <para>For the access or supply of classified information, the ESB offers a 
+       security concept (approach) in order to ensure protection of data / information 
+       objects (Property Protection). Property Protection is based upon XML/ SOAP 
+       messages and consists of the following basic technologies (see also the following 
+       figure):
+         <itemizedlist>
+           <listitem><para><emphasis role="bold">XML Encryption:</emphasis> XML Encryption
+             enables sections or individual elements of an XML document to be completely
+             or partly encrypted. The encryption elements contain all encryption information.
+             </para></listitem>
+           <listitem><para><emphasis role="bold">XML Digital Signature:</emphasis>
+             XML Digital Signature enables sections or individual elements of an XML
+             document to be signed.</para></listitem>
+           <listitem><para><emphasis role="bold">XML Token:</emphasis> XML Security 
+             Tokens describe how and which authentication mechanisms should be employed. 
+             Two Security Token mechanisms, X.509 Certificate and SAML Assertion are 
+             currently standardized.</para></listitem>
+         </itemizedlist>
+       </para>
+       
+       <para>Based on these basic technologies, for classified service information 
+       (data), exchange relationships, together with appropriate policies and security 
+       definitions for the exchange relationships are to be described.</para>
+       
+       <figure id="f1-esbsecurityelements" float="0">
+        <title>ESB Property Protection Security Elements</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/esbsecurityelements.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>The X.509 certificate mechanism will not be further discussed since it
+      is a general security procedure and used via the PKI from ESB of the X.509 
+      certificate mechanism.</para>
+      
+      <para>The Security Assertion Mark-up Language (SAML) is an XML Framework for
+      the exchange of authentication and authorization information. The SAML architecture
+      provides functions to describe transmit and control safety-related information.
+      </para>
+      
+      <figure id="f1-secarch" float="0">
+        <title>Property Protection IT Security Architecture</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="../figures/secarch.svg" format="SVG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>A Property Protection IT Security Architecture based on an SAML Architecture 
+      is depicted in the above figure. This forms an extended SAML Architecture since
+      here a binding (authenticity), integrity, availability test is carried out on
+      the part of the provider and consumer.</para>
+      
+      <para>The individual steps which are processed via the Policy Enforcement Point
+      or at the receiving end via the Policy Decision Point (PDP) are, depending on 
+      the predetermined service policies repeatedly running the same process steps.
+      </para>
+      
+      <para>Modeled on [8], the following possible steps are executed when accessing
+      a service in the Property Protection of IT- Security Architecture (see above
+      figure):
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>From the outset, the asset protection of the PEP (Policy 
+            Enforcement Point) is either triggered by a consumer request (data request)
+            or a provider response (or notification).</para></listitem>
+          <listitem><para>Depending on the policy of the service (included in the 
+            service description), a certificate-based login is implemented (for example
+            through the operating system) or the login data identified.</para></listitem>
+          <listitem><para>Before accessing a service, several certificates are required
+            which may be created by the Public Key Infrastructure (PKI) and retrieved
+            via XKISS</para></listitem>
+          <listitem><para>Upon accessing the service (properties previously determined
+            using the ESB Service Registry), the PEP sends a SOAP request or upon 
+            response / notification, the PEP of the provider sends a SOAP response
+            / notification via Middleware (ESB) to the provider or consumer. The PEP 
+            (Policy Enforcement Point) receives the SOAP request / response and then
+            initiates an examination.</para></listitem>
+          <listitem><para>The PEP sends off the examination to the PDP (Policy Decision 
+            Point)</para></listitem>
+          <listitem><para>The PDP sends off a ‘policy query’ to the PRP (Policy Retrieval
+            Point) which in turn answers with a ‘policy statement’.</para></listitem>
+          <listitem><para>Simultaneously, the PDP sends validation instructions (user, 
+            resource, and/or context attributes via ‘Statement Services’) to the PIP 
+            (Policy Information Point) which, using several additional services, 
+            checks the various information. Finally it sends the results to the PDP.
+            </para></listitem>
+          <listitem><para>Based on the results, the PEP receives the outcome from
+            the PDP.</para></listitem>
+          <listitem><para>At the same time, access to the service is logged by the
+            PEP.</para></listitem>
+          <listitem><para>If all checks are successful and access granted, the PEP 
+            forwards the request to the provider or the response to the consumer.
+            </para></listitem>
+        </orderedlist>
+      </para>
+      
+      <para>Crucial to the Property Protection of IT Security Architecture is that
+      both provider and consumer conduct a review of the binding (authenticity),
+      integrity and availability of the respective partner. Only through such a 
+      mechanism can the binding (authenticity), integrity and availability of the 
+      respective partner in the mobile ESB field on the side of Property Protection 
+      be guaranteed.</para>
+      
+      <para>Each service operation should be autonomous and require no other operation.
+      </para>
+      
+      <para>If only a single operation of a service is called up, and all security 
+      requirements met, the individual steps must be processed by the consumer and 
+      provider. However, these security technologies (encryption and signature) 
+      call for additional performance and bandwidth.</para>
+      
+      <para>If several service operations are used in succession or it is assured 
+      that the use of a service takes place on a secured basic protection, the IT 
+      security steps for services in the mobile field with a low bandwidth should
+      be optimized so that the complete examination does not have to be carried 
+      out upon every operation, in view of their performance and low bandwidth.</para>
+      
+      <para>Such an approach calls for the capability on the part of an ESB (ESB 
+      Stub and SOA (ESB) Infrastruc-ture) to be able to manage and check policy
+      settings, not just globally for one service but for different policies on the
+      operational level of a service. Additionally, the service description (application
+      level) states the requirement that global policies are not only to be developed 
+      for a service but also for every operation.</para>
+      
+      <para>The security of information technology is an overarching challenge since
+      every IT system considered individually frequently has its own security concept
+      (and individual implementation) and consequently, its own security domain.
+      An ESB-configuration with Property Protection is no exception.</para>
+      
+      <para>A challenge, from the perspective of IT security, is to provide participants
+      with classified data from a different security <footnote><para>A security domain
+      refers to a set of data, identities and services, for whose safety a particular
+      organization (or person) is responsible.</para></footnote> or information 
+      <footnote><para>Information domains are those domains on an application level
+      which are distinguished by certain properties e.g. user groups, organizational
+      affiliation, authorizations and / or accessed information</para></footnote> 
+      domain to their own (e.g. different authorizations of the users in the domains,
+      different classifications of the domains.) To achieve this, cooperating security 
+      domains are required.</para>
+      
+      <para>The binding (authenticity), integrity and availability test by the 
+      consumers and providers is carried out via the ESB Stub and the services of
+      the assigned SOA (ESB) Infrastructure. In order to use the services of other
+      security domains, the relevant security data / information from the respective
+      security domain is required. Consequently, additional specialist services of
+      the SOA (ESB) Infrastructure are necessary in order to, for example, synchroniz
+      e the relevant security data/information of the co-operating security domains.
+      </para>
     </sect2>
   </sect1>
-
+  
   <sect1>
-    <title>Enterprise Service Bus / Messaging System Profile</title>
+    <title>RELATED STANDARDS AND PROFILES</title>
+    <para></para>
+    
+    <sect2>
+      <title>Standards for Service Access / Provision</title>
+      
+      <para>The World Wide Web Consortium (W3C) is an international consortium aiming
+      to enable the full scope of possibilities for and to ensure continuous growth
+      of the World Wide Web by standardization (protocols and guidelines).</para>
+      
+      <para>The challenge when creating open, standardized service endpoints and a
+      standardized SOA-(ESB-) infrastructure is the development of lists of standards
+      that a SOA-environment must support. This list of standards should form a kind
+      a profile in order to create a uniform access to the service-endpoints.</para>
+      
+      <para>There are efforts by the W3C, to define a profile – the WS-I Basic Profile
+      – that could be used as basis for a service-endpoint.</para>
+      
+      <para>However, not all capabilities/requirements related to overarching and
+      shared services of a SOA-(ESB-) infrastructure, e. g. related to registry, 
+      repository or policies are included in the standards.</para>
+      
+      <para>Generally a SOA (ESB) must not support all standards. But the more a SOA
+      (ESB) is employed overarchingly in heterogeneous IT-sceneries, the more the
+      extended WS* - Specifications gain importance.</para>
+      
+      <para>The following table summarizes the capabilities, the existing technologies 
+      and the associated related WS* -Specifications in an overview.</para>
+      
+      <table frame="all" id="v4t-WS-Specifications">
+        <title>WS*-Specifications</title>
+        <tgroup cols="3">
+          <colspec colwidth="35*" />
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">SOA capability</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Existing ESB Technology</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Related WS*-Specification</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Secure Communication Channel</entry>
+              <entry>SSL, HTTPS</entry>
+              <entry>WS-Security, WS-Secure Conversation</entry>
+            </row>
+            <row>
+              <entry>Authentication</entry>
+              <entry>PKI Digital Certification</entry>
+              <entry>WS-Trust, SAML, WS-Federation</entry>
+            </row>
+            <row>
+              <entry>Message Payload Encryption and Signature</entry>
+              <entry>Standard Cipher Suites</entry>
+              <entry>WS-Encryption WS-Signature</entry>
+            </row>
+            <row>
+              <entry>Access Control List</entry>
+              <entry>LDAP, JMX, proprietary</entry>
+              <entry>XACML</entry>
+            </row>
+            <row>
+              <entry>Publish and Subscribe</entry>
+              <entry>JMS, proprietary</entry>
+              <entry>WS-Notification, WS-Evening</entry>
+            </row>
+            <row>
+              <entry>Service Endpoint Description</entry>
+              <entry>WSDL, LDAP, JNDI, proprietary</entry>
+              <entry>WSDL, WS*-Policy, SOAP 1.2 F and P</entry>
+            </row>
+            <row>
+              <entry>Reliable Messaging</entry>
+              <entry>JMS, proprietary MOM</entry>
+              <entry>WS-ReliableMessaging</entry>
+            </row>
+            <row>
+              <entry>Itinerary-based Routing</entry>
+              <entry>WSDL, proprietary</entry>
+              <entry>WSDL, WS-Addressing</entry>
+            </row>
+            <row>
+              <entry>Business Process Orchestration</entry>
+              <entry>Proprietary</entry>
+              <entry>WS-BPEL, WS-Choreography, proprietary</entry>
+            </row>
+            <row>
+              <entry>Transaction</entry>
+              <entry>JTA, JCA, XA, proprietary</entry>
+              <entry>WS-Coordination WS-Transaction WS-Atomic Transaction WS-Business Activity, WS-CAF</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      
+      <para>As ESB-profile for open, standardized service-endpoints the WS-I Basic
+      Profile V1.1 (an extension of the WS-I Basic Profile V1.0) including some extensions
+      with the following parts could be a good choice:
+        <itemizedlist>
+          <listitem><para>WS-I Web Service Basic Profile, v1.1:2nd ed. 2006</para>
+            </listitem>
+          <listitem><para>WS-I Simple SOAP Binding Profile v1.0:2004</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>The following standards are included:
+        <itemizedlist>
+          <listitem><para>Simple Object Access Protocol (SOAP) 1.1;</para></listitem>
+          <listitem><para>RFC2616: Hypertext Transfer Protocol -- HTTP / 1.1;</para></listitem>
+          <listitem><para>RFC2965: HTTP State Management Mechanism;</para></listitem>
+          <listitem><para>Extensible Markup Language (XML) 1.0 (Second Edition);</para></listitem>
+          <listitem><para>Namespaces in XML 1.0;</para></listitem>
+          <listitem><para>XML Schema Part 1: Structures;</para></listitem>
+          <listitem><para>XML Schema Part 2: Data types;</para></listitem>
+          <listitem><para>Web Services Description Language (WSDL) 1.1;</para></listitem>
+          <listitem><para>UDDI Version 2.04 API Specification;</para></listitem>
+          <listitem><para>UDDI Version 2.03 Data Structure Reference;</para></listitem>
+          <listitem><para>UDDI Version 2 XML Schema;</para></listitem>
+          <listitem><para>RFC2818: HTTP Over TLS;</para></listitem>
+          <listitem><para>RFC2246: The TLS Protocol Version 1.0;</para></listitem>
+          <listitem><para>The SSL Protocol Version 3.0;</para></listitem>
+          <listitem><para>RFC2459: Internet X.509 Public Key Infrastructure Certificate
+            and CRL Profile.</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>For interoperability reasons further standards should be included, that 
+      are currently neither within the WS-I Profile nor in the NATO ADatP-34 NISP-Vol2-v2:
+        <itemizedlist>
+          <listitem><para>TCP (IETF STD 7:1981, RFC0793:1981 updated by RFC3168:2001);</para></listitem>
+          <listitem><para>UDP (IETF STD 6:1980, RFC0768:1980);</para></listitem>
+          <listitem><para>XML Encryption Syntax and Processing (W3C Recommendation
+            10 December 2002);</para></listitem>
+          <listitem><para>XML Signature Syntax and Processing Second Edition (W3C
+            Recommendation 10 June 2008);</para></listitem>
+          <listitem><para>Security Assertion Markup Language, SAML v1.1 (OASIS);</para></listitem>
+          <listitem><para>XKMS: XML Key Management Specification (W3C Note 30 March 
+            2001);</para></listitem>
+          <listitem><para>XACML eXtensible Access Control Markup Language Version 2.0
+            (OASIS Standard, 1 Feb 2005).</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>The examination of standards to be considered gives the following requirement 
+      for an open, standardized service-endpoint of the reference environment for 
+      services (SRE):
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>The open, standardized procedures for access and provision
+            of service-endpoints provided through an ESB (ESB-stub and SOA-(ESB-) 
+            infrastructure) must be based on an extended WS-I profile.</para></listitem>
+        </orderedlist>
+      </para>
+    </sect2>
+    
+    <sect2>
+      <title>SOA- (ESB-) Infrastructure Services</title>
+      
+      <para>Besides the standardized service-interfaces (open service-endpoints), 
+      the service layer of the SOA-model encompasses the mechanisms for service 
+      administration as well as specialized services. In the broader sense the specialized 
+      services are cross-functions for an ESB.</para>
+      
+      <para>To make services work it takes more than SOAP, WSDL and UDDI. Services
+      must work with different security-levels. Complex processes between several 
+      services must be able to execute related roll-back-mechanisms as transactions.
+      Also routing and general Quality-of-Service rules are of importance in a global
+      infrastructure</para>
+      
+      <para>Further on services must be labeled with defined Service Level Agreements 
+      in order to sufficiently define their quality features.</para>
+      
+      <para>A global service-architecture, that provides a SOA-(ESB-) infrastructure
+      for services, can be illustrated as a layer-model composed of a Core Layer and
+      a Higher Layer.
+        <itemizedlist>
+          <listitem><para><emphasis role="bold">Core Layer:</emphasis> The core layer
+            of the architecture comprises XML and SOAP. XML is the basis of all formats
+            and protocols. As a default SOAP can be transferred via TCP / IP and HTTP.
+            The flexibility of SOAP also allows other transfer protocols.</para></listitem>
+          <listitem><para><emphasis role="bold">Higher Layer:</emphasis> The higher
+            layer comprises for example a directory-service (Registry) and security-services
+            (X.509 or SAML). This layer is composed of a variety of additional products and
+            consists of standards like e.g. the WS*-Specification: WS*-Security,
+            WS-ReliableMessaging, WS-Reliable or WS*-Transaction.</para></listitem>
+        </itemizedlist>
+      </para>
+      
+      <para>Now we look at services that are necessary for the provision of a service 
+      (service infrastructure). They are the SOA-(ESB-) infrastructure.</para>
+      
+      <para>From the SOA-perspective the specialized services, that form the SOA-(ESB-) 
+      infrastructure, are also „just services“, which in turn are based on SOA-mechanisms.
+      </para>
+      
+      <para>Under consideration of the SRE capability 3 (The reference environment
+      for services (SRE) is based on different classifications of the providers 
+      (service classes)) the specialized services of the SOA-(ESB) infrastructure
+      form a superior, self-sufficient service-class on the ESB. A service of the
+      specialized services of the SOA-(ESB-) infrastructure is either self-sufficient
+      (does not use further services), or uses only services of self-sufficient service
+      sub-classes of the SOA-(ESB-) infrastructure.</para>
+      
+      <para>The necessary SOA-(ESB-) infrastructure (specialized services) resulting 
+      from the use of services leads to the following capabilities/requirements for
+      the ESB:
+        <orderedlist inheritnum="ignore" continuation="restarts">
+          <listitem><para>For the use of a service the consumer as well as the provider
+            needs information (e.g. service description) and infrastructure-services 
+            (e.g. policies) that have to be provided by the SOA-(ESB-) infrastructure.
+            </para></listitem>
+          <listitem><para>The services of the SOA-(ESB-) infrastructure by themselves
+            form a service, that is based on the ESB-mechanisms in an analog manner
+            to the application-services (provider) and which are necessary for the 
+            provision of an application-service.</para></listitem>
+          <listitem><para>The services of the SOA-(ESB-) infrastructure constitute
+            service-classes (e.g. the core services of a directory service and the 
+            security services), that are structured hierarchically, and are either
+            self-sufficient or must be based on services of self-sufficient 
+            service-classes.</para></listitem>
+        </orderedlist>
+      </para>
+      
+      <para>The next two chapters deal with the essential components like the directory
+      service (Registry and Repository) and the services and the procedure for the
+      area of security. A SOA-(ESB-) infrastructure comprises much more specialized
+      services that are being used by consumers and providers and further specialized 
+      services that are necessary to ensure operations of an ESB-configuration.
+      </para>
+      
+      <para>As these further specialized services fulfill specific tasks they are
+      not dealt with in detail in this chap-ter. Rather, they are described in more
+      detail in the respective subject areas. There, the correspond-ing capability
+      requirements will be derived.</para>
+      
+      <para>Currently, the following core series are recommended for the tact ESB:
+      </para>
+      
+      <sect3>
+        <title>Service Registry Service</title>
+        
+        <para>One of the functions of a Registry and Repository System is the cataloging
+        of all service information. A Registry and Repository System regulates first
+        and foremost the collaboration of management and monitoring tools which in
+        turn enable run-time policies or Service Level Agreements (SLAs) to be monitored.
+        To this end, the Registry and Repository System automatically analyses run-time 
+        data. The registry must be closely interlocked with the ESB, as well as with 
+        the management and monitoring tools.</para>
+        
+        <para>Due to the fact that in the military field, mobile and stationary 
+        systems are employed and that larger and smaller platforms are necessary 
+        in the application, SRE prefers the inclusion of separate Registry and
+        Repository Systems.</para>
+        
+        <para>In doing so, the ESB Service Repository, is used more for configuration
+        management (Metadata Re-pository). The ESB Service Repository supports the
+        whole life cycle of processes, policies and services. Conversely, the ESB 
+        Service Repository is used as an operational service of the SOA (ESB) and
+        hereby supports the administration, control, search and definition of services
+        throughout the life-span of the ESBs.</para>
+        
+        <para>A synchronization mechanism transmits the relevant service definitions
+        from the ESB Service Repository (master with the WSDL and policy description)
+        to the ESB Service Registry.</para>
+        
+        <para>The service definition for the service registry is specified in [1].</para>
+      </sect3>
+      
+      <sect3>
+        <title>Security Services</title>
+        
+        <para>The security services are sub-divided into the following separate services:
+        </para>
+        
+        <sect4>
+          <title>Authorization Service</title>
+          
+          <para>The Authentication Service encapsulates the respective functionalities
+          necessary to determine the identity of the entity. For those who login to
+          an SOA associated system this means, for example, the implementation of 
+          a single sign-on concept. Therefore, the user only has to login once even
+          if he uses different entry points for SOA services. His identity and downstream
+          (supporting services) is provided insofar as this complies with the current
+          process definition. Therefore, subject to the security regulations, various
+          authentication measures may be required:
+            <itemizedlist>
+              <listitem><para>Username and Password</para></listitem>
+              <listitem><para>X.509 Certificate e.g. on a Smartcard for equipment</para></listitem>
+              <listitem><para>X.509 Certificate for Services</para></listitem>
+            </itemizedlist>
+          </para>
+          
+          <para>The Authentication Service verifies the log on information of the 
+          entity. With people, the test is carried out using the directory service. 
+          Should the test turn out positive, a security confirmation in accordance
+          with the standard ‘Security Assertion Mark-up Language’ (SAML) is issued. 
+          By using this service, the identity of an entity is confirmed, possibly
+          even beyond the borders of trustworthy organizations.</para>
+          
+          <para>Furthermore, the Authentication Service verifies certain fundamental 
+          properties of the considered entity in the form of attributes. For people
+          this is, for example, the degree of VS authority, their mili-tary rank or 
+          current position. These defined properties, together with the security 
+          regulations, are consulted when deciding to allow access to a resource.
+          </para>
+          
+          <para>The service definition for the authorization service is specified 
+          in [2], the security token service in [6].</para>
+        </sect4>
+        
+        <sect4>
+          <title>Access Control Service (Authorization)</title>
+          
+          <para>As described in the previous section, the identity of an entity is 
+          generally determined by a certificate.</para>
+          
+          <para>Via the Access Control Service (Authorization Service) of the SOA 
+          (ESB) Infrastructure, user authorization to resources (a resource is a 
+          service including operation) relating to identification / role is checked,
+          permission granted to the entity and accordingly signed by the Access 
+          Control Service.</para>
+          
+          <para>The service definition for the access control service is to be specified.
+          </para>
+        </sect4>
+        
+        <sect4>
+          <title>Domain Service</title>
+          
+          <para>If different security domains (for example, different nations or 
+          national domains) wanted to collaborate, certain trust relationships must
+          be defined. These include, among others, the establishment of trust connections
+          between SOA PKIs of the organizations involved.</para>
+          
+          <para>The Domain Service – a component of an SOA PKI – supports this in
+          observing the following tasks which can also be directly taken over by 
+          the synchronization:
+            <itemizedlist>
+              <listitem><para>Registration and accreditation of a co-operating
+                organization,</para></listitem>
+              <listitem><para>Publication of information through existing trust
+                connections,</para></listitem>
+              <listitem><para>Transformation of security attributes between the
+              individual information areas of the part-ner organizations.</para></listitem>
+            </itemizedlist>
+          </para>
+          
+          <para>The service definition for the domain controller service is specified 
+          in [7].</para>
+        </sect4>
+        
+        <sect4>
+          <title>SOA Public Key Infrastructure (SOA PKI)</title>
+          
+          <para>The SOA PKI is a system which provides an infrastructure for the 
+          creation and distribution of digital certificates. Furthermore, the SOA
+          PKI maintains its own revocation list (block) for certificates (public key)
+          and synchronizes the revocation list between security domains. In the 
+          distribution of certificates, generally only public keys are assigned.
+          </para>
+          
+          <para>Additionally, there is a requirement for the dynamic generation of 
+          key material within the interplay of SOA Services, such as the signing 
+          and encrypting of tasks with an asymmetric key pair.</para>
+          
+          <para>With the help of the ‘XML Key Management Specification’ (XKMS) service, 
+          SOA PKI compliant public key applications are provided to the applications
+          and validated.</para>
+          
+          <para>The SOA PKI components are divided into two service areas:
+            <itemizedlist>
+              <listitem><para><emphasis role="bold">Public Key Infrastructure (PKI)
+                </emphasis></para>
+                <para>By means of the SOA PKI, certificates are created and distributed,
+                the certification and life-cycle management of keys carried out and
+                the central revocation lists managed. The PKI is a hierarchical 
+                CA <footnote><para>CA = certification authority</para></footnote> 
+                structure and controls the trust connections between CAs.</para>
+                <para>The service definition for the SoaPki service is specified in 
+                [3], the GenKey service is specified in [5]. </para></listitem>
+              <listitem><para><emphasis role="bold">XML Key Management Specification
+                (XKMS)</emphasis></para>
+                <para>The XML Key Management Specification (XKMS) defines a protocol
+                  for a trust service which provides the functions of a PKI (Public
+                  Key Infrastructure). XKMS consists of the following two components:
+                  <itemizedlist>
+                    <listitem><para>XML Key Information Service Specification (X-KISS)
+                      defines methods to search for and validate public keys. Its goal
+                      is to minimize the complexity of the key search and validation 
+                      for the users by means of the X-KISS syntax. This then provides
+                      the Access Control Service (authorization) with methods for 
+                      searching and validating and forwards these to an underlying PKI.
+                      </para></listitem>
+                   <listitem><para>XML Key Registration Specification (X-KRSS defines
+                     methods to register, reissue and revoke keys.</para></listitem>
+                 </itemizedlist>
+               </para></listitem>
+             </itemizedlist>
+           </para>
+           
+           <para>The SOA PKO is indeed an infrastructure component but one which is
+           not necessarily attached to the SOA (ESB) Infrastructure. It is only 
+           contacted by the SOA (ESB) Infrastructure at specific times, such as 
+           upon initial operation or when adding users/hardware components.</para>
+           
+           <para>The service definition for the XKMS service is specified in [4].</para>
+         </sect4>
+       </sect3>
+     </sect2>
+   </sect1>
+   
+   <sect1>
+     <title>References</title>
+     <itemizedlist>
+       <listitem>
+         <para>[1] IT-AmtBw: “Service Registry “ Service Specification,</para>
+         <para>100316_RuDi_IABG_AP2_ServiceRegistry_099.doc, 29.04.2010</para>
+       </listitem>
 
-    <para>An <emphasis>Enterprise Messaging System (EMS)
-    </emphasis> is a set of published Enterprise-wide standards that allows
-    sending of semantically precise messages between computer systems. EMS
-    systems promote loosely coupled architectures that allow changes in the
-    formats of messages to have minimum impact on message subscribers. EMS
-    systems are facilitated by the use of XML messaging, SOAP and Web
-    services.</para>
-
-    <para>An <emphasis>Enterprise Service Bus (ESB) </emphasis>
-    generally provides an abstraction layer on top of an implementation of an
-    enterprise messaging system, which allows integration architects to
-    exploit the value of messaging without writing code. Contrary to the more
-    classical enterprise application integration (EAI) approach of a
-    monolithic stack in a hub and spoke architecture, the foundation of an
-    enterprise service bus is built of base functions broken up into their
-    constituent parts, with distributed deployment where needed, working in
-    harmony as necessary.</para>
-
-    <para>The following figure shows a layer model for the "Enterprise
-    Messaging System (EMS) / Enterprise Service Bus (ESB)" based on the
-    chapter: "Web Service Fundamentals".</para>
-
-    <figure id="v6f-esb-ems">
-      <title>ESB / EMS Layer Model</title>
-
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="../figures/esb-ems.svg" />
-        </imageobject>
-      </mediaobject>
-    </figure>
-
-    <para>Based on the Standards (signed in an ESB / EMS Profile) every Client
-    and Server can be integrated into the ESB system.</para>
-
-    <para><emphasis>WS-I Basic Profilee </emphasis></para>
-
-    <para>The WS-I Basic Profile V1.0 specifies a set of usage scenarios and
-    Web services standards that can be used to integrate systems. It focuses
-    on the core foundation technologies upon which Web services are based.
-    Basic Profile V1.0 was approved unanimously on July 22, 2003, by the WS-I
-    board of directors and members.</para>
-
-    <para>The WS-I Basic Profile V1.0 – Profile Specification consists of the
-    following non-proprietary Web services related specifications:</para>
-
-    <itemizedlist>
       <listitem>
-        <para>SOAP V1.1</para>
+        <para>[2] IT-AmtBw: “Authorization Service” Service Specification,</para>
+        <para>100415_RuDi_IABG_AP2_Authorization_099.doc, 18.05.2010</para>
       </listitem>
 
       <listitem>
-        <para>WSDL V1.1</para>
+        <para>[3] IT-AmtBw: “SoaPki Distribution Service” Swrvice Specification,</para>
+        <para>100129_RuDi_IABG_AP2_SoaPki_Distribution-Service_001.doc</para>
       </listitem>
 
       <listitem>
-        <para>UDDI V2.0</para>
+        <para>[4] IT-AmtBw: “XKMS-Service” Service Specification,</para>
+        <para>091127_RuDi_IABG_AP2_XKMS-Service_004.doc, 07.05.2010</para>
       </listitem>
 
       <listitem>
-        <para>XML V1.0 (Second Edition)</para>
+        <para>[5] IT-AmtBw: “GenKey-Service” Service Specification</para>
+        <para>100315_RuDi_IABG_AP2_GenKey-Service_002.doc, 04.05.2010</para>
       </listitem>
 
       <listitem>
-        <para>XML Schema Part 1: Structures</para>
+        <para>[6] IT-AmtBw: “Security Token Service” Service Specification,</para>
+        <para>100506_RuDi_IABG_AP2_SecurityTokenService_199.doc, 10.05.2010</para>
       </listitem>
 
       <listitem>
-        <para>XML Schema Part 2: Datatypes</para>
+        <para>[7] IT-AmtBw: “DomänenController” Service Specification,</para>
+        <para>100429_RuDi_IABG_AP2_DomänenController_002.doc, 28.04.2010</para>
       </listitem>
 
       <listitem>
-        <para>RFC2246: The Transport Layer Security Protocol Version
-        V1.0</para>
+        <para>[8] IT-AmtBw: “Service Level Environment – High Level Concept”</para>
+        <para>200910_RuDi_IABG_AP1_High-Level-Concept_400.doc, 20.09.2010</para>
       </listitem>
 
       <listitem>
-        <para>RFC2459: Internet X.509 Public Key Infrastructure Certificate
-        and CRL Profile</para>
-      </listitem>
-
-      <listitem>
-        <para>RFC2616: HyperText Transfer Protocol V1.1</para>
-      </listitem>
-
-      <listitem>
-        <para>RFC2818: HTTP over TLS</para>
-      </listitem>
-
-      <listitem>
-        <para>RFC2965: HTTP State Management Mechanism</para>
-      </listitem>
-
-      <listitem>
-        <para>The Secure Sockets Layer Protocol Version V3.0</para>
+        <para>[9] CoNSIS: “Synchronisation Service (SyncD)” Service Specification,</para>
+        <para>CoNSIS/DEU/Task2/DL/0001, 27.05.2010</para>
       </listitem>
     </itemizedlist>
-
-    <para>UPDATE: A combined claim of conformance to the <emphasis
-    role="bold"> WS-I Basic Profile 1.1</emphasis> and the <emphasis
-    role="bold">Simple SOAP Binding Profile 1.0</emphasis> is roughly
-    equivalent to a claim of conformance to the <emphasis>WS-I
-    Basic Profile 1.0 plus published errata. </emphasis></para>
-
-    <para>Additional there are many successful implementations of the basic
-    Web services standards, particularly SOAP and WSDL but many aspects of
-    service interaction and integration are not directly supported by those
-    basic standards, such as security, transactional, delivery assurance, and
-    process modelling – for example WS-Security, WS-Trust, WS-Privacy, and
-    WS-Policy. It also accommodated existing security technologies such as
-    Kerberos, XML Digital Signatures, and XML Encryption.</para>
-
-    <para>Because of this an "ESB / EMS Profile" proposal is defined on the
-    next page.</para>
-
-    <para><emphasis>ESB / EMS Profile proposal:</emphasis></para>
-
-    <para>A proposal for an ESB / EMS Profile could be based on the WS-I
-    profiles:</para>
-
-    <itemizedlist>
-      <listitem>
-        <para>WS-I Web Service Basic Profile, v1.1:2nd ed. 2006</para>
-      </listitem>
-
-      <listitem>
-        <para>WS-I Simple SOAP Binding Profile v1.0:2004</para>
-      </listitem>
-    </itemizedlist>
-
-    <para>With the following parts of the WS-I profiles:</para>
-
-    <itemizedlist>
-      <listitem>
-        <para>Simple Object Access Protocol (SOAP) 1.1</para>
-      </listitem>
-
-      <listitem>
-        <para>RFC2616: Hypertext Transfer Protocol – HTTP/1.1</para>
-      </listitem>
-
-      <listitem>
-        <para>RFC2965: HTTP State Management Mechanism</para>
-      </listitem>
-
-      <listitem>
-        <para>Extensible Markup Language (XML) 1.0 (Second Edition)</para>
-      </listitem>
-
-      <listitem>
-        <para>Namespaces in XML 1.0</para>
-      </listitem>
-
-      <listitem>
-        <para>XML Schema Part 1: Structures</para>
-      </listitem>
-
-      <listitem>
-        <para>XML Schema Part 2: Datatypes</para>
-      </listitem>
-
-      <listitem>
-        <para>Web Services Description Language (WSDL) 1.1</para>
-      </listitem>
-
-      <listitem>
-        <para>UDDI Version 2.04 API Specification, Dated 19 July 2002</para>
-      </listitem>
-
-      <listitem>
-        <para>UDDI Version 2.03 Data Structure Reference, Dated 19 July
-        2002</para>
-      </listitem>
-
-      <listitem>
-        <para>UDDI Version 2 XML Schema</para>
-      </listitem>
-
-      <listitem>
-        <para>RFC2818: HTTP Over TLS</para>
-      </listitem>
-
-      <listitem>
-        <para>RFC2246: The TLS Protocol Version 1.0</para>
-      </listitem>
-
-      <listitem>
-        <para>The SSL Protocol Version 3.0</para>
-      </listitem>
-
-      <listitem>
-        <para>RFC2459: Internet X.509 Public Key Infrastructure Certificate
-        and CRL Profile</para>
-      </listitem>
-    </itemizedlist>
-
-    <para>And with the following additional parts included in the ADaP-34
-    NISP-Vol2-v2 Draft, but not in the WS-I profiles:</para>
-
-    <itemizedlist>
-      <listitem>
-        <para>TCP (IETF STD 7:1981, RFC0793:1981 updated by
-        RFC3168:2001)</para>
-      </listitem>
-
-      <listitem>
-        <para>UDP (IETF STD 6:1980, RFC0768:1980)</para>
-      </listitem>
-    </itemizedlist>
-
-    <para>And with the following additional parts (not in the WS-I profiles
-    and not in the ADaP-34 NISP-Vol2-v2 Draft):</para>
-
-    <itemizedlist>
-      <listitem>
-        <para>XML Encryption Syntax and Processing (W3C Recommendation 10
-        December 2002)</para>
-      </listitem>
-
-      <listitem>
-        <para>XML Signature Syntax and Processing Second Edition (W3C
-        Recommendation 10 June 2008)</para>
-      </listitem>
-
-      <listitem>
-        <para>Security Assertion Markup Language, SAML v1.1 (OASIS)</para>
-      </listitem>
-
-      <listitem>
-        <para>XKMS: XML Key Management Specification (W3C Note 30 March
-        2001)</para>
-      </listitem>
-
-      <listitem>
-        <para>XACML eXtensible Access Control Markup Language Version 2.0
-        (OASIS Standard, 1 Feb 2005)</para>
-      </listitem>
-    </itemizedlist>
-  </sect1>
-
-  <sect1>
-    <title>Appendix: ESB Requirements in a Military Environment</title>
-    <para>This appendix describes an extract of some main requirements for an
-    ESB in a military, mainly tactical, environment.</para>
-
-    <para><emphasis>Mobility and Availability of the ESB
-    Infrastructure: </emphasis></para>
-
-    <para>One of the main requirements in the military sector is the mobility
-    of a mobile client and service. The service and the client change the
-    location and the ESB must support that location changes. Additional the
-    ESB Infrastructure on the client and on the service must also be mobile.
-    Independent from the status of the ESB environment the user should work in
-    worst case locally on his equipment (using the local services).</para>
-
-    <para>Furthermore the ESB infrastructure must be on one site mobile and on
-    the other site the ESB infrastructure must be also redundant in case of
-    breakdown. For example the SAML Architecture (PEP, PDP, ...)  and the PKI and
-    the usage must be mobile and redundant. Therefore it is necessary to
-    provide a replication of the critical and important data of the ESB
-    infrastructure.</para>
-
-    <para>The current implementation of the ESB infrastructure looks like a
-    more static environment with some redundancies.</para>
-
-    <para><emphasis>Bandwidth in a Military
-    Environment:</emphasis></para>
-
-    <para>In a tactical, mobile environment low bandwidth is a major topic.
-    Highly mobile military networks use for example radio communication (VHF,
-    UHF) or Tactical Data Links (Link 16/22, VMF, JREAP, ...), SATCOM, directed
-    antenna systems etc.. Contrary to this requirement the current ESB
-    environment requires a high bandwidth and is IP based.</para>
-
-    <para>That means due to the design of an ESB the communication system must
-    be able to fulfil its requirements. On one site some communication
-    equipments must be improved like IP communication via radio, but on the
-    other site the ESB design must take care about a low bandwidth (data
-    rate). One improvement on the ESB design could be the usage of "Binary
-    XML".</para>
-
-    <para>Binary XML, or Binary Extensible Markup Language, refers to any
-    specification which defines the compact representation of XML in a binary
-    format. How to involve Binary XML into SOA/SOAP and/or into the ESB
-    Infrastructure and into the Client/Service Architecture (data model), is
-    to analyze.</para>
-
-    <para>Remark: At the beginning it makes sense to start in an environment
-    with higher bandwidth, but by the design of the ESB and the target of the
-    ESB should be to support networks based on IP with lower bandwidth.</para>
-
-    <para><emphasis>ESB Security in a Military Environment:
-    </emphasis></para>
-
-    <para>Because of the not included Security Standards, the security
-    implementation in the ESBs isn't uniform and also some features are not
-    implemented. Additional in the military environment the requirements
-    related to the Security is different and especially from the
-    nations.</para>
-
-    <para>Related to this it is necessary to define a security standard into
-    the ESB / EMS Profile. Then based on this the implementation should be
-    arranged in the ESB environment.</para>
-
-    <para><emphasis>Online and Offline ESB
-    Management:</emphasis></para>
-
-    <para>In the military environment an ESB Management (including Service
-    Management) is required. For example it is not only necessary to manage
-    the access on a service at the first. Also due to the runtime of an
-    operation between a client and service it could be necessary to change the
-    service profile – for example: role/priority based reduction or refusal of
-    a service usage, or changing of the setting of the QoS (Quality of Service
-    agreement).</para>
-
-    <para>Furthermore a flexible and mobile management and monitoring of the
-    ESB Infrastructure together with the service provider is required.</para>
-
-    <para><emphasis>Interoperability: Non-interoperable ESB
-    implementations</emphasis></para>
-
-    <para>Currently a lot of implementations for an ESB exist like SOPERA,
-    WebSphere, ORACEL ESB (BPEL), Software-AG ESB. Every ESB implementation
-    contains an own framework which should be included on the client and
-    server application. In the most ESB implementations the Client/ESB
-    interface and the Service/ESB interface is proprietary. That means, it
-    isn't possible to contact with a Service or Client based on the ESB "A"
-    implementation the ESB "B". This is only possible in this case, if the
-    Client/ESB interface and the Service/ESB interface are implemented based
-    on standards (for based on an ESB / EMS Profile).</para>
-
-    <para>Currently a lot of different ESB implementations exist and the
-    current aim (workaround / first step) is to enable federation of two or
-    more ESB architectures that conform to the common specification for ESBs.
-    The Appendix chapter 6 explains an example of a Federated ESB Reference
-    Architecture.</para>
-  </sect1>
-
-  <sect1>
-    <title>Appendix: Federated ESB Reference Architecture</title>
-    <para>The following chapter is based on the document "ESB Interop Spec for
-    Federation" from MoD UK, EDS, IBM and ORACLE (a proposal for federated ESB
-    for ESBs based on different technology).</para>
-
-    <para>The ESB is an architectural component which provides a set of
-    services (or capabilities). The component itself exposes a set of services
-    which are characterised by a protocol, one or more addresses and specifics
-    ways of handling invocations, such as security. It also uses a set of
-    ports to integrate with service providers (such as application functions).
-    The capabilities provided by the ESB may include message format
-    transformation and protocol conversion, and it offers a number of
-    interactions styles including request-response and
-    publish-subscribe.</para>
-
-    <para>Currently exists a lot of different ESB implementations and the aim
-    is to enable federation of two or more ESB architectures that conform to
-    the common specification for ESBs.</para>
-
-    <para>The following list of high-level requirements has been used to give
-    an overview for the (Federated) ESB Reference Architecture:</para>
-
-    <itemizedlist>
-      <listitem>
-        <para>It should be transparent to Service Consumers and Providers
-        where the services they invoke are being delivered from (i.e. from
-        which ESB).</para>
-      </listitem>
-
-      <listitem>
-        <para>Services can be exposed for either internal or external
-        consumption. Service Consumers external to an ESB will not have access
-        to that ESB's internal Service Providers.</para>
-      </listitem>
-
-      <listitem>
-        <para>Every message which emanates from a service should be
-        identifiable and traceable back to its origin via a UUID. A component
-        of this UUID is an identifier assigned to the domain when it joins the
-        federation. (Alternatively time to live may need to be applied, so
-        when set to 0 the message is private.) This prevents infinite
-        loops.</para>
-      </listitem>
-
-      <listitem>
-        <para>ESBs must provide a mechanism for authenticating Service
-        Consumers and for controlling their access to the services the ESB
-        exposes externally.</para>
-      </listitem>
-
-      <listitem>
-        <para>ESBs must provide a facility for managing and publishing
-        up-to-date service end-points for the services governed within the
-        immediate zone and must be capable of storing service end-points for
-        services offered by other governance zones.</para>
-      </listitem>
-
-      <listitem>
-        <para>ESBs should audit the processing of a service that it offers and
-        make available the audit records captured, upon request from the
-        Service Consumer that invoked the service.</para>
-      </listitem>
-
-      <listitem>
-        <para>Exceptions trapped by services invoked must be handled in a
-        consistent manner across all ESBs within a federation. Whilst each ESB
-        may implement exception handling differently, they must report errors
-        to the Service Consumers following an agreed format and reporting
-        mechanism.</para>
-      </listitem>
-    </itemizedlist>
-
-    <figure id="v6f-esbarc">
-      <title>Federation ESB Architecture Overview</title>
-
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="../figures/esbarc.svg" />
-        </imageobject>
-      </mediaobject>
-    </figure>
-
-    <para>The diagram above provides a logical overview of the subsystems that
-    have been used to provide a Service Oriented Infrastructure for delivery
-    of Service Orientated applications.</para>
-
-    <para>The ESB Gateway acts as a proxy to provide controlled access to the
-    ESB. A principal use of the ESB Gateway is to expose services in a
-    consistent manner across all governance zones. This node allows generic
-    actions to be defined and performed on all calls to services such as
-    logging, auditing, monitoring, security, and threat protection.</para>
-
-    <figure id="v6f-esbgw">
-      <title>ESB Gateway</title>
-
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="../figures/esbgw.svg" />
-        </imageobject>
-      </mediaobject>
-    </figure>
-
-    <para>The ESB Gateway provides the single-point of control for federated
-    service invocations, that either originate with a local Service Consumer
-    call to a remote service (service hosted on external ESB) or a remote
-    Service Consumer call to a local Service Provider.</para>
-
-    <para>Local Service Providers and Service Consumers are shielded from the
-    federated ESBs (their consumers and providers) by the ESB Gateway, which
-    separates all aspects of external ESB interoperability from how services
-    are provided and consumed locally.</para>
-
-    <para>ESBs are federated on the basis that each of the zone's ESBs is
-    autonomous, and yet they all have knowledge of the wider enterprise-level
-    services. The next figure shows a topology for federated ESBs in which any
-    consumer can call services in any zone without necessarily having set up
-    the communication paths in advance.</para>
-
-    <figure id="v6f-fedesb">
-      <title>Federated ESB</title>
-
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="../figures/fedesb.svg" />
-        </imageobject>
-      </mediaobject>
-    </figure>
-  </sect1>
-
-  <sect1>
-    <title>List of Abbreviations</title>
-    <table>
-      <title>Acronyms</title>
-      <tgroup cols="2">
-        <colspec colname="col1" colnum="1" colwidth="30*" />
-        <colspec colname="col2" colnum="2" colwidth="70*" />
-        <thead>
-          <row>
-            <entry><emphasis>Abbreviation</emphasis></entry>
-            <entry><emphasis>Item</emphasis></entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry>API</entry>
-            <entry>Application Programming Interface</entry>
-          </row>
-          <row>
-            <entry>EMS</entry>
-            <entry>Enterprise Messaging System</entry>
-          </row>
-          <row>
-            <entry>ESB</entry>
-            <entry>Enterprise Service Bus</entry>
-          </row>
-          <row>
-            <entry>HTML</entry>
-            <entry>Hyper Text Markup Language</entry>
-          </row>
-          <row>
-            <entry>HTTP</entry>
-            <entry>Hyper Text Transfer Protocol</entry>
-          </row>
-          <row>
-            <entry>IP</entry>
-            <entry>Internet Protocol</entry>
-          </row>
-          <row>
-            <entry>IT</entry>
-            <entry>Information Technology</entry>
-          </row>
-          <row>
-            <entry>JMS</entry>
-            <entry>Java Message Service</entry>
-          </row>
-          <row>
-            <entry>MoD</entry>
-            <entry>Ministry of Defence</entry>
-          </row>
-          <row>
-            <entry>OSI</entry>
-            <entry>Open System Interconnection</entry>
-          </row>
-          <row>
-            <entry>PAP</entry>
-            <entry>Policy Administration Point</entry>
-          </row>
-          <row>
-            <entry>PDP</entry>
-            <entry>Policy Decision Point</entry>
-          </row>
-          <row>
-            <entry>PEP</entry>
-            <entry>Policy Enforcement Point</entry>
-          </row>
-          <row>
-            <entry>PIP</entry>
-            <entry>Policy Information Point</entry>
-          </row>
-          <row>
-            <entry>PKI</entry>
-            <entry>Public Key Infrastructure</entry>
-          </row>
-          <row>
-            <entry>SAML</entry>
-            <entry>Security Assertion Markup Language</entry>
-          </row>
-          <row>
-            <entry>SATCOM</entry>
-            <entry>Satellite Communication System</entry>
-          </row>
-          <row>
-            <entry>SSO</entry>
-            <entry>Single Sign-On</entry>
-          </row>
-          <row>
-            <entry>SOA</entry>
-            <entry>Service Oriented Architecture</entry>
-          </row>
-          <row>
-            <entry>SOAP</entry>
-            <entry>Simple Object Access Protocol</entry>
-          </row>
-          <row>
-            <entry>TCP</entry>
-            <entry>Transport Control Protocol</entry>
-          </row>
-          <row>
-            <entry>TLS</entry>
-            <entry>Transport Layer Security</entry>
-          </row>
-          <row>
-            <entry>UDDI</entry>
-            <entry>Universal Description Discovery and Integration</entry>
-          </row>
-          <row>
-            <entry>UDP</entry>
-            <entry>User Datagram Service Protocol</entry>
-          </row>
-          <row>
-            <entry>UHF</entry>
-            <entry>Ultra High Frequency</entry>
-          </row>
-          <row>
-            <entry>URL</entry>
-            <entry>Uniform Resource Locator</entry>
-          </row>
-          <row>
-            <entry>VHF</entry>
-            <entry>Very High Frequency</entry>
-          </row>
-          <row>
-            <entry>WSDL</entry>
-            <entry>Web Service Description Language</entry>
-          </row>
-          <row>
-            <entry>WS-I</entry>
-            <entry>Web Service Interoperability</entry>
-          </row>
-          <row>
-            <entry>XACML</entry>
-            <entry>eXtensible Access Control Markup Language</entry>
-          </row>
-          <row>
-            <entry>XKMS</entry>
-            <entry>XML Key Management Specification</entry>
-          </row>
-          <row>
-            <entry>XML</entry>
-            <entry>eXtensibke Markup Language</entry>
-          </row>
-          <row>
-            <entry>X-KISS</entry>
-            <entry>XML Key Information Service Specification</entry>
-          </row>
-          <row>
-            <entry>X-KRSS</entry>
-            <entry>XML Key Registration Service Specification</entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table>
   </sect1>
 
 </appendix>
