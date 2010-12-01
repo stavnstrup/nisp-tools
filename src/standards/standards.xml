@@ -5,62 +5,32 @@
 
 <standards revision="4.9">
 
-<!-- 
-
-The stage attribute of the status element defines the current 
-implementation stage of a given standard/profile in the NC3TA
-standardization process.  Stage is defined as stage="X.Y", where X.Y
-is the current stage of a standard/profile as defined in the following
-table: 
-
+  <revhistory>
+    <revision>
+      <revnumber>4.9</revnumber>
+      <date>25 November 2010</date>
+      <revdescription>
+        <itemizedlist>
+          <listitem>
+            <para>Added to Volume 3 midterm emerging standard "OMG Systems Modeling Language(OMG SysML) Version 1.1, November 2008"</para>
+          </listitem>
+          <listitem>
+            <para>Added to Volume 3 midterm emerging standard "VDSL2"</para>
+          </listitem>
+          <listitem>
+            <para>Added to Volume 3 midterm emerging standard "Common Biometric Exchange Formats Framework (CBEFF)"</para>
+          </listitem>
+          <listitem>
+            <para>Several updates of organisation from "itu-t" to "itu"</para>
+          </listitem>
+          <listitem>
+            <para>Several corrections of erroneous change dates "2020" to "2010"</para>
+          </listitem>
+        </itemizedlist>
+      </revdescription>
+    </revision>
+  </revhistory>
  
- |====================================================================================|
- |             | Proposal                                      | Approval             |
- |=============|===============================================|======================|
- | 10          | 10.10                                         | 10.40                |
- | Preparatory | Approved by the NOSWG for inclusion in Vol3   | Approved by the ISSC |
- |             |                                               | on behalf of the     |
- |             |                                               | NC3Board for inclu-  |
- |             |                                               | sion in Vol 3        |
- |=============|===============================================|======================|
- | 20          | 20.10                                         | 20.40                |
- | Emerging    | Recommended by the NOSWG as Emerging standard | Approved by the ISSC |
- |             |                                               | on behalf of the     |
- |             |                                               | NC3Board as Emerging |
- |             |                                               | standard             |
- |=============|===============================================|======================|
- | 30          | 30.10                                         | 30.40                |
- | Mandatory   | Approved by the ISSC on behalf of the NC3Board| Approved by the ISSC |
- |             | as Emerging standard.                         | on behalf of the     |
- |             | Recommended by the NOSWG as Mandatory standard| NC3Board as Mandatory|
- |             |                                               | standard             |
- |=============|===============================================|======================|
- | 40          | 40.10                                         | 40.40                |
- | Extended    | Approved by the ISSC on behalf of the NC3Board| Approved by the ISSC |
- |             | as Mandatory standard                         | on behalf of the     |
- |             | Recommended by the NOSWG to be replaced by a  | NC3Board to be       |
- |             | new (version of the) standard, however it may | replaced by a new    |
- |             | be necessary that the current standard is     | (version of the)     |
- |             | required                                      | standard, however it | 
- |             |                                               | may be necessary that|
- |             |                                               | the current standard |
- |             |                                               | is required          |
- |=============|===============================================|======================|
- | 50          | 50.10         | 50.20         | 50.30         | 50.40                |
- | Withdrawal  | Approved by   | Approved by   | Approved by   | Recommended by the   |
- |             | the ISSC on   | the ISSC on   | the ISSC on   | ISSC  on behalf of   |
- |             | behalf of the | behalf of the | behalf of the | the NC3Board to be   |
- |             | NC3Board      | NC3Board      | NC3Board      | removed as either    |
- |             | as Emerging   | as Mandatory  | as Extended   | Emerging, Mandatory  |
- |             | standard      | standard      | standard      | or Extended standard |
- |             | Recommended by| Recommended by| Recommended by|                      |
- |             | the NOSWG to  | the NOSWG to  | the NOSWG to  |                      |
- |             | be removed as | be removed as | be removed as |                      |
- |             | Emerging      | Mandatory     | Extended      |                      |
- |             | standard      | standard      | standard      |                      |
- |====================================================================================|
-
--->
   <taxonomy>
 
   <!--
@@ -425,10 +395,10 @@ table:
             <select id="bp-uddi2.0" mode="mandatory">Universal Description, Discovery and Integration (UDDI) v2.0, W3C</select>
             <select id="oasis-uddi-v3.00-published-20020719" mode="emerging">UDDI v3.0, W3C</select>
             <remarks>
-              UDDI 2.0 provides a platform-independent way of describing- and
-              disovering service. For CCEB interoperability UDDI 3.0 is mandatory.
-              <para>Used in Profile: tactESB (v2.03)</para>
-            </remarks>
+          UDDI 2.0 provides a platform-independent way of describing- and
+          disovering service. For CCEB interoperability UDDI 3.0 is mandatory.
+          <para>Used in Profile: tactESB (v2.03)</para>
+        </remarks>
             <rationale>Included in v.5 through RFCP 4-38 and updated in NCSP v.6 through RFCP 5-26.</rationale>
          </sp-view>
          <sp-view idx="d0e11340">
@@ -1066,6 +1036,12 @@ table:
             <select id="omg-formal03-03-01" mode="mandatory">Unified Modeling Language (UML) v2.0:2010 (OMG)</select>
             <remarks>For CCEB interoperability this standard is not applicable</remarks>
          </sp-view>
+         <sp-view>
+            <ncoe>Data Interchange</ncoe>
+            <select id="omg-formal-2008-11-01-sysml" mode="midterm">OMG Systems Modeling Language
+            (OMG SysML) Version 1.1, November 2008. SysML is a Systems Engineering standard.</select>
+            <remarks/>
+         </sp-view>
          <sp-view idx="d0e10398">
             <ncoe>Data Interchange</ncoe>
             <select id="omg-c4i2008-08-13" mode="emerging">Unified Profile for DoDAF and MODAF (UPDM v.2):2008 (OMG)</select>
@@ -1542,6 +1518,7 @@ table:
             <remarks>Used in routers</remarks>
             <rationale>RFC 1994:1996 updated by 2484:1999, changed in NCSP v.6</rationale>
          </sp-view>
+
          <sp-view idx="d0e1742">
             <ncoe>Comms</ncoe>
             <select id="ietf-rfc1990" mode="mandatory">
@@ -2111,6 +2088,16 @@ table:
           wave-guide fibers (EIA 4920000: 1997)
         </select>
          </sp-view>
+         <sp-view>
+            <ncoe>Comms</ncoe>
+            <select id="itu-g.993.2" mode="midterm">VDSL2</select>
+            <remarks>VDSL2 is the next generation of Super Broadband
+            DSL. Ericsson has demonstrated 500-Mbits/s transmission
+            rates over copper cabling by using new crosstalk
+            cancellation or vectorized VDSL2 based modems. The data
+            rate is over 20 times faster than the fastest ADSL2
+            services currently on offer in most countries.</remarks>
+         </sp-view>            
       </sp-list>
       <sp-list tref="nis-ts-vlf">
          <sp-view idx="d0e4693">
@@ -2702,6 +2689,10 @@ table:
             <select id="ietf-rfc2058" mode="mandatory">Radius, IETF RFC 2865:2006 updated by RFC 2868:2000, 3575:2003, 5080:2007</select>
             <select id="ietf-rfc3162" mode="emerging">Radius and IPv6, IETF RFC 3162:2001</select>
          </sp-view>
+         <sp-view>
+            <ncoe>Security</ncoe>
+           <select id="ansi-incits-398" mode="midterm">Common Biometric Exchange Formats Framework (CBEFF)</select>
+         </sp-view>
          <sp-view idx="d0e5011">
             <ncoe>Security</ncoe>
             <select id="opengroup-p702" mode="emerging">Single sign on (SSO, the Open Group)</select>
@@ -2709,8 +2700,7 @@ table:
          </sp-view>
          <sp-view idx="d0e5018">
             <ncoe>Security</ncoe>
-            <select id="iso-iec-9594-8" mode="emerging">Public-key and attribute certificate frameworks, X.509 v3:2005 (ITU-T)
-            </select>
+            <select id="iso-iec-9594-8" mode="emerging">Public-key and attribute certificate frameworks, X.509 v3:2005 (ITU-T)</select>
             <remarks>Used in Profile: tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e5130">
@@ -3491,7 +3481,7 @@ table:
            <ncoe>Comms</ncoe>
            <select id="ietf-rfc2965" mode="emerging">HTTP State Change Mgmt. (IETF RFC 2965:2000)</select>
            <remarks>Used in Profile: tactESB</remarks>
-        </sp-view>
+        </sp-view>        
         <sp-view idx="d0e6812">
             <ncoe>Comms</ncoe>
             <select id="ietf-rfc5023" mode="emerging">AtomPub (IETF RFC 5023:2007)</select>
@@ -3500,7 +3490,6 @@ table:
          <sp-view idx="d0e6816">
             <ncoe>Comms</ncoe>
             <select id="ietf-rfc2818" mode="mandatory">HTTPS (IETF RFC 2818:2000)</select>
-            <remarks>Used in Profile: tactESB</remarks>
             <rationale>RFC 2818 added in NISP v.3 through RFCP 2-1</rationale>
          </sp-view>
          <sp-view idx="d0e11281">
@@ -3558,14 +3547,14 @@ table:
          <sp-view idx="d0e11358">
             <ncoe>Distr. Comp.</ncoe>
             <select id="w3c-note-wsdl-20010315" mode="mandatory">WSDL v1.1:2001, W3C</select>
-            <remarks>Used in Profile: tactESB</remarks>
+           <remarks>Used in Profile: tactESB</remarks>
             <rationale>Included in v.5 through RFCP 4-38; date added in NCSP v.6 through RFCP 5-25 and changed to mandatory through RFCP 4-6</rationale>
          </sp-view>
          <sp-view idx="d0e7816">
             <ncoe>Data Interchange</ncoe>
             <select id="w3c-rec-xml-20040204" mode="mandatory">XML 1.0 3rd ed:2004, W3C</select>
             <remarks>Where semantic tags are required, the NC3 Repository serves as an XML registry (see Data Management).
-              <para>Used in Profile: tactESB</para></remarks>
+            <para>Used in Profile: tactESB</para></remarks>
             <rationale>XML 1.0 3rd ed:2004 added in NCSP v.6 through RFCP 5-3</rationale>
          </sp-view>
          <sp-view idx="d0e7830">
@@ -3641,8 +3630,7 @@ table:
             <ncoe>Distr. Comp.</ncoe>
             <select id="ws-i-ws-i" mode="mandatory">WS-I Web Service Basic Profile, v1.1:2nd ed. 2006</select>
             <select id="ws-i-ws-i" mode="emerging">WS-I Web Service Basic Profile, v1.2:3rd ed. 2007</select>
-            <remarks>For CCEB interoperability this profile is mandatory.
-              <para>Used in Profile: tactESB (v1.1)</para></remarks>
+            <remarks>For CCEB interoperability this profile is mandatory.<para>Used in Profile: tactESB</para></remarks>
             <rationale>Included in NCSP v.6 through RFCP 5-29</rationale>
          </sp-view>
          <sp-view idx="d0e11396">
@@ -3650,15 +3638,14 @@ table:
             <select id="bp-soap" mode="mandatory">Simple Object Access Protocol v1.1 (SOAP), W3C</select>
             <select id="bp-soap" mode="emerging">Simple Object Access Protocol v1.2 (SOAP), W3C</select>
             <remarks>Could be used in support of the Geo Web Services.
-              <para>Used in Profile: tactESB</para></remarks>
+            <para>Used in Profile: tactESB</para></remarks>
             <rationale>SOAP v1.1 added in NCSP v.6 through RFCP 5-4; v1.2 mandatory in NISP v.1.;
               changed back to emerging in NISP v.3 through RFCP 2-6.</rationale>
          </sp-view>
          <sp-view idx="d0e11407">
             <ncoe>Distr. Comp.</ncoe>
             <select id="ws-i-ws-i" mode="emerging">WS-I Simple SOAP Binding Profile v1.0:2004</select>
-            <remarks>For CCEB interoperability this profile is mandatory.
-              <para>Used in Profile: tactESB</para></remarks>
+            <remarks>For CCEB interoperability this profile is mandatory. <para>Used in Profile: tactESB</para></remarks>
             <rationale>Included in NCSP v.6 through RFCP 5-29</rationale>
          </sp-view>
          <sp-view idx="d0e11416">
@@ -3866,6 +3853,32 @@ table:
           </history>
         </status>
       </profile>      
+
+      <standard id="itu-g.993.2" tag="VDSL 2">
+        <document orgid="itu" pubnum="G. 993-2" date="2006-02-17"
+                  title="Very high speed digital subscriber line transceivers 2 (VDSL2)"/>
+        <applicability>This document is an access technology that
+        exploits the existing infrastructure of copper wires that were
+        originally deployed for POTS. It can be deployed from central
+        offices, from fibre-fed cabinets located near the customer
+        premises, or within buildings. VDSL2 is the newest and most
+        advanced standard of DSL broadband wireline
+        communications. Designed to support the wide deployment of
+        triple play services such as voice, video, data, high
+        definition television (HDTV) and interactive gaming, VDSL2 is
+        purported to enable operators and carriers to gradually,
+        flexibly, and cost-efficiently upgrade existing xDSL
+        infrastructure.</applicability>
+        <status stage="30.40" mode="unknown">
+          <uri>http://www.itu.int/rec/T-REC-G.993.2/en</uri>
+          <history>
+            <event flag="added" date="2010-11-24" rfcp="" version="4.0"/>
+          </history>
+       </status>
+      </standard>
+
+
+
            
       <standard id="ws-i-wsbp" tag="WS-BP 2.0">
          <document orgid="ws-i" pubnum="draft" date="2010-04-16" title="WS-I Basic Profile 2.0"/>
@@ -4623,6 +4636,18 @@ table:
          </status>
       </standard>
 
+      <standard id="ansi-incits-398" tag="CBEFF">
+        <document orgid="ansi" pubnum="incits-398" date="2008-01-23"
+                  title="Common Biometric Exchange Formats Framework (CBEFF)"/>
+        <applicability/>
+         <status stage="30.40" mode="unknown">
+            <history>
+               <event flag="added" date="2010-11-24" rfcp="" version="4.0"/>
+            </history>
+         </status>
+      </standard>
+
+
       <standard id="ansi-nist-itl" tag="NIST-ITL">
          <document orgid="ansi" pubnum="ANSI/NIST-ITL" date="2008-05-00"
                    title="Data Format for the Interchange of Fingerprint, Facial, and Scar Mark        and Tattoo (SMT) Information"/>
@@ -5295,7 +5320,7 @@ table:
                    title="ACSE CO protocol/Authentication">
             <correction cpubnum="AMD1" date="1997"/>
             <correction cpubnum="AMD2" date="1998"/>
-            <alsoknown orgid="itu-t" pubnum="X.227" date=""/>
+            <alsoknown orgid="itu" pubnum="X.227" date=""/>
          </document>
          <applicability>
            This Recommendation | International Standard provides the Protocol Implementation Conformance Statement 
@@ -5372,7 +5397,7 @@ table:
       </profile>
 
       <standard tref="ts-net" id="itu-t-t.120" tag="Application Sharing">
-         <document orgid="itu-t" pubnum="T.120" date="2007"
+         <document orgid="itu" pubnum="T.120" date="2007"
                    title="Data Protocols for Multimedia Conferencing"/>
          <applicability>
         The T.120 standards cover the document conferencing and application
@@ -5420,7 +5445,7 @@ table:
       </standard>
 
       <standard tref="ts-net" id="itu-t-h.323" tag="Audio/Video Teleconferencing">
-         <document orgid="itu-t" pubnum="H.323" date="2006"
+         <document orgid="itu" pubnum="H.323" date="2006"
                    title="Packet-based Multimedia Communication System:2009"/>
          <applicability>
         The H.323 specification describes terminals and other entities
@@ -6018,7 +6043,7 @@ table:
       </profile>
 
       <standard tref="ts-net" id="itu-t-h.320" tag="H.320">
-         <document orgid="itu-t" pubnum="H.320" date="1990"
+         <document orgid="itu" pubnum="H.320" date="1990"
                    title="Circuit-based Multimedia Comms. System"/>
          <applicability>
         This Recommendation covers the technical requirements
@@ -7202,7 +7227,7 @@ table:
       </profile>
 
       <standard tref="ts-net" id="itu-t-h.248.1" tag="MGCP">
-         <document orgid="itu-t" pubnum="H.248.1" date="2005"
+         <document orgid="itu" pubnum="H.248.1" date="2005"
                    title="Media Gateway Control Protocol (MGCP) v3">
             <alsoknown orgid="ietf" pubnum="RFC 3015" date="2000"/>
          </document>
@@ -7880,7 +7905,7 @@ table:
       <standard tref="ts-ces-mes" id="iso-iec-10021" tag="X.400/MOTIS">
          <document orgid="iso-iec" pubnum="10021" date="1999"
                    title="Message Handling Systems (MHS)">
-            <alsoknown orgid="itu-t" pubnum="X.400" date="1992">MHS; series</alsoknown>
+            <alsoknown orgid="itu" pubnum="X.400" date="1992">MHS; series</alsoknown>
             <comment>(MOTIS; series)</comment>
          </document>
          <applicability>
@@ -7955,7 +7980,7 @@ table:
       <standard tref="ts-rep-eds" id="iso-iec-9594" tag="X.500">
          <document orgid="iso-iec" pubnum="9594" date="2001"
                    title="OSI - Directory Services (DS):2008">
-            <alsoknown orgid="itu-t" pubnum="X500" date="2005"/>
+            <alsoknown orgid="itu" pubnum="X500" date="2005"/>
          </document>
          <applicability>
         ISO/IEC 9594/ITU-T X.500 comprise a set of
@@ -8954,15 +8979,17 @@ table:
          <document orgid="w3c" pubnum="CGI/1.1" date="1999"
                    title="Common Gateway Interface vers. 1.1"/>
          <applicability>
-           The Common Gateway Interface (CGI) is a <emphasis>de facto</emphasis>
-           standard for interfacing external applications with
-           information servers, such as HTTP or Web servers by interpreting
-           HTML FORM values (via GET or POST) and producing dynamic content. A
-           plain HTML document that the Web daemon retrieves is static, which
-           means it exists in a constant state: a text file that doesn't
-           change. A CGI program, on the other hand, is executed in real-time,
-           so that it can output dynamic information.
-         </applicability>
+        The Common Gateway Interface (CGI) is a <emphasis>
+          de
+          facto
+        </emphasis>standard for interfacing external applications with
+        information servers, such as HTTP or Web servers by interpreting
+        HTML FORM values (via GET or POST) and producing dynamic content. A
+        plain HTML document that the Web daemon retrieves is static, which
+        means it exists in a constant state: a text file that doesn't
+        change. A CGI program, on the other hand, is executed in real-time,
+        so that it can output dynamic information.
+      </applicability>
          <status stage="10.40" mode="unknown">
             <uri>http://www.w3.org/CGI/</uri>
             <history>
@@ -10569,7 +10596,7 @@ table:
       <standard ss="yes" id="iso-iec-8823-2" tref="ts-net" tag="">
          <document orgid="iso-iec" pubnum="8823-2" date="1997"
                    title=" Part 2: Connection-oriented presentation protocol: Protocol Implementation Conformance Statement (PICS) proforma">
-            <alsoknown orgid="itu-t" pubnum="X.226" date="1994"/>
+            <alsoknown orgid="itu" pubnum="X.226" date="1994"/>
          </document>
          <applicability>
            This Recommendation | International Standard provides the Protocol Implementation Conformance Statement 
@@ -10658,7 +10685,7 @@ table:
             <correction cpubnum="AMD1" date="1998"/>
             <correction cpubnum="AMD2" date="1998"/>
             <correction cpubnum="TC1" date="2002"/>
-            <alsoknown orgid="itu-t" pubnum="X.215" date="1995"/>
+            <alsoknown orgid="itu" pubnum="X.215" date="1995"/>
          </document>
          <applicability>
            This Recommendation | International Standard defines in an abstract way the externally visible 
@@ -10697,7 +10724,7 @@ table:
             <correction cpubnum="AMD1" date="1998"/>
             <correction cpubnum="AMD2" date="1998"/>
             <correction cpubnum="TC1" date="2002"/>
-            <alsoknown orgid="itu-t" pubnum="X.225" date="1995"/>
+            <alsoknown orgid="itu" pubnum="X.225" date="1995"/>
          </document>
          <applicability>
            This Recommendation | International Standard specifies:
@@ -15071,7 +15098,7 @@ table:
       </standard>
 
       <standard tref="ts-con" id="itu-tgi" tag="ITU-T G,I Series">
-         <document orgid="itu-t" pubnum="" date="" title="ISDN: ITU-T G, I Series"/>
+         <document orgid="itu" pubnum="" date="" title="ISDN: ITU-T G, I Series"/>
          <applicability>
         The ITU-T G and I Series contain the standards for digital narrowband
         (ISDN) telephone systems.
@@ -15086,7 +15113,7 @@ table:
       </standard>
 
       <standard tref="ts-con" id="itu-t-epqv" tag="ITU-T E, P, Q, V Series">
-         <document orgid="itu-t" pubnum="" date="" title="ITU-T E, P, Q, V Series"/>
+         <document orgid="itu" pubnum="" date="" title="ITU-T E, P, Q, V Series"/>
          <applicability>
         The ITU-T E, P, Q, V Series contain the standards for various analogue
         narrowband telephone systems.
@@ -15942,7 +15969,7 @@ table:
       </profile>
 
       <standard ss="yes" id="itu-t-i.430" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="I.430" date="1995"
+         <document orgid="itu" pubnum="I.430" date="1995"
                    title="ISDN basic user-network interface - Layer 1 specifications"/>
          <applicability>
            This Recommendation defines the layer 1 characteristics of the user-network interface at S- and T-reference points for
@@ -15966,7 +15993,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-i.431" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="I.431" date="1993"
+         <document orgid="itu" pubnum="I.431" date="1993"
                    title="ISDN Primary rate user-network interface - Layer 1 specification">
             <correction cpubnum="AMD1" date="1997"/>
          </document>
@@ -16066,7 +16093,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-q.930" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="Q.930" date="1993"
+         <document orgid="itu" pubnum="Q.930" date="1993"
                    title="ISDN user-network interface layer 3 - General aspects">
             <comment>formerly ITU-T I.440</comment>
          </document>
@@ -16102,7 +16129,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-q.931" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="Q.931" date="1998"
+         <document orgid="itu" pubnum="Q.931" date="1998"
                    title="ISDN user-network interface layer 3 specification for basic call control">
             <comment>formerly ITU-T I.441</comment>
          </document>
@@ -16129,7 +16156,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-x.31" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="X.31" date="1995" title="X.25 over ISDN B or D channels"/>
+         <document orgid="itu" pubnum="X.31" date="1995" title="X.25 over ISDN B or D channels"/>
          <applicability>
            This Recommendation addresses the following aspects:
 		   <para>
@@ -16165,7 +16192,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-e.164" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="E.164" date="2005"
+         <document orgid="itu" pubnum="E.164" date="2005"
                    title="The international public telecommunication numbering plan"/>
          <applicability>
            This Recommendation provides the number structure and functionality for the four categories of
@@ -16311,7 +16338,7 @@ table:
       </profile>
 
       <standard ss="yes" id="itu-t-i.113" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="I.113" date="1997"
+         <document orgid="itu" pubnum="I.113" date="1997"
                    title="Vocabulary of Terms for broadband aspects of ISDN"/>
          <applicability>
            This Recommendation consists primarily of those terms and definitions that are considered essential
@@ -16342,7 +16369,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-i.121" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="I.121" date="1991" title="Broadband aspects of ISDN"/>
+         <document orgid="itu" pubnum="I.121" date="1991" title="Broadband aspects of ISDN"/>
          <applicability>
            This Recommendation states the basic principles of broadband aspects of integrated services digital network
            (B-ISDN) and indicates further developments of the ISDN network capabilities in order to support more advanced
@@ -16418,7 +16445,7 @@ table:
       </profile>
 
       <standard ss="yes" id="itu-t-i.361" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="I.361" date="1999" title="B-ISDN ATM Layer Specification"/>
+         <document orgid="itu" pubnum="I.361" date="1999" title="B-ISDN ATM Layer Specification"/>
          <applicability>
            This Recommendation specifies ATM header bit assignments including ATM cell structure and the
            associated coding for both NNI and UNI, defines service primitives to be exchanged with upper and
@@ -16438,7 +16465,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-i.363" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="I.363" date="1996"
+         <document orgid="itu" pubnum="I.363" date="1996"
                    title="B-ISDN Adaption Layer (AAL) Specification"/>
          <applicability>
         The above standards are applicable to systems requiring fast packet
@@ -17090,7 +17117,7 @@ table:
       </profile>
 
       <standard tref="ts-con" id="itu-t-x.25" tag="Packet switched Wide Area Networking">
-         <document orgid="itu-t" pubnum="X.25" date="1996"
+         <document orgid="itu" pubnum="X.25" date="1996"
                    title="Interface between Data Terminal Equipment (DTE) and Data Circuit-terminating Equipment (DCE) for terminals operating in the packet mode and connected to public data networks by dedicated circuit"/>
          <applicability>
         The above standards are applicable to systems
@@ -17106,7 +17133,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-v.42" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="V.42" date="2002"
+         <document orgid="itu" pubnum="V.42" date="2002"
                    title="Error-correcting procedures for DCEs using asynchronous-to-synchronous conversion"/>
          <applicability>
            This Recommendation describes error-correcting protocols for use with V-series duplex DCEs to
@@ -17129,7 +17156,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-v.90" tref="ts-con" tag="">
-         <document orgid="itu-t" pubnum="V.90" date="1998"
+         <document orgid="itu" pubnum="V.90" date="1998"
                    title="Modem for PSTN at 56000 bit/s (downstream) and 33600 bit/s (upstream)"/>
          <applicability>
            This Recommendation specifies the operation between two different modems, one a digital modem and the other an
@@ -18004,7 +18031,7 @@ table:
       <standard ss="yes" id="iso-iec-8073" tref="ts-net" tag="">
          <document orgid="iso-iec" pubnum="8073" date="1997"
                    title="Connection-oriented Transport protocol">
-             <alsoknown orgid="itu-t" pubnum="X.224" date="1995"/>
+             <alsoknown orgid="itu" pubnum="X.224" date="1995"/>
          </document>
          <applicability>
            This Recommendation | International Standard specifies:
@@ -20357,7 +20384,7 @@ table:
       </standard>
 
       <standard tref="ias" id="itu-t-x.411" tag="X.411">
-         <document orgid="itu-t" pubnum="X.411" date="1995"
+         <document orgid="itu" pubnum="X.411" date="1995"
                    title="Message transfer system: Abstract service definition and procedures"/>
          <applicability>
         This security service augments the Message Security Labeling
@@ -22062,7 +22089,7 @@ table:
          <document orgid="iso-iec" pubnum="9596-1" date="1998" title="CMIP Specification">
             <correction cpubnum="TC1" date="1999"/>
             <correction cpubnum="TC2" date="2002"/>
-			<alsoknown orgid="itu-t" pubnum="X.711" date="1997"/>
+			<alsoknown orgid="itu" pubnum="X.711" date="1997"/>
          </document>
          <applicability>
            This Recommendation | International Standard specifies a protocol which is used by application 
@@ -22173,7 +22200,7 @@ table:
       <standard tref="ces-esm-sys" id="iso-iec-9595" tag="CMIS">
          <document orgid="iso-iec" pubnum="9595" date="1998"
                    title="Common Management Information Service (CMIS) Definition">
-            <alsoknown orgid="itu-t" pubnum="X.710" date="1997"/>
+            <alsoknown orgid="itu" pubnum="X.710" date="1997"/>
          </document>
          <applicability>
         This standard (CMIS) defines an application service
@@ -22216,7 +22243,7 @@ table:
             <correction cpubnum="AMD1" date="1996"/>
             <correction cpubnum="AMD2" date="1998"/>
             <correction cpubnum="AMD3" date="1998"/>
-            <alsoknown orgid="itu-t" pubnum="X.722" date="1992"/>
+            <alsoknown orgid="itu" pubnum="X.722" date="1992"/>
          </document>
          <applicability>
         The specification provides developers of
@@ -23315,7 +23342,7 @@ table:
       </standard>
 
       <standard tref="ces-app-app" id="itu-t-g.726" tag="ADPCM">
-         <document orgid="itu-t" pubnum="G.726" date="1990"
+         <document orgid="itu" pubnum="G.726" date="1990"
                    title="40, 32, 24, 16 kbit/s adaptive differential pulse code modulation (ADPCM)"/>
          <applicability>
         Specifies an alternative voice coding e.g. for standard narrowband
@@ -31368,7 +31395,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-t.4" tref="ts-ces-med" tag="">
-         <document orgid="itu-t" pubnum="T.4" date="2003"
+         <document orgid="itu" pubnum="T.4" date="2003"
                    title="Standardization of group 3 facsimile terminals for document transmission"/>
          <applicability>
            This Recommendation defines the characteristics of Group 3 facsimile terminals which enable
@@ -31393,7 +31420,7 @@ table:
       </standard>
 
       <standard ss="yes" id="itu-t-t.6" tref="ts-ces-med" tag="">
-         <document orgid="itu-t" pubnum="T.6" date="1988"
+         <document orgid="itu" pubnum="T.6" date="1988"
                    title="Facsimile coding schemes and coding control functions for group 4 facsimile apparatus"/>
          <applicability>
            Recommendation T.6 defines the facsimile coding schemes and their control functions to be used in the
@@ -31446,7 +31473,7 @@ table:
       </profile>
 
       <standard tref="ts-ces-med" id="itu-t-t.30" tag="T30">
-         <document orgid="itu-t" pubnum="T.30" date="2005"
+         <document orgid="itu" pubnum="T.30" date="2005"
                    title="Procedures for document facsimile transmission in the general switched telephone network"/>
          <applicability>
         This Recommendation is concerned with the procedures which are
@@ -31624,7 +31651,7 @@ table:
             <uri>http://nsa.nato.int:9000/documents/stanags/dr%20en/7149Eed05.pdf</uri>
             <history>
                <event flag="added" date="2007-11-02" rfcp="1-9" version="2.0"/>
-               <event flag="changed" date="2010-08-09" rfcp="4-40" version="4.0"/>
+               <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -35236,6 +35263,20 @@ table:
          </status>
       </standard>
 
+
+      <standard id="omg-formal-2008-11-01-sysml" tag="SYSML">
+        <document orgid="omg" pubnum="formal-2008-11-01" date="2008-11" version="1.1"
+                  title="OMG Systems Modeling Language (OMG SysML) 1.1"/>
+        <applicability/>
+         <status stage="20.40" mode="unknown">
+            <uri>http://www.omg.org/spec/SysML/1.1/</uri>
+            <history>
+               <event flag="added" date="2010-11-24" version="4.0"/>
+            </history>
+         </status>
+      </standard>
+
+
       <standard tref="ts-ces-med" id="omg-c4i2008-08-13" tag="UPDM">
          <document orgid="omg" pubnum="c4i/2008‐08‐13" date="2008"
                    title="Unified Profile for DoDAF and MODAF"/>
@@ -37409,7 +37450,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
       <standard tref="ts-ces-med" id="opengroup-unix98-compress" tag="Compress">
          <document orgid="opengroup" pubnum="Unix 98" date="" title="Compress"/>
          <applicability>
-        The compress utility will attempt to reduce
+        The <emphasis>compress</emphasis> utility will attempt to reduce
         the size of the named files by using adaptive Lempel-Ziv coding.
       </applicability>
          <status stage="10.40" mode="unknown">
@@ -38676,7 +38717,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
             <uri>http://www.oasis-open.org/committees/uddi-spec/doc/tcspecs.htm#uddiv2</uri>
             <history>
                <event flag="added" date="2004-05-27" rfcp="5-26" version="0.6"/>
-	       <event flag="changed" date="2010-11-03" rfcp="" version="4.0"/>
+			   <event flag="changed" date="2010-11-03" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -39074,7 +39115,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
             <history>
                <event flag="added" date="1998-11-06" version="0.1"/>
                <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
-			   <event flag="changed" date="2020-11-04" rfcp="" version="4.0"/>
+			   <event flag="changed" date="2010-11-04" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -39092,7 +39133,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
             <history>
                <event flag="added" date="1998-11-06" version="0.1"/>
                <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
-			   <event flag="changed" date="2020-11-04" rfcp="" version="4.0"/>
+			   <event flag="changed" date="2010-11-04" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -39110,7 +39151,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
             <history>
                <event flag="added" date="1998-11-06" version="0.1"/>
                <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
-			   <event flag="changed" date="2020-11-04" rfcp="" version="4.0"/>
+			   <event flag="changed" date="2010-11-04" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -39126,7 +39167,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
             <history>
                <event flag="added" date="1998-11-06" version="0.1"/>
                <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
-			   <event flag="changed" date="2020-11-04" rfcp="" version="4.0"/>
+			   <event flag="changed" date="2010-11-04" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -39171,7 +39212,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
             <history>
                <event flag="added" date="1998-11-06" version="0.1"/>
                <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
-			   <event flag="changed" date="2020-11-04" rfcp="" version="4.0"/>
+			   <event flag="changed" date="2010-11-04" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -40382,7 +40423,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
       <orgkey key="iho" text="International Hydrographic Organisation"/>
       <orgkey key="iso" text="ISO"/>
       <orgkey key="iso-iec" text="ISO/IEC"/>
-      <orgkey key="itu-t" text="ITU-T"/>
+      <orgkey key="itu" text="ITU"/>
       <orgkey key="jcp" text="Java Community Process"/>
       <orgkey key="linux" text="Linux"/>
       <orgkey key="linuxbase" text="Linux-Base"/>
