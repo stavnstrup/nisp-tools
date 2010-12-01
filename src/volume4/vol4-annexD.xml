@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*****************************************************************
+                   Vol 4 - A N N E X - D
+*****************************************************************  
+-->
+
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd" [
+<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+]>
+<appendix id="v4-d">
+    <title>The Allied Mission Network (AMN) Profile of NATO Interoperability
+      Standards</title>
+
+  <sect1>
+    <title>Purpose</title>
+
+    <para>NATO, through its interoperability directive, has recognized that widespread 
+    interoperability is a key component in achieving effective and efficient operations.
+    In many of the operations world-wide in which NATO nations are engaged, they 
+    participate together with a wide variety of other organizations on the ground.
+    Such organizations include coalition partners from non-NATO nations, Non-Governmental
+    Organization (NGOs - e.g. Aid Agencies) and industrial partners. The NATO Interoperability 
+    Standards and Profile (NISP) provides the necessary guidance and technical components
+    to support project implementations and transition to NATO Network Enabled Capability
+    (NNEC).</para>
+
+    <para>The purpose of this document is to define an Interoperability Standards 
+    Profile to support the Afghanistan Mission Network (AMN) and transition from 
+    today's legacy systems to NNEC be defining a basic level of system interoperability 
+    in order to enhance the exchange of information within and across the AMN. To
+    support the goal of widespread interoperability the AMN Profile defines a minimum
+    profile of services and standards for Technical Interfaces <footnote><para>Technical 
+    Interfaces – specify interfaces and interactions between components and sub-systems,
+    including the possible use of security mechanisms to protect stored data and 
+    data transferred between systems; and specify the architecture and operation
+    of systems in order to identify the standards that are needed to support multi-national,
+    multi-vendor systems and their applications.</para></footnote>, Data Interchange Standards
+    <footnote><para>Data Interchange Formats – specify the content, meaning, and representation
+    of formats for the interchange of data, and specify notation and transfer formats
+    that provide platform independence and separation of transfer syntax from content
+    definition.</para></footnote> and Application Profile Standards<footnote><para>Application
+    Profile Standards – specify one or more base standards and standardized profiles, 
+    and where applicable, the identification of chosen classes, conforming subsets, 
+    options, and parameters of those base standards or standardized profiles necessary
+    to accomplish a particular function.</para></footnote> that are sufficient to provide
+    a useful level of interoperability. The AMN Profile is structured along the new
+    NNEC Framework developed by Allied Command Transformation and NC3A.</para>
+    
+    <para>The AMN Profile focuses primarily on the upper two OSI layers and assumes 
+    that all participants are using IP v4 packet-switched, routed networks (at least 
+    at least to their network boundaries). Interoperability will be supported through
+    Network Interconnection Points (NIPs) between component networks and systems 
+    providing a limited set of automated information exchange C2 information including
+    but not limited to: Chat / Instant Messaging, E-mail with attachments, Web publishing/access,
+    File transfer, VTC and Voice over IP telephony.</para>
+    
+    <para>This profile will be used in the implementation of NATO Common Funded Systems.
+    Nations participating in AMN agree to use this profile at Network Interconnection 
+    Points (NIPs) and at other Service Interoperability Points as applicable.</para>
+    
+    <para>NNEC Services must be able to function in a network environment containing
+    firewalls and various routing and filtering schemes; therefore, developers must
+    use standard and well-known ports wherever possible, and document non-standard
+    ports as part of their service interface. Service developers must assume network
+    behavior and performance consistent with the existing limits of these networks,
+    taking bandwidth limitations and potentially unreliable networks into account.</para>
+    
+    <figure id="v4d-service-structure">
+        <title>AMN Service Structure</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/service-structure.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+  </sect1>
+
+  <sect1>
+    <title>Change Management</title>
+    
+    <para>Applying existing NATO standards or - in those areas where NATO STANAGS
+    do not yet exist - International Standards are key for achieving interoperability
+    in a federated environment. The dynamic nature of ISAF operations results in
+    unforeseen information exchange requirements within and across ISAF. This might
+    require the development and design of new data and metadata exchange formats 
+    which are not part of current STANAGs and/or Standards. Those ad-hoc formats
+    shall be developed in-line with existing NATO policies and guidelines so that
+    they can be quickly transformed into standards (e.g. STANAGS) by the appropriate 
+    NATO Bodies based on the NATO Bi-SC Data Strategy, the NATO NNEC Data Strategy, 
+    and when appropriate, based on the APP-15 process.The AMN Profile is being maintained
+    by the AMN Architecture Working Group; it is a living document and is expected 
+    to be updated every six months.</para>
+    
+    <para>ADatP-34 defines four stages within the life-cycle of a standard: emerging,
+    mandatory, fading and retired; in those situations where multiple stages are 
+    mentioned the AMN Profile recommends dates by which the transition to the next
+    stage is to be completed by all AMN members. If a nation decides to implement
+    emerging standards it is her responsibility to maintain backwards compatibility
+    to the mandatory standard.</para>
+    
+    <para>Any discrepancies discovered between different elements of this Profile,
+    shall be resolved through a change proposal prepared by the responsible NATO
+    body or an AMN member nation.</para>
+    
+    <para>AMN Profile change requests can only be submitted by NATO civil or military
+    bodies or AMN member nations.</para>
+    
+    <para>The AMN Architecture Working Group will review updates to ADatP-34, the
+    ISAF Baseline Architecture and AMN Profile change proposals and if required will
+    produce a new version of the AMN Profile. The updated AMN Profile will be submitted
+    by the AMN Architecture Working Group to the NATO Open Standards Working Group 
+    (NOSWG) for publication under ADatP-34.</para>
+  </sect1>
+  
+  <sect1>
+    <title>Communication and Network Services Standards</title>
+    
+      <table frame="all" id="v4t-Comms-andNetwork-Stds">
+        <title>Communication and Network Services Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Basic connectivity between technical services.</entry>
+              <entry>Internet Protocol (IETF Standard 5, September 1981. RFCs 
+                791/950/919/922/792/1112)
+                <para>Transmission Control Protocol (IETF Standard 7, RFC 793:1981
+                  updated by 3168:2001)</para>
+                <para>Internet Protocol, Version 6 (IPv6) (IETF RFC 2460:1998)</para>
+                <para>Domain Name System (IETF Standard 13, RFC 1034/RFC 1035:1987)
+                </para>
+              </entry>
+              <entry>IP networking. Accommodate both IPv4 and IPv6 addressing and
+                Network Address Translation. Utilize Quality of Service capabilities
+                of the network.</entry>
+            </row>
+            <row>
+              <entry>Service transport protocol</entry>
+              <entry>Hypertext Transfer Protocol - HTTP 1.1 (RFC 2616:1999)</entry>
+              <entry>HTTP shall be used as the transport protocol for information 
+                without ‘need-to-know’ caveats between all service providers and 
+                consumers.
+                <para>HTTPS shall be used as the transport protocol between all 
+                  service providers and consumers to ensure confidentiality requirements.
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>Provide communications security over the network above the 
+                Transport Layer</entry>
+              <entry>Mandatory: Transport Layer Security (TLS) Protocol Version 1.2 
+                (RFC 5246:2008)
+                <para>Fading (until Dec 2011): Transport Layer Security (TLS) Protocol
+                  Version 1.0 (RFC 2246:1999)</para>
+                <para>Retired: Secure Sockets Layer (SSL) Protocol, Version 3.0, 18 
+                  Nov 1996</para>
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Voice communication</entry>
+              <entry>VoIP: ITU-T H.225, H.245, H.323 v5</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Secure Network management</entry>
+              <entry>Simple Network Management Protocol Version 3 (SNMPv3)</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Facilitation of secure, flexible, jam resistant information 
+                transfer in real time among dispersed and mobile units</entry>
+              <entry>STANAG 4175 Ed.4:2009 – Technical Characteristics of the Multifunctional
+                Information Distribution System (MIDS).</entry>
+              <entry>STANAG 4175 provides a detailed technical specification for MIDS 
+                terminals and is the governing document for MIDS terminal design 
+                and TDL network architecture.</entry>
+            </row>
+            <row>
+              <entry>Facilitate the access and authorization between AMN users</entry>
+              <entry>Directory service: LDAPv3, RFC 4510
+                <para>Authentication: Kerberos version 5, RFC 1510</para></entry>
+              <entry>The AMN OPT has identified three options available to a nation
+                when joining their national network extension to the AMN:
+                <orderedlist inheritnum="ignore" continuation="restarts">
+                  <listitem><para>Join ISAF Secret Forest</para></listitem>
+                  <listitem><para>Join CX-I Forest</para></listitem>
+                  <listitem><para>Create standalone TCN forest</para></listitem>
+                </orderedlist>
+                <para>(Option 1 and 2 should be considered before option 3. Ref: 
+                  AMN Systems engineering CONOPS dated 29 April 10).</para>
+                <para>Whilst LDAP is a vendor independent standard, in practice 
+                  Active Directory (AD) is the product providing directory services
+                  on the AMN. AD provides additional services aside from LDAP like 
+                  functionality. The new Active Directory Federation Services 2.0
+                  are likely to be used in future to better support Option 3 above.
+                </para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    
+    <sect1>
+      <title>Infrastructure and Core Enterprise Services Standards</title>
+    
+      <table frame="all" id="v4t-CES-Stds">
+        <title>Infrastructure and Core Enterprise Services Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>electronic mail (e-mail) transmission</entry>
+              <entry>SMTP (RFC 1870:1995, 2821:2001), Simple Mail Transfer Protocol (SMTP)
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Publishing information including text, multimedia, hyperlink 
+                features, scripting languages and style sheets on the network</entry>
+              <entry>HTML 4.01(RFC2854:2000), HyperText Markup Language (HTML), W3C</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Providing a common style sheet language for describing presentation 
+                semantics (that is, the look and formatting) of documents written
+                in markup languages like HTML.</entry>
+              <entry>Mandatory: Cascading Style Sheets (CSS), Level 2 revision 1 
+                (CSS 2.1), W3C Recommendation, Sep 2009.
+                <para>Emerging : Cascading Style Sheets (CSS), Level 3(CSS 2)</para>
+                <para>Fading (until Dec 2011): CSS Level 1, Jan 1999.</para>
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Enable free text real time communication in combination with
+                structured messages (data payload).</entry>
+              <entry>IETF RFC 3920:2004 - 3923:2004, Extensible Messaging and Presence 
+                Protocol (XMPP) – An open technology for real-time communication.
+                <para>The following XMPP Extension Protocols shall be supported:
+                </para>
+                <para>XEP-0004: Data Forms</para>
+                <para>XEP-0012: Last Activity</para>
+                <para>XEP-0013: Flexible offline message retrieval</para>
+                <para>XEP-0030: Service Discovery</para>
+                <para>XEP-0045: Multi User Chat</para>
+                <para>XEP-0060: Publish and Subscribe</para>
+                <para>XEP-0082: XMPP Date and Time Profiles</para>
+                <para>XEP-0128: Service Discovery Extensions</para>
+                <para>XEP-0138: Stream Compression</para>
+                <para>XEP-0163: Personal Eventing Protocol</para></entry>
+              <entry>RFC 3920 and RFC 3921 are currently being revised to correct
+                errors, clarify matters that were underspecified, and incorporate
+                feedback based on implementation and deployment experience gained 
+                since RFC 3920 and RFC 3921 were published in 2004.
+                <para>Developers are also advised to consult rfc3920bis and rfc3921bis,
+                  which provide the most up-to-date and accurate description the 
+                  core XMPP protocols.</para></entry>
+            </row>
+            <row>
+              <entry>Providing web content or web feeds for syndication to web sites
+                as well as directly to user agents.</entry>
+              <entry>Mandatory: Really Simple Syndication (RSS) 2.0 Specification
+                <para>Emerging (by Dec 2011): Atom 1.0: Atom syndication format, 
+                  Dec 2005 (RFC 4287) and Atom Publishing Protocol , Oct 2007 (RFC 5023)
+                </para>
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Encoding of location as part of a web feeds</entry>
+              <entry>Mandatory: GeoRSS Simple encoding.
+                <para>Where GeoRSS Simple is not appropriate the OGC GeoRSS Geography 
+                  Markup Language (GML) Application Profile shall be used</para>
+              </entry>
+              <entry>GeoRSS extensions should be used to describe location aspects
+                within ATOM and RSS feeds.</entry>
+            </row>
+            <row>
+              <entry>Sharing identity information in order to identify which users 
+                are trusted and what types of credentials can be securely accepted 
+                to enable secure sharing of information in a federated environment.</entry>
+              <entry>WS-* family of data Web services.
+                <para>WS* family of Open Standards provide a foundation for delivering 
+                  complete, interoperable federated identity and security capabilities
+                  which include:</para>
+                <para>WS-Security</para>
+                <para>WS-Security (WSS) describes how to attach security tokens,
+                  including binary security tokens such as X.509 certificates and
+                  Kerberos tickets, to SOAP messages.</para>
+                <para>WS-Federation</para>
+                <para>WS-Federation specification identifies two sources of identity
+                  and authentication requests across trust realms: active requestors, 
+                  such as SOAP-enabled applications, and passive requestors, which 
+                  are defined as HTTP browsers capable of supporting broadly supported
+                  HTTP, for example, HTTP 1.1.</para>
+                <para>XACML</para>
+                <para>Extensible Access Control Markup Language (XACML) is an Organization
+                  for the Advancement of Structured Information Systems (OASIS) standard 
+                  that describes both a policy language and an access control decision
+                  request/response language (both written in XML).</para>
+                <para>SAML</para>
+                <para>Security Assertions Markup Language (SAML) is an XML-based 
+                  framework for communicating user authentication, entitlement, and
+                  attribute information. As its name suggests, SAML allows business 
+                  entities to make assertions regarding the identity, attributes,
+                  and entitlements of a subject (an entity that is often a human user)
+                  to other entities, such as a partner company or another enterprise
+                  application.</para>
+              </entry>
+              <entry>NATO and TCNs shall use federated access and identity management
+                tools and applications which comply with the Open WS * standards when 
+                they want to provide access to and share information with other coalition
+                partners.
+              </entry>
+            </row>
+            <row>
+              <entry>General definition of data structure and the operations on data 
+                stored in that structure</entry>
+              <entry>SQL 3 (ISO/IEC 9075(-1 to - 14):2003), Definition of data structure 
+                and the operations on data stored in that structure.</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Public Key Infrastructure to support SSL and single sign-on</entry>
+              <entry>Version 3 public-key certificates and Version 2 CRLs in accordance
+                with ITU-T X.509
+                <para>NATO Public Key Infrastructure (NPKI) Certificate Policy (CertP)
+                  Rev2, AC/322-D(2004)0024REV2</para>
+              </entry>
+              <entry></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    
+      <para>Within the AMN architecture, new services must be designed around the 
+        Request/Response, Publish/Subscribe, or Message Queue patterns. For the AMN 
+        architecture, developers must:
+        <itemizedlist>
+          <listitem><para>provide read or read/write services as appropriate
+            </para></listitem>
+          <listitem><para>implement either synchronous or asynchronous services
+            </para></listitem>
+          <listitem><para>include authentication as part of their service</para>
+          </listitem>
+          <listitem><para>support dynamic bindings</para></listitem>
+        </itemizedlist>
+      </para>
+      <para>The challenge is in re-using the existing data standards developed 
+        under ADatP-3 in this new service environment.</para>
+        
+      <table frame="all" id="v4t-CES-Stds2">
+        <title>Infrastructure and Core Enterprise Services Standards, Part2</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Identification and addressing of objects on the network.</entry>
+              <entry>RFC 1738, Uniform Resource Locators (URL), 20 December 1994
+                RFC 2396, Uniform Resource Identifiers (URI), Generic Syntax, August 
+                1998 (updates RFC 1738)
+              </entry>
+              <entry>Namespaces within XML documents shall use unique URLs or URIs
+                for the namespace designation.</entry>
+            </row>
+            <row>
+              <entry>General formatting of information for sharing or exchange.</entry>
+              <entry>Extensible Markup Language (XML), v1.0 3rd Edition XML Schema:
+                Structures 1.0 XML Schema: Data types 1.0 XML Namespaces: W3C 
+                (REC-xml-names-19990114)</entry>
+              <entry>XML is required for data exchange to satisfy those IERs within
+                the AMN that are not addressed by a specific information exchange 
+                standard. XML Schemas and namespaces are required for all XML documents.
+              </entry>
+            </row>
+            <row>
+              <entry>Transforming XML documents into other XML documents</entry>
+              <entry>XSL Translation (XSLT 1.0)</entry>
+              <entry>Developer best practice for the translation of XML based documents 
+                into other formats or schemas.</entry>
+            </row>
+            <row>
+              <entry>Specific, practical guidance for the development of web services,
+                through constraints and clarifications to their base specifications.</entry>
+              <entry>Web Services Interoperability Organization (WS-I) Basic Profile 
+                1.1, Final Material, August 24, 2004; Note that this profile references
+                several other standards associated with web services:
+                <orderedlist inheritnum="ignore" continuation="restarts">
+                  <listitem><para>SOAP, WSDL, UDDI</para></listitem>
+                  <listitem><para>Hypertext Transfer Protocol, HTTP v1.1</para></listitem>
+                  <listitem><para>RFC2246 TLS Protocol v1.0</para></listitem>
+                  <listitem><para>RFC2560, x.509 Public Key Infrastructure Certificate</para>
+                  </listitem>
+                </orderedlist>
+              </entry>
+              <entry>Conformance to this standards-set is required for all SOAP based
+                services.</entry>
+            </row>
+            <row>
+              <entry>Configuration management of structured data standards, service 
+                descriptions and other structured metadata.</entry>
+              <entry>ebXML v3.0: Electronic business XML Version 3.0, Registry Information 
+                Model (ebRIM), OASIS Standard, 2 May 2005, Registry Services and 
+                Protocols (ebRS), OASIS Standard, 2 May 2005.</entry>
+              <entry>Used as foundation for setup, maintenance and interaction with
+                a (AMN/ISAF) Metadata Registry and Repository for sharing and configuration
+                management of XML metadata. Also enables federation among metadata 
+                registries/repositories.</entry>
+            </row>
+            <row>
+              <entry>Exchanging structured information in a decentralized, distributed
+                environment via services</entry>
+              <entry>W3C SOAP 1.1, Simple Object Access Protocol v1.1 (SOAP)
+                <para>Representational State Transfer (REST)</para>
+                <para>WSDL v1.1: Web Services Description Language (WSDL) 1.1, W3C 
+                  Note, 15 March 2001.</para>
+                <para>ebXML v3.0: Electronic business XML Version 3.0,Registry Information 
+                  Model (ebRIM), OASIS Standard, 2 May 2005,Registry Services and 
+                  Protocols (ebRS), OASIS Standard, 2 May 2005.</para>
+                <para>Universal Description, Discovery, and Integration Specification
+                  (UDDI v 2.0), OASIS Standard, April 2003.</para>
+                <para>Emerging (Dec 2011): UDDI v3.0.4</para>
+              </entry>
+              <entry>The preferred method for implementing webservices are SOAP, 
+                however, there are many use cases (mash-ups etc.) where a REST based 
+                interface is easier to implement and sufficient to meet the IERs.
+                <para>Used as foundation for setup, maintenance and interaction with
+                  a (NATO) Metadata Registry and Repository for sharing and configuration
+                  management of XML metadata. Also enables federation among metadata 
+                  registries/repositories.</para>
+                <para>AMN transition strategy to UDDI 3.0.4 needs to be developed
+                  for 2011.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>Secure exchange of information across multiple security domains</entry>
+              <entry>The Draft X-Labels syntax definition is called the “NATO Profile
+                for the XML Confidentiality Label Syntax” and is based on version 
+                1.0 of the RTG-031 proposed XML Confidentiality Label Syntax See 
+                “Sharing of information across Communities of Interest and across 
+                Security Domains with Object Level Protection” below.
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    
+    <sect1>
+      <title>Community of Interest Services and Data Standards</title>
+      
+      <para>Many information exchange mechanisms between existing systems are built
+      around complex and extensive military messaging standards, such as ADatP-3 
+      CONFORMETS, U.S. Message Text Format (USMTF) and the Variable Message Format
+      (VMF). The intent of this AMN interoperability profile is to specify the minimum
+      subset of military message formats needed per service line.</para>
+    </sect1>
+    
+    <sect1>
+      <title>Community of Interest Data and System Interoperability</title>
+      
+      <table frame="all" id="v4tTech-services">
+        <title>COI Interoperability</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>General formatted message exchange</entry>
+              <entry>AdatP-3 – Concept of NATO Message Text Formatting System (CONFORMETS)
+                and NATO Message Text Formatting System (FORMETS)
+                <para>Mandatory: STANAG 5500 Ed.6:2009</para>
+                <para>Emerging (Dec 2012): STANAG 5500 Ed.7:2010</para>
+              </entry>
+              <entry>Use for exchanging information with existing systems that process 
+                MTF messages.
+                <itemizedlist>
+                  <listitem><para>Observation Report</para></listitem>
+                  <listitem><para>Position Report</para></listitem>
+                  <listitem><para>SITREP</para></listitem>
+                  <listitem><para>Air Support Request: ADatP-3 BL 11Future F091</para></listitem>
+                </itemizedlist>
+                <para>Any addition or expansion of MTF messages or data dictionaries 
+                  shall be developed in XML-MTF (9-liner MEDEVAC request, 15 –liner, 
+                  SALTA reports etc.). All those extensions shall be submitted as 
+                  a change proposal within the configuration control process to be 
+                  considered for inclusion in the next version of the specification.
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>Automated information resource discover, information extraction
+                and interchange of metadata</entry>
+              <entry>ISAF Minimum Metadata Implementation Policy, ISO 15836:2009 
+                also known as the Dublin Core Metadata Element Set
+                <para>TIDE Information Discovery (v2.3.0, Oct 2009)</para>
+                <para>TIDE Service Discovery (v.2.2.0 Oct 2008)</para></entry>
+              <entry>The policy defines a subset of the NATO Discovery Metadata
+                Specification (NDMS) intended for information resource discovery.
+                <para>ISO 15836:2009 does not define implementation detail.</para>
+                <para>The technical implementation specifications are part of the 
+                  TIDE Transformational Baseline v3.0.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>General definition for the Representation of Dates and Times.</entry>
+              <entry>ISO 8601:2004, Representation of Dates and Times.</entry>
+              <entry>If not otherwise specified, this format shall be used for representing 
+                Dates and Time values.</entry>
+            </row>
+            <row>
+              <entry>General definition of letter codes for Geographical Entities</entry>
+              <entry>STANAG 1059, Letter Codes for Geographical Entities (9th edition, 2005)
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>General definition of geospatial coverage areas in discovery metadata</entry>
+              <entry>World Geodetic System (WGS) 84, ISO 19115 and ISO 19136 (for point 
+                references)</entry>
+              <entry>ISO 19139 provides encoding guidance for ISO 19115</entry>
+            </row>
+            <row>
+              <entry>General definition of Security and Confidentiality metadata</entry>
+              <entry>Community Security Requirements Statement For The Afghan Mission 
+                Network, Version 1.1, 2 June 2010.
+                <para>(See also ISAF Minimum Metadata Implementation Policy, Amendment
+                  A: Metadata Encoding Guidance for the ISAF Minimum Metadata Standard 
+                  and STANAG 1059 (9th edition, 2005)</para>
+              </entry>
+              <entry>All system and programme managers have to plan to implement 
+                these new standards in their individual area of responsibility. See 
+                NATO Profile for the XML Confidentiality Label Syntax and NATO Profile
+                for the Binding of Metadata to Data Objects for implementation detail.
+              </entry>
+            </row>
+            <row>
+              <entry>Sharing of information across Communities of Interest and across 
+                Security Domains with Object Level Protection</entry>
+              <entry>Emerging (Dec 2012): XML Confidentiality Label Syntax Version 1.0 
+                of the RTG-031 proposed XML Confidentiality Label Syntax (FFI Publication).
+                <para>NATO Profile for the XML Confidentiality Label Syntax (NC3A 
+                  RD-2903).</para>
+                <para>Binding of Metadata to Data Objects Version 1.0 of the RTG-031 
+                  proposed Binding of Metadata to Data Objects (FFI Publication).
+                  </para>
+                <para>NATO Profile for the Binding of Metadata to Data Objects 
+                  (NC3A RD-2977).</para>
+              </entry>
+              <entry>Emerging: The XML-Labeling and Binding specifications are published 
+                as annexes to the final report of RTO Task Group IST-068/RTG-031 on
+                "XML in Cross-Domain Security Solutions They are also available as 
+                separate publication by the Norwegian Forsvarets forskningsinstitutt 
+                (FFI)
+                <para>For use within NATO specific NATO profiles of these specifications 
+                  must be used. These are available as NC3A Reference Documents</para>
+              </entry>
+            </row>
+            <row>
+              <entry>Asset/ consignment tracking</entry>
+              <entry>The following two STANAGS require updating to reflect the IERs 
+                identified in ISAF CUR 254.
+                <para>STANAG 2185</para>
+                <para>STANAG 2183</para>
+              </entry>
+              <entry>Use for exchanging information with existing systems that process
+                Asset and Consignment information.
+                <para>Note that their evolution is foreseen to also regulate the 
+                  civilian convoy information exchange</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    
+    <sect1>
+      <title>Geospatial Interopersability</title>
+  
+      <table frame="all" id="v4Geospatial-interop">
+        <title>Geospatial Interoperability</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Distribution of compiled mapping (raster) data between applications.</entry>
+              <entry>OGC 04-024 (ISO 19128:2005), Web Map Service v.1.3
+                <para>Fading (Dec 2012): v1.0.0, v1.1.0, and v1.1.1</para>
+                <para>OGC 05-078r4, OpenGIS Styled Layer Descriptor Profile of the 
+                  Web Map Service (SLD) v.1.1.0</para>
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Distribution of geo feature (vector) data between applications</entry>
+              <entry>OGC 04-094, Web Feature Service (WFS) v.1.1.
+                <para>OGC 06-049r1, GML Simple Feature Profil (GML 3.1.1) v.1.0.0 
+                  Compliance Level 0</para>
+                <para>OGC 04-095, Filter Encoding v.1.1</para>
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Electronic interchange of geospatial data as coverages, that is, 
+                digital geospatial information representing space varying phenomena</entry>
+              <entry>OGC 07-067r2, Web Coverage Service (WCS) v.1.1.1
+                <para>Fading (Dec 2011): v1.0.0 and v1.1.0</para>
+                <para>OGC Web Coverage Service (WCS) Standard Guidance Implementation 
+                  Specification 1.0</para>
+              </entry>
+              <entry>Required for publishing coverage data.</entry>
+            </row>
+            <row>
+              <entry>Catalogue services support the ability to publish and search 
+                collections of descriptive information (metadata) for geospatial 
+                data, services, and related information objects.</entry>
+              <entry>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP
+                message
+                <para>OGC 07-110r4, CSW-ebRIM Registry Service - Part 1: ebRIM profile
+                  of CSW v.1.0.1</para></entry>
+              <entry>Catalogue Services will be supported by Core GIS FSD2 on the 
+                AMN Core.</entry>
+            </row>
+            <row>
+              <entry>Electronic format for medium resolution terrain evaluation data.</entry>
+              <entry>U.S. Military Specification Digital Terrain Elevation Data (DTED)
+                level 0,1,2 MIL-PRF-89020B</entry>
+              <entry>Used to support line-of-sight analyses, terrain profiling, 3-D 
+                terrain visualization, mission planning/rehearsal, and modeling and 
+                simulation.</entry>
+            </row>
+            <row>
+              <entry>File based storage and exchange of digital geospatial mapping 
+                (raster) data where services based access is not possible</entry>
+              <entry>
+                <itemizedlist>
+                  <listitem><para>Geotiff (a public domain metadata standard embedding
+                    georeferencing information within a TIFF 6.0 file</para></listitem>
+                  <listitem><para>JPEG2000 (ISO/IEC 15444-1 and 2)</para></listitem>
+                  <listitem><para>Multiresolution seamless image database (MrSid
+                    Generation 2)</para></listitem>
+                  <listitem><para>Enhanced Compressed Wavelet (ECW 3.3)</para></listitem>
+                  <listitem><para>NSA Compressed ARC Digitized Raster Graphics (CADRG)
+                    </para></listitem>
+                  <listitem><para>Raster product format (RPF)</para></listitem>
+                </itemizedlist>
+              </entry>
+              <entry>This is provided for legacy systems, implementers are encouraged 
+                to upgrade their systems to consume OGC Web Services.
+              </entry>
+            </row>
+            <row>
+              <entry>File based storage and exchange of non-topological geometry and 
+                attribute information or digital geospatial feature (vector) data 
+                where services based access is not possible</entry>
+              <entry>ESRI SHAPE files
+                <para>Open Geospatial Consortium (OGC), Keyhole Markup Language
+                  (KML 2.2)</para>
+              </entry>
+              <entry>This is provided for legacy systems, implementers are encouraged
+                to upgrade their systems to provide/consume OGC Web Services.
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>  
+    </sect1>
+    
+    <sect1>
+      <title>Battlespace Management Interoperability</title>
+    
+      <table frame="all" id="v4battlespace-mgmt">
+        <title>Battlespace Management Interoperability</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Digital exchange of semantically rich information about Battlespace
+                Objects such as units, their structural composition, Plans and Orders 
+                etc.</entry>
+              <entry>Mandatory: C2 Information Exchange Data Model (C2IEDM) and Data
+                Exchange Mechanism (DEM)
+                <para>Emerging (Dec 2011): STANAG 5525, Ed. 1:2007 – Joint C3 Information
+                  Exchange Data Model (JC3IEDM)</para>
+                <para>STANAG 5523 – C2 Information Exchange model</para>
+              </entry>
+              <entry>Currently most AMN members use C2IEDM (MIP-Block 2). In 2011 
+                the implementation of the STANAG (MIP Block 3) must be planned.
+                <para>Any addition or expansion of this data model or data dictionaries
+                  that is deemed to be of general interest shall be submitted as a 
+                  change proposal within the configuration control process to be 
+                  considered for inclusion in the next version of the specification.
+                </para>
+              </entry>
+            </row>
+            <row>
+              <entry>Expressing digital geographic annotation and visualization on, 
+                two-dimensional maps and three-dimensional globes</entry>
+              <entry>TIDE Transformational Baseline Vers. 3-0, NATO Vector Graphics 
+                (NVG)
+                <para>Mandatory: NVG 1.5</para>
+                <para>Fading (Dec 2011): NVG 1.4</para>
+                <para>Retired: NVG 0.3 </para>
+                <para>Open Geospatial Consortium (OGC), Keyhole Markup Language 
+                  (KML 2.2)</para>
+              </entry>
+              <entry>NVG shall be used as the standard Protocol and Data Format for 
+                encoding and sharing of information layers between Situational Awareness 
+                and C2 systems.
+                <para>NVG and KML are both XML-based language schemas for expressing
+                  geographic annotations.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>Exchanging information on Significant Activities (SIGACTs) 
+                in support of current operations</entry>
+              <entry>U.S.PM Battle Command SIGACT Schema</entry>
+              <entry>This schema is used via PASS, webservices and XMPP to exchange
+                SIGACT information at Regional Command level and below.</entry>
+            </row>
+            <row>
+              <entry>Exchanging information on Incident and Event information to
+                support information exploitation.</entry>
+              <entry>Emerging (Jul 2011): Draft EVENTEXPLOITREP XML schema. Under 
+                development between US PM Battle Command, US CENTCOM CCJ2 (CIDNE) 
+                and NC3A.</entry>
+              <entry>This schema is used to exchange rich and structured incident/event 
+                information between C2 and Exploitation systems (JOCWatch, CIDNE).</entry>
+            </row>
+            <row>
+              <entry>Real time automated data exchange such as radar tracking information 
+                among airborne and land-based tactical data systems beyond line of sight.
+                <para>Message exchange Over Tactical Data Links</para>
+              </entry>
+              <entry>STANAG 5516, Ed.4:2008 – Tactical Data Exchange (Link 16)
+                <para>STANAG 5511, Feb 28, 2006 – Tactical Data Exchange (Link 11/11B); 
+                  see also US MIL-STD 6011</para>
+                <para>STANAG 5616 Ed 4:2008 – Standards for Data Forwarding between 
+                  Tactical Data Systems employing Link 11/11B, Link 16 and Link 22.
+                  </para>
+              </entry>
+              <entry>AMN members shall follow the specifications for automatic data 
+                exchange of tactical information with and among NATO tactical data 
+                systems, using the data transmission Links designated as Link 11/11B 
+                and Link 16.
+                <para>Edition 5 of 5516 is ratified, implementation in ISAF needs
+                  to be coordinated via the AMN OPT.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>Exchange of digital Friendly Force Information such as positional 
+                tracking information amongst airborne and land-based tactical data
+                systems and C2 systems.</entry>
+              <entry>The Draft STANAG 5527 published under a D-Document and is not 
+                expected to be ratified. However, NFFI v1.3 will continue to be 
+                used as the Standard to exchange positional information on friendly
+                forces for the foreseeable future within the AMN.</entry>
+              <entry>All positional information of friendly ground forces (e.g. ground
+                forces of Troop Contributing Nations or commercial transport companies 
+                working in support of ISAF Forces) shall be as a minimum made available
+                in a format that can be translated into the NFFI V1.3 format. </entry>
+            </row>
+            <row>
+              <entry>Message formats for exchanging information in low bandwidth 
+                environment between systems enabled for processing Military Message
+                Format</entry>
+              <entry>STANAG 7149 -NATO Message Catalogue (NMC)(APP-11)
+                <para>AdatP-3(Baseline 11C , F and 13) – Concept of NATO Message
+                  Text Formatting System (CONFORMETS) and STANAG 5500 Ed.6:2009 
+                  NATO Message Text Formatting System (FORMETS)</para>
+              </entry>
+              <entry>Minimum set of messages:
+              <itemizedlist>
+                  <listitem><para>Air Tasking Order</para></listitem>
+                  <listitem><para>Air Control Order</para></listitem>
+                  <listitem><para>Incident Spot Rep</para></listitem>
+                  <listitem><para>Overlay</para></listitem>
+                  <listitem><para>Entity Data</para></listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>Military Symbology interoperability</entry>
+              <entry>STANAG 2019, Ed.5:2008, Joint Smbology- APP-6(B)
+                <para>U.S. MIL-STD 2525 B Change 2, Common Warfighting Symbology</para>
+              </entry>
+              <entry>Note that both standards are not fully compatible with each other.
+                A translation service may need to be provided at the AMN integration core.
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    
+    <sect1>
+      <title>Joint Intelligence, Surveillance, and Reconaissance Interoperability</title>
+      
+      <para>AEDP-2, Ed.1:2005– NATO Intelligence, Surveillance, and Reconnaissance 
+        Interoperability Architecture (NIIA). The NIIA provides the basis for the
+        technical aspects of an architecture that provides interoperability between 
+        NATO nations’ ISR systems. AEDP-2 provides the technical and management guidance
+        for implementing the NIIA in ISR systems.</para>
+        
+      <table frame="all" id="v4joint-isrt">
+        <title>Joint Intelligence, Surveillance, and Reconaissance Interoperability</title> 
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Storing and exchanging of images and associated data</entry>
+              <entry>STANAG 4545, Ed. 1:1998, NATO Secondary Imagery Format (NSIF)
+              </entry>
+              <entry>AEDP-4, Ed. 1, NATO Secondary Imagery Format Implementation 
+                Guide, 15 Jun 07, NU</entry>
+            </row>
+            <row>
+              <entry>Providing a standard software interface for searching and retrieving 
+                for ISR products.</entry>
+              <entry>NATO Standard ISR Library Interface (NSILI)
+                <para>Mandatory: STANAG 4559, Ed. 2:2007</para>
+                <para>Emerging (Jul 2013): STANAG 4559, Ed. 3:2010</para></entry>
+              <entry>AEDP-5, Ed. 1, NATO Standard Imagery Library Interface Implementation
+                Guide, TBS, NU
+              </entry>
+            </row>
+            <row>
+              <entry>Exchange of ground moving target indicator radar data</entry>
+              <entry>NATO Ground Moving Target Indicator (GMTI) Format
+                <para>Mandatory: STANAG 4607, Ed. 2:2007</para>
+                <para>Emerging (Dec 2012): STANAG 4607, Ed.3:2010</para></entry>
+              <entry>AEDP-7, Ed. 1, NATO Ground Moving Target Indication (GMTI) Format
+                Implementation Guide, TBS, NU</entry>
+            </row>
+            <row>
+              <entry>Provision of common methods for exchanging of Motion Imagery 
+                (MI)across systems</entry>
+              <entry>NATO Digital Motion Imagery Standard
+                <para>Mandatory: STANAG 4609, Ed. 2:2007</para>
+                <para>Emerging (Dec 2011): STANAG 4609, Ed. 3:2009</para></entry>
+              <entry>AEDP-8, Ed. 2, Implementation Guide For STANAG 4609-NDMI , 
+                Jun 07, NU</entry>
+            </row>
+            <row>
+              <entry>Exchange of unstructured data (documents, jpeg imagery)</entry>
+              <entry>IPIWIG V4 Metadata Specification:2009, Intelligence Projects 
+                Integration Working Group (IPIWG), Definition of metadata for unstructured
+                Intelligence.</entry>
+              <entry></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+    
+    <sect1>
+      <title>Biometrics Data and System Interoperability</title>
+      
+      <para>Biometrics is a general term used alternatively to describe a characteristic 
+      or a process. As a characteristic, a biometric is a measurable biological 
+      (anatomical and physiological) and behavioral characteristic that can be used
+      for automated recognition. As a process, a biometric is an automated method 
+      of recognizing an individual based on measurable biological (anatomical and
+      physiological) and behavioral characteristics.</para>
+      
+      <table frame="all" id="v4t-biometrics">
+        <title>Biometrics Data and System Interoperability</title> 
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Interchange of Fingerprint (Type 4 and 14) data</entry>
+              <entry>ANSI/NIST ITL 1-2000
+                <para>ANSI/NIST ITL 1-2007 Part 1</para>
+                <para>EBTS 1.2 (references ANSI/NIST ITL 1-2000)</para>
+                <para>FBI EBTS v8.0/v8.1 (references ANSI/NIST ITL 1-2007)</para>
+                <para>DOD EBTS 2.0</para>
+                <para>ISO/IEC 19794-2:2005, part 2</para>
+              </entry>
+              <entry>Use of the ISO standard over national standards is preferred.</entry>
+            </row>
+            <row>
+              <entry>Type 10 Facial</entry>
+              <entry>EFTS v7.0, EFTS v7.1
+                <para>FBI EBTS v8.0/v8.1</para>
+                <para>ANSI/NIST ITL 1-2000, 1-2007 Part 1</para>
+                <para>EBTS 1.2 (references EFTS v7.0)DOD EBTS v2.0</para>
+                <para>ISO/IEC 19794-5 w/ Amd 1:2007, part 5</para></entry>
+              <entry>Use of the ISO standard over national standards is preferred.
+              </entry>
+            </row>
+            <row>
+              <entry>Type 16 Iris</entry>
+              <entry>ANSI/NIST ITL 1-2000, 1-2007 Part 1
+                <para>EBTS 1.2</para>
+                <para>ISO/IEC 19794-6</para></entry>
+              <entry>Use of the ISO standard over national standards is preferred.</entry>
+            </row>
+            <row>
+              <entry>Type 17 Iris</entry>
+              <entry>ANSI/NIST ITL 1-2007 Part 1
+                <para>FBI EBTS v8.0/v8.1 (ref ANSI/NIST ITL 1-2007)</para>
+                <para>DOD EBTS v2.0</para>
+                <para>ISO/IEC 19794-6</para></entry>
+              <entry>Use of the ISO standard over national standards is preferred.</entry>
+            </row>
+            <row>
+              <entry>Displaying content within web browsers.</entry>
+              <entry>W3C Hypertext Markup Language HTML 4.0.1
+                <para>W3C Extensible Hypertext Markup Language XHTML 1.0</para>
+                <para>W3C Cascading Style Sheets CSS 2.0</para></entry>
+              <entry>Applications must support the following browsers: Microsoft 
+                Internet Explorerv7.0 and newer, and Mozilla Firefox3.0 and newer.
+                When a supported browser is not true to the standard, choose to support
+                the browser</entry>
+            </row>
+            <row>
+              <entry>Browser plug-ins.</entry>
+              <entry>Browser plug-ins are not covered by a single specification.</entry>
+              <entry>Some AMN members do not allow the use of ActiveX controls in
+                the browser. Browser plug-ins do need to be approved by AMN CAB.</entry>
+            </row>
+            <row>
+              <entry>Visualize common operational symbology within C4ISR systems 
+                in order to convey information about objects in the battlespace.</entry>
+              <entry>STANAG 2019, Ed.5:2008, Joint Symbology- APP-6(B)
+                <para>U.S. MIL-STD 2525 B Change 2, Common Warfighting Symbology</para>
+                <para>TIDE Transformational Baseline Vers. 3-0, NATO Vector Graphics 
+                  (NVG)</para>
+                <para>Mandatory: NVG 1.5</para>
+                <para>Fading (Dec 2011): NVG 1.4</para>
+                <para>Retired: NVG 0.3</para>
+              </entry>
+              <entry>All presentation service shall render tracks, tactical graphics,
+                and MOOTW objects using this standard except in the case where the
+                object being rendered is not covered in the standard. In these exceptional
+                cases, additional symbols shall be defined as extensions of existing 
+                symbols and must be backwards compatible. These extensions shall be
+                submitted as a change proposal within the configuration control process
+                to be considered for inclusion in the next version of the specification.
+              </entry>
+            </row>
+            <row>
+              <entry>Reliable messaging over XMPP</entry>
+              <entry>XMPP Clients must implement the following XMPP protocol extensions
+                <para>XEP-0184 for message receipts, whereby the sender of a message 
+                  can request notification that it has been received by the intended
+                  recipient, and XEP 0202 for communicating the local time of an entity.
+                </para>
+              </entry>
+              <entry>All XMPP Chat Clients used on the AMN shall implement these 
+                two protocol extensions.</entry>
+            </row>
+            <row>
+              <entry>Collaborative generation of spreadsheets, charts, presentations
+                and word processing documents</entry>
+              <entry>ECMA-376, Ed. 1: 2006 Office Open XML
+                <para>Emerging (Dec 2012): Document description and processing languages
+                  ISO/IEC 29500:2008 (transitional)</para>
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Document exchange, storage and archiving</entry>
+              <entry>Document management -- Electronic document file format for 
+                long-term preservation --ISO 19005-1:2005 Part 1: Use of PDF 1.4 
+                (PDF/A-1)</entry>
+              <entry></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+      
+    <sect1>
+      <title>References</title>
+      <itemizedlist>
+        <listitem>
+          <para>[1] MC 245 Statement of Military Requirement for Interoperability
+            between Automated Data Systems.</para>
+        </listitem>
+
+        <listitem>
+          <para>[2] Allied Data Publication 34 (ADatP-34) NATO Interoperability 
+            Standards and Profiles (NISP) STANAG 5524.</para>
+        </listitem>
+
+        <listitem>
+          <para>[3] NATO C3 System Interoperability Policy, AC/322-D(2004)0039 dated 
+            13 Sep 2004.</para>
+        </listitem>
+
+        <listitem>
+          <para>[4] NATO C3 System Interoperability Directive, AC/322-D(2004)0040 
+            dated 13 Sep 2004.</para>
+        </listitem>
+      </itemizedlist>
+    </sect1>  
+</appendix>
