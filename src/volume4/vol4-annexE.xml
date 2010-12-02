@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*****************************************************************
+                   Vol 4 - A N N E X - E
+*****************************************************************  
+-->
+
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd" [
+<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+]>
+<appendix id="v4-e">
+    <title>Core Enterprise Services Implementation Specification</title>
+
+  <sect1>
+    <title>Introduction</title>
+    
+    <sect2>
+      <title>Development of this Profile</title>
+      
+      <para>The NNEC Feasibility Study (FS) of 2005 showed that NATO Network-Enabled 
+      Capability (NNEC) requires the dynamic networking of coalition forces to support
+      information-sharing capabilities and to support the development and provision
+      of information services. The name given to this key capability is the Networking
+      and Information Infrastructure (NII).</para>
+      
+      <para>The NNEC FS went on to name four main categories of services comprising 
+      the NII: Communications services, Information and Integration services (IIS),
+      Information Assurance services and Service Management and Control.</para>
+      
+      <para>One of the major design NNEC tenets has been to focus on an approach based
+      on the principles of Service Oriented Architecture (SOA).  Indeed, the NNEC
+      FS postulated that the concept of SOA is key to meeting the NNEC operational
+      requirements and is an essential part of the overall strategy.</para>
+      
+      <para>The IIS services, in particular, are planned to provide the basic SOA 
+      foundation that future Alliance capability would build upon.  These services 
+      are collectively known as the Core Enterprise Services (CES).</para>
+      
+      <para>Another major vision of NNEC is that it will be “10% NATO and 90% National”,
+      meaning that services will be expected to be interoperable.  The only way to
+      facilitate this interoperability is to agree – throughout the NATO enterprise,
+      as well as with the Nations – exactly how these services will be developed and
+      referenced.  This involves not only coming up with a common architecture, but
+      also agreeing the standards and interfaces that the specific services will
+      implement.</para>
+      
+      <para>The Core Enterprise Services Framework – approved by the NC3B in spring
+      2009 – describes the high-level functionality of the Core Enterprise Services: 
+      the “what” of the CES.  This Reference Document offers recommendations for the
+      “profile” of standards to be implemented: the “how” of the CES services that
+      will provide the underlying SOA baseline for the future Alliance IT environment.
+      </para>
+      
+      <para>These CES services will not be delivered all at the same time – nor will
+      they be installed on all networks at the same time.  It is realistic to expect 
+      that the CES will be delivered in two phases, or “spirals”.  The focus of this
+      specification is Spiral 1: the baseline SOA functionality that is best defined 
+      and for which the industry open standards are the most mature<footnote><para>Note
+      that this specification is service specific and not infrastructure specific.
+      When some services are not included in this CES Specification spiral 1, it 
+      doesn’t mean that the functionality will not be part of the infrastructure 
+      (e.g. storage as infrastructure vs. storage “as a service”). </para></footnote>.
+      </para>
+      
+      <para>NATO and some NATO nations are already planning to implement the CES. 
+      One example is the Afghan Mission Network (AMN) where the NATO CES, based on 
+      this specification, will be used as part of the information infrastructure.
+      </para>
+      
+      <para>This document seeks to outline the profiles and standards that projects
+      in NATO and in the nations should aim to use, with the aim of ensuring future 
+      compatibility and longevity. In this specification we focus on the use of stable
+      versions of the standards and specifications, which are supported by industrial
+      and open source implementations. This will give the widest range of interoperability 
+      scenarios in the near to medium term, as well as the greatest level of functionality.
+      </para>
+      
+      <para>This specification is based on the NC3A recommendation [NC3A RD-2814].
+      Much of the text from that document has been re-used in this specification with
+      permission from the authors.</para>
+    </sect2>
+    
+    <sect2>
+      <title>The NNEC Core Enterprise Services</title>
+      
+      <para>As part of the evolution towards NNEC, NATO is developing a set of NNEC
+      Core Enterprise Services.  The CES are the basic SOA foundations that other 
+      service-oriented applications and systems will build upon.</para>
+      
+      <para>As defined in the Core Enterprise Services Framework (CESF) [NC3A CESF, 2008],
+      the CES are “technical services that facilitate other service and data providers
+      on the enterprise network by providing and managing the underlying capabilities 
+      to deliver content and value to end-users.  They can be thought of as the enablers
+      used by other services and users across the whole network-enabled enterprise, 
+      acting as “building blocks” for developing more sophisticated COI, cross-COI 
+      and functional/application services.  They are independent of business process
+      and context; and are ubiquitous."</para>
+      
+      <para>The CESF – which was produced by the Core Enterprise Services Working
+      Group (CESWG) of the NC3B SC/5 (Information Services Sub-Committee), and agreed 
+      by the Nations in 2009 via the NC3B – has identified a set of fourteen (14) 
+      services (12 Core Enterprise Services + Service Security (Information Assurance)
+      and Enterprise Service Management) which together make up the CES.  This service
+      catalogue has also been carefully coordinated with the emerging NATO Overarching
+      Architecture and the Information and Integration Services (IIS) Reference Architecture.
+      </para>
+      
+      <figure id="v4e-ces">
+        <title>The NNEC Core Enterprise Services according with NATO CES Framework</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/ces.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </sect2>
+    
+    <sect2>
+      <title>A Spiral Approach and Maturity Levels</title>
+      
+      <para>These services will not be delivered all at the same time – nor will they 
+      be installed on all networks at the same time.  It is realistic to expect that
+      the CES will be delivered in several phases, or “spirals”. The Core Enterprise 
+      Services are described in the CES Framework Document [NC3A CESF, 2009].</para>
+      
+      <para>The initial stage is what we call here “Spiral 1”. It includes the following
+      services:</para>
+        <itemizedlist>
+          <listitem><para>Messaging</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>This service provides transport of information and forms
+                a messaging infrastructure within the SOA</para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem><para>Publish/Subscribe</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>The main function of this service is minimising traffic 
+                on the messaging infrastructure through the use of event-driven notification 
+                of changing data.</para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem><para>Translation</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>This service provides the automated means for the semantics
+                of information to be translated from one structure to another.</para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem><para>Service Discovery</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>This service provides a mechanism to discover and locate 
+                service instances (i.e. services on the network including, but not 
+                limited to, Web services).</para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem><para>Service Security</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>The CES Security Services are a suite of services that 
+                provide a foundation to implement uniform, consistent, interoperable
+                and effective Web service security.</para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem><para>Metadata Registry</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>The purpose of the Metadata Registry is to provide a 
+                (conceptually) centralised source of technology-based representations 
+                of standards and specifications as implemented by different Communities
+                of Interest (CoI) in order to improve visibility and enable interoperability.
+                </para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem><para>Enterprise Directory</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>The Enterprise Directory Service provides a means for 
+                synchronisation between directories or data repositories in NATO nations 
+                and NATO domains in order to harmonise and rationalise the information.
+                </para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem><para>Messaging</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>This service provides transport of information and forms
+                a messaging infrastructure within the SOA</para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem><para>Collaboration</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>In this spiral of the CES implementation specification, 
+                the Instant messaging service is included. This document recognizes
+                that there are additional collaboration services.  Additional services 
+                will be addressed in future spirals</para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem><para>Enterprise Service Management (ESM)</para></listitem>
+          <listitem>
+            <itemizedlist>
+              <listitem><para>o	The ESM services will provide the suite of operational 
+                processes, procedures and technical capabilities needed to ensure 
+                that NNEC SOA services are up and running, accessible and available
+                to users, protected and secure, and that they are operating and performing
+                within agreed-upon parameters.</para></listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        
+        <para>The following figure is taken from the CES Framework Document [NC3A CESF, 2009]
+        and shows the overall CES logical implementation progression diagram. This 
+        represents a logical progression of delivering CES to enable NNEC maturity 
+        levels and, at the same time, achieve higher SOA maturity levels.</para>
+        
+        <figure id="v4e-ces-impl-progression">
+        <title>Core Enterprise Services overall logical implementation progression</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/ces-impl-progression.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>It is clear that achieving NNEC Maturity - and also SOA Maturity at the 
+      information systems level – is partly enabled by the delivery of Core Enterprise
+      Services. It is the suggestion of this Framework that NATO’s Capability Packages
+      (CP) be quickly evaluated to ensure timely delivery of the first of these 
+      enabling services to begin moving along the path towards maturity.</para>
+        
+      <para>We can see that the services incorporated to Spiral 1 relates to the 
+      SOA Maturity Level 2 as described in the CES Framework.</para>
+      
+      <figure id="v4e-ces-spiral1">
+        <title>CES “Spiral 1” (Basic SOA Infrastructure) Functionality</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/ces-spiral1.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      <para>Spiral 1 reflects what the CES Framework states as the first – or “foundation” 
+      – SOA implementation will look like for NNEC.  These services are relatively 
+      well-defined, with relatively mature associated standards, and thus it is believed 
+      that the services are ready to be developed/procured in the short term.</para>
+      
+      <para>Spiral 2 is a mid-term goal, representing enhancements to the initial
+      baseline, along with the implementation of “extended” or “enhanced” SOA Services.
+      This is because the standards are still evolving, or the functionality has yet
+      to be adequately prototyped, and it is unlikely that these Core Enterprise 
+      Services will exist in the near-term.  These services include the following:
+      <itemizedlist>
+        <listitem><para>Information Discovery</para></listitem>
+        <listitem><para>Composition</para></listitem>
+        <listitem><para>Application</para></listitem>
+        <listitem><para>Storage</para></listitem>
+        <listitem><para>Transaction</para></listitem>
+      </itemizedlist>
+      </para>
+      
+      <para>In the following figure, a complete set of the SOA-based NNEC CES is 
+      presented, to be implemented in Spiral 2.</para>
+      
+      <figure id="v4e-ces-spiral2">
+        <title>CES “Spiral 2” (Full SOA Infrastructure) Functionality</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/ces-spiral2.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+     
+      <para>This document is focused on the Spiral 1, or the initial SOA Baseline 
+      (“SOA Foundation”), and will specify in detail how the eight Core Enterprise
+      Services are to be implemented. The remaining six extended SOA Services (Spiral 
+      2) are mentioned in this section but are not discussed in detail.</para>
+    </sect2>
+    
+    <sect2>
+      <title>How to use this Document</title>
+      
+      <para>This CES Implementation specification is based upon the Web Services
+      Interoperability Organization (WS-I), an industry consortium that promotes
+      interoperability amongst the stack of Web services specifications (Web services
+      are a common implementation of SOA.).  WS-I does not propose its own standards,
+      but instead tries to “profile” existing ones.  The organization has developed
+      what it calls the “Basic Profile”, which suggests a specific collection of 
+      standards for basic interoperability.  In this Reference Document, the Basic
+      Profile 1.1 Second Edition has been recommended as the starting point for NATO’s
+      future SOA implementations.</para>
+      
+      <para>From there, this specification goes on to recommend a complete set of 
+      standards to fulfil all of the Spiral 1 Core Enterprise Service requirements 
+      by providing a baseline SOA infrastructure, covering messaging, discovery, 
+      security, and so on.    It is intended that applications that will use the 
+      SOA baseline – such as Functional Services and Community of Interest services
+      – will always follow the mandated standards; the others will be implemented 
+      by the CES themselves for compatibility with legacy services and/or national
+      implementations.</para>
+      
+      <para>Following the profile of standards specified in this document does not
+      by itself guarantee interoperability.  However, agreeing on and implementing 
+      the SOA baseline as specified in this document will be a major step on the 
+      road to a coherent network enabled capability spanning NATO communities and
+      Nations.</para>
+      
+      <para>Sections 1 and 2 describe the framework under which NATO will develop 
+      its SOA infrastructure:
+        <itemizedlist>
+          <listitem><para>Section 1 is this introduction.</para></listitem>
+          <listitem><para>Section 2 introduces the Core Enterprise Services that 
+            together form the SOA baseline, and mandates a profile of standards/specifications
+            that future implementations will build upon.</para></listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>
+  
+  <sect1>
+    <title>The SOA Baseline - NNEC Core Enterprise Services</title>
+    <sect2>
+      <title>Introduction</title>
+      
+      <para>As introduced in Section 1, the Core Enterprise Services Framework ([NC3A
+      CESF, 2009]) described a set of Core Enterprise Services (CES) – sometimes 
+      referred to as the “what” of the NNEC CES.  This section addresses the “how”
+      by detailing the profile of functionality and mandated standards for each of
+      the Spiral 1 CES.</para>
+      
+      <para>For each Core Enterprise Service that is expected to be part of the Spiral 
+      1 SOA Baseline, the following sections identify:</para>
+      
+      <itemizedlist>
+        <listitem><para>Overview of the service</para></listitem>
+        <listitem><para>Functionality that the service provides</para></listitem>
+        <listitem><para>Mandated Standards</para></listitem>
+        <listitem><para>Spiral 1 Implementation</para></listitem>
+      </itemizedlist>
+    </sect2>
+    
+    <sect2>
+      <title>Sources of Recommendation</title>
+      
+      <para>When constructing a profile of standards to use within a large organisation, 
+      there are a wide range of sources that provide input into the choices that need
+      to be made.</para>
+      
+      <para>The specific standards that are presented in the following sections have
+      been compiled from various sources, including standards bodies, NATO agreed
+      documents and practical experience of conducting experiments with nations and
+      within projects.</para>
+      
+      <para>Because of the time that it takes to ratify a standard or profile, the
+      standards that are recommended in the SOA Baseline may not be the most recent
+      or up to date versions. Some of the most important sources for defining the 
+      mandated set of standards for use in NATO are described in the following
+      sections.</para>
+   
+      <sect3>
+        <title>The WS-I Profiles</title>
+      
+        <para>The Web Services Interoperability Organization has developed a collection
+        of “profiles” that greatly simplify the interoperability of SOA Web services.
+        Profiles provide implementation guidelines for how related Web services specifications 
+        should be used together for best interoperability between heterogeneous systems.
+        </para>
+      
+        <para>The general profile for service interoperability is called the Basic 
+        Profile, which describes how the core Web services specifications – such as
+        Simple Object Access Protocol (SOAP), Web Service Description Language (WSDL)
+        and Universal Description Discovery Integration (UDDI) – should be used together
+        to develop interoperable Web services.  Specifically, the profile identifies
+        a set of non-proprietary Web services standards and specifications and provides
+        clarifications, refinements, interpretations and amplifications of them that
+        promote interoperability.</para>
+       
+        <para>In addition, the WS-I has a number of other profiles that are adopted
+        in this specification.</para>
+      
+        <para>This specification mandates the WS-I basic profile 1.1 (Second Edition),
+        the WS-I Basic Security Profile (version 1.1), the WS-I Simple SOAP Binding 
+        Profile (version 1.0) and the Attachments Profile (version 1.0). In this
+        specification there are exceptions to the use of some of the specifications
+        included in the WS-I profiles. These exceptions as noted in the following table.
+        </para>
+      </sect3>
+    </sect2>
+    
+    <sect2>
+      <title>NNEC SOA Baseline Profile Quick Reference</title>
+      
+      <para>The following sections detail the mandated functionality and standards
+      for each of the “Spiral 1” Core Enterprise Services that make up the SOA baseline.
+      This “profile” of SOA specifications is summarised in the following table. In 
+      the cases where a version of a standard in the table deviates from the version
+      of the standard in the WS-I profiles, the version of the standard explicitly
+      defined in the table replaces the related version of the standard in the profile.
+      </para>
+      
+      <para>The last column of the table indicates in which WS-I profile(s) the 
+      standard or profile is referenced (if any).  Therefore if a profile is quoted,
+      it is mandatory to use it when implementing that service. The WS-I Profiles 
+      used are:</para>
+      
+      <itemizedlist>
+        <listitem><para>WS-I Basic Profile 1.1</para></listitem>
+        <listitem><para>WS-I Basic Security Profile 1.1</para></listitem>
+        <listitem><para>WS-I Simple SOAP Binding Profile 1.0</para></listitem>
+        <listitem><para>WS-I Attachments Profile 1.0</para></listitem>
+      </itemizedlist>
+      
+      <table frame="all" id="v4t-Comms-andNetwork-Stds">
+        <title>Communication and Network Services Standards</title>
+        <tgroup cols="4">
+          <colspec colwidth="20*" />
+          <colspec colwidth="30*" />
+          <colspec colwidth="25*" />
+          <colspec colwidth="25*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Service</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard Name</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Mandated Version<footnote><para>The primary
+                  version supported by CES, and the mandatory version for FS/COI 
+                  service implementations</para></footnote></emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Relationship with the WS-I profiles</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>XML</entry>
+              <entry>Extensible Markup Language (XML)
+              </entry>
+              <entry>1.0 (Second Edition)</entry>
+              <entry>
+                <para>WS-I Basic Profile</para>
+                <para>WS-I Simple SOAP Binding Profile</para>
+                <para>WS-I Attachments Profile</para>
+              </entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Namespaces in XML</entry>
+              <entry>1.0</entry>
+              <entry>
+                <para>WS-I Basic Profile</para>
+                <para>WS-I Simple SOAP Binding Profile</para>
+                <para>WS-I Attachments Profile</para>
+              </entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XML Schema Part 1: Structures</entry>
+              <entry>1.0</entry>
+              <entry>WS-I Basic Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XML Schema Part 2: Datatypes</entry>
+              <entry>1.0</entry>
+              <entry>WS-I Basic Profile</entry>
+            </row>
+            <row>
+              <entry>Messaging Service</entry>
+              <entry>HTTP</entry>
+              <entry>1.1</entry>
+              <entry>
+                <para>WS-I Basic Profile</para>
+                <para>WS-I Simple SOAP Binding Profile</para>
+              </entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>HTTP State Management Mechanism</entry>
+              <entry>RFC2965</entry>
+              <entry>WS-I Basic Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>SOAP</entry>
+              <entry>1.1</entry>
+              <entry>
+                <para>WS-I Basic Profile</para>
+                <para>WS-I Simple SOAP Binding Profile</para>
+              </entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-I Simple SOAP Binding Profile</entry>
+              <entry>1.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-I Attachments Profile</entry>
+              <entry>1.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Reliable Messaging</entry>
+              <entry>1.2</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Addressing</entry>
+              <entry>1.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Pub/Sub Service</entry>
+              <entry>WS-Notification<footnote><para>WS-Notification is actually a 
+                name for a set of specifications: WS-BaseNotification, WS-BrokeredNotification
+                and WS-Topics, all of which are currently OASIS Standards</para></footnote></entry>
+              <entry>1.3</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Translation Service</entry>
+              <entry>XSLT</entry>
+              <entry>2.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XQuery</entry>
+              <entry>1.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XML Schema</entry>
+              <entry>1.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XPath</entry>
+              <entry>2.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Service Discovery Service</entry>
+              <entry>UDDI</entry>
+              <entry>3.0.2</entry>
+              <entry>Deviation from WS-I Basic Profile 1.1 (second edition). UDDI 
+                version 2 is not to be used.</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WSDL</entry>
+              <entry>1.1</entry>
+              <entry>
+                <para>WS-I Basic Profile</para>
+                <para>WS-I Simple SOAP Binding Profile</para>
+                <para>WS-I Attachments Profile</para>
+              </entry>
+            </row>
+            <row>
+              <entry>Metadata Registry Service</entry>
+              <entry>ebXML</entry>
+              <entry>3.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Security Service</entry>
+              <entry>HTTP over TLS</entry>
+              <entry>RFC2818</entry>
+              <entry>
+                <para>WS-I Basic Profile</para>
+                <para>WS-I Basic Security Profile</para>
+              </entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>TLS</entry>
+              <entry>1.0 (RFC 2246)</entry>
+              <entry>
+                <para>WS-I Basic Profile</para>
+                <para>WS-I Basic Security Profile</para>
+              </entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>SSL</entry>
+              <entry>3.0</entry>
+              <entry>SSL is not to be used<footnote><para>There are vulnerabilities 
+                in SSL, which are not present in TLS. And there is no use to mandate
+                both of them.</para></footnote></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>X.509 Public Key Infrastructure Certificate and CRL Profile</entry>
+              <entry>RFC2459</entry>
+              <entry>WS-I Basic Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Security: SOAP Message Security</entry>
+              <entry>1.1 (OASIS Standard Specification, 1 February 2006)</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: UsernameToken Profile</entry>
+              <entry>1.1 OASIS Standard Specification, 1 February 2006</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: X.509 Certificate Token Profile</entry>
+              <entry>1.1 OASIS Standard Specification, 1 February 2006</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: Rights Expression Language (REL) Token Profile</entry>
+              <entry>1.1 OASIS Standard Specification, 1 February 2006</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: Kerberos Token Profile</entry>
+              <entry>1.1 OASIS Standard Specification, 1 February 2006</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: SAML Token Profile</entry>
+              <entry>1.1 OASIS Standard Specification, 1 February 2006</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row><row>
+              <entry></entry>
+              <entry>Web Services Security: SOAP Messages with Attachments (SwA) Profile</entry>
+              <entry>1.1 OASIS Standard Specification, 1 February 2006</entry>
+              <entry>
+                <para>WS-I Basic Security Profile</para>
+                <para>WS-I Attachments Profile</para>
+              </entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XML Encryption Syntax and Processing</entry>
+              <entry>W3C Recommendation 10 December 2002</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XML Signature Syntax and Processing</entry>
+              <entry>1.0 (Second Edition) W3C Recommendation 10 June 2008</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XPointer Framework</entry>
+              <entry>W3C Recommendation, 25 March 2003</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>X.509 Public Key Infrastructure Certificate and CRL Profile</entry>
+              <entry>RFC2459</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Security: SOAP Message Security</entry>
+              <entry>1.1 (OASIS Standard Specification, 1 February 2006)</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: UsernameToken Profile</entry>
+              <entry>1.1 (OASIS Standard Specification, 1 February 2006)</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: X.509 Certificate Token Profile</entry>
+              <entry>1.1 (OASIS Standard Specification, 1 February 2006)</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: Rights Expression Language (REL) Token Profile</entry>
+              <entry>1.1 (OASIS Standard Specification, 1 February 2006)</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: Kerberos Token Profile</entry>
+              <entry>1.1 (OASIS Standard Specification, 1 February 2006)</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Web Services Security: SOAP Messages with Attachments (SwA) Profile</entry>
+              <entry>1.1 (OASIS Standard Specification, 1 February 2006)</entry>
+              <entry>
+                <para>WS-I Basic Security Profile</para>
+                <para>WS-I Attachments Profile</para>
+              </entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry></entry>
+              <entry>1.1 (OASIS Standard Specification, 1 February 2006)</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XML Encryption Syntax and Processing</entry>
+              <entry>W3C Recommendation 10 December 2002</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XML Signature Syntax and Processing</entry>
+              <entry>1.0 (Second Edition) W3C Recommendation 10 June 2008</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XPointer Framework</entry>
+              <entry>W3C Recommendation, 25 March 2003</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>X.509 Public Key Infrastructure Certificate and CRL Profile</entry>
+              <entry>RFC2459</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Information technology "Open Systems Interconnection" The Directory:
+                Public-key and attribute certificate frameworks </entry>
+              <entry>Technical Corrigendum 1</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Lightweight Directory Access Protocol : String Representation
+                of Distinguished Names. </entry>
+              <entry>RFC4514 (Ed. June 2006.)</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Addressing</entry>
+              <entry>1.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>MIME Encapsulation of Aggregate Documents, such as HTML (MHTML)</entry>
+              <entry>RFC255</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies</entry>
+              <entry>RFC2045</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types</entry>
+              <entry>RFC2046</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Content-ID and Message-ID Uniform Resource Locators</entry>
+              <entry>RFC2392</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Security Utility</entry>
+              <entry>1.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Trust</entry>
+              <entry>1.4</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Federation</entry>
+              <entry>1.1</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Metadata Exchange</entry>
+              <entry>1.1</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-Policy</entry>
+              <entry>1.5</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>WS-SecurityPolicy</entry>
+              <entry>1.3</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>SAML</entry>
+              <entry>2.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XACML</entry>
+              <entry>2.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>XML Confidentiality Label Syntax</entry>
+              <entry>[NATO RTO XML Conf. Label]</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>Binding of Metadata to Information Objects</entry>
+              <entry>[NATO RTO Metadata Binding]</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Enterprise Service Management</entry>
+              <entry>WS-Management</entry>
+              <entry>1.0</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Enterprise Directory Service</entry>
+              <entry>LDAP</entry>
+              <entry>3.0 (RFC 4510)</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>TLS</entry>
+              <entry>1.0</entry>
+              <entry>WS-I Basic Security Profile</entry>
+            </row>
+            <row>
+              <entry></entry>
+              <entry>SASL using Kerberos v5 (GSSAPI)</entry>
+              <entry>RFC 4422, RFC 4752</entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>Collaboration Service</entry>
+              <entry>XMPP</entry>
+              <entry>1.0 (RFC 3920 and RFC 3921)</entry>
+              <entry></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect2>
+  </sect1>
+</appendix>
