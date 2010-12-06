@@ -11,10 +11,833 @@
 ]>
 
 <appendix id="v4-b">
-    <title>NRF Generic Profile</title>
+    <title>NRF Generic Interface Profile</title>
 
-    <sect1 id="v4b-s1"><title>Background</title>
+    <sect1 id="v4b-s1"><title>Overview</title>
+      <para>The application of the NATO Interface Standards and Profiles (NISP) has enabled NATO to increase interoperability across Communications and Information Systems (CIS) throughout the Enterprise and across Member Nations.  Tools employed include open system industry standards, NATO STANAGS, architectural views, interoperability points, and interface profiles.  To fully leverage Net Centric operations into the NATO Response Force (NRF), these tools must be applied across the various commands and participants supporting an NRF.</para>
 
-      <para>TBD</para>
-    </sect1>
+    <sect2 id="v4b-s2"><title>Tasking</title>
+      <para>This Generic NRF Interface Profile effort was established through direct tasking from the NATO C3 Board (NC3B) Information Systems Sub-Committee (ISSC) to the NATO Open Systems Working Group (NOSWG) in May 2005.  Tasking was for the NOSWG to assist in the process of NRF interoperability through:</para>
+  <orderedlist>
+      <listitem>
+         <para>Establishment of an NRF Tiger Team,</para>
+      </listitem>
+      <listitem>
+         <para>Continuation of NRF Interface Profile development, and</para>
+      </listitem>
+      <listitem>
+         <para>Application of NRF Interface Profiles for operational use.</para>
+      </listitem>
+   </orderedlist>
+    </sect2>
+	<sect2 id="v4b-s3"><title>Purpose</title>
+	<para>The intent of this document is to develop the need for NRF interoperability initiatives, identify the interrelationships to existing efforts, and identify a process for NRF rotation specific profile development.  The need for greater collaboration across NATO and Nations requires a shift in focus from traditional products that are not linked to the operational community.  Therefore the NRF Interface Profiles will serve as a dynamic reference for rotating NRF communities of interest.</para>
+	</sect2>
+	<sect2 id="v4b-s4"><title>Vision</title>
+         <para>This document will serve as a resource for future NRF planners, to be used as a guide in achieving interoperability between NATO nations.  NRF Interface Profiles are for use throughout the complete lifecycle of an NRF.  The NRF profiles will leverage the robust information infrastructures of NATO and its Member Nations supporting an NRF, and will enable Net Centric operations by enhancing collaboration across the NRF operational environment.  Subsequent NRF rotations will benefit from the modular nature of the profiles, which will allow for maximum reuse of established capabilities, while accommodating unique requirements and technology improvements through the NISP change proposal process.</para>
+</sect2>
+<sect2 id="v4b-s5"><title>Benefits</title>
+         <para>Solutions will be identified to enrich the CIS capabilities across the physical, service, and application layers of an NRF.  Additionally it will provide a vehicle for improved data transfer and information exchange.  Access to NATO Enterprise, Core, and Functional services will further enable the extension of strategic systems into the tactical environment.  The ability to reach back to key capabilities, while providing greater situational awareness and collaboration for improved decision making is an anticipated benefit throughout the NATO Enterprise.</para>
+         <para>Additional benefits to NRF turn-up, deployment and sustained operations include:</para>
+   <orderedlist>
+      <listitem>
+         <para>Speed of execution of information operations,</para>
+      </listitem>
+      <listitem>
+         <para>Richer information environment,</para>
+      </listitem>
+      <listitem>
+         <para>More dynamic information exchange between NATO and Nations,</para>
+      </listitem>
+      <listitem>
+         <para>Speedier standup of an NRF,</para>
+      </listitem>
+      <listitem>
+         <para>Reachback to feature rich information enterprise, and</para>
+      </listitem>
+      <listitem>
+         <para>Elimination of hierarchical information flow.</para>
+      </listitem>
+   </orderedlist>
+         <para>Participating nations are encouraged to use this document as part of the planning process for coordination and establishment of connectivity and interoperability with respect to joint NATO operations.</para>
+</sect2>
+<sect1 id="v4b-s6"><title>Background</title>
+<sect2 id="v4b-s7"><title>The Changing Face of NATO</title>
+         <para>In today’s NATO, an increasing number of operations are being conducted outside of  traditional missions.  NATO response is not restricted to war, and have grown to encompass humanitarian and peacekeeping efforts.</para>
+         <para>In addition to shifting mission scopes, NATO’s area of operations is also expanding, discarding traditional European geographic constraints.  NATO operates an International Security Assistance Force (ISAF) in Afghanistan; in Darfur NATO is assisting the African Union (AU) by providing airlift for AU peacekeepers; relief efforts in Pakistan consisted of NATO-deployed engineers, medical personnel, mobile command capabilities, and strategic airlift.  Additionally, these efforts have been repeated in support of operations in Iraq.</para>
+</sect2>
+<sect2 id="v4b-s8"><title>Information Exchange Environment</title>
+<para>The figure below characterizes the information environment and various scenarios that exist for exchanging operational information.  This environment, although rich in participation and basic connectivity, lacks fully meshed interoperability at the services layer.  This diagram represents today’s environment, and the starting point for development of NRF interface profiles.  It is presumed for the purposes of this document that NRF profiles will only address capabilities between NATO and NATO Nations in various interconnecting arrangements (NATO-NATO, NATO-NATION, and NATION-NATION)   The operational environment gives us many combinations of connections and capabilities for consideration.
+</para>
+
+    <figure id="v4b-f1">
+      <title>Information Exchange Environment</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/nrf-fig01.png" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+</sect2>
+<sect2 id="v4b-s9"><title>NATO Response Force (NRF)</title>
+         <para>The NRF will be a coherent, high readiness, joint, multinational force package, technologically advanced, flexible, deployable, interoperable and sustainable. It will be tailored as required to the needs of a specific operation and able to move quickly to wherever it is needed.  As such, the NRF will require dynamic and deployable CIS capabilities adept at integrating with other NATO and national systems.</para>
+         <para>As outlined in NATO Military Committee Directive 477 (MC477), the NRF will be able to carry out certain missions on its own, or serve as part of a larger force to contribute to the full range of Alliance military operations. It will not be a permanent or standing force. The NRF will be comprised of national force contributions, which will rotate through periods of training and certification as a joint force, followed by an operational "stand by" phase of six months. Allied Command Operations (ACO) will generate the NRF through force generation conferences. ACO will be responsible for certification of forces and headquarters.</para>
+         <para>The NRF will also possess the ability to deploy multinational NATO forces within five days anywhere in the world to tackle the full range of missions, from humanitarian relief to major combat operations. Its components are to be tailored for the required mission and must be capable of sustainment without external support for one month.</para>
+</sect2>
+<sect2 id="v4b-s10"><title>NRF Command Structure</title>
+         <para>Connectivity for NATO forces are based upon a force military structure, with subordinate ad hoc task force headquarters to include Combined Joint Task Forces and the NATO Response Force.</para>
+         <para>NATO is responsible for providing extension of the secure connectivity to the highest level of a national or multinational tactical command in a theatre of operations.  Nations are generally responsible for the provision of their own internal CIS connectivity.  This dynamic information environment often employs disparate solutions to meet similar requirements, depending on the capabilities of interconnecting entities.  For this reason a modular approach to development of interface profiles is intended to provide a template to interoperability and reuse.</para>
+         <para>The figure below depicts a generic C2 structure applicable to the NRF, with profile products aligning to the following NRF Command Structure for connectivity between elements of this command hierarchy.</para>
+
+    <figure id="v4b-f2">
+      <title>Generic C2 Command Structure</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/nrf-fig02.png" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+ </sect2>
+<sect2 id="v4b-s11"><title>Requirement</title>
+      <para>The NRF MMR states the requirement for a common, or at least compatible, type of modular or scaleable NRF capability autonomous from the CJTF capability.</para>
+         <para>These are relevant Minimum Military Requirement for an NRF that are applicable to this document and the profiles within:</para>
+   <orderedlist>
+      <listitem>
+         <para>Only involve NATO nations (as opposed to a full CJTF scenario),</para>
+      </listitem>
+      <listitem>
+         <para>Be derived from a NATO Response Force Package (that will be pre-designated and put under standby stage on a rotational cycle), and</para>
+      </listitem>
+      <listitem>
+         <para>Be tailored to a specific operation as required.</para>
+      </listitem>
+   </orderedlist>
+         <para>NATO DCIS will be capable of meeting the secure and non-secure information exchange requirements of the deployed HQs while providing a meshed network integrating the Strategic, Operational, and Tactical levels of command.</para>
+         <para>As a result, NRF capability packages should consider the following characteristics:</para>
+   <orderedlist>
+      <listitem>
+         <para>Be Technologically Advanced &amp; Interoperable,</para>
+      </listitem>
+      <listitem>
+         <para>Be Flexible (in terms of format and operational mission to be fulfilled),</para>
+      </listitem>
+      <listitem>
+         <para>Be Rapidly Deployable under short notice (typically less than 30 days),</para>
+      </listitem>
+      <listitem>
+         <para>Be Self-Sustainable for 30 days,</para>
+      </listitem>
+      <listitem>
+         <para>Be Capability Orientated  (as opposed to threat oriented), and</para>
+      </listitem>
+      <listitem>
+         <para>The following capabilities are typically required, Surveillance, Lift, Electronic Warfare and NBC.</para>
+      </listitem>
+   </orderedlist>
+         <para>To meet the Technologically advanced characteristic, NRF DCIS capabilities will provide voice and data services to authorized NATO and non-NATO users; provide access to linked information databases supporting the Common Operational Picture; and access to Functional services and user Information technology tools.  Sufficient connectivity is required to provide a robust reachback capability for the DJTF and component command HQs to meet necessary information exchange requirements.  The focus of this effort is to meet the requirement for NRF Interoperability through the development of interface profiles.</para>
+</sect2>
+<sect2 id="v4b-s12"><title>NRF CIS Challenges</title>
+         <para>The rotation of nations responsible for NRF component commands, and the challenges of forced entry in out of area operations, provides CIS interoperability challenges, while at the same time, providing a platform to regularly test systems interoperability and refine operational processes and procedures.   Preplanning for NRF rotations requires active involvement of the NRF planners up to 2 years prior to a rotation date, and due to churn of nations and commands, a template for standardizing the process and sharing lessons learned should ease this process.</para>
+         <para>The process established is for 6 month pre-deployment of an NRF, followed by a 6 month operational ready stage.  The use of profiles will support the NRF Notice to Move requirement of 5-30 days readiness.  The deployed JTF HQ will be at 5 days notice to move.  The intent of the NRF interface profile is to proactively harmonize interoperability issues during NRF rotations in the pre-deployment period and in the preparation period, without hindering the Notice to Move requirement, or minimizing the technology capabilities in support of NRF Command and Control.</para>
+         <para>As NRF resources (or “force packages”) are provided by NATO and nations on a rotation basis:</para>
+   <orderedlist>
+      <listitem>
+         <para>NRF headquarters (HQ) is provided by a NATO regional joint force command (JFC),</para>
+      </listitem>
+      <listitem>
+         <para>Component Commands are provided</para>
+   <orderedlist><listitem>
+         <para>by the NATO nation(s) for the Land component command (LCC) and Maritime Component Command (MCC) or</para>
+      </listitem>
+      <listitem>
+         <para>by NATO for the Air component command (ACC).</para>
+      </listitem>
+   </orderedlist>
+      </listitem>
+   </orderedlist>
+         <para>This document provides further guidance for establishment of the interfaces for NATO nations.  Additionally, consistent implementation of solutions in accordance with defined parameters will enable host nations to interface, but also, other nations that are supporting the NRF effort.  The intent is to enhance the operational environment by enabling sharing of information, enriching service availability, and blending the tactical, operational, and strategic environments.</para>
+</sect2>
+</sect1>
+<sect1 id="v4b-s13"><title>NISP Relationship</title>
+<sect2 id="v4b-s14"><title>Open Systems Architectural Concept</title>
+         <para>The open systems architectural concept is based primarily on the ability of systems to share information among heterogeneous platforms. It is a concept that capitalizes on those specifications and services that can support the effective design, development and implementation of software intensive system components. Within an open system, those products selected and utilized must first comply with the agreed upon architecture to be considered truly open. Furthermore, the functionality desired must adhere to specifications and standards in order to be structurally sound.  The challenge for NATO is to achieve interoperability where two or more systems can effectively exchange data: without loss of attributes; in a common format understandable to all systems exchanging data; in a manner in which the data is interpreted the same; and in an agreed common set of profiles.</para>
+</sect2>
+<sect2 id="v4b-s15"><title>Role of the NISP</title>
+         <para>The NOSWG developed the NISP to guide NATO development of open systems and foster interoperability across the organization.  This document provides a minimal set of rules governing the specification, interaction, and interdependence of the parts or elements of NATO Command and Control Systems whose purpose is to ensure interoperability by conforming to the technical requirements of the NISP. The NISP identifies the services, building blocks, interfaces, standards, profiles, and related products and provides the technical guidelines for implementation of NATO CIS systems.</para>
+         <para>Developing profiles enables interconnecting partners to rapidly engage at any stage of the NRF cycle.  These profiles will be consistent with the NNEC Generic Framework and included in the NISP.  Incorporation of Service Oriented Architectures (SOAs) and related architectural frameworks will drive the coherent development of NATO capabilities as well as the interoperability with national elements.</para>
+         <para>NISP Volume 1 linkages to stakeholders and processes, use of Volume 2 technologies and standards as the primary source for profile technologies and maturities, as well as use of the NISP Request for Change Proposal Process drive the NRP Profile development.</para>
+</sect2>
+<sect2 id="v4b-s16"><title>Applicability of NISP and NRF Interface Profiles</title>
+         <para>As the NISP impacts on the full NATO project life cycle, the user community of the NISP may be comprised of engineers, designers, technical project managers, procurement staff, architects and communications planners.  Architectures, which establish the building blocks of systems operation, are most applicable during the development phase of a project.  This formula becomes less apparent when applied to the dynamic NRF environment, where interoperability of mature national systems requires an agile approach to architectures.</para>
+         <para>The NOSWG has undertaken the development of NRF interface profiles in order to meet the need for implementation specific guidance at interoperability points between NATO and Nations.  As a component of the NISP, NRF interface profiles can have great utility for NRF standup and operations, using mature systems, at the deployment/operational stage.   Application of these documents also provides benefit to Nations and promotes maximum opportunities for interoperability.  Profiles for system development and operational use within an NRF enable Nations to coordinate their systems’ readiness and availability in support of NATO operations.</para>
+</sect2>
+</sect1>
+<sect1 id="v4b-s17"><title>NRF Interface Profile Development</title>
+<sect2 id="v4b-s18"><title>Approach</title>
+         <para>The approach used to develop these NRF Interface Profiles was based on the following considerations:</para>
+   <orderedlist>
+      <listitem>
+         <para>Stand-alone Compendium to NISP,</para>
+      </listitem>
+      <listitem>
+         <para>Linked to NISP Volume 1 relationship, Volume 2 standards,</para>
+      </listitem>
+      <listitem>
+         <para>Enables transfer of lessons learned from exercises and deployments through NISP change proposal process (RFCPs),</para>
+      </listitem>
+      <listitem>
+         <para>Leverages concept of Interoperability Points (IOPs),</para>
+      </listitem>
+      <listitem>
+         <para>Applicable to various information exchange environments (NATO-NATO, NATO-Nation),</para>
+      </listitem>
+      <listitem>
+         <para>Modular for use in pre-deployment lifecycle (CIS Planners) and operational command (NRF Commands) scenarios,</para>
+      </listitem>
+      <listitem>
+         <para>Specify profiles across the network, services, and application layers,</para>
+      </listitem>
+      <listitem>
+         <para>Support Open System concepts, technologies and standards, and</para>
+      </listitem>
+      <listitem>
+         <para>Supports migration to NATO Net-Enabled Capability (NNEC).</para>
+      </listitem>
+   </orderedlist>
+</sect2>
+<sect2 id="v4b-s19"><title>Process</title>
+         <para>NRF Interface Profile initiatives are intended to link to the established processes undertaken during NRF planning.  This NRF Generic Profile serves as a guideline for development of a rotation specific NRF Interface Profile.  The steps in this process include:</para>
+   <orderedlist>
+      <listitem>
+         <para>Initial Assessment</para>
+   <orderedlist>
+      <listitem><para>Development of timeline of activities (up to 2 years prior to participation in an NRF rotation).</para>
+</listitem>
+<listitem><para>Determine information exchange scenario (NATO/Nation).</para>
+</listitem>
+<listitem><para>Identify list of information exchange services.</para>
+</listitem>
+<listitem><para>Development of notional CIS architecture (systems, technologies, services).</para>
+</listitem>
+<listitem><para>Review of NRF Generic Interface Profile for process, template.</para>
+</listitem>
+<listitem><para>Initial review of NISP Volume 1 for relationships and processes.</para>
+</listitem>
+<listitem><para>Review of NISP Volume 2 for list of currently available, mature, and preferred technologies and standards for CIS.</para>
+</listitem>
+<listitem><para>Review of NISP Volume 3 and 4, as well as COI specific solutions for potential employment in an NRF.</para>
+</listitem>
+<listitem><para>Development of draft Interface Profile as per generic template.</para>
+</listitem>
+<listitem><para>Submission of RFCPs for NISP update to reflect rotation specific requirements.</para>
+      </listitem>
+   </orderedlist>
+      </listitem>
+      <listitem>
+         <para>Pre-Deployment Planning</para>
+   <orderedlist>
+      <listitem><para>Identification of NRF CIS test/evaluation opportunities (CWID, Combined Endeavour, Steadfast Cathode).</para>
+</listitem>
+<listitem><para>Contribution of draft rotation specific interface profile at Initial Planning Conferences.</para>
+</listitem>
+<listitem><para>Test and evaluation of NRF CIS environment as per draft interface profile and test specific architecture/scenario.</para>
+</listitem>
+<listitem><para>Lessons Learned and RFCP development/submission.</para>
+</listitem>
+<listitem><para>Update of rotation specific profile.</para>
+      </listitem>
+   </orderedlist>
+      </listitem>
+      <listitem>
+         <para>Operational Readiness</para>
+   <orderedlist>
+      <listitem><para>Monitoring of new CIS requirements.</para>
+</listitem>
+<listitem><para>Lessons Learned and RFCP development.</para>
+</listitem>
+<listitem><para>Update of rotation specific profile as needed.</para>
+      </listitem>
+   </orderedlist>
+      </listitem>
+   </orderedlist>
+         <para>Upon conclusion of an NRF rotation, incorporation of lessons learned into the NISP and NRF Interface Profile Compendium ensures that future rotations benefit from the operational experiences of prior rotations.</para>
+</sect2>
+<sect2 id="v4b-s20"><title>NRF Interface Profile Template</title>
+         <para>Development of a timeline of activities allows harmonization of NRF Interface Profile documentation, with NRF CIS planning efforts, to ensure that mature capabilities are available for NRF employment during operational readiness.  Optimal timing initiates a planning and development cycle that starts two years prior to participation/command of an NRF component.</para>
+         <para>Identification of the Information Exchange Scenario focuses on profile development which is relevant to the interconnecting partners, whether NATO, National, or another community of interest.  This establishes the stakeholders and interdependencies for the NRF CIS participants, and allows full consideration for actual versus desired functionality.  Ideally a single interface profile would serve the majority of needs for the particular NRF environment however some modifications may be necessary to take advantages of more mature capabilities that may be available to a subset of participants.</para>
+         <para>Architecture development must be flexible to be initially based on the operational requirements, but must be continuously re-evaluated as operational and technological changes are introduced.  A diagram of core systems, technologies, and CIS services should be identified in the architecture must continue to be revised throughout the life cycle planning process.</para>
+         <para>Interface Profiles will be drafted in accordance with the NISP Profile Guidance.  This categorization of CIS parameters is intended to decompose the interoperability point between two interconnecting entities as per the defined information exchange scenario.  The interoperability point (IOP) is defined by the interfaces, standards, parameters, services, applications, numbering and protocols that exists at the meet-me point between two interconnecting CIS environments.</para>
+</sect2>
+</sect1>
+<sect1 id="v4b-s21"><title>Considerations</title>
+<sect2 id="v4b-s22"><title>Interoperability Point</title>
+         <para>For the purposes of this profile, the Interoperability Point is defined as the interface between two entities (initially NATO Nations) which agree to collaborate through data and information exchange via interconnecting networks.</para>
+         <para>This point defines the information exchange mechanism between two components, and as such requires that an agreement be established as to the protocols and standards that will be adhered to.  These parameters must be determined prior to operational readiness.  This interface profile will facilitate that dialogue prior to operational information exchange.  The notional diagram below is intended to depict this concept.</para>
+
+    <figure id="v4b-f3">
+      <title>Baseline Interoperability Point</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/nrf-fig03.png" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+         <para>Services that will comprise the initial NRF Baseline Profile are:  Directory Services, Web Browsing, and Messaging.  As a particular NRF will have multiple interoperability points, there will likely be multiple interface profiles.  It is envisioned that each component (Land/Air/Maritime) will utilize a similar solution set for consideration in stand up of an NRF.  By presenting the possible, and clearly defining the mandatory and preferred governing technology interface at the interoperability point, increased information sharing for coalition operations will become possible as solutions are more readily identified and implemented.</para>
+</sect2>
+<sect2 id="v4b-s23"><title>Interface Profile</title>
+         <para>Decomposition of the previous figure leads to a common understanding of the basic transport to which all solutions shall apply.  This diagram shows how two information environments within Nation A and Nation B can differ internally, however, due to use of an agreed upon interface profile at the interoperability point, a common capability can exist between the two nations.</para>
+
+    <figure id="v4b-f4">
+      <title>Transport Interface Profile</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/nrf-fig04.png" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+         <para>This diagram shows how an overlay of an interface profile onto an interoperability point, can achieve integration of national systems into an NRF information environment.  The notional diagram was drafted in support of TACOMS POST 2000 however, this generic framework can be decomposed further into a more comprehensive framework, by which solutions will be addressed.  This strategy will be employed throughout the various levels of the technical framework listed below, to generate numerous NRF interface profiles.</para>
+</sect2>
+<sect2 id="v4b-s24"><title>Baseline Profile Technical Framework</title>
+         <para>To leverage as much of the NATO Enterprise and member Nation solutions in support of the NRF, the development of this profile will assess the full spectrum of technical standards, across the physical, services, and applications layers.  A notional representation depicts the layered solutions required for an Interface Profile.</para>
+
+    <figure id="v4b-f5">
+      <title>Baseline Profile Technical Framework</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/nrf-fig05.png" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+</sect2>
+<sect2 id="v4b-s25"><title>Guidelines for Development</title>
+         <para>Due to the dynamic nature of NRF operations, the intricate C2 structure, and the diversity of nations and communities of interest, interoperability must be anchored in certain key points where information and data exchange between entities exists.  The key drivers for defining a baseline set of interoperability NRF interface profiles include:</para>
+   <orderedlist>
+      <listitem>
+         <para>specifications that are service oriented and independent of the technology implemented in national systems,</para>
+      </listitem>
+      <listitem>
+         <para>standards based, consistent with common generic architecture,</para>
+      </listitem>
+      <listitem>
+         <para>defined Interface points between entities,</para>
+      </listitem>
+      <listitem>
+         <para>technologically mature technologies existent within NATO Information Enterprise,</para>
+      </listitem>
+      <listitem>
+         <para>modular profiles that are transferable to other NRF components, and</para>
+      </listitem>
+      <listitem>
+         <para>open system approach to embrace emerging technologies as they are better defined.</para>
+      </listitem>
+   </orderedlist>
+         <para>The starting point to development of a profile is to clearly define the interoperability point where two entities will interface.</para>
+         <para>The profile set will be divided into application and transport profiles.  The application profiles will be divided into a service area.  Where required, each service area can have multiple profiles to support a variety of functions required to deliver a service.  The predominant transport will be TCP/IP so a single transport profile will be required to deliver the baseline application profiles.</para>
+</sect2>
+<sect2 id="v4b-s26"><title>Coalition Interoperability Initiatives</title>
+         <para>Testing of these technical profiles will serve as a means of fostering greater interoperability.  The NRF interface profiles must be embedded into the NRF rotation cycle to remain relevant.  NATO, led by Allied Command Operations (ACO), constantly pursues test and evaluation initiatives to refine the NRF processes in the time leading up to command for an NRF component.  These efforts enhance the effectiveness and interoperability of NATO and National forces working in a coalition environment.</para>
+         <para>NRF planning efforts provide a platform for interoperability and identify new requirements for consideration.  Some of these initiatives include: the Coalition Warrior Interoperability Demonstration (CWID); multi-national coalition interoperability projects (COSINE, COSMOS, STP); definition and testing of interoperability requirements (TACOMS Post 2K); and validation of Information Exchange Gateway (IEG) concepts.  For Nations requiring modifications to existing profiles, the NISP Request for Change Proposal (RCP) process will be employed.  This process will ensure the accuracy and relevancy of NRF interface profiles, based on operational need and experience.  Consistent employment of the NRF interface profiles throughout the above activities will also enable the expedient certification and approval to connect into an NRF, should a Nation wish to join an operation under the command of another lead Nation. Collaboration with the operational community will provide a profile representative of the component command and will allow interconnecting Nations to assess net-readiness of a system.</para>
+</sect2>
+</sect1>
+<sect1 id="v4b-s27"><title>Emerging Considerations</title>
+   <orderedlist>
+      <listitem>
+         <para>Concepts like NATO Net Enabled Capabilities will migrate the capabilities of the NATO Enterprise towards new emerging solutions.  The development of the emerging interface profiles will follow the same strategies that were used for the baseline profiles.</para>
+<sect2 id="v4b-s28"><title>Emerging NATO-NRF Information Environment</title>
+         <para>It is envisioned that interoperability will be possible across numerous layers of activity between NATO and Nations.  This new information environment will be fully meshed and interoperable to support future out of area conflicts, meet rapid response timelines, accommodate the diverse churn of nations supporting an NRF, and bring closer together information consumers and providers.</para>
+
+    <figure id="v4b-f6">
+      <title>NRF Information Environment</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/nrf-fig06.png" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+</sect2>
+<sect2 id="s4b-s29"><title>Emerging Service Interoperability Point</title>
+         <para>The concept of an interoperability point in the emerging information environment still exist, in fact multiple points of interoperability can exist, as we stack various applications and services onto a consistent communication service.  In this environment one nation can host another nation’s user and mission based functional services.  This minimizes the need for each nation to develop duplicative and similar levels of capability.  Instead a trust relationship can be established by which an aggregated capability can be offered to the NRF versus a duplicative capability that each nation must have.</para>
+
+    <figure id="v4b-f7">
+      <title>Service Interoperability Point</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/nrf-fig07.png" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+</sect2>
+</sect1>
+<sect1 id="s4b-30"><title>NRF Interface Profile (Sample Template)</title>
+<sect2 id="s4b-s31"><title>Interface Profile Overview</title>
+   <informaltable frame="all">
+      <tgroup cols="3"><tbody><row>
+            <entry>
+               <para>Category</para>
+            </entry>
+            <entry>
+               <para>Details</para>
+            </entry>
+            <entry>
+               <para>Reference</para>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Component command</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Scenario</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Interoperability Point (IOP)</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row></tbody></tgroup>
+   </informaltable>
+
+    <figure id="v4b-f8">
+      <title>Interface Profile</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/nrf-fig08.png" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+</sect2>
+<sect2 id="s4b-s32"><title>Interface Profile Details</title>
+<sect3 id="s4b-s33"><title>Communications Interoperability</title> 
+  <informaltable frame="all">
+      <tgroup cols="3">
+         <colspec colnum="1" colname="c1"/>
+         <colspec colnum="2" colname="c2"/>
+         <colspec colnum="3" colname="c3"/><tbody><row>
+            <entry>
+               <para>Title</para>
+            </entry>
+            <entry>
+               <para>Current Situation (NRF XX)</para>
+            </entry>
+            <entry>
+               <para>Reference</para>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Upper Layers (+4) - CO</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Upper Layers (+4) - CL</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Transport Layer</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Network Layer - CO</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Routing</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>QoS</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Data</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Network Layer - CL - FW</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Network Layer - CL - Rout</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>IP Naming and Addressing Plan</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Link Layer</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Physical Interface</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Physical Layer</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Connector</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Link Address</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>IP Address</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row></tbody></tgroup>
+   </informaltable>
+</sect3>
+<sect3 id="s4b-s34"><title>Voice Services</title> 
+   <informaltable frame="all">
+      <tgroup cols="3">
+         <colspec colnum="1" colname="c1"/>
+         <colspec colnum="2" colname="c2"/>
+         <colspec colnum="3" colname="c3"/><tbody><row>
+            <entry>
+               <para>Title</para>
+            </entry>
+            <entry>
+               <para>Current Situation (NRF XX)</para>
+            </entry>
+            <entry>
+               <para>Reference</para>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Voice</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Codec</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Telephone Numbers</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row></tbody></tgroup>
+   </informaltable>
+</sect3>
+<sect3 id="s4b-s35"><title>Security Services</title> 
+   <informaltable frame="all">
+      <tgroup cols="3">
+         <colspec colnum="1" colname="c1"/>
+         <colspec colnum="2" colname="c2"/>
+         <colspec colnum="3" colname="c3"/><tbody><row>
+            <entry>
+               <para>Title</para>
+            </entry>
+            <entry>
+               <para>Current Situation (NRF XX)</para>
+            </entry>
+            <entry>
+               <para>Reference</para>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Security Classification</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Security Domain</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row></tbody></tgroup>
+   </informaltable>
+</sect3>
+<sect3 id="s4b-s36"><title>Email Services</title> 
+   <informaltable frame="all">
+      <tgroup cols="3">
+         <colspec colnum="1" colname="c1"/>
+         <colspec colnum="2" colname="c2"/>
+         <colspec colnum="3" colname="c3"/><tbody><row>
+            <entry>
+               <para>Title</para>
+            </entry>
+            <entry>
+               <para>Current Situation (NRF XX)</para>
+            </entry>
+            <entry>
+               <para>Reference</para>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Email</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row></tbody></tgroup>
+   </informaltable>
+</sect3>
+<sect3 id="s4b-s37"><title>C2 Information Services</title> 
+   <informaltable frame="all">
+      <tgroup cols="3">
+         <colspec colnum="1" colname="c1"/>
+         <colspec colnum="2" colname="c2"/>
+         <colspec colnum="3" colname="c3"/><tbody><row>
+            <entry>
+               <para>Title</para>
+            </entry>
+            <entry>
+               <para>Current Situation (NRF XX)</para>
+            </entry>
+            <entry>
+               <para>Reference</para>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>C2 Data Exchange</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>C2 Data Exchange</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row></tbody></tgroup>
+   </informaltable>
+</sect3>
+<sect3 id="s4b-s38"><title>RFCPs</title> 
+   <informaltable frame="all">
+      <tgroup cols="3">
+         <colspec colnum="1" colname="c1"/>
+         <colspec colnum="2" colname="c2"/>
+         <colspec colnum="3" colname="c3"/><tbody><row>
+            <entry>
+               <para>Item</para>
+            </entry>
+            <entry>
+               <para>Description</para>
+            </entry>
+            <entry>
+               <para>Status</para>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>RFCP X1</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row>
+         <row>
+            <entry>
+               <para>Note X2</para>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+            <entry>
+               <para/>
+            </entry>
+         </row></tbody></tgroup>
+   </informaltable>
+</sect3>
+</sect2>
+</sect1>
+
 </appendix>
