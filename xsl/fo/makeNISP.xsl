@@ -856,8 +856,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:if test="$nisp.lifecycle.stage='draft'">
         <xsl:choose>
           <xsl:when test="$version.minor=0"/>
-          <xsl:when test="$version.minor mod 10=1">1st </xsl:when>
-          <xsl:when test="$version.minor mod 10=2">2nd </xsl:when>
+          <xsl:when test="$version.minor mod 10=1"><xsl:value-of select="$version.minor"/>st </xsl:when>
+          <xsl:when test="$version.minor mod 10=2"><xsl:value-of select="$version.minor"/>nd </xsl:when>
           <xsl:otherwise><xsl:value-of select="$version.minor"/>th </xsl:otherwise>
       </xsl:choose>
       </xsl:if>
