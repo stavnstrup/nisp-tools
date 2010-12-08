@@ -3,7 +3,7 @@
 <!DOCTYPE standards PUBLIC "-//DDRE//DTDStandardDB XML V3.9//EN" "../schema/dtd/stddb39.dtd">
 
 
-<standards revision="4.11">
+<standards revision="4.13">
 
   <revhistory>
     <revision>
@@ -321,6 +321,28 @@
             <rationale>STANAG 3809 ed.4 changed in NCSP v.6</rationale>
          </sp-view>
       </sp-list>
+      <sp-list tref="coi-cp-pc">
+        <sp-view idx="d0e5217">
+            <ncoe>Security</ncoe>
+            <select id="nato-stanag4406ed2" mode="mandatory">Military Messaging (STANAG 4406 Ed.2:2006)</select>
+            <select id="nato-stanag4406ed2" mode="fading">ACP120 replaced by ACP145</select>
+            <remarks>
+              This includes PCT (protected content type). PCT may be used for protection
+              of data objects in systems. <para>
+                For CCEB interoperability the mandatory standard
+                is ACP145<indexterm significance="normal">
+                     <primary>cceb</primary>
+                     <secondary>ACP145</secondary>
+                  </indexterm>
+                (Gateway-to-Gateway Messaging Protocols)
+              </para>
+            </remarks>
+            <rationale>
+          ACP120 replaced by ACP145 in v.5 through RFCP 4-8. For CCEB interoperability
+          the mandatory standard is ACP145 (Gateway-to-Gateway Messaging Protocols)
+        </rationale>
+         </sp-view>
+      </sp-list>
       <sp-list tref="ts-integ-ces">
          <sp-view idx="d0e900">
             <ncoe/>
@@ -613,8 +635,8 @@
          </sp-view>
          <sp-view idx="d0e8659">
             <ncoe>Data Mgmt</ncoe>
-            <select id="nato-wp14-3_ed5.0_20020318.pdf" mode="mandatory">DEM Data
-              Replication Mechanism from STANAG 5525 ed. 1:2007</select>
+            <select id="mip-MTIDP-SEAWG-ed3.0.10-annex-b" mode="mandatory">DEM Data
+              Replication Mechanism from MIP baseline 3:2009</select>
               <remarks>Used in Profile: AMN</remarks>
             <rationale>C2IEDM replaced by JC3IEDM in v.7 by RFCP 6-21</rationale>
          </sp-view>
@@ -844,9 +866,20 @@
          <sp-view idx="d0e9396">
             <ncoe>Data Mgmt</ncoe>
             <select id="nato-stanag5500ed6" mode="mandatory">
-              ADatP-3, CONFORMETS/Change 4 (STANAG 5500, ed.6:2007)
+              ADatP-3(A), CONFORMETS (STANAG 5500, ed. 7:2010)
             </select>
-            <remarks>For CCEB interoperability the standard is MIL-STD 6040
+            <remarks><para>Used in Profile: AMN</para></remarks>
+            <rationale>STANAG 5500 ed.5 changed in NCSP v.6 and in NISP v.2 based on RFCP 1-8</rationale>
+         </sp-view>
+         <sp-view idx="d0e9418">
+            <ncoe>Data Mgmt</ncoe>
+            <select id="nato-app-11" mode="mandatory">APP-11(C) Change 1, NATO Message Catalogue (STANAG 7149 ed.5:2010)</select>
+            <select id="nato-app-11" mode="emerging">APP-11(C) Change 2</select>
+            <remarks>
+              APP-11 (STANAG 7149) as the single source for NATO Military Messages
+              for command and control of NATO forces at all levels of the Chain of Command
+              down to and including individual units.
+	      <para>For CCEB interoperability the standard is MIL-STD 6040
               <indexterm significance="normal">
                 <primary>dod</primary>
                 <secondary>MIL-STD 6040</secondary>
@@ -854,19 +887,7 @@
               <indexterm significance="normal">
                 <primary>dod</primary>
                 <secondary>OTH-T</secondary>
-              </indexterm>
-                <para>Used in Profile: AMN</para>
-            </remarks>
-            <rationale>STANAG 5500 ed.5 changed in NCSP v.6 and in NISP v.2 based on RFCP 1-8</rationale>
-         </sp-view>
-         <sp-view idx="d0e9418">
-            <ncoe>Data Mgmt</ncoe>
-            <select id="nato-app-11" mode="mandatory">APP-11(C) Change 1/ STANAG 7149 ed.5:2010 NATO Message Catalogue</select>
-            <remarks>
-              APP-11 (STANAG 7149) as the single source for NATO Military Messages
-              for command and control of NATO forces at all levels of the Chain of Command
-              down to and including individual units.
-			  <para>For CCEB interoperability this standard is not applicable</para>
+              </indexterm></para>
 	      <para>Used in Profile: AMN</para>
             </remarks>
             <rationale>APP-11/STANAG 7149 ed.2 added in NISP v.2 based on RFCP 1-9</rationale>
@@ -903,6 +924,11 @@
          <sp-view idx="d0e9525">
             <ncoe>Data Interchange</ncoe>
             <select id="ogc-04-095" mode="emerging">Filter Encoding v1.0.0 (OGC)</select>
+            <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
+         </sp-view>
+         <sp-view idx="d0e9528">
+            <ncoe>Data Interchange</ncoe>
+            <select id="esri-shapefile" mode="emerging">ESRI Shapefile Specification (ESRI:2008)</select>
             <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
          </sp-view>
          <sp-view idx="d0e9531">
@@ -1067,7 +1093,7 @@
          </sp-view>
          <sp-view idx="d0e10189">
             <ncoe>Data Interchange</ncoe>
-            <select id="ogc-ogc02-065r6" mode="mandatory">Web Coverage Service v.1.0:2010 (OGC 03-065r6)</select>
+            <select id="ogc-ogc09-110r3" mode="mandatory">Web Coverage Service v.2.0:2010 (OGC 09-110r3)</select>
             <remarks>
               Used as a means of distributing geo coverages (raster) data between
               applications.
@@ -1115,7 +1141,9 @@
             <select id="ogc-ogc07-006r1" mode="emerging">
               Catalogue Service for the Web (CSW) v.2.0.2 (OGC)
             </select>
-            <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
+            <remarks>Used as a means of discovering geo metadata.
+              <para>Used in Profile: AMN</para></remarks>
+            <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
          </sp-view>
          <sp-view idx="d0e10215">
             <ncoe>Data Interchange</ncoe>
@@ -1141,14 +1169,6 @@
               Web Registry Service v.0.0.2:2001 (OGC Ref. 01-024r1)
             </select>
             <remarks>Used as a means of publishing and finding geo services.</remarks>
-            <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
-         </sp-view>
-         <sp-view idx="d0e10236">
-            <ncoe>Data Interchange</ncoe>
-            <select id="ogc-ogc02-087r3" mode="emerging">
-              Catalog Interface v.1.1.1:2002 (OGC Ref. 02-087r3 )
-            </select>
-            <remarks>Used as a means of discovering geo metadata.</remarks>
             <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
          </sp-view>
          <sp-view idx="d0e10374">
@@ -1713,9 +1733,9 @@
          </sp-view>
          <sp-view idx="d0e1773">
             <ncoe>Comms</ncoe>
-            <select id="bp-tp2k" mode="emerging">
-              Tactical Communications Post 2000,
-              Draft STANAGs 4637ed1:2009, 4639ed1:2009, 4640ed1:2009, 4643ed1:2009 4644ed1:2009, 4645ed1:2009, 4646ed1:2009, 4647ed1:2009
+            <select id="bp-tp2k" mode="mandatory">
+              Tactical Communications, STANAGs 4637ed1:2009, STANAG 4638ed1:2009, 
+              4639ed1:2009, 4640ed1:2009, 4643ed1:2009 4644ed1:2009, 4646ed1:2009, 4647ed1:2009
          </select>
          </sp-view>
          <sp-view idx="d0e1778">
@@ -2120,7 +2140,7 @@
          </sp-view>
          <sp-view idx="d0e4584">
             <ncoe>Comms</ncoe>
-            <select id="nato-stanag4271" mode="emerging">
+            <select id="nato-stanag4271" mode="fading">
               ECM-resistant digital traffic exchange
               between tactical satellite communications terminals (STANAG 4271 ed.1)
             </select>
@@ -2420,7 +2440,7 @@
          </sp-view>
          <sp-view idx="d0e4861">
             <ncoe>Comms</ncoe>
-            <select id="nato-stanag4492" mode="emerging">
+            <select id="nato-stanag4492" mode="fading">
           UHF MILSATCOM interoperability standards
           for paging receiver (Draft) (STANAG 4492 ed. 1)
         </select>
@@ -2546,6 +2566,11 @@
             <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
             <rationale/>
          </sp-view>
+         <sp-view idx="d0e1160">
+            <ncoe/>
+            <select id="nato-metadata-pol" mode="emerging">ISAF Minimum Metadata Implementation Policy (NATO:2010)</select>
+            <remarks><para><emphasis>Used in profile: AMN</emphasis></para></remarks>
+         </sp-view>
          <sp-view idx="d0e1165">
             <ncoe/>
             <select id="w3c-subm-owl-s-20041122" mode="midterm">OWL-S</select>
@@ -2556,8 +2581,14 @@
       <sp-list tref="ias">
          <sp-view idx="d0e4990">
             <ncoe>Security</ncoe>
-            <select id="iso-iec-15408" mode="mandatory">Common Criteria (ISO/IEC 15408-1to-3:2009)</select>
-            <remarks>Procedural document dealing with the evaluation criteria for IT security.</remarks>
+            <select id="nato-comm-sec-req" mode="emerging">Community Security Requiremetns Statement abstract, v1.1 (NATO:2010)</select>
+            <remarks><para><emphasis>Used in profile: AMN</emphasis></para></remarks>
+         </sp-view>
+         <sp-view idx="d0e4992">
+            <ncoe>Security</ncoe>
+            <select id="iso-iec-15408" mode="mandatory">Common Criteria (ISO/IEC 15408-1:2009, -2 to-3:2008)</select>
+            <remarks>Procedural document dealing with the evaluation criteria for IT security.
+              <para>Guidance on the use of Common Criteria within NATO is provided with AC/322-D(2010)0043.</para></remarks>
             <rationale>Procedural document dealing with security risk assessment</rationale>
          </sp-view>
          <sp-view idx="d0e5123">
@@ -2577,7 +2608,8 @@
           Integrated circuit(s) with electrical
           contacts (ISO/IEC 7816:2006)
         </select>
-            <rationale>
+        <remarks>Base profile, consisting of parts 1-5)</remarks>
+        <rationale>
           Included in v.4 through RFCP 3-10; ISO/IEC 7816:1999 revised in ISO/IEC
           7816:2006 in NCSP v.6
         </rationale>
@@ -2601,6 +2633,7 @@
          <sp-view idx="d0e5158">
             <ncoe>Security</ncoe>
             <select id="iso-iec-14443" mode="mandatory">Contactless cards (ISO/IEC 14443:2008)</select>
+            <remarks>Base profile, consisting of parts 1 - 3.</remarks>
             <rationale>Included in NCSP v.4 through RFCP 3-10; revised in NCSP v.6</rationale>
          </sp-view>
       </sp-list>
@@ -2677,26 +2710,6 @@
           interoperability the mandatory standard is ACP145 (Gateway-to-Gateway Messaging Protocols)
         </rationale>
          </sp-view>
-         <sp-view idx="d0e5217">
-            <ncoe>Security</ncoe>
-            <select id="nato-stanag4406ed2" mode="mandatory">Military Messaging (STANAG 4406 Ed.2:2006)</select>
-            <select id="nato-stanag4406ed2" mode="fading">ACP120 replaced by ACP145</select>
-            <remarks>
-              This includes PCT (protected content type). PCT may be used for protection
-              of data objects in systems. <para>
-                For CCEB interoperability the mandatory standard
-                is ACP145<indexterm significance="normal">
-                     <primary>cceb</primary>
-                     <secondary>ACP145</secondary>
-                  </indexterm>
-                (Gateway-to-Gateway Messaging Protocols)
-              </para>
-            </remarks>
-            <rationale>
-          ACP120 replaced by ACP145 in v.5 through RFCP 4-8. For CCEB interoperability
-          the mandatory standard is ACP145 (Gateway-to-Gateway Messaging Protocols)
-        </rationale>
-         </sp-view>
          <sp-view idx="d0e5256">
             <ncoe>Security</ncoe>
             <select id="itu-t-x.411" mode="emerging">ITU-T X.411:1999</select>
@@ -2704,7 +2717,7 @@
          </sp-view>
          <sp-view idx="d0e5257">
             <ncoe>Security</ncoe>
-            <select id="iicwg-scip-210" mode="emerging">SCIP Signalling Plan, SCIP-210 rev.3:2006 (IICWG)</select>
+            <select id="iicwg-scip-210" mode="emerging">SCIP Signalling Plan, SCIP-210 rev.3.3:2010 (IICWG)</select>
             <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
             <rationale>SCIP included in NISP in v.5 through RFCP 4-3. For CCEB interoperability  
              this standard is mandatory.</rationale>
@@ -2718,7 +2731,7 @@
          </sp-view>
          <sp-view idx="d0e5259">
             <ncoe>Security</ncoe>
-            <select id="iicwg-scip-231" mode="emerging">Cryptography Specification for SCIP, SCIP-231 rev.1.1:2007 (IICWG)</select>
+            <select id="iicwg-scip-231" mode="emerging">Cryptography Specification for SCIP, SCIP-231 rev.1.3:2008 (IICWG)</select>
             <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
             <rationale>SCIP included in NISP in v.5 through RFCP 4-3. For CCEB interoperability 
               this standard is mandatory</rationale>
@@ -2742,7 +2755,12 @@
             <ncoe>Security</ncoe>
             <select id="oasis-wss-x.509-certificate-token-profile-1.0" mode="emerging">X.509 Certificate Token Profile, v1.1:2004 (OASIS)</select>
             <remarks><para><emphasis>Used in Profile: CES-Sp1</emphasis></para></remarks>
-         </sp-view>       
+         </sp-view>
+         <sp-view idx="d0e5267">
+            <ncoe>Security</ncoe>
+            <select id="nato-npki-certp" mode="emerging">NATO PKI (NPKI) Certificate Policy, rev.2 (NATO:2008)</select>
+            <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
+         </sp-view>
          <sp-view idx="d0e5268">
             <ncoe>Security</ncoe>
             <select id="oasis-wss-v1.1-spec-os-KerberosTokenProfile" mode="emerging">Kerberos Token Profile 1.1:2006 (OASIS)</select>
@@ -2924,6 +2942,7 @@
          <sp-view idx="d0e5130">
             <ncoe>Security</ncoe>
             <select id="iso-iec-7812" mode="mandatory">Identification of Issuers (ISO 7812:2007)</select>
+            <remarks>Base profile consisting of parts 1 - 2.</remarks>
             <rationale>Included in v.4 through RFCP 3-10</rationale>
          </sp-view>
          <sp-view idx="d0e5178">
@@ -2931,7 +2950,7 @@
             <remarks>Used in Profile: CES-Sp1</remarks>
             <rationale>XML Signature added in NISP v.3 through RFCP 2-7</rationale>
          </sp-view>
-         <sp-view idx="d0e5188">
+         <sp-view idx="d0e5187">
             <select id="bp-xacml2.0" mode="emerging">XACML v2.0:2008 (OASIS)</select>
             <remarks>Used in Profiles: AMN, CES-Sp1, tactESB</remarks>
             <rationale>XACML added in NISP v.3 through RFCP 2-7</rationale>
@@ -3061,6 +3080,7 @@
          <sp-view idx="d0e5948">
             <select id="bp-xmpp" mode="emerging">XMPP (IETF RFC 3920:2004 - 3923:2004)</select>
             <remarks>For CCEB interoperability this standard is mandatory
+              <para>Bas profile includes as extensions XEP-0184 and XEP-0202</para>
               <para>Used in Profiles: AMN, CES-Sp1</para>
             </remarks>
             <rationale>Included in v.8 through RFCP 7-5</rationale>
@@ -3832,7 +3852,7 @@
             <remarks><para><emphasis>Used in Profiles: AMN, CES-Sp1</emphasis></para></remarks>
          </sp-view>
          <sp-view idx="d0e11344">
-            <select id="nato-tide-id-rr" mode="emerging">NATO TIDE Information Discovery (Request-Response), v.2.2:2009 (ACT)</select>
+            <select id="nato-tide-id-rr" mode="emerging">NATO TIDE Information Discovery (Request-Response), v.2.3:2009 (ACT)</select>
             <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.
               <para>Used in Profile: AMN</para></remarks>
             <rationale>Included in NISP v.3 through RFCP 2-21.</rationale>
@@ -4470,6 +4490,20 @@
          </status>
       </standard>
 
+      <standard id="nato-metadata-pol" tag="">
+         <document orgid="nato" pubnum="draft" date="2010"
+                   title="ISAF Minimum Metadata Implementation Policy, v.5"/>
+         <applicability>The Afghanistan Mission Network (AMN) is the only network
+         covered under this policy which includes all data assets on the AMN, and 
+         all organizations and users of those data assets.</applicability>
+         <status stage="30.40" mode="unknown">
+            <uri>http://www.w3.org/TR/2010/WD-ws-metadata-exchange-20100805</uri>
+            <history>
+               <event flag="added" date="2010-12-07" rfcp="" version="4.0"/>
+            </history>
+         </status>
+      </standard>
+      
       <standard id="w3c-address" tag="WS-Addressing 1.0">
          <document orgid="w3c" pubnum="" date="2010-04-08"
                    title="Web Services Addressing (WS-Addressing)"/>
@@ -4716,7 +4750,7 @@
       </standard>
 
       <standard id="xmpp-xep-0184" tag="XEP-0184">
-         <document orgid="xmpp" pubnum="XMPP XEP-0184" date="2010-03-31"
+         <document orgid="xmpp" pubnum="XMPP XEP-0184" date="20-03-31"
                    title="XEP-0184: Message Receipts"/>
          <applicability>This specification defines an XMPP protocol extension for 
       message receipts, whereby the sender of a message can request notification 
@@ -4729,6 +4763,21 @@
          </status>
       </standard>
 
+      <standard id="xmpp-xep-0202" tag="XEP-0202">
+         <document orgid="xmpp" pubnum="XMPP XEP-0202" date="2009-09-11"
+                   title="XEP-0202: Entity Time"/>
+         <applicability>This specification defines an XMPP protocol extension for 
+           communicating the local time of an entity, including the time in UTC according
+           to the entity as well as the offset from UTC. The time format itself conforms
+           to the dateTime profile of ISO 8601 defined in XEP-0082.</applicability>
+         <status stage="30.40" mode="unknown">
+            <uri>http://xmpp.org/extensions/xep-0202.html</uri>
+            <history>
+               <event flag="added" date="2010-12-08" rfcp="" version="4.0"/>
+            </history>
+         </status>
+      </standard>
+      
      <standard id="w3c-css-lev1" tag="CSS Level 1">
          <document orgid="w3c" pubnum="REC-CSS1-20080411" date="2008-11-04"
                    title="Cascading Style Sheets, level 1"/>
@@ -4938,7 +4987,7 @@
 
       <standard id="nato-npki-certp" tag="NPKI CertP">
          <document orgid="nato" pubnum="AC/322-D(2004)0024REV2" date="2008-01-18"
-                   title="NATO Public Key Infrastructure (NPKI) Certificate Policy (CertP) Rev2. 10."/>
+                   title="NATO Public Key Infrastructure (NPKI) Certificate Policy (CertP) Rev2."/>
          <applicability>This document defines the creation and management of 
      Version 3 X.509 public-key certificates for use in applications requiring 
      security services.  These security services may be standalone or between 
@@ -7781,6 +7830,7 @@
                <event flag="added" date="2000-04-13" rfcp="" version="0.2"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
                <event flag="deleted" date="2009-09-12" rfcp="" version="3.0"/>
+               <event flag="added" date="2010-12-06" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -21055,8 +21105,8 @@
       </standard>
 
       <standard tref="ias" id="iicwg-scip-210" tag="SCIP-210">
-         <document orgid="IICWG" pubnum="SCIP-210" date="2006-04-28"
-                   title="SCIP Signalling Plan rev.3"/>
+         <document orgid="IICWG" pubnum="SCIP-210" date="2010-09-01"
+                   title="SCIP Signalling Plan rev.3.3"/>
          <applicability>
         This document specifies the signaling requirements for the Secure Communication
         Interoperability Protocol (SCIP) operational modes. The requirements represent
@@ -21076,6 +21126,7 @@
          <status stage="20.40" mode="unknown">
             <history>
                <event flag="added" date="2010-08-13" rfcp="4-3" version="4.0"/>
+               <event flag="changed" date="2010-12-07" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -21102,8 +21153,8 @@
       </standard>
 
       <standard tref="ias" id="iicwg-scip-231" tag="SCIP-231">
-         <document orgid="IICWG" pubnum="SCIP-231" date="2007-03-15"
-                   title="Secure Communications Interoperability Protocol ECMQV/AES Cryptography Specification, rev.1.1"/>
+         <document orgid="IICWG" pubnum="SCIP-231" date="2008-03-01"
+                   title="Secure Communications Interoperability Protocol ECMQV/AES Cryptography Specification, rev.1.3"/>
          <applicability>
         This document specifies the cryptography requirements and associated Interoperable
         Non-Type 1 Operational Modes for the Secure Communications Interoperability
@@ -21122,6 +21173,7 @@
          <status stage="20.40" mode="unknown">
             <history>
                <event flag="added" date="2010-08-13" rfcp="4-3" version="4.0"/>
+               <event flag="changed" date="2010-12-07" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -21204,6 +21256,7 @@
             <refstandard refid="ietf-rfc3921"/>
             <refstandard refid="ietf-rfc3922"/>
             <refstandard refid="ietf-rfc3923"/>
+            <refstandard refid="xmpp-xep-0202"/>
          </parts>
          <applicability>
            This standard defines the features of the Extensible Messaging and
@@ -21257,27 +21310,99 @@
             </history>
          </status>
       </standard>
+            
+      <standard tref="ias" id="nato-comm-sec-req" tag="">
+         <document orgid="nato" pubnum="com-sec-req" date="2010-06-02"
+                   title="Community Security Requirements Statement for AMN, v.1.1 (NATO:2010)"/>
+         <applicability>
+           The Afghanistan Mission Network (AMN) will be the primary Coalition, Command,
+           Control, Communications and Computers Intelligence, Surveillance and Reconnaissance 
+           (C5ISR) network in Afghanistan for all ISAF forces and operations.
+           <para>The AMN is defined as a core network (ISAF Secret) with fully trusted 
+             national network extensions (e.g. USA CENTRIXS ISAF; GBR OVERTASK; ITA
+             CAESAR; CAN LCSS; etc.) to establish a single ISAF federated common domain
+             operating at the NATO/ISAF SECRET level of classification in the System
+             High mode of operation.</para>
+           <para>With the large community of for the AMN there is a great potential 
+             for increase in the threat from deliberate attacks or leaks of classified 
+             information. Each Nation being a member of the AMN carries a shared 
+             responsibility to ensure that their network and activities do not compromise 
+             in any way or form other members of the AMN.</para>
+           <para>In accordance with Guidelines for the Development of Security Requirement
+             Statements, this Community Security Requirements Statement (CSRS) specifies
+             the minimum level of security policies, security requirements and security
+             mechanisms required for a national network to connect to the AMN, for the
+             boundary protection between the national network and the AMN, and for the
+             core of the AMN. It is to be noted that by setting the minimum level of 
+             security, a nation may implement increased security measures over those
+             specified in this CSRS to comply with National requirements.</para>
+           <para>Each National network extensions contributing to the AMN remains
+             autonomous in terms of security arrangements i.e. each Nation is responsible 
+             for implementing and ensuring the continuous security of their National
+             network extension.</para>
+         </applicability>
+         <status stage="30.40" mode="unknown">
+            <uri>http://</uri>
+            <history>
+               <event flag="added" date="2010-12-07" rfcp="" version="4.0"/>
+            </history>
+         </status>
+      </standard>
 
       <standard ss="yes" id="iso-iec-15408-1" tref="ias-smi" tag="">
-         <document orgid="iso-iec" pubnum="15408-1" date="2009"
+         <document orgid="iso-iec" pubnum="15408-1" date="2005"
                    title="ITSEC/CC Part 1: Introduction and general model"/>
          <applicability>
-           ISO/IEC 15408-1:2009 establishes the general concepts and principles of IT security evaluation and 
-		   specifies the general model of evaluation given by various parts of ISO/IEC 15408 which in its entirety 
-		   is meant to be used as the basis for evaluation of security properties of IT products.
-           <para>It provides an overview of all parts of ISO/IEC 15408. It describes the various parts of ISO/IEC 
-		     15408; defines the terms and abbreviations to be used in all parts ISO/IEC 15408; establishes the core
-			 concept of a Target of Evaluation (TOE); the evaluation context; and describes the audience to which 
-			 the evaluation criteria are addressed. An introduction to the basic security concepts necessary for
-			 evaluation of IT products is given.</para>
-           <para>It defines the various operations by which the functional and assurance components given in ISO/IEC 
-		     15408-2 and ISO/IEC 15408-3 may be tailored through the use of permitted operations.</para>
-           <para>The key concepts of protection profiles (PP), packages of security requirements and the topic of 
-		     conformance are specified and the consequences of evaluation and evaluation results are described.</para>
-           <para>ISO/IEC 15408-1:2009 gives guidelines for the specification of Security Targets (ST) and provides a 
-		     description of the organization of components throughout the model.</para>
-           <para>General information about the evaluation methodology is given in ISO/IEC 18045 and the scope of 
-		     evaluation schemes is provided.</para>
+        The ITSEC document defines the assurance criteria against which
+        a system or a product will be evaluated. These criteria are grouped and rated
+        from E1 to E6 and permit to estimate the confidence in the correctness and
+        the effectiveness of the security functions, which enforce maintenance of
+        confidentiality, integrity and availability.
+        <para>The declared goals for the Common Criteria (CC) are:</para>
+            <itemizedlist>
+               <listitem>
+                  <para>
+              to be the vehicle by which North American and European authors
+              of existing criteria (i.e. ITSEC, CTCPEC, Federal Criteria and
+              TCSEC) present aligned criteria for the evaluation of IT security
+              properties ;
+            </para>
+               </listitem>
+               <listitem>
+                  <para>
+              to form an input to the activities leading to the construction
+              and adoption of international standards for IT security evaluation
+              ;
+            </para>
+               </listitem>
+               <listitem>
+                  <para>
+              to preserve vendor and user investment in existing criteria
+              following adoption of a unified international standard based on
+              the CC ;
+            </para>
+               </listitem>
+               <listitem>
+                  <para>
+              to facilitate the development of an international market in IT
+              security products through mutual recognition of both requirements
+              and evaluations ;
+            </para>
+               </listitem>
+               <listitem>
+                  <para>
+              to be extensible so that other interest groups may contribute
+              to and benefit from the aligned criteria ;
+            </para>
+               </listitem>
+               <listitem>
+                  <para>
+              to incorporate advances in IT security technology which have
+              taken place since publication of existing standards and to improve
+              the utility of the criteria.
+            </para>
+               </listitem>
+            </itemizedlist>
          </applicability>
          <status stage="30.40" mode="unknown">
             <uri>http://www.iso.org/iso/en/CombinedQueryResult.CombinedQueryResult?queryString=15408</uri>
@@ -21288,11 +21413,10 @@
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
                <event flag="changed" date="2007-07-27" rfcp="" version="2.0"/>
                <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
-			   <event flag="changed" date="2010-11-01" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
-
+      
       <standard ss="yes" id="iso-iec-15408-2" tref="ias-smi" tag="">
          <document orgid="iso-iec" pubnum="15408-2" date="2008"
                    title="ITSEC/CC Part 2: Security functional requirements"/>
@@ -21314,7 +21438,7 @@
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
                <event flag="changed" date="2007-07-27" rfcp="" version="2.0"/>
                <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
-			   <event flag="changed" date="2010-11-01" rfcp="" version="4.0"/>
+	       <event flag="changed" date="2010-11-01" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -28785,7 +28909,7 @@
             </history>
          </status>
       </profile>
-
+      
       <standard tref="ces-app-app" id="unknown-sax2.0.1" tag="SAX 2.0.1">
          <document orgid="" pubnum="" date="2002-01-29" title="Simple API for XML (SAX 2.0.1)"/>
          <applicability>
@@ -32330,6 +32454,23 @@
          </status>
       </standard>
 
+      <standard tref="ts-ces-med" id="mip-MTIDP-SEAWG-ed3.0.10-annex-b" tag="MIP-DEM">
+         <document orgid="mip" pubnum="MTIDP-SEAWG-ed3.0.10-annex-b" date="2009"
+                   title="MIP-Data Exchange Mechanism"/>
+         <applicability>
+           The principal tasks of the MIP application protocols are to provide a Message
+           Exchange Mechanism (MEM) and a Data Exchange Mechanism (DEM).
+           <para>This annex gives a functional overview of the DEM Concept Model with
+             respect to user data updates.</para>
+      </applicability>
+         <status stage="10.40" mode="unknown">
+            <uri>http://www.mip-site.org/publicsite/04-Baseline_3.0/MTIDP-MIP_Technical_Interface_Design_Plan/</uri>
+            <history>
+               <event flag="added" date="2010-12-07" rfcp="" version="4.0"/>
+            </history>
+         </status>
+      </standard>
+      
       <standard tref="ts-ces-med" id="dod-oth-g" tag="OTH-G">
          <document orgid="dod" pubnum="OTH-G Rev. C" date="1997-08-01"
                    title="Operational Specification for OVER-THE-HORIZON TARGETING GOLD (Revision C) (OTH-G)">
@@ -34848,8 +34989,8 @@
          </status>
       </standard>
 
-      <standard tref="ts-ces-med" id="ogc-04-095" tag="2005-05-03">
-         <document orgid="ogc" pubnum="04-095" date=""
+      <standard tref="ts-ces-med" id="ogc-04-095" tag="">
+         <document orgid="ogc" pubnum="04-095" date="2005-05-03"
                    title="Filter Encoding Implementation Specification v1.1">
          </document>
          <applicability>
@@ -34862,6 +35003,28 @@
             <uri>http://</uri>
             <history>
                <event flag="added" date="2010-12-04" rfcp="" version="4.0"/>
+            </history>
+         </status>
+      </standard>
+      
+      <standard tref="ts-ces-med" id="esri-shapefile" tag="">
+         <document orgid="esri" pubnum="shapefile" date="1998-07-01"
+                   title="ESRI Shapefile Technical Description">
+         </document>
+         <applicability>
+           This document defines the shapefile (.shp) spatial data format and
+           describes why shapefiles are important. It lists the tools available in
+           Environmental Systems Research Institute, Inc. (ESRI), software for
+           creating shapefiles directly or converting data into shapefiles from other
+           formats. This document also provides all the technical information
+           necessary for writing a computer program to create shapefiles without the
+           use of ESRI software for organizations that want to write their own data
+           translators.
+         </applicability>
+         <status stage="20.40" mode="unknown">
+            <uri>http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf </uri>
+            <history>
+               <event flag="added" date="2010-12-07" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -35419,7 +35582,7 @@
          </status>
       </standard>
 
-      <standard tref="coi-gen-mw" id="ogc-ogc02-065r6" tag="WCS">
+      <standard tref="coi-gen-mw" id="ogc-ogc09-110r3" tag="WCS">
          <document orgid="ogc" pubnum="OGC 02-065r6" date="2003-08-27"
                    title="Web Coverage Service (WCS):2010"/>
          <applicability>
@@ -35509,7 +35672,9 @@
          <status stage="20.10" mode="unknown">
             <uri>http://</uri>
             <history>
-               <event flag="added" date="2010-12-04" rfcp="" version="4.0"/>
+               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
+               <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+               <event flag="changed" date="2010-12-04" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -35571,30 +35736,6 @@
       </applicability>
          <status stage="20.10" mode="unknown">
             <uri>http://www.opengeospatial.org/specs/</uri>
-            <history>
-               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
-               <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
-               <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
-            </history>
-         </status>
-      </standard>
-
-      <standard tref="ts-ces-med" id="ogc-ogc02-087r3" tag="CAT">
-         <document orgid="ogc" pubnum="OGC 02-087r3" date="2003-12-13"
-                   title="OpenGIS Catalog Interface (CAT):2002"/>
-         <applicability>
-        The OpenGIS Catalog Interface services support the ability to
-        publish and search collections of geospatial metadata for data, services,
-        and related information objects. Metadata in catalogs represent resource
-        characteristics that can be queried and presented for evaluation and further
-        processing by both humans and software. Catalog services are required to support
-        the discovery of registered information resources within a collaborating
-        community. The NATO Core GIS Catalog will enable all users to discover and
-        browse geospatial data holdings. The use of a standardised interface allows
-        all data providers to publish their data for discovery and use.
-      </applicability>
-         <status stage="20.10" mode="unknown">
-            <uri>http://portal.opengeospatial.org/files/index.php?artifact_id=3843</uri>
             <history>
                <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
@@ -39728,8 +39869,8 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
       </standard>
 
       <standard tref="ts-inf-dis" id="nato-tide-id-rr" tag="TIDE-ID-RR">
-         <document orgid="nato" pubnum="TIDE/TIDE-ID-RR" date="2008"
-                   title="TIDE Information Discovery (Request-Response) Protocol v2.2"/>
+         <document orgid="nato" pubnum="TIDE/TIDE-ID-RR" date="2009"
+                   title="TIDE Information Discovery (Request-Response) Protocol v2.3"/>
          <applicability>
         The TIDE Information Discovery concept evolved out of the requirement
         to discover, extract, and make useful, information from emerging and legacy systems.
@@ -40917,7 +41058,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
             <parts>
                <refstandard refid="ogc-ogc04-024"/>
                <refstandard refid="ogc-ogc04-094"/>
-               <refstandard refid="ogc-ogc02-065r6"/>
+               <refstandard refid="ogc-ogc09-110r3"/>
                <refstandard refid="nato-stanag3809ed4"/>
             </parts>
             <applicability/>
@@ -41218,6 +41359,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
       <orgkey key="eurocontrol" text="Eurocontrol Specifications"/>
       <orgkey key="fas" text="Federation of American Scientists"/>
       <orgkey key="fbi" text="Federal Bureau of Investigation"/>
+      <orgkey key="ffi" text="Norwegian Defence Research Establishment"/>
       <orgkey key="fsb" text="Free Standards Group"/>
       <orgkey key="ggf" text="Global Grid Forum"/>
       <orgkey key="IICWG" text="International Interface Control Working Group"/>
