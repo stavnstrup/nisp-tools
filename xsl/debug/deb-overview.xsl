@@ -46,6 +46,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         .deleted { background-color: #FF5A41; color: white; font-weight: bold;}
         .missing { background-color: #FFFEA0;}
         .head { }
+        .date {white-space: nowrap;}
       </style>
     </head>
     <body>
@@ -332,7 +333,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F,</xsl:if>
       &nbsp;
     </td>
-    <td><xsl:apply-templates select=".//event"/>&nbsp;</td>
+    <td class="date"><xsl:apply-templates select=".//event"/>&nbsp;</td>
   </tr>
 </xsl:template>
 

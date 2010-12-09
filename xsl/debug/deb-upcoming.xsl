@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!DOCTYPE xsl:stylesheet [
-<!ENTITY nbsp "&#160;">
-]>
-
 <!--
 
 This stylesheet is created for the NISP, and is
-intended to identify old emerging, midterm, longterm and fading standards.
+intended to identify upcoming emerging, midterm, longterm and fading
+standards and profiles.
 
 Copyright (c) 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
@@ -15,12 +12,9 @@ Copyright (c) 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:saxon="http://icl.com/saxon"
-                xmlns:date="http://exslt.org/dates-and-times"
-                extension-element-prefixes="date"
                 version='1.1'
                 exclude-result-prefixes="#default saxon">
   
-
 <xsl:output method="xml" indent="no" saxon:next-in-chain="p2-upcoming.xsl"/>
 
 <xsl:template match="standards">
@@ -34,8 +28,8 @@ Copyright (c) 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:variable name="sid" select="@id" />
   <xsl:if test="not(.//event[@flag = 'deleted']) and /standards/lists//select[(@mode != 'mandatory') and (@id=$sid)]">
     <element type="S" id="{@id}" orgid="{document/@orgid}" pubnum="{document/@pubnum}"
-              title="{document/@title}" mode="{/standards/lists//select[@id=$sid]/@mode}"
-              lastchange="{.//history/child::event[position()=last()]/@date}"/>
+             title="{document/@title}" mode="{/standards/lists//select[@id=$sid]/@mode}"
+             lastchange="{.//history/child::event[position()=last()]/@date}"/>
   </xsl:if>
 </xsl:template>
 
@@ -44,10 +38,9 @@ Copyright (c) 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:variable name="sid" select="@id" />
   <xsl:if test="not(.//event[@flag = 'deleted']) and  /standards/lists//select[(@mode != 'mandatory') and (@id=$sid)]">
     <element type="P" id="{@id}" orgid="{profilespec/@orgid}" pubnum="{profilespec/@pubnum}"
-              title="{profilespec/@title}" mode="{/standards/lists//select[@id=$sid]/@mode}"
-              lastchange="{.//history/child::event[position()=last()]/@date}"/>
+             title="{profilespec/@title}" mode="{/standards/lists//select[@id=$sid]/@mode}"
+             lastchange="{.//history/child::event[position()=last()]/@date}"/>
   </xsl:if>
 </xsl:template>
-
 
 </xsl:stylesheet>

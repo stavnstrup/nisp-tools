@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:saxon="http://icl.com/saxon"
                 xmlns:date="http://exslt.org/dates-and-times"
                 extension-element-prefixes="date"
                 version='1.1'
-                exclude-result-prefixes="#default">
+                exclude-result-prefixes="#default saxon">
   
 
-<xsl:output method="html" encoding="ISO-8859-1" indent="no"/>
+<xsl:output method="html" encoding="ISO-8859-1" indent="yes"/>
 
 <xsl:template match="allupcoming">
   <html>
