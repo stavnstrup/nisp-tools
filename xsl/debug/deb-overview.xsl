@@ -258,11 +258,11 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:value-of select="status/@stage"/>&nbsp;
     </td>
     <td align="center">
-      <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='midterm') and (@id=$myid)]">EM</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='longterm') and (@id=$myid)]">EL</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='midterm') and (@id=$myid)]">MID,</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='farterm') and (@id=$myid)]">FAR,</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F,</xsl:if>
       &nbsp;
     </td>
     <td><xsl:apply-templates select=".//event"/>&nbsp;</td>
@@ -325,11 +325,11 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:value-of select="status/@stage"/>&nbsp;
     </td>
     <td align="center">
-      <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='midterm') and (@id=$myid)]">EM</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='longterm') and (@id=$myid)]">EL</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='midterm') and (@id=$myid)]">MID,</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='farterm') and (@id=$myid)]">FAR,</xsl:if>
+      <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F,</xsl:if>
       &nbsp;
     </td>
     <td><xsl:apply-templates select=".//event"/>&nbsp;</td>

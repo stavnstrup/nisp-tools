@@ -560,8 +560,8 @@ $Id$
   <!-- =================================================================== -->
 
   <target name="debug" description="* [DEBUG] Create misc. debugging reports"
-          depends="init, deb-overview, deb-family, deb-dates, deb-info, 
-                  deb-figures">
+          depends="init, deb-overview, deb-family, deb-dates, deb-upcoming, 
+                   deb-info, deb-figures">
   </target>
 
 
@@ -592,6 +592,16 @@ $Id$
       <arg line="${xslt.opts} -o dates.html
                  ${basedir}/src/standards/standards.xml
                  ${xsl-debug.dir}/deb-dates.xsl"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+  <target name="deb-upcoming" description="* [DEBUG] Create list of upcoming/fading standards/profiles">
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/debug/">
+      <arg line="${xslt.opts} -o upcoming.html
+                 ${basedir}/src/standards/standards.xml
+                 ${xsl-debug.dir}/deb-upcoming.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
