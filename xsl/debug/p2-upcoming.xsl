@@ -50,6 +50,7 @@
     standard/profile in one of the possible categories.</p>
 
     <h2>Emerging </h2>
+    <p><xsl:value-of select="count(element[@mode='emerging'])"/> emerging standards and profiles</p>
     <table border="1">
       <xsl:call-template name="header"/>
       <xsl:apply-templates select="element[@mode='emerging']">
@@ -59,6 +60,7 @@
 
 
     <h2>Mid Term</h2>
+    <p><xsl:value-of select="count(element[@mode='midterm'])"/> mid term standards and profiles</p>
     <table border="1">
       <xsl:call-template name="header"/>
       <xsl:apply-templates select="element[@mode='midterm']">
@@ -68,7 +70,7 @@
 
 
     <h2>Far Term</h2>
-
+    <p><xsl:value-of select="count(element[@mode='farterm'])"/> far term standards and profiles</p>
     <table border="1">
       <xsl:call-template name="header"/>
       <xsl:apply-templates select="element[@mode='farterm']">
@@ -78,6 +80,7 @@
 
 
     <h2>Fading</h2>
+    <p><xsl:value-of select="count(element[@mode='fading'])"/> fading standards and profiles</p>
     <table border="1">
       <xsl:call-template name="header"/>
       <xsl:apply-templates select="element[@mode='fading']">
