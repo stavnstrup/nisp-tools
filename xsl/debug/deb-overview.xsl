@@ -131,7 +131,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         another organisation. There might be multiple AKA record. Each
         record begins on a new line</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
-     <li><b>Stage</b> - Stage info for this record</li>
+     <li><b>Stage</b> - Stage info for this record (M : Mandatory, E: Emerging, MID: Mid term, FAR: Far term, F: fading)</li>
      <li><b>Select</b> - Is this record selected by NATO</li>
 
      <li><b>History</b> - What is the history of the record</li>

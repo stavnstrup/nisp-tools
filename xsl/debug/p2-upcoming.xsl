@@ -28,6 +28,7 @@
     </head>
     <body>
 
+
     <h1>Upcoming and fading standards and profiles in the NISP Standard Database</h1>
 
     <p>Created on 
@@ -44,7 +45,9 @@
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
     </p>
    
-
+    <p>N.B. A standard/profile might be in several categories, i.e
+    (emerging, midterm,...). This report only places the
+    standard/profile in one of the possible categories.</p>
 
     <h2>Emerging </h2>
     <table border="1">
