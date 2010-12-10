@@ -67,14 +67,6 @@
     behavior and performance consistent with the existing limits of these networks,
     taking bandwidth limitations and potentially unreliable networks into account.</para>
     
-    <figure id="v4d-service-structure">
-        <title>AMN Service Structure</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="../figures/service-structure.svg" />
-          </imageobject>
-        </mediaobject>
-      </figure>
   </sect1>
 
   <sect1>
@@ -112,6 +104,11 @@
     produce a new version of the AMN Profile. The updated AMN Profile will be submitted
     by the AMN Architecture Working Group to the NATO Open Standards Working Group 
     (NOSWG) for publication under ADatP-34.</para>
+    
+    <para>The AMN profile v.0.5 was changed by the AMN WG during the NOSWG Meeting
+    in December 2010: Voice communications are now based on SIP (instead of H.323),
+    the Figure on the AMN Service Structure was removed and for the usage of C2IEDM 
+    Bussiness Rule F11.2 b was excluded.</para>
   </sect1>
   
   <sect1>
@@ -176,7 +173,7 @@
             </row>
             <row>
               <entry>Voice communication</entry>
-              <entry>VoIP: ITU-T H.225, H.245, H.323 v5</entry>
+              <entry>VoIP: SIP RFC 3261</entry>
               <entry></entry>
             </row>
             <row>
@@ -777,8 +774,12 @@
                   Exchange Data Model (JC3IEDM)</para>
                 <para>STANAG 5523 – C2 Information Exchange model</para>
               </entry>
-              <entry>Currently most AMN members use C2IEDM (MIP-Block 2). In 2011 
-                the implementation of the STANAG (MIP Block 3) must be planned.
+              <entry>C2IEDM Bussiness Rule F11.2 b is not applicable in the AMN scope. 
+                Implementations shall ensure that the use of CONTEXT-ASSOCIATION does 
+                not create circular references between CONTEXTs.Currently most AMN 
+                members use C2IEDM (MIP-Block 2). 
+                <para>In 2011 the implementation of the STANAG (MIP Block 3) must 
+                  be planned.</para>
                 <para>Any addition or expansion of this data model or data dictionaries
                   that is deemed to be of general interest shall be submitted as a 
                   change proposal within the configuration control process to be 
