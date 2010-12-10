@@ -3,7 +3,7 @@
 <!DOCTYPE standards PUBLIC "-//DDRE//DTDStandardDB XML V3.9//EN" "../schema/dtd/stddb39.dtd">
 
 
-<standards revision="4.13">
+<standards revision="4.14">
 
   <revhistory>
     <revision>
@@ -769,7 +769,7 @@
          <sp-view idx="d0e9008">
             <select id="nato-tide-nvg" mode="emerging">NVG - NATO Vector Graphics Protocol v.1.5:2010 (ACT)</select>
             <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.
-              <para>Usede in Profle: AMN</para>
+              <para>Used in Profle: AMN</para>
             </remarks>
             <rationale>NVG added in NISP v.3 through RFCP 2-20.</rationale>
          </sp-view>
@@ -865,10 +865,8 @@
          </sp-view>
          <sp-view idx="d0e9396">
             <ncoe>Data Mgmt</ncoe>
-            <select id="nato-stanag5500ed6" mode="mandatory">
-              ADatP-3(A), CONFORMETS (STANAG 5500, ed. 7:2010)
-            </select>
-            <remarks><para>Used in Profile: AMN</para></remarks>
+            <select id="nato-stanag5500ed6" mode="mandatory">ADatP-3(A), CONFORMETS (STANAG 5500, ed. 7:2010)</select>
+            <remarks>Used in Profile: AMN</remarks>
             <rationale>STANAG 5500 ed.5 changed in NCSP v.6 and in NISP v.2 based on RFCP 1-8</rationale>
          </sp-view>
          <sp-view idx="d0e9418">
@@ -1074,13 +1072,13 @@
             <select id="ogc-ogc04-024" mode="mandatory">Web Map Service v.1.3:2010 (OGC 04-024)</select>
             <select id="iso-iso19128" mode="emerging">ISO 19128:2005 Web Map Service</select>
             <remarks>Used as a means of distributing compiled mapping data between applications.
-              <para>Used in Profile: AMN></para></remarks>
+              <para>Used in Profile: AMN</para></remarks>
             <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
          </sp-view>
           <sp-view idx="d0e10171">
             <ncoe>Data Interchange</ncoe>
             <select id="ogc-ogc05-078r4" mode="emerging">OpenGIS Styled Layer Descriptor Profile of the Web Map Service (SLD 1.1.0) (OGC 05-078r4)</select>
-            <remarks><para><emphasis>Used in Profile: AMN></emphasis></para></remarks>
+            <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
          </sp-view>
          <sp-view idx="d0e10178">
             <ncoe>Data Interchange</ncoe>
@@ -1098,7 +1096,7 @@
               Used as a means of distributing geo coverages (raster) data between
               applications.
 	      <para>For CCEB interoperability this standard is emerging</para>
-	      <para>Used in Profile: AMN (v1.1.1)</para>
+	      <para>Used in Profile: AMN</para>
             </remarks>
             <rationale>Included NCSP in v.6 through RFCP 5-27</rationale>
          </sp-view>
@@ -1580,10 +1578,8 @@
          <sp-view idx="d0e1644">
             <ncoe>Comms</ncoe>
             <select id="ietf-rfc1724" mode="mandatory">
-              Router Internet Protocol (RIP v2)
-              MIB extension (RFC 1724:1994)
+              Router Internet Protocol (RIP v2) MIB extension (RFC 1724:1994)
             </select>
-            <select id="ietf-rfc1724" mode="fading">To be used only in static networks.</select>
             <remarks>To be used in static networks. See also System Management.</remarks>
             <rationale>RFC 1389:1993 updated by RFC 1724:1994</rationale>
          </sp-view>
@@ -1736,7 +1732,8 @@
             <select id="bp-tp2k" mode="mandatory">
               Tactical Communications, STANAGs 4637ed1:2009, STANAG 4638ed1:2009, 
               4639ed1:2009, 4640ed1:2009, 4643ed1:2009 4644ed1:2009, 4646ed1:2009, 4647ed1:2009
-         </select>
+            </select>
+            <remarks>For CCEB interoperability this standard is not applicable</remarks>
          </sp-view>
          <sp-view idx="d0e1778">
             <ncoe>Comms</ncoe>
@@ -2137,15 +2134,6 @@
               Division Multiple Access (FDMA) Operations), 13 January 1995, with Notice of
               Change 1, 9 September 1998, MIL-STD-188-165
             </rationale>
-         </sp-view>
-         <sp-view idx="d0e4584">
-            <ncoe>Comms</ncoe>
-            <select id="nato-stanag4271" mode="fading">
-              ECM-resistant digital traffic exchange
-              between tactical satellite communications terminals (STANAG 4271 ed.1)
-            </select>
-            <remarks>For CCEB interoperability this standard is not applicable</remarks>
-            <rationale>Included in v.5 through RFCP 4-9; STANAG 4271 ed.1 changed in NCSP v.6</rationale>
          </sp-view>
          <sp-view idx="d0e4593">
             <ncoe>Comms</ncoe>
@@ -2936,7 +2924,7 @@
          </sp-view>
           <sp-view idx="d0e5020">
             <ncoe>Security</ncoe>
-            <select id="ietf-rfc2459" mode="emerging">X.509 Public Key Infrastructure Certificate and CRL Profile:1999 (IETF)</select>
+            <select id="ietf-rfc2459" mode="emerging">X.509 Public Key Infrastructure Certificate and CRL Profile (IETF RFC 2459:1999)</select>
             <remarks><para><emphasis>Used in Profile: CES-Sp1</emphasis></para></remarks>
          </sp-view>
          <sp-view idx="d0e5130">
@@ -2965,19 +2953,19 @@
          </sp-view>
          <sp-view idx="d0e5191">
             <select id="ansi-nist-itl" mode="emerging">Data Format for the Interchange of Fingerprint, 
-              Facial, and Scar Mark and Tattoo (SMT) Information</select>
+              Facial, and Scar Mark and Tattoo (SMT) Information (ANSI: 2008)</select>
             <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
          </sp-view> 
          <sp-view idx="d0e5192">
-            <select id="iso-19794-2" mode="emerging"> Biometric data interchange formats -- Part 2:</select>
+            <select id="iso-19794-2" mode="emerging"> Biometric data interchange formats -- Part 2 (ISO 19794-2:2007)</select>
             <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
          </sp-view>
          <sp-view idx="d0e5194">
-            <select id="iso-19794-5" mode="emerging"> Biometric data interchange formats -- Part 5: Face Image Data:</select>
+            <select id="iso-19794-5" mode="emerging"> Biometric data interchange formats -- Part 5: Face Image Data 8ISO 19794-5)</select>
             <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
          </sp-view>
          <sp-view idx="d0e5195">
-            <select id="iso-19794-6" mode="emerging"> Biometric data interchange formats -- Part 6: Iris Image Data:</select>
+            <select id="iso-19794-6" mode="emerging"> Biometric data interchange formats -- Part 6: Iris Image Data (ISO 19794-6)</select>
             <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
          </sp-view>
       </sp-list>
@@ -3080,22 +3068,11 @@
          <sp-view idx="d0e5948">
             <select id="bp-xmpp" mode="emerging">XMPP (IETF RFC 3920:2004 - 3923:2004)</select>
             <remarks>For CCEB interoperability this standard is mandatory
-              <para>Bas profile includes as extensions XEP-0184 and XEP-0202</para>
+              <para>Base profile includes as extensions XEP-0184 and XEP-0202</para>
               <para>Used in Profiles: AMN, CES-Sp1</para>
             </remarks>
             <rationale>Included in v.8 through RFCP 7-5</rationale>
          </sp-view>
-         <sp-view idx="d0e5953">
-            <ncoe>Comms</ncoe>
-            <select id="itu-t-h.225" mode="emerging">H.225</select>
-            <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
-         </sp-view>
-         <sp-view idx="d0e5957">
-            <ncoe>Comms</ncoe>
-            <select id="itu-t-h.245" mode="emerging">H.245</select>
-            <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
-         </sp-view>
-         
          <sp-view idx="d0e5961">
             <ncoe>Comms</ncoe>
             <select id="itu-t-h.323" mode="mandatory">Packet-based Multimedia Comms System (ITU-T H.323:2009)
@@ -3345,7 +3322,7 @@
          </sp-view>
          <sp-view idx="d0e6200">
             <ncoe>Mgmt.</ncoe>
-            <select id="dmtf-dsp0004" mode="emerging">Common Information Model (CIM)</select>
+            <select id="dmtf-dsp0004" mode="emerging">Common Information Model (CIM) (DMTF:1999)</select>
             <select id="iso-iec-9595" mode="fading">CMIS (ISO 9595:1998) deleted in NISP v.1</select>
             <remarks>For CCEB interoperability this standard is not applicable</remarks>
          </sp-view>
@@ -3719,7 +3696,7 @@
          <sp-view idx="d0e7788">
             <select id="iso-iec-29500" mode="emerging">Office Open XML, ISO/IEC 29500:2008</select>
             <remarks>XML variant of Microsoft Office.
-              <para><emphasis>Used in Profile: AMN</emphasis></para>
+              <para>Used in Profile: AMN</para>
             </remarks>
             <rationale>OpenOffice included in NISP v.3 through RFCP 2-11</rationale>
          </sp-view>
@@ -22903,12 +22880,12 @@
                <event flag="changed" date="2001-11-21" rfcp="" version="0.3"/>
                <event flag="changed" date="2003-08-01" rfcp="" version="0.5"/>
                <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
-			   <event flag="changed" date="2010-11-02" rfcp="" version="4.0"/>
+	       <event flag="changed" date="2010-11-02" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
 
-      <standard ss="yes" id="iso-iec-9596-2" tref="ces-esm-sys" tag="">
+      <standard ss="yes" id="iso-iec-9596-2" tref="ces-esm-sys" tag="CMIP PICS">
          <document orgid="iso-iec" pubnum="9596-2" date="1993"
                    title="CMIP Protocol Implementation Conformance Statements (PICS)">
             <correction cpubnum="TC1" date="1993"/>
@@ -22961,7 +22938,7 @@
                <event flag="changed" date="2001-11-21" rfcp="" version="0.3"/>
                <event flag="changed" date="2003-08-01" rfcp="" version="0.5"/>
                <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
-			   <event flag="changed" date="2010-11-02" rfcp="" version="4.0"/>
+	       <event flag="changed" date="2010-11-02" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -32380,8 +32357,8 @@
       </standard>
 
       <standard tref="ts-ces-med" id="nato-stanag5500ed6" tag="FORMETS/ ADatP-3 Baseline 13">
-         <document orgid="nato" pubnum="STANAG 5500" date="2007"
-                   title="Concept of NATO Message Text Formatting System (CONFORMETS), ed.6, Allied Data Publication 3 (ADatP-3)"/>
+         <document orgid="nato" pubnum="STANAG 5500" date="2010"
+                   title="Concept of NATO Message Text Formatting System (CONFORMETS), ed.7, (ADatP-3)"/>
          <applicability>
         FORMETS is a collection of character-oriented information procedural
         standards suitable for the efficient exchange of information. The system includes
@@ -32411,6 +32388,7 @@
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
                <event flag="changed" date="2007-08-02" rfcp="" version="2.0"/>
                <event flag="changed" date="2007-10-30" rfcp="1-8" version="2.0"/>
+               <event flag="changed" date="2010-12-09" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
