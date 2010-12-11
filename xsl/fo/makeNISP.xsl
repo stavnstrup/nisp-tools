@@ -98,7 +98,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- ToC/LoT/Index Generation -->
 
 <xsl:param name="generate.toc">
-  book toc,title
+  book toc,title,figure
 </xsl:param>
 
 <xsl:param name="toc.section.depth">2</xsl:param>
