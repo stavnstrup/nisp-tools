@@ -6,12 +6,14 @@
     <subtitle>Interoperability Profiles</subtitle>
     <volumenum>4</volumenum>
     <corpauthor>C3 CCSC NATO Open Systems Working Group</corpauthor>
-    <productname class="trade">Allied Data Publication 34</productname>
-    <biblioid class="pubnumber">ADatP-34</biblioid>
+    <productname
+      class="trade">Allied Data Publication 34</productname>
+    <biblioid
+      class="pubnumber">ADatP-34</biblioid>
     <revhistory>
       <revision>
-        <revnumber>4.12</revnumber>
-        <date>10 December 2010</date>
+        <revnumber>4.13</revnumber>
+        <date>11 December 2010</date>
         <revremark></revremark>
       </revision>
     </revhistory>
@@ -22,83 +24,141 @@
                     C H A P T E R - 1
  ***************************************************************** 
 -->
-  <chapter id="v4c1-iop">
+  <chapter
+    id="v4c1-iop">
     <title>Interoperability Profile Guidance</title>
-    <sect1 id="v4c1s1-introduction">
+    <sect1
+      id="v4c1s1-introduction">
       <title>Introduction</title>
-      <para>This document is a draft under development by the NATO Open Systems Working Group (NOSWG)
- under the authority the NATO Consultation, Command and Control Board (NC3B).
-  In due course it is expected to be noted by the NATO C3 Board making the Volume 2 standards and profiles mandatory for use in NATO common funded systems, and to be made available to
-the general public as a replacement for ADatP-34(D).</para>
+
+      <para>This document is a draft under development by the NATO Open Systems
+      Working Group (NOSWG) under the authority the NATO Consultation, Command
+      and Control Board (NC3B). In due course it is expected to be noted by the
+      NATO C3 Board making the Volume 2 standards and profiles mandatory for use
+      in NATO common funded systems, and to be made available to the general
+      public as a replacement for ADatP-34(D).</para>
+
     </sect1>
-    <sect1 id="v4c1-iopref">
-      <title>References</title>
-      <itemizedlist>
-        <listitem>
-          <para>(A) NATO Architecure Framework Version 3</para>
-        </listitem>
-        <listitem>
-          <para>(B) ISO/IEC TR 10000-3:1998(E) Information technology - Framework and taxonomy of International Standardized Profiles - Part 3: Principals and Taxonomy for Open System Environment Profiles</para>
-        </listitem>
-      </itemizedlist>
-    </sect1>
-    <sect1 id="v4c1-iopcb">
+    <sect1
+      id="v4c1-iopcb">
       <title>Profile Conceptual Background</title>
-      <para>ISO/IEC TR 10000 (Ref. B) defines the concept of profiles as a set of one or more base standards and/or International Standardized Profiles, and, where applicable, the identification of chosen classes, conforming subsets, options and parameters of those base standards, or International Standardized Profiles necessary to accomplish a particular function.</para>
-      <para>The NATO Open Systems Working Group (NOSWG) has extended the profile concept to encompass references to NAF architectural views (Ref. A), characteristic protocols, implementation options, technical standards, Service Interoperability Points (SIOP), and related profiles.</para>
-      <para>Nothing in this guidance precludes the referencing of National profiles or profiles developed by non-NATO organizations in the NISP.</para>
+
+      <para>ISO/IEC TR 10000 <xref
+          linkend="ref-iso10000-3"/> defines the
+      concept of profiles as a set of one or more base standards and/or
+      International Standardized Profiles, and, where applicable, the
+      identification of chosen classes, conforming subsets, options and
+      parameters of those base standards, or International Standardized Profiles
+      necessary to accomplish a particular function.</para>
+
+      <para>The NATO Open Systems Working Group (NOSWG) has extended the profile
+      concept to encompass references to NAF architectural views <xref
+          linkend="ref-naf3"/>, characteristic protocols, implementation options,
+      technical standards, Service Interoperability Points (SIOP), and related
+      profiles.</para>
+
+      <para>Nothing in this guidance precludes the referencing of National
+      profiles or profiles developed by non-NATO organizations in the
+      NISP.</para>
+
     </sect1>
-    <sect1 id="v4c1-ioppurpose">
+    <sect1
+      id="v4c1-ioppurpose">
       <title>Purpose of Interoperability Profiles</title>
       <para>Interoperability Profiles aggregate references to the characteristics of other profiles types to provide a consolidated perspective.</para>
       <para>Interoperability Profiles identify essential profile elements including Capability Requirements and other NAF architectural views (Ref. B), characteristic protocols, implementation options, technical standards, Service Interoperability Points, and the relationship with other profiles such as the system profile to which an application belongs. Interoperability profiles will be incorporated in the NATO Interoperability Standards and Profiles (NISP) for a specified NATO Common Funded System or Capability Package to include descriptions of interfaces to National Systems where appropriate.</para>
       <para>NATO and Nations use profiles to ensure that all organizations will architect, invest, and implement capabilities in a coordinated way that ensure interoperability for NATO and the Nations. Interoperability Profiles will provide context and assist or guide information technologists with an approach for building interoperable systems and services to meet required capabilities.</para>
     </sect1>
-    <sect1 id="v4c1-iopappl">
+    <sect1
+      id="v4c1-iopappl">
       <title>Applicability</title>
       <para>Since the NISP impacts on the full NATO project life cycle, NISP stakeholders may include engineers, designers, technical project managers, procurement staff, architects and other planners. Architectures, which identify the components of systems operation, are most applicable during the development phase of a project, when applied to the dynamic NNEC environment, where interoperability of mature National systems requires an agile approach to architectures.</para>
       <para>The NOSWG has undertaken the development of interoperability profiles in order to meet the need for specific guidance at interoperability points between NATO and Nations systems and services required for specific capabilities. As a component of the NISP, profiles have great utility in providing context and interoperability specifications for using mature and evolving systems during exercises, pre-deployment or operations. Application of these profiles also provides benefit to Nations and promotes maximum opportunities for interoperability with NATO common funded systems as well as national to national systems. Profiles for system or service development and operational use within a mission area enable Nations enhanced readiness and availability in support of NATO operations.</para>
     </sect1>
-    <sect1 id="v4c1-iopgfd">
+    <sect1
+      id="v4c1-iopgfd">
       <title>Guidelines for Interoperability Profile Development</title>
       <para>Due to the dynamic nature of NATO operations, the complex Command and Control structure, and the diversity of Nations and Communities of Interest (COI), interoperability must be anchored at critical points where information and data exchange between entities exists. The key drivers for defining a baseline set of interoperability profiles include:
-      <itemizedlist><listitem><para>Identify the Service Interoperability Points and define the Service Interface Profiles</para></listitem><listitem><para>Use standards consistent with the common overarching and reference architectures</para></listitem><listitem><para>Develop specifications that are service oriented and independent of the technology implemented in National systems where practical</para></listitem><listitem><para>Use mature technologies available within the NATO Information Enterprise</para></listitem><listitem><para>Develop modular profiles that are reusable in future missions or capability areas</para></listitem><listitem><para>Use an open system approach to embrace emerging technologies</para></listitem></itemizedlist></para>
-      <para>The starting point for development of a profile is to clearly define the Service Interoperability Point where two entities will interface and the standards in use by the relevant systems.</para>
-      <para>The use of "shall" in this guidance document is intended to establish a minimum level of content for NATO and NATO candidate profiles, but is suggested-but-not-binding on non-NATO profiles (national, NGO, commercial and other entities).</para>
-      <para>The NISP is the governing authoritative reference for NATO interoperability profiles. DOTMLPFI capability analysis may result in a profile developer determining that some of the capability elements may not be relevant for a particular profile. In such cases, the 'not applicable' sections may either be marked 'not applicable' or omitted at the author's discretion.</para>
+      <itemizedlist><listitem><para>Identify the Service Interoperability Points and define the Service Interface Profiles</para>
+          </listitem>
+          <listitem>
+            <para>Use standards consistent with the common overarching and reference architectures</para>
+          </listitem>
+          <listitem>
+            <para>Develop specifications that are service oriented and independent of the technology implemented in National systems where practical</para>
+          </listitem>
+          <listitem>
+            <para>Use mature technologies available within the NATO Information Enterprise</para>
+          </listitem>
+          <listitem>
+            <para>Develop modular profiles that are reusable in future missions or capability areas</para>
+          </listitem>
+          <listitem>
+            <para>Use an open system approach to embrace emerging technologies</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+
+      <para>The starting point for development of a profile is to clearly define
+      the Service Interoperability Point where two entities will interface and
+      the standards in use by the relevant systems.</para>
+
+      <para>The use of &ldquo;shall&rdquo; in this guidance document is intended to
+      establish a minimum level of content for NATO and NATO candidate profiles,
+      but is suggested-but-not-binding on non-NATO profiles (national, NGO,
+      commercial and other entities).</para>
+
+      <para>The NISP is the governing authoritative reference for NATO interoperability profiles. DOTMLPFI capability analysis may result in a profile developer determining that some of the capability elements may not be relevant for a particular profile. In such cases, the &ldquo;not applicable&rdquo; sections may either be marked &ldquo;not applicable&rdquo; or omitted at the author's discretion.</para>
     </sect1>
-    <sect1 id="v4c1-ioptaxonmy">
+    <sect1
+      id="v4c1-ioptaxonmy">
       <title>Profile Taxonomy</title>
       <para>The objective of the interoperability profile taxonomy is to provide a classification scheme that can categorize any profile. In order to achieve this objective, the classification scheme is based on NATO Architecture Framework views and DOTMLPFI characteristics.</para>
       <para>The taxonomy illustrated in the figure below will also provide a mechanism to create short character strings, used as a root mnemonic to uniquely identify profiles.
 </para>
-      <figure id="f1-ioptaxy" float="0">
+      <figure
+        id="f1-ioptaxy"
+        float="0">
         <title>Interoperability Profile Taxonomy</title>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="../figures/ioptaxy.svg" format="SVG" />
+            <imagedata
+              align="center"
+              fileref="../figures/ioptaxy.svg"
+              format="SVG" />
           </imageobject>
         </mediaobject>
       </figure>
     </sect1>
-    <sect1 id="v4c1-iopstructure">
+    <sect1
+      id="v4c1-iopstructure">
       <title>Structure of Interoperability Profile Documentation</title>
       <para>This section identifies typical elements of Interoperability Profile Documentation.</para>
-      <sect2 id="v4c1-iopid">
+      <sect2
+        id="v4c1-iopid">
         <title>Identification</title>
-        <para>Each NATO or candidate NATO Interoperability Profile <emphasis role="bold">shall</emphasis> have a unique identifier assigned to it when accepted for inclusion in the NISP. This <emphasis role="bold">shall</emphasis> be an alpha-numeric string appended to the root mnemonic from the NISP profile taxonomy.</para>
+        <para>Each NATO or candidate NATO Interoperability Profile <emphasis
+            role="bold">shall</emphasis> have a unique identifier assigned to it when accepted for inclusion in the NISP. This <emphasis
+            role="bold">shall</emphasis> be an alpha-numeric string appended to the root mnemonic from the NISP profile taxonomy.</para>
       </sect2>
-      <sect2 id="v4c1-iopelements">
+      <sect2
+        id="v4c1-iopelements">
         <title>Profile Elements</title>
         <para>Profile elements provide a coherent set of descriptive inter-related information to NATO, national, NGO, commercial and other entities ('actors') desiring to establish interoperability.</para>
         <para>Profiles are not concepts, policies, requirements, architectures, patterns, design rules, or standards. Profiles provide context for a specific set of conditions related to the aforementioned documents in order to provide guidance on development of systems, services, or even applications that must consider all of these capability related products. Interoperability Profiles provide the contextual relationship for the correlation of these products in order to ensure interoperability is 'built-in' rather than considered as an 'after-thought'.</para>
-        <sect3 id="v4c1-iopcs">
+        <sect3
+          id="v4c1-iopcs">
           <title>Capabilities Set</title>
-          <para>Each profile <emphasis role="bold">shall</emphasis> list the Capabilities supported by the profile. The intention of this section is to trace NATO capabilities to the applicable element(s) in the NATO capability taxonomy/database and NNEC Maturity Level (NML), as well as any relevant authoritative capabilities operational reference documents (e.g., Overarching Architecture, EXTAC reference, etc.). Identification of applicable functional attributes is desired to link capability requirements to objective or subjective interoperability performance objectives.
+          <para>Each profile <emphasis
+              role="bold">shall</emphasis> list the Capabilities supported by the profile. The intention of this section is to trace NATO capabilities to the applicable element(s) in the NATO capability taxonomy/database and NNEC Maturity Level (NML), as well as any relevant authoritative capabilities operational reference documents (e.g., Overarching Architecture, EXTAC reference, etc.). Identification of applicable functional attributes is desired to link capability requirements to objective or subjective interoperability performance objectives.
 </para>
-          <table frame="all" id="rd-iopcs-1">
+          <table
+            frame="all"
+            id="rd-iopcs-1">
             <title>Capability Set Taxonomy, Reference and Applicable Functional Attributes</title>
-            <tgroup align="left" cols="6">
+            <tgroup
+              align="left"
+              cols="6">
               <thead>
                 <row>
                   <entry>Related Capability Title</entry>
@@ -147,9 +207,13 @@ the general public as a replacement for ADatP-34(D).</para>
           </table>
           <para>Each profile should list the Functional Attributes supported by the profile. The intention of this section is to identify what functional attributes are desired and thus link capability requirements to interoperability performance thresholds and objectives. For example, a typical threshold for satisfactory equipment performance may be achieving 95% reliability calculated in accordance with a specified military standard such as MIL-HDBK-217F(2) 'RELIABILITY PREDICTION OF ELECTRONIC EQUIPMENT'. 
 </para>
-          <table frame="all" id="rd-iopcs-2">
+          <table
+            frame="all"
+            id="rd-iopcs-2">
             <title>Functional Attributes**</title>
-            <tgroup align="left" cols="3">
+            <tgroup
+              align="left"
+              cols="3">
               <thead>
                 <row>
                   <entry>Functional Attribute</entry>
@@ -215,9 +279,13 @@ the general public as a replacement for ADatP-34(D).</para>
 </para>
           <para>Each profile should document the relationship between Capabilities and Operational Activities supported by the specific interoperability profile. The intention of this section is to map capabilities to operational activities thereby providing implementation authorities with vital understanding as to what actors will be establishing what NML is being sought at specific Service Interoperability Points (SIOPS). Identification of entities may be generic, specific, or a combination of generic and specific entities. For example, it may be unrealistic and inappropriate to identify specific operational units, deployable headquarters, and/or non-NATO actors for a reference-architecture (high-level) profile. However, specific identification of operational activities may be totally appropriate for developing a target-level profile associated with promoting interoperability for a specific discrete event or set of events in theatre.
 </para>
-          <table frame="all" id="rd-iopcs-3">
+          <table
+            frame="all"
+            id="rd-iopcs-3">
             <title>Capability to Operational Activities Mapping</title>
-            <tgroup align="left" cols="4">
+            <tgroup
+              align="left"
+              cols="4">
               <thead>
                 <row>
                   <entry>Related Capability/ Title</entry>
@@ -255,13 +323,19 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-iopas">
+        <sect3
+          id="v4c1-iopas">
           <title>Applicable Standards</title>
-          <para>Each profile <emphasis role="bold">shall</emphasis> document the standards required to support this or other associated profiles and any implementation specific options. The intention of this section is to provide an archive that shows the linkage between evolving sets of standards and specific profile revisions.
+          <para>Each profile <emphasis
+              role="bold">shall</emphasis> document the standards required to support this or other associated profiles and any implementation specific options. The intention of this section is to provide an archive that shows the linkage between evolving sets of standards and specific profile revisions.
 </para>
-          <table frame="all" id="rd-iopas-1">
+          <table
+            frame="all"
+            id="rd-iopas-1">
             <title>Applicable Standards</title>
-            <tgroup align="left" cols="4">
+            <tgroup
+              align="left"
+              cols="4">
               <thead>
                 <row>
                   <entry>Profile ID</entry>
@@ -299,13 +373,18 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-ioprp">
+        <sect3
+          id="v4c1-ioprp">
           <title>Related Profiles</title>
           <para>Each profile should document other key related system or service profiles in a cross reference table. The intention of this section is to promote smart configuration management by including elements from other profiles rather than duplicating them in part or in whole within this profile. Related profiles would likely be referenced in another section of the profile.
 </para>
-          <table frame="all" id="rd-ioprp-1">
+          <table
+            frame="all"
+            id="rd-ioprp-1">
             <title>Related Profiles</title>
-            <tgroup align="left" cols="4">
+            <tgroup
+              align="left"
+              cols="4">
               <thead>
                 <row>
                   <entry>Profile ID</entry>
@@ -343,15 +422,21 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-iopsm">
+        <sect3
+          id="v4c1-iopsm">
           <title>Services Mapping</title>
-          <sect4 id="v4c1-iopcfsm">
+          <sect4
+            id="v4c1-iopcfsm">
             <title>Capability / Function / Service Mapping</title>
             <para>Each profile should provide a cross reference between Capabilities, System Functions and Services. The intention of this section is to specify 'services mapping' both for stakeholders with relevant service-oriented architectures (SOAs), and for interoperability within multi-entity federated environments where functional information may be relied upon as a key information source or 'service'. The services mapping is vital to illustrating the sometimes complex interoperability interrelationships among services, system functions and operational capabilities.
 </para>
-            <table frame="all" id="rd-iopcfsm-1">
+            <table
+              frame="all"
+              id="rd-iopcfsm-1">
               <title>Capability-to-Function-to-Service Mapping</title>
-              <tgroup align="left" cols="4">
+              <tgroup
+                align="left"
+                cols="4">
                 <thead>
                   <row>
                     <entry>Service ID #</entry>
@@ -389,13 +474,19 @@ the general public as a replacement for ADatP-34(D).</para>
               </tgroup>
             </table>
           </sect4>
-          <sect4 id="v4c1-iopcscs">
+          <sect4
+            id="v4c1-iopcscs">
             <title>Capability Specific COI Services</title>
-            <para>Each profile <emphasis role="bold">shall</emphasis> describe any known COI services required to support the profile. The intention of this section is to specify those services for which reuse in other capability areas would be the exception rather than the rule. For example, if one developed a service for developing Air Tasking Orders (ATOs) in support of Air Command and Control, this would be a COI-specific service.
+            <para>Each profile <emphasis
+                role="bold">shall</emphasis> describe any known COI services required to support the profile. The intention of this section is to specify those services for which reuse in other capability areas would be the exception rather than the rule. For example, if one developed a service for developing Air Tasking Orders (ATOs) in support of Air Command and Control, this would be a COI-specific service.
 </para>
-            <table frame="all" id="rd-iopcscs-1">
+            <table
+              frame="all"
+              id="rd-iopcscs-1">
               <title>COI Services Description (capability-specific)</title>
-              <tgroup align="left" cols="3">
+              <tgroup
+                align="left"
+                cols="3">
                 <thead>
                   <row>
                     <entry>ID #</entry>
@@ -428,13 +519,18 @@ the general public as a replacement for ADatP-34(D).</para>
               </tgroup>
             </table>
           </sect4>
-          <sect4 id="v4c1-iopccsr">
+          <sect4
+            id="v4c1-iopccsr">
             <title>Cross COI Service Re-use</title>
             <para>Each profile should describe any other COI services being reused to support this profile. The intention of this section is to specify those services for which reuse in other capability areas is expected or likely. For example, geospatial display capabilities would be useful in support of a variety of capabilities, and thus should be listed in this Cross COI / Service Re-use section of the profile.
 </para>
-            <table frame="all" id="rd-iopccsr-1">
+            <table
+              frame="all"
+              id="rd-iopccsr-1">
               <title>COI Services (cross-COI / re-use)</title>
-              <tgroup align="left" cols="3">
+              <tgroup
+                align="left"
+                cols="3">
                 <thead>
                   <row>
                     <entry>ID #</entry>
@@ -467,15 +563,20 @@ the general public as a replacement for ADatP-34(D).</para>
               </tgroup>
             </table>
           </sect4>
-          <sect4 id="v4c1-iopsrcsc">
+          <sect4
+            id="v4c1-iopsrcsc">
             <title>Service Related Capability Specific Constraints</title>
             <para>Each profile should describe any service related capability constraints, such as Quality of Service (QoS). The intention of this section is to identify Quality of Service (QoS) requirements and related constraints. QoS is often vital to establishing viable interoperability. Interoperability is of limited or questionable value if the information does not meet the expectations of the actors/entities on the other side of the Service Interoperability Point (SIOP). Identification of constraints is intended to supplement the Quality of Service definitions by adding to the understanding of factors that may limit interoperability QoS on either or both sides of the SIOP (e.g., available bandwidth, format restrictions, circuit limitations, etc.).
 </para>
             <para>NOTE: Information Assurance (IA) constraints have been intentionally omitted from this revision of profile guidance with the view that IA features will be embedded in the architectures and tend not to be a capability-specific concern. However, if capability-specific IA functionality is required, it may be appropriate to include IA-specific constraints in this section, or to insert a separate IA section.
 </para>
-            <table frame="all" id="rd-iopsrcsc-1">
+            <table
+              frame="all"
+              id="rd-iopsrcsc-1">
               <title>Service-related capability-specific constraints</title>
-              <tgroup align="left" cols="4">
+              <tgroup
+                align="left"
+                cols="4">
                 <thead>
                   <row>
                     <entry>ID #</entry>
@@ -514,13 +615,18 @@ the general public as a replacement for ADatP-34(D).</para>
             </table>
           </sect4>
         </sect3>
-        <sect3 id="v4c1-iopkod">
+        <sect3
+          id="v4c1-iopkod">
           <title>Key Operational Definitions</title>
           <para>Each profile should list relevant agreed operational definitions within the scope of the profile. The intention of this section is to promote a common understanding of the operational terms used across interfaces among different entities (i.e., semantic interoperability). For example, for an MSA profile, one may provide a specific definition for the term 'vessel of interest' in order that the term may be properly understood and/or translated across the interface.
 </para>
-          <table frame="all" id="rd-iopkod-1">
+          <table
+            frame="all"
+            id="rd-iopkod-1">
             <title>Key Operational Definitions (semantic vocabulary)</title>
-            <tgroup align="left" cols="4">
+            <tgroup
+              align="left"
+              cols="4">
               <thead>
                 <row>
                   <entry>Abbreviation (if any)</entry>
@@ -558,13 +664,18 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-iopocd">
+        <sect3
+          id="v4c1-iopocd">
           <title>Operational Concepts Descriptions</title>
           <para>Each profile should list the operational concepts within the scope of the profile. The intention of this section is to identify operational concepts that provide relevant context for implementation authorities to understand how interoperability will enable and support achieving mission success. 'DOTMLPFI' categories refer to considering interoperability within the context of delivering comprehensive capabilities to operational users. 'DOTMLPFI' is an acronym that means 'Doctrine, Organization, Training, Materiel, Leadership and education, Personnel, Facilities and Interoperability'. Some of these elements may not be applicable. The use of the term DOTMLPFI is not intended to be exhaustive or exclusive. Thus, other capability elements such as policy and legal may be added as deemed appropriate.
 </para>
-          <table frame="all" id="rd-iopocd-1">
+          <table
+            frame="all"
+            id="rd-iopocd-1">
             <title>Key Operational Definitions (semantic vocabulary)</title>
-            <tgroup align="left" cols="5">
+            <tgroup
+              align="left"
+              cols="5">
               <thead>
                 <row>
                   <entry>Operational Concept</entry>
@@ -607,23 +718,33 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-ioponcd">
+        <sect3
+          id="v4c1-ioponcd">
           <title>Operational Node Connectivity Description</title>
           <para>Each profile should provide a diagram of the operational nodes connectivity supported by this profile. The intention of this section is to identify operational nodes to provide implementation authorities with a more detailed description of the required/desired interoperability end state (i.e., goal baseline) connectivity. Identification of operational nodes may be generic, specific, or a combination of generic and specific elements.
 </para>
-          <figure id="f2-ioponcd" float="0">
+          <figure
+            id="f2-ioponcd"
+            float="0">
             <title>Notional Node Connectivity Diagram</title>
             <mediaobject>
               <imageobject>
-                <imagedata align="center" fileref="../figures/ioponcd.svg" format="SVG" />
+                <imagedata
+                  align="center"
+                  fileref="../figures/ioponcd.svg"
+                  format="SVG" />
               </imageobject>
             </mediaobject>
           </figure>
           <para>Each profile should describe the contribution and connectivity of each operational node supported by the profile. The intention of this section is to support the development or use of NOV-2 or NOV-2-like architecture view(s).
 </para>
-          <table frame="all" id="rd-ioponcd-1">
+          <table
+            frame="all"
+            id="rd-ioponcd-1">
             <title>Operational Node Connectivity Description (NOV-2 precursor)</title>
-            <tgroup align="left" cols="3">
+            <tgroup
+              align="left"
+              cols="3">
               <thead>
                 <row>
                   <entry>Operational Node</entry>
@@ -656,13 +777,18 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-iopoir">
+        <sect3
+          id="v4c1-iopoir">
           <title>Operational Information Requirements</title>
           <para>Each profile should list the relevant operational information requirements (preferably described using APP-15) within the scope of the profile. This section is intended to promote the NNEC need to share information in a Service Oriented Architecture by documenting Information Requirements associated with this profile to support the NATO Data Strategy making data visible, accessible and understandable. If such information is maintained in an external document, reference to such documentation is preferred - including the most recent revision associated with this particular profile baseline.
 </para>
-          <table frame="all" id="rd-iopoir-1">
+          <table
+            frame="all"
+            id="rd-iopoir-1">
             <title>Operational Information Sharing Matrix (NOV-3 precursor)</title>
-            <tgroup align="left" cols="10">
+            <tgroup
+              align="left"
+              cols="10">
               <thead>
                 <row>
                   <entry>IER/#</entry>
@@ -730,13 +856,18 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-iopcoi">
+        <sect3
+          id="v4c1-iopcoi">
           <title>Criteria of Operational Interest</title>
           <para>Each profile should list relevant key conformance criteria of operational interest. The intention of this section is to document criteria such as alerts, thresholds or other parameters that may be important to understanding and employing information shared across an interface. This list of key criteria is not intended to be exhaustive. Additionally, if such criteria are described in a separate document referencing the document is appropriate. For the sake of brevity, it is highly encouraged to reference (not duplicate) other documents when completing this section.
 </para>
-          <table frame="all" id="rd-iopcoi-1">
+          <table
+            frame="all"
+            id="rd-iopcoi-1">
             <title>Criteria of Operational Interest</title>
-            <tgroup align="left" cols="3">
+            <tgroup
+              align="left"
+              cols="3">
               <thead>
                 <row>
                   <entry>ID #</entry>
@@ -769,19 +900,31 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-iopcc">
+        <sect3
+          id="v4c1-iopcc">
           <title>Capability Configuration</title>
-          <para>Each profile should describe the capability baseline that the profile supports. The intention of this section is to identify "as is" capability baselines that have used this profile. Since profiles tend to evolve, the specific profile revision used to achieve interoperability is also noted.
-</para>
-          <table frame="all" id="rd-iopcc-1">
-            <title>Capability Configuration</title>
-            <tgroup align="left" cols="4">
+
+          <para>Each profile should describe the capability baseline that the
+          profile supports. The intention of this section is to identify &ldquo;as is&rdquo;
+          capability baselines that have used this profile. Since profiles tend
+          to evolve, the specific profile revision used to achieve
+          interoperability is also noted. </para>
+
+          <table
+            frame="all"
+            id="rd-iopcc-1">
+            <title>Capability
+          Configuration</title>
+            <tgroup
+              align="left"
+              cols="4">
               <thead>
                 <row>
                   <entry>Capability Baseline #</entry>
                   <entry>Date (YYYYMMDD)</entry>
                   <entry>Name of Capability Baseline and Originator</entry>
-                  <entry>Profile(s) / Revision Used/(High Level Overview / Synopsis)</entry>
+                  <entry>Profile(s) / Revision Used/(High Level Overview /
+          Synopsis)</entry>
                 </row>
               </thead>
               <tbody>
@@ -813,18 +956,35 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-iopoi">
+        <sect3
+          id="v4c1-iopoi">
           <title>Organizational Interfaces</title>
-          <para>Each profile <emphasis role="bold">shall</emphasis> include a description of the organizational interfaces supported by the profile. The intention of this section is to promote visibility and interactions among stakeholders. Note that the intention of this section is very different than the aim of the Operational Node Connectivity Description. This section is intended to be more administrative in nature and identify stakeholders and contributors to the profile. Generic organizational billets and/or specific points of contact may be identified in this section as desired.
-</para>
-          <table frame="all" id="rd-iopoi-1">
+          <para>Each
+          profile <emphasis
+              role="bold">shall</emphasis> include a description
+          of the organizational interfaces supported by the profile. The
+          intention of this section is to promote visibility and interactions
+          among stakeholders. Note that the intention of this section is very
+          different than the aim of the Operational Node Connectivity
+          Description. This section is intended to be more administrative in
+          nature and identify stakeholders and contributors to the profile.
+          Generic organizational billets and/or specific points of contact may
+          be identified in this section as desired. </para>
+          <table
+            frame="all"
+            id="rd-iopoi-1">
             <title>Organizational Interfaces</title>
-            <tgroup align="left" cols="3">
+            <tgroup
+              align="left"
+              cols="3">
               <thead>
                 <row>
-                  <entry>Organization (Short Title)</entry>
-                  <entry>List of Required Organizational Interfaces</entry>
-                  <entry>Detailed Notes regarding Organizational Interfaces</entry>
+                  <entry>Organization (Short
+          Title)</entry>
+                  <entry>List of Required Organizational
+          Interfaces</entry>
+                  <entry>Detailed Notes regarding Organizational
+          Interfaces</entry>
                 </row>
               </thead>
               <tbody>
@@ -852,18 +1012,33 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-iopsf">
+        <sect3
+          id="v4c1-iopsf">
           <title>System Functions</title>
-          <para>Each profile should list the system functions that the profile supports. The intention of this section is to provide a basic understanding of the system functional decomposition on the profile implementation authority's side of the SIOP. The intent of this section is to make the profile less abstract and more concrete for the implementation authorities on both sides of the SIOP as they work to achieve interoperability. There is no intention of renaming functions on the other side of the SIOP, but rather to provide insight regarding what functions will be supported by information crossing the SIOP interface(s). Detailed system functional descriptions should be cited as references, not duplicated.
-</para>
-          <table frame="all" id="rd-iopsf-1">
+          <para>Each profile should list the system functions that the profile
+          supports. The intention of this section is to provide a basic
+          understanding of the system functional decomposition on the profile
+          implementation authority's side of the SIOP. The intent of this
+          section is to make the profile less abstract and more concrete for the
+          implementation authorities on both sides of the SIOP as they work to
+          achieve interoperability. There is no intention of renaming functions
+          on the other side of the SIOP, but rather to provide insight regarding
+          what functions will be supported by information crossing the SIOP
+          interface(s). Detailed system functional descriptions should be cited
+          as references, not duplicated. </para>
+          <table
+            frame="all"
+            id="rd-iopsf-1">
             <title>System Functions and Descriptions</title>
-            <tgroup align="left" cols="3">
+            <tgroup
+              align="left"
+              cols="3">
               <thead>
                 <row>
                   <entry>ID #</entry>
                   <entry>System Function</entry>
-                  <entry>Function Definition/Description</entry>
+                  <entry>Function
+          Definition/Description</entry>
                 </row>
               </thead>
               <tbody>
@@ -891,17 +1066,30 @@ the general public as a replacement for ADatP-34(D).</para>
             </tgroup>
           </table>
         </sect3>
-        <sect3 id="v4c1-iopct">
-          <title>Candidate Technologies</title>
-          <para>Each profile should document the current and emerging technologies required to support this profile and any implementation specific options. The intention of this section to identify current and emerging technologies associated with promoting interoperability as an aid to stakeholder organization program managers as they consider (with interoperability in mind) their own mid-term (2-6 years) and long term (&gt;6 years) investment plans in relevant technologies.
-</para>
-          <table frame="all" id="rd-iopct-1">
+        <sect3
+          id="v4c1-iopct">
+          <title>Candidate
+          Technologies</title>
+          <para>Each profile should document the current
+          and emerging technologies required to support this profile and any
+          implementation specific options. The intention of this section to
+          identify current and emerging technologies associated with promoting
+          interoperability as an aid to stakeholder organization program
+          managers as they consider (with interoperability in mind) their own
+          mid-term (2-6 years) and long term (&gt;6 years) investment plans in
+          relevant technologies. </para>
+          <table
+            frame="all"
+            id="rd-iopct-1">
             <title>Candidate Technologies</title>
-            <tgroup align="left" cols="4">
+            <tgroup
+              align="left"
+              cols="4">
               <thead>
                 <row>
                   <entry>Technology ID</entry>
-                  <entry>Current Technologies</entry>
+                  <entry>Current
+          Technologies</entry>
                   <entry>Current Technologies</entry>
                   <entry>Implementation Options</entry>
                 </row>
@@ -909,9 +1097,11 @@ the general public as a replacement for ADatP-34(D).</para>
               <tbody>
                 <row>
                   <entry>A unique technology identifier</entry>
+                  <entry>Technology
+          name(s)</entry>
                   <entry>Technology name(s)</entry>
-                  <entry>Technology name(s)</entry>
-                  <entry>Implementation specific options associated with this profile (may be a reference to a separate annex or document)</entry>
+                  <entry>Implementation specific options associated with this profile
+          (may be a reference to a separate annex or document)</entry>
                 </row>
                 <row>
                   <entry></entry>
@@ -937,35 +1127,78 @@ the general public as a replacement for ADatP-34(D).</para>
         </sect3>
       </sect2>
     </sect1>
-    <sect1 id="v4c1-iopvc">
-      <title>Verification and Conformance</title>
-      <para>Each profile <emphasis role="bold">shall</emphasis> identify authoritative measures to determine verification and conformance with agreed quality assurance, Key Performance Indicators (KPIs), and Quality of Service standards such that actors are satisfied they achieve adequate performance.</para>
-      <para>Stakeholders are invited to provide feedback to improve a profile's verification and conformance criteria.</para>
-      <para>Verification and Conformance is considered in terms of the following five aspects: <orderedlist inheritnum="ignore" continuation="restarts"><listitem><para>Approach to Validating Service Interoperability Points 
-</para></listitem><listitem><para>Relevant NNEC Maturity Level (NML) Criteria 
-</para></listitem><listitem><para>Key Performance Indicators (KPIs) 
-</para></listitem><listitem><para>Experimentation 
-</para></listitem><listitem><para>Demonstration</para></listitem></orderedlist></para>
-      <sect2 id="v4c1-iopavsip">
-        <title>Approach to Validating Service Interoperability Points</title>
-        <para>Each profile should describe the validation approach used to demonstrate the supporting service interoperability points. The intention of this section is to describe a high-level approach or methodology by which stakeholders may validate interoperability across the SIOP(s).
-</para>
+    <sect1
+      id="v4c1-iopvc">
+      <title>Verification
+          and Conformance</title>
+      <para>Each profile <emphasis
+          role="bold">shall</emphasis> identify authoritative measures to
+          determine verification and conformance with agreed quality assurance,
+          Key Performance Indicators (KPIs), and Quality of Service standards
+          such that actors are satisfied they achieve adequate
+          performance.</para>
+      <para>Stakeholders are invited to provide feedback
+          to improve a profile's verification and conformance criteria.</para>
+      <para>Verification and Conformance is considered in terms of the
+          following five aspects: <orderedlist
+          inheritnum="ignore"
+          continuation="restarts"> <listitem><para>Approach to Validating
+          Service Interoperability Points </para>
+          </listitem>
+          <listitem>
+            <para>Relevant NNEC Maturity Level (NML) Criteria </para>
+          </listitem>
+          <listitem>
+            <para>Key Performance Indicators (KPIs)</para>
+          </listitem>
+          <listitem>
+            <para>Experimentation</para>
+          </listitem>
+          <listitem>
+            <para>Demonstration</para>
+          </listitem>
+        </orderedlist>
+      </para>
+      <sect2
+        id="v4c1-iopavsip">
+        <title>Approach to Validating Service
+          Interoperability Points</title>
+        <para>Each profile should describe the
+          validation approach used to demonstrate the supporting service
+          interoperability points. The intention of this section is to describe
+          a high-level approach or methodology by which stakeholders may
+          validate interoperability across the SIOP(s). </para>
       </sect2>
-      <sect2 id="v4c1-ioprnmlc">
-        <title>Relevant NNEC Maturity Level (NML) Criteria</title>
-        <para>Each profile should describe the NML criteria applicable to the profile. The intention of this section is to describe how this profile supports the achievement of improved interoperability within the NML framework.
-</para>
+      <sect2
+        id="v4c1-ioprnmlc">
+        <title>Relevant NNEC Maturity Level (NML)
+          Criteria</title>
+        <para>Each profile should describe the NML criteria
+          applicable to the profile. The intention of this section is to
+          describe how this profile supports the achievement of improved
+          interoperability within the NML framework. </para>
       </sect2>
-      <sect2 id="v4c1-iopkpi">
+      <sect2
+        id="v4c1-iopkpi">
         <title>Key Performance Indicators (KPIs)</title>
-        <para>Each profile should describe the associated Key Performance Indicators (KPIs) to establish a baseline set of critical core capability components required to achieve the enhanced interoperability supported by this profile. The intention of this section is to assist all stakeholders and authorities to focus on the most critical performance-related items throughout the capability development process.
-</para>
-        <table frame="all" id="rd-iopkpi-1">
+        <para>Each profile should describe the associated Key Performance
+          Indicators (KPIs) to establish a baseline set of critical core
+          capability components required to achieve the enhanced
+          interoperability supported by this profile. The intention of this
+          section is to assist all stakeholders and authorities to focus on the
+          most critical performance-related items throughout the capability
+          development process. </para>
+        <table
+          frame="all"
+          id="rd-iopkpi-1">
           <title>Key Performance Indicators (KPIs)*</title>
-          <tgroup align="left" cols="2">
+          <tgroup
+            align="left"
+            cols="2">
             <thead>
               <row>
-                <entry>Key Performance Indicators (KPI)</entry>
+                <entry>Key Performance Indicators
+          (KPI)</entry>
                 <entry>Description</entry>
               </row>
             </thead>
@@ -983,56 +1216,88 @@ the general public as a replacement for ADatP-34(D).</para>
                 <entry></entry>
               </row>
               <row>
-                <entry>KPI #4: Information Assurance</entry>
+                <entry>KPI #4: Information
+          Assurance</entry>
                 <entry></entry>
               </row>
               <row>
-                <entry>KPI #5: Interoperability</entry>
+                <entry>KPI #5:
+          Interoperability</entry>
                 <entry></entry>
               </row>
               <row>
-                <entry>KPI #6: Quality of Service</entry>
+                <entry>KPI #6:
+          Quality of Service</entry>
                 <entry></entry>
               </row>
               <row>
-                <entry>KPI #7: TBD</entry>
+                <entry>KPI #7:
+          TBD</entry>
                 <entry></entry>
               </row>
             </tbody>
           </tgroup>
         </table>
-        <para>*'notional' KPIs shown in the table are for illustrative purposes only
-</para>
+        <para>*'notional' KPIs shown in the table are for illustrative
+          purposes only </para>
       </sect2>
-      <sect2 id="v4c1-iope">
+      <sect2
+        id="v4c1-iope">
         <title>Experimentation</title>
-        <para>Each profile should document experimentation venues and schedules that will be used to determine conformance. The intention of this section is to describe how experimentation will be used to validate conformance.
-</para>
+        <para>Each profile should document
+          experimentation venues and schedules that will be used to determine
+          conformance. The intention of this section is to describe how
+          experimentation will be used to validate conformance. </para>
       </sect2>
-      <sect2 id="v4c1-iopd">
+      <sect2
+        id="v4c1-iopd">
         <title>Demonstration</title>
-        <para>Each profile should document demonstration venues and schedules that demonstrate conformance. The intention of this section is to describe how demonstration will be used to validate conformance.
-</para>
+        <para>Each profile
+          should document demonstration venues and schedules that demonstrate
+          conformance. The intention of this section is to describe how
+          demonstration will be used to validate conformance. </para>
       </sect2>
     </sect1>
-    <sect1 id="v4c1-iopcmg">
-      <title>Configuration Management and Governance</title>
-      <sect2 id="v4c1-iopcm">
-        <title>Configuration Management</title>
-        <para>Each profile <emphasis role="bold">shall</emphasis> identify the current approach or approaches toward configuration management (CM) of core documentation used to specify interoperability at the Service Interoperability Point. The intention of this section is to provide a short description of  how often documents associated with this profile may be expected to change, and related governance measures that are in place to monitor such changes [e.g., the NOSWG].
-</para>
+    <sect1
+      id="v4c1-iopcmg">
+      <title>Configuration Management and
+          Governance</title>
+      <sect2
+        id="v4c1-iopcm">
+        <title>Configuration
+          Management</title>
+        <para>Each profile <emphasis
+            role="bold">shall</emphasis> identify the current approach or
+          approaches toward configuration management (CM) of core documentation
+          used to specify interoperability at the Service Interoperability
+          Point. The intention of this section is to provide a short description
+          of how often documents associated with this profile may be expected to
+          change, and related governance measures that are in place to monitor
+          such changes [e.g., the NOSWG]. </para>
       </sect2>
-      <sect2 id="v4c1-iopg">
+      <sect2
+        id="v4c1-iopg">
         <title>Governance</title>
-        <para>Each profile <emphasis role="bold">shall</emphasis> identify <emphasis role="bold">one or more authorities</emphasis> to provide feedback and when necessary, Request for Change Proposals (RFCP) for the Profile in order to ensure inclusion of the most up-to-date details in the NISP. The intention of this section is to provide a clear standardized methodology by which stakeholders may submit recommended changes to this profile. 
-</para>
+        <para>Each profile <emphasis
+            role="bold">shall</emphasis> identify <emphasis
+            role="bold">one or
+          more authorities</emphasis> to provide feedback and when necessary,
+          Request for Change Proposals (RFCP) for the Profile in order to ensure
+          inclusion of the most up-to-date details in the NISP. The intention of
+          this section is to provide a clear standardized methodology by which
+          stakeholders may submit recommended changes to this profile. </para>
       </sect2>
     </sect1>
-    <sect1 id="v4c1-iopdefn">
+    <sect1
+      id="v4c1-iopdefn">
       <title>Definitions</title>
-      <table frame="all" id="rd-iopdefn-1">
+      <table
+        frame="all"
+        id="rd-iopdefn-1">
         <title>Definitions</title>
-        <tgroup align="left" cols="4">
+        <tgroup
+          align="left"
+          cols="4">
           <thead>
             <row>
               <entry>Term</entry>
@@ -1070,18 +1335,27 @@ the general public as a replacement for ADatP-34(D).</para>
         </tgroup>
       </table>
     </sect1>
-    <sect1 id="v4c1-iopad">
+    <sect1
+      id="v4c1-iopad">
       <title>Annex Descriptions</title>
-      <para>The following describes a list of potential 
-<emphasis role="bold">optional</emphasis> annexes to be used as needed. The intention of this section is to place all classified and most lengthy information in Annexes so that the main document stays as short as possible. In cases where tables in the main document become quite lengthy, authors may opt to place these tables in Annex D.
-</para>
+      <para>The following
+          describes a list of potential <emphasis
+          role="bold">optional</emphasis> annexes to be used as needed. The
+          intention of this section is to place all classified and most lengthy
+          information in Annexes so that the main document stays as short as
+          possible. In cases where tables in the main document become quite
+          lengthy, authors may opt to place these tables in Annex D. </para>
       <para>Annex A - Classified Annex (use only if necessary)</para>
       <para>Annex A-1 - Profile elements (classified subset)</para>
       <para>Annex A-2 - (Related) Capability Shortfalls</para>
-      <para>Annex A-3 - (Related) Requirements (classified subset)</para>
-      <para>Annex A-4 - (Related) Force Goals</para>
-      <para>Annex A-5 - other relevant classified content</para>
-      <para>Annex B - Related Architecture Views (most recent)</para>
+      <para>Annex
+          A-3 - (Related) Requirements (classified subset)</para>
+      <para>Annex
+          A-4 - (Related) Force Goals</para>
+      <para>Annex A-5 - other relevant
+          classified content</para>
+      <para>Annex B - Related Architecture Views
+          (most recent)</para>
       <para>Annex B-1 - Capability Views (NCV)</para>
       <itemizedlist>
         <listitem>
@@ -1094,82 +1368,148 @@ the general public as a replacement for ADatP-34(D).</para>
           <para>NCV-4, Capability Dependencies</para>
         </listitem>
         <listitem>
-          <para>NCV-5, Capability to Organisational Deployment Mapping</para>
+          <para>NCV-5, Capability to Organisational
+          Deployment Mapping</para>
         </listitem>
         <listitem>
-          <para>NCV-6, Capability to Operational Activities Mapping</para>
+          <para>NCV-6,
+          Capability to Operational Activities Mapping</para>
         </listitem>
         <listitem>
           <para>NCV-7, Capability to Services Mapping</para>
         </listitem>
       </itemizedlist>
-      <para>Annex B-2 - Operational Views (NOV)</para>
+      <para>Annex B-2 - Operational Views
+          (NOV)</para>
       <itemizedlist>
         <listitem>
-          <para>NOV-1, High-Level Operational Concept Description</para>
+          <para>NOV-1, High-Level
+          Operational Concept Description</para>
         </listitem>
         <listitem>
           <para>NOV-2, Operational Node Connectivity Description</para>
         </listitem>
         <listitem>
-          <para>NOV-3, Operational Information Requirements</para>
+          <para>NOV-3, Operational Information
+          Requirements</para>
         </listitem>
       </itemizedlist>
-      <para>Annex B-3 - Service Views (NSOV)</para>
+      <para>Annex B-3 -
+          Service Views (NSOV)</para>
       <itemizedlist>
         <listitem>
-          <para>NSOV-1, Service Taxonomy</para>
+          <para>NSOV-1,
+          Service Taxonomy</para>
         </listitem>
         <listitem>
-          <para>NSOV-2, Service Definitions (Reference from NAR)</para>
+          <para>NSOV-2, Service
+          Definitions (Reference from NAR)</para>
         </listitem>
         <listitem>
-          <para>NSOV-3, Services to Operational Activities Mapping (in conjunction with NCV-5, NCV-6, NCV-7, NSV-5 and NSV-12)</para>
+          <para>NSOV-3, Services to Operational Activities Mapping (in
+          conjunction with NCV-5, NCV-6, NCV-7, NSV-5 and NSV-12)</para>
         </listitem>
         <listitem>
-          <para>Quality of Services metrics for the profiled services</para>
+          <para>Quality of Services metrics for the
+          profiled services</para>
         </listitem>
       </itemizedlist>
-      <para>Annex B-4 - System Views (NSV)</para>
+      <para>Annex B-4 -
+          System Views (NSV)</para>
       <itemizedlist>
         <listitem>
-          <para>NSV-1, System Interface Description (used to identify Service Interoperability Point (SIOP))</para>
+          <para>NSV-1,
+          System Interface Description (used to identify Service
+          Interoperability Point (SIOP))</para>
         </listitem>
         <listitem>
-          <para>NSV-2, Systems Communication DescriptionNSV-2d, Systems Communication Quality Requirements</para>
+          <para>NSV-2, Systems Communication DescriptionNSV-2d, Systems
+          Communication Quality Requirements</para>
         </listitem>
         <listitem>
           <para>NSV-3, Systems to Systems Matrix</para>
         </listitem>
         <listitem>
-          <para>NSV-5, Systems Function to Operational Activity Traceability Matrix</para>
+          <para>NSV-5, Systems Function to Operational Activity Traceability
+          Matrix</para>
         </listitem>
         <listitem>
-          <para>NSV-7, System Quality Requirements Description</para>
+          <para>NSV-7, System Quality
+          Requirements Description</para>
         </listitem>
         <listitem>
-          <para>NSV-12, Service Provision</para>
+          <para>NSV-12,
+          Service Provision</para>
         </listitem>
       </itemizedlist>
-      <para>Annex B-5 - Technical Views (NTV)</para>
+      <para>Annex B-5 -
+          Technical Views (NTV)</para>
       <itemizedlist>
         <listitem>
-          <para>NTV-1, Technical Standards Profile. Chapter 4 of the NAF Ref (B) provides more specific guidance.</para>
+          <para>NTV-1,
+          Technical Standards Profile. Chapter 4 of the NAF Ref (B) provides
+          more specific guidance.</para>
         </listitem>
         <listitem>
-          <para>NTV-3, Standard Configurations</para>
+          <para>NTV-3,
+          Standard Configurations</para>
         </listitem>
       </itemizedlist>
-      <para>Annex C - Program / Inter-Programme Plans</para>
-      <para>Annex C-1 - (Related) Mid-Term Plan excerpt(s)</para>
-      <para>Annex C-2 - (Related) Programme Plan excerpt(s)</para>
-      <para>Annex D - Other Relevant Supporting Information</para>
+      <para>Annex
+          C - Program / Inter-Programme Plans</para>
+      <para>Annex C-1 - (Related)
+          Mid-Term Plan excerpt(s)</para>
+      <para>Annex C-2 - (Related) Programme
+          Plan excerpt(s)</para>
+      <para>Annex D - Other Relevant Supporting
+          Information</para>
     </sect1>
   </chapter>
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vol4-annexA.xml" xpointer="v4-a" />
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vol4-annexB.xml" xpointer="v4-b" />
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vol4-annexC.xml" xpointer="v4-c" />
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vol4-annexD.xml" xpointer="v4-d" />
- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vol4-annexE.xml" xpointer="v4-e" />
- 
+  <bibliography>
+    <title>References</title>
+
+    <biblioentry
+      id="ref-naf3">
+      <abbrev>NAF3</abbrev>
+      <title>NATO Architecure Framework Version 3</title>
+      <publisher>
+        <publishername>NATO C3 Agency</publishername>
+      </publisher>
+      <copyright>
+        <year>2007</year>
+      </copyright>
+    </biblioentry>
+    <biblioentry
+      id="ref-iso10000-3">
+      <title>Information technology - Framework and taxonomy of International Standardized Profiles - Part 3: Principals and Taxonomy for Open System Environment Profiles</title>
+      <copyright>
+        <year>1998</year>
+      </copyright>
+      <publisher>
+        <publishername>ISO</publishername>
+      </publisher>
+      <pubsnumber>ISO/IEC TR 10000-3</pubsnumber>
+    </biblioentry>
+  </bibliography>
+  <xi:include
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="vol4-annexA.xml"
+    xpointer="v4-a" />
+  <xi:include
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="vol4-annexB.xml"
+    xpointer="v4-b" />
+  <xi:include
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="vol4-annexC.xml"
+    xpointer="v4-c" />
+  <xi:include
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="vol4-annexD.xml"
+    xpointer="v4-d" />
+  <xi:include
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="vol4-annexE.xml"
+    xpointer="v4-e" />
+
 </book>
