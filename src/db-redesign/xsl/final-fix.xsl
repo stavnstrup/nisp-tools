@@ -13,21 +13,30 @@ NATO Command, Control and Consultation Organisation (NC3O).
                 version='1.1'
                 exclude-result-prefixes="#default">
 
+
 <xsl:output method="xml" />
 
 
-<!-- Sort standard and profile elements -->
+<xsl:variable name="db" select="document('version.xml')"/>
 
-<xsl:template match="records">
-  <records>
-    <xsl:apply-templates select="standard">
-      <xsl:sort select="@id" order="ascending"/>
-    </xsl:apply-templates>
-    <xsl:apply-templates select="profile">
-      <xsl:sort select="@id" order="ascending"/>
-    </xsl:apply-templates>
-  </records>
-</xsl:template>  
+
+
+<!-- Add version numbers -->
+
+<xsl:template match="document">
+  <xsl:variable name="myid" select="../@id"/>
+  <xsl:variable name="thisver" select="$db/versions/standard[@sid=$myid]/@version"/>
+  <document>
+    <xsl:apply-templates select="@*"/>
+    <xsl:if test="$thisver != ''">
+      <xsl:attribute name="version">
+        <xsl:value-of select="$thisver"/>
+      </xsl:attribute>
+    </xsl:if>
+    <xsl:apply-templates/>
+  </document>
+</xsl:template>
+
 
 <!-- Remove the tref attribute from standard and profile element -->
 
@@ -39,6 +48,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:template match="@stage|@ss"/>
 
+<!-- Remove the ncoe element -->
+
+<xsl:template match="ncoe"/>
 
 
 <!-- ==================================================================== -->
