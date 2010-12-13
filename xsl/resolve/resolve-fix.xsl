@@ -5,7 +5,7 @@
 This stylesheet is created for the NISP, and is intended for
 postprocessing the resolver output.
 
-Copyright (c) 2009, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2009-2010 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and 
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -39,6 +39,17 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <xsl:apply-templates/>
   </tbody>
 </xsl:template>  
+
+<!-- ==================================================================== -->
+
+<!-- If during the resolver process step, a standard or profile do not have an
+     orgid, an indexterm element with an unknown organisation as primary 
+     elementis created. This templates removes the indexterm again. 
+-->
+
+
+<xsl:template match="indexterm[primary='UNKNOWN ORG']"/>
+
 
 <!-- ==================================================================== -->
 
