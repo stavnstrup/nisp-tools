@@ -226,25 +226,25 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:choose>
     </td>
     <td>
-      <xsl:if test="@orgid =''">
+      <xsl:if test="profilespec/@orgid =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="profilespec/@orgid"/>
     </td>
     <td>
-      <xsl:if test="d/@pubnum =''">
+      <xsl:if test="profilespec/@pubnum =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="profilespec/@pubnum"/>
     </td>
     <td>
-      <xsl:if test="document/@title =''">
+      <xsl:if test="profilespec/@title =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="profilespec/@title"/>
     </td>
     <td>
-      <xsl:if test="document/@date =''">
+      <xsl:if test="profilespec/@date =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="profilespec/@date"/>
@@ -293,7 +293,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:choose>
     </td>
     <td>
-      <xsl:if test="@orgid =''">
+      <xsl:if test="document/@orgid =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="document/@orgid"/>
