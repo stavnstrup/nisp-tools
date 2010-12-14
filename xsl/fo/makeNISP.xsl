@@ -27,12 +27,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
               processor (FOP), which still lack implementation of multiple 
               features.
 
-              If the stylesheet is used, whith another FO processor,
-              make at minimum the following modifications to the stylesheet.
-
-              1. Do not import the fop-bugs/*.xsl stylesheets.
-
-              2. Use the appropiate processer extension, if available
+              If the stylesheet is used, whith another FO processor, then
+              use the appropiate processer extension, if available.
 
               Copyright (C) 2001-2010 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Research Establishment (DDRE), and 
@@ -45,23 +41,15 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 xmlns:stbl="http://nwalsh.com/xslt/ext/com.nwalsh.saxon.Table"
                 xmlns:xtbl="com.nwalsh.xalan.Table"
-                xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="#default  saxon  stbl xtbl"
-                version="1.0">
-
-<!--
                 xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions"
                 xmlns:rx="http://www.renderx.com/XSL/Extensions"
-
--->
-
+                xmlns:saxon="http://icl.com/saxon"
+                exclude-result-prefixes="#default saxon axf rx stbl xtbl"  
+                version="1.1">
 
 <xsl:import href="../docbook-xsl/fo/docbook.xsl"/>
 <xsl:import href="nisp-layout.xsl"/>
 <xsl:import href="../common/common.xsl"/>
-
-
-<!-- Fix FOP bugs -->
 
 
 <!-- Select output mode -->
@@ -85,9 +73,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <xsl:param name="use.extensions" select="1"/>
 <xsl:param name="tablecolumns.extension" select="1"/> 
-
-
-<!-- Fix DocBook-XSL Bugs -->
 
 
 <!-- ==================================================================== -->
@@ -181,6 +166,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="body.font.family" select="'Times'"/>
 <xsl:param name="title.font.family" select="'Times'"/>
 <!--
+<xsl:param name="title.font.family" select="'Helvetica'"/>
 <xsl:param name="dingbat.font.family" select="'Zapf Dingbats'"/>
 -->
 <xsl:param name="monospace.font.family" select="'Courier'"/>
@@ -261,9 +247,13 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- Define standard page headers for even- and odd pages                 -->
 <!-- ==================================================================== -->
 
+<!-- Get the version number from the first revision element -->
 
 <xsl:variable name="version.major" select="substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
 <xsl:variable name="version.minor" select="substring-after(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
+
+<!-- AdatP-34 edition number.
+     E.g.  NISP 4.0 will be ADatP-34 edition D, NISP 4.1 - 5.0 will be ADatP-34 edition E -->
 
 <xsl:variable name="adatp34edition">
   <xsl:choose>
@@ -275,7 +265,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     </xsl:otherwise>
   </xsl:choose>
 </xsl:variable>
-
 
 <!-- Set name of resulting document (without extension) e.g. NISP-Vol1 -->
 
@@ -330,8 +319,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:template match="beginpage">
   <fo:block break-after="page"/>
 </xsl:template>
-
-
 
 
 
@@ -411,19 +398,23 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 
 <!-- ==================================================================== -->
-<!--  Generate headers and footers                                        -->
+<!--  Generate headers                                                    -->
 <!-- ==================================================================== -->
 
 <!-- ....................................................................
 
      Source: fo/pagesetup.xsl - DocBook XSL 1.75.2
 
-     Descr: Generate headers and footers
+     Descr: Generate headers
 
+     .................................................................... -->
+
+
+<!-- A NISP TITLEPAGE DO HAVE A HEADER
+
+     Only change to this template is to the last choose statement (where
+     a footer is forced on the title page
 -->
-
-
-<!-- A NISP TITLEPAGE DO HAVE A HEADER -->
 
 <xsl:template name="header.table">
   <xsl:param name="pageclass" select="''"/>
@@ -564,7 +555,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- ==================================================================== -->
 
-<!-- Change behavour of Header Content -->
+<!-- Change behavour of header content -->
 
 <xsl:template name="header.content">
   <xsl:param name="pageclass" select="''"/>
@@ -680,11 +671,15 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
      Descr: Generate footers
 
+     .................................................................... -->
+
+
+
+<!-- A NISP TITLEPAGE DO HAVE A FOOTER
+
+     Only change to this template is to the last choose statement (where
+     a footer is forced on the title page
 -->
-
-
-
-<!-- A NISP TITLEPAGE DO HAVE A FOOTER -->
 
 
 <xsl:template name="footer.table">
@@ -823,10 +818,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 </xsl:template>
 
 
-
-
 <!-- ==================================================================== -->
-
 
 
 <xsl:template name="footer.content">
@@ -851,6 +843,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <!-- pageclass can be front, body, back -->
     <!-- sequence can be odd, even, first, blank -->
     <!-- position can be left, center, right -->
+
+    <!-- -->
     <xsl:if test="(($sequence='blank' or $sequence='even') and $position='left') or 
                   (($sequence='first' or $sequence='odd') and $position='right')">
       <xsl:if test="$nisp.lifecycle.stage='draft'">
@@ -865,46 +859,56 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:if test="$nisp.lifecycle.stage='final' or $nisp.lifecycle.stage='board'">Final </xsl:if>
       <xsl:if test="$nisp.lifecycle.stage!='release'">Draft</xsl:if>
       <xsl:if test="$nisp.lifecycle.stage='board'"><fo:block>Released to NC3B</fo:block></xsl:if>
-<!--
-      <xsl:text>Original</xsl:text>
-      <fo:block>(Reverse blank)</fo:block>
--->
     </xsl:if>
     <xsl:if test="$position='center' and $nisp.lifecycle.stage!='release'">
-<!--
-      <xsl:value-of select="$nisp.class.label"/>
-      <fo:block><xsl:value-of select="$nisp.release.label"/></fo:block>
--->
     </xsl:if>
+    <!-- Put pagenumber on all pages except the title page -->
     <xsl:if test="$pageclass != 'titlepage' and $position='center'">
       <fo:block space-before="4pt">- <fo:page-number/> -</fo:block>
     </xsl:if>  
   </fo:block>
 </xsl:template>
 
+
 <!-- ==================================================================== -->
+<!-- Handling of blank pages                                              -->
+<!-- ==================================================================== -->
+
+<!-- ....................................................................
+
+       Descr.: FOP 1.0+ do not allow text in fo:region-body on blank
+       pages. So we are not able to put "This page is not
+       intentionally blank" on blank pages. According to
+       http://xmlgraphics.apache.org/fop/fo.html#fo-blank-pages, we
+       can by putting it in a header, but then we can not have a normal NISP 
+       header.
+
+       N.B. Both Antenna House and Render X allows this behaviour.
+
+       Soulution: We are able to create a background image on all
+       pages incl. blank pages. So we can create a backgrund image
+       with the text "This page is intentionally left blank". We need
+       two images depending on the draft-mode parameter being set to
+       yes or no.
+
+       The template "user.pagemasters" declares two set of pagemasters, one for
+       normal pages (incl. blank pages) and one set for draft pages.
+
+       The template "select.user.pagemaster" contains the logic for selecting
+       the userdefined page masters instead of the default pagemasters. 
+
+       See http://www.sagehill.net/docbookxsl/PageDesign.html for a detailed
+       explanation of userdefined pagemasters.
+
+       Note, that we use the default pagemaster for titlepages ??? 
+       NEED TO IVESTIGATE THE LAST STATEMENT
+
+       .................................................................... -->
 
 
 <xsl:template name="user.pagemasters">
 
-  <!-- ....................................................................
-
-       Descr.: FOP 0,95+ do not allow text in fo:region-body on blank
-       pages. So we are not able to put "This page is not
-       intentionally blank" on blank pages.  According to
-       http://xmlgraphics.apache.org/fop/fo.html#fo-blank-pages, we
-       can do it, but the we can not have a header.
-
-       Both Antenna House and Render X allows this behaviour.
-
-       Soulution: We are able to create a background image on all
-       pages incl.  blank pages. So we can create a backgrund image
-       with the text "This page is not intentionally blank". We need
-       two images depending on the draft-mode parameter being set to
-       yes or no.
-
-       .................................................................... -->
-
+  <!-- NISP page master for normal blank pages (final, board and release versions) -->
 
   <fo:simple-page-master master-name="nisp.blank"
                          page-width="{$page.width}"
@@ -938,6 +942,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   </fo:simple-page-master>
 
 
+  
+  <!-- NISP page master for normal blank pages (draft versions) -->
   <fo:simple-page-master master-name="nisp.blank-draft"
                          page-width="{$page.width}"
                          page-height="{$page.height}"
@@ -968,6 +974,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                      extent="{$region.after.extent}"
                       display-align="after"/>
   </fo:simple-page-master>
+
 
   <!-- setup for title page(s) -->
 <!--
@@ -1077,7 +1084,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   </fo:page-sequence-master>
 
   <!-- setup back matter -->
-<!--
   <fo:page-sequence-master master-name="nisp.index">
     <fo:repeatable-page-master-alternatives>
       <fo:conditional-page-master-reference master-reference="nisp.blank"
@@ -1097,7 +1103,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       </fo:conditional-page-master-reference>
     </fo:repeatable-page-master-alternatives>
   </fo:page-sequence-master>
--->
+
   
   <xsl:if test="$draft.mode != 'no'">
     <!-- setup for draft title page(s) -->
@@ -1208,7 +1214,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     </fo:page-sequence-master>
 
     <!-- setup draft index pages -->
-<!--
     <fo:page-sequence-master master-name="nisp.index-draft">
       <fo:repeatable-page-master-alternatives>
         <fo:conditional-page-master-reference master-reference="nisp.blank-draft"
@@ -1228,7 +1233,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
         </fo:conditional-page-master-reference>
       </fo:repeatable-page-master-alternatives>
     </fo:page-sequence-master>
--->
+
   </xsl:if>
 </xsl:template>
 
@@ -1257,10 +1262,12 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <xsl:when test="$default-pagemaster = 'back'">
       <xsl:value-of select="'nisp.back'"/>
     </xsl:when>
-<!--
+
     <xsl:when test="$default-pagemaster = 'index'">
       <xsl:value-of select="'nisp.index'"/>
     </xsl:when>
+
+<!--
     <xsl:when test="$default-pagemaster = 'titlepage-draft'">
       <xsl:value-of select="'nisp.titlepage-draft'"/>
     </xsl:when>
@@ -1277,34 +1284,17 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <xsl:when test="$default-pagemaster = 'back-draft'">
       <xsl:value-of select="'nisp.back-draft'"/>
     </xsl:when>
-<!--
+
     <xsl:when test="$default-pagemaster = 'index-draft'">
       <xsl:value-of select="'nisp.index-draft'"/>
     </xsl:when>
--->
+
     <xsl:otherwise>
       <xsl:value-of select="$default-pagemaster"/>
     </xsl:otherwise>
   </xsl:choose>
 
 </xsl:template>
-
-
-
-<!-- ==================================================================== -->
-
-
-
-
-
-
-
-
-
-<!-- ==================================================================== -->
-<!-- Potential bugs in the DocBook XSL stylesheet                         -->
-<!-- ==================================================================== -->
-
 
 
 
