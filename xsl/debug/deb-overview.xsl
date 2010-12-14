@@ -118,12 +118,14 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <em>profilerecord</em> or a <em>referencerecord</em></p>
 
    <ul>
+     <li><b>Rec</b> - The position of the <i>standard</i> or <i>profile</i> in the database</li>
      <li><b>ID</b> - What ID is associated with this <i>standard</i></li>
-     <li><b>Type</b> - Is this a <i>coverstandard</i> (CS), a <i>single standard</i> or a <i>sub standard</i> (SS)</li>
-     <li><b>Org</b> - What organisation have published this standard</li>
+     <li><b>Type</b> - Is this a <i>coverstandard</i> (CS), a <i>single standard</i> (S) or a <i>sub standard</i> (SS)</li>
+     <li><b>Org</b> - What organisation have published this <i>standard</i></li>
      <li><b>Pubnum</b> - The publication number of the <i>standard</i></li>
      <li><b>Title</b> - The title of the <i>standard</i></li>
      <li><b>Date</b> - The publication date of the <i>standard</i></li>
+     <li><b>Ver</b> - Version of the <i>standard</i> or <i>profile</i></li>
      <li><b>Correction</b> - Correction info for
         this <i>standard</i>. There might be multiple corrections
         records (Technical Correction, Ammentment etc.). Each record
@@ -132,20 +134,11 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         another organisation. There might be multiple AKA record. Each
         record begins on a new line</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
-     <li><b>Stage</b> - Stage info for this record (M : Mandatory, E: Emerging, MID: Mid term, FAR: Far term, F: fading)</li>
-     <li><b>Select</b> - Is this record selected by NATO</li>
+     <li><b>Select</b> - Is this record selected by NATO (M : Mandatory, E: Emerging, MID: Mid term, FAR: Far term, F: fading)</li>
 
      <li><b>History</b> - What is the history of the record</li>
    </ul>
 
-   <p>The following properties are related to the <i>standard</i> elements in are part of the enclosing record element.</p>
- 
-   <ul>
-     <li><b>Debug</b> - A comment, which are only used to remember observed problems with this record.</li>
-     <li><b>Std</b> - The position of the <i>standard</i> in the database</li>
-   </ul>
-  <p></p>
-  
   <xsl:if test="$excelXP = 1">
     <table border="1" width="100%">
       <xsl:call-template name="htmlheader"/>
@@ -186,10 +179,10 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td><b>PubNum</b></td>
     <td><b>Title</b></td>
     <td><b>Date</b></td>
+    <td><b>Ver</b></td>
     <td><b>Correction</b></td>
     <td><b>AKA</b></td>
     <td><b>Tag</b></td>
-    <td><b>Stage</b></td>
     <td><b>Select</b></td>
 
     <td><b>History</b></td>
@@ -243,21 +236,16 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:value-of select="profilespec/@title"/>
     </td>
-    <td>
+    <td class="date">
       <xsl:if test="profilespec/@date =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="profilespec/@date"/>
     </td>        
+    <td><xsl:value-of select="profilespec/@version"/></td>        
     <td><xsl:apply-templates select="document/correction"/>&nbsp;</td>
     <td><xsl:apply-templates select="document/alsoknown"/>&nbsp;</td>
     <td><xsl:value-of select="@tag"/>&nbsp;</td>
-    <td>
-      <xsl:if test="status/@stage =''">
-        <xsl:attribute name="class">missing</xsl:attribute>
-      </xsl:if>
-      <xsl:value-of select="status/@stage"/>&nbsp;
-    </td>
     <td align="center">
       <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
       <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
@@ -310,21 +298,16 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:value-of select="document/@title"/>
     </td>
-    <td>
+    <td class="date">
       <xsl:if test="document/@date =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="document/@date"/>
     </td>        
+    <td><xsl:value-of select="document/@version"/></td>        
     <td><xsl:apply-templates select="document/correction"/>&nbsp;</td>
     <td><xsl:apply-templates select="document/alsoknown"/>&nbsp;</td>
     <td><xsl:value-of select="@tag"/>&nbsp;</td>
-    <td>
-      <xsl:if test="status/@stage =''">
-        <xsl:attribute name="class">missing</xsl:attribute>
-      </xsl:if>
-      <xsl:value-of select="status/@stage"/>&nbsp;
-    </td>
     <td align="center">
       <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
       <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
@@ -352,8 +335,6 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:template match="alsoknown">
-  <xsl:if test="position()=1 and (@orgid='' or @pubnum='' or @date='')"><xsl:attribute name="bgcolor">yellow</xsl:attribute></xsl:if>
-
   <xsl:value-of select="@orgid"/><xsl:text>:</xsl:text><xsl:value-of 
        select="@pubnum"/><xsl:text>:</xsl:text><xsl:value-of select="@date"/>
   <xsl:if test="following-sibling::alsoknown[position()=1]"><br /></xsl:if>
