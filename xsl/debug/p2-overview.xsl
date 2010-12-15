@@ -2,11 +2,6 @@
 
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:stbl="http://nwalsh.com/xslt/ext/com.nwalsh.saxon.Table"
-                xmlns:saxon="http://icl.com/saxon"
-                xmlns:fox="http://xml.apache.org/fop/extensions"
-                xmlns:date="http://exslt.org/dates-and-times"
-                extension-element-prefixes="date"
                 version='1.1'
                 exclude-result-prefixes="#default">
   
@@ -16,6 +11,7 @@
 
 <xsl:template match="table[@class='overview']/tr[position()>1]">
   <tr>
+    <xsl:apply-templates select="@*"/>
     <td><xsl:value-of select="position()-1"/></td>
     <xsl:apply-templates/>
   </tr>
