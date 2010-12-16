@@ -54,7 +54,7 @@
     <xsl:with-param name="comment" select="'* Create a PDF version of NISP'"/>
   </xsl:call-template>
 
-  <target name="svg.required">
+  <target name="copy.svg">
     <mkdir>
       <xsl:attribute name="dir">
         <xsl:text>${build.dir}/figures</xsl:text>
@@ -72,7 +72,9 @@
         <exclude name="obsolete/*.svg"/>
       </fileset>
     </copy> 
+  </target>
 
+  <target name="svg.required" depends="copy.svg">
     <uptodate property="svg.notRequired">
       <srcfiles includes="*.svg">
         <xsl:attribute name="dir">
@@ -801,7 +803,7 @@
           <xsl:text>.resolve.src}</xsl:text>
         </xsl:attribute>
       </srcfiles>
-
+<!--
       <srcfiles>
         <xsl:attribute name="dir">
           <xsl:text>${build.dir}/figures/</xsl:text>
@@ -810,7 +812,7 @@
           <xsl:text>*.${nisp.image.ext}</xsl:text>
         </xsl:attribute>
       </srcfiles>
-
+-->
       <srcfiles>
         <xsl:attribute name="dir">
           <xsl:text>${xsl-styles.dir}</xsl:text>
@@ -825,7 +827,7 @@
 
   <target name="{$docid}.pdf"
           description="* Create {$title} in PDF"
-          depends="layout-fo, svg, {$docid}.resolve, {$docid}.pdf.check"
+          depends="layout-fo, copy.svg, {$docid}.resolve, {$docid}.pdf.check"
           unless="{$docid}-pdf.notRequired">
     <echo message="Create {$title} print version"/>
     <java fork="yes">
