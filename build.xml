@@ -419,8 +419,8 @@ $Id$
 
   <target name="layout-fo-check" depends="init">
     <uptodate property="layout-fo.notRequired"
-              targetfile="${xsl-fo.dir}/nisp-layout.xsl">
-      <srcfiles dir="${xsl-fo.dir}" includes="nisp-layout.xml"/>
+              targetfile="${xsl-fo.dir}/nisp-titlepages.xsl">
+      <srcfiles dir="${xsl-fo.dir}" includes="nisp-titlepage-spec.xml"/>
       <srcfiles dir="${docbook-xsl.dir}/template" includes="templates.xsl"/>
     </uptodate>
   </target>
@@ -430,8 +430,8 @@ $Id$
           unless="layout-fo.notRequired">
     <echo message="Creating Layout for fo documents"/>
     <java classname="${xslt.class}" fork="yes" dir="${xsl-fo.dir}">
-      <arg line="${xslt.opts} -o nisp-layout.xsl 
-           ${xsl-fo.dir}/nisp-layout.xml 
+      <arg line="${xslt.opts} -o nisp-titlepages.xsl 
+           ${xsl-fo.dir}/nisp-titlepage-spec.xml 
            ${docbook-xsl.dir}/template/titlepage.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>

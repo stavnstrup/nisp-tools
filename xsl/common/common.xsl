@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!-- These parameters are used both in the HTML and the FO stylesheets -->
-
+<!-- These parameters are used both in the XHTML and the FO stylesheets -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
                 version="1.1"
@@ -26,16 +25,6 @@
 <!-- Should we use the paragraph numbering hack ? -->
 
 <xsl:param name="use.para.numbering" select="1"/>
-
-<!-- Database names (not used yet) -->
-
-<xsl:param name="standards" select="'standards.xml'"/>
-<xsl:param name="products" select="'products.xml'"/>
-
-
-<!-- use portal design -->
-
-<xsl:param name="use.portal.design" select="1"/>
 
 
 <!-- Classification parameters  -->

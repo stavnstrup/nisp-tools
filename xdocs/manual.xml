@@ -541,9 +541,7 @@ consists of:
 
 <!ATTLIST standard
           tag CDATA #REQUIRED
-          id ID #REQUIRED
-          ss (no | yes) "no"
-          tref IDREF #IMPLIED>
+          id ID #REQUIRED>
 ]]>
 </programlisting>
 
@@ -557,9 +555,9 @@ standards.</para>
 <sect3><title>Document</title>
 
 <para>The <code>&lt;document&gt;</code> element exposes the publish
-organisation, publication number, publishing date and title through
+organisation, publication number, publishing date, title and version through
 the attributes <code>orgid</code>,
-<code>pubnum</code>, <code>date</code> and <code>title</code>. The <code>orgid</code> 
+<code>pubnum</code>, <code>date</code>, <code>title</code> and <code>version</code>. The <code>orgid</code> 
 refers to an organisation is embedded in the <code>organisations</code> element.</para>
 
 
@@ -677,8 +675,8 @@ element is defined in the DocBook DTD.</para>
 </programlisting>
 
 
-<para>The <code>&lt;status&gt;</code> element contains the attributes <code>mode</code> and <code>stage</code>. The
-first is implied and the second is required.The <code>mode</code> attribute are used to indicate 
+<para>The <code>&lt;status&gt;</code> element contains the attributes <code>mode</code>, which
+is implied and is used to indicate 
 standards, which were either rejected or retired.</para>
 
 <programlisting>
@@ -749,8 +747,7 @@ with the value <code>base</code>.</para>
 <!ATTLIST profile
           type (base | coi-minor | coi) "base"
           tag CDATA #REQUIRED
-          id ID #REQUIRED
-          tref IDREF #IMPLIED>
+          id ID #REQUIRED>
 ]]>
 </programlisting>
 

@@ -1,13 +1,4 @@
 <?xml version='1.0'?>
-
-<!DOCTYPE xsl:stylesheet [
-
-<!ENTITY scope 'count(ancestor::node()|$scope) = count(ancestor::node())
-                and ($role = @role or $type = @type or
-                (string-length($role) = 0 and string-length($type) = 0))'>
-
-]>
-
 <!--
 
 Name        : makeNISP.xsl
@@ -48,7 +39,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                 version="1.1">
 
 <xsl:import href="../docbook-xsl/fo/docbook.xsl"/>
-<xsl:import href="nisp-layout.xsl"/>
+<xsl:import href="nisp-titlepages.xsl"/>
 <xsl:import href="../common/common.xsl"/>
 
 
@@ -63,23 +54,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- ==================================================================== -->
 
 
-<!-- Processor Extensions -->
-
-
-<xsl:param name="fop1.extensions" select="1"/>
-
-
-<!-- Stylesheet Extensions -->
-
-<xsl:param name="use.extensions" select="1"/>
-<xsl:param name="tablecolumns.extension" select="1"/> 
-
-
-<!-- ==================================================================== -->
-<!--   Global parameters used to modify the functionality of the DocBook  -->
-<!--   XSL/FO stylesheets.                                                -->
-<!-- ==================================================================== -->
-
 <!-- ToC/LoT/Index Generation -->
 
 <xsl:param name="generate.toc">
@@ -87,6 +61,17 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 </xsl:param>
 
 <xsl:param name="toc.section.depth">2</xsl:param>
+
+
+<!-- Processor Extensions -->
+
+<xsl:param name="fop1.extensions" select="1"/>
+
+
+<!-- Stylesheet Extensions -->
+
+<xsl:param name="tablecolumns.extension" select="1"/> 
+<xsl:param name="use.extensions" select="1"/>
 
 
 <!-- Automatic labelling -->
@@ -100,15 +85,20 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="default.table.width" select="'16cm'"/>
 
 
+<!-- Bibliography (defined in ../common/common.xsl) -->
+
+
 <!-- Miscellaneous -->
 
 <xsl:param name="formal.title.placement">
   figure after
   table after
 </xsl:param>
+
 <xsl:param name="show.comments" select="0"/>
 <xsl:param name="ulink.show" select="1"/>
 <xsl:param name="ulink.hyphenate" select="''"/>
+<xsl:param name="xref.with.number.and.title" select="0"/>
 
 
 <!-- Graphics -->
@@ -118,19 +108,18 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- Pagination and General Styles-->
 
-
 <!-- The letter A-H refers to the figure describing page 
      setup in the DocBook XSL-FO documentation
 
      http://docbook.sourceforge.net/release/xsl/current/doc/fo/general.html
  -->
 
+<xsl:param name="paper.type" select="'A4'"/>
+<xsl:param name="double.sided" select="1"/>
+
 <xsl:param name="page.margin.inner" select="'25mm'"/>      <!-- G -->
 <xsl:param name="page.margin.outer" select="'25mm'"/>      <!-- H -->
 <xsl:param name="page.margin.top" select="'15mm'"/>        <!-- A -->
-
-<xsl:param name="paper.type" select="'A4'"/>
-<xsl:param name="double.sided" select="1"/>
 
 <xsl:param name="region.before.extent" select="'42pt'"/>   <!-- B -->
 <xsl:param name="body.margin.top" select="'56pt'"/>        <!-- C -->
@@ -138,6 +127,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="region.after.extent" select="'48pt'"/>    <!-- D -->
 <xsl:param name="page.margin.bottom" select="'14mm'"/>     <!-- E -->
 <xsl:param name="body.margin.bottom" select="'57pt'"/>     <!-- F -->
+
 
 <xsl:param name="body.start.indent" select="'0pc'"/>
 
@@ -148,14 +138,23 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="draft.mode" select="''"/> <!-- Set by build file -->
 <xsl:param name="draft.watermark.image" select="'../images/draft.svg'"/>
 
-<xsl:param name="intentionally-blank" select="'../images/intentionally-blank.svg'"/>
-<xsl:param name="intentionally-blank-draft" select="'../images/intentionally-blank-draft.svg'"/>
-
 <xsl:param name="headers.on.blank.pages" select="1"/>
 <xsl:param name="footers.on.blank.pages" select="1"/>
 
 <xsl:param name="header.rule" select="0"/>
 <xsl:param name="footer.rule" select="0"/>
+
+<xsl:attribute-set name="header.content.properties">
+  <xsl:attribute name="font-family">
+    <xsl:value-of select="$title.font.family"/>
+  </xsl:attribute>
+</xsl:attribute-set>
+
+<xsl:attribute-set name="footer.content.properties">
+  <xsl:attribute name="font-family">
+    <xsl:value-of select="$title.font.family"/>
+  </xsl:attribute>
+</xsl:attribute-set>
 
 
 <!-- Font Families -->
@@ -165,19 +164,20 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <xsl:param name="body.font.family" select="'Times'"/>
 <xsl:param name="title.font.family" select="'Times'"/>
+
 <!--
 <xsl:param name="title.font.family" select="'Helvetica'"/>
+-->
+<!--
 <xsl:param name="dingbat.font.family" select="'Zapf Dingbats'"/>
 -->
+<xsl:param name="dingbat.font.family" select="''"/>
+
 <xsl:param name="monospace.font.family" select="'Courier'"/>
 <xsl:param name="sans.font.family" select="'Helvetica'"/>
 
 
-<!-- FO -->
-
-
-<xsl:param name="xref.with.number.and.title" select="0"/>
-
+<!-- Property Sets -->
 
 <xsl:attribute-set name="section.title.level1.properties">
   <xsl:attribute name="font-size">
@@ -213,7 +213,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <xsl:param name="stylesheet.result.type" select="'fo'"/>
 
-
 <xsl:attribute-set name="formal.title.properties"
                    use-attribute-sets="normal.para.spacing">
   <xsl:attribute name="text-align">center</xsl:attribute>
@@ -224,21 +223,17 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- ==================================================================== -->
 
 
+<xsl:param name="intentionally-blank" select="'../images/intentionally-blank.svg'"/>
+<xsl:param name="intentionally-blank-draft" select="'../images/intentionally-blank-draft.svg'"/>
 
 
 <!-- External stylesheet parameter -->
-
 
 <xsl:param name="pdf.prefix" select="''"/>
 
 <xsl:param name="nisp.lifecycle.stage" select="draft"/>
 <xsl:param name="nisp.class.label" select="''"/>
 <xsl:param name="nisp.release.label" select="''"/>
-
-
-<!-- ==================================================================== -->
-<!--  Specific Parameters                                                 -->
-<!-- ==================================================================== -->
 
 
 
@@ -323,8 +318,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 
 <!-- ==================================================================== -->
-<!--  We need to put some extra text on the titlepage, besides what is    -->
-<!--  specified in nisp-layout.xml                                       -->
+<!-- Custom templates for titlepage elements                              -->
 <!-- ==================================================================== -->
 
 <!-- The volume number should be preceded with the text "Volume", except for 
@@ -343,9 +337,12 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- The Document number should be embraced in a parentesis -->
 
-
-<xsl:template match="biblioid" mode="titlepage.mode">(<xsl:value-of 
-     select="."/>(<xsl:value-of select="$adatp34edition"/>))
+<xsl:template match="biblioid" mode="titlepage.mode">
+   <xsl:text>(</xsl:text>
+   <xsl:value-of select="."/>
+   <xsl:text>(</xsl:text>
+   <xsl:value-of select="$adatp34edition"/>
+   <xsl:text>))</xsl:text>
 </xsl:template>
 
 
@@ -355,11 +352,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:template match="revhistory" mode="titlepage.mode">
   <fo:block>
     <fo:block/>
-<!--
-    Version <xsl:value-of select="./revision[1]/revnumber"/>
--->
     <fo:block space-before="16mm">
-      Date: <xsl:value-of select="./revision[1]/date"/>
+      <!--Date: --><xsl:value-of select="./revision[1]/date"/>
     </fo:block>
   </fo:block>
 </xsl:template>

@@ -4,7 +4,7 @@
    <target name="olinks" depends="init, vol1.olinks, vol2.olinks, vol3.olinks, vol4.olinks, vol5.olinks"/>
    <target name="html" depends="init, master, acronyms, vol1.html, vol2.html, vol3.html, vol4.html, vol5.html" description="* Create all HTML files destined for the web"/>
    <target name="pdf" depends="init, vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf, vol5.pdf" description="* Create a PDF version of NISP"/>
-   <target name="svg.required">
+   <target name="copy.svg">
       <mkdir dir="${build.dir}/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/figures">
          <fileset dir="${src.dir}/figures/">
@@ -12,6 +12,8 @@
             <exclude name="obsolete/*.svg"/>
          </fileset>
       </copy>
+   </target>
+   <target name="svg.required" depends="copy.svg">
       <uptodate property="svg.notRequired">
          <srcfiles includes="*.svg" dir="${build.dir}/figures"/>
          <mapper type="glob" from="*.svg" to="${build.dir}/figures/*.${nisp.image.ext}"/>
@@ -95,11 +97,10 @@
    <target name="vol1.pdf.check" depends="init">
       <uptodate property="vol1-pdf.notRequired" targetfile="${build.fo}/${vol1.pdf.file}">
          <srcfiles dir="${build.resolve}" includes="${vol1.resolve.src}"/>
-         <srcfiles dir="${build.dir}/figures/" includes="*.${nisp.image.ext}"/>
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol1.pdf" description="* Create Volume 1 in PDF" depends="layout-fo, svg, vol1.resolve, vol1.pdf.check" unless="vol1-pdf.notRequired">
+   <target name="vol1.pdf" description="* Create Volume 1 in PDF" depends="layout-fo, copy.svg, vol1.resolve, vol1.pdf.check" unless="vol1-pdf.notRequired">
       <echo message="Create Volume 1 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol1.fo ${build.resolve}/${vol1.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol1 use.para.numbering=${use.para.numbering}"/>
@@ -191,11 +192,10 @@
    <target name="vol2.pdf.check" depends="init">
       <uptodate property="vol2-pdf.notRequired" targetfile="${build.fo}/${vol2.pdf.file}">
          <srcfiles dir="${build.resolve}" includes="${vol2.resolve.src}"/>
-         <srcfiles dir="${build.dir}/figures/" includes="*.${nisp.image.ext}"/>
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol2.pdf" description="* Create Volume 2 in PDF" depends="layout-fo, svg, vol2.resolve, vol2.pdf.check" unless="vol2-pdf.notRequired">
+   <target name="vol2.pdf" description="* Create Volume 2 in PDF" depends="layout-fo, copy.svg, vol2.resolve, vol2.pdf.check" unless="vol2-pdf.notRequired">
       <echo message="Create Volume 2 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol2.fo ${build.resolve}/${vol2.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol2 use.para.numbering=${use.para.numbering}"/>
@@ -287,11 +287,10 @@
    <target name="vol3.pdf.check" depends="init">
       <uptodate property="vol3-pdf.notRequired" targetfile="${build.fo}/${vol3.pdf.file}">
          <srcfiles dir="${build.resolve}" includes="${vol3.resolve.src}"/>
-         <srcfiles dir="${build.dir}/figures/" includes="*.${nisp.image.ext}"/>
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol3.pdf" description="* Create Volume 3 in PDF" depends="layout-fo, svg, vol3.resolve, vol3.pdf.check" unless="vol3-pdf.notRequired">
+   <target name="vol3.pdf" description="* Create Volume 3 in PDF" depends="layout-fo, copy.svg, vol3.resolve, vol3.pdf.check" unless="vol3-pdf.notRequired">
       <echo message="Create Volume 3 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol3.fo ${build.resolve}/${vol3.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol3 use.para.numbering=${use.para.numbering}"/>
@@ -365,11 +364,10 @@
    <target name="vol4.pdf.check" depends="init">
       <uptodate property="vol4-pdf.notRequired" targetfile="${build.fo}/${vol4.pdf.file}">
          <srcfiles dir="${build.resolve}" includes="${vol4.resolve.src}"/>
-         <srcfiles dir="${build.dir}/figures/" includes="*.${nisp.image.ext}"/>
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol4.pdf" description="* Create Volume 4 in PDF" depends="layout-fo, svg, vol4.resolve, vol4.pdf.check" unless="vol4-pdf.notRequired">
+   <target name="vol4.pdf" description="* Create Volume 4 in PDF" depends="layout-fo, copy.svg, vol4.resolve, vol4.pdf.check" unless="vol4-pdf.notRequired">
       <echo message="Create Volume 4 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol4.fo ${build.resolve}/${vol4.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol4 use.para.numbering=${use.para.numbering}"/>
@@ -443,11 +441,10 @@
    <target name="vol5.pdf.check" depends="init">
       <uptodate property="vol5-pdf.notRequired" targetfile="${build.fo}/${vol5.pdf.file}">
          <srcfiles dir="${build.resolve}" includes="${vol5.resolve.src}"/>
-         <srcfiles dir="${build.dir}/figures/" includes="*.${nisp.image.ext}"/>
          <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
       </uptodate>
    </target>
-   <target name="vol5.pdf" description="* Create Volume 5 in PDF" depends="layout-fo, svg, vol5.resolve, vol5.pdf.check" unless="vol5-pdf.notRequired">
+   <target name="vol5.pdf" description="* Create Volume 5 in PDF" depends="layout-fo, copy.svg, vol5.resolve, vol5.pdf.check" unless="vol5-pdf.notRequired">
       <echo message="Create Volume 5 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
          <arg line="${xslt.opts} -o vol5.fo ${build.resolve}/${vol5.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol5 use.para.numbering=${use.para.numbering}"/>
