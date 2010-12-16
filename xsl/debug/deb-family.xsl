@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-
-<!DOCTYPE xsl:stylesheet [
-<!ENTITY nbsp "&#160;">
-]>
-
 <!--
 
-This stylesheet is created for the NISP , and is
-intended to create an parent/child relationship in the standard database.
+This stylesheet is created for the NISP, and is intended to create 
+a parent/child relationship in the standard database.
 
-Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -18,7 +13,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
                 xmlns:date="http://exslt.org/dates-and-times"
                 extension-element-prefixes="date"
                 version='1.1'
-                exclude-result-prefixes="#default saxon">
+                exclude-result-prefixes="#default date saxon">
   
 
 <xsl:output method="html" encoding="ISO-8859-1" indent="yes"/>
@@ -56,7 +51,6 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
     </p>
    
-
     <p>Note:
       <ul>
         <li>Standards and profiles marked with redbackground have been deleted</li>
@@ -67,7 +61,6 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
   <h2>Standards</h2>
   
-
   <table border="1">
     <tr class="head">
       <td><b>ID</b></td>
@@ -110,7 +103,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:template match="standard">
   <xsl:variable name="myid" select="@id"/>
   <tr>
-    <xsl:if test=".//event[@flag = 'deleted']">
+    <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">
       <xsl:attribute name="class">deleted</xsl:attribute>
     </xsl:if>
     <td><a name="{@id}"><xsl:value-of select="@id"/></a></td>
@@ -197,13 +190,16 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-
-
 <xsl:template match="standard|profile" mode="parent">
   <xsl:if test="position() != 1">
     <xsl:text>, </xsl:text>
   </xsl:if>
-  <xsl:if test=".//event[@flag = 'deleted']"><emphasis role="bold">@ </emphasis></xsl:if><a href="#{@id}"><xsl:value-of select="@id"/></a>
+  <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">
+    <emphasis role="bold">
+      <xsl:text>@ </xsl:text>
+    </emphasis>
+  </xsl:if>
+  <a href="#{@id}"><xsl:value-of select="@id"/></a>
 </xsl:template>
 
 
@@ -212,7 +208,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:if test="position() != 1">
     <xsl:text>, </xsl:text>
   </xsl:if>
-  <xsl:if test="/standards/records/standard[@id=$myrefid]//event[@flag='deleted']">
+  <xsl:if test="/standards/records/standard[@id=$myrefid]//event[(position()=last()) and (@flag='deleted')]">
     <emphasis role="bold">@ </emphasis>
   </xsl:if>
   <a href="#{@refid}"><xsl:value-of select="@refid"/></a>
@@ -224,7 +220,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:if test="position() != 1">
     <xsl:text>, </xsl:text>
   </xsl:if>
-  <xsl:if test="//profile[@id=$myrefid]//event[@flag='deleted']">
+  <xsl:if test="//profile[@id=$myrefid]//event[(position()=last()) and (@flag='deleted')]">
     <emphasis role="bold">@ </emphasis>
   </xsl:if>
   <a href="#{@refid}"><xsl:value-of select="@refid"/></a>
