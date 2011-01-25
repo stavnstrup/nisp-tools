@@ -581,7 +581,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
         <fo:block><xsl:value-of select="$nisp.release.label"/></fo:block>
         <fo:block font-size="9pt" font-family="mono">revision: <xsl:value-of select="/book/bookinfo/productnumber"/></fo:block>
 -->
-        <fo:block font-family="mono">revision: <xsl:value-of select="/book/bookinfo/productnumber"/></fo:block>
+        <fo:block font-family="{$title.font.family}">revision: <xsl:value-of select="/book/bookinfo/productnumber"/></fo:block>
       </xsl:when>
 
       <xsl:when test="$pageclass='titlepage' or $sequence='first' or $sequence='odd'">
