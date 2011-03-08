@@ -591,6 +591,10 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
             <xsl:text>(</xsl:text>
             <xsl:value-of select="$adatp34edition"/>  
             <xsl:text>)</xsl:text>
+            <xsl:if test="($nisp.revision != 0) and ($nisp.lifecycle.stage = 'board' or $nisp.lifecycle.stage = 'release')">
+              <xsl:text>-REV</xsl:text>
+              <xsl:value-of select="$nisp.revision"/>
+            </xsl:if>
           </xsl:when>
           <xsl:when test="$position='left'">
             <xsl:text>NISP Volume </xsl:text>
@@ -606,6 +610,10 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
             <xsl:text>(</xsl:text>
             <xsl:value-of select="$adatp34edition"/>  
             <xsl:text>)</xsl:text>
+            <xsl:if test="($nisp.revision != 0) and ($nisp.lifecycle.stage = 'board' or $nisp.lifecycle.stage = 'release')">
+              <xsl:text>-REV</xsl:text>
+              <xsl:value-of select="$nisp.revision"/>
+            </xsl:if>
           </xsl:when>
           <xsl:when test="$position='right'">
             <xsl:text>NISP Volume </xsl:text>

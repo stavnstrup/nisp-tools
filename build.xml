@@ -79,6 +79,7 @@ $Id$
   <!-- Version of the NISP XML sources -->
   <property name="src-version" value="&src-version;"/>
   <property name="src-version-major" value="&src-version-major;"/>
+  <property name="src-revision" value="&src-revision;"/>
   
   <!-- Java compiler options -->
   <property name="build.compiler" value="modern"/>
@@ -133,14 +134,16 @@ $Id$
   <property name="nisp.lifecycle.stage" value="draft"/>
   <property name="nisp.lifecycle.postfix" value=""/>
   <property name="nisp.class.label" value="'NATO/EAPC UNCLASSIFIED'"/>
-  <property name="nisp.release.label" value="'RELEASABLE TO AUS, NZL &amp; SGP'"/>  
+  <property name="nisp.release.label" value="'RELEASABLE TO AUS, NZL &amp; SGP'"/>
   <property name="nisp.draft.watermark" value="'yes'"/>
+  
 
   <property name="nisp.lifecycle.opts" 
             value="nisp.lifecycle.stage=${nisp.lifecycle.stage}
                    nisp.class.label=${nisp.class.label}
                    nisp.release.label=${nisp.release.label}
-                   draft.mode=${nisp.draft.watermark}"/>
+                   draft.mode=${nisp.draft.watermark}
+                   nisp.revision=${src-revision}"/>
 
   <!-- =================================================================== -->
   <!-- External application specific parameter                             -->

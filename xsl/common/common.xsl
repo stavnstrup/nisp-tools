@@ -32,6 +32,7 @@
 <xsl:param name="for.internet.publication" select="0"/> <!-- Do not change this -->
 <xsl:param name="internet.postfix" select="''"/>        <!-- Do not change this -->
 <xsl:param name="class.label" select="'NATO/EAPC UNCLASSIFIED / RELEASABLE TO THE PUBLIC'"/>
+<xsl:param name="nisp.revision" select="0"/>
 
 <!-- ==================================================================== -->
 <!--    Misc. Templates                                                   -->
