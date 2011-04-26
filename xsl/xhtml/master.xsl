@@ -184,14 +184,15 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
       <xsl:with-param name="prefix" select="''"/>
     </xsl:call-template>
 
-    <div id="nav">
-      <xsl:call-template name="create-navbar"/>
+    <div id="container">
+      <div id="nav">
+        <xsl:call-template name="create-navbar"/>
+      </div>
+      <div id="docbook">
+        <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
+        <xsl:apply-templates/>
+      </div>
     </div>
-    <div id="docbook">
-      <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
-      <xsl:apply-templates/>
-    </div>
-
     <div id="footer">Copyright &#x00A9; NATO - OTAN 1998-2011 | <a href="disclaimer.html">Disclaimer</a></div>
 
   </body>

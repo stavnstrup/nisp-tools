@@ -428,30 +428,32 @@ Description : This stylesheet is a customization of Norman Walsh
 
       <xsl:call-template name="create-header"/>
       <xsl:call-template name="create-menubar"/>
-      <div id="nav">
-        <xsl:call-template name="create-navbar"/>
-      </div>
-      <div id="docbook">
-        <xsl:call-template name="user.header.navigation"/>
+      <div id="container">
+        <div id="nav">
+          <xsl:call-template name="create-navbar"/>
+        </div>
+        <div id="docbook">
+          <xsl:call-template name="user.header.navigation"/>
 
-        <xsl:call-template name="header.navigation">
-          <xsl:with-param name="prev" select="$prev"/>
-	  <xsl:with-param name="next" select="$next"/>
-	  <xsl:with-param name="nav.context" select="$nav.context"/>
-        </xsl:call-template>
+          <xsl:call-template name="header.navigation">
+            <xsl:with-param name="prev" select="$prev"/>
+	    <xsl:with-param name="next" select="$next"/>
+	    <xsl:with-param name="nav.context" select="$nav.context"/>
+          </xsl:call-template>
 
-        <xsl:call-template name="user.header.content"/>
+          <xsl:call-template name="user.header.content"/>
 
-        <xsl:copy-of select="$content"/>
+          <xsl:copy-of select="$content"/>
 
-        <xsl:call-template name="user.footer.content"/>
+          <xsl:call-template name="user.footer.content"/>
 
-        <xsl:call-template name="footer.navigation">
-	  <xsl:with-param name="prev" select="$prev"/>
-	  <xsl:with-param name="next" select="$next"/>
-	  <xsl:with-param name="nav.context" select="$nav.context"/>
-        </xsl:call-template>
-        <xsl:call-template name="user.footer.navigation"/>
+          <xsl:call-template name="footer.navigation">
+	    <xsl:with-param name="prev" select="$prev"/>
+	    <xsl:with-param name="next" select="$next"/>
+	    <xsl:with-param name="nav.context" select="$nav.context"/>
+          </xsl:call-template>
+          <xsl:call-template name="user.footer.navigation"/>
+        </div>
       </div>
       <div id="footer">Copyright &#x00A9; NATO - OTAN 1998-2011 | <a href="../disclaimer.html">Disclaimer</a></div>
     </body>

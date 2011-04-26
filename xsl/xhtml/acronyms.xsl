@@ -89,26 +89,28 @@
     <body>
       <xsl:call-template name="create-header"/>
       <xsl:call-template name="create-menubar"/>
-      <div id="nav">
-        <ul>
-          <li id="menuhead">Acronyms</li>
-          <li><img src="../images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
-        </ul>
-      </div> 
-      <div id="docbook">
-        <xsl:call-template name="mkLetterBar"/>
-        <table id="acrotable" border="0">
-          <tr>
-            <td width="23%" valign="top" align="left"><b>Acronyms</b></td>
-            <td width="54%" valign="top" align="left"><b>Meaning /<br />Significance</b></td>
-            <td width="23%" valign="top" align="left"><b>Source</b></td>
-          </tr>
-          <xsl:if test="count(acronym)>0">
-            <xsl:apply-templates/>
-          </xsl:if>
-        </table>
-        <div id="acrofoot">Last Updated on <xsl:value-of select="//lastupdated"/><br />
-           By <xsl:value-of select="//authority"/></div>      
+      <div id="container">
+        <div id="nav">
+          <ul>
+            <li id="menuhead">Acronyms</li>
+            <li><img src="../images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
+          </ul>
+        </div> 
+        <div id="docbook">
+          <xsl:call-template name="mkLetterBar"/>
+          <table id="acrotable" border="0">
+            <tr>
+              <td width="23%" valign="top" align="left"><b>Acronyms</b></td>
+              <td width="54%" valign="top" align="left"><b>Meaning /<br />Significance</b></td>
+              <td width="23%" valign="top" align="left"><b>Source</b></td>
+            </tr>
+            <xsl:if test="count(acronym)>0">
+              <xsl:apply-templates/>
+            </xsl:if>
+          </table>
+          <div id="acrofoot">Last Updated on <xsl:value-of select="//lastupdated"/><br />
+             By <xsl:value-of select="//authority"/></div>      
+        </div>
       </div>
       <div id="footer">Copyright &#x00A9; NATO - OTAN 2004-2011 | <a href="../disclaimer.html">Disclaimer</a></div>
     </body>
