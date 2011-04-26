@@ -58,7 +58,7 @@
         <a href="{$prefix}acronyms/index.html">Acronyms</a> | <a href="{$prefix}member.html">Contact</a></span>
     </div>
 
-    <div id="bottomhead">NATO Interoperability Standards &amp; Profiles</div>
+    <div id="bottomhead"><span>NATO Interoperability Standards &amp; Profiles</span></div>
   </div>
 </xsl:template>
 
