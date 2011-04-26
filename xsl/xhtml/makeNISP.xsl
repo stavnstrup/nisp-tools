@@ -265,7 +265,6 @@ Description : This stylesheet is a customization of Norman Walsh
           <xsl:value-of select="$pdf.prefix"/>
           <xsl:text>-v</xsl:text>
           <xsl:value-of select="$docs/documents/versioninfo/package/@major"/>
-
 <!--
             <xsl:value-of select=
               "substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
@@ -290,7 +289,6 @@ Description : This stylesheet is a customization of Norman Walsh
                <xsl:text> - </xsl:text>
             </xsl:if>
             <xsl:value-of select="./titles/longtitle"/>
-
             <ul id="navSubMenu">
               <xsl:apply-templates select="$docroot//preface" mode="navElement"/>
               <xsl:apply-templates select="$docroot//chapter" mode="navElement"/>
@@ -299,7 +297,6 @@ Description : This stylesheet is a customization of Norman Walsh
               </xsl:if>
             </ul>
           </xsl:when>
-              
           <xsl:otherwise>
             <a>
               <xsl:attribute name="href">
@@ -331,7 +328,6 @@ Description : This stylesheet is a customization of Norman Walsh
   <xsl:variable name="uid">
     <xsl:value-of select="generate-id(.)"/>
   </xsl:variable>
-
   <li>
     <xsl:if test="name()='chapter'">
       <xsl:number count="chapter" format="1"/>
@@ -351,7 +347,6 @@ Description : This stylesheet is a customization of Norman Walsh
   <xsl:variable name="chunk-name">
     <xsl:apply-templates select="." mode="chunk-filename"/> 
   </xsl:variable>
-
   <a href="{$chunk-name}"><xsl:apply-templates 
      select="." mode="capitalize.title"/></a>
 </xsl:template>
