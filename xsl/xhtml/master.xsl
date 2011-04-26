@@ -8,10 +8,10 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
               intendet for the NC3 TA HTML "container" documents
               in src/master/.
 
-              Copyright (C) 2001,2006 Jens Stavnstrup/DDRE <js@ddre.dk>,
+              Copyright (C) 2001,2011 Jens Stavnstrup/DALO <stavnatrup@mil.dk>,
+              Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
-
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -97,69 +97,53 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
 
   <xsl:variable name="menu" select="/processing-instruction('menu')"/>
 
-
-  <xsl:choose>
-    <xsl:when test="$menu='contact'">
-      <div xmlns="http://www.w3.org/1999/xhtml" id="navHeader">Contacts</div>
-
-      <div xmlns="http://www.w3.org/1999/xhtml" id="navMenu">
-        <ul>
+  <div id="nav" xmlns="http://www.w3.org/1999/xhtml">
+    <ul>
+      <xsl:choose>
+        <xsl:when test="$menu='contact'">
+          <li id="menuhead">Contacts</li>
           <li><a href="userinfo.html">User information</a></li>
           <li><a href="introduction.html">Introduction</a></li>
           <li><a href="member.html">Becoming a member</a></li>
-          <li><img src="images/cgey/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
-        </ul>
-      </div>
-    </xsl:when>
+        </xsl:when>
 
-    <xsl:when test="$menu='disclaimer'">
-      <div xmlns="http://www.w3.org/1999/xhtml" id="navHeader">Disclaimer</div>
+        <xsl:when test="$menu='disclaimer'">
+          <li id="menuhead">Disclaimer</li>
+        </xsl:when>
 
-      <div xmlns="http://www.w3.org/1999/xhtml" id="navMenu">
-        <ul>
-          <li><img src="images/cgey/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
-        </ul>
-      </div>
-    </xsl:when>
+        <xsl:otherwise>
+          <li id="menuhead">NISP Volumes</li>
+       
+          <xsl:variable name="docs" select="document('../../src/documents.xml')"/>
+          <xsl:variable name="bookid" select="/book/@id"/>
 
-    <xsl:otherwise>
+          <li><a href="about.html">About the volumes</a></li>
 
-      <div xmlns="http://www.w3.org/1999/xhtml" id="navHeader">NISP Volumes</div>
-      <div  xmlns="http://www.w3.org/1999/xhtml" id="navMenu">
-
-    <xsl:variable name="docs" select="document('../../src/documents.xml')"/>
-    <xsl:variable name="bookid" select="/book/@id"/>
-    <ul>
-      <li><a href="about.html">About the volumes</a></li>
-
-      <xsl:for-each select="$docs//docinfo">
-        <li>
-          <a>
-            <xsl:attribute name="href">
-              <xsl:text></xsl:text>
-              <xsl:value-of select="../@dir"/>
-              <xsl:text>/</xsl:text>
-              <xsl:value-of select="./targets/target[@type='html']"/>
-            </xsl:attribute>
-            <xsl:attribute name="title">
-              <xsl:value-of select="./titles/longtitle"/>
-            </xsl:attribute>
-            <xsl:value-of select="./titles/short"/>
-            <xsl:if test="not(./titles/short='')">
-              <xsl:text> - </xsl:text>
-            </xsl:if>
-            <xsl:value-of select="./titles/longtitle"/>
-          </a>
-        </li>
-      </xsl:for-each>
-      <li><img src="images/cgey/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
+          <xsl:for-each select="$docs//docinfo">
+            <li>
+              <a>
+                <xsl:attribute name="href">
+                  <xsl:text></xsl:text>
+                  <xsl:value-of select="../@dir"/>
+                  <xsl:text>/</xsl:text>
+                  <xsl:value-of select="./targets/target[@type='html']"/>
+                </xsl:attribute>
+                <xsl:attribute name="title">
+                  <xsl:value-of select="./titles/longtitle"/>
+                </xsl:attribute>
+                <xsl:value-of select="./titles/short"/>
+                <xsl:if test="not(./titles/short='')">
+                  <xsl:text> - </xsl:text>
+                </xsl:if>
+                <xsl:value-of select="./titles/longtitle"/>
+              </a>
+            </li>
+          </xsl:for-each>
+        </xsl:otherwise>
+      </xsl:choose>
+      <li><img src="images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
     </ul>
   </div>
-
-
-
-    </xsl:otherwise>
-  </xsl:choose>
 </xsl:template>
 
 
@@ -177,19 +161,21 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title><xsl:value-of select="./chapterinfo/title"/></title>
-    <link rel="stylesheet" href="style/nc3ta.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/nisp.css" type="text/css" media="all" />
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <meta http-equiv="Content-Language" content="en-uk" />
     <meta name="MSSmartTagsPreventParsing" content="true" />
     <meta name="author" content="NATO Open Systems Working Group (NOSWG)" /> 
-    <style type="text/css">
+   
+<!--
       #tophead { background-image: url(images/cgey/logo_NATO-top.gif); }
       #bottomhead { background-image: url(images/cgey/logo_NATO-bottom.gif); }
       #menubar { background-image: url(images/cgey/menu_strook.gif); }
       #taFooter { background-image: url(images/cgey/credit_strook.gif); }
     </style>
+-->
   </head>
-  <body class="master">
+  <body>
     <xsl:call-template name="create-header">
       <xsl:with-param name="prefix" select="''"/>
     </xsl:call-template>
@@ -198,32 +184,15 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
       <xsl:with-param name="prefix" select="''"/>
     </xsl:call-template>
 
-
-    <div id="mainbody" class="yui3-g">
-      <div id="nav" class="yui3-u">
-        <xsl:call-template name="create-navbar"/>
-      </div>
-      <div id="main" class="yui3-u">
-        <div id="docbook">
-          <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
-          <xsl:apply-templates/>
-        </div>
-      </div>
+    <div id="nav">
+      <xsl:call-template name="create-navbar"/>
     </div>
-<!--
-      <table id="mainbody" cellspacing="0" cellpadding="0"><tr><td class="wNavigationBox">
-        <div id="taNavigationBox" class="left mainmenu wNavigationBox">
-          <xsl:call-template name="create-navbar"/>
-        </div>
-      </td><td>
-        <div id="taContents">
-          <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
-          <xsl:apply-templates/>
-        </div>
-      </td>
-    </tr></table>
--->
-    <div id="taFooter">Copyright &#x00A9; NATO - OTAN 1998-2010 | <a href="disclaimer.html">Disclaimer</a></div>
+    <div id="docbook">
+      <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
+      <xsl:apply-templates/>
+    </div>
+
+    <div id="footer">Copyright &#x00A9; NATO - OTAN 1998-2011 | <a href="disclaimer.html">Disclaimer</a></div>
 
   </body>
   </html>

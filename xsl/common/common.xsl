@@ -52,22 +52,13 @@
 <xsl:template name="create-header">
   <xsl:param name="prefix" select="'../'"/>
 
-  <div xmlns="http://www.w3.org/1999/xhtml" id="taHeader">
+  <div xmlns="http://www.w3.org/1999/xhtml" id="header">
     <div id="tophead">
-      <span id="quickMenu"><a href="{$prefix}index.html">Home</a> | <a class="noPortal" href="#">Sitemap</a> | 
-        <a href="{$prefix}acronyms/index.html">ABC</a> | <a href="{$prefix}member.html">Contact</a></span>
+      <span id="quickMenu"><a href="{$prefix}index.html">Home</a> | 
+        <a href="{$prefix}acronyms/index.html">Acronyms</a> | <a href="{$prefix}member.html">Contact</a></span>
     </div>
 
-    <div id="bottomhead">
-<!--
-      <div id="searchBox">
-        <form name="form1" method="post" action=""> 
-          <input name="textfield" type="text" class="invoerVeld"/>
-          <img src="{$prefix}images/cgey/button_search.gif" alt="Search Button" width="48" height="16"/>
-        </form> 
-      </div>
--->
-    </div>
+    <div id="bottomhead"><span></span></div>
   </div>
 </xsl:template>
 
@@ -76,10 +67,9 @@
   <xsl:param name="prefix" select="'../'"/>
 
   <div xmlns="http://www.w3.org/1999/xhtml" id="menubar">
-    <a class="noPortal" href="#">Facts</a>
-    <a href="{$prefix}index.html">NISP Volumes</a>
-    <a class="noPortal" href="#">Forum</a>
-    <a class="noPortal" href="#">NOSWG</a>
+    <a href="{$prefix}index.html">About NISP</a>
+    <a  href="{$prefix}userinfo.html">User Information</a>
+    <a href="{$prefix}introduction.html">Introduction</a>
   </div>
 </xsl:template>  
 

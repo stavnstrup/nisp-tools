@@ -12,7 +12,7 @@ Description : This stylesheet is a customization of Norman Walsh
               specification: "Extensible Stylesheet Language" version
               1.0.  (see: http://www.w3c.org/REC/2001/XSL.html).
 
-              Copyright (C) 2001,2010 Jens Stavnstrup/DALO <stavnatrup@mil.dk>,
+              Copyright (C) 2001,2011 Jens Stavnstrup/DALO <stavnatrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
@@ -72,7 +72,7 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <!-- HTML  -->
 
-<xsl:param name="html.stylesheet">../style/nc3ta.css</xsl:param>
+<xsl:param name="html.stylesheet">../css/nisp.css</xsl:param>
 
 <xsl:param name="css.decoration" select="0"/>
 	
@@ -183,14 +183,16 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <!-- Titlepage relates templates -->
 
+
 <xsl:template name="book.titlepage.separator"/>
+
+
 
 <xsl:template match="corpauthor" mode="titlepage.mode">
   <div class="{name(.)}">Version <xsl:apply-templates select="..//revision[1]/revnumber" 
        mode="titlepage.mode"/> [<xsl:apply-templates 
        select="..//revision[1]/date" 
-       mode="titlepage.mode"/>] - <xsl:apply-templates 
-       mode="titlepage.mode"/>
+       mode="titlepage.mode"/>] - <xsl:value-of select="."/>
   </div>
 </xsl:template>
 
@@ -206,8 +208,8 @@ Description : This stylesheet is a customization of Norman Walsh
   </div>
 </xsl:template>
 
+<xsl:template match="revhistory"  mode="book.titlepage.recto.auto.mode"/>
 
-<xsl:template match="revhistory" mode="titlepage.mode"/>
 
 <!-- ==================================================================== -->
 
@@ -249,77 +251,78 @@ Description : This stylesheet is a customization of Norman Walsh
 
   <xsl:variable name="docroot" select="/"/>
 
-  <div id="navMenu">
-    <xsl:variable name="docs" select="document('../../src/documents.xml')"/>
-    <xsl:variable name="bookid" select="/book/@id"/>
-    <ul>
-      <li><a href="../about.html">About the volumes</a></li>
-      <li class="pdf"><span class="h">Download </span>
-        <a>
-          <xsl:attribute name="href">
-            <xsl:text>../pdf/</xsl:text>
-            <xsl:value-of select="$pdf.prefix"/>
-            <xsl:text>-v</xsl:text>
-            <xsl:value-of select="$docs/documents/versioninfo/package/@major"/>
+  <xsl:variable name="docs" select="document('../../src/documents.xml')"/>
+  <xsl:variable name="bookid" select="/book/@id"/>
+  <ul>
+    <li id="menuhead">NISP Volumes</li>
+<!--
+    <li><a href="../about.html">About the volumes</a></li>
+-->
+    <li class="pdf"><span class="h">Download </span>
+      <a>
+        <xsl:attribute name="href">
+          <xsl:text>../pdf/</xsl:text>
+          <xsl:value-of select="$pdf.prefix"/>
+          <xsl:text>-v</xsl:text>
+          <xsl:value-of select="$docs/documents/versioninfo/package/@major"/>
 
 <!--
             <xsl:value-of select=
               "substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
 -->
-           <xsl:if test="$nisp.lifecycle.stage != 'draft'">
-             <xsl:text>-</xsl:text>
-             <xsl:value-of select="$nisp.lifecycle.stage"/>
-            </xsl:if>
-            <xsl:text>.pdf</xsl:text>
-          </xsl:attribute>
-          <xsl:text>PDF of </xsl:text><xsl:value-of 
-             select="$db//docinfo[@id=$docid]/titles/short"/>
-        </a>
-      </li>
+         <xsl:if test="$nisp.lifecycle.stage != 'draft'">
+           <xsl:text>-</xsl:text>
+           <xsl:value-of select="$nisp.lifecycle.stage"/>
+         </xsl:if>
+         <xsl:text>.pdf</xsl:text>
+        </xsl:attribute>
+        <xsl:text>PDF of </xsl:text><xsl:value-of 
+           select="$db//docinfo[@id=$docid]/titles/short"/>
+      </a>
+    </li>
 
-      <xsl:for-each select="$docs//docinfo">
-        <li>
-          <xsl:choose>
-            <xsl:when test="./@id=$bookid">
+    <xsl:for-each select="$docs//docinfo">
+      <li>
+        <xsl:choose>
+          <xsl:when test="./@id=$bookid">
+            <xsl:value-of select="./titles/short"/>
+            <xsl:if test="not(./titles/short='')">
+               <xsl:text> - </xsl:text>
+            </xsl:if>
+            <xsl:value-of select="./titles/longtitle"/>
+
+            <ul id="navSubMenu">
+              <xsl:apply-templates select="$docroot//preface" mode="navElement"/>
+              <xsl:apply-templates select="$docroot//chapter" mode="navElement"/>
+              <xsl:if test="count($docroot//appendix)>0">
+                <xsl:apply-templates select="$docroot//appendix" mode="navElement"/>
+              </xsl:if>
+            </ul>
+          </xsl:when>
+              
+          <xsl:otherwise>
+            <a>
+              <xsl:attribute name="href">
+                <xsl:text>../</xsl:text>
+                <xsl:value-of select="../@dir"/>
+                <xsl:text>/</xsl:text>
+                <xsl:value-of select="./targets/target[@type='html']"/>
+              </xsl:attribute>
+              <xsl:attribute name="title">
+                <xsl:value-of select="./titles/longtitle"/>
+              </xsl:attribute>
               <xsl:value-of select="./titles/short"/>
               <xsl:if test="not(./titles/short='')">
-                 <xsl:text> - </xsl:text>
+                <xsl:text> - </xsl:text>
               </xsl:if>
               <xsl:value-of select="./titles/longtitle"/>
-
-              <ul id="navSubMenu">
-                <xsl:apply-templates select="$docroot//preface" mode="navElement"/>
-                <xsl:apply-templates select="$docroot//chapter" mode="navElement"/>
-                <xsl:if test="count($docroot//appendix)>0">
-                <xsl:apply-templates select="$docroot//appendix" mode="navElement"/>
-                </xsl:if>
-              </ul>
-            </xsl:when>
-              
-            <xsl:otherwise>
-              <a>
-                <xsl:attribute name="href">
-                  <xsl:text>../</xsl:text>
-                  <xsl:value-of select="../@dir"/>
-                  <xsl:text>/</xsl:text>
-                  <xsl:value-of select="./targets/target[@type='html']"/>
-                </xsl:attribute>
-                <xsl:attribute name="title">
-                  <xsl:value-of select="./titles/longtitle"/>
-                </xsl:attribute>
-                <xsl:value-of select="./titles/short"/>
-                <xsl:if test="not(./titles/short='')">
-                  <xsl:text> - </xsl:text>
-                </xsl:if>
-                <xsl:value-of select="./titles/longtitle"/>
-              </a>
-            </xsl:otherwise>
-          </xsl:choose>
-        </li>
-      </xsl:for-each>
-      <li><img src="../images/cgey/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
-    </ul>
-  </div>
+            </a>
+          </xsl:otherwise>
+        </xsl:choose>
+      </li>
+    </xsl:for-each>
+    <li><img src="../images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
+  </ul>
 </xsl:template>
 
 
@@ -430,293 +433,36 @@ Description : This stylesheet is a customization of Norman Walsh
 
       <xsl:call-template name="create-header"/>
       <xsl:call-template name="create-menubar"/>
-
-      <div class="yui3-g" id="mainbody">
-        <div class="yui3-u" id="nav">
-          <div id="navHeader">NISP Volumes</div>
-          <xsl:call-template name="create-navbar"/>
-        </div>
-        <div class="yui3-u" id="main">
-          <div id="docbook">
-          <xsl:call-template name="user.header.navigation"/>
-
-          <xsl:call-template name="header.navigation">
-	    <xsl:with-param name="prev" select="$prev"/>
-	    <xsl:with-param name="next" select="$next"/>
-	    <xsl:with-param name="nav.context" select="$nav.context"/>
-          </xsl:call-template>
-
-          <xsl:call-template name="user.header.content"/>
-
-          <xsl:copy-of select="$content"/>
-
-          <xsl:call-template name="user.footer.content"/>
-
-          <xsl:call-template name="footer.navigation">
-	    <xsl:with-param name="prev" select="$prev"/>
-	    <xsl:with-param name="next" select="$next"/>
-	    <xsl:with-param name="nav.context" select="$nav.context"/>
-          </xsl:call-template>
-          </div>
-
-          <xsl:call-template name="user.footer.navigation"/>
-        </div>
+      <div id="nav">
+        <xsl:call-template name="create-navbar"/>
       </div>
-<!--
-      <table id="mainbody" cellspacing="0" cellpadding="0"><tr><td class="wNavigationBox">
-        <div id="taNavigationBox" class="left mainmenu wNavigationBox">
-          <div id="navHeader">NISP Volumes</div>
-          <xsl:call-template name="create-navbar"/>
-        </div>
-      </td><td>
-        <div id="taContents">
-          <xsl:call-template name="user.header.navigation"/>
+      <div id="docbook">
+        <xsl:call-template name="user.header.navigation"/>
 
-          <xsl:call-template name="header.navigation">
-	    <xsl:with-param name="prev" select="$prev"/>
-	    <xsl:with-param name="next" select="$next"/>
-	    <xsl:with-param name="nav.context" select="$nav.context"/>
-          </xsl:call-template>
+        <xsl:call-template name="header.navigation">
+          <xsl:with-param name="prev" select="$prev"/>
+	  <xsl:with-param name="next" select="$next"/>
+	  <xsl:with-param name="nav.context" select="$nav.context"/>
+        </xsl:call-template>
 
-          <xsl:call-template name="user.header.content"/>
+        <xsl:call-template name="user.header.content"/>
 
-          <xsl:copy-of select="$content"/>
+        <xsl:copy-of select="$content"/>
 
-          <xsl:call-template name="user.footer.content"/>
+        <xsl:call-template name="user.footer.content"/>
 
-          <xsl:call-template name="footer.navigation">
-	    <xsl:with-param name="prev" select="$prev"/>
-	    <xsl:with-param name="next" select="$next"/>
-	    <xsl:with-param name="nav.context" select="$nav.context"/>
-          </xsl:call-template>
-
-          <xsl:call-template name="user.footer.navigation"/>
-        </div>
-      </td></tr></table>
--->
-
-      <div id="taFooter">Copyright &#x00A9; NATO - OTAN 1998-2010 | <a href="../disclaimer.html">Disclaimer</a></div>
+        <xsl:call-template name="footer.navigation">
+	  <xsl:with-param name="prev" select="$prev"/>
+	  <xsl:with-param name="next" select="$next"/>
+	  <xsl:with-param name="nav.context" select="$nav.context"/>
+        </xsl:call-template>
+        <xsl:call-template name="user.footer.navigation"/>
+      </div>
+      <div id="footer">Copyright &#x00A9; NATO - OTAN 1998-2011 | <a href="../disclaimer.html">Disclaimer</a></div>
     </body>
   </html>
 </xsl:template>
 
-<!-- ==================================================================== -->
-
-<!-- ....................................................................
-
-     Copied from: xhtml/component.xsl, DocBook XSL 1.75.2
-     Rationale: Necessary to give this template the right priority
-
-     .................................................................... -->
-
-
-<xsl:template match="dedication/title|dedication/info/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="component.title">
-    <xsl:with-param name="node" select="ancestor::dedication[1]"/>
-  </xsl:call-template>
-</xsl:template>
-
-<xsl:template match="acknowledgements/title|acknowledgements/info/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="component.title">
-    <xsl:with-param name="node" select="ancestor::acknowledgements[1]"/>
-  </xsl:call-template>
-</xsl:template>
-
-<xsl:template match="preface/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="component.title">
-    <xsl:with-param name="node" select="ancestor::preface[1]"/>
-  </xsl:call-template>
-</xsl:template>
-
-<xsl:template match="appendix/title|appendix/appendixinfo/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="component.title">
-    <xsl:with-param name="node" select="ancestor::appendix[1]"/>
-  </xsl:call-template>
-</xsl:template>
-
-<xsl:template match="article/title|article/articleinfo/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="component.title">
-    <xsl:with-param name="node" select="ancestor::article[1]"/>
-  </xsl:call-template>
-</xsl:template>
-
-<xsl:template match="chapter/title|chapter/chapterinfo/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="component.title">
-    <xsl:with-param name="node" select="ancestor::chapter[1]"/>
-  </xsl:call-template>
-</xsl:template>
-
-<!-- ==================================================================== -->
-
-<!-- ....................................................................
-
-     Copied from: xhtml/sections.xsl, DocBook XSL 1.75.2
-     Rationale: Necessary to give these templates the right priority
-
-     .................................................................... -->
-
-<xsl:template match="simplesect/title|simplesect/info/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="section.title"/>
-</xsl:template>
-
-<xsl:template match="section/title |section/info/title |sectioninfo/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="section.title"/>
-</xsl:template>
-
-<xsl:template match="sect1/title |sect1/info/title |sect1info/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="section.title"/>
-</xsl:template>
-
-<xsl:template match="sect2/title |sect2/info/title |sect2info/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="section.title"/>
-</xsl:template>
-
-<xsl:template match="sect3/title |sect3/info/title |sect3info/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="section.title"/>
-</xsl:template>
-
-<xsl:template match="sect4/title |sect4/info/title |sect4info/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="section.title"/>
-</xsl:template>
-
-<xsl:template match="sect5/title |sect5/info/title |sect5info/title" mode="titlepage.mode" priority="2">
-  <xsl:call-template name="section.title"/>
-</xsl:template>
-
-<!-- ==================================================================== -->
-
-<!-- ....................................................................
-
-     Derived from: xhtml/html.xsl, DocBook XSL 1.75.2
-     Effected lines: 169
-     Descr.: Line <a id="{$id}"/> changed into <a id="{$id}" style="display:none">&#160;</a>
-     Rationale: Ensure that no single <a>-elements like <a name="xxx"/> are generated,
-                but always elements <a>-elements with opening and closing tags <a name="xxx"></a>.
-                This solves the problem that <a>-elements are misinterpreted by the CSS-interpretors
-                of several webbrowsers.
-
-     .................................................................... -->
-
-<xsl:template name="anchor">
-  <xsl:param name="node" select="."/>
-  <xsl:param name="conditional" select="1"/>
-  <xsl:variable name="id">
-    <xsl:call-template name="object.id">
-      <xsl:with-param name="object" select="$node"/>
-    </xsl:call-template>
-  </xsl:variable>
-  <xslo:if xmlns:xslo="http://www.w3.org/1999/XSL/Transform" xmlns:saxon="http://icl.com/saxon" test="not($node[parent::blockquote])"><xsl:if test="$conditional = 0 or $node/@id or $node/@xml:id">
-    <a id="{$id}" style="display:none">&#160;</a>
-  </xsl:if></xslo:if>
-</xsl:template>
-
-<!-- ==================================================================== -->
-
-<!-- ....................................................................
-
-     Derived from: xhtml/titlepage.xsl, DocBook XSL 1.75.2
-     Effected lines: 576 and 954
-     Descr.: Line <a id="{$id}"/> changed into <a id="{$id}" style="display:none">&#160;</a>
-     Rationale: Ensure that no single <a>-elements like <a name="xxx"/> are generated,
-                but always elements <a>-elements with opening and closing tags <a name="xxx"></a>.
-                This solves the problem that <a>-elements are misinterpreted by the CSS-interpretors
-                of several webbrowsers.
-
-     .................................................................... -->
-
-<xsl:template match="legalnotice" mode="titlepage.mode">
-  <xsl:variable name="id"><xsl:call-template name="object.id"/></xsl:variable>
-
-  <xsl:choose>
-    <xsl:when test="$generate.legalnotice.link != 0">
-      
-      <!-- Compute name of legalnotice file -->
-      <xsl:variable name="file">
-	<xsl:call-template name="ln.or.rh.filename"/>
-      </xsl:variable>
-
-      <xsl:variable name="filename">
-        <xsl:call-template name="make-relative-filename">
-          <xsl:with-param name="base.dir" select="$base.dir"/>
-	  <xsl:with-param name="base.name" select="$file"/>
-        </xsl:call-template>
-      </xsl:variable>
-
-      <xsl:variable name="title">
-        <xsl:apply-templates select="." mode="title.markup"/>
-      </xsl:variable>
-
-      <a href="{$file}">
-        <xsl:copy-of select="$title"/>
-      </a>
-
-      <xsl:call-template name="write.chunk">
-        <xsl:with-param name="filename" select="$filename"/>
-        <xsl:with-param name="quiet" select="$chunk.quietly"/>
-        <xsl:with-param name="content">
-        <xsl:call-template name="user.preroot"/>
-          <html>
-            <head>
-              <xsl:call-template name="system.head.content"/>
-              <xsl:call-template name="head.content"/>
-              <xsl:call-template name="user.head.content"/>
-            </head>
-            <body>
-              <xsl:call-template name="body.attributes"/>
-              <div>
-                <xsl:apply-templates select="." mode="common.html.attributes"/>
-                <xsl:apply-templates mode="titlepage.mode"/>
-              </div>
-            </body>
-          </html>
-          <xsl:value-of select="$chunk.append"/>
-        </xsl:with-param>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:otherwise>
-      <div>
-        <xsl:apply-templates select="." mode="common.html.attributes"/>
-          <a id="{$id}" style="display:none">&#160;</a>
-        <xsl:apply-templates mode="titlepage.mode"/>
-      </div>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-<xsl:template match="title" mode="titlepage.mode">
-  <xsl:variable name="id">
-    <xsl:choose>
-      <!-- if title is in an *info wrapper, get the grandparent -->
-      <xsl:when test="contains(local-name(..), 'info')">
-        <xsl:call-template name="object.id">
-          <xsl:with-param name="object" select="../.."/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="object.id">
-          <xsl:with-param name="object" select=".."/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <h1>
-    <xsl:apply-templates select="." mode="common.html.attributes"/>
-    <xsl:if test="$generate.id.attributes = 0">
-      <a id="{$id}" style="display:none">&#160;</a>
-    </xsl:if>
-    <xsl:choose>
-      <xsl:when test="$show.revisionflag != 0 and @revisionflag">
-	<span class="{@revisionflag}">
-	  <xsl:apply-templates mode="titlepage.mode"/>
-	</span>
-      </xsl:when>
-      <xsl:otherwise>
-	<xsl:apply-templates mode="titlepage.mode"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </h1>
-</xsl:template>
 
 <!-- ==================================================================== -->
 

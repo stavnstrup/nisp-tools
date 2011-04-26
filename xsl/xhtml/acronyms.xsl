@@ -31,8 +31,7 @@
 
 
 <xsl:template name="mkLetterBar">
-
-<div xmlns="http://www.w3.org/1999/xhtml" class="letterBar">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="letterBar">
     <a href="index.html">A</a> 
     <a href="acronyms-B.html">B</a>
     <a href="acronyms-C.html">C</a>
@@ -64,8 +63,6 @@
 
 <!-- ==================================================================== -->
 
-
-
 <xsl:template match="acrogroup">
   <xsl:variable name="letter"><xsl:value-of select="@tag"/></xsl:variable>
 
@@ -87,55 +84,33 @@
       <meta http-equiv="Content-Language" content="en-uk" />
       <meta name="MSSmartTagsPreventParsing" content="true" />
       <meta name="author" content="NATO Open Systems Working Group (NOSWG)" /> 
-      <link rel="stylesheet" href="../style/nc3ta.css" type="text/css" media="all" />
+      <link rel="stylesheet" href="../css/nisp.css" type="text/css" media="all" />
     </head>
     <body>
-
       <xsl:call-template name="create-header"/>
       <xsl:call-template name="create-menubar"/>
-
-      <table id="mainbody" cellspacing="0" cellpadding="0">
-        <tr><td class="wNavigationBox">
-          <div id="taNavigationBox" class="left mainmenu wNavigationBox">
-            <div id="navHeader">Acronyms</div>
-            <div id="navMenu">
-              <ul>
-                <li><img src="../images/cgey/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
-              </ul>
-            </div> 
-          </div>
-        </td><td>
-          <div id="taContents">
-            <div id="acrotop">
-              <xsl:call-template name="mkLetterBar"/>
-              <table class="acrotable" border="0" width="613px">
-              <tr>
-                <td width="23%" valign="top" align="left"><b>Acronyms</b></td>
-                <td width="54%" valign="top" align="left"><b>Meaning /<br />Significance</b></td>
-                <td width="23%" valign="top" align="left"><b>Source</b></td>
-              </tr>             
-             </table>
-           </div>
-           <xsl:choose>
-             <xsl:when test="count(acronym)>0">
-               <table class="acrotable" border="0">
-                 <colgroup>
-                   <col width="23%" valign="top" class="acname" align="left" />
-                   <col width="54%" valign="top" class="meaning" align="left" />
-                   <col width="23%" valign="top" class="source" align="left" />
-                 </colgroup>
-                 <xsl:apply-templates/>
-               </table>
-               <div id="acrofoot">Last Updated on <xsl:value-of select="//lastupdated"/><br />
-                    By <xsl:value-of select="//authority"/></div>
-             </xsl:when>
-             <xsl:otherwise/>
-           </xsl:choose>
-         </div>
-        </td>
-        </tr>
-      </table>
-      <div id="taFooter">Copyright &#x00A9; NATO - OTAN 2004 | <a href="../disclaimer.html">Disclaimer</a></div>
+      <div id="nav">
+        <ul>
+          <li id="menuhead">Acronyms</li>
+          <li><img src="../images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
+        </ul>
+      </div> 
+      <div id="docbook">
+        <xsl:call-template name="mkLetterBar"/>
+        <table id="acrotable" border="0">
+          <tr>
+            <td width="23%" valign="top" align="left"><b>Acronyms</b></td>
+            <td width="54%" valign="top" align="left"><b>Meaning /<br />Significance</b></td>
+            <td width="23%" valign="top" align="left"><b>Source</b></td>
+          </tr>
+          <xsl:if test="count(acronym)>0">
+            <xsl:apply-templates/>
+          </xsl:if>
+        </table>
+        <div id="acrofoot">Last Updated on <xsl:value-of select="//lastupdated"/><br />
+           By <xsl:value-of select="//authority"/></div>      
+      </div>
+      <div id="footer">Copyright &#x00A9; NATO - OTAN 2004-2011 | <a href="../disclaimer.html">Disclaimer</a></div>
     </body>
     </html>
   </xsl:document>
