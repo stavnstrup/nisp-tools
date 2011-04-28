@@ -369,6 +369,7 @@ Description : This stylesheet is a customization of Norman Walsh
   <meta name="MSSmartTagsPreventParsing" content="true" />
   <meta name="author" content="NATO Open Systems Working Group (NOSWG)" /> 
   <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=8" />
 </xsl:template>
 
 
