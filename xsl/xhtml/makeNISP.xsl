@@ -110,6 +110,8 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:param name="chunker.output.indent" select="'yes'"/>
 
+<xsl:param name="chunker.output.omit-xml-declaration">yes</xsl:param>
+
 <xsl:param name="html.extra.head.links" select="1"/>
 
 <xsl:param name="chunk.section.depth" select="1"/>

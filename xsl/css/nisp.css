@@ -8,6 +8,72 @@ body {
     font-family: verdana, sans-serif;
 }
 
+/* General */
+
+h1, h2, h3, h4, h5 {
+    color: #ec5800;
+}
+
+/*
+h3, h4, h5 {
+    color: #666;
+}
+*/
+
+h1 {
+    font-size: 1.4em;
+}
+
+
+
+h1, h2, h3 {
+    font-weight: bold;
+    margin-top: 2ex;
+}
+
+
+h2 {
+    font-size: 1.2em;
+    margin: 1.2em 0em;
+}
+
+
+h3 {
+    font-size: 1.1em;
+}
+
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+
+th, td {
+    padding: 2px 3px;
+}
+
+.figure, .figure p.title {
+    align: center;
+    text-align: center;
+}
+
+.table p.title {
+    text-align: center;
+}
+
+.classification {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+div.informaltable table,
+div.table-contents table {
+    font-size: 76%;
+}
+
+
 
 /* Header */
 
@@ -83,16 +149,18 @@ body {
 
 
 div#container {
+    clear: both;
     width: 960px;
     margin: 0 auto;
-    overflow: auto;
+    border: 0;
+    overflow: visible;
     background-image: url(../images/separator.png);
     background-repeat: repeat-y;
 }
 
 /* Navigation Bar */
 
-#nav {   
+#nav {
     float: left;
     width: 220px;
     font-size: 85%;
@@ -153,14 +221,13 @@ li#menuhead {
 #docbook {
     float: right;
     width: 695px;
-    padding: 0 15px;
-    padding-left: 30px;
-    border-left: 0px solid black;
-    overflow: clip;
+    margin: 0;
+    padding: 0 15px 0 30px;
 }
 
 div.navheader th,
 div.navheader td,
+div.navfooter th,
 div.navfooter td {
     border : 0;
 }
@@ -176,8 +243,8 @@ div.navfooter table {
 
 #footer {
     clear: both;
-    height: 28px;
-    padding: 9px 5px 0 0;
+    height: 41px;
+    padding: 8px 5px 0 0;
     text-align: right;
     background-image: url(../images/credit_strook.gif); 
     background-repeat: repeat-x;
@@ -188,6 +255,7 @@ div.navfooter table {
 
 #footer a:link, #footer a:visited  {
     color: white;
+    text-decoration: none;
 }
 
 .clasification {
@@ -215,71 +283,6 @@ div.navfooter + div.classification  {
     padding-top: 2ex;
 }
 
-
-/* General */
-
-h1, h2, h3, h4, h5 {
-    color: #ec5800;
-}
-
-/*
-h3, h4, h5 {
-    color: #666;
-}
-*/
-
-h1 {
-    font-size: 1.4em;
-}
-
-
-
-h1, h2, h3 {
-    font-weight: bold;
-    margin-top: 2ex;
-}
-
-
-h2 {
-    font-size: 1.2em;
-    margin: 1.2em 0em;
-}
-
-
-h3 {
-    font-size: 1.1em;
-}
-
-
-table {
-    margin: 0 auto;
-    border-collapse: collapse;
-}
-
-
-th, td {
-    padding: 2px 3px;
-}
-
-.figure, .figure p.title {
-    align: center;
-    text-align: center;
-}
-
-.table p.title {
-    text-align: center;
-}
-
-.classification {
-    text-align: center;
-    font-weight: bold;
-}
-
-
-div.informaltable table,
-div.table-contents table {
-    font-size: 76%;
-}
 
 
 /* Acronyms */
