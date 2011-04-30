@@ -78,6 +78,8 @@ Description : This stylesheet is a customization of Norman Walsh
 	
 <xsl:param name="spacing.paras" select="'1'"/>
 
+<xsl:param name="generate.id.attributes" select="1"></xsl:param>
+
 
 <!-- Linking -->
 
@@ -105,6 +107,8 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:param name="chunker.output.doctype-system" 
            select="'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'"/>
+
+<xsl:param name="chunker.output.method">saxon:xhtml</xsl:param>
 
 <xsl:param name="chunker.output.encoding" select="'iso-8859-1'"/>
 
