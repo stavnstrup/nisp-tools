@@ -3,6 +3,14 @@
                 version='1.1'
                 exclude-result-prefixes="#default">
 
+<!--
+
+Make dynamic targets.
+
+$Id $
+
+-->
+
 <xsl:import href="common/common.xsl"/>
 
 <xsl:output method="xml" indent="yes"/>

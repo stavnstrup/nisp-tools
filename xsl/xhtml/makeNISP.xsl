@@ -4,8 +4,6 @@
 
 Name        : makeNISP.xsl
 
-$Id$
-
 Description : This stylesheet is a customization of Norman Walsh
               DocBook XSL/XHTML stylesheets and is used to create a
               XHTML version of the NATO Interoperability Standards and
@@ -18,6 +16,9 @@ Description : This stylesheet is a customization of Norman Walsh
               Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
+
+$Id$
+
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

@@ -3,8 +3,6 @@
 
 Name        : makeNISP.xsl
 
-$Id$
-
 Description : This stylesheet is a customization of Norman Walsh DocBook
               XSL-FO stylesheets  and is used to create a XSL-FO version of 
               the NATO Interoperability Standards and Profiles (NISP).
@@ -25,6 +23,10 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
               Danish Defence Research Establishment (DDRE), and 
               Danish Acquisition and Logistics Organisation and 
               NATO Command, Control and Consultation Organisation.(NC3O)
+
+
+$Id$
+
 -->
 
 

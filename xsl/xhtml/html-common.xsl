@@ -5,6 +5,8 @@ intended for the one-page HTML version.
 
 Copyright (c) 2001, 2006 Jens Stavnstrup/DDRE <js@ddre.dk>
 
+$Id $
+
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
