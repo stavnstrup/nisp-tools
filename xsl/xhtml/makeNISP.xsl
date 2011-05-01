@@ -4,6 +4,8 @@
 
 Name        : makeNISP.xsl
 
+$Id$
+
 Description : This stylesheet is a customization of Norman Walsh
               DocBook XSL/XHTML stylesheets and is used to create a
               XHTML version of the NATO Interoperability Standards and
