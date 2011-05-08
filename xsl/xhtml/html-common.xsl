@@ -3,7 +3,7 @@
 This stylesheet is created for the NC3 Technical Architecture, and contains
 intended for the one-page HTML version.
 
-Copyright (c) 2001, 2006 Jens Stavnstrup/DDRE <js@ddre.dk>
+Copyright (c) 2001, 2011 Jens Stavnstrup/DDRE <js@ddre.dk>
 
 $Id $
 
