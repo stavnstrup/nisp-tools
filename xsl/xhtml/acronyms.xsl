@@ -3,16 +3,22 @@
                 version='1.1'
                 exclude-result-prefixes="#default">
 
+<!-- 
+
+Name        : acronyms.xsl
+
+Description : This stylesheet is created for the NATO Interoperability
+              Standards and profilesTechnical Architecture, and is
+              intended for the creation of the acronyms pages.
+
+              Copyright (C) 2001,2011 Jens Stavnstrup/DALO <stavnatrup@mil.dk>,
+              Danish Defence Acquisition and Logistic Organisation (DALO),
+              Danish Defence Research Establishment (DDRE) and
+              NATO Command, Control and Consultation Organisation.(NC3O)
+
 $Id $
 
-<!-- ********************************************************************
-
-     This stylesheet is created for the NC3 Technical Architecture, and is
-     intended for the creation of the acronyms pages.
-
-     Copyright (C) 2001, 2006 Jens Stavnstrup/DDRE <js@ddre.dk>
-
-     ******************************************************************** -->
+-->
 
 <!-- ==================================================================== -->
 

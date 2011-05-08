@@ -152,6 +152,27 @@ $Id$
 <!-- Customized Docbook templates                                         -->
 <!-- ==================================================================== -->
 
+
+<!-- Get the version number from the first revision element -->
+
+<xsl:variable name="version.major" select="substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
+<xsl:variable name="version.minor" select="substring-after(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
+
+<!-- AdatP-34 edition number.
+     E.g.  NISP 4.0 will be ADatP-34 edition D, NISP 4.1 - 5.0 will be ADatP-34 edition E -->
+
+<xsl:variable name="adatp34edition">
+  <xsl:choose>
+    <xsl:when test="$version.minor=0">
+      <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ',$version.major, 1)"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ',$version.major+1, 1)"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:variable>
+
+
 <!--
 
 <xsl:template match="/">
@@ -195,10 +216,19 @@ $Id$
 
 <xsl:template name="book.titlepage.separator"/>
 
-
-
+<!--
 <xsl:template match="corpauthor" mode="titlepage.mode">
   <div class="{name(.)}">Version <xsl:apply-templates select="..//revision[1]/revnumber" 
+       mode="titlepage.mode"/> [<xsl:apply-templates 
+       select="..//revision[1]/date" 
+       mode="titlepage.mode"/>] - <xsl:value-of select="."/>
+  </div>
+</xsl:template>
+-->
+
+<xsl:template match="corpauthor" mode="titlepage.mode">
+  <div class="{name(.)}">AdatP-34(<xsl:value-of select="$adatp34edition"/>)
+    <xsl:apply-templates select="..//revision[1]/revnumber" 
        mode="titlepage.mode"/> [<xsl:apply-templates 
        select="..//revision[1]/date" 
        mode="titlepage.mode"/>] - <xsl:value-of select="."/>
@@ -378,7 +408,9 @@ $Id$
   <meta name="MSSmartTagsPreventParsing" content="true" />
   <meta name="author" content="NATO Open Systems Working Group (NOSWG)" /> 
   <meta http-equiv="Expires" content="0" />
+<!--
   <meta http-equiv="X-UA-Compatible" content="IE=8" />
+-->
 </xsl:template>
 
 
