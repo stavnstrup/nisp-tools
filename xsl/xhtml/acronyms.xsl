@@ -16,7 +16,7 @@ Description : This stylesheet is created for the NATO Interoperability
               Danish Defence Research Establishment (DDRE) and
               NATO Command, Control and Consultation Organisation.(NC3O)
 
-$Id $
+$Id
 
 -->
 
