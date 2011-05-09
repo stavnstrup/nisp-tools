@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>3.3. Parser's and other tools</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="ch03.html" title="Chapter 3. Introduction"/><link rel="prev" href="ch03s02.html" title="3.2. SGML &amp; XML"/><link rel="next" href="ch03s04.html" title="3.4. Contents of this document"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.3. Parser's and other tools</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><th width="60%" align="center">Chapter 3. Introduction</th><td width="20%" align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="3.3. Parser's and other tools"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e677"/>3.3. Parser's and other tools</h2></div></div></div><p>Since XML is a moving target, the selection of tools can be
-quite a complicated affair. Releases are frequent, and new and not so
-mature tools arrive every day. Fortunately, most of the tools
-necessary for the translation of the NATO Interoperability Standards and Profiles, are quite stable, and
-require almost none if any post-processing by the user. When working
-with a platform-independent technology such as XML, it can simplify
-matter a lot, if the tools used would also be platform
-independent. This can be accomplished by selecting tools written in
-Java, which at least in theory is platform-independent.</p><p>Since the major task in processing the NC3 NATO Interoperability Standards and Profiles documents are
-the transformation of the XML documents to HTML and a format suitable
-for printing, we need a tool that implements the XSLT 1.0
-standard. Among the most popular tools are Xalan from the Apache Group
-and Michael Kay's Saxon. Both of these tools are implemented in
-Java, and Saxon is currently considered more mature, and
-also implements most of the additional functionality
-defined in the working draft XSLT 1.1, of which we need the ability to
-merge multiple documents, a property not defined in the original XSLT
-1.0 specification.</p><p>Before the transformation of an XML document is invoked, the
-document must be parsed by an XML parser. Saxon comes preinstalled
-with the AElfred parser, which is not a validating parser, required in
-order to ensure that all NISP documents conform to the DocBook
-specification. Most of the original XML parsers, are not validating
-parsers, but recently the Apache Group have released the validating
-parser Xerces.</p><p>Currently there is no open source implementation, which does a
-really good job in creating a printed version of the XML
-documents. The best open-source project is the FO processor
-<span class="emphasis"><em>Fop</em></span>, which currently is undergoing a major
-redesign effort and the frequency of releases have therefore
-dramatically slowed down. There are a couple of very good commercial
-implementations, which suffer seriously from the problem, that they
-are very expensive.</p><p>Although there are many bugs and facilities currently
-unimplemented in the FO processor. It turns out, that most of the
-problems, which are relevant to the NATO Interoperability Standards and Profiles documents can be temporary
-solved by manipulation of the FO tree, before the layout and rendering
-phase resulting in a PDF document.</p></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.2. SGML &amp; XML </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 3.4. Contents of this document</td></tr></table></div></body></html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>3.3. Standard Selection</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="ch03.html" title="Chapter 3. The standard database DTD"/><link rel="prev" href="ch03s02.html" title="3.2. Standard and profile definition"/><link rel="next" href="ch03s04.html" title="3.4. NAF 3 complience"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.3. Standard Selection</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><th width="60%" align="center">Chapter 3. The standard database DTD</th><td width="20%" align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="3.3. Standard Selection"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e637"/>3.3. Standard Selection</h2></div></div></div><pre class="programlisting">
+
+&lt;!ELEMENT lists ((sp-list |  profile-list)*)&gt;
+
+</pre><pre class="programlisting">
+
+&lt;!ELEMENT sp-list (sp-view*)&gt;
+&lt;!ATTLIST sp-list
+          tref IDREF #IMPLIED&gt;
+
+</pre><pre class="programlisting">
+
+&lt;!ELEMENT sp-view (ncoe?, (header?), select*, remarks?, rationale?)&gt;
+&lt;!ATTLIST sp-view
+          idx ID #IMPLIED
+          category CDATA #IMPLIED&gt;
+
+</pre><pre class="programlisting">
+
+&lt;!ELEMENT select (#PCDATA)&gt;
+&lt;!ATTLIST select
+          id IDREF #REQUIRED
+          mode (unknown|mandatory|emerging|midterm|farterm|fading) #REQUIRED&gt;
+
+</pre><pre class="programlisting">
+
+&lt;!ELEMENT remarks (#PCDATA|para|indexterm)*&gt;
+
+</pre><pre class="programlisting">
+
+&lt;!ELEMENT rationale (#PCDATA | para | indexterm)*&gt;
+
+</pre></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.2. Standard and profile definition </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 3.4. NAF 3 complience</td></tr></table></div></body></html>

@@ -24,17 +24,8 @@ Copyright (c) 2001,2002,2003 Jens Stavnstrup/DDRE <js@ddre.dk>
 <xsl:import href="../common/common.xsl"/> 
 
 
-<!-- Fix DocBook-XSL Bugs -->
-
-
-<!-- Fix FOP Bugs -->
-
-
 <xsl:output method="xml" indent="no"/>
 
-<!--
-            saxon:next-in-chain="fop-bugs/fo-post-for-fop.xsl"/>
--->
 
 <!-- ToC/LoT/Index Generation -->
 
@@ -45,18 +36,17 @@ book  toc,figure
 
 <!-- Processor Extensions -->
 
-<xsl:param name="xep.extensions" select="0"/>
-<xsl:param name="fop1.extensions" select="1"/> <!-- For now, only PDF bookmarks -->
+<xsl:param name="fop1.extensions" select="1"/>
 
 
 <!-- Extensions -->
 
 <xsl:param name="linenumbering.everyNth" select="1"/>
 <xsl:param name="linenumbering.extension" select="1"/>
-<xsl:param name="tablecolumns.extension" select="0"/> 
+<xsl:param name="tablecolumns.extension" select="1"/> 
 <xsl:param name="use.extensions" select="1"/>
 
-<xsl:param name="title.margin.left" select="'-3pc'"/>
+<xsl:param name="title.margin.left" select="'0pc'"/>
 
 <!-- Automatic labelling -->
 
@@ -71,10 +61,8 @@ book  toc,figure
 
 <!-- Tables -->
 
-<xsl:param name="default.table.width" select="'16cm'"/>
-<!--
-<xsl:param name="nominal.table.width" select="'16cm'"/> 
--->
+<xsl:param name="default.table.width" select="'15cm'"/>
+
 
 <!-- Miscellaneous -->
 
@@ -100,23 +88,25 @@ book  toc,figure
 <!-- The letter A-H refers to the figure describing page 
      setup in the file "docs/manual.pdf" -->
 
-<xsl:param name="page.margin.top" select="'15mm'"/>          <!-- A : Distance between top of page and top of header -->
-<xsl:param name="region.before.extent" select="'42pt'"/>     <!-- B : Size of header (13mm)-->
-<xsl:param name="body.margin.top" select="'56pt'"/>          <!-- C : Distance between top of header to top of text body (B included here)(20mm) -->
 
-<xsl:param name="region.after.extent" select="'46pt'"/>      <!-- D : Size of footer -->
-<xsl:param name="page.margin.bottom" select="'15mm'"/>       <!-- E : Distance between bottom of footer and bottom of page -->
-<xsl:param name="body.margin.bottom" select="'60pt'"/>       <!-- F : Distance between bottom of text body and bottom of footer (D included here) -->
+<xsl:param name="page.margin.top" select="'15mm'"/>  
+<xsl:param name="region.before.extent" select="'42pt'"/>
+<xsl:param name="body.margin.top" select="'56pt'"/>
 
-<xsl:param name="page.margin.inner" select="'25mm'"/>        <!-- G -->
-<xsl:param name="page.margin.outer" select="'25mm'"/>        <!-- H -->
+<xsl:param name="region.after.extent" select="'48pt'"/>
+<xsl:param name="page.margin.bottom" select="'14mm'"/>
+<xsl:param name="body.margin.bottom" select="'57pt'"/>
 
-<xsl:param name="body.font.master" select="12"/>
+<xsl:param name="page.margin.inner" select="'25mm'"/>
+<xsl:param name="page.margin.outer" select="'25mm'"/>
+
+<xsl:param name="body.font.master" select="11"/>
+
 
 
 <!-- <xsl:param name="line-height" select="'2'"/> -->
 
-
+<xsl:param name="draft.mode" select="'no'"/>
 <xsl:param name="draft.watermark.image" select="''"/>
 
 <!-- Font Families -->
@@ -126,9 +116,9 @@ book  toc,figure
 <!--
 <xsl:param name="dingbat.font.family" select="'ZapfDingbats'"/>
 -->
+<xsl:param name="dingbat.font.family" select="''"/>
 <xsl:param name="monospace.font.family" select="'Courier'"/>
 <xsl:param name="sans.font.family" select="'Helvetica'"/>
-
 
 
 <xsl:param name="bibliography.numbered" select="0"/> 
@@ -161,140 +151,6 @@ book  toc,figure
 </xsl:template>
 
 
-<!--
-
-<xsl:template name="component.title">
-  <xsl:param name="node" select="."/>
-  <xsl:param name="pagewide" select="0"/>
-
-  <xsl:variable name="id">
-    <xsl:call-template name="object.id">
-      <xsl:with-param name="object" select="$node"/>
-    </xsl:call-template>
-  </xsl:variable>
-
-  <xsl:variable name="title">
-    <xsl:apply-templates select="$node" mode="object.title.markup">
-      <xsl:with-param name="allow-anchors" select="1"/>
-    </xsl:apply-templates>
-  </xsl:variable>
-  
-  <fo:block text-align="right" font-size="100pt">
-    <xsl:apply-templates select="$node" mode="label.markup">
-      <xsl:with-param name="allow-anchors" select="1"/>
-    </xsl:apply-templates>
-  </fo:block>
-  
-  <fo:block keep-with-next.within-column="always"
-            hyphenate="false"
-            text-align="right">
-    <xsl:if test="$pagewide != 0">
-      <xsl:attribute name="span">all</xsl:attribute>
-    </xsl:if>
-
-    <xsl:choose>
-      <xsl:when test="name()='title'">
-        <xsl:copy-of select="substring-after($title, '.&#160;')"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:copy-of select="$title"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </fo:block>
-</xsl:template>
--->
-
-
-<!--
-<xsl:template name="component.title">
-  <xsl:param name="node" select="."/>
-  <xsl:param name="pagewide" select="0"/>
-
-  <xsl:variable name="id">
-    <xsl:call-template name="object.id">
-      <xsl:with-param name="object" select="$node"/>
-    </xsl:call-template>
-  </xsl:variable>
-  <xsl:variable name="title">
-    <xsl:apply-templates select="$node" mode="object.title.markup">
-      <xsl:with-param name="allow-anchors" select="1"/>
-    </xsl:apply-templates>
-  </xsl:variable>
-  <xsl:variable name="titleabbrev">
-    <xsl:apply-templates select="$node" mode="titleabbrev.markup"/>
-  </xsl:variable>
-
-  <xsl:if test="$passivetex.extensions != 0">
-    <fotex:bookmark xmlns:fotex="http://www.tug.org/fotex"
-                    fotex-bookmark-level="2"
-                    fotex-bookmark-label="{$id}">
-      <xsl:value-of select="$titleabbrev"/>
-    </fotex:bookmark>
-  </xsl:if>
--->
-  <!-- This fo:block inserted (JS) -->
-<!--
-  <fo:block text-align="right" font-size="100pt">
-    <xsl:apply-templates select="$node" mode="label.markup">
-      <xsl:with-param name="allow-anchors" select="1"/>
-    </xsl:apply-templates>
-  </fo:block>
-
-
-  <fo:block keep-with-next.within-column="always"
-            space-before.optimum="{$body.font.master}pt"
-            space-before.minimum="{$body.font.master * 0.8}pt"
-            space-before.maximum="{$body.font.master * 1.2}pt"
-            hyphenate="false">
-    <xsl:if test="$pagewide != 0">
-      <xsl:attribute name="span">all</xsl:attribute>
-    </xsl:if>
-    <xsl:attribute name="hyphenation-character">
-      <xsl:call-template name="gentext">
-        <xsl:with-param name="key" select="'hyphenation-character'"/>
-      </xsl:call-template>
-    </xsl:attribute>
-    <xsl:attribute name="hyphenation-push-character-count">
-      <xsl:call-template name="gentext">
-        <xsl:with-param name="key" select="'hyphenation-push-character-count'"/>
-      </xsl:call-template>
-    </xsl:attribute>
-    <xsl:attribute name="hyphenation-remain-character-count">
-      <xsl:call-template name="gentext">
-        <xsl:with-param name="key" select="'hyphenation-remain-character-count'"/>
-      </xsl:call-template>
-    </xsl:attribute>
-    <xsl:if test="$axf.extensions != 0">
-      <xsl:attribute name="axf:outline-level">
-        <xsl:value-of select="count($node/ancestor::*)"/>
-      </xsl:attribute>
-      <xsl:attribute name="axf:outline-expand">false</xsl:attribute>
-      <xsl:attribute name="axf:outline-title">
-        <xsl:value-of select="$title"/>
-      </xsl:attribute>
-    </xsl:if>
--->
-<!-- JS : This line have been replaced with the choose block below 
-    <xsl:copy-of select="$title"/>
--->
-
-
-<!--
-    <xsl:attribute name="text-align">right</xsl:attribute>
-    <xsl:choose>
-      <xsl:when test="name()='title'">
-        <xsl:copy-of select="substring-after($title, '.&#160;')"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:copy-of select="$title"/>
-      </xsl:otherwise>
-    </xsl:choose>
-
-
-  </fo:block>
-</xsl:template>
--->
-
 <!-- ==================================================================== -->
 <!--    Page setup                                                        -->
 <!-- ==================================================================== -->
@@ -307,7 +163,7 @@ book  toc,figure
              titlepage and body. (and maybe lot)
 -->
 
-<xsl:template match="*" mode="running.head.mode">
+<xsl:template match="*" mode="XXrunning.head.mode">
   <xsl:param name="master-reference" select="'unknown'"/>
   <xsl:param name="gentext-key" select="name(.)"/>
 
@@ -327,52 +183,22 @@ book  toc,figure
   <xsl:choose>
     <xsl:when test="starts-with($master-reference, 'titlepage')">
       <fo:static-content flow-name="xsl-region-before-first">
-<!-- 
-        <fo:block  text-align="center">
-          <fo:block><xsl:copy-of select="$odd.page.head"/></fo:block>
-          <fo:block>NATO UNCLASSIFIED</fo:block>
-          <fo:block>RELEASABLE FOR INTERNET TRANSMISSION</fo:block>
-        </fo:block>
--->
         <fo:block/>
       </fo:static-content>
     </xsl:when>
     <xsl:otherwise>
       <!-- Make first and odd identical, even and blank identical -->
       <fo:static-content flow-name="xsl-region-before-first">
-<!--
-        <fo:block text-align="center">
-          <xsl:copy-of select="$odd.page.head"/>
-          <fo:block text-align="center">NATO UNCLASSIFIED</fo:block>
-        </fo:block>
--->
+
         <fo:block/>
       </fo:static-content>
       <fo:static-content flow-name="xsl-region-before-odd">
-<!--
-        <fo:block text-align="center">
-          <xsl:copy-of select="$odd.page.head"/>
-          <fo:block text-align="center">NATO UNCLASSIFIED</fo:block>
-        </fo:block>
--->
         <fo:block/>
       </fo:static-content>
       <fo:static-content flow-name="xsl-region-before-even">
-<!--
-        <fo:block text-align="center">
-          <xsl:copy-of select="$even.page.head"/>
-          <fo:block text-align="center">NATO UNCLASSIFIED</fo:block>
-        </fo:block>
--->
         <fo:block/>
       </fo:static-content>
       <fo:static-content flow-name="xsl-region-before-blank">
-<!--
-        <fo:block text-align="center">
-          <xsl:copy-of select="$even.page.head"/>
-          <fo:block text-align="center">NATO UNCLASSIFIED</fo:block>
-        </fo:block>
--->
         <fo:block/>
       </fo:static-content>
     </xsl:otherwise>
@@ -380,7 +206,7 @@ book  toc,figure
 </xsl:template>
 
 
-<xsl:template match="*" mode="running.foot.mode">
+<xsl:template match="*" mode="XXrunning.foot.mode">
   <xsl:param name="master-reference" select="'unknown'"/>
   <xsl:param name="gentext-key" select="'TableofContents'"/>
   
@@ -451,7 +277,7 @@ book  toc,figure
      So instead we embed footnotes in square brackets.
      .................................................................... -->
 
-
+<!--
 <xsl:template name="format.footnote.mark">
   <xsl:param name="mark" select="'?'"/>
   <fo:inline>
@@ -460,7 +286,7 @@ book  toc,figure
     
   </fo:inline>
 </xsl:template>
-
+-->
 
 
 

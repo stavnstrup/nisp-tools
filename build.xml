@@ -682,8 +682,10 @@ $Id$
   </target>
   
   <target name="doc" description="* Create documentation pages"
+          depends="doc.html"/>
+<!--
           depends="doc.html, doc.pdf"/>
-
+-->
   <target name="doc.html" description="* Create documentation pages in html"
           depends="init, doc-html.check" unless="doc.notRequired">
     <echo message="Create documentation pages in HTML"/>

@@ -1,133 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 4. Introduction to XML</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="pt03.html" title="Part III. Old manual"/><link rel="prev" href="ch03s04.html" title="3.4. Contents of this document"/><link rel="next" href="ch04s02.html" title="4.2. Structure of XML documents"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 4. Introduction to XML</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s04.html">Prev</a> </td><th width="60%" align="center">Part III. Old manual</th><td width="20%" align="right"> <a accesskey="n" href="ch04s02.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 4. Introduction to XML"><div class="titlepage"><div><div><h2 class="title"><a id="xml-intro"/>Chapter 4. Introduction to XML</h2></div></div></div><p>XML is a subset of SGML, and are designed for the Web. Like its
-ancestor SGML, XML do not have any predefined tags, but leave it up to
-the users to define their own vocabulary. The XML standard as defined
-in <a class="xref" href="bi01.html#xml" title="Extensible Markup Language (XML) 1.0">[<abbr class="abbrev">XML 1.0</abbr>]</a>, describes a set of rules that must be
-followed when writing XML documents. The following sections will very
-briefly describe the structure, and the usual components of a XML
-document. Additional information can also be found in the books
-
-<a class="xref" href="bi01.html#HaMe2001" title="XML in a Nutshell - A Desktop Quick Reference">[<abbr class="abbrev">HaMe01</abbr>]</a> and  <a class="xref" href="bi01.html#Ma2001" title="Professional XML">[<abbr class="abbrev">Ma01</abbr>]</a>.  The user can also read the
-articles <a class="xref" href="bi01.html#Walsh-1998-xml" title="A Technical Introduction to XML?">[<abbr class="abbrev">Wa98</abbr>]</a> and <a class="xref" href="bi01.html#walsh-2001-xml-mag" title="XML Basics">[<abbr class="abbrev">Wa01b</abbr>]</a> online. </p><div class="sect1" title="4.1. The building blocks of XML"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e720"/>4.1. The building blocks of XML</h2></div></div></div><p>A XML document consists of a number of syntactical constructs,
-which will be defined in the following.</p><div class="sect2" title="4.1.1. XML Prologue Statement"><div class="titlepage"><div><div><h3 class="title"><a id="d0e725"/>4.1.1. XML Prologue Statement</h3></div></div></div><p>All documents may and should begin with a XML prologue statement</p><pre class="programlisting">
-   &lt;?xml version="1.0"?&gt;
- </pre><p>This statement must be placed on the first line of any XML
-document and might besides the version attribute, contain additional
-attributes such as the encoding- and standalone attribute.</p></div><div class="sect2" title="4.1.2. Elements"><div class="titlepage"><div><div><h3 class="title"><a id="d0e734"/>4.1.2. Elements</h3></div></div></div><p>The main building block of XML documents is the element. An
-element is delimited by a <span class="emphasis"><em>start tag</em></span> and an
-<span class="emphasis"><em>end tag</em></span>. Everything between the start tag and the
-end tag is the <span class="emphasis"><em>content</em></span> of the element. Every XML
-document is a hierarchical structure with exactly one root element and
-a number of children elements. In the example document below taken
-from <a class="xref" href="bi01.html#HaMe2001" title="XML in a Nutshell - A Desktop Quick Reference">[<abbr class="abbrev">HaMe01</abbr>]</a>, the root element is
-<code class="literal">person</code> delimited by the start tag
-<code class="literal">&lt;person&gt;</code> and end tag
-<code class="literal">&lt;/person&gt;</code>.</p><pre class="programlisting">
- 
-   &lt;person&gt;
-     &lt;name&gt;
-       &lt;first_name&gt;Alan&lt;/first_name&gt;
-       &lt;last_name&gt;Turing&lt;/last_name&gt;
-     &lt;/name&gt;
-     &lt;profession&gt;computer scientist&lt;/profession&gt;
-     &lt;profession&gt;matematician&lt;/profession&gt;
-     &lt;profession&gt;cryptographer&lt;/profession&gt;
-   &lt;/person&gt;
- 
- </pre><p>The hierarchical structure of XML is obvious, if we think of the
-person element as the <span class="emphasis"><em>parent element</em></span> containing
-four <span class="emphasis"><em>children elements</em></span>, i.e. one
-<code class="literal">name</code> element and three
-<code class="literal">profession</code> elements. The <code class="literal">name</code>
-element again consists of two <span class="emphasis"><em>children elements</em></span>
-<code class="literal">first_name</code> and <code class="literal">last_name</code>
-element, and each of the <code class="literal">profession</code> elements
-consists of only <span class="emphasis"><em>character data</em></span>. XML tags are
-case-sensitive, i.e.  <code class="literal">&lt;person&gt;</code> and
-<code class="literal">&lt;PERSON&gt;</code> are two different start tags.</p><p>When the example above is parsed by a XML parser, besides the
-elements and the prologue statement, the parser will also identify
-some <span class="emphasis"><em>white space</em></span>, e.g. the spaces before the
-start-tag <code class="literal">&lt;first_name&gt;</code> and also after the
-end-tag <code class="literal">&lt;/first_name&gt;</code>. This means that there
-is actually more that four children elements, contrary to what was
-stated before. Whitespace can be ignored by the XML parser, but
-sometimes it can be impossible for the parser to determine whether
-some space are semantically important or not, unless a document is
-also <span class="emphasis"><em>validated</em></span>. In the DocBook DTD, this can be
-significant, when we are working with table cells.</p><p>If an element does not contain other elements but only
- attributes, then it can be written using the shortcut
- &lt;myelement/&gt;.</p></div><div class="sect2" title="4.1.3. Attributes"><div class="titlepage"><div><div><h3 class="title"><a id="d0e815"/>4.1.3. Attributes</h3></div></div></div><p>Each element can contain one or more attributes in the form of a
-key value pair. Keys and values are separated by an equals sign and
-values are enclosed in single- or double quotes.</p><pre class="programlisting">
- 
-
-   &lt;person born="1912/06/23"&gt;
-     Allan Turing
-   &lt;/person&gt;
-
- 
- </pre></div><div class="sect2" title="4.1.4. Processing Instructions"><div class="titlepage"><div><div><h3 class="title"><a id="PI"/>4.1.4. Processing Instructions</h3></div></div></div><p>It is sometimes necessary to provide an application which
-processes a XML document with information, which for practical reasons
-is not part of the DTD (see <a class="xref" href="ch04s03.html" title="4.3. DTDs">Section 4.3, “DTDs”</a>) for that
-document. For this purpose an author can use a <span class="emphasis"><em>processing
-instruction</em></span> (PI) as an alternative means to provide
-information to the processing application. A processing instruction
-begins with <code class="literal">&lt;?</code> and ends with
-<code class="literal">?&gt;</code>. Immediately following the
-<code class="literal">&lt;?</code> is an XML name called the
-<span class="emphasis"><em>target</em></span>, identifying the application for which
-this PI is used, the target can also be considered the name of a
-PI. All the text to the right of the target is in a format appropriate
-for the application the PI is intended for.</p><p>In volume 3, 4 and the rationale document of the NATO Interoperability Standards and Profiles, PIs is
-used to identify a collection of standards, which will be merged into
-the final document. One example of such a PI used in volume 3 is shown
-below.</p><pre class="programlisting">
-   &lt;?dbmerge cid="se-lng"?&gt;
- </pre><p>Whenever the stylesheet <code class="filename">xsl/merge3.xml</code>
-meets such a processing instruction, the appropriate standard is
-selected from the standard database
-<code class="filename">standards/ta-standards.xml</code> located in the NATO Interoperability Standards and Profiless
-source distribution.</p></div><div class="sect2" title="4.1.5. Comments"><div class="titlepage"><div><div><h3 class="title"><a id="d0e856"/>4.1.5. Comments</h3></div></div></div><p>Comments in XML are syntactical identical to the comments in
-HTML. Comment are used only to comment the document. A XML parser is
-not required to pass the comments up to the application, so comments
-should only be used for informational purposes. Comments can appear
-anywhere in a document, except inside tags and inside other
-comments.</p><pre class="programlisting">
-  &lt;-- This is an example of a comment --&gt;
-</pre></div><div class="sect2" title="4.1.6. Entities"><div class="titlepage"><div><div><h3 class="title"><a id="d0e863"/>4.1.6. Entities</h3></div></div></div><p>When parsing a XML document, it is sometimes necessary to use
-characters normally reserved for marking-up a XML document, such as
-the bracket characters ('&lt;' and '&gt;') which
-are used to embed tags. In order for the user to be able to use these
-two characters and a couple more, the XML standard have defined a
-concept called entities, which is a kind of macros, that are replaced
-with the appropriate characters, by the XML parser, when parsing a XML
-document.</p><p>This following list illustrates the list of predefined entities
-in XML
-
- </p><div class="variablelist"><dl><dt><span class="term"><code class="literal">&amp;lt;</code></span></dt><dd><p>The less-than sign, or opening angle bracket (&lt; )</p></dd><dt><span class="term"><code class="literal">&amp;amp;</code></span></dt><dd><p>The ampersand (&amp;)</p></dd><dt><span class="term"><code class="literal">&amp;gt;</code></span></dt><dd><p>The greater-than, or closing angle bracket (&gt;)</p></dd><dt><span class="term"><code class="literal">&amp;quot;</code></span></dt><dd><p>The straight, double quotation marks (")</p></dd><dt><span class="term"><code class="literal">&amp;apos;</code></span></dt><dd><p>The apostrophe, or single quote (')</p></dd></dl></div><p>
-
- </p><p>These five entities is central in the mark-up of XML documents,
-so whenever a user needs to write the character '&amp;',
-this can be accomplished by writing the entity instead, e.g.
-'&amp;amp;'.</p><p>The DocBook DTD comes with a large number of predefined entities
-used to represents uni-code characters and other symbols, which can be
-used in DocBook documents. Besides the convenience of enabling access
-to a larger number of characters, normally not supported by text
-editors today, it is also sometimes safer although quite tedious to
-use these entities, instead of utilising the functionality of a given
-editor.</p><p>Entities comes in many flavours, and we will not go into detail,
-in this slightly complicated subject, but only mention the use of
-entities in the NATO Interoperability Standards and Profiles. For a more detailed description of entities, the
-reader are referred to the XML standard or the articles ??? and ???</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>In most of the volumes, we do not
-   referrer to the filenames of externally defined images, but instead
-   uses parametric entities defined in the external file
-   <code class="filename">figures.ent</code> (which is automatically is loaded,
-   by the XML Parser to resolve the entities). The makes it much easier
-   to keep track on the images used in the different
-   volumes.</p></li><li class="listitem"><p>In the source distribution, we have specifies the
-   version number of the volumes in the file
-   <code class="filename">VERSION</code>, which may be used by the different
-   volumes, in the revision history.</p></li><li class="listitem"><p>The same <code class="filename">VERSION</code> information is also used when
-   building the distribution packages.</p></li></ul></div></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s04.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="pt03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch04s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.4. Contents of this document </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 4.2. Structure of XML documents</td></tr></table></div></body></html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 4. Introduction</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The NISP tools"/><link rel="up" href="pt03.html" title="Part III. Old manual"/><link rel="prev" href="pt03.html" title="Part III. Old manual"/><link rel="next" href="ch04s02.html" title="4.2. SGML &amp; XML"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 4. Introduction</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pt03.html">Prev</a> </td><th width="60%" align="center">Part III. Old manual</th><td width="20%" align="right"> <a accesskey="n" href="ch04s02.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 4. Introduction"><div class="titlepage"><div><div><h2 class="title"><a id="intro"/>Chapter 4. Introduction</h2></div></div></div><p>The NISP tools is a collection of software packages, XSLT
+stylesheets etc., used to build a HTML- and a version suitable for
+printing of the NATO C3 NATO Interoperability Standards and Profiles. The XML source files are not included in
+this distribution, but are distributed separately.</p><div class="sect1" title="4.1. Background"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d0e665"/>4.1. Background</h2></div></div></div><p>During the 16th NOSWG meeting in Feb 2001, NC3A informed the
+group, that in the future the Microsoft Word version of the NATO Interoperability Standards and Profiles would
+no longer be maintained, but instead all future editing of the
+architecture documents would be done on the HTML (Hyper-text Markup
+Language) version of the documents. Although it is nice to have a HTML
+version of the architecture, it often just as convenient to have a
+printed version of a properly formatted document. However, since the
+burden of maintaining two versions in parallel requires a substantial
+amount of resources, I proposed a different solution, such as using a
+format that focus on the contents of the document, as e.g. using a
+structured markup language instead. The idea being, that our limited
+resources are better utilised focusing on the content rather than the
+presentation of the content. In order to prove the concept, I began
+to investigate the state of the art in this field. This paper describes
+the result of this work.</p></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pt03.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="pt03.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch04s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Part III. Old manual </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 4.2. SGML &amp; XML</td></tr></table></div></body></html>
