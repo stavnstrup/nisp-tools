@@ -104,11 +104,6 @@
     produce a new version of the AMN Profile. The updated AMN Profile will be submitted
     by the AMN Architecture Working Group to the NATO Open Standards Working Group 
     (NOSWG) for publication under ADatP-34.</para>
-    
-    <para>The AMN profile v.0.5 was changed by the AMN WG during the NOSWG Meeting
-    in December 2010: Voice communications are now based on SIP (instead of H.323),
-    the Figure on the AMN Service Structure was removed and for the usage of C2IEDM 
-    Bussiness Rule F11.2 b was excluded.</para>
   </sect1>
   
   <sect1>
@@ -180,15 +175,6 @@
               <entry>Secure Network management</entry>
               <entry>Simple Network Management Protocol Version 3 (SNMPv3)</entry>
               <entry></entry>
-            </row>
-            <row>
-              <entry>Facilitation of secure, flexible, jam resistant information 
-                transfer in real time among dispersed and mobile units</entry>
-              <entry>STANAG 4175 Ed.4:2009 - Technical Characteristics of the Multifunctional
-                Information Distribution System (MIDS).</entry>
-              <entry>STANAG 4175 provides a detailed technical specification for MIDS 
-                terminals and is the governing document for MIDS terminal design 
-                and TDL network architecture.</entry>
             </row>
             <row>
               <entry>Facilitate the access and authorization between AMN users</entry>
@@ -265,8 +251,9 @@
             <row>
               <entry>Enable free text real time communication in combination with
                 structured messages (data payload).</entry>
-              <entry>IETF RFC 3920:2004 - 3923:2004, Extensible Messaging and Presence 
-                Protocol (XMPP) - An open technology for real-time communication.
+              <entry>IETF RFC 6120 XMPP CORE covering XML streams, SASL, TLS, stanza
+                semantics and RFC 6121 extensions for basic instant messaging and 
+                presence.
                 <para>The following XMPP Extension Protocols shall be supported:
                 </para>
                 <para>XEP-0004: Data Forms</para>
@@ -278,14 +265,21 @@
                 <para>XEP-0082: XMPP Date and Time Profiles</para>
                 <para>XEP-0128: Service Discovery Extensions</para>
                 <para>XEP-0138: Stream Compression</para>
-                <para>XEP-0163: Personal Eventing Protocol</para></entry>
-              <entry>RFC 3920 and RFC 3921 are currently being revised to correct
-                errors, clarify matters that were underspecified, and incorporate
-                feedback based on implementation and deployment experience gained 
-                since RFC 3920 and RFC 3921 were published in 2004.
-                <para>Developers are also advised to consult rfc3920bis and rfc3921bis,
-                  which provide the most up-to-date and accurate description the 
-                  core XMPP protocols.</para></entry>
+                <para>XEP-0033: Advanzed Stanza Addressing and multiple group chat service (emerging by Nov 11)</para>
+                <para>XEP-0079: Advanced Message Processing to implement time-to-live (TTL) and reliability-in-delivery features or (emerging by Nov 11)</para>
+                <para>XEP-0198: Stream Management for active management of an XML stream between two XMPP entities, including features for stanza acknowledgements and stream resumption. (emerging by Nov 11)</para>
+              </entry>
+              <entry>RFC 6120 supersedes RFC 3920 and RFC 6121 XMPP IM supersedes
+                RFC 3921
+                <para>Developers are also advised to consult the following RFCs:
+                  <itemizedlist>
+                    <listitem><para>RFC 6122 XMPP ADDR XMPP address format</para></listitem>
+                    <listitem><para>RFC 3923 XMPP E2E End-to-end signing and object encryption for XMPP</para></listitem>
+                    <listitem><para>RFC 4854 XMPP URN A Uniform Resource Name (URN) tree for use in XMPP extensions</para></listitem>
+                    <listitem><para>RFC 4979 XMPP ENUM IANA registration of an Enumservice (see RFC 3761) for XMPP</para></listitem>
+                    <listitem><para>RFC 5122 XMPP URI A Uniform Resource Identifier (URI) scheme for XMPP (this specification corrects several errors in RFC 4622)</para></listitem>
+                  </itemizedlist>
+                </para></entry>
             </row>
             <row>
               <entry>Providing web content or web feeds for syndication to web sites
@@ -307,41 +301,47 @@
                 within ATOM and RSS feeds.</entry>
             </row>
             <row>
-              <entry>Sharing identity information in order to identify which users 
-                are trusted and what types of credentials can be securely accepted 
-                to enable secure sharing of information in a federated environment.</entry>
-              <entry>WS-* family of data Web services.
-                <para>WS* family of Open Standards provide a foundation for delivering 
-                  complete, interoperable federated identity and security capabilities
-                  which include:</para>
-                <para>WS-Security</para>
-                <para>WS-Security (WSS) describes how to attach security tokens,
-                  including binary security tokens such as X.509 certificates and
-                  Kerberos tickets, to SOAP messages.</para>
-                <para>WS-Federation</para>
-                <para>WS-Federation specification identifies two sources of identity
-                  and authentication requests across trust realms: active requestors, 
-                  such as SOAP-enabled applications, and passive requestors, which 
-                  are defined as HTTP browsers capable of supporting broadly supported
-                  HTTP, for example, HTTP 1.1.</para>
-                <para>XACML</para>
-                <para>Extensible Access Control Markup Language (XACML) is an Organization
-                  for the Advancement of Structured Information Systems (OASIS) standard 
-                  that describes both a policy language and an access control decision
-                  request/response language (both written in XML).</para>
-                <para>SAML</para>
-                <para>Security Assertions Markup Language (SAML) is an XML-based 
-                  framework for communicating user authentication, entitlement, and
-                  attribute information. As its name suggests, SAML allows business 
-                  entities to make assertions regarding the identity, attributes,
-                  and entitlements of a subject (an entity that is often a human user)
-                  to other entities, such as a partner company or another enterprise
-                  application.</para>
+              <entry>Message Security for web services</entry>
+              <entry>WS-Security: SOAP Message Security 1.1
+                <para>XML Encryption Syntax and Processing  (dtd. 10 December 2002)</para>
+                <para>XML Signature Syntax and Processing 1.0 (Second Edition)</para>
               </entry>
-              <entry>NATO and TCNs shall use federated access and identity management
-                tools and applications which comply with the Open WS * standards when 
-                they want to provide access to and share information with other coalition
-                partners.
+              <entry>Specifies how integrity and confidentiality can be enforced on 
+                messages and allows the communication of various security token formats, 
+                such as SAML, Kerberos, and X.509. Its main focus is the use of XML 
+                Signature and XML Encryption to provide end-to-end security.
+                <para>Specifies a process for encrypting data and representing the 
+                  result in XML. Referenced by WS-Security specification.</para>
+                <para>Specifies XML digital signature processing rules and syntax.
+                  Referenced by WS-Security specification.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>Security token format</entry>
+              <entry>SAML 2.0
+                <para>Web Services Security: SAML Token Profile 1.1 </para>
+              </entry>
+              <entry>Provides XML-based syntax to describe uses security tokens containing 
+                assertions to pass information about a principal (usually an end-user) 
+                between an identity provider and a web service.
+                <para>Describes how to use SAML security tokens with WS-Security 
+                  specification.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>Security token issuing</entry>
+              <entry>WS-Trust 1.4
+                <para>WS-Federation 1.1</para>
+                <para>WS-Policy 1.5</para>
+                <para>And WS-Security Policy 1.3</para>
+              </entry>
+              <entry>Uses WS-Security base mechanisms and defines additional primitives 
+                and extensions for security token exchange to enable the issuance and 
+                dissemination of credentials within different trust domains.
+                <para>Extends WS-Trust to allow federation of different security realms.</para>
+                <para>Used to describe what aspects of the federation framework are  
+                  required/supported by federation participants and that this information 
+                  is used to determine the appropriate communication options.</para>
               </entry>
             </row>
             <row>
@@ -359,6 +359,30 @@
                   Rev2, AC/322-D(2004)0024REV2</para>
               </entry>
               <entry></entry>
+            </row>
+            <row>
+              <entry>Topic based Publish / subscribe web services communication</entry>
+              <entry>WS-Notification 1.3 including:
+                <para>WS-Base Notification 1.3,</para>
+                <para>WS-Brokered Notification 1.3,</para>
+                <para>WS-Topics 1.3</para>
+              </entry>
+              <entry>Enable topic based subscriptions for web service notifications, 
+                with extensible filter mechanism and support for message brokers.</entry>
+            </row>
+            <row>
+              <entry>Providing transport-neutral mechanisms to address web services</entry>
+              <entry>WS-Addressing  1.0</entry>
+              <entry>Provides transport-neutral mechanisms to address Web services 
+                and messages which is crucial in providing end-to-end message level 
+                security, reliable messaging or publish / subscribe based web services.</entry>
+            </row>
+            <row>
+              <entry>Reliable messaging for web services</entry>
+              <entry>WS-Reliable Messaging 1.2</entry>
+              <entry>Describes a protocol that allows messages to be transferred reliably 
+                between nodes implementing this protocol in the presence of software 
+                component, system, or network failures.</entry>
             </row>
           </tbody>
         </tgroup>
@@ -527,10 +551,8 @@
           <tbody>
             <row>
               <entry>General formatted message exchange</entry>
-              <entry>AdatP-3 - Concept of NATO Message Text Formatting System (CONFORMETS)
-                and NATO Message Text Formatting System (FORMETS)
-                <para>Mandatory: STANAG 5500 Ed.6:2009</para>
-                <para>Emerging (Dec 2012): STANAG 5500 Ed.7:2010</para>
+              <entry>STANAG 5500 Ed.6:2009
+                <para>AdatP-3 - Concept of NATO Message Text Formatting System (CONFORMETS) - ADatP-3(A)</para>
               </entry>
               <entry>Use for exchanging information with existing systems that process 
                 MTF messages.
@@ -555,7 +577,7 @@
                 also known as the Dublin Core Metadata Element Set
                 <para>TIDE Information Discovery (v2.3.0, Oct 2009)</para>
                 <para>TIDE Service Discovery (v.2.2.0 Oct 2008)</para>
-<para>Emerging (by Dec 2012): OpenSearch 1.1 Draft 3</para></entry>
+<para>Emerging (by Dec 2012): OpenSearch 1.1 Draft 4</para></entry>
               <entry>The policy defines a subset of the NATO Discovery Metadata
                 Specification (NDMS) intended for information resource discovery.
                 <para>ISO 15836:2009 does not define implementation detail.</para>
@@ -575,7 +597,8 @@ TIDE Information Discovery specifications.</para>
               <entry>General definition of letter codes for Geographical Entities</entry>
               <entry>STANAG 1059, Letter Codes for Geographical Entities (9th edition, 2005)
               </entry>
-              <entry></entry>
+              <entry>Whenever possible, the ISO-3166 three-letter codes contained in 
+                STANAG 1059 should be used</entry>
             </row>
             <row>
               <entry>General definition of geospatial coverage areas in discovery metadata</entry>
@@ -775,14 +798,15 @@ TIDE Information Discovery specifications.</para>
                 Exchange Mechanism (DEM)
                 <para>Emerging (Dec 2011): STANAG 5525, Ed. 1:2007 - Joint C3 Information
                   Exchange Data Model (JC3IEDM)</para>
-                <para>STANAG 5523 - C2 Information Exchange model</para>
+                <para>STANAG 5523 - C2 Information Exchange model in conjunction with
+                  MIP Data Exchange Mechanism (DEM) Block 2 and the AMN MIP Implementation 
+                  Profile (published in Annex A to NC3A RD XXXX - AMN MIP Workshop Final
+                  Report).</para>
               </entry>
               <entry>C2IEDM Bussiness Rule F11.2 b is not applicable in the AMN scope. 
                 Implementations shall ensure that the use of CONTEXT-ASSOCIATION does 
                 not create circular references between CONTEXTs.Currently most AMN 
                 members use C2IEDM (MIP-Block 2). 
-                <para>In 2011 the implementation of the STANAG (MIP Block 3) must 
-                  be planned.</para>
                 <para>Any addition or expansion of this data model or data dictionaries
                   that is deemed to be of general interest shall be submitted as a 
                   change proposal within the configuration control process to be 
@@ -851,10 +875,8 @@ TIDE Information Discovery specifications.</para>
               <entry>Exchange of digital Friendly Force Information such as positional 
                 tracking information amongst airborne and land-based tactical data
                 systems and C2 systems.</entry>
-              <entry>The Draft STANAG 5527 published under a D-Document and is not 
-                expected to be ratified. However, NFFI v1.3 will continue to be 
-                used as the Standard to exchange positional information on friendly
-                forces for the foreseeable future within the AMN.</entry>
+              <entry>AC/322-D(2006)0066 Interim NFFI Standard for Interoperability 
+                of Force Tracking Systems</entry>
               <entry>All positional information of friendly ground forces (e.g. ground
                 forces of Troop Contributing Nations or commercial transport companies 
                 working in support of ISAF Forces) shall be as a minimum made available
@@ -864,18 +886,19 @@ TIDE Information Discovery specifications.</para>
               <entry>Message formats for exchanging information in low bandwidth 
                 environment between systems enabled for processing Military Message
                 Format</entry>
-              <entry>STANAG 7149 -NATO Message Catalogue (NMC)(APP-11)
-                <para>AdatP-3(Baseline 11C , F and 13) - Concept of NATO Message
-                  Text Formatting System (CONFORMETS) and STANAG 5500 Ed.6:2009 
-                  NATO Message Text Formatting System (FORMETS)</para>
-              </entry>
-              <entry>Minimum set of messages:
+              <entry>STANAG 7149 Ed. 4 - NATO Message Catalogue - APP-11(C)</entry>
+              <entry>The following messages that are not compliant with STANAG 7149 
+                Ed 4. will be accepted by the AMN Core:
               <itemizedlist>
-                  <listitem><para>Air Tasking Order</para></listitem>
-                  <listitem><para>Air Control Order</para></listitem>
-                  <listitem><para>Incident Spot Rep</para></listitem>
-                  <listitem><para>Overlay</para></listitem>
-                  <listitem><para>Entity Data</para></listitem>
+                  <listitem><para>UXO/IED Find (11 Liner)</para></listitem>
+                  <listitem><para>Joint Tactical Air Strike Request (JTAR) - US DD Form 1972</para></listitem>
+                  <listitem><para>SALTA (5 Liner)</para></listitem>
+                  <listitem><para>CIED (10 Liner)</para></listitem>
+                  <listitem><para>MIST</para></listitem>
+                  <listitem><para>ROZ Status / KILLBOX MESSAGE (F083)</para></listitem>
+                  <listitem><para>MEDEVAC (9 Liner) / CASEVACREQ (A015)</para></listitem>
+                  <listitem><para>SALUTE (Size, Activity, Location, Unit/Uniform, Time, Equipment) / ENEMY CONTACT REP (A023)</para></listitem>
+                  <listitem><para>POSREP (NFFI)</para></listitem>
                 </itemizedlist>
               </entry>
             </row>
@@ -933,8 +956,8 @@ TIDE Information Discovery specifications.</para>
               <entry>Providing a standard software interface for searching and retrieving 
                 for ISR products.</entry>
               <entry>NATO Standard ISR Library Interface (NSILI)
-                <para>Mandatory: STANAG 4559, Ed. 2:2007</para>
-                <para>Emerging (Jul 2013): STANAG 4559, Ed. 3:2010</para></entry>
+                <para>Mandatory: STANAG 4559, Ed. 3:2010 (starting Dec 2011)</para>
+                <para>Fading: STANAG 4559, Ed. 2:2007 (beginning July 2011)</para></entry>
               <entry>AEDP-5, Ed. 1, NATO Standard Imagery Library Interface Implementation
                 Guide, TBS, NU
               </entry>
