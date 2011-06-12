@@ -265,7 +265,7 @@
                 <para>XEP-0082: XMPP Date and Time Profiles</para>
                 <para>XEP-0128: Service Discovery Extensions</para>
                 <para>XEP-0138: Stream Compression</para>
-                <para>XEP-0033: Advanzed Stanza Addressing and multiple group chat service (emerging by Nov 11)</para>
+                <para>XEP-0033: Extended Stanza Addressing and multiple group chat service (emerging by Nov 11)</para>
                 <para>XEP-0079: Advanced Message Processing to implement time-to-live (TTL) and reliability-in-delivery features or (emerging by Nov 11)</para>
                 <para>XEP-0198: Stream Management for active management of an XML stream between two XMPP entities, including features for stanza acknowledgements and stream resumption. (emerging by Nov 11)</para>
               </entry>
@@ -554,21 +554,9 @@
               <entry>STANAG 5500 Ed.6:2009
                 <para>AdatP-3 - Concept of NATO Message Text Formatting System (CONFORMETS) - ADatP-3(A)</para>
               </entry>
-              <entry>Use for exchanging information with existing systems that process 
-                MTF messages.
-                <itemizedlist>
-                  <listitem><para>Observation Report</para></listitem>
-                  <listitem><para>Position Report</para></listitem>
-                  <listitem><para>SITREP</para></listitem>
-                  <listitem><para>Air Support Request: ADatP-3 BL 11Future F091</para></listitem>
-                </itemizedlist>
-                <para>Any addition or expansion of MTF messages or data dictionaries 
-                  shall be developed in XML-MTF (9-liner MEDEVAC request, 15 -liner, 
-                  SALTA reports etc.). All those extensions shall be submitted as 
-                  a change proposal within the configuration control process to be 
-                  considered for inclusion in the next version of the specification.
-                </para>
-              </entry>
+              <entry>ADatP-3(A) contains two different equivalent presentations of data: one as "classic" message or alternatively as XML-MTF instance.<para>
+A) Automated processing of XML-files in static facilities/systems is much easier and thus preferred for the exchange between national AMN extensions and the AMN Core.</para><para> 
+B) At the tactical edge of the AMN and the "classic" message format is the preferred option as this format is "leaner" and easier to transmit via tactical radio systems.</para></entry>
             </row>
             <row>
               <entry>Automated information resource discover, information extraction
@@ -584,7 +572,7 @@
                 <para>The technical implementation specifications are part of the 
                   TIDE Transformational Baseline v3.0.</para>
 <para>The TIDE community is evaluating OpenSearch for potential inclusion into the 
-TIDE Information Discovery specifications.</para>
+TIDE Information Discovery specifications. On the AMN CORE a commercial product called FAST ESP is being used to generate search indexes. This product could act as an OpenSearch "slave", but requires adaptation to this Open Standard but only using HTTP. CUR 1021, will request automated information discovery across the AMN for 2012. Therefore all potential information sources must provide this standard search interface in order to allow tools like FAST ESP to discover relevant information.</para>
               </entry>
             </row>
             <row>
@@ -794,15 +782,7 @@ TIDE Information Discovery specifications.</para>
               <entry>Digital exchange of semantically rich information about Battlespace
                 Objects such as units, their structural composition, Plans and Orders 
                 etc.</entry>
-              <entry>Mandatory: C2 Information Exchange Data Model (C2IEDM) and Data
-                Exchange Mechanism (DEM)
-                <para>Emerging (Dec 2011): STANAG 5525, Ed. 1:2007 - Joint C3 Information
-                  Exchange Data Model (JC3IEDM)</para>
-                <para>STANAG 5523 - C2 Information Exchange model in conjunction with
-                  MIP Data Exchange Mechanism (DEM) Block 2 and the AMN MIP Implementation 
-                  Profile (published in Annex A to NC3A RD XXXX - AMN MIP Workshop Final
-                  Report).</para>
-              </entry>
+              <entry>STANAG 5523 – C2 Information Exchange model in conjunction with MIP Data Exchange Mechanism (DEM) Block 2 and the AMN MIP Implementation Profile (published in Annex A to NC3A RD 3188 - AMN MIP Workshop Final Report).</entry>
               <entry>C2IEDM Bussiness Rule F11.2 b is not applicable in the AMN scope. 
                 Implementations shall ensure that the use of CONTEXT-ASSOCIATION does 
                 not create circular references between CONTEXTs.Currently most AMN 
@@ -886,7 +866,22 @@ TIDE Information Discovery specifications.</para>
               <entry>Message formats for exchanging information in low bandwidth 
                 environment between systems enabled for processing Military Message
                 Format</entry>
-              <entry>STANAG 7149 Ed. 4 - NATO Message Catalogue - APP-11(C)</entry>
+              <entry>STANAG 7149 Ed. 4 - NATO Message Catalogue - APP-11(C)
+<para>Minimum set of messages supported by AMN Core:</para>
+              <itemizedlist>
+                  <listitem><para>INCIDENT REPORT (A078)</para></listitem>
+                  <listitem><para>SARIR (J012)</para></listitem>
+                  <listitem><para>EVENTREP (J092)</para></listitem>
+                  <listitem><para>EODINCREP (J069)</para></listitem>
+                  <listitem><para>AIR SUPPORT REQUEST (F091)</para></listitem>
+                  <listitem><para>AIR TASKING ORDER (F058)</para></listitem>
+                  <listitem><para>AIRSPACE CONTROL ORDER (F011)</para></listitem>
+                  <listitem><para>PRESENCE REPORT (A009)</para></listitem>
+                  <listitem><para>SITREP (J095)</para></listitem>
+                  <listitem><para>ENEMY CONTACT REP (A023)</para></listitem>
+                  <listitem><para>CASEVACREQ (A015)</para></listitem>
+                  <listitem><para>KILLBOX MESSAGE (F083)</para></listitem>
+              </itemizedlist></entry>
               <entry>The following messages that are not compliant with STANAG 7149 
                 Ed 4. will be accepted by the AMN Core:
               <itemizedlist>
@@ -899,7 +894,7 @@ TIDE Information Discovery specifications.</para>
                   <listitem><para>MEDEVAC (9 Liner) / CASEVACREQ (A015)</para></listitem>
                   <listitem><para>SALUTE (Size, Activity, Location, Unit/Uniform, Time, Equipment) / ENEMY CONTACT REP (A023)</para></listitem>
                   <listitem><para>POSREP (NFFI)</para></listitem>
-                </itemizedlist>
+                </itemizedlist><para>Change request proposals reflecting the requirements for those non-standard messages should be submitted within the configuration management process of ADatP-3 by those nations that are the primary originators of those messages.</para>
               </entry>
             </row>
             <row>
@@ -911,6 +906,12 @@ TIDE Information Discovery specifications.</para>
                 A translation service may need to be provided at the AMN integration core.
               </entry>
             </row>
+            <row>
+              <entry>Providing a standard software interface for exchanging information about sensor planning, including information about capabilities of sensors, tasking of a sensors and status of sensor planning requests.</entry>
+              <entry>Emerging (July 2012): OGC 09-000: OGC Sensor Planning Service Implementation Standard V.2.0, dated 2011-03-28</entry>
+              <entry>For the AMN, Sensor Planning Service implementations shall adhere to the SOAP binding as defined in OGC 09-000.</entry>
+            </row>
+
           </tbody>
         </tgroup>
       </table>
@@ -959,7 +960,7 @@ TIDE Information Discovery specifications.</para>
                 <para>Mandatory: STANAG 4559, Ed. 3:2010 (starting Dec 2011)</para>
                 <para>Fading: STANAG 4559, Ed. 2:2007 (beginning July 2011)</para></entry>
               <entry>AEDP-5, Ed. 1, NATO Standard Imagery Library Interface Implementation
-                Guide, TBS, NU
+                Guide, TBS, NU<para>STANAG 4559,Ed.2 and Ed.3 are NOT compatible with each other (No backwards compatibility). The CSD on the AMN Core only implements Ed.3:2010).</para>
               </entry>
             </row>
             <row>
