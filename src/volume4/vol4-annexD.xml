@@ -26,35 +26,36 @@
     to support project implementations and transition to NATO Network Enabled Capability
     (NNEC).</para>
 
+<para>The figure below characterizes the information environment and various scenarios that exist for exchanging operational information.  This environment, although rich in participation and basic connectivity, lacks fully meshed interoperability at the services layer.  This diagram represents the AMN environment, and the starting point for future mission network for NATO-led operations.  It is presumed for the purposes of this document that the AMN Profile will only address capabilities between the AMN Core and national AMN extensions.</para>
+
+<figure id="v4amnf1" float="0">
+          <title>AMN Information Environment</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="../figures/AMN-info-env.svg" />
+            </imageobject>
+          </mediaobject>
+        </figure>
+        
+
     <para>The purpose of this document is to define an Interoperability Standards 
     Profile to support the Afghanistan Mission Network (AMN) and transition from 
-    today's legacy systems to NNEC be defining a basic level of system interoperability 
-    in order to enhance the exchange of information within and across the AMN. To
-    support the goal of widespread interoperability the AMN Profile defines a minimum
-    profile of services and standards for Technical Interfaces <footnote><para>Technical 
-    Interfaces - specify interfaces and interactions between components and sub-systems,
-    including the possible use of security mechanisms to protect stored data and 
-    data transferred between systems; and specify the architecture and operation
-    of systems in order to identify the standards that are needed to support multi-national,
-    multi-vendor systems and their applications.</para></footnote>, Data Interchange Standards
-    <footnote><para>Data Interchange Formats - specify the content, meaning, and representation
-    of formats for the interchange of data, and specify notation and transfer formats
-    that provide platform independence and separation of transfer syntax from content
-    definition.</para></footnote> and Application Profile Standards<footnote><para>Application
-    Profile Standards - specify one or more base standards and standardized profiles, 
-    and where applicable, the identification of chosen classes, conforming subsets, 
-    options, and parameters of those base standards or standardized profiles necessary
-    to accomplish a particular function.</para></footnote> that are sufficient to provide
-    a useful level of interoperability. The AMN Profile is structured along the new
-    NNEC Framework developed by Allied Command Transformation and NC3A.</para>
+    today's legacy systems to NNEC by defining a useful level of interoperability.</para>
     
-    <para>The AMN Profile focuses primarily on the upper two OSI layers and assumes 
-    that all participants are using IP v4 packet-switched, routed networks (at least 
-    at least to their network boundaries). Interoperability will be supported through
-    Network Interconnection Points (NIPs) between component networks and systems 
-    providing a limited set of automated information exchange C2 information including
-    but not limited to: Chat / Instant Messaging, E-mail with attachments, Web publishing/access,
-    File transfer, VTC and Voice over IP telephony.</para>
+    <para>This document will also serve as a resource for NATO C4ISR planners, to be used as a guide in achieving interoperability between NATO nations, coalition partners and NATO provided capabilities.  The AMN Profile is for use throughout the complete lifecycle of the ISAF mission.  The AMN Profile will enable Net Centric operations by enhancing collaboration across the entire operational environment across all levels of command.  Subsequent NATO led missions will benefit from the modular nature of the AMN Profile, which will allow for maximum reuse of established capabilities, while accommodating unique requirements and technology improvements.</para>
+
+<para>Additional benefits to deployment and sustained operations include:</para>
+<itemizedlist>
+<listitem>Speed of execution of operations,</listitem>
+<listitem>Richer information environment,</listitem>
+<listitem>More dynamic information exchange between all members of the network,</listitem>
+<listitem>Speedier standup of an NATO-led operation,</listitem>
+<listitem>Reach-back to feature rich information enterprise(s), and</listitem>
+<listitem>Elimination of hierarchical information flow.</listitem>
+</itemizedlist>
+
+<para>Participating nations are encouraged to use this document as part of the planning process for coordination and establishment of connectivity and interoperability with respect to joint NATO-led operations.
+</para>
     
     <para>This profile will be used in the implementation of NATO Common Funded Systems.
     Nations participating in AMN agree to use this profile at Network Interconnection 
@@ -677,8 +678,10 @@ TIDE Information Discovery specifications. On the AMN CORE a commercial product 
                 <para>Fading (Dec 2012): v1.0.0, v1.1.0, and v1.1.1</para>
                 <para>OGC 05-078r4, OpenGIS Styled Layer Descriptor Profile of the 
                   Web Map Service (SLD) v.1.1.0</para>
+<para>OGC XXX, Web Map Tiling Service v.1.3
+Emerging: Dec 2012</para>
               </entry>
-              <entry></entry>
+              <entry><para>WMTS are to be provided as a complimentary service to WMS to ease access to users operating in bandwidth constraint environments. WMTS trades the flexibility of custom map rendering for the scalability possible by serving of static data (base maps) where the bounding box and scales have been constrained to discrete tiles which enables the use of standard network mechanisms for scalability such as distributed cache systems to cache images between the client and the server, reducing latency and bandwidth use.</para></entry>
             </row>
             <row>
               <entry>Distribution of geo feature (vector) data between applications</entry>
@@ -881,19 +884,24 @@ TIDE Information Discovery specifications. On the AMN CORE a commercial product 
                   <listitem><para>ENEMY CONTACT REP (A023)</para></listitem>
                   <listitem><para>CASEVACREQ (A015)</para></listitem>
                   <listitem><para>KILLBOX MESSAGE (F083)</para></listitem>
-              </itemizedlist></entry>
+                  <listitem><para>INCIDENTSPOTREP (J006)</para></listitem>
+              </itemizedlist>
+		<para>Emerging Dec 2012</para>
+              <itemizedlist>
+                  <listitem><para>SALTATIC (A073)</para></listitem>
+                  <listitem><para>CASEVACREQ (A015)</para></listitem>
+                  <listitem><para>MEDEVAC MESSAGE (A012)</para></listitem>
+              </itemizedlist>
+</entry>
               <entry>The following messages that are not compliant with STANAG 7149 
                 Ed 4. will be accepted by the AMN Core:
               <itemizedlist>
                   <listitem><para>UXO/IED Find (11 Liner)</para></listitem>
                   <listitem><para>Joint Tactical Air Strike Request (JTAR) - US DD Form 1972</para></listitem>
-                  <listitem><para>SALTA (5 Liner)</para></listitem>
                   <listitem><para>CIED (10 Liner)</para></listitem>
-                  <listitem><para>MIST</para></listitem>
                   <listitem><para>ROZ Status / KILLBOX MESSAGE (F083)</para></listitem>
-                  <listitem><para>MEDEVAC (9 Liner) / CASEVACREQ (A015)</para></listitem>
                   <listitem><para>SALUTE (Size, Activity, Location, Unit/Uniform, Time, Equipment) / ENEMY CONTACT REP (A023)</para></listitem>
-                  <listitem><para>POSREP (NFFI)</para></listitem>
+                  <listitem><para>FRIENDLY FORCE INFORMATION (J025) is the ADatP-3 representation of NFFI</para></listitem>
                 </itemizedlist><para>Change request proposals reflecting the requirements for those non-standard messages should be submitted within the configuration management process of ADatP-3 by those nations that are the primary originators of those messages.</para>
               </entry>
             </row>
