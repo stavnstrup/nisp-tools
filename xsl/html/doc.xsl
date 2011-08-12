@@ -17,6 +17,7 @@ Copyright (c) 2001, Jens Stavnstrup/DDRE <js@ddre.dk>
 
 <xsl:import href="../docbook-xsl/xhtml/chunk.xsl"/>
 
+
 <xsl:output method="saxon:xhtml" encoding="utf-8" omit-xml-declaration="yes"
 indent="yes"/>
 
@@ -55,6 +56,7 @@ indent="yes"/>
 <xsl:param name="biography.collection" select="biography.xml"/>
 
 <xsl:param name="id.warnings" select="0"/>
+
 
 <!--
 

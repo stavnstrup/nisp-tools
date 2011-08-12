@@ -638,6 +638,34 @@ $Id$
   <!-- Create documentation                                                -->
   <!-- =================================================================== -->
 
+
+  <target name="copy.doc-figures" depends="init">
+    <copy preservelastmodified="true" todir="${basedir}/docs">
+      <fileset dir="${basedir}/xdocs">
+        <include name="*.svg"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="svg.doc-figures.required" depends="copy.doc-figures">
+    <uptodate property="svg.doc-figures.notRequired">
+      <srcfiles includes="*.svg" dir="${basedir}/docs"/>
+      <mapper type="glob" from="*.svg" to="${basedir}/docs/*.${nisp.image.ext}"/>
+    </uptodate>
+  </target>
+
+   <target name="svg.doc-figures" depends="init, svg.doc-figures.required" unless="svg.doc-figures.notRequired">
+      <echo message="Create figures for HTML (${dpi.raster} dpi)"/>
+      <rasterize bg="255,255,255" result="${nisp.image.mimetype}" quality="${nisp.image.quality}" dpi="${dpi.raster}" destdir="${basedir}/docs/">
+         <fileset dir="${basedir}/docs/">
+            <include name="*.svg"/>
+            <depend targetdir="${basedir}/docss/">
+               <mapper type="glob" from="*.svg" to="*.${nisp.image.ext}"/>
+            </depend>
+         </fileset>
+      </rasterize>
+   </target>
+
   <target name="doc-layout-fo-check" depends="init">
     <uptodate property="doc-layout-fo.notRequired"
               targetfile="${xsl-fo.dir}/doc-layout.xsl">
@@ -645,7 +673,6 @@ $Id$
       <srcfiles dir="${docbook-xsl.dir}/template" includes="templates.xsl"/>
     </uptodate>
   </target>
-
 
   <target name="doc-layout-fo" depends="doc-layout-fo-check"
           unless="doc-layout-fo.notRequired">
@@ -659,7 +686,7 @@ $Id$
   </target>
 
 
-  <target name="doc-html.check">
+  <target name="doc-html.check" depends="svg.doc-figures">
     <uptodate property="doc.notRequired"
               targetfile="${basedir}/docs/index.html">
       <srcfiles dir="${basedir}/xdocs" 
@@ -670,7 +697,7 @@ $Id$
     </uptodate>
   </target>
   
-  <target name="doc-pdf.check">
+  <target name="doc-pdf.check" depends="copy.doc-figures">
     <uptodate property="doc-pdf.notRequired"
               targetfile="${basedir}/docs/manual.pdf">
       <srcfiles dir="${basedir}/xdocs"
