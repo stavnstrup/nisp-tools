@@ -709,10 +709,8 @@ $Id$
   </target>
   
   <target name="doc" description="* Create documentation pages"
-          depends="doc.html"/>
-<!--
           depends="doc.html, doc.pdf"/>
--->
+
   <target name="doc.html" description="* Create documentation pages in html"
           depends="init, doc-html.check" unless="doc.notRequired">
     <echo message="Create documentation pages in HTML"/>
@@ -800,7 +798,7 @@ $Id$
   <!-- Create the tools distribution -->
 
   <target name="tool" description="* Create a new tool distribution"
-          depends="doc, new-dtd">
+          depends="doc.pdf, new-dtd">
     <mkdir dir="${zip.dir}"/>
     
     <mkdir dir="${dist.dir}/src"/>
@@ -815,7 +813,7 @@ $Id$
     <copy todir="${dist.dir}/docs" 
       preservelastmodified="yes">
       <fileset dir="${basedir}/docs"
-               excludes="**/*/*.ced, *.fo"/>
+               include="manual.pdf, README">
     </copy>
 
     <mkdir dir="${dist.dir}/xdocs"/>
