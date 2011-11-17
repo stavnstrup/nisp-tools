@@ -145,6 +145,16 @@
                 of the network.</entry>
             </row>
             <row>
+              <entry>Connectivity between AMN Core network and TCN networks</entry>
+              <entry>IEEE 802.3z Gigabit Ethernet (GbE)<para>
+Border Gateway Protocol V4 (IET RFC 1771, March 1995)</para><para>
+BGP Communities Attribute (IETF RFC 1997, August 1996)</para><para>
+Multicast Source Discovery Protocol (MSDP) (IETF RFC 3618, October 2003)</para><para>
+Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 2006)</para></entry>
+              <entry>Detailed Interface Control Document for "Connection Between CISAF network and TCN networks" (Thales Doc: F0057/62543313/558/-/G/EN)
+              </entry>
+            </row>
+            <row>
               <entry>Service transport protocol</entry>
               <entry>Hypertext Transfer Protocol - HTTP 1.1 (RFC 2616:1999)</entry>
               <entry>HTTP shall be used as the transport protocol for information 
@@ -169,8 +179,12 @@
             </row>
             <row>
               <entry>Voice communication</entry>
-              <entry>VoIP: SIP RFC 3261</entry>
-              <entry></entry>
+              <entry>VoIP: SIP RFC 3261<para>- Audio data compression Codec ITU-T Recommendation G.729 (01/07) - The use of G.729 may require a license fee and/or royalty fee
+- DiffServ,PHB and DSCP defined by IETF RFC 2474</para></entry>
+              <entry>- ITU-T G.Imp729 (11/09)<para>
+- Interval between Voice packets 40ms</para><para>
+- RTP protocol ports 16384 and/or 16385</para><para>
+- Detailed Interface Control Document for "Voice over Secure IP (VoSIP) Network Service" (Thales Doc: F0057/61935771/558/ICD VOSIP/A/EN; NATO RESTRICTED)</para></entry>
             </row>
             <row>
               <entry>Secure Network management</entry>
@@ -596,17 +610,13 @@ TIDE Information Discovery specifications. On the AMN CORE a commercial product 
             </row>
             <row>
               <entry>General definition of Security and Confidentiality metadata</entry>
-              <entry>Community Security Requirements Statement For The Afghan Mission 
-                Network, Version 1.1, 2 June 2010.
-                <para>(See also ISAF Minimum Metadata Implementation Policy, Amendment
-                  A: Metadata Encoding Guidance for the ISAF Minimum Metadata Standard 
-                  and STANAG 1059 (9th edition, 2005)</para>
+              <entry>Emerging (Dec 2012):<para>
+- NO-FFI 00961 (RTO spec on confidentiality labels);</para><para>
+- NO-FFI 00962 (RTO spec on metadata binding);</para><para>
+- NC3A TN-1455 (NATO profile of NO-FFI 00962);</para><para>
+- NC3A TN-1456 (NATO profile of NO-FFI 00961).</para>
               </entry>
-              <entry>All system and programme managers have to plan to implement 
-                these new standards in their individual area of responsibility. See 
-                NATO Profile for the XML Confidentiality Label Syntax and NATO Profile
-                for the Binding of Metadata to Data Objects for implementation detail.
-              </entry>
+              <entry></entry>
             </row>
             <row>
               <entry>Sharing of information across Communities of Interest and across 
@@ -784,7 +794,7 @@ Emerging: Dec 2012</para>
               <entry>Digital exchange of semantically rich information about Battlespace
                 Objects such as units, their structural composition, Plans and Orders 
                 etc.</entry>
-              <entry>STANAG 5523 – C2 Information Exchange model in conjunction with MIP Data Exchange Mechanism (DEM) Block 2 and the AMN MIP Implementation Profile (published in Annex A to NC3A RD 3188 - AMN MIP Workshop Final Report).</entry>
+              <entry>STANAG 5523 – C2 Information Exchange model in conjunction with MIP Data Exchange Mechanism (DEM) Block 2 and the AMN MIP Implementation Profile (published in Annex A to NC3A RD-3188 - AMN MIP Workshop Final Report).</entry>
               <entry>C2IEDM Bussiness Rule F11.2 b is not applicable in the AMN scope. 
                 Implementations shall ensure that the use of CONTEXT-ASSOCIATION does 
                 not create circular references between CONTEXTs.Currently most AMN 
@@ -827,11 +837,10 @@ Emerging: Dec 2012</para>
               <entry>Exchanging information on Incident and Event information to
                 support information exploitation.</entry>
               <entry>Emerging (Jul 2011): Draft EVENTEXPLOITREP XML schema. Under 
-                development between US PM Battle Command, US CENTCOM CCJ2 (CIDNE) 
-                and NC3A.<footnote><para>Document currently not included in NISP Vol.2
-                (ed.E), as it was not available from the author.</para></footnote></entry>
-              <entry>This schema is used to exchange rich and structured incident/event 
-                information between C2 and Exploitation systems (JOCWatch, CIDNE).</entry>
+                development. Rationale: The coordination between NC3A and US on this work has been stalled due to the lack of funding.</entry>
+              <entry>This schema will be used to exchange rich and structured incident/
+event information between C2 and Exploitation systems like JOCWatch and CIDNE. National capability developers are invited to contribute to the development of the final EVENTEXPLOITREP XML Schema at http://tide.act.nato.int/tidepedia/index.php?title=TP_112:_Event_Exploitation_Reports_(EVENTEXPLOITREP)
+Until the EVENTEXPLOITREP XML Schema definition is finalised, it is recommended to use the current draft schema also known as OIR (Operational Incident Report).</entry>
             </row>
             <row>
               <entry>Real time automated data exchange such as radar tracking information 
