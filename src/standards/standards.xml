@@ -240,12 +240,20 @@
 
 
    <lists>
-      <sp-list tref="coi-gen-doc">
+      <sp-list tref="coi-gen-sgv">
          <sp-view idx="d0e641">
+            <select id="ogc-09-000" mode="emerging">Sensor Planning Servicde (SPS) (OGC 09-000:2011)</select>
+            <rationale> SPS added in NISP v.6 through RFCP 5-23</rationale>
+         </sp-view>
+      </sp-list>
+   
+      <sp-list tref="coi-gen-doc">
+         <sp-view idx="d0e643">
             <select id="nato-stanag1401ed14" mode="mandatory">Joint Brevity Words Publication (APP-7(E) Change 1, STANAG 1401 ed.14:2011)</select>
             <rationale>STANAG 1401 ed.13, added in NISP v.5 through RFCP 4-7</rationale>
          </sp-view>
       </sp-list>
+      
       <sp-list tref="coi-ci-met">
          <sp-view idx="d0e630">
             <select id="nato-stanag1116ed9" mode="mandatory">Specifications for Naval Mine Warfare Information and for Data Transfer - AMP 11 (STANAG 1116 ed.9:2010)</select>
@@ -368,13 +376,13 @@
          <sp-view idx="d0e9502">            
             <select id="ogc-10-090r3" mode="mandatory">NetCDF v1.0 OGC 10-090r3 (OGC:2011)</select>
             <rationale>
-              GeoSym added in NISP v.6 through RFCP 5-49.</rationale>
+              NetCDF added in NISP v.6 through RFCP 5-49.</rationale>
          </sp-view>
 
          <sp-view idx="d0e9504">            
             <select id="ogc-08-139r3" mode="mandatory">GeoPDF OGC 08-139r3 (OGC:2011)</select>
             <rationale>
-              GeoSym added in NISP v.6 through RFCP 5-48.</rationale>
+              GeoPDF added in NISP v.6 through RFCP 5-48.</rationale>
          </sp-view>
          
          <sp-view idx="d0e9510">            
@@ -477,6 +485,7 @@
 
          <sp-view idx="d0e699">           
             <select id="sun-rmi-over-iiop" mode="emerging">RMI-IIOP 1.5.0:2005 (SUN)</select>
+            <rationale>Added in NISP v.6 through RFCP 5-34</rationale>
          </sp-view>
 
          <sp-view idx="d0e702">           
@@ -524,7 +533,8 @@
             disovering service. For CCEB interoperability UDDI 3.0 is mandatory.
             <para>Used in Profiles: AMN, tactESB (v2.03)</para>
         </remarks>
-            <rationale>Included in v.5 through RFCP 4-38 and updated in NCSP v.6 through RFCP 5-26.</rationale>
+            <rationale>Included in v.5 through RFCP 4-38 and updated in NCSP v.6 through
+              RFCP 5-26, changed to mandatory through RFCP 5-62.</rationale>
          </sp-view>
          <sp-view idx="d0e11340">            
             <select id="oasis-programmersapi-v2" mode="emerging">UDDI API Spec v.2, OASIS:2002</select>
@@ -539,7 +549,7 @@
               messages to facilitate trading between organisation.
               <para>Used in Profile: AMN (v3.0)</para>
             </remarks>
-            <rationale>Included in NCSP v.7 through RFCP 6-16; changed to mandatory through RFCP 5-63.</rationale>
+            <rationale>Included in NCSP v.7 through RFCP 6-16; changed to mandatory through RFCP 5-62.</rationale>
          </sp-view>
          <sp-view idx="d0e9493">            
             <select id="ebxml-ebta" mode="emerging">ebXML Messaging Service v. 2:2002 (OASIS)</select>
@@ -699,7 +709,8 @@
             <select id="mip-MTIDP-SEAWG-ed3.0.10-annex-b" mode="mandatory">DEM Data
               Replication Mechanism from MIP baseline 3:2009</select>
               <remarks>Used in Profile: AMN</remarks>
-            <rationale>C2IEDM replaced by JC3IEDM in v.7 by RFCP 6-21</rationale>
+            <rationale>C2IEDM replaced by JC3IEDM in v.7 by RFCP 6-21; changed to mandatory
+              through RFCP 5-62</rationale>
          </sp-view>
          <sp-view idx="d0e8715">            
             <select id="nato-stanag5523" mode="fading">NATO Corporate Data Model v2 (ADatP-32)</select>
@@ -851,9 +862,7 @@
          <sp-view idx="d0e9012">            
             <select id="nato-stanag7099" mode="mandatory">Controlled Imagery Base (CIB, STANAG 7099 ed.2:2004), 
             </select>
-            <rationale>
-              Included in NISP v.6 through RFCP 5-51.
-            </rationale>
+            <rationale>Included in NISP v.6 through RFCP 5-51</rationale>
          </sp-view>
          
          <sp-view idx="d0e9022">        
@@ -1270,7 +1279,7 @@
          </sp-view>
 
          <sp-view idx="d0e10393">            
-            <select id="omg-formal03-03-01" mode="mandatory">Unified Modeling Language (UML) v2.0:2010 (OMG)</select>
+            <select id="omg-formal03-03-01" mode="mandatory">Unified Modeling Language (UML) v2.2:2009 (OMG)</select>
             <remarks>For CCEB interoperability this standard is not applicable</remarks>
          </sp-view>
 
@@ -1319,16 +1328,11 @@
          </sp-view>
 
          <sp-view idx="d0e10689">         
-            <select id="ecma-ecma-357" mode="mandatory">
-              ECMA Script XML Specification (ECMA
-              357) ed.3:2009
-            </select>
+            <select id="ecma-ecma-357" mode="mandatory">ECMA Script XML Specification (ECMA 357) ed.3:2009</select>
             <remarks>
               This sstandard adds native XML datatypes to the ECMA Script language.
             </remarks>
-            <rationale>
-              Included in NCSP v.6 through RFCP 5-29
-            </rationale>
+            <rationale>Included in NCSP v.6 through RFCP 5-29</rationale>
          </sp-view>       
 
          <sp-view idx="d0e11061">            
@@ -1494,7 +1498,7 @@
               RFC 894:1984, 2374:1998, 2710:1999, 3513:2003 included in v.5
               through RFCP 4-3; STD 5, RFC 791:1981, 792:1981, 894:1984, 919:1984,
               922:1984, 1112:1989, 2474:1998, 2710:1999, 3168:2001, 3260:2002, 3376:2002,
-              3513:2003, 3587:2003, 3590:2003 changed in NCSP v.6; changed to mandatory through RFCP 5-63.
+              3513:2003, 3587:2003, 3590:2003 changed in NCSP v.6; changed to mandatory through RFCP 5-62.
             </rationale>
          </sp-view>
 
@@ -1504,7 +1508,8 @@
               RFC 3367:2002 obsoleted 2236:1997 updates RFC 1112:1989 and is widely implemented,
               RFC 3376:2002 obsoleted RFC 2236:1997
             </remarks>
-            <rationale> RFC 2236:1997 and 3376:2002 included in NCSP v.5 through RFCP 4-3; changed to mandatory through RFCP 5-63.</rationale>
+            <rationale> RFC 2236:1997 and 3376:2002 included in NCSP v.5 through RFCP 4-3; 
+              changed to mandatory through RFCP 5-62.</rationale>
          </sp-view>
 
          <sp-view idx="d0e1474">           
@@ -1598,7 +1603,7 @@
             </remarks>
             <rationale>
               Included in v.5 through RFCP 4-3; RFC 2474:1998 updated by 3168:2001,
-              3260:2002, changed in NCSP v.6; changed to mandatory in v.8
+              3260:2002, changed in NCSP v.6; changed to mandatory in v.6 through RFCP 5-62.
             </rationale>
          </sp-view>
 
@@ -1875,7 +1880,7 @@
 
          <sp-view idx="d0e1763">           
             <select id="bp-mpls" mode="mandatory">MPLS (IETF RFC 3031: 2001, 3032:2001)</select>
-            <rationale>MPLS added in NISP v.6 through RFCP 5-28 </rationale>
+            <rationale>MPLS added in NISP v.6 through RFCP 5-28</rationale>
          </sp-view>
 		 
          <sp-view idx="d0e1773">            
@@ -2197,10 +2202,10 @@
          </sp-view>
          
          <sp-view idx="d0e4474">
-            <select id="ieee-802.1Q" mode="mandatory">Virtual Bridged Local Area Networks (VLAN) (IEEE 802.1Q:2005)</select>
+            <select id="ieee-802.1Q" mode="mandatory">Virtual Bridged Local Area Networks (VLAN) (IEEE 802.1q:2005)</select>
             <rationale>Included in NISP v.6 through RFCP 5-61.</rationale>
          </sp-view>
-         
+        
          <sp-view idx="d0e4476">
             <select id="ieee-802.1AB" mode="mandatory">Link Layer Discovery Protocol (IEEE 802.1AB:2009)</select>
             <rationale>Included in NISP v.6 through RFCP 5-61.</rationale>
@@ -2846,7 +2851,7 @@
         </sp-view>
 
         <sp-view idx="d0e5166">
-          <select id="bp-saml1.1" mode="emerging">
+          <select id="bp-saml1.1" mode="mandatory">
             Security Assertion Markup Language, SAML v2.0 (OASIS)
           </select>
           <remarks>
@@ -2857,13 +2862,14 @@
                <secondary>SAML 1.1</secondary>
                </indexterm>
             </remarks>
-            <rationale>SAML added in NISP v.3 through RFCP 2-8</rationale>
+            <rationale>SAML added in NISP v.3 through RFCP 2-8; v.2.0 changed to mandatory
+              through RFCP 5-62.</rationale>
          </sp-view>
 
          <sp-view idx="d0e5183">
-            <select id="w3c-xkms" mode="mandatory">XKMS (W3C):2001</select>
+            <select id="w3c-xkms" mode="mandatory">XKMS 2.0 (W3C):2005</select>
             <remarks>Used in Profiles: AMN, tactESB</remarks>
-            <rationale>XKMS added in NISP v.3 through RFCP 2-7; changed to mandatory through RFCP 5-63.</rationale>
+            <rationale>XKMS added in NISP v.3 through RFCP 2-7; changed to mandatory through RFCP 5-62.</rationale>
          </sp-view>
 
          <sp-view idx="d0e5236">
@@ -2972,7 +2978,7 @@
 
          <sp-view idx="d0e5274">          
             <select id="oasis-wss-v1.1-spec-os-SwAProfile" mode="mandatory">WS-Security Utility 1.0:2001 (OASIS)</select>
-            <rationale>WS-Security changed to mandatory through RFCP 5-63.</rationale>
+            <rationale>WS-Security changed to mandatory through RFCP 5-62.</rationale>
          </sp-view>
 
          <sp-view idx="d0e5276">        
@@ -3017,12 +3023,13 @@
 
       <sp-list tref="ias-integ">
          <sp-view idx="d0e5060">            
-            <select id="bp-ip-security" mode="mandatory">IP ESP (RFC 2406:1998)</select>
+            <select id="bp-ip-security" mode="mandatory">IP ESP (RFC 4303:2005)</select>
             <remarks>
                Encapsulating Security Payload (ESP) may support integrity and authentication
                depending on the use of algorithms
             </remarks>
-            <rationale>RFC 3168:2001 updated in NCSP v.6</rationale>
+            <rationale>RFC 3168:2001 updated in NCSP v.6; changed to RFC 4303:2005
+              in NISP v.5 through RFCP 5-21</rationale>
          </sp-view>
 
          <sp-view idx="d0e5080">            
@@ -3125,7 +3132,7 @@
          <sp-view idx="d0e5018">            
             <select id="iso-iec-9594-8" mode="mandatory">Public-key and attribute certificate frameworks, X.509 v3:2005 (ITU-T)</select>
             <remarks>Used in Profiles: AMN, tactESB</remarks>
-            <rationale>X.509 changed to mandatory through RFCP 5-63.</rationale>
+            <rationale>X.509 changed to mandatory through RFCP 5-62.</rationale>
          </sp-view>
 
          <sp-view idx="d0e5020">            
@@ -3140,14 +3147,14 @@
 
          <sp-view idx="d0e5178">
             <select id="w3c-xmlenc-core" mode="mandatory">XML Signature (W3C):2008</select>
-            <rationale>XML Signature added in NISP v.3 through RFCP 2-7; changed to mandatory through RFCP 5-63.</rationale>
+            <rationale>XML Signature added in NISP v.3 through RFCP 2-7; changed to mandatory through RFCP 5-62.</rationale>
          </sp-view>
 
          <sp-view idx="d0e5187">
             <select id="bp-xacml2.0" mode="mandatory">XACML v2.0:2008 (OASIS)</select>
             <select id="bp-xacml2.0" mode="emerging">XACML v3.0:2010 (OASIS)</select>
             <remarks>Used in Profiles: AMN, tactESB</remarks>
-            <rationale>XACML added in NISP v.3 through RFCP 2-7; v.2 changed to mandatory through RFCP 5-63, and v.3 added as emerging.</rationale>
+            <rationale>XACML added in NISP v.3 through RFCP 2-7; v.2 changed to mandatory through RFCP 5-62, and v.3 added as emerging.</rationale>
          </sp-view>
 
          <sp-view idx="d0e5189">
@@ -3872,7 +3879,7 @@
               </para>
               <para>Used in Profile: AMN</para>
             </remarks>
-            <rationale>PDF 5.1 changed in NCSP v.6</rationale>
+            <rationale>PDF 5.1 changed in NCSP v.6 through RFCP 5-41</rationale>
          </sp-view>
 
          <sp-view idx="d0e7724">            
@@ -4006,7 +4013,7 @@
          <sp-view idx="d0e11279">            
             <select id="ietf-rfc4918" mode="mandatory">HTTP Extensions for Web Distributed Authoring and Versioning (WebDAV) (IETF RFC 4918:2007)</select>
             <remarks/>
-            <rationale/>
+            <rationale>Added in NISP v.6 through RFCP 5-31</rationale>
          </sp-view>
 		 
          <sp-view idx="d0e11281">            
@@ -4060,7 +4067,7 @@
          <sp-view idx="d0e11315">            
             <select id="sun-jndi" mode="emerging">Java Naming and Directory Interface (JNDI) ed. 1.2, (SUN:1999)</select>
             <remarks/>
-            <rationale/>
+            <rationale>Added in NISP v.6 through RFCP 5-37</rationale>
          </sp-view>         
          
          <sp-view idx="d0e11317">            
@@ -4185,7 +4192,7 @@
          </sp-view>
 
          <sp-view idx="d0e7895">            
-            <select id="bp-xsd" mode="mandatory">XML Schema, Part 0-2:2001</select>
+            <select id="bp-xsd" mode="mandatory">XML Schema, Part 1-2:2004</select>
             <remarks>Used in Profiles: AMN, tactESB</remarks>
          </sp-view>
 
@@ -4496,7 +4503,7 @@
          <status mode="unknown">
             <uri>http://www.ws-i.org/Profiles/BasicProfile-2.0.html</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4516,7 +4523,7 @@
          <status mode="unknown">
             <uri>http://www.ws-i.org/Profiles/BasicSecurityProfile-1.1.html</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4565,7 +4572,7 @@
          <status mode="unknown">
             <uri>http://www.ws-i.org/Profiles/SimpleSoapBindingProfile-1.0.html</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4580,7 +4587,7 @@
          <status mode="unknown">
             <uri>http://www.ws-i.org/Profiles/AttachmentsProfile-1.0.html</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4596,7 +4603,7 @@
          <status mode="unknown">
             <uri>http://docs.oasis-open.org/ws-rx/wsrm/200702/wsrm-1.2-spec-os.pdf</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4610,7 +4617,7 @@
          <status mode="unknown">
             <uri>http://www.dmtf.org/sites/default/files/standards/documents/DSP0226_1.1.pdf</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4623,7 +4630,7 @@
          <status mode="unknown">
             <uri>http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4636,7 +4643,7 @@
          <status mode="unknown">
             <uri>http://docs.oasis-open.org/ws-sx/ws-securitypolicy/v1.3/os/ws-securitypolicy-1.3-spec-os.pdf</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4651,7 +4658,7 @@
          <status mode="unknown">
             <uri>http://www.w3.org/TR/ws-policy</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4667,7 +4674,7 @@
          <status mode="unknown">
             <uri>http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fed/WS-Federation-V1-1B.pdf</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4680,7 +4687,7 @@
          <status mode="unknown">
             <uri>http://docs.oasis-open.org/ws-sx/ws-trust/200512/ws-trust-1.3-os.pdf</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4697,7 +4704,7 @@
          <status mode="unknown">
             <uri>http://saml.xml.org/saml-specifications</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4729,7 +4736,7 @@
          <status mode="unknown">
             <uri>http://www.w3.org/TR/2010/WD-ws-metadata-exchange-20100805</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4742,7 +4749,7 @@
          <status mode="unknown">
             <uri>http://www.w3.org/TR/2010/WD-ws-metadata-exchange-20100805</uri>
             <history>
-               <event flag="added" date="2010-12-07" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-12-07" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4758,7 +4765,7 @@
          <status mode="unknown">
             <uri>http://www.w3.org/Submission/2004/SUBM-ws-addressing-20040810/</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4777,7 +4784,7 @@
          <status mode="unknown">
             <uri>http://www.w3.org/TR/2000/NOTE-SOAP-20000508/</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4797,7 +4804,7 @@
          <status mode="unknown">
             <uri>http://docs.oasis-open.org/ws-dd/soapoverudp/1.1/os/wsdd-soapoverudp-1.1-spec-os.docx</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4811,7 +4818,7 @@
          <status mode="unknown">
             <uri>http://www.w3.org/Submission/soap11mtom10/</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -4835,7 +4842,7 @@
          <status mode="unknown">
             <uri>http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</uri>
             <history>
-               <event flag="added" date="2010-12-04" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-12-04" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -5053,7 +5060,7 @@
          <status mode="unknown">
             <uri>http://www.w3.org/TR/REC-CSS1/</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -5085,7 +5092,7 @@
          <status mode="unknown">
             <uri>http://www.rssboard.org/rss-specification</uri>
             <history>
-               <event flag="added" date="2010-09-22" rfcp="" version="4.0"/>
+               <event flag="added" date="2010-09-22" rfcp="4-41" version="4.0"/>
             </history>
          </status>
       </standard>
@@ -12808,6 +12815,7 @@
             <history>
                <event date="2007-02-21" flag="added" version="1.0"/>
                <event date="2010-10-30" flag="changed" version="4.0"/>
+               <event date="2011-06-14" flag="changed" rfcp="5-22" version="5.0"/>
             </history>
          </status>
       </standard>
@@ -28758,23 +28766,21 @@
          </status>
       </standard>
 
-      <standard id="w3c-xkms" tag="XKMS">
-         <document orgid="w3c" pubnum="xkms" date="2001-03-30" title="XML Key Management Specification:2001"/>
+      <standard id="w3c-xkms" tag="XKMS 2.0">
+         <document orgid="w3c" pubnum="xkms2" date="2005-06-28" title="XML Key Management Specification:2005"/>
          <applicability>
            This document specifies protocols for distributing and registering
-           public keys, suitable for use in conjunction with the proposed standard for XML
-           Signature [XML-SIG] developed by the World Wide Web Consortium (W3C) and the
-           Internet Engineering Task Force (IETF) and an anticipated companion standard for
-           XML encryption.  The XML Key Management Specification (XKMS) comprises two parts
-           -- the XML Key Information Service Specification (X-KISS) and the XML Key Registration
-           Service Specification (X-KRSS).
+           public keys, suitable for use in conjunction with the W3C Recommendations for XML
+           Signature [XML-SIG] and XML Encryption [XML-Enc].  The XML Key Management 
+           Specification (XKMS) comprises two parts -- the XML Key Information Service 
+           Specification (X-KISS) and the XML Key Registration Service Specification (X-KRSS).
          </applicability>
          <status mode="unknown">
             <uri>http://www.w3.org/TR/xkms</uri>
             <history>
                <event flag="added" date="2008-10-14" rfcp="2-7" version="3.0"/>
                <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
-               <event flag="changed" date="2011-10-16" rfcp="5-63" version="5.0"/>
+               <event flag="changed" date="2011-10-16" rfcp="5-62" version="5.0"/>
             </history>
          </status>
       </standard>
@@ -29430,12 +29436,13 @@
                <event flag="added" date="2002-10-11" rfcp="" version="0.4"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-11-04" rfcp="" version="4.0"/>
+               <event flag="deleted" date="2011-11-25" rfcp="5-16" version="5.0"/>
             </history>
          </status>
       </standard>
 
-      <standard id="w3c-rec-xmlschema-1-20010502" tag="">
-         <document orgid="w3c" pubnum="REC-xmlschema-1-20010502" date="2001" title="XML Schema Part 1: Structures"/>
+      <standard id="w3c-rec-xmlschema-1-20040318" tag="">
+         <document orgid="w3c" pubnum="REC-xmlschema-1-20040318" date="2004" title="XML Schema Part 1: Structures 2nd ed."/>
          <applicability>
             XML Schema: Structures specifies the XML Schema definition language, which offers facilities for 
             describing the structure and constraining the contents of XML 1.0 documents, including those which 
@@ -29449,12 +29456,13 @@
                <event flag="added" date="2002-10-11" rfcp="" version="0.4"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-11-04" rfcp="" version="4.0"/>
+               <event flag="changed" date="2011-11-25" rfcp="5-16" version="5.0"/>
             </history>
          </status>
       </standard>
 
-      <standard id="w3c-rec-xmlschema-2-20010502" tag="">
-         <document orgid="w3c" pubnum="REC-xmlschema-2-20041028" date="2004" title="XML Schema Part 2: Datatypes"/>
+      <standard id="w3c-rec-xmlschema-2-20040318" tag="">
+         <document orgid="w3c" pubnum="REC-xmlschema-2-20040318" date="2004" title="XML Schema Part 2: Datatypes 2nd ed."/>
          <applicability>
             XML Schema: Datatypes is part 2 of the specification of the XML Schema language. It defines facilities 
             for defining datatypes to be used in XML Schemas as well as other XML specifications. The datatype
@@ -29467,6 +29475,7 @@
                <event flag="added" date="2002-10-11" rfcp="" version="0.4"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-11-04" rfcp="" version="4.0"/>
+               <event flag="changed" date="2011-11-25" rfcp="5-16" version="5.0"/>
             </history>
          </status>
       </standard>
@@ -29474,9 +29483,8 @@
       <profile id="bp-xsd" tag="XSD" type="base">
          <profilenote>XML Schema Definition, W3C 2001</profilenote>
          <parts>
-            <refstandard refid="w3c-rec-xmlschema-0-20010502"/>
-            <refstandard refid="w3c-rec-xmlschema-1-20010502"/>
-            <refstandard refid="w3c-rec-xmlschema-2-20010502"/>
+            <refstandard refid="w3c-rec-xmlschema-1-20040318"/>
+            <refstandard refid="w3c-rec-xmlschema-2-20040318"/>
          </parts>
          <applicability>
            XSD (XML Schema Definition) specifies how to formally describe
@@ -29500,6 +29508,7 @@
             <history>
                <event flag="added" date="2002-10-11" rfcp="" version="0.4"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+               <event flag="changed" date="2011-11-25" rfcp="5-16" version="5.0"/>
             </history>
          </status>
       </profile>
@@ -30805,6 +30814,29 @@
          </status>
       </standard>
 
+      <standard id="ogc-09-000" tag="SPS">
+         <document orgid="ogc" pubnum="09-000" date="2011-03-28" title="Sensor Planning Service Implementation Standard v2.0 (OGC:2011)"/>
+         <applicability>
+           The OpenGIS Sensor Planning Service Interface Standard (SPS) defines interfaces 
+           for queries that provide information about the capabilities of a sensor and
+           how to task the sensor. The standard is designed to support queries that
+           have the following purposes: to determine the feasibility of a sensor 
+           planning request; to submit and reserve/commit such a request; to inquire
+           about the status of such a request; to update or cancel such a request; 
+           and to request information about other OGC Web services that provide access
+           to the data collected by the requested task.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.opengeospatial.org/standards/sps</uri>
+            <history>
+               <event flag="added" date="2011-11-25" rfcp="5-23" version="5.0"/>
+            </history>
+         </status>
+      </standard>      
+      
+      
+      
+      
       <standard id="iso-19112" tag="Spatial Referencing by Geographic Identifiers">
          <document orgid="iso" pubnum="19112" date="2003" title="Spatial Referencing by Geographic Identifiers"/>
          <applicability>
@@ -36267,7 +36299,7 @@
       </standard>
 
       <standard id="omg-formal03-03-01" tag="UML">
-         <document orgid="omg" pubnum="formal/03-03-01" date="2003" title="Unified Modeling Language, v2.0:2010" version="2"/>
+         <document orgid="omg" pubnum="formal/2009-02-04" date="2009" title="Unified Modeling Language, v2.2:2009" version="2.2"/>
          <applicability>
            The Unified Modeling Language (UML) is a graphical language for
            visualizing, specifying, constructing, and documenting the artifacts of a
@@ -36275,6 +36307,13 @@
            blueprints, including conceptual things such as business processes and system
            functions as well as concrete things such as programming language statements,
            database schemas, and reusable software components.
+           <para>Beginning with UML 2.0, the UML Specification was split into two 
+           complementary specifications: Infrastructure and Superstructure. The UML 
+           infrastructure specification defines the foundational language constructs 
+           required for UML 2.2. It is complemented by UML Superstructure, which defines 
+           the user level constructs required for UML 2.2. The two complementary 
+           specifications constitute a complete specification for the UML 2 modeling 
+           language.</para>
          </applicability>
          <status mode="unknown">
             <uri>http://www.omg.org/spec/UML/</uri>
@@ -36283,6 +36322,7 @@
                <event flag="changed" date="2001-11-19" rfcp="" version="0.3"/>
                <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
                <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
+               <event flag="changed" date="2011-11-25" rfcp="5-18" version="5.0"/>
             </history>
          </status>
       </standard>
