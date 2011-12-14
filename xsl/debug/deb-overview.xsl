@@ -198,27 +198,27 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:if test="profilespec/@orgid =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="profilespec/@orgid"/>
+      <xsl:value-of select="profilespec/@orgid"/>&nbsp;
     </td>
     <td>
       <xsl:if test="profilespec/@pubnum =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="profilespec/@pubnum"/>
+      <xsl:value-of select="profilespec/@pubnum"/>&nbsp;
     </td>
     <td>
       <xsl:if test="profilespec/@title =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="profilespec/@title"/>
+      <xsl:value-of select="profilespec/@title"/>&nbsp;
     </td>
     <td class="date">
       <xsl:if test="profilespec/@date =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="profilespec/@date"/>
+      <xsl:value-of select="profilespec/@date"/>&nbsp;
     </td>        
-    <td><xsl:value-of select="profilespec/@version"/></td>        
+    <td><xsl:value-of select="profilespec/@version"/>&nbsp;</td>        
     <td><xsl:apply-templates select="document/correction"/>&nbsp;</td>
     <td><xsl:apply-templates select="document/alsoknown"/>&nbsp;</td>
     <td><xsl:value-of select="@tag"/>&nbsp;</td>
@@ -277,7 +277,7 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:value-of select="document/@date"/>
     </td>        
-    <td><xsl:value-of select="document/@version"/></td>        
+    <td><xsl:value-of select="document/@version"/>&nbsp;</td>        
     <td><xsl:apply-templates select="document/correction"/>&nbsp;</td>
     <td><xsl:apply-templates select="document/alsoknown"/>&nbsp;</td>
     <td><xsl:value-of select="@tag"/>&nbsp;</td>
