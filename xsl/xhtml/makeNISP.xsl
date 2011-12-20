@@ -406,7 +406,7 @@ $Id$
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
   <meta http-equiv="Content-Language" content="en-uk" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <meta name="author" content="NATO Open Systems Working Group (NOSWG)" /> 
+  <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
   <meta http-equiv="Expires" content="0" />
 <!--
   <meta http-equiv="X-UA-Compatible" content="IE=8" />

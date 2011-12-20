@@ -91,7 +91,7 @@ $Id
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
       <meta http-equiv="Content-Language" content="en-uk" />
       <meta name="MSSmartTagsPreventParsing" content="true" />
-      <meta name="author" content="NATO Open Systems Working Group (NOSWG)" /> 
+      <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
       <link rel="stylesheet" href="../css/nisp.css" type="text/css" media="all" />
     </head>
     <body>
