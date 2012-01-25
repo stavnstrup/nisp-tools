@@ -1317,9 +1317,9 @@
           nonavbar %boolean; #IMPLIED
           maxmemory CDATA #IMPLIED
           group CDATA #IMPLIED
-          source CDATA #IMPLIED
           linkoffline CDATA #IMPLIED
           additionalparam CDATA #IMPLIED
+          source CDATA #IMPLIED
           linksource %boolean; #IMPLIED
           failonerror %boolean; #IMPLIED
           locale CDATA #IMPLIED
@@ -1394,8 +1394,8 @@
 <!ATTLIST link
           id ID #IMPLIED
           packagelisturl CDATA #IMPLIED
-          href CDATA #IMPLIED
           offline %boolean; #IMPLIED
+          href CDATA #IMPLIED
           packagelistloc CDATA #IMPLIED
           resolvelink %boolean; #IMPLIED>
 
@@ -1801,8 +1801,8 @@
 <!ATTLIST move
           id ID #IMPLIED
           flatten %boolean; #IMPLIED
-          tofile CDATA #IMPLIED
           encoding CDATA #IMPLIED
+          tofile CDATA #IMPLIED
           todir CDATA #IMPLIED
           file CDATA #IMPLIED
           verbose %boolean; #IMPLIED
@@ -1841,8 +1841,8 @@
 <!ATTLIST copy
           id ID #IMPLIED
           flatten %boolean; #IMPLIED
-          tofile CDATA #IMPLIED
           encoding CDATA #IMPLIED
+          tofile CDATA #IMPLIED
           todir CDATA #IMPLIED
           file CDATA #IMPLIED
           verbose %boolean; #IMPLIED
@@ -1948,7 +1948,7 @@
           description CDATA #IMPLIED
           namespacepolicy (ignore | elementsOnly | all) #IMPLIED>
 
-<!ELEMENT chgrp (mapper | srcfile | targetfile | redirector | env | filelist | fileset | dirset | arg)*>
+<!ELEMENT chgrp (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
 <!ATTLIST chgrp
           id ID #IMPLIED
           addsourcefile %boolean; #IMPLIED
@@ -2306,9 +2306,9 @@
           nonavbar %boolean; #IMPLIED
           maxmemory CDATA #IMPLIED
           group CDATA #IMPLIED
-          source CDATA #IMPLIED
           linkoffline CDATA #IMPLIED
           additionalparam CDATA #IMPLIED
+          source CDATA #IMPLIED
           linksource %boolean; #IMPLIED
           failonerror %boolean; #IMPLIED
           locale CDATA #IMPLIED
@@ -2519,8 +2519,8 @@
           id ID #IMPLIED
           taskname CDATA #IMPLIED
           description CDATA #IMPLIED
-          action CDATA #IMPLIED
-          source CDATA #IMPLIED>
+          source CDATA #IMPLIED
+          action CDATA #IMPLIED>
 
 <!ELEMENT weblogic (classpath)*>
 <!ATTLIST weblogic
@@ -2528,8 +2528,8 @@
           classpath CDATA #IMPLIED
           debug %boolean; #IMPLIED
           password CDATA #IMPLIED
-          component CDATA #IMPLIED
           application CDATA #IMPLIED
+          component CDATA #IMPLIED
           server CDATA #IMPLIED
           username CDATA #IMPLIED>
 
@@ -2561,8 +2561,8 @@
           orb CDATA #IMPLIED
           classpath CDATA #IMPLIED
           davidhost CDATA #IMPLIED
-          server CDATA #IMPLIED
           classname CDATA #IMPLIED
+          server CDATA #IMPLIED
           username CDATA #IMPLIED
           davidport CDATA #IMPLIED
           password CDATA #IMPLIED>
@@ -2609,8 +2609,8 @@
           id ID #IMPLIED
           verbose %boolean; #IMPLIED
           taskname CDATA #IMPLIED
-          todir CDATA #IMPLIED
           overwrite %boolean; #IMPLIED
+          todir CDATA #IMPLIED
           includeemptydirs %boolean; #IMPLIED
           description CDATA #IMPLIED
           granularity CDATA #IMPLIED
@@ -2681,8 +2681,8 @@
           reallyquiet %boolean; #IMPLIED
           output CDATA #IMPLIED
           port CDATA #IMPLIED
-          dest CDATA #IMPLIED
           compressionlevel CDATA #IMPLIED
+          dest CDATA #IMPLIED
           noexec %boolean; #IMPLIED
           error CDATA #IMPLIED
           description CDATA #IMPLIED
@@ -2865,7 +2865,7 @@
           failonerror %boolean; #IMPLIED
           srcfile CDATA #IMPLIED>
 
-<!ELEMENT attrib (mapper | srcfile | targetfile | redirector | env | filelist | fileset | dirset | arg)*>
+<!ELEMENT attrib (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
 <!ATTLIST attrib
           id ID #IMPLIED
           addsourcefile %boolean; #IMPLIED
@@ -2991,7 +2991,7 @@
           id ID #IMPLIED
           expandproperties %boolean; #IMPLIED>
 
-<!ELEMENT execon (mapper | srcfile | targetfile | redirector | env | filelist | fileset | dirset | arg)*>
+<!ELEMENT execon (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
 <!ATTLIST execon
           id ID #IMPLIED
           resultproperty CDATA #IMPLIED
@@ -3025,8 +3025,8 @@
           append %boolean; #IMPLIED
           taskname CDATA #IMPLIED
           ignoremissing %boolean; #IMPLIED
-          newenvironment %boolean; #IMPLIED
           vmlauncher %boolean; #IMPLIED
+          newenvironment %boolean; #IMPLIED
           relative %boolean; #IMPLIED
           parallel %boolean; #IMPLIED>
 
@@ -3282,8 +3282,8 @@
           javacchome CDATA #IMPLIED
           nodeprefix CDATA #IMPLIED
           nodefactory %boolean; #IMPLIED
-          multi %boolean; #IMPLIED
           visitor %boolean; #IMPLIED
+          multi %boolean; #IMPLIED
           target CDATA #IMPLIED
           nodeusesparser %boolean; #IMPLIED
           visitorexception CDATA #IMPLIED
@@ -3351,7 +3351,7 @@
           description CDATA #IMPLIED
           commentfile CDATA #IMPLIED>
 
-<!ELEMENT apply (mapper | srcfile | targetfile | redirector | env | filelist | fileset | dirset | arg)*>
+<!ELEMENT apply (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
 <!ATTLIST apply
           id ID #IMPLIED
           resultproperty CDATA #IMPLIED
@@ -3385,8 +3385,8 @@
           append %boolean; #IMPLIED
           taskname CDATA #IMPLIED
           ignoremissing %boolean; #IMPLIED
-          newenvironment %boolean; #IMPLIED
           vmlauncher %boolean; #IMPLIED
+          newenvironment %boolean; #IMPLIED
           relative %boolean; #IMPLIED
           parallel %boolean; #IMPLIED>
 
@@ -3601,8 +3601,8 @@
           includejavaruntime %boolean; #IMPLIED
           classpath CDATA #IMPLIED
           casesensitive %boolean; #IMPLIED
-          compiler CDATA #IMPLIED
           debug %boolean; #IMPLIED
+          compiler CDATA #IMPLIED
           includes CDATA #IMPLIED
           description CDATA #IMPLIED
           includesfile CDATA #IMPLIED
@@ -3626,8 +3626,8 @@
 <!ATTLIST format
           id ID #IMPLIED
           locale CDATA #IMPLIED
-          timezone CDATA #IMPLIED
           unit (millisecond | second | minute | hour | day | week | month | year) #IMPLIED
+          timezone CDATA #IMPLIED
           pattern CDATA #IMPLIED
           property CDATA #IMPLIED
           offset CDATA #IMPLIED>
@@ -4067,8 +4067,8 @@
           command CDATA #IMPLIED
           executable CDATA #IMPLIED
           osfamily CDATA #IMPLIED
-          errorproperty CDATA #IMPLIED
           os CDATA #IMPLIED
+          errorproperty CDATA #IMPLIED
           output CDATA #IMPLIED
           timeout CDATA #IMPLIED
           spawn %boolean; #IMPLIED
@@ -4173,7 +4173,7 @@
           id ID #IMPLIED
           basedir CDATA #IMPLIED>
 
-<!ELEMENT chown (mapper | srcfile | targetfile | redirector | env | filelist | fileset | dirset | arg)*>
+<!ELEMENT chown (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
 <!ATTLIST chown
           id ID #IMPLIED
           addsourcefile %boolean; #IMPLIED
@@ -4282,7 +4282,7 @@
           preservelastmodified %boolean; #IMPLIED
           excludesfile CDATA #IMPLIED>
 
-<!ELEMENT schemavalidate (fileset | classpath | attribute | dtd | xmlcatalog | schema | property)*>
+<!ELEMENT schemavalidate (fileset | classpath | dtd | attribute | xmlcatalog | schema | property)*>
 <!ATTLIST schemavalidate
           id ID #IMPLIED
           fullchecking %boolean; #IMPLIED
@@ -4589,7 +4589,7 @@
           localpath CDATA #IMPLIED
           password CDATA #IMPLIED>
 
-<!ELEMENT xmlvalidate (fileset | classpath | attribute | dtd | xmlcatalog | property)*>
+<!ELEMENT xmlvalidate (fileset | classpath | dtd | attribute | xmlcatalog | property)*>
 <!ATTLIST xmlvalidate
           id ID #IMPLIED
           classpath CDATA #IMPLIED
@@ -4912,8 +4912,8 @@
           id ID #IMPLIED
           cvsrsh CDATA #IMPLIED
           endtag CDATA #IMPLIED
-          quiet %boolean; #IMPLIED
           passfile CDATA #IMPLIED
+          quiet %boolean; #IMPLIED
           command CDATA #IMPLIED
           end CDATA #IMPLIED
           package CDATA #IMPLIED
@@ -5090,7 +5090,7 @@
           description CDATA #IMPLIED
           parentname CDATA #IMPLIED>
 
-<!ELEMENT java (classpath | sysproperty | bootclasspath | redirector | syspropertyset | env | permissions | jvmarg | arg | assertions)*>
+<!ELEMENT java (classpath | sysproperty | redirector | bootclasspath | syspropertyset | env | permissions | jvmarg | arg | assertions)*>
 <!ATTLIST java
           id ID #IMPLIED
           resultproperty CDATA #IMPLIED
@@ -5104,8 +5104,8 @@
           output CDATA #IMPLIED
           timeout CDATA #IMPLIED
           spawn %boolean; #IMPLIED
-          jvm CDATA #IMPLIED
           input CDATA #IMPLIED
+          jvm CDATA #IMPLIED
           inputstring CDATA #IMPLIED
           classpath CDATA #IMPLIED
           logerror %boolean; #IMPLIED
