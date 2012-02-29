@@ -139,9 +139,6 @@ $Id$
 
 <!-- ==================================================================== -->
 
-
-<xsl:template match="ncoe"/>
-
 <xsl:template match="select|remarks">
   <xsl:apply-templates/>
 </xsl:template>

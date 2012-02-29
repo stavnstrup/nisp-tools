@@ -112,9 +112,6 @@ $Id$
 
 <!-- ==================================================================== -->
 
-
-<xsl:template match="ncoe"/>
-
 <xsl:template match="select|rationale">
   <xsl:apply-templates/>
 </xsl:template>
