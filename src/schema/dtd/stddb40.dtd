@@ -94,17 +94,17 @@
 <!-- .......................... LISTS .................................. -->
 
 
-<!ELEMENT lists ((sp-list | profile-list)*)>
+<!ELEMENT lists (sp-list*)>
 
 
 <!ELEMENT sp-list (sp-view*)>
 <!ATTLIST sp-list
           tref IDREF #IMPLIED>
 
-<!ELEMENT sp-view ((header?), select*, remarks?, rationale?)>
+<!ELEMENT sp-view (select*, remarks?, rationale?)>
 <!ATTLIST sp-view
-          idx ID #IMPLIED
-          category CDATA #IMPLIED>
+          idx ID #IMPLIED>
+
 
 
 <!ELEMENT select (#PCDATA)>
