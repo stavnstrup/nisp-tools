@@ -1198,6 +1198,82 @@
              </para></listitem>
          </orderedlist>
        </para>
+       
+       <para><emphasis role="bold">WS-Discovery</emphasis></para>
+       
+       <para>A special method for synchronisation between various domains is the OASIS 
+         WS-Discovery. Service Discovery is the process of finding the services that 
+         are available in the network. When operating in a wireless network environment 
+         where node mobility and shifting network conditions can cause network partitions 
+         and loss of network connections, it is vital to use a service discovery mechanism 
+         that does not rely on the availability of any given node. In other words, a 
+         fully distributed service discovery mechanism is needed. The only standardized 
+         Web service discovery protocol that currently fulfills this requirement by 
+         operating in a distributed mode is WS-Discovery.</para>
+       
+       <para>WS-Discovery is designed for use in one of two modes: managed and ad 
+         hoc. In managed mode all nodes communicate through a discovery proxy, an entity 
+         which performs the service discovery function of behalf of all the other nodes, 
+         and which communicates with the other nodes using unicast messages. This mechanism 
+         can be used to achieve interoperability between registry based service discovery 
+         mechanisms and WS-Discovery.</para>
+       
+       <para>In ad hoc mode, on the other hand, communication is fully distributed. 
+         Requests for service information are sent using multicast to a known address, 
+         and each node is responsible for answering requests from others about its own 
+         services. The ad hoc mode is intended to be used for local communication only, 
+         and the standard recommends limiting the scope of multicast messages by setting 
+         the time-to-live (TTL) field of the IPv4 header to 1, or by using a link-local 
+         multicast address for IPv6.</para>
+       
+       <para>In several experiments the used tactical radio networks consist of a number
+         of ad hoc networks connected to each other using Multi-Topology Routers (MTRs). 
+         The dynamic character of these networks implies that one cannot rely on a 
+         managed mode discovery proxy to remain available, meaning that the distributed 
+         ad hoc mode should be used. However, since this mode is limited to link local 
+         communication it will not provide the multi-network service discovery capability 
+         required in interconnected tactical networks. In order to work around this 
+         issue, it is recommended to allow the multicast discovery messages to travel 
+         across network boundaries by using e.g. a site-local IPv6 address, and increasing 
+         the Hop Limit in the IPv6 header. This solution works within a controlled 
+         network environment, but it is less than ideal for use in larger scale networks.
+         That is because increasing the scope of the multicast messages might cause 
+         the messages to travel further than intended, and thus cause increased network 
+         load in networks where the messages are not needed.</para>
+       
+       <para>As it is recommended to allow packets to flow across routers, a request 
+         sent by any one node in the network is received by all other nodes. If the message
+         sent was a probe for available services, then all nodes that did offer a service
+         matching the request would reply with a unicast message to the sender. </para>
+       
+       <para>WS-Discovery can be completely integrated into an ESB, and connected to 
+         the internal service registry. This meant that any announcement made on WS-Discovery
+         would be added to the service registry, which in turn meant that the announced 
+         service could be invoked from any consumer. If WS-Discovery is used as the 
+         only discovery mechanism it is used as a self-contained WS-Discovery application
+         and therefore used for announcing and searching for services. </para>
+       
+       <para>As mentioned above, allowing the multicast packets to traverse routers is 
+         not an ideal solution. An alternative is to combine the managed and ad hoc
+         modes in one deployment. When a WS-Discovery proxy announces its presence, 
+         all other nodes are asked to enter managed mode, relying on the proxy for 
+         service discovery. However, the WS-Discovery specification does not require 
+         the nodes to change to managed mode, and by allowing the majority of nodes 
+         to remain in ad hoc mode and at the same time keep a link local message scope, 
+         one can secure local service discovery without the risk of generating unneeded
+         network traffic in other networks. Combined with discovery proxies that function
+         as relays between the networks, cross-network discovery can be achieved as 
+         well.</para>
+       
+       <para>Note that, even though the WS-Discovery specification does allow nodes 
+         to choose not to enter managed mode when receiving a message telling it to 
+         do so, it does not clearly state what the expected behavior of nodes is once 
+         the network consists of nodes in both modes simultaneously. This combination 
+         of modes is desirable when working with multiple interconnected mobile networks, 
+         and therefore a profile of how to use the WS-Discovery standard in this context 
+         should be developed by NATO for interoperability between nations.</para>
+       <para>Because of the above mentioned priority of this service, it is recommended
+         to add WS-Discovery to NATO's core services set.</para>     
      </sect2>
      
      <sect2>
