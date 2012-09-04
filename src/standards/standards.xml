@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!DOCTYPE standards PUBLIC "-//DDRE//DTDStandardDB XML V4.0//EN" 
+<!DOCTYPE standards PUBLIC "-//DDRE//DTDStandardDB XML V4.0//EjspN" 
                            "../schema/dtd/stddb40.dtd">
 
 
@@ -496,7 +496,8 @@
          </sp-view>
 
          <sp-view idx="d0e697">           
-            <select id="omg-formal-2002-12-06" mode="emerging">CORBA/IIOP 2.2:2009 (OMG)</select>
+            <select id="omg-formal-2002-12-06" mode="mandatory">CORBA/IIOP 2.2:2009 (OMG)</select>
+            <rationale> CORBA changed to mandatory in NISP v.7 through RFCP 6-42.</rationale>
          </sp-view>
 
          <sp-view idx="d0e699">           
@@ -509,23 +510,16 @@
             <remarks>As part of MS Windows 2000 Interfaces; DCOM only in local environment, not for outside.</remarks>
             <rationale>As part of MS Windows 2000 Interfaces</rationale>
          </sp-view>
-         <sp-view idx="d0e711">
-            
-            <select id="ieee-p1278" mode="fading">Distributed Interactive Simulation (DIS)(STANAG 4482 ed.1:2010)</select>
-            <remarks>
-              For CCEB interoperability the mandatory standard is IEEE Std 1278.1a:1998
-              <indexterm significance="normal">
-                <primary>ieee</primary>
-                <secondary>1278.1a</secondary>
-              </indexterm>
-                <para>STANAG 4482 should also be migrated to IEEE Std 1278:1998</para>
-            </remarks>
-            <rationale>STANAG 4482 ed.1, and IEEE P1278:1998 changed to IEEE Std 1278:1998 in NCSP v6</rationale>
+ 
+         <sp-view idx="d0e711">   
+            <select id="ieee-p1278" mode="fading">Distributed Interactive Simulation (DIS)(IEEE 1278.1a:1998)</select>        
+            <rationale>STANAG 4482 ed.1, and IEEE P1278:1998 changed to IEEE Std 1278:1998 in NCSP v6; Reference changed to IEEE in NISP v.7 through RFCP 6-54.</rationale>
          </sp-view>
+         
          <sp-view idx="d0e729">            
-            <select id="ieee-p1516" mode="emerging">Modeling and Simulation High Level Architecture (HLA) (IEEE 1516:2000)</select>
+            <select id="ieee-p1516" mode="mandatory">Modeling and Simulation High Level Architecture (HLA) (IEEE 1516:2000)</select>
             <remarks>For CCEB interoperability this standard is mandatory</remarks>
-            <rationale>HLA included in NCSP v.5</rationale>
+            <rationale>HLA: Included in NCSP v.5 and changed to mandatory in NISP v.7 through RFCP 6-45.</rationale>
          </sp-view>
       </sp-list>
       <sp-list tref="ts-integ">
@@ -576,14 +570,18 @@
               <para>Used in Profile: AMN</para></remarks>
             <rationale>Included in NISP v.3 through RFCP 2-12; moved to emering near term through RFCP 4-26</rationale>
          </sp-view>
+         <sp-view idx="d0e11320">           
+            <select id="oasis-ws-discovery-1.1" mode="emerging">WS-Discovery v.1.1:2009, OASIS</select>
+            <remarks><para><emphasis>Used in Profile: tactESB</emphasis></para></remarks>
+         </sp-view>
          <sp-view idx="d0e11330">           
             <select id="nato-tide-sd-sp" mode="emerging">TIDE Service Discovery, v.2.2.0:2008 (ACT)</select>
             <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
          </sp-view>
          <sp-view idx="d0e1171">
-            <select id="bp-rdf" mode="emerging">Resource Description Framework (RDF):2004 (W3C)</select>
+            <select id="bp-rdf" mode="mandatory">Resource Description Framework (RDF):2004 (W3C)</select>
             <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
-            <rationale>Included in NISP v.3 by RFCP 2-18</rationale>
+            <rationale>Included in NISP v.3 by RFCP 2-18 and changed to mandatory in NISP v.7 through RFCP 6-48.</rationale>
          </sp-view>
          <sp-view idx="d0e1178">
             <select id="w3c-rec-rdf-sparql-query-20080115" mode="emerging">Protocol and RDF Query Language (SPARQL):2008 (W3C)</select>
@@ -724,9 +722,11 @@
          <sp-view idx="d0e8659">            
             <select id="mip-MTIDP-SEAWG-ed3.0.10-annex-b" mode="mandatory">DEM Data
               Replication Mechanism from MIP baseline 3:2009</select>
+            <select id="mip-MTIDP-SEAWG-ed3.0.10-annex-b" mode="emerging">DEM Data
+              Replication Mechanism from MIP baseline 4</select>
               <remarks>Used in Profile: AMN</remarks>
             <rationale>C2IEDM replaced by JC3IEDM in v.7 by RFCP 6-21; changed to mandatory
-              through RFCP 5-62</rationale>
+              through RFCP 5-62; Baseline 4 added in NISP v.7 through RFCP 6-40.</rationale>
          </sp-view>
          <sp-view idx="d0e8715">            
             <select id="nato-stanag5523" mode="fading">NATO Corporate Data Model v2 (ADatP-32)</select>
@@ -990,6 +990,11 @@
             <rationale>APP-11/STANAG 7149 ed.2 added in NISP v.2 based on RFCP 1-9</rationale>
          </sp-view>
 
+         <sp-view idx="d0e9422">            
+            <select id="dod-mil-std6017B" mode="emerging">Variable Message Format (DoD Mil-Std 6017B:2009)</select>
+            <rationale>VMF: Added in NISP v.7 through RFCP 6-41</rationale>
+         </sp-view>         
+         
          <sp-view idx="d0e9430">
             <select id="nato-stanag4312ed1" mode="mandatory">IERs for Developing Common Character Oriented MTFs for Use in Immediate Future (STANAG 4312 Part I, ed.1:1990)</select>
             <select id="nato-stanag4312ed2" mode="emerging">Interoperability of Low-Level Ground-based Air Defence Surveillance, Command and Control Systems (STANAG 4312 Part I, ed.2:2009)</select>
@@ -1217,9 +1222,9 @@
          </sp-view>
 
          <sp-view idx="d0e10194">            
-            <select id="ogc-kml" mode="emerging">KeyholeMarkup Language (KML) v.2.2:2008 (OGC 07-147r2)</select>
+            <select id="ogc-kml" mode="mandatory">KeyholeMarkup Language (KML) v.2.2:2008 (OGC 07-147r2)</select>
             <remarks>Used in Profile: AMN</remarks>
-            <rationale>Included in NISP v.4 through RFCP 4-27</rationale>
+            <rationale>Included in NISP v.4 through RFCP 4-27 and changed to mandatory in NISP v.7 through RFCP 6-47.</rationale>
          </sp-view>
 
          <sp-view idx="d0e10200">            
@@ -1292,6 +1297,14 @@
          <sp-view idx="d0e10383">            
             <select id="opengl-glspec14" mode="mandatory">OpenGL v4.0:2010</select>
             <remarks>For CCEB interoperability this standard is not applicable</remarks>
+         </sp-view>
+         
+         <sp-view idx="d0e10385">
+             <select id="eia-is-106" mode="mandatory">CDIF (EIA/IS-106 to 118:1994)</select>
+             <remarks>CDIF (CASE (Computer Aided Software Engineering) Data Interchange Format).
+               An EIA (Electronic Industry of America ) standard for exchanging data between
+               CASE Tools.</remarks>
+             <rationale>CDIF: Added in NISP v.7 through RFCP 6-10</rationale>
          </sp-view>
 
          <sp-view idx="d0e10393">            
@@ -1435,19 +1448,20 @@
 
       <sp-list tref="ts-net">
          <sp-view idx="d0e1266">            
-            <select id="bp-dns" mode="mandatory">
+            <select id="bp-dns" mode="mandatory">  
               DNS (IETF STD 13:1987, RFC 1034:1987 and RFC 1035:1987 updated
               by RFC 1101:1989, 1183:1990, updated by 5395:2008; 1706:1994, 1876:1996, 1982:1996, 1995:1996, 1996:1996,
               2136:1997, 2181:1997, updated by 5452:2009; 2308:1998, 2845:2000, 2931:2000, 3007:2000, 3226:2004, 3425:2002,
               3597:2004, 3645:2003, 4033:2005, 4034:2005, 4035:2005, 4343:2006, 4470:2006, 4592:2006)
             </select>
+            <select id="bp-dnssec" mode="emerging">DNSSEC (IETF RFC 4025 - 4033:2005)</select>
             <remarks>Bind version 9 or later should be used.
               <para>Used in Profile: AMN</para></remarks>
             <rationale>
               RFC 1034:1987 and RFC 1035:1987 updated by RFC 1101:1989, 1183:1990,
               1706:1994, 1876:1996, 1982:1996, 1995:1996, 1996:1996, 2136:1997, 2181:1997, 2308:1998,
               2845:2000, 2931:2000, 3007:2000, 3226:2004, 3425:2002, 3597:2004, 3645:2003,
-              4033:2005, 4034:2005, 4035:2005 changed in NCSP v.6
+              4033:2005, 4034:2005, 4035:2005 changed in NCSP v.6; DNSSEC: Added in NISP v.7 through RFCP 6-23).
             </rationale>
          </sp-view>
 
@@ -1701,9 +1715,9 @@
          </sp-view>
 
          <sp-view idx="d0e1612"> 
-            <select id="ietf-rfc4023" mode="emerging">Generic Routing Encapsulation (GRE) (RFC 4023:2005, updated by 5332:2008)</select>
+            <select id="ietf-rfc4023" mode="mandatory">Generic Routing Encapsulation (GRE) (RFC 4023:2005, updated by 5332:2008)</select>
             <remarks>GRE is included as a general routing encapsulation mechanism</remarks>
-            <rationale>GRE included in v.7 through RFCP 6-19</rationale>
+            <rationale>GRE included in v.7 through RFCP 6-19; changed to mandatory in NISP v.7 through RFCP 6-44.</rationale>
          </sp-view>
 
          <sp-view idx="d0e1621">            
@@ -1986,6 +2000,12 @@
             <rationale>CCEB comment changed in v.6 through RFCP 5-36</rationale>
          </sp-view>
 
+         <sp-view idx="d0e1840">            
+            <select id="nato-stanag5501" mode="mandatory">Link 1 STANAG 5501 ed.5:2011</select>
+            <select id="nato-stanag5501" mode="emerging">Link 1 STANAG 5501 ed.6RD:2010</select>
+            <rationale>STANAG 5511 ed.5/6: Added in NISP v.7 through RFCP 6-20.</rationale>
+         </sp-view>
+         
          <sp-view idx="d0e1845">            
             <select id="nato-stanag5511" mode="mandatory">Link 11 STANAG 5511 ed.7:2008</select>
             <remarks>
@@ -2010,6 +2030,12 @@
             <rationale>STANAG 4175 ed.4 changed to ed.3 in NCSP v.6</rationale>
          </sp-view>
 
+         <sp-view idx="d0e1868">
+            <select id="CJCSM-SSS-M-10001" mode="mandatory"> MIDS SSS-M-10001</select>
+            <remarks>Multifunctional Information Distribution System - System Segment Specification</remarks>
+            <rationale>MIDS SSS: Included in NISP v.7 through RFCP 6-39.</rationale>
+         </sp-view>
+         
          <sp-view idx="d0e1874">
             <select id="nato-stanag7085ed2" mode="mandatory">STANAG 7085 ed.2:2004 (IDL for Imaging Systems)</select>
             <select id="nato-stanag7085ed2" mode="emerging">STANAG 7085 ed.3:2009 (IDL for Imaging Systems)</select>
@@ -2098,6 +2124,12 @@
             </rationale>
          </sp-view>
 
+         <sp-view idx="d0e1915">
+            <select id="nato-stanag4207ed3" mode="mandatory">NATO Multi-channel tactical
+              Gateway-Multiplex Group Framing Standards (STANAG 4207: Ed.3:2000)</select>
+            <rationale>STANAG 4207: Adding in NISP v.7 through RFCP 6-21.</rationale>
+         </sp-view>
+         
          <sp-view idx="d0e1921">
             <select id="nato-stanag5046ed3" mode="mandatory">The NATO Military Communications Directory System, STANAG 5046 ed.3</select>
             <select id="nato-stanag5046ed3" mode="emerging">The NATO Military Communications Directory System, STANAG 5046 ed.4:2010</select>
@@ -2213,7 +2245,9 @@
       <sp-list tref="nis-ns-lan">      
          <sp-view idx="d0e4472">
             <select id="ieee-802.1D" mode="mandatory">Media Access Control (MAC) Bridges (IEEE 802.1D:2004)</select>
-            <rationale>Included in NISP v.6 through RFCP 5-61.</rationale>
+            <select id="ieee-802.1W" mode="mandatory">Rapid Reconfiguration of Spanning Tree (IEEE 802.1W:2004)</select>
+            <select id="ieee-802.1s" mode="emerging">Multiple Spanning Trees (IEEE 802.1S:2004)</select>
+            <rationale>802.1D: Included in NISP v.6 through RFCP 5-61; 802.1W und 802.1S: Included in NISP v.7 through RFCPs 6-34 and 6-35..</rationale>
          </sp-view>
          
          <sp-view idx="d0e4474">
@@ -2243,8 +2277,8 @@
          </sp-view>
 
          <sp-view idx="d0e4506">            
-            <select id="dod-mil-std3011" mode="mandatory">JREAP, MIL-STD 3011</select>
-            <rationale>JREAP: Included in v.7 through RFCP 6-17</rationale>
+            <select id="nato-stanag5518" mode="mandatory">JREAP, STANAG 5518RD</select>
+            <rationale>JREAP: Included in v.7 through RFCP 6-17 and reference changed in NISP v.7 through RFCP 6-55.</rationale>
          </sp-view>
 
          <sp-view idx="d0e4513">            
@@ -2392,10 +2426,9 @@
          </sp-view>
 
          <sp-view idx="d0e4631">
-            <select id="nato-ac322-sc3-d2007-0003-rev5" mode="mandatory">SMADEF XML Rel.1.2.2</select>
-            <select id="nato-ac322-sc3-d2007-0003-rev5" mode="emerging">SMADEF XML Rel.1.2.3</select>
+            <select id="nato-ac322-sc3-d2007-0003-rev5" mode="mandatory">SMADEF XML Rel.3.0.0</select>
             <remarks>For CCEB interoperability Rel.1.2.3 is mandatory</remarks>
-            <rationale>Included in NISP v.3 through RFCP2-23</rationale>
+            <rationale>Included in NISP v.3 through RFCP2-23, version changed in NISP v.7 through RFCP 6-59.</rationale>
          </sp-view>
 
          <sp-view idx="d0e4640">
@@ -2531,6 +2564,11 @@
             <select id="nato-stanag4481" mode="mandatory">Minimum Standards for Naval Shore-to-Ship Broadcast Systems, STANAG 4481 ed.1</select>
          </sp-view>
 
+         <sp-view idx="d0e4748">
+            <select id="nato-stanag4529" mode="mandatory">Characteristics of single tone modulators/demodulators for maritime HF radio links with 1240 Hz bandwidth, STANAG 4529 ed.1</select>
+            <rationale>STANAG 4529: Added in NISP v.7 through RFCP 6-18.</rationale>
+         </sp-view>
+         
          <sp-view idx="d0e4750">            
             <select id="nato-stanag4538" mode="mandatory">
                Automatic Radio Control System for HF Links
@@ -2545,6 +2583,14 @@
             </select>
          </sp-view>
 
+         <sp-view idx="d0e4757">            
+            <select id="nato-stanag5065" mode="mandatory">
+               Minimum Standards for Naval low Frequency (LF) Shore-to-Ship Surface Broadcast Systems
+               (STANAG 5065 ed.1:1999)
+            </select>
+            <rationale>STANAG 5065: Added as mandatory in NISP v.7 through RFCP 6-19.</rationale>
+         </sp-view>
+         
          <sp-view idx="d0e4760">            
             <select id="nato-stanag5066ed2" mode="mandatory">
                Profile for HF radio data communications
@@ -2866,7 +2912,7 @@
         </sp-view>
 
         <sp-view idx="d0e5166">
-          <select id="bp-saml1.1" mode="mandatory">
+          <select id="bp-saml2.0" mode="mandatory">
             Security Assertion Markup Language, SAML v2.0 (OASIS)
           </select>
           <remarks>
@@ -2962,7 +3008,8 @@
          </sp-view>
 
          <sp-view idx="d0e5262">            
-            <select id="oasis-wss-soap-message-security-1.0" mode="emerging">SOAP Message Security 1.1:2004 (OASIS)</select>
+            <select id="oasis-wss-v1.1-spec-os-SOAPMessageSecurity" mode="mandatory">SOAP Message Security 1.1:2004 (OASIS)</select>
+            <rationale>WS-Security: Changed to v.1.1 and to mandatory in NISP v.7 through RFCP 6-60.</rationale>
          </sp-view>
 
          <sp-view idx="d0e5264">            
@@ -3011,6 +3058,11 @@
             <rationale>SSL excluded and RFC 4366:2006 updated in NCSP v.6</rationale>
          </sp-view>
 
+         <sp-view idx="d0e5051">          
+            <select id="ietf-rfc4250" mode="mandatory">SSH v.2 (IETF RFC 4250-4256:2006)</select>
+            <rationale>SSH: Included in NISP v.7 through RFCP 6-22.</rationale> 
+         </sp-view>         
+         
          <sp-view idx="d0e5193">
             <select id="w3c-xmldsig-core" mode="emerging">XML Encryption (W3C):2008</select>
             <remarks>Used in Profile: tactESB</remarks>
@@ -3118,6 +3170,11 @@
             </remarks>
             <rationale>SHA-1 replaced by SHA 256 through RFCP 6-1</rationale>
          </sp-view>
+         
+         <sp-view idx="d0e5109">
+            <select id="w3c-xmlenc-core" mode="mandatory">XML Encryption Syntax and Processing, W3C:2002</select>
+            <rationale>XMLenc: Added in NISP v.7 through RFCP 6-15.</rationale>
+         </sp-view>
       </sp-list>
 
       <sp-list tref="ias-auth">
@@ -3204,6 +3261,23 @@
          </sp-view>
       </sp-list>
 
+      <sp-list tref="ts-ces-int">
+         <sp-view idx="d0e5490">
+             <select id="wmo-FM_92-IX_Ext._GRIB" mode="mandatory">Gidded Binary (GRIB) (WMO:1994)</select>
+             <remarks>Gridded Binary - WMO - Standard format for grid fields; WMO Manual Code Nr. 306</remarks>
+             <rationale>GRIB: Added in NISP v.7 through RFCP 6-17.</rationale>
+         </sp-view>
+         
+         <sp-view idx="d0e5500">
+             <select id="w3c-rec-skos-reference-20090818" mode="mandatory">Simple Knowledge Organization System Reference (SKOS) (W3C:2002)</select>
+             <remarks>For the description of vocabularies and Term Concept Maps of
+                sematic web services.</remarks>
+             <rationale>
+                SKOS: Added in NISP v.7 through RFCP 6-9.
+             </rationale>
+         </sp-view>
+      </sp-list>
+                 
       <sp-list tref="ts-ces-mes">
          <sp-view idx="d0e5853">           
             <select id="nato-stanag4406ed2" mode="mandatory">Military Messaging (STANAG 4406 Ed.2:2006)</select>
@@ -3280,11 +3354,17 @@
             <select id="bp-smtp" mode="mandatory">
               SMTP (IETF RFCs 1870:1995, 1985:1996, 2034:1996,
               2920:2000, 3207:2002, 3461:2003 updated by 3798:2004, 3885:2004, 4954:2007, 5321:2008)
-            </select>  
+            </select>
+            <select id="ietf-rfc3030" mode="emerging">eSMTP (IETF RFC 3030:2000)</select>
             <remarks>Used for interpersonal messaging (email)<para>Used in Profile: AMN</para></remarks>
-            <rationale>RFC 3207:2001 and RFC 3461:1996 changed to 3207:2002 and 3461:2003 in NCSP v.6</rationale>
+            <rationale>RFC 3207:2001 and RFC 3461:1996 changed to 3207:2002 and 3461:2003 in NCSP v.6; eSMTP: Added in NISP v.7 through RFCP 6-26.</rationale>
          </sp-view>
 
+         <sp-view idx="d0e5904">            
+            <select id="bp-smime" mode="emerging">S/MIME (IETF RFC 5751:2010)</select>
+            <rationale>S/MIME: Added in NISP v.7 through RFCP 6-28.</rationale>
+         </sp-view>         
+         
          <sp-view idx="d0e5911">            
             <select id="ietf-rfc1939" mode="mandatory">POP3 (IETF RFC 1939:1996 updated by 1957:1996, 2449:1998)</select>
             <remarks>For CCEB interoperability this standard is not applicable</remarks>
@@ -3374,6 +3454,16 @@
              changed in NCSP v.6
             </rationale>
          </sp-view>
+         
+         <sp-view idx="d0e5995">            
+            <select id="w3c-rec-smil3-20081201" mode="emerging">
+              Synchronized Multimedia Integration Language (SMIL 3.0):2008 (W3C)
+            </select>
+            <remarks>Language for multimedia products based on XML.</remarks>
+            <rationale>
+              SMIL3 added in NISP v.7 based on RFCP 6-8.
+            </rationale>
+         </sp-view>        
       </sp-list>
       
       <sp-list tref="ces-esm-sys">
@@ -3551,6 +3641,12 @@
             <remarks>For CCEB interoperability this standard is not applicable</remarks>
          </sp-view>
 
+         <sp-view idx="d0e6189">            
+            <select id="ieee-802.1p" mode="mandatory">802.1p (IEEE:2004)</select>
+            <remarks>IEEE 802.1p (Quality of Service)</remarks>
+            <rationale>802.1p: Added in NISP v.7 through RFCP 6-33.</rationale>
+         </sp-view>         
+         
          <sp-view idx="d0e6194">
             <select id="unknown-dummy" mode="emerging"/>
             <remarks>
@@ -3599,6 +3695,13 @@
             <rationale>RFC 2428:1998 added in NCSP v.7 through RFCP 6-19</rationale>
          </sp-view>
 
+         <sp-view idx="d0e6800">      
+            <select id="ietf-rfc3550" mode="mandatory">RTP (IETF RFC 3550:2003)</select>
+            <select id="ietf-rfc3711" mode="emerging">SRTP (IETF RFC 3711:2004)</select>
+            <select id="ietf-rfc3605" mode="emerging">RTCP Attributes in SDP(IETF RFC 3605:2003)</select>
+            <rationale>RTP: Added in NISP v.7 through RFCP 6-24; SRTP: Added in NISP v.7 through RFCP 6-24; RTCP: Added in NISP v.7 through RFCP 6-25.</rationale>
+         </sp-view>         
+         
          <sp-view idx="d0e6802">            
             <select id="bp-telnet" mode="mandatory">
               Telnet (IETF STD 8:1983, IETF RFC 0854:1983 updated by RFC 5198:2008,
@@ -3642,6 +3745,13 @@
             <remarks>For physical media distribution (CD)</remarks>
          </sp-view>
 
+         <sp-view idx="d0e6855">            
+            <select id="bp-udf" mode="mandatory">UDF 1.0.1 (ISO/IEC 13346:1995)</select>
+            <select id="bp-udf" mode="emerging">UDF 2.0.1</select>
+            <remarks>UDF (Universal Disk Format)</remarks>
+            <rationale>UDF: Included in NISP v.7 through RFCP 6-37</rationale>
+         </sp-view>        
+         
          <sp-view idx="d0e6859">            
             <select id="iso-iec-11172-3" mode="mandatory">
              Pulse Code Modulation (PCM) (ISO/IEC 11172-3:1993,
@@ -3651,10 +3761,33 @@
             <rationale>Changed in v.5 through RFCP 4-18 from G.721 to G.726</rationale>
          </sp-view>
 
+         <sp-view idx="d0e6862">            
+            <select id="itu-t-g.722" mode="mandatory">7 kbit audio-coding in 64 kbit/s (ITU-T G.722:1993)</select>
+            <rationale>G.722: Added in NISP v.7 through RFCP 6-29.</rationale>
+         </sp-view>         
+         
          <sp-view idx="d0e6868">            
             <select id="itu-t-g.726" mode="mandatory">Differential PCM (ITU-T G.726:1990)</select>
          </sp-view>
 
+         <sp-view idx="d0e6869">            
+            <select id="itu-t-g.729" mode="mandatory">CS-ACELP (ITU-T G.729:1993)</select>
+            <rationale>G.729: Added in NISP v.7 through RFCP 6-30.</rationale>
+         </sp-view>               
+         
+         <sp-view idx="d0e6870">            
+            <select id="bp-iLBC" mode="mandatory">Internet Low Bitrate Coding (iLBC) (IETF RFC 3951:2004)</select>
+            <rationale>iLBC: Added in NISP v.7 through RFCP 6-27.</rationale>
+         </sp-view>         
+
+         <sp-view idx="d0e6871">            
+            <select id="itu-t-h.263" mode="mandatory">H.263 (ITU-T H.263:2005)</select>
+            <select id="itu-t-h.264" mode="mandatory">H.264 (ITU-T H.264:2012)</select>
+            <remarks>ITU-T H.263 (Video coding for low bit rate communication);
+              ITU-T H.264 (The Advanced Video Coding Standard)</remarks>
+            <rationale>H.263/264: Added in NISP v.7 through RFCP 6-31.</rationale>
+         </sp-view>        
+         
          <sp-view idx="d0e6873">            
             <select id="eurocom-d0" mode="fading">Delta-Modulation DM, EUROCOM D/0</select>
          </sp-view>
@@ -3873,10 +4006,10 @@
          </sp-view>
 
          <sp-view idx="d0e7694">            
-            <select id="adobe-pdf14" mode="mandatory">PDF-Format 1.4 ed.1 (PDF/A-1, ISO 19005-1:2005)</select>
+            <select id="adobe-pdf17" mode="mandatory">PDF-Format 1.7 (ISO 32000:2005)</select>
             <select id="nato-stanag5500ed6" mode="fading">Formets deleted in NCSP v.6</select>
             <remarks>Portable document presentation format, realised in Adobe product
-              versions 5 and 6. Used in Minerva system at NATO HQ
+              version 7. Used in Minerva system at NATO HQ
               <para>For CCEB interoperability the primary standard is Adobe Postscript
                 (level I and II)
                 <indexterm significance="normal">
@@ -3897,6 +4030,12 @@
             <rationale>PDF 5.1 changed in NCSP v.6 through RFCP 5-41</rationale>
          </sp-view>
 
+         <sp-view idx="d0e7696">
+            <select id="iso-19005-2" mode="mandatory">PDF/A (ISO 19005-2:2011)</select>
+            <remarks>Electronic document file format for long-term preservation.</remarks>
+            <rationale>PDF/A: Added separately in NISP v.7 through RFCP 6-52.</rationale>
+         </sp-view>
+         
          <sp-view idx="d0e7724">            
             <select id="microsoft-application-note-gc0165" mode="mandatory">Rich Text Format (RTF) v.1.9.1:2007 (MS)</select>
             <remarks>Basic document interchange format</remarks>
@@ -3948,11 +4087,11 @@
          </sp-view>
 
          <sp-view idx="d0e7788">
-            <select id="iso-iec-29500" mode="emerging">Office Open XML, ISO/IEC 29500:2008</select>
+            <select id="iso-iec-29500-3" mode="mandatory">Office Open XML, ISO/IEC 29500-3:2012</select>
             <remarks>XML variant of Microsoft Office.
               <para>Used in Profile: AMN</para>
             </remarks>
-            <rationale>OpenOffice included in NISP v.3 through RFCP 2-11</rationale>
+            <rationale>Office Open XML included in NISP v.3 through RFCP 2-11; changed in NISP v.7 through RFCP 6-36.</rationale>
          </sp-view>
 
          <sp-view idx="d0e7795">            
@@ -4062,11 +4201,17 @@
          </sp-view>
 
          <sp-view idx="d0e11305">            
-            <select id="jcp-jsr155" mode="emerging">Java Enterprise Edition 1.4 Specification (JAVA EE v.6:2009), (JCP:2002)</select>
+            <select id="jcp-jsr342" mode="mandatory">Java Enterprise Edition Specification (JAVA EE v.7:2012), (JCP:2012)</select>
             <remarks/>
-            <rationale/>
+            <rationale>JAVA: Changed to mandatory in NISP v.7 through RFCP 6-46.</rationale>
          </sp-view>
 
+         <sp-view idx="d0e11308">            
+            <select id="jcp-jsr270" mode="mandatory">Java Standard Edition 6 (JAVA SE v.6:2006), (JCP:2002)</select>
+            <remarks/>
+            <rationale>JAVA SE 6: Included in NISP v.7 through RFCP 6-38.</rationale>
+         </sp-view>         
+         
          <sp-view idx="d0e11311">            
             <select id="jcp-" mode="emerging">Java Remote Method Invocation (JRMI), (JCP)ed.1.5.0:2004</select>
             <remarks/>
@@ -4092,8 +4237,9 @@
          </sp-view>
 
          <sp-view idx="d0e11322">            
-            <select id="iso-15836" mode="emerging">Dublin Core Metadata Element Set (ISO 15836:2009)</select>
+            <select id="iso-15836" mode="mandatory">Dublin Core Metadata Element Set (DCES) (ISO 15836:2009)</select>
             <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
+            <rationale>DCES: Changed to mandatory in NISP v.7 through RFCP 6-53.</rationale>
          </sp-view>
 
          <sp-view idx="d0e11328">            
@@ -4116,8 +4262,9 @@
 
          <sp-view idx="d0e11358">            
             <select id="w3c-note-wsdl-20010315" mode="mandatory">WSDL v1.1:2001, W3C</select>
+            <select id="w3c-REC-wsdl20-20070626" mode="emerging"> WSDL v2.0:2007 Part 1: Core Language, W3C</select>
            <remarks>Used in Profiles: AMN, tactESB</remarks>
-            <rationale>Included in v.5 through RFCP 4-38; date added in NCSP v.6 through RFCP 5-25 and changed to mandatory through RFCP 4-6</rationale>
+            <rationale>Included in v.5 through RFCP 4-38; date added in NCSP v.6 through RFCP 5-25 and changed to mandatory through RFCP 4-6; WSDL 2.0 added in NISP v.7 through RFCP 4-16.</rationale>
          </sp-view>
 
          <sp-view idx="d0e11360">           
@@ -4126,8 +4273,8 @@
          </sp-view>
  
          <sp-view idx="d0e11362">           
-            <select id="jcp-jsr152" mode="mandatory">JAVA Server Pages JSP v2.0:2003, JCP</select>
-            <rationale>Included in v.6 through RFCP 5-33</rationale>
+            <select id="jcp-jsr245" mode="mandatory">JAVA Server Pages JSP v2.1:2009, JCP</select>
+            <rationale>Included in v.6 through RFCP 5-33, updated in NISP v.7 through RFCP 6-57.</rationale>
          </sp-view>
  
          <sp-view idx="d0e11364">           
@@ -4137,22 +4284,24 @@
 
          <sp-view idx="d0e7816">            
             <select id="w3c-rec-xml-20040204" mode="mandatory">XML 1.0 3rd ed:2004, W3C</select>
+            <select id="w3c-rec-xml11-20060816" mode="emerging">XML 1.1 2nd ed:2006, W3C</select> 
             <remarks>Where semantic tags are required, the NC3 Repository serves as an XML registry (see Data Management).
             <para>Used in Profile: tactESB</para></remarks>
-            <rationale>XML 1.0 3rd ed:2004 added in NCSP v.6 through RFCP 5-3</rationale>
+            <rationale>XML 1.0 3rd ed:2004 added in NCSP v.6 through RFCP 5-3; XML 1.1 2nd ed:2006 added in NISP v.7 through RFCP 6-11.</rationale>
          </sp-view>
 
          <sp-view idx="d0e7830">            
-            <select id="w3c-rec-xlink-20010627" mode="emerging">XLink 1.0:2001, W3C</select>
+            <select id="w3c-rec-xlink-20010627" mode="mandatory">XLink 1.0:2001, W3C</select>
+            <select id="w3c-REC-xlink11-20100506" mode="emerging">XLink 1.1:2012, W3C</select>
             <remarks>XLink is used to point to resources from XML documents.</remarks>
-            <rationale>XLink 1.0:2001 added in NCSP v.6 through RFCP 5-23</rationale>
+            <rationale>XLink 1.0:2001 added in NCSP v.6 through RFCP 5-23; changed to mandatory and XLink1.1:2012 added in NISP v.7 through RFCP 6-14.</rationale>
          </sp-view>
 
          <sp-view idx="d0e7839">            
-            <select id="bp-xpointer" mode="emerging">XPointer 1.0:2001, W3C</select>
+            <select id="bp-xpointer" mode="mandatory">XPointer 1.0:2001, W3C</select>
             <remarks>XPointer is used to identify XML fragment inside any given XML documents.
             </remarks>
-            <rationale>XPointer 1.0:2001 added in NCSP v.6 through RFCP 5-24</rationale>
+            <rationale>XPointer 1.0:2001 added in NCSP v.6 through RFCP 5-24 and changed to mandatory in NISP v.7 through RFCP 6-50.</rationale>
          </sp-view>
 
          <sp-view idx="d0e7842">            
@@ -4193,17 +4342,22 @@
          </sp-view>
 
          <sp-view idx="d0e7885">            
-            <select id="w3c-rec-xslt-19991116" mode="mandatory">Extensible Stylesheet Language Transformation (XSLT) 1.0:1999</select>
+            <select id="w3c-rec-xslt-19991116" mode="mandatory">Extensible Stylesheet Language Transformation (XSLT) 1.0 (W3C:1999)</select>
+            <select id="w3c-REC-xslt20-20070123" mode="emerging">XSL Transformations (XSLT) Version 2.0 (W3C:2007)</select> 
             <remarks>Used in Profile: AMN</remarks>
+            <rationale>XSLT 2.0: Added in NISP v.7 through RFCP 6-13.</rationale>
          </sp-view>
 
          <sp-view idx="d0e7888">            
-            <select id="w3c-css-lev1" mode="mandatory">Extensible Stylesheet Language (XSL) 1.0:2001</select>
+            <select id="w3c-rec-xsl-20011015" mode="mandatory">Extensible Stylesheet Language (XSL) 1.0:2001</select>
+            <select id="w3c-REC-xsl11-20061205" mode="emerging">Extensible Stylesheet Language (XSL) 1.1:2006</select>
+            <rationale>XSL 1.1: Added in NISP v.7 through RFCP 6-12.</rationale>
          </sp-view>
-
+ 
          <sp-view idx="d0e7890">            
-            <select id="w3c-rec-xsl-20011015" mode="emerging">Cascading Style Sheets (CSS) 2.1:2001</select>
+            <select id="w3c-css-lev1" mode="mandatory">Cascading Style Sheets (CSS) 2.1:2001</select>
             <remarks><para><emphasis>Used in Profile: AMN</emphasis></para></remarks>
+            <rationale>CSS: Changed to mandatory in NISP v.7 through RFCP 6-43.</rationale>
          </sp-view>
 
          <sp-view idx="d0e7895">            
@@ -4224,10 +4378,10 @@
          </sp-view>
 
          <sp-view idx="d0e11376">            
-            <select id="w3c-rec-xpath-19991119" mode="emerging">XML Path Language (XPath) v2.0:2003, W3C</select>
+            <select id="w3c-rec-xpath-19991119" mode="mandatory">XML Path Language (XPath) v2.0:2003, W3C</select>
             <remarks>For CCEB interoperability this standard is mandatory.
             </remarks>
-            <rationale>Included in NCSP v.5 through RFCP 4-38; Updated to v2.0:2003 in NCSP v.6</rationale>
+            <rationale>Included in NCSP v.5 through RFCP 4-38; Updated to v2.0:2003 in NCSP v.6, changed to mandatory in NISP v.7 through RFCP 6-49.</rationale>
          </sp-view>
 
          <sp-view idx="d0e11385">            
@@ -4283,7 +4437,7 @@
             <select id="omg-sbvr" mode="emerging">Semantics of Business Vocabulary and Business Rules, Vers. 1.0 (SBVR); OMG 2008</select>
          </sp-view>
       </sp-list>
-      
+    
       <sp-list tref="ces-uas-dic">
          <sp-view idx="d0e11643">           
             <select id="x-consortium-x11r7.5" mode="mandatory">X Window System 11 R7.5:2009</select>
@@ -4941,6 +5095,25 @@
          </status>
       </standard>
 
+      <standard id="ietf-rfc3030" tag="eSMTP">
+         <document orgid="ietf" pubnum="RFC 3030" date="2000-12" title="SMTP Service Extensions for Transmission of Large and Binary MIME Messages"/>
+         <applicability>
+           This memo defines two extensions to the SMTP (Simple Mail Transfer
+           Protocol) service.  The first extension enables a SMTP client and
+           server to negotiate the use of an alternative to the DATA command,
+           called "BDAT", for efficiently sending large MIME (Multipurpose
+           Internet Mail Extensions) messages.  The second extension takes
+           advantage of the BDAT command to permit the negotiated sending of
+           MIME messages that employ the binary transfer encoding. 
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc3030.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-26" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+
       <standard id="oasis-200402-cap-core-1.0" tag="CAP 1.0">
          <document orgid="oasis" pubnum="OASIS Standard 200402" date="2004-03-00" 
          title="Common Alerting Protocol, v. 1.0" version="1"/>
@@ -5080,6 +5253,32 @@
          </status>
       </standard>
 
+      <standard id="w3c-REC-xsl11-20061205" tag="XSL 1.1">
+         <document orgid="w3c" pubnum="REC-xsl11-20061205" date="2006-12-05" 
+         title="Extensible Stylesheet Language (XSL) Version 1.1"/>
+         <applicability>This specification defines the features and syntax for the 
+           Extensible Stylesheet Language (XSL), a language for expressing stylesheets. 
+           It consists of two parts:
+           <itemizedlist>
+             <listitem>
+               <para>a language for transforming XML documents (XSLT), and</para>
+             </listitem>
+             <listitem>
+               <para>an XML vocabulary for specifying formatting semantics.</para>
+             </listitem>
+           </itemizedlist>
+           <para>An XSL stylesheet specifies the presentation of a class of XML 
+             documents by describing how an instance of the class is transformed
+             into an XML document that uses the formatting vocabulary.</para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.w3.org/TR/2006/REC-xsl11-20061205</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-13" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+           
      <standard id="w3c-css-lev2" tag="CSS Level 2">
          <document orgid="w3c" pubnum="REC-CSS2-2011067" date="2011-06-07" 
          title="Cascading Style Sheets, level 2" version="1"/>
@@ -5841,7 +6040,7 @@
            within a BUFR or CREX message are described within the BUFR or CREX message 
            itself. In addition, BUFR offers condensation, or packing, while the alphanumeric
            code CREX provides human readability.
-      </applicability>
+         </applicability>
          <status mode="unknown">
             <uri>http://www.wmo.int/pages/prog/www/WDM/Guides/BUFRCREX-Layer1-2-English.pdf</uri>
             <history>
@@ -5849,6 +6048,60 @@
             </history>
          </status>
       </standard>
+      
+      <standard id="wmo-FM_92-IX_Ext._GRIB" tag="GRIB">
+         <document orgid="wmo" pubnum="FM 92-IX Ext. GRIB" date="1994" title="GRIdded Binary"/>
+         <applicability>
+           The World Meteorological Organization (WMO) Commission for Basic Systems 
+           (CBS) Extraordinary Meeting Number VIII (1985) approved a general purpose, 
+           bit-oriented data exchange format, designated FM 92-VIII Ext. GRIB (GRIdded
+           Binary). It is an efficient vehicle for transmitting large volumes of gridded
+           data to automated centers over high-speed telecommunication lines using
+           modern protocols. By packing information into the GRIB code, messages 
+           (or records - the terms are synonymous in this context) can be made more 
+           compact than character oriented bulletins, which will produce faster 
+           computer-to-computer transmissions. GRIB can equally well serve as a data
+           storage format, generating the same efficiencies relative to information 
+           storage and retrieval devices.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.wmo.int/pages/prog/www/WDM/Guides</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-17" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="w3c-rec-skos-reference-20090818" tag="SKOS">
+         <document orgid="w3c" pubnum="rec-skos-reference-20090818" date="2002-01-01" title="SKOS Simple Knowledge Organization System Reference"/>
+         <applicability>
+           This document defines the Simple Knowledge Organization System (SKOS), 
+           a common data model for sharing and linking knowledge organization systems 
+           via the Web.
+           <para>Many knowledge organization systems, such as thesauri, taxonomies,
+             classification schemes and subject heading systems, share a similar 
+             structure, and are used in similar applications. SKOS captures much 
+             of this similarity and makes it explicit, to enable data and technology 
+             sharing across diverse applications.</para>
+           <para>The SKOS data model provides a standard, low-cost migration path 
+             for porting existing knowledge organization systems to the Semantic Web. 
+             SKOS also provides a lightweight, intuitive language for developing and
+             sharing new knowledge organization systems. It may be used on its own, 
+             or in combination with formal knowledge representation languages such
+             as the Web Ontology language (OWL).</para>
+           <para>This document is the normative specification of the Simple Knowledge 
+             Organization System. It is intended for readers who are involved in the 
+             design and implementation of information systems, and who already have 
+             a good understanding of Semantic Web technology, especially RDF and OWL.
+           </para>
+      </applicability>
+         <status mode="unknown">
+            <uri>http://www.w3.org/TR/2009/REC-skos-reference-20090818</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-9" version="7.0"/>
+            </history>
+         </status>
+      </standard>            
       
       <standard id="cceb-acp133edC" tag="ACP 133 ed.C">
          <document orgid="cceb" pubnum="ACP 133 ed.C" date="2008-06-19" title="Common Directory Services and Procedures, ACP 133 ed. C:2008"/>
@@ -6216,6 +6469,44 @@
          </status>
       </standard>
 
+      <standard id="w3c-rec-smil3-20081201" tag="SMIL">
+         <document orgid="w3c" pubnum="REC-SMIL3-20081201" date="2008-12-01" title="Synchronized Multimedia Integration Language 3.0"/>
+         <applicability>
+           This document specifies the third version of the Synchronized Multimedia 
+           Integration Language (SMIL, pronounced "smile"). SMIL 3.0 has the following 
+           design goals:
+           <itemizedlist>
+             <listitem>
+               <para>Define an XML-based language that allows authors to write 
+                 interactive multimedia presentations. Using SMIL, an author may 
+                 describe the temporal behaviour of a multimedia presentation, 
+                 associate hyperlinks with media objects and describe the layout 
+                 of the presentation on a screen.</para>
+             </listitem>
+             <listitem>
+               <para>Allow reusing of SMIL syntax and semantics in other XML-based
+                 languages, in particular those who need to represent timing and 
+                 synchronization. For example, SMIL components are used for integrating
+                 timing into XHTML and into SVG.</para>
+             </listitem>
+             <listitem>
+               <para>Extend the functionalities contained in the SMIL 2.1 into new 
+                 or revised SMIL 3.0 modules.</para>
+             </listitem>
+             <listitem>
+               <para>Define new SMIL 3.0 Profiles incorporating features useful
+                 within the industry.</para>
+             </listitem>
+           </itemizedlist>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.w3.org/TR/2008/REC-SMIL3-20081201</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-8" version="7.0"/>
+            </history>
+         </status>
+      </standard>          
+      
       <standard id="ietf-rfc3232" tag="Assigned Numbers">
          <document orgid="ietf" pubnum="RFC 3232" date="2002" title="IANA Assigned Numbers"/>
          <applicability>
@@ -6627,23 +6918,202 @@
          </status>
       </profile>
 
-      <standard id="ietf-rfc4025" tag="IPSec Material in DNS">
-         <document orgid="ietf" pubnum="RFC 4025" date="2005" title="A Method for Storing IPsec Keying Material in DNS"/>
+      <profile id="bp-dnssec" tag="DNSSEC" type="base">
+         <profilenote>IPsec Keying Material in DNS</profilenote>
+         <parts>
+           <refstandard refid="ietf-rfc4025"/>
+           <refstandard refid="ietf-rfc4026"/>
+           <refstandard refid="ietf-rfc4027"/>
+           <refstandard refid="ietf-rfc4028"/>
+           <refstandard refid="ietf-rfc4029"/>
+           <refstandard refid="ietf-rfc4030"/>
+           <refstandard refid="ietf-rfc4031"/>
+           <refstandard refid="ietf-rfc4032"/>
+           <refstandard refid="ietf-rfc4033"/>
+         </parts>
          <applicability>
-           This document describes a new resource record for the Domain Name
-           System (DNS). This record may be used to store public keys for use in IP
-           security (IPsec) systems. The record also includes provisions for indicating
-           what system should be contacted when an IPsec tunnel is established with the
-           entity in question.
+           This profile describes a new resource record for the Domain Name
+           System (DNS). This record may be used to store public keys for use
+           in IP security (IPsec) systems.  The record also includes provisions
+           for indicating what system should be contacted when an IPsec tunnel
+           is established with the entity in question.
          </applicability>
          <status mode="unknown">
             <uri>http://www.ietf.org/rfc/rfc4025.txt</uri>
             <history>
-               <event flag="added" date="2005-11-20" rfcp="6-19" version="0.7"/>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
+            </history>
+         </status>
+      </profile>
+
+      <standard id="ietf-rfc4025" tag="DNSSEC Methods">
+         <document orgid="ietf" pubnum="rfc4025" date="2005-02" title="A Method for Storing IPsec Keying Material in DNS"/>
+         <applicability>
+           This document describes a new resource record for the Domain Name
+           System (DNS). This record may be used to store public keys for use
+           in IP security (IPsec) systems. The record also includes provisions
+           for indicating what system should be contacted when an IPsec tunnel
+           is established with the entity in question.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4025.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
             </history>
          </status>
       </standard>
 
+      <standard id="ietf-rfc4026" tag="VPN Terminology">
+         <document orgid="ietf" pubnum="rfc4026" date="2005-03" title="Provider Provisioned Virtual Private Network (VPN) Terminology"/>
+         <applicability>
+           The widespread interest in provider-provisioned Virtual Private
+           Network (VPN) solutions lead to memos proposing different and
+           overlapping solutions.  The IETF working groups (first Provider
+           Provisioned VPNs and later Layer 2 VPNs and Layer 3 VPNs) have
+           discussed these proposals and documented specifications.  This has
+           lead to the development of a partially new set of concepts used to
+           describe the set of VPN services.
+           <para>To a certain extent, more than one term covers the same concept, and
+             sometimes the same term covers more than one concept.  This document
+             seeks to make the terminology in the area clearer and more intuitive.
+           </para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4026.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="ietf-rfc4027" tag="DNS Media Types">
+         <document orgid="ietf" pubnum="rfc4027" date="2005-04" title="Domain Name System Media Types"/>
+         <applicability>
+           This document registers the media types application/dns and text/dns
+           in accordance with RFC 2048.  The application/dns media type is used
+           to identify data on the detached Domain Name System (DNS) format
+           described in RFC 2540.  The text/dns media type is used to identify
+           master files as described in RFC 1035.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4027.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="ietf-rfc4028" tag="SIP Session Timer">
+         <document orgid="ietf" pubnum="rfc4028" date="2005-04" title="Session Timers in the Session Initiation Protocol (SIP)"/>
+         <applicability>
+           This document defines an extension to the Session Initiation Protocol
+           (SIP).  This extension allows for a periodic refresh of SIP sessions
+           through a re-INVITE or UPDATE request.  The refresh allows both user
+           agents and proxies to determine whether the SIP session is still
+           active.  The extension defines two new header fields:
+           Session-Expires, which conveys the lifetime of the session, and
+           Min-SE, which conveys the minimum allowed value for the session
+           timer.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4028.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
+            </history>
+         </status>
+      </standard>         
+
+      <standard id="ietf-rfc4029" tag="Introducing IPv6">
+         <document orgid="ietf" pubnum="rfc4029" date="2005-04" title="Scenarios and Analysis for Introducing IPv6 into ISP Networks"/>
+         <applicability>
+           This document describes different scenarios for the introduction of
+           IPv6 into an ISP's existing IPv4 network without disrupting the IPv4
+           service.  The scenarios for introducing IPv6 are analyzed, and the
+           relevance of already defined transition mechanisms are evaluated.
+           Known challenges are also identified.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4029.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+
+      <standard id="ietf-rfc4030" tag="Authentication in DHCP">
+         <document orgid="ietf" pubnum="rfc4030" date="2005-03" title="The Authentication Suboption for the Dynamic Host Configuration Protocol (DHCP) Relay Agent Option"/>
+         <applicability>
+           The Dynamic Host Configuration Protocol (DHCP) Relay Agent
+           Information Option (RFC 3046) conveys information between a DHCP
+           Relay Agent and a DHCP server.  This specification defines an
+           authentication suboption for that option, containing a keyed hash in
+           its payload.  The suboption supports data integrity and replay
+           protection for relayed DHCP messages.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4030.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
+            </history>
+         </status>
+      </standard>   
+
+      <standard id="ietf-rfc4031" tag="PPVPNs">
+         <document orgid="ietf" pubnum="rfc4031" date="2005-04" title="Service Requirements for Layer 3 Provider Provisioned Virtual Private Networks (PPVPNs)"/>
+         <applicability>           
+           This document provides requirements for Layer 3 Virtual Private
+           Networks (L3VPNs).  It identifies requirements applicable to a number
+           of individual approaches that a Service Provider may use to provision
+           a Virtual Private Network (VPN) service.  This document expresses a
+           service provider perspective, based upon past experience with IP-
+           based service offerings and the ever-evolving needs of the customers
+           of such services.  Toward this end, it first defines terminology and
+           states general requirements.  Detailed requirements are expressed
+           from a customer perspective as well as that of a service provider.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4031.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
+            </history>
+         </status>
+      </standard>   
+
+      <standard id="ietf-rfc4032" tag="SIP Update">
+         <document orgid="ietf" pubnum="rfc4032" date="2005-03" title="Update to the Session Initiation Protocol (SIP) Preconditions Framework"/>
+         <applicability>                     
+           This document updates RFC 3312, which defines the framework for
+           preconditions in SIP.  We provide guidelines for authors of new
+           precondition types and describe how to use SIP preconditions in
+           situations that involve session mobility.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4032.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
+            </history>
+         </status>
+      </standard>   
+
+      <standard id="ietf-rfc4033" tag="DNSSEC Introduction">
+         <document orgid="ietf" pubnum="rfc4033" date="2005-03" title="DNS Security Introduction and Requirements"/>
+         <applicability>                     
+           The Domain Name System Security Extensions (DNSSEC) add data origin
+           authentication and data integrity to the Domain Name System.  This
+           document introduces these extensions and describes their capabilities
+           and limitations.  This document also discusses the services that the
+           DNS security extensions do and do not provide.  Last, this document
+           describes the interrelationships between the documents that
+           collectively describe DNSSEC.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4033.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
+            </history>
+         </status>
+      </standard>   
+      
       <standard id="ietf-draft-cheshire-dnsext-multicastdns-06.txt" tag="mDNS">
          <document orgid="ietf" pubnum="draft-cheshire-dnsext-multicastdns-06.txt" date="2006" title="Multicast DNS"/>
          <applicability>
@@ -11055,6 +11525,66 @@
          </status>
       </standard>
 
+      <standard id="ietf-rfc3550" tag="RTP">
+         <document orgid="ietf" pubnum="RFC 3550" date="2003-07" title="RTP: A Transport Protocol for Real-Time Applications"/>
+         <applicability>
+           This memorandum describes RTP, the real-time transport protocol.  RTP
+           provides end-to-end network transport functions suitable for
+           applications transmitting real-time data, such as audio, video or
+           simulation data, over multicast or unicast network services.  RTP
+           does not address resource reservation and does not guarantee
+           quality-of-service for real-time services.  The data transport is
+           augmented by a control protocol (RTCP) to allow monitoring of the
+           data delivery in a manner scalable to large multicast networks, and
+           to provide minimal control and identification functionality.  RTP and
+           RTCP are designed to be independent of the underlying transport and
+           network layers.  The protocol supports the use of RTP-level
+           translators and mixers.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc3550.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-24" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+
+      <standard id="ietf-rfc3711" tag="SRTP">
+         <document orgid="ietf" pubnum="RFC 3711" date="2004-03" title="The Secure Real-time Transport Protocol (SRTP)"/>
+         <applicability>
+           This document describes the Secure Real-time Transport Protocol
+           (SRTP), a profile of the Real-time Transport Protocol (RTP), which
+           can provide confidentiality, message authentication, and replay
+           protection to the RTP traffic and to the control traffic for RTP, the
+           Real-time Transport Control Protocol (RTCP).
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc3711.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-24" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+
+      <standard id="ietf-rfc3605" tag="RTCP in SDP">
+         <document orgid="ietf" pubnum="RFC 3605" date="2003-10" title="Real Time Control Protocol (RTCP) attribute in Session Description Protocol (SDP)"/>
+         <applicability>
+           The Session Description Protocol (SDP) is used to describe the
+           parameters of media streams used in multimedia sessions.  When a
+           session requires multiple ports, SDP assumes that these ports have
+           consecutive numbers.  However, when the session crosses a network
+           address translation device that also uses port mapping, the ordering
+           of ports can be destroyed by the translation.  To handle this, we
+           propose an extension attribute to SDP.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc3605.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-25" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
       <standard id="ietf-rfc2003" tag="IP EWncapsulation">
          <document orgid="ietf" pubnum="RFC 2003" date="1996" title="IP Encapsulation within IP"/>
          <applicability>
@@ -11773,6 +12303,85 @@
          </status>
       </standard>
 
+      <standard id="ieee-802.1X" tag="RADIUS">
+         <document date="2010-02-02" orgid="ieee" pubnum="802.1X" title="Port-Based Network Access Control"/>
+         <applicability>
+           Port-based network access control allows a network administrator to restrict the use of
+           IEEE 802 LAN service access points (ports) to secure communication between authenticated and
+           authorized devices. This standard specifies a common architecture, functional elements, and
+           protocols that support mutual authentication between the clients of ports attached to the same LAN
+           and that secure communication between the ports, including the media access method
+           independent protocols that are used to discover and establish the security associations used by
+           IEEE 802.1AE MAC Security.
+         </applicability>
+         <status mode="unknown">
+         <uri>http://standards.ieee.org/getieee802/download/802.1X-2010.pdf</uri>
+            <history>
+               <event date="2012-09-02" flag="added" rfcp="6-32" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
+      <standard id="ieee-802.1p" tag="IEEE QoS">
+         <document date="2004" orgid="ieee" pubnum="802.1p" title="IEEE QoS"/>
+         <applicability>
+           IEEE P802.1p is the name of a task group active during 1995–98 responsible
+           for adding traffic class expediting and dynamic multicast filtering to the
+           IEEE 802.1D standard. Essentially, they provided a mechanism for implementing
+           Quality of Service (QoS) at the Media Access Control (MAC) level. The group's
+           work with the new priority classes and Generic Attribute Registration Protocol
+           (GARP) was not published separately but was incorporated into a major revision
+           of the standard, IEEE 802.1D-1998. It also required a short amendment extending
+           the frame size of the Ethernet standard by four bytes which was published
+           as IEEE 802.3ac in 1998.
+           <para>The QoS technique developed by the working group, also known as class
+             of service (CoS), is a 3-bit field called the Priority Code Point (PCP)
+             within an Ethernet frame header when using VLAN tagged frames as defined
+             by IEEE 802.1Q. It specifies a priority value of between 0 and 7 inclusive
+             that can be used by QoS disciplines to differentiate traffic. Although this 
+             technique is commonly referred to as IEEE 802.1p, there is no standard or 
+             amendment by that name published by the IEEE. Rather the technique is 
+             incorporated into IEEE 802.1Q standard which specifies the tag inserted 
+             into an Ethernet frame.</para>
+         </applicability>
+         <status mode="unknown">
+            <history>
+               <event date="2012-09-02" flag="added" rfcp="6-33" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="ieee-802.1s" tag="Multiple Spanning Trees">
+         <document date="2002" orgid="ieee" pubnum="802.1S" title="Multiple Spanning Trees"/>
+         <applicability>
+           This standard extends the architecture, protocols, and algorithms specified
+           in IEEE 802.1Q, 1998 edition, to allow data traffic belonging to different
+           VLANs to be allocated to different spanning trees, while retaining interoperability
+           with bridges conformant to that prior specification. Now included in 802.1Q-2005.
+         </applicability>
+         <status mode="unknown">
+          <uri>http://standards.ieee.org/getieee802/download/802.1Q-2005.pdf</uri>
+            <history>
+               <event date="2012-09-02" flag="added" rfcp="6-34" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+
+      <standard id="ieee-802.1W" tag="802.1W">
+         <document date="2002" orgid="ieee" pubnum="802.1S" title="Rapid Reconfiguration of Spanning Tree"/>
+         <applicability>
+           This supplement to ISO/IEC 15802-3:1998 (IEEE Std 802.1D-1998) defines 
+           the changes necessary to the operation of a MAC Bridge in order to provide
+           rapid reconfiguration capability.
+         </applicability>
+         <status mode="unknown">
+          <uri>http://standards.ieee.org/getieee802/download/802.1W-2005.pdf</uri>
+            <history>
+               <event date="2012-09-02" flag="added" rfcp="6-35" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+      
       <standard id="ieee-802.1AB" tag="Connectivity Discovery">
          <document date="2009" orgid="ieee" pubnum="802.1AB" title="Station and Media Access Control Connectivity Discovery"/>
          <applicability>
@@ -14521,11 +15130,11 @@
             <uri>http://www.ietf.org/rfc/rfc2753.txt</uri>
             <history>
                <event flag="added" date="2004-07-24" rfcp="5-33" version="0.6"/>
-			   <event flag="changed" date="2010-10-30" rfcp="" version="4.0"/>
+			      <event flag="changed" date="2010-10-30" rfcp="" version="4.0"/>
             </history>
          </status>
       </standard>
-
+      
       <standard id="ietf-rfc3198" tag="PBM terminilogy">
          <document orgid="ietf" pubnum="RFC 3198" date="2001-11" title="Terminology for Policy-Based Management"/>
          <applicability>
@@ -15884,6 +16493,22 @@
          </status>
       </standard>
 
+      <standard id="nato-stanag4207ed3" tag="STANAG 4207 ed.3">
+         <document orgid="nato" pubnum="STANAG 4207 ed.3" date="1999" title="NATO Multi-channel Digital Gateway-Multiplex Group Framing Standards" version="3"/>
+         <applicability>
+           The aim of this STANAG is to define the multiplex group framing format, 
+           framing signals, and framing (synchronisation) procedures necessary for
+           interoperation between two NATO tactical digital communication systems
+           via a gateway.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://nsa.nato.int:9000/documents/stanags/4207eed03.pdf</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-21" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+      
       <standard id="itu-tgi" tag="ITU-T G,I Series">
          <document orgid="itu" pubnum="" date="" title="ISDN: ITU-T G, I Series"/>
          <applicability>
@@ -16187,37 +16812,37 @@
 
       <standard id="nato-stanag5616ed4" tag="STANAG 5616 ed.4:2008">
          <document orgid="nato" pubnum="STANAG 5616 ed.4" date="2008" title="Standards for Data Forwarding between Tactical Data Systems employing Link-11/11B and Link-16" version="4"/>
-         <applicability>
-        The purpose of this STANAG is to specify rules, protocols, and
-        translations required between J series and M series messages. Data forwarding
-        is the process of receiving data on one digital data link and outputting the data,
-        using proper format and protocols, to another type of digital data link(s).
-        In the process, a message(s) received on one link is translated to an appropriate
-        message(s) on another link. Data forwarding is accomplished by the selected
-        forwarding unit(s) simultaneously participating on more than one type of data link.
-        The data that is forwarded is based on the data received and is not dependend
-        upon the local system data of the data forwarding unit or its implementation
-        of the received message or the forwarded message. Those data elements applicable
-        within the messages are translated to the appropriate data elements in the
-        corresponding messages. Within the data forwarding process, data management
-        will be minimized. All systems that forward data must adhere to this STANAG.
-        In the coure of implementing Link-16, it is recognized that some systems may
-        use internal system translations (i.e., Link-16 to Link-11B) and some systems
-        may transmit originated track data on more than one data link at the same time.
-        Functionally, such systems are not data forwarders; however, these systems will
-        adhere to the guidance in chapter 3 of this STANAG to ensure that the closest
-        possible relationship of data elements and data element interpretation will be
-        maintained among all users of the data.
-      </applicability>
-         <status mode="unknown">
-            <uri>http://nsa.nato.int:9000/documents/stanags/dr%20en/5616eed04.pdf</uri>
-            <history>
+           <applicability>
+             The purpose of this STANAG is to specify rules, protocols, and
+             translations required between J series and M series messages. Data forwarding
+             is the process of receiving data on one digital data link and outputting the data,
+             using proper format and protocols, to another type of digital data link(s).
+             In the process, a message(s) received on one link is translated to an appropriate
+             message(s) on another link. Data forwarding is accomplished by the selected
+             forwarding unit(s) simultaneously participating on more than one type of data link.
+             The data that is forwarded is based on the data received and is not dependend
+             upon the local system data of the data forwarding unit or its implementation
+             of the received message or the forwarded message. Those data elements applicable
+             within the messages are translated to the appropriate data elements in the
+             corresponding messages. Within the data forwarding process, data management
+             will be minimized. All systems that forward data must adhere to this STANAG.
+             In the coure of implementing Link-16, it is recognized that some systems may
+             use internal system translations (i.e., Link-16 to Link-11B) and some systems
+             may transmit originated track data on more than one data link at the same time.
+             Functionally, such systems are not data forwarders; however, these systems will
+             adhere to the guidance in chapter 3 of this STANAG to ensure that the closest
+             possible relationship of data elements and data element interpretation will be
+             maintained among all users of the data.
+           </applicability>
+           <status mode="unknown">
+             <uri>http://nsa.nato.int:9000/documents/stanags/dr%20en/5616eed04.pdf</uri>
+             <history>
                <event flag="added" date="2002-12-03" rfcp="" version="0.4"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
-            </history>
-         </status>
+             </history>
+           </status>
       </standard>
-
+      
       <standard id="nato-stanag4175" tag="STANAG 4175 ed.4">
          <document orgid="nato" pubnum="STANAG 4175 ed.4" date="2009-10-18" title="Technical Characteristics of the Multifunctional Information Distribution System (MIDS)"/>
          <applicability>
@@ -16265,6 +16890,20 @@
          </status>
       </standard>
 
+      <standard id="CJCSM-SSS-M-10001" tag="MIDS SSS">
+         <document orgid="CJCSM" pubnum="SSS-M-10001" date="2011-01" title="System Segment Specification for the Multifunctional Information Distribution System (MIDS) Low-Volume Terminal and Ancillary Equipment, Rev. EG"/>
+         <applicability>
+           MIDS-SSS (Multifunctional Information Distribution System - System Segment
+           Specification) is used for the Integration of a MIDSLVT (Low Volume Terminal).
+         </applicability>
+         <status mode="unknown">
+            <uri></uri>
+            <history>
+               <event flag="added" date="2012-09-03" rfcp="6-39" version="7.0"/>
+            </history>
+         </status>
+         </standard>
+      
       <standard id="nato-stanag4372ed3" tag="STANAG 4372 ed.3">
          <document orgid="nato" pubnum="STANAG 4372 ed.3" date="2008-12-16" title="Saturn" version="3"/>
          <applicability>
@@ -17553,8 +18192,8 @@
          </status>
       </standard>
 
-      <standard id="nato-ac322-sc3-d2007-0003-rev5" tag="SMADEF XML Rel.1.2.3">
-         <document orgid="nato" pubnum="AC/322(SC/3)D(2007)0003-Rev5" date="2008-11-17" title="SMADEF XML Documentation Rel.1.2.3" version="1.2.3"/>
+      <standard id="nato-ac322-sc3-d2007-0003-rev5" tag="SMADEF XML Rel.3.0.0">
+         <document orgid="nato" pubnum="AC/322(SC/3)D(2007)0003-Rev5" date="2012-01-11" title="SMADEF XML Documentation Rel.3.0.0" version="3.0.0"/>
          <applicability>
         The objective of this document is to define the Concept of Operations
         (CONOPS) and data elements for the exchange of spectrum management related data,
@@ -17571,6 +18210,7 @@
             <uri/>
             <history>
                <event flag="added" date="2008-12-11" rfcp="2-23" version="3.0"/>
+               <event flag="changed" date="2012-09-04" rfcp="6-59" version="7.0"/>
             </history>
          </status>
       </standard>
@@ -18740,6 +19380,22 @@
          </status>
       </standard>
 
+<standard id="nato-stanag5065" tag="STANAG 5065">
+         <document orgid="nato" pubnum="STANAG 5065 ed.1" date="1999" title="Minimum Standards for Naval low Frequency (LF) Shore-to-Ship Surface Broadcast Systems"/>
+         <applicability>
+           The aim of this STANAG is to define the minimum technical stamdards required 
+           for Naval shore-to-ship surface broadcast (shore transmitting and ship
+           receiving) equipment that will permit interoperable communication using
+           LF transmission and appropriate baseband modulation/demodulation techniques.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://nsa.nato.int:9000/documents/stanags/5065eed01.pdf</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-19" version="7.0"/>
+            </history>
+         </status>
+      </standard>    
+      
       <standard id="nato-stanag5066ed2" tag="STANAG 5066">
          <document orgid="nato" pubnum="STANAG 5066 ed.2" date="2008" title="Profile for HF radio data communications (Draft)"/>
          <applicability>
@@ -20360,8 +21016,8 @@
          </status>
       </standard>
 
-      <standard id="oasis-wss-soap-message-security-1.0" tag="">
-         <document orgid="oasis" pubnum="wss-soap-message-security-1.0" date="2004-04-06" title="Web Services Security: SOAP Message Security V1.0" version="1"/>
+      <standard id="oasis-wss-v1.1-spec-os-SOAPMessageSecurity" tag="WSS">
+         <document orgid="oasis" pubnum="wss-v1.1-spec-os-SOAPMessageSecurity" date="2006-01-01" title="Web Services Security: SOAP Message Security 1.1" version="1.1"/>
          <applicability>
            WS-Security describes enhancements to SOAP messaging to provide
            quality of protection through message integrity, message confidentiality, and
@@ -20383,9 +21039,10 @@
            </para>
          </applicability>
          <status mode="unknown">
-            <uri>http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf</uri>
+            <uri>http://docs.oasis-open.org/wss/v1.1</uri>
             <history>
                <event flag="added" date="2004-05-25" rfcp="5-19" version="0.6"/>
+               <event flag="changed" date="2012-09-04" rfcp="6-60" version="7.0"/>
             </history>
          </status>
       </standard>
@@ -20500,10 +21157,10 @@
          </status>
       </standard>
       
-      <profile id="bp-wss" tag="OASIS WSS 1.0" type="base">
-         <profilenote>Web Services Security 1.0</profilenote>
+      <profile id="bp-wss" tag="OASIS WSS 1.1" type="base">
+         <profilenote>Web Services Security 1.1</profilenote>
          <parts>
-            <refstandard refid="oasis-wss-soap-message-security-1.0"/>
+            <refstandard refid="oasis-wss-v1.1-spec-os-SOAPMessageSecurity"/>
             <refstandard refid="oasis-wss-username-token-profile-1.0"/>
             <refstandard refid="oasis-wss-x.509-certificate-token-profile-1.0"/>
          </parts>
@@ -20541,6 +21198,7 @@
                <event flag="added" date="2004-05-25" rfcp="5-19" version="0.6"/>
                <event flag="changed" date="2010-11-04" rfcp="" version="4.0"/>
                <event flag="changed" date="2011-10-16" rfcp="5-63" version="5.0"/>
+               <event flag="changed" date="2012-09-04" rfcp="6-60" version="7.0"/>
             </history>
          </status>
       </profile>
@@ -21370,6 +22028,30 @@
          </status>
       </standard>
 
+      <standard id="ietf-rfc4250" tag="SSH v.2">
+         <document orgid="ietf" pubnum="RFC 4250" date="2006-01" title="Secure Shell (SSH)" version="2"/>
+         <applicability>
+           The Secure Shell (SSH) Protocol is a protocol for secure remote login
+           and other secure network services over an insecure network. This
+           document describes the architecture of the SSH protocol, as well as
+           the notation and terminology used in SSH protocol documents. It also
+           discusses the SSH algorithm naming system that allows local
+           extensions. The SSH protocol consists of three major components: The
+           Transport Layer Protocol provides server authentication,
+           confidentiality, and integrity with perfect forward secrecy. The
+           User Authentication Protocol authenticates the client to the server.
+           The Connection Protocol multiplexes the encrypted tunnel into several
+           logical channels. Details of these protocols are described in
+           separate documents.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc4250.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-22" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
       <standard id="ietf-rfc3768" tag="VRRP">
          <document orgid="ietf" pubnum="RFC 3768" date="2004" title="Virtual Router Redundancy Protocol"/>
          <applicability>
@@ -24335,6 +25017,29 @@
          </status>
       </standard>
 
+      <standard id="itu-t-g.722" tag="G.722">
+         <document orgid="itu" pubnum="G.722" date="1993" title="7 kHz Audio-Coding within 64 kbit/s"/>
+         <applicability>
+           Rec. ITU-T G.722 describes the characteristics of an audio (50 to 7 000 Hz)
+           coding system which may be used for a variety of higher quality speech
+           applications. The coding system uses sub-band adaptive differential pulse
+           code modulation (SB-ADPCM) within a bit rate of 64 kbit/s. The system is
+           henceforth referred to as 64 kbit/s (7 kHz) audio coding. In the SB-ADPCM 
+           technique used, the frequency band is split into two sub-bands (higher 
+           and lower) and the signals in each sub-band are encoded using ADPCM. The
+           system has three basic modes of operation corresponding to the bit rates
+           used for 7 kHz audio coding: 64, 56 and 48 kbit/s. The latter two modes 
+           allow an auxiliary data channel of 8 and 16 kbit/s respectively to be
+           provided within the 64 kbit/s by making use of bits from the lower sub-band.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.itu.int/rec/T-REC-G.722/e</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-29" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
       <standard id="itu-t-g.726" tag="ADPCM">
          <document orgid="itu" pubnum="G.726" date="1990" title="40, 32, 24, 16 kbit/s adaptive differential pulse code modulation (ADPCM)"/>
          <applicability>
@@ -24342,7 +25047,7 @@
            ISDN telephone systems with 16, 24, 32, 40 kb/s bandwidth requirements.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.itu.int/rec/T-REC-G.726-199012-I</uri>
+            <uri>http://www.itu.int/rec/T-REC-G.726/e</uri>
             <history>
                <event flag="added" date="2001-11-09" rfcp="" version="0.3"/>
                <event flag="changed" date="2003-07-31" rfcp="" version="0.5">G.721 changed to G.726</event>
@@ -24352,6 +25057,128 @@
          </status>
       </standard>
 
+      <standard id="itu-t-g.729" tag="CS-ACELP">
+         <document orgid="itu" pubnum="G.729" date="2012-06" title="Coding of speech at 8 kbit/s using conjugate-structure algebraic-code-excited linear prediction (CS-ACELP)"/>
+         <applicability>
+           Rec. ITU-T G.729 contains the description of an algorithm for the coding 
+           of speech signals at 8 kbit/s using Conjugate-Structure Algebraic-Code-Excited
+           Linear-Prediction (CS-ACELP). This coder is designed to operate with a digital
+           signal obtained by first performing telephone bandwidth filtering (Rec. ITU-T G.712)
+           of the analogue input signal, then sampling it at 8000 Hz, followed by
+           conversion to 16-bit linear PCM for the input to the encoder. The output
+           of the decoder should be converted back to an analogue signal by similar 
+           means. Other input/output characteristics, such as those specified by Rec. ITU-T G.711
+           for 64 kbit/s PCM data, should be converted to 16-bit linear PCM before encoding,
+           or from 16-bit linear PCM to the appropriate format after decoding. The
+           bitstream from the encoder to the decoder is defined within this Recommendation. 
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.itu.int/rec/T-REC-G.729/e</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-29" version="7.0"/>
+            </history>
+         </status>
+      </standard>            
+      
+      <standard id="ietf-rfc3951" tag="iLBC">
+         <document orgid="ietf" pubnum="RFC 3951" date="2004-12" title="Internet Low Bit Rate Codec (iLBC)"/>
+         <applicability>
+           This document specifies a speech codec suitable for robust voice
+           communication over IP.  The codec is developed by Global IP Sound
+           (GIPS).  It is designed for narrow band speech and results in a
+           payload bit rate of 13.33 kbit/s for 30 ms frames and 15.20 kbit/s
+           for 20 ms frames.  The codec enables graceful speech quality
+           degradation in the case of lost frames, which occurs in connection
+           with lost or delayed IP packets.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc3951.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-27" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="ietf-rfc3952" tag="RTP format for iLBC">
+         <document orgid="ietf" pubnum="RFC 3952" date="2004-12" title=" Real-time Transport Protocol (RTP) Payload Format for internet Low Bit Rate Codec (iLBC) Speech"/>
+         <applicability>          
+           This document describes the Real-time Transport Protocol (RTP)
+           payload format for the internet Low Bit Rate Codec (iLBC) Speech
+           developed by Global IP Sound (GIPS).  Also, within the document there
+           are included necessary details for the use of iLBC with MIME and
+           Session Description Protocol (SDP).
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc3952.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-27" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+
+      <profile id="bp-iLBC" tag="iLBC" type="base">
+         <parts>
+            <refstandard refid="ietf-rfc3951"/>
+            <refstandard refid="ietf-rfc3952"/>
+         </parts>
+         <applicability>
+           This profile specifies a speech codec suitable for robust voice
+           communication over IP.  The codec is developed by Global IP Sound
+           (GIPS).  It is designed for narrow band speech and results in a
+           payload bit rate of 13.33 kbit/s for 30 ms frames and 15.20 kbit/s
+           for 20 ms frames.  The codec enables graceful speech quality
+           degradation in the case of lost frames, which occurs in connection
+           with lost or delayed IP packets and the necessary RTP support.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc3951.txt</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-27" version="7.0"/>
+            </history>
+         </status>
+      </profile>
+
+      <standard id="itu-t-h.263" tag="H.263">
+         <document orgid="itu-t" pubnum="H.263" date="2005-01" title="Video coding for low bit rate communication"/>
+         <applicability>
+           This Recommendation specifies a coded representation that can be used for compressing the
+           moving picture component of audio-visual services at low bit rates. The basic configuration of the
+           video source coding algorithm is based on ITU-T Rec. H.261. Eighteen negotiable coding options
+           are included for improved performance and increased functionality. This Recommendation contains
+           Version 2 of ITU-T Rec. H.263, which is fully compatible with the original Recommendation,
+           adding only optional features to the original Version 1 content of the Recommendation.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.itu.int/rec/T-REC-H.263/e</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-31" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="itu-t-h.264" tag="H.264">
+         <document orgid="itu-t" pubnum="H.264" date="2012-01" title="Advanced video coding for generic audiovisual services"/>
+         <applicability>
+           Rec. ITU-T H.264 | ISO/IEC 14496-10 represents an evolution of earlier video
+           coding standards (ITU-T H.261, ITU-T H.262, and ITU-T H.263) and it was 
+           developed in response to the growing need for higher compression of moving 
+           pictures for various applications such as videoconferencing, digital storage 
+           media, television broadcasting, Internet streaming, and communication. It
+           is also designed to enable the use of the coded video representation in a
+           flexible manner for a wide variety of network environments. The use of 
+           this codec allows motion video to be manipulated as a form of computer
+           data and to be stored on various storage media, transmitted and received
+           over existing and future networks and distributed on existing and future
+           broadcasting channels. 
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.itu.int/rec/T-REC-H.264/e</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-31" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
       <standard id="iso-iec-dis9660" tag="CDFS">
          <document orgid="iso-iec" pubnum="DIS 9660" date="1988" title="Volume and file structure of CD-ROM for information interchange"/>
          <applicability>
@@ -24368,8 +25195,8 @@
                <event flag="changed" date="2005-09-06" rfcp="" version="0.7"/>
             </history>
          </status>
-      </standard>
-
+      </standard>      
+      
       <standard id="nist-fs1016" tag="CELP">
          <document orgid="nist" pubnum="FS 1016" date="1991" title="Code Extended Linear Predictive Coding"/>
          <applicability>
@@ -26323,6 +27150,27 @@
          </status>
       </standard>
 
+<standard id="nato-stanag4529" tag="STANAG 4529 ed.1">
+         <document orgid="nato" pubnum="STANAG 4529 ed.1" date="1998" title="Characteristics of single tone modulators/demodulators for maritime HF radio links with 1240 Hz bandwidth" version="1"/>
+         <applicability>
+           This STANAG defines the technical interoperability characteristics for a
+           means of digital communications over maritime HF radio channels having a 
+           bandwidth of 1240 Hz. The effective bit rate of the communication can be 75, 
+           150, 300, 600 or 1200 bits per second, bya means of a single tone modulator
+           / demodulator in combination with error correction techniques. In addition,
+           uncoded data transmission modes at 600, 1200 and 1800 bps are defined. 
+           This STANAG has been developed with the objective of implementation of the
+           capability by upgrading exisiting STANAG 4285 or STANAG 4481 equipments to 
+           contain this means as another user-selectaqble mode.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://nsa.nato.int:9000/documents/stanags/4591eed01.pdf</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-18" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
       <standard id="iso-iec-11558" tag="DCLZ">
          <document orgid="iso-iec" pubnum="11558" date="1992" title="Adaptive coding with embedded dictionary - DCLZ Algorithm"/>
          <applicability>
@@ -26749,6 +27597,123 @@
          </status>
       </standard>
 
+      <standard id="iso-iec-13346-1" tag="UDF General">
+         <document orgid="iso-iec" pubnum="13346-1" date="1995-12-27" title="Volume and file structure of write-once and rewritable media using non-sequential recording for information interchange Part 1: General"/>
+         <applicability>
+           Consists of five parts; part 1 specifies references, definitions, notation
+           and basic structures that apply to the other four parts.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.iso.org/iso/catalogue_detail.htm?csnumber=26783</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-37" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="iso-iec-13346-2" tag="UDF Recognition">
+         <document orgid="iso-iec" pubnum="13346-2" date="1999" title="Volume and file structure of write-once and rewritable media using non-sequential recording for information interchange Part 2: Volume and boot block recognition"/>
+         <applicability>
+           This part of ISO/IEC 13346 specifies a format and associated system requirements
+           for volume and boot block recognition by specifying: - volume recognition; - boot
+           descriptors intended for use to bring a system to a known state; - levels of
+           medium interchange; - requirements for the processes which are provided within 
+           information processing systems, to enable information to be interchanged between
+           systems; for this purpose, this part of ISO/IEC 13346 specifies the functions
+           to be provided within systems which are intended to originate or receive media
+           which conform to this part of ISO/IEC 13346.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=29942</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-37" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="iso-iec-13346-3" tag="UDF Volume structure">
+         <document orgid="iso-iec" pubnum="13346-3" date="1995" title="Volume and file structure of write-once and rewritable media using non-sequential recording for information interchange Part 3: Volume structure"/>
+         <applicability>
+           This part of ISO/IEC 13346 specifies a format and associated system requirements
+           for volume structure by specifying: - the attributes of a volume and the
+           descriptors recorded on it; - the relationship among volumes of a volumes set;
+           - the attributes of a partition of a volume; - the attributes of a logical
+           volume and the descriptors recorded on it; - levels of medium interchange;
+           - requirements for the processes which are provided within information processing
+           systems, to enable information to be interchanged between systems; for this
+           purpose, this part of ISO/IEC 13346 specifies the functions to be provided
+           within systems which are intended to originate or receive media which
+           conform to this part of ISO/IEC 13346.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.iso.org/iso/catalogue_detail.htm?csnumber=26785</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-37" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="iso-iec-13346-4" tag="UDF File structure">
+         <document orgid="iso-iec" pubnum="13346-4" date="1999-04" title="Volume and file structure of write-once and rewritable media using non-sequential recording for information interchange Part 4: File structure"/>
+         <applicability>
+           This part of ISO/IEC 13346 specifies a format and associated system requirements
+           for volume structure by specifying: - the attributes of a volume and the
+           descriptors recorded on it; - the relationship among volumes of a volumes set;
+           - the attributes of a partition of a volume; - the attributes of a logical
+           volume and the descriptors recorded on it; - levels of medium interchange;
+           - requirements for the processes which are provided within information processing
+           systems, to enable information to be interchanged between systems; for this
+           purpose, this part of ISO/IEC 13346 specifies the functions to be provided
+           within systems which are intended to originate or receive media which
+           conform to this part of ISO/IEC 13346.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.iec-normen.de/215236/iso-iec-13346-4-1999-04-ed-2-0-englisch.html</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-37" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+       <standard id="iso-iec-13346-5" tag="UDF Record structure">
+         <document orgid="iso-iec" pubnum="13346-5" date="1995" title="Volume and file structure of write-once and rewritable media using non-sequential recording for information interchange Part 5: Record structure"/>
+         <applicability>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.iso.org/iso/catalogue_detail.htm?csnumber=26787</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-37" version="7.0"/>
+            </history>
+         </status>
+      </standard>     
+      
+      <profile id="bp-udf" tag="UDF">
+         <parts>
+          <refstandard refid="iso-iec-13346-1"/>
+          <refstandard refid="iso-iec-13346-2"/>
+          <refstandard refid="iso-iec-13346-3"/>
+          <refstandard refid="iso-iec-13346-4"/>
+          <refstandard refid="iso-iec-13346-5"/>
+        </parts>           
+      <applicability>
+           Universal Disk Format - (UDF) A CD-ROM file system standard that is required 
+           for DVD ROMs. UDF is the OSTA's replacement for the ISO 9660 file system used 
+           on CD-ROMs, but will be mostly used on DVD. DVD multimedia disks use UDF to
+           contain MPEG audio and video streams.
+           <para>To read DVDs you need a DVD drive, the kernel driver for the drive,
+             MPEG video support, and a UDF driver. DVDs containing both UDF filesystems
+             and ISO 9660 filesystems can be read without UDF support.</para>
+           <para>UDF can also be used by CD-R and CD-RW recorders in packet writing mode.
+           </para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.iso.org/iso/catalogue_detail.htm?csnumber=26783</uri>
+            <history>
+               <event flag="added" date="2012-09-02" rfcp="6-37" version="7.0"/>
+            </history>
+         </status>
+      </profile>
+         
       <standard id="nato-stanag7023ed4" tag="NPIF">
          <document orgid="nato" pubnum="STANAG 7023 ed.4" date="2009" title="NATO Primary Imagery Format (NPIF)"/>
          <applicability>
@@ -26866,8 +27831,8 @@
          </status>
       </standard>
 
-      <standard id="dod-mil-std3011" tag="JREAP">
-         <document orgid="dod" pubnum="MIL-STD 3011" date="2002" title="Interoperability Standard for the Joint Range Extension Application Protocol (JREAP)"/>
+      <standard id="nato-stanag5518" tag="JREAP">
+         <document orgid="nato" pubnum="STANAG 5518ed1" date="2011-04-08" title="Interoperability Standard for the Joint Range Extension Application Protocol (JREAP)"/>
          <applicability>
             This document defines a generalized application protocol, designated
             as the Joint Range Extension Applications Protocol (JREAP). The JREAP enables
@@ -26909,10 +27874,26 @@
          <status mode="unknown">
             <history>
                <event flag="added" date="2005-11-20" rfcp="6-17" version="0.7"/>
+               <event flag="changed" date="2012-09-03" rfcp="6-55" version="7.0"/>
             </history>
          </status>
       </standard>
 
+      <standard id="nato-stanag5501" tag="Link 1">
+         <document orgid="nato" pubnum="STANAG 5501 Ed.5" date="2011" title="Tactical Data Exchange - Link 1 (Point-to-Point)"/>
+         <applicability>
+            The aim of this STANAG is to provide specification for automatic data 
+            exchange between air defence and aircraft control units where this is 
+            applicable, using Link 1 as defined in this STANAG.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://nsa.nato.int:9000/documents/stanags/5501eed05.pdf</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-20" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
       <standard id="nato-stanag5511" tag="Link 11">
          <document orgid="nato" pubnum="STANAG 5511 Ed.7" date="2008" title="Tactical Data Exchange - Link 11/11B"/>
          <applicability>
@@ -28330,27 +29311,26 @@
          </status>
       </standard>
 
-      <standard id="iso-iec-29500" tag="OpenOffice">
-         <document orgid="iso-iec" pubnum="29500" date="2008-04-02" title="Office Open XML file formats"/>
+      <standard id="iso-iec-29500-3" tag="MS Office XML Fromat">
+         <document orgid="iso-iec" pubnum="29500-3" date="2012-08-22" title="Office Open XML File Formats - Part 3: Markup Compatibility and Extensibility"/>
          <applicability>
-           ISO/IEC 29500 is a standard for word-processing documents, presentations
-           and spreadsheets that is intended to be implemented by multiple applications
-           on multiple platforms. According to the submitters of the document, one of its
-           objectives is to ensure the long-term preservation of documents created over
-           the last two decades using programmes that are becoming incompatible with
-           continuing advances in the field of information technology.
+           IISO/IEC 29500-3:2012 describes a set of conventions that are used by Office 
+           Open XML documents to clearly mark elements and attributes introduced by future
+           versions or extensions of Office Open XML documents, while providing a method
+           by which consumers can obtain a baseline version of the Office Open XML 
+           document (a version without extensions) for interoperability.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=59575</uri>
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61797</uri>
             <history>
                <event flag="added" date="2008-10-13" rfcp="2-11" version="3.0"/>
+               <event flag="changed" date="2012-09-02" rfcp="6-36" version="7.0"/>
             </history>
          </status>
       </standard>
 
-      <standard id="adobe-pdf14" tag="PDF Specification 1.4">
-         <document orgid="adobe" pubnum="ISBN 0 200 175839 3" date="2003-12-24" title="Portable Document Format (PDF), v. 1.4" version="1.4">
-           <alsoknown orgid="iso" pubnum="19005" date="2005"/>
+      <standard id="adobe-pdf17" tag="PDF Specification 1.7">
+         <document orgid="iso" pubnum="iso 32000-1" date="2008-07-01" title="Portable document format — Part 1: PDF 1.7">
          </document>
          <applicability>
            PDF is a file format used to represent a document in final form
@@ -28370,10 +29350,41 @@
                <event flag="changed" date="2000-03-15" rfcp="" version="0.2"/>
                <event flag="changed" date="2005-09-07" rfcp="" version="0.7"/>
                <event flag="changed" date="2011-10-16" rfcp="5-41" version="5.0"/>
+               <event flag="changed" date="2012-09-03" rfcp="6-51" version="7.0"/>
             </history>
          </status>
       </standard>
 
+      <standard id="iso-19005-2" tag="PDF/A2">
+          <document orgid="iso" pubnum="19005-2" date="2011-06-20" title="Electronic document file format for long-term preservation -- Part 2: Use of ISO 32000-1 (PDF/A-2)"/>
+          <applicability>
+            ISO 19005-2:2011 specifies the use of the Portable Document Format (PDF) 
+            1.7, as formalized in ISO 32000-1, for preserving the static visual 
+            representation of page-based electronic documents over time.
+            <para>ISO 19005-2:2011 is not applicable to</para>
+            <itemizedlist>
+              <listitem>
+                <para>specific processes for converting paper or electronic documents to the PDF/A format,</para>
+              </listitem>
+              <listitem>
+                <para>specific technical design, user interface, implementation, or operational details of rendering,</para>
+              </listitem>
+              <listitem>
+                <para>specific physical methods of storing these documents, such as media and storage conditions,</para>
+              </listitem>
+              <listitem>
+                <para>required computer hardware and/or operating systems.</para>
+              </listitem>
+            </itemizedlist>
+          </applicability>
+          <status mode="unknown">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=50655</uri>
+            <history>
+               <event flag="added" date="2012-09-03" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+      
       <standard id="iso-iec-32000" tag="PDF Specification 1.7">
          <document orgid="iso-iec" pubnum="32000-1" date="2008" title="Portable Document Format (PDF), v. 1.7" version="1.7"/>
          <applicability>
@@ -28404,6 +29415,7 @@
             <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=51502</uri>
             <history>
                <event flag="added" date="2011-10-04" version="5.0"/>
+               <event flag="changed" date="2012-09-03" rfcp="6-51" version="7.0"/>
             </history>
          </status>      
       </standard>
@@ -28612,137 +29624,158 @@
          </status>
       </standard>
 
-      <standard id="oasis-oasis-sstc-saml-core-1.1" tag="">
-         <document orgid="oasis" pubnum="oasis-sstc-saml-core-1.1" date="2003-09-02" title="SAML Assertions and Protocol v.2.2" version="2.2"/>
+      <standard id="oasis-saml-core-2.0-os" tag="SAML core">
+         <document orgid="oasis" pubnum="saml-core-2.0-os" date="2005-03-15" title="Assertions and Protocols for the OASIS Security Assertion Markup Language (SAML) V2.0" version="2.0"/>
          <applicability>
             This specification defines the syntax and semantics for XML-encoded assertions about
             authentication, attributes and authorization, and for the protocol that conveys this 
             information.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.oasis-open.org/committees/download.php/3406/oasis-sstc-saml-core-1.1.pdf</uri>
+            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
             <history>
                <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
-               <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
                <event flag="changed" date="2010-11-03" rfcp="" version="4.0"/>
+               <event flag="changed" date="2012-09-03" rfcp="6-58" version="7.0"/>
             </history>
          </status>
       </standard>
 
-      <standard id="oasis-oasis-sstc-saml-bindings-1.1" tag="">
-         <document orgid="oasis" pubnum="oasis-sstc-saml-bindings-1.1" date="2003-09-02" title="SAML Bindings and Profiles"/>
+      <standard id="oasis-saml-bindings-2.0-os" tag="SAML bindings">
+         <document orgid="oasis" pubnum="saml-bindings-2.0-os" date="2005-03-15" title="Bindings for the OASIS Security Assertion Markup Language (SAML)V2.0"/>
          <applicability>
            This specification defines protocol bindings and profiles for the use of SAML assertions and
            request-response messages in communications protocols and frameworks.
          </applicability>
          <status mode="unknown">
-            <uri>http://oasis-open.org/committees/download.php/3405/oasis-sstc-saml-bindings-1.1.pdf</uri>
+            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
             <history>
                <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
-               <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
                <event flag="changed" date="2010-11-03" rfcp="" version="4.0"/>
+               <event flag="changed" date="2012-09-03" rfcp="6-58" version="7.0"/>               
             </history>
          </status>
       </standard>
 
-      <standard id="oasis-oasis-sstc-saml-sec-consider-1.1" tag="">
-         <document orgid="oasis" pubnum="oasis-sstc-saml-sec-consider-1.1" date="2003-09-02" title="SAML Security and Privacy Considerations"/>
+      <standard id="oasis-saml-sec-consider-2.0-os" tag="SAML sec">
+         <document orgid="oasis" pubnum="saml-sec-consider-2.0-os" date="2005-03-15" title="Security and Privacy Considerations for the OASIS Security Assertion Markup Language (SAML) V2.0"/>
          <applicability>
            This specification describes and analyzes the security and privacy properties of SAML.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.oasis-open.org/committees/download.php/3404/oasis-sstc-saml-sec-consider-1.1.pdf</uri>
+            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
             <history>
                <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
                <event flag="changed" date="2010-11-03" rfcp="" version="4.0"/>
+               <event flag="changed" date="2012-09-03" rfcp="6-58" version="7.0"/>
             </history>
          </status>
       </standard>
 
-      <standard id="oasis-oasis-sstc-saml-conform-1.1" tag="">
-         <document orgid="oasis" pubnum="oasis-sstc-saml-conform-1.1" date="2003-09-02" title="SAML Conformance Program Specification"/>
+      <standard id="oasis-saml-conformance-2.0-os" tag="SAML conformance">
+         <document orgid="oasis" pubnum="saml-conformance-2.0-os" date="2005-03-15" title="Conformance Requirements for the OASIS Security Assertion Markup Language (SAML) V2.0"/>
          <applicability>
            This specification describes the program and technical requirements for SAML conformance.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.oasis-open.org/committees/download.php/3402/oasis-sstc-saml-conform-1.1.pdf</uri>
+            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
             <history>
                <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
                <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
                <event flag="changed" date="2010-11-03" rfcp="" version="4.0"/>
+               <event flag="changed" date="2012-09-03" rfcp="6-58" version="7.0"/>
             </history>
          </status>
       </standard>
 
-      <standard id="oasis-oasis-sstc-saml-glossary-1.1" tag="">
-         <document orgid="oasis" pubnum="oasis-sstc-saml-glossary-1.1" date="2003-09-02" title="SAML Glossary"/>
+      <standard id="oasis-saml-glossary-2.0-os" tag="SAML glossary">
+         <document orgid="oasis" pubnum="saml-glossary-2.0-os" date="2005-03-15" title="Glossary for the OASIS Security Assertion Markup Language (SAML) V2.0"/>
          <applicability>
            This specification defines terms used throughout the OASIS Security Assertion Markup Language
            (SAML) specifications and related documents.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.oasis-open.org/committees/download.php/3401/oasis-sstc-saml-glossary-1.1.pdf</uri>
+            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
             <history>
                <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
                <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
                <event flag="changed" date="2010-11-03" rfcp="" version="4.0"/>
+               <event flag="changed" date="2012-09-03" rfcp="6-58" version="7.0"/>
             </history>
          </status>
       </standard>
 
-      <standard id="oasis-oasis-sstc-saml-schema-assertion-1.1" tag="">
-         <document orgid="oasis" pubnum="oasis-sstc-saml-schema-assertion-1.1" date="2003-09-02" title="SAML Assertion Schema"/>
+      <standard id="oasis-saml-authn-context-2.0-os" tag="SAML authentication">
+         <document orgid="oasis" pubnum="saml-authn-context-2.0-os" date="2005-03-15" title="Authentication Context for the OASIS Security Assertion Markup Language (SAML) V2.0"/>
          <applicability>
-           The Security Assertion Markup Language (SAML) standard defines
-           a framework for exchanging security information between online business partners
+           This specification defines a syntax for the definition of authentication
+           context declarations and an initial list of authentication context classes 
+           for use with SAML.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.oasis-open.org/committees/download.php/3408/oasis-sstc-saml-schema-assertion-1.1.xsd</uri>
+            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
             <history>
-               <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
-               <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
-               <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
+               <event flag="added" date="2012-09-03" rfcp="6-58" version="7.0"/>
             </history>
          </status>
       </standard>
 
-      <standard id="oasis-oasis-sstc-saml-schema-protocol-1.1" tag="">
-         <document orgid="oasis" pubnum="oasis-sstc-saml-schema-protocol-1.1" date="2003-09-02" title="SAML Protocol Schema"/>
+      <standard id="oasis-saml-metadata-2.0-os" tag="SAML metadata">
+         <document orgid="oasis" pubnum="saml-metadata-2.0-os" date="2005-09-15" title="SAML metadata"/>
          <applicability>
-           The Security Assertion Markup Language (SAML) standard defines
-           a framework for exchanging security information between online business partners
+           SAML profiles require agreements between system entities regarding identifiers, binding support
+           and endpoints, certificates and keys, and so forth. A metadata specification is useful for
+           describing this information in a standardized way. This document defines an extensible metadata
+           format for SAML system entities, organized by roles that reflect SAML profiles. Such roles include
+           that of Identity Provider, Service Provider, Affiliation, Attribute Authority, Attribute Consumer, and
+           Policy Decision Point.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.oasis-open.org/committees/download.php/3407/oasis-sstc-saml-schema-protocol-1.1.xsd</uri>
+            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
             <history>
-               <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
-               <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
-               <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
+               <event flag="added" date="2012-09-03" rfcp="6-58" version="7.0"/>
             </history>
          </status>
       </standard>
 
-      <profile id="bp-saml1.1" tag="SAML 1.1" type="base">
-         <profilenote>Security Assertion Markup Language (SAML) v1.1</profilenote>
+      <standard id="oasis-saml-profiles-2.0-os" tag="SAML profiles">
+         <document orgid="oasis" pubnum="saml-profiles-2.0-os" date="2005-09-15" title="Profiles for the OASIS Security Assertion Markup Language (SAML) V2.0"/>
+         <applicability>
+           This specification defines profiles for the use of SAML assertions and request-response
+           messages in communications protocols and frameworks, as well as profiles for SAML attribute
+           value syntax and naming conventions.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
+            <history>
+               <event flag="added" date="2012-09-03" rfcp="6-58" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
+      <profile id="bp-saml2.0" tag="SAML 2.0" type="base">
+         <profilenote>Security Assertion Markup Language (SAML) v2.0</profilenote>
          <parts>
-            <refstandard refid="oasis-oasis-sstc-saml-core-1.1"/>
-            <refstandard refid="oasis-oasis-sstc-saml-bindings-1.1"/>
-            <refstandard refid="oasis-oasis-sstc-saml-sec-consider-1.1"/>
-            <refstandard refid="oasis-oasis-sstc-saml-conform-1.1"/>
-            <refstandard refid="oasis-oasis-sstc-saml-glossary-1.1"/>
-            <refstandard refid="oasis-oasis-sstc-saml-schema-assertion-1.1"/>
-            <refstandard refid="oasis-oasis-sstc-saml-schema-protocol-1.1"/>
+            <refstandard refid="oasis-saml-core-2.0-os"/>
+            <refstandard refid="oasis-saml-bindings-2.0-os"/>
+            <refstandard refid="oasis-saml-sec-consider-2.0-os"/>
+            <refstandard refid="oasis-saml-conformance-2.0-os"/>
+            <refstandard refid="oasis-saml-glossary-2.0-os"/>
+            <refstandard refid="oasis-saml-authn-context-2.0-os"/>
+            <refstandard refid="oasis-saml-metadata-2.0-os"/>
+            <refstandard refid="oasis-saml-profiles-2.0-os"/>           
          </parts>
          <applicability>
            The Security Assertion Markup Language (SAML) standard defines
            a framework for exchanging security information between online business partners
          </applicability>
          <status mode="unknown">
-            <uri>http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=security</uri>
+            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
             <history>
                <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
                <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
                <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
+               <event flag="changed" date="2012-09-03" rfcp="6-58" version="7.0"/>
             </history>
          </status>
       </profile>
@@ -29159,6 +30192,24 @@
          </status>
       </standard>
 
+      <standard id="w3c-REC-xlink11-20100506" tag="XLink 1.1">
+         <document orgid="w3c" pubnum="REC-xlink11-20100506" date="2010-05-06" title="XML Linking Language (XLink) Version 1.1"/>
+         <applicability>
+           This specification defines the XML Linking Language (XLink) Version 1.1,
+           which allows elements to be inserted into XML documents in order to create 
+           and describe links between resources. It uses XML syntax to create structures
+           that can describe links similar to the simple unidirectional hyperlinks 
+           of today's HTML, as well as more sophisticated links.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.w3.org/TR/2010/REC-xlink11-20100506</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-14" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
+      
       <standard id="w3c-rec-xlink-20100506" tag="XLink 1.1">
          <document orgid="w3c" pubnum="REC-xlink11-20100506" date="2010-05-06" title="XML Linking Language (XLink) Version 1.1" version="1.1"/>
          <applicability>
@@ -29200,6 +30251,23 @@
          </status>
       </standard>
 
+      <standard id="w3c-rec-xml11-20060816" tag="XML 1.1">
+         <document orgid="w3c" pubnum="REC-xml11-20060816" date="2006-08-16" title="Extensible Markup Language (XML) 1.1 (Second Edition)"/>
+         <applicability>
+           The Extensible Markup Language (XML) is a subset of SGML that is completely 
+           described in this document. Its goal is to enable generic SGML to be served, 
+           received, and processed on the Web in the way that is now possible with HTML.
+           XML has been designed for ease of implementation and for interoperability 
+           with both SGML and HTML.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.w3.org/TR/2006/REC-xml11-20060816</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-11" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+      
       <standard id="w3c-rec-xptr-framework-20030325" tag="">
          <document orgid="w3c" pubnum="REC-xptr-framework-20030325" date="2003-05-25" title="XPointer Framework"/>
          <applicability>
@@ -29580,6 +30648,28 @@
          </status>
       </standard>
 
+      <standard id="w3c-REC-xslt20-20070123" tag="XSLT 2.0">
+         <document orgid="w3c" pubnum="REC-xslt20-20070123" date="2007-01-23" title="XSL Transformations (XSLT) Version 2.0"/>
+         <applicability>
+           This specification defines the syntax and semantics of XSLT 2.0, a language 
+           for transforming XML documents into other XML documents.
+           <para>XSLT 2.0 is a revised version of the XSLT 1.0 Recommendation published 
+             on 16 November 1999.</para>
+           <para>XSLT 2.0 is designed to be used in conjunction with XPath 2.0.XSLT 
+             shares the same data model as XPath 2.0, and it uses the library of 
+             functions and operators defined in Functions and Operators.</para>
+           <para>XSLT 2.0 also includes optional facilities to serialize the results
+             of a transformation, by means of an interface to the serialization component
+             described in XSLT and XQuery Serialization.</para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.w3.org/TR/2007/REC-xslt20-20070123</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-13" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
       <standard id="unknown-pwi" tag="PWI">
          <document orgid="" pubnum="" date="" title="Public Window Interface Function List (PWI), API-W"/>
          <applicability>
@@ -32501,6 +33591,25 @@
          </status>
       </standard>
 
+      <standard id="dod-mil-std6017B" tag="VMF">
+         <document orgid="dod" pubnum="mil-std 6017B" date="2009-10-30" title="Variable Message Format (VMF)"/>
+         <applicability>
+           The Variable Message Format (VMF) Military Standard (MIL-STD) provides
+           military services and agencies with Joint interoperability standards, 
+           including message, data element, and protocol standards. These standards
+           are essential for the design, development, test, certification, fielding, 
+           and continued operation of automated tactical data systems (TDSs) which 
+           support the requirement to exchange timely, critical, command and control
+           information across Joint boundaries.
+         </applicability>
+         <status mode="unknown">
+            <uri>https://assist.dla.mil</uri>
+            <history>
+               <event flag="added" date="2009-10-30" rfcp="6-41" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+      
       <standard id="nato-stanag4312ed1" tag="STANAG 4312 ed.1">
          <document orgid="nato" pubnum="STANAG 4312 ed.1" date="1990" title="IERs for Developing Common Character Oriented MTFs for Use in Immediate Future" version="1"/>
          <applicability>
@@ -39635,8 +40744,8 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
          </status>
       </standard>	  
 
-      <standard id="jcp-jsr152" tag="JSR">
-         <document date="2003-11-24" orgid="jcp" pubnum="JSR 152" title="JAVA Server Pages (JSP)ed. 2.0:2003" version="2.0"/>
+      <standard id="jcp-jsr245" tag="JSR">
+         <document date="2009-12-09" orgid="jcp" pubnum="JSR 245" title="JAVA Server Pages (JSP)ed. 2.1:2009" version="2.1"/>
          <applicability>
            JavaServerPages (JSP) is the Java2 Platform, Enterprise Edition (J2EE)
            technology for building applications for generating dynamic web content, 
@@ -39648,21 +40757,41 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
             <uri>http://www.jcp.org/en/jsr/detail?id=152</uri>
             <history>
                <event date="2011-10-24" flag="added" rfcp="5-33" version="5.0"/>
+               <event date="2012-09-03" flag="changed" rfcp="6-57" version="7.0"/>
             </history>
          </status>
       </standard>
 	  
-      <standard id="jcp-jsr155" tag="J2EE">
-         <document date="2004-04-26" orgid="jcp" pubnum="JSR 155" title="JavaTM 2 Platform, Enterprise Edition 1.4 (JAVA EE v.6:2009) Specification ed. 1.5.0:2004" version="1.5.0"/>
+      <standard id="jcp-jsr342" tag="J2EE">
+         <document date="2012-05-23" orgid="jcp" pubnum="JSR 342" title="Java 2 Platform, Enterprise Edition (JAVA EE v.7:2012) Specification"/>
          <applicability>
            Java Platform, Enterprise Edition (Java EE) is the industry standard
            for developing portable, robust, scalable and secure server-side Java applications.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.jcp.org/en/jsr/detail?id=151</uri>
+            <uri>http://www.jcp.org/en/jsr/detail?id=342</uri>
             <history>
                <event date="2007-02-23" flag="added" version="1.0"/>
                <event date="2010-08-09" flag="changed" version="4.0"/>
+               <event date="2012-09-03" flag="changed" rfcp="6-56" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="jcp-jsr270" tag="J2SE">
+         <document date="2006-12-11" orgid="jcp" pubnum="JSR 270" title="Java SE 6 Release Contents"/>
+         <applicability>
+           Java SE 6 is the current major release of the Java SE platform, with full support 
+           from NetBeans IDE. Sun endeavors to foster the highest level of transparency 
+           and collaboration on the platform with the Java community through Project
+           JDK 6, resulting in the following key features. Sun's Java Multi-Platform 
+           Support, Training, and Certification can provide you the peace of mind to
+           develop and deploy Java solutions with confidence. 
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.jcp.org/en/jsr/detail?id=270</uri>
+            <history>
+               <event date="2012-09-93" flag="added" rfcp="6-38" version="7.0"/>
             </history>
          </status>
       </standard>
@@ -40075,6 +41204,26 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
          </status>
       </standard>
 
+      <standard id="oasis-ws-discovery-1.1" tag="WS-Discovery v1.1">
+         <document orgid="oasis" pubnum="wsdd-discovery-1.1-spec" date="2009-07-01" title="Web Services Dynamic Discovery Version 1.1" version="1.1"/>
+         <applicability>
+           This specification defines a discovery protocol to locate services. In 
+           an ad hoc mode of operation, probes are sent to a multicast group, and 
+           target services that match return a response directly to the requester. 
+           To scale to a large number of endpoints and to extend the reach of the 
+           protocol, this protocol defines a managed mode of operation and a multicast 
+           suppression behavior if a discovery proxy is available on the network. 
+           To minimize the need for polling, target services that wish to be discovered 
+           send an announcement when they join and leave the network.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://docs.oasis-open.org/ws-dd/discovery/1.1/os/wsdd-discovery-1.1-spec-os.pdf</uri>
+            <history>
+               <event flag="added" date="2012-07-15" rfcp="6-6" version="7.0"/>
+            </history>
+         </status>
+      </standard>
+      
       <standard id="nato-tide-id-rr" tag="TIDE-ID-RR">
          <document orgid="nato" pubnum="TIDE/TIDE-ID-RR" date="2009" title="TIDE Information Discovery (Request-Response) Protocol v2.3" version="2.2"/>
          <applicability>
@@ -40131,6 +41280,23 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
          </status>
       </standard>
 
+      <standard id="w3c-REC-wsdl20-20070626" tag="WSDL 2.0">
+         <document orgid="w3c" pubnum="REC-wsdl20-20070626" date="2007-06-26" title="Web Services Description Language (WSDL) Version 2.0 Part 1: Core Language"/>
+         <applicability>
+           This document describes the Web Services Description Language Version 2.0 
+           (WSDL 2.0), an XML language for describing Web services. This specification
+           defines the core language which can be used to describe Web services based 
+           on an abstract model of what the service offers. It also defines the conformance
+           criteria for documents in this language.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.w3.org/TR/2007/REC-wsdl20-20070626</uri>
+            <history>
+               <event flag="added" date="2012-09-01" rfcp="6-16" version="7.0"/>
+            </history>
+         </status>
+      </standard>      
+      
       <standard id="w3c-rec-xpath-19991119" tag="XPath">
          <document orgid="w3c" pubnum="REC-xpath-19991119" date="1999" title="XML Path Language 1.0"/>
          <applicability>
@@ -41155,7 +42321,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
                <refstandard refid="ietf-rfc2083"/>
                <refstandard refid="w3c-rec-xml-20040204"/>
                <refstandard refid="w3c-rec-html401-19991224"/>
-               <refstandard refid="adobe-pdf14"/>
+               <refstandard refid="adobe-pdf17"/>
                <refstandard refid="microsoft-application-note-gc0165"/>
                <refstandard refid="ietf-rfc4180-csv"/>
                <refprofile refid="bp-compression"/>
@@ -41545,6 +42711,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
       <orgkey key="cceb" text="Combined Communications and Electronic Board"/>
       <orgkey key="ccitt" text="CCITT"/>
       <orgkey key="checkpoint" text="Checkpoint"/>
+      <orgkey key="cjcsm" text="Chairman of the Joint Chiefs of Staff"/>
       <orgkey key="cmu" text="CMU"/>
       <orgkey key="compuserve" text="CompuServe"/>
       <orgkey key="digest" text="Digest"/>
