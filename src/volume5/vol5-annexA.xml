@@ -424,7 +424,7 @@ The above mentioned areas are further described in the following sections.
 </para>
 </listitem>
 </itemizedlist>
-<sect4 id='five-dot-two-dot-one-lack-of-automated-support-for-v-and-v-of-stanag-content-and-implementation-quality'><title id='five-dot-two-dot-one-lack-of-automated-support-for-v-and-v-of-stanag-content-and-implementation-quality-title'>Lack of automated support for V&amp;V of STANAG content &amp; implementation quality</title>
+<sect4 id='five-dot-two-dot-one-sect'><title id='five-dot-two-dot-one-title'>Lack of automated support for V&amp;V of STANAG content &amp; implementation quality</title>
 <para>Current STANAGs are text-based documents often composed of many pages (e.g. STANAG 5516 consists of more than 8000 pages). These STANAGs are mainly manually written in text using a natural communication language like English, leaving room for (mis-)interpretations and ambiguous definitions (see e.g. standards ambiguity in [MP-IST-01]).  To remove the possibility of misinterpretation and ambiguity, verification and validation of the quality and integrity of the STANAG content is required and needs to be supported in an automated way. The text-based representations of the STANAG do not allow this to happen in an efficient and effective manner.
 </para>
 <para>In fact, due to the current status quo, many STANAG standards and implementations may:
@@ -458,7 +458,7 @@ As STANAGs are currently open to different interpretations, this allows inconsis
 </itemizedlist>
 </para>
 </sect4>
-<sect4 id='five-dot-two-dot-two-limited-resources-available-for-stanag-configuration-management-op-cm-cp'><title id='five-dot-two-dot-two-limited-resources-available-for-stanag-configuration-management-op-cm-cp-title'>Limited resources available for STANAG configuration management (CM)</title>
+<sect4 id='five-dot-two-dot-two-sect'><title id='five-dot-two-dot-two-title'>Limited resources available for STANAG configuration management (CM)</title>
 <para>The traditional approach for STANAG definition and maintenance is that a NATO body " in many cases a NATO working group " is responsible for the definition and maintenance of the STANAG based on a well defined process.  There currently are limited resources available for the management and maintenance of current STANAGs.  In this era where defence budgets are generally in decline with little, if any, prospect for significant improvements, there exists a need to optimize resources to improve the efficiency and effectiveness of the management and maintenance of existing STANAGs and the development of new ones.
 </para>
 <para>The current approach for STANAG configuration management and maintenance is a very manual-intensive, stove-piped process that:
@@ -484,7 +484,7 @@ As STANAGs are currently open to different interpretations, this allows inconsis
 </listitem>
 </itemizedlist>
 </sect4>
-<sect4 id='five-dot-two-dot-three-unaddressed-shortcomings-of-current-stanags'><title id='five-dot-two-dot-three-unaddressed-shortcomings-of-current-stanags-title'>Unaddressed shortcomings of current STANAGs</title>
+<sect4 id='five-dot-two-dot-three-sect'><title id='five-dot-two-dot-three-title'>Unaddressed shortcomings of current STANAGs</title>
 <para>The need for making data Visible, Accessible, Understandable and Interoperable in an NNEC (SOA) environment is not fully addressed in current STANAGs.
 </para>
 <para>Current STANAGs typically:
@@ -516,10 +516,10 @@ A structured, layered approach that identifies and captures the gaps and address
 </sect4>
 </para>
 </sect3>
-<sect3 id='five-dot-three-solution-introduction'><title id='five-dot-three-solution-introduction-title'>Solution Introduction</title>
+<sect3 id='five-dot-three-sect'><title id='five-dot-three-title'>Solution Introduction</title>
 <para>In this section, the solution for addressing the identified problem areas and opportunities captured in Section 5.2, the STANAG Transformation Framework (STF), and its associated layered concepts are introduced.  In the following section 5.4, the Framework and layers are presented, with an analogy and description per layer that defines the purpose for each layer. Following, in section 5.5, the associated design rules, the methodology and a description of the associated XML Schema Definitions are provided for each layer of the STF.  These, along with the Example provided in section 5.7, provide guidance to the end users on how the STF design rules and methodology could be applied to transform existing STANAGs or develop new STANAGs in a machine-interpretable STANAG definition.
 </para>
-<sect4 id='five-dot-three-dot-one-stanag-transformation-framework-op-stf-cp-background'><title id='five-dot-three-dot-one-stanag-transformation-framework-op-stf-cp-background-title'>STANAG Transformation Framework (STF) Background</title>
+<sect4 id='five-dot-three-dot-one-sect'><title id='five-dot-three-dot-one-title'>STANAG Transformation Framework (STF) Background</title>
 <para>As part of the multi-year standards transformation effort, NCIA (formerly NC3A) developed, under sponsorship of ACT, the  STANAG Transformation Framework (STF) to address  the identified problem areas  and opportunities captured  in Section 5.2.  The STF concepts were first introduced in the RTO sponsored Lecture Series on Interoperability in November 2009 [RTO-IST-088], and has been further enhanced in detail here.  The STF is a framework, a set of design rules and a methodology for transforming traditional text-based information exchange STANAGs into an unambiguous, machine-interpretable XML format and providing a layered approach in addressing the needs for maturing the information exchange STANAGs in the areas identified.
 </para>
 <para>The standards transformation concept transforms and augments standards by moving towards a more modular composition of the standards differentiating messages structure, data element dictionary, information exchange business rules and other aspects. To fulfil the emerging NNEC requirements, the current standards will be augmented with additional specifications, such as security cross-domain information exchange definitions.
@@ -529,7 +529,7 @@ A structured, layered approach that identifies and captures the gaps and address
 <para>A common framework and methodology applicable to all STANAGs, which are related to the technical interoperability between systems/services, was developed. The combination of the two will allow the NNEC Data Strategy goals to be addressed and they will facilitate the implementation of it from a standardization perspective.
 </para>
 </sect4>
-<sect4 id='five-dot-three-dot-two-concepts'><title id='five-dot-three-dot-two-concepts-title'>Concepts</title>
+<sect4 id='five-dot-three-dot-two-sect'><title id='five-dot-three-dot-two-title'>Concepts</title>
 <para>Below a number of concepts specific to the STF set of design rules are described.
 <itemizedlist>
 <listitem>
@@ -1609,28 +1609,21 @@ Step 4: Depending on the type of information exchange, additionally define the f
 </listitem>
 <listitem>
 <para><emphasis role='bold'>type</emphasis> (attribute of DataElement): Provides a mechanism to differentiate between types of Data Elements, for example data elements used as spare, disused ones, required for the structure of a message, or holding actual data. The following values are currently supported by STF:
-{| border="1" cellpadding="4" cellspacing="0" align="center" width="75%" 
-</para>
-<para>! DataElement type
-! Meaning 
-</para>
-<para>|- valign=top
-| spare 
-| Indicates this Data Element denotes a spare; a data element that, on transmissions, will be encoded as zero and shall not be processed upon receipt. Messages shall not be discarded upon receipt of non-zero spare fields. 
-</para>
-<para>|- valign=top
-| disused 
-| Indicates this Data Element denotes a disused element which are spare fields that previously had a valid meaning. When transmitted, Disused fields shall be encoded as 0 and shall not be processed upon receipt. Messages shall not be discarded upon receipt of a nonzero Disused field. 
-</para>
-<para>|- valign=top
-| structure 
-| Indicates this Data Element is used to define the structure of a message or word. This includes Data Elements that define which message or word is handled (e.g. for the message label) or Data Elements that act purely as a structure switch and do not itself represent any information. 
-</para>
-<para>|- valign=top
-| data 
-| Indicates this Data Element is carying real (tactical) data. 
-</para>
-<para>|}
+<table> 
+<tr><th>DataElement type</th><th>Meaning</th></tr> 
+<tr><td>spare</td> 
+<td>Indicates this Data Element denotes a spare; a data element that, on transmissions, will be encoded as zero and shall not be processed upon receipt. Messages shall not be discarded upon receipt of non-zero spare fields.</td> 
+</tr>
+<tr><td>disused</td> 
+<td>Indicates this Data Element denotes a disused element which are spare fields that previously had a valid meaning. When transmitted, Disused fields shall be encoded as 0 and shall not be processed upon receipt. Messages shall not be discarded upon receipt of a nonzero Disused field.</td> 
+</tr>
+<tr><td>structure</td> 
+<td>Indicates this Data Element is used to define the structure of a message or word. This includes Data Elements that define which message or word is handled (e.g. for the message label) or Data Elements that act purely as a structure switch and do not itself represent any information.</td> 
+</tr>
+<tr><td>data</td> 
+<td>Indicates this Data Element is carying real (tactical) data.</td> 
+</tr>
+</table>
 </para>
 </listitem>
 <listitem>
@@ -1718,44 +1711,33 @@ The above example demonstrates the use of the Enum elements for pure mappings, i
 <itemizedlist>
 <listitem>
 <para><emphasis role='bold'>type</emphasis> (attribute): Provides a mechanism to differentiate between types of Data Items, i.e. values, to further support automated interpretation. Currently the following types are supported:
-{| border="1" cellpadding="4" cellspacing="0" align="center" width="75%" 
-</para>
-<para>! Enum type
-! Meaning 
-</para>
-<para>|- valign=top
-| disused 
-| Indicates a Data Item value that was previously named but is no longer valid. A DISUSED value cannot be renamed without determining if coordinated implementation is required. 
-</para>
-<para>|- valign=top
-| undefined 
-| Indicates a term used to describe a code that has no value currently assigned but may have a value assigned in the future.  (This occurs in logically coded Data Elements in which all the Data Items in the Data Element do not have assigned values.) 
-</para>
-<para>|- valign=top
-| illegal 
-| Indicates a term used to describe a code that is not a permissible entry into the tactical data system(s) supporting the interface, e.g., a 9 bit Data Element called HEADING that has legal values of 0 through 359 representing degrees has illegal values of 360 through 511. 
-</para>
-<para>|- valign=top
-| no statement 
-| Indicates no information on this Data Element is being transmitted. (This does not necessarily indicate that the originator does not have the information.) 
-</para>
-<para>|- valign=top
-| unknown 
-| Indicates other values available for this Data Element have not been determined by the originator. 
-</para>
-<para>|- valign=top
-| to be determined 
-| Indicates that Data Item design is incomplete. (Data Items and codes will be specified at a later time.) 
-</para>
-<para>|- valign=top
-| data 
-| Indicates actual data. 
-</para>
-<para>|- valign=top
-| reserved 
-| Indicates that this value is reserved for future use. 
-</para>
-<para>|}
+<table>
+<tr><th>Enum type</th><th>Meaning</th></tr> 
+<tr><td>disused</td>
+<td>Indicates a Data Item value that was previously named but is no longer valid. A DISUSED value cannot be renamed without determining if coordinated implementation is required.</td> 
+</tr>
+<tr><td>undefined</td> 
+<td>Indicates a term used to describe a code that has no value currently assigned but may have a value assigned in the future.  (This occurs in logically coded Data Elements in which all the Data Items in the Data Element do not have assigned values.)</td>
+</tr>
+<tr><td>illegal</td> 
+<td>Indicates a term used to describe a code that is not a permissible entry into the tactical data system(s) supporting the interface, e.g., a 9 bit Data Element called HEADING that has legal values of 0 through 359 representing degrees has illegal values of 360 through 511.</td>
+</tr>
+<tr><td>no statement</td> 
+<td>Indicates no information on this Data Element is being transmitted. (This does not necessarily indicate that the originator does not have the information.)</td>
+</tr>
+<tr><td>unknown</td> 
+<td>Indicates other values available for this Data Element have not been determined by the originator.</td>
+</tr>
+<tr><td>to be determined</td> 
+<td>Indicates that Data Item design is incomplete. (Data Items and codes will be specified at a later time.)</td>
+</tr>
+<tr><td>data</td> 
+<td>Indicates actual data.</td>
+</tr>
+<tr><td>reserved</td> 
+<td>Indicates that this value is reserved for future use.</td>
+</tr>
+</table>
 </para>
 </listitem>
 <listitem>
@@ -1807,104 +1789,103 @@ The above example demonstrates the use of the Enum elements for pure mappings, i
 </para>
 <para>The example below for the DEPTH Data Element of STANAG 5516 demonstrates the use of a CodingSwitch where the actual depth is depending of the value of another DataElement that is indicating the multiplication factor.
 </para>
-<para><emphasis style='color:#000000;background:#f1f0f0;'>
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataElementConcept</span> <span style='color:#074726; '>deci</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>366</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataElementConceptName</span><span style='color:#a65700; '>></span>DEPTH<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataElementConceptName</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataElementConceptDefinition</span><span style='color:#a65700; '>></span>USED TO REPORT DEPTH IN METERS OR A PLAIN STATEMENT.<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataElementConceptDefinition</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataElement</span> <span style='color:#074726; '>dei</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>013</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataElementName</span><span style='color:#a65700; '>></span>DEPTH, TRANSDUCER<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataElementName</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataElementExplanation</span><span style='color:#a65700; '>></span>WHEN MULTIPLIED BY DEPTH INDICATOR (SONOBUOY), EXPRESSES DEPTH OF SONOBUOY TRANSDUCER AS MEASURED DOWNWARD FROM MSL AS A POSITIVE QUANTITY IN METERS.  INTERPRETED ONLY WHEN DEPTH INDICATOR (SONOBUOY) IS  NOT SET TO ZERO.<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataElementExplanation</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span>Enumeration<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Formula</span> <span style='color:#074726; '>name</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>EnumerationFormula</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '></span> 
-<span style='font-weight:bold;'><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>CodingSwitch</span> <span style='color:#074726; '>deci</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>366</span><span style='color:#e60000; '>"</span> <span style='color:#074726; '>dei</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>012</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> <span style='color:#c34e00; '>&amp;lt;!--</span><span style='color:#c34e00; '> DEPTH INDICATOR (SONOBUOY) </span><span style='color:#c34e00; '>--></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>When</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Case</span> <span style='color:#074726; '>value</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>0</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span>Enumeration<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Formula</span> <span style='color:#074726; '>name</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>EnumerationFormula</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>inconsistency</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>INCONSISTENCY<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '>></span>CANNOT DECODE THIS COMBINATION OF DFI/DUI VALUE(S) AND STRUCTURE-SWITCH VALUE(S)<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>0<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>15<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>When</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>When</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Case</span> <span style='color:#074726; '>value</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>1</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Unit</span><span style='color:#a65700; '>></span>METER<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Unit</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span>Integer<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Formula</span> <span style='color:#074726; '>name</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>LinearExpressionIntegerFormula</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Parameter</span> <span style='color:#074726; '>name</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>factor</span><span style='color:#e60000; '>"</span> <span style='color:#074726; '>valueType</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>Enumeration</span><span style='color:#e60000; '>"</span> <span style='color:#074726; '>value</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>3</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>FormulaRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>1<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>9<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>FormulaRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Formula</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>no statement</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>NO STATEMENT<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCode</span><span style='color:#a65700; '>></span>0<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCode</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>data</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>DEPTH (METERS X DEPTH INDICATOR)<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>1<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>9<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>undefined</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>UNDEFINED<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>10<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>15<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>When</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>When</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Case</span> <span style='color:#074726; '>value</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>2</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Unit</span><span style='color:#a65700; '>></span>METER<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Unit</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span>Integer<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Formula</span> <span style='color:#074726; '>name</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>LinearExpressionIntegerFormula</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Parameter</span> <span style='color:#074726; '>name</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>factor</span><span style='color:#e60000; '>"</span> <span style='color:#074726; '>valueType</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>Enumeration</span><span style='color:#e60000; '>"</span> <span style='color:#074726; '>value</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>30</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>FormulaRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>1<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>9<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>FormulaRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Formula</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>no statement</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>NO STATEMENT<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCode</span><span style='color:#a65700; '>></span>0<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCode</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>data</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>DEPTH (METERS X DEPTH INDICATOR)<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>1<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>9<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>undefined</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>UNDEFINED<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>10<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>15<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>When</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>When</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Case</span> <span style='color:#074726; '>value</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>3</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Unit</span><span style='color:#a65700; '>></span>METER<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Unit</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span>Integer<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>ValueType</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Formula</span> <span style='color:#074726; '>name</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>LinearExpressionIntegerFormula</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Parameter</span> <span style='color:#074726; '>name</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>factor</span><span style='color:#e60000; '>"</span> <span style='color:#074726; '>valueType</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>Enumeration</span><span style='color:#e60000; '>"</span> <span style='color:#074726; '>value</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>300</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>FormulaRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>1<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>9<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>FormulaRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Formula</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>no statement</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>NO STATEMENT<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCode</span><span style='color:#a65700; '>></span>0<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCode</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>data</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>DEPTH (METERS X DEPTH INDICATOR)<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>1<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>9<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Enum</span> <span style='color:#074726; '>type</span><span style='color:#806030; '>=</span><span style='color:#e60000; '>"</span><span style='color:#e60000; '>undefined</span><span style='color:#e60000; '>"</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span>UNDEFINED<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataItem</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Explanation</span><span style='color:#a65700; '></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span>10<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Min</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span>15<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Max</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>BitCodeRange</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Enum</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>When</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>CodingSwitch</span><span style='color:#a65700; '>></span></span> 
-<span style='color:#a65700; '>&amp;lt;</span><span style='color:#5f5035; '>Length</span><span style='color:#a65700; '>></span>4<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>Length</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataElement</span><span style='color:#a65700; '>></span> 
-<span style='color:#a65700; '>&amp;lt;/</span><span style='color:#5f5035; '>DataElementConcept</span><span style='color:#a65700; '>></span> 
-</emphasis> 
-</para>
+<literal>
+<DataElementConcept deci="366">
+     <DataElementConceptName>DEPTH</DataElementConceptName>
+     <DataElementConceptDefinition>USED TO REPORT DEPTH IN METERS OR A PLAIN STATEMENT.</DataElementConceptDefinition>
+     <DataElement dei="013">
+        <DataElementName>DEPTH, TRANSDUCER</DataElementName>
+        <DataElementExplanation>WHEN MULTIPLIED BY DEPTH INDICATOR (SONOBUOY), EXPRESSES DEPTH OF SONOBUOY TRANSDUCER AS MEASURED DOWNWARD FROM MSL AS A POSITIVE QUANTITY IN METERS.  INTERPRETED ONLY WHEN DEPTH INDICATOR (SONOBUOY) IS  NOT SET TO ZERO.</DataElementExplanation>
+        <ValueType>Enumeration</ValueType>
+        <Formula name="EnumerationFormula"/>
+        <CodingSwitch deci="366" dei="012"> <!-- DEPTH INDICATOR (SONOBUOY) -->
+           <When>
+              <Case value="0"/>
+              <ValueType>Enumeration</ValueType>
+              <Formula name="EnumerationFormula"/>
+              <Enum type="inconsistency">
+                 <DataItem>INCONSISTENCY</DataItem>
+                 <Explanation>CANNOT DECODE THIS COMBINATION OF DFI/DUI VALUE(S) AND STRUCTURE-SWITCH VALUE(S)</Explanation>
+                 <BitCodeRange><Min>0</Min><Max>15</Max></BitCodeRange>
+              </Enum>
+           </When>
+           <When>
+              <Case value="1"/>
+              <Unit>METER</Unit>
+              <ValueType>Integer</ValueType>
+              <Formula name="LinearExpressionIntegerFormula">
+                 <Parameter name="factor" valueType="Enumeration" value="3"/>
+                 <FormulaRange><Min>1</Min><Max>9</Max></FormulaRange>
+              </Formula>
+              <Enum type="no statement">
+                 <DataItem>NO STATEMENT</DataItem>
+                 <Explanation/>
+                 <BitCode>0</BitCode>
+              </Enum>
+              <Enum type="data">
+                 <DataItem>DEPTH (METERS X DEPTH INDICATOR)</DataItem>
+                 <Explanation/>
+                 <BitCodeRange><Min>1</Min><Max>9</Max></BitCodeRange>
+              </Enum>
+              <Enum type="undefined">
+                 <DataItem>UNDEFINED</DataItem>
+                 <Explanation/>
+                 <BitCodeRange><Min>10</Min><Max>15</Max></BitCodeRange>
+              </Enum>
+           </When>
+           <When>
+              <Case value="2"/>
+              <Unit>METER</Unit>
+              <ValueType>Integer</ValueType>
+              <Formula name="LinearExpressionIntegerFormula">
+                 <Parameter name="factor" valueType="Enumeration" value="30"/>
+                 <FormulaRange><Min>1</Min><Max>9</Max></FormulaRange>
+              </Formula>
+              <Enum type="no statement">
+                 <DataItem>NO STATEMENT</DataItem>
+                 <Explanation/>
+                 <BitCode>0</BitCode>
+              </Enum>
+              <Enum type="data">
+                 <DataItem>DEPTH (METERS X DEPTH INDICATOR)</DataItem>
+                 <Explanation/>
+                 <BitCodeRange><Min>1</Min><Max>9</Max></BitCodeRange>
+              </Enum>
+              <Enum type="undefined">
+                 <DataItem>UNDEFINED</DataItem>
+                 <Explanation/>
+                 <BitCodeRange><Min>10</Min><Max>15</Max></BitCodeRange>
+              </Enum>
+           </When>
+           <When>
+              <Case value="3"/>
+              <Unit>METER</Unit>
+              <ValueType>Integer</ValueType>
+              <Formula name="LinearExpressionIntegerFormula">
+                 <Parameter name="factor" valueType="Enumeration" value="300"/>
+                 <FormulaRange><Min>1</Min><Max>9</Max></FormulaRange>
+              </Formula>
+              <Enum type="no statement">
+                 <DataItem>NO STATEMENT</DataItem>
+                 <Explanation/>
+                 <BitCode>0</BitCode>
+              </Enum>
+              <Enum type="data">
+                 <DataItem>DEPTH (METERS X DEPTH INDICATOR)</DataItem>
+                 <Explanation/>
+                 <BitCodeRange><Min>1</Min><Max>9</Max></BitCodeRange>
+              </Enum>
+              <Enum type="undefined">
+                 <DataItem>UNDEFINED</DataItem>
+                 <Explanation/>
+                 <BitCodeRange><Min>10</Min><Max>15</Max></BitCodeRange>
+              </Enum>
+           </When>
+        </CodingSwitch>
+        <Length>4</Length>
+     </DataElement>
+  </DataElementConcept>
+</literal>
 </listitem>
 </orderedlist>
 </sect5>
@@ -2976,7 +2957,7 @@ In order to address the second question, the STF product is continuously being s
 <tr>
 <td style="background:#AFEEEE;">Business Rules</td> 
 <td>AAITP-4/STANAG 2185 <emphasis>(plain english statements, not machine readable XML></emphasis></td> 
-<td><font color="orange">NOT XML</font> </td> 
+<td>NOT XML</td> 
 </tr> 
 <tr>
 <td style="background:#F0FFF0;">Message Structure</td> 
@@ -2999,12 +2980,12 @@ In order to address the second question, the STF product is continuously being s
 <tr>
 <td style="background:#EDBEFE;">Web Services</td> 
 <td>AAITP-6 <emphasis>(guidance is provided, but a specification does not exist, yet)</emphasis></td> 
-<td><font color="red">NOT DEFINED</font></td> 
+<td>NOT DEFINED</td> 
 </tr> 
 <tr>
 <td style="background:#FFCC99;">Operational Cross-Domain</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="grey">NOT APPLICABLE</font> </td> 
+<td>NOT DEFINED</td> 
+<td>NOT APPLICABLE</td> 
 </tr>
 </table>
 </para>
@@ -3068,12 +3049,12 @@ In order to address the second question, the STF product is continuously being s
 </tr> 
 <tr>
 <td style="background:#FEA9F3;">Security Cross-Domain</td> 
-<td><font color="red">NOT DEFINED</font></td> 
+<td>NOT DEFINED</td> 
 <td></td> 
 </tr> 
 <tr>
 <td style="background:#AFEEEE;">Business Rules</td> 
-<td><font color="red">NOT DEFINED</font></td> 
+<td>NOT DEFINED</td> 
 <td></td> 
 </tr> 
 <tr>
@@ -3096,12 +3077,12 @@ In order to address the second question, the STF product is continuously being s
 </tr> 
 <tr>
 <td style="background:#EDBEFE;">Web Services</td> 
-<td><font color="red">NOT DEFINED</font></td> 
+<td>NOT DEFINED</td> 
 <td></td> 
 </tr>
 <tr>
 <td style="background:#FFCC99;">Operational Cross-Domain</td> 
-<td><font color="red">NOT DEFINED</font></td> 
+<td>NOT DEFINED</td> 
 <td></td> 
 </tr>
 </table>
@@ -3151,7 +3132,7 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 </tr> 
 <tr>
 <td style="background:#AFEEEE;">Business Rules</td> 
-<td><font color="red">NOT DEFINED</font></td> 
+<td>NOT DEFINED</td> 
 <td></td> 
 </tr> 
 <tr>
@@ -3261,13 +3242,13 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 </tr> 
 <tr>
 <td style="background:#FEA9F3;">Security Cross-Domain</td> 
-<td><font color="orange">STANAG 4607: Appendix A (for DED, MS &amp; allowable values)</font> <emphasis>Note: same specification repeated in AEDP-7: Appendix B</emphasis> <emphasis>Not captured in XML</emphasis></td> 
-<td><font color="grey">NOT APPLICABLE</font> </td> 
+<td>STANAG 4607: Appendix A (for DED, MS &amp; allowable values)<emphasis>Note: same specification repeated in AEDP-7: Appendix B</emphasis> <emphasis>Not captured in XML</emphasis></td> 
+<td>NOT APPLICABLE</td> 
 </tr> 
 <tr>
 <td style="background:#AFEEEE;">Business Rules</td> 
 <td>AEDP-7, MAJIIC2 IG</td> 
-<td><font color="grey">NOT APPLICABLE</font> </td> 
+<td>NOT APPLICABLE</td> 
 </tr> 
 <tr>
 <td style="background:#F0FFF0;">Message Structure</td> 
@@ -3281,7 +3262,7 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 </tr> 
 <tr>
 <td style="background:#E6E6FA;">Routing</td> 
-<td rowspan="2" valign="middle"><font color="orange">AEDP-7, MAJIIC2 IG</font> <emphasis>(Guidance, but no specifications)</emphasis></td> 
+<td rowspan="2" valign="middle">AEDP-7, MAJIIC2 IG<emphasis>(Guidance, but no specifications)</emphasis></td> 
 <td rowspan="2" valign="middle">Embedded within other ISR formats (e.g. STANAG 4545, STANAG 7023) <para>Disseminated via STANAG 4559 </para><para> Distributed via UDP broadcast</para></td> 
 </tr> 
 <tr>
@@ -3289,14 +3270,14 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 </tr> 
 <tr>
 <td style="background:#EDBEFE;">Web Services</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="grey">NOT APPLICABLE</font> </td> 
+<td>NOT DEFINED</td> 
+<td>NOT APPLICABLE</td> 
 </tr> 
 <tr>
 <td style="background:#FFCC99;">Operational Cross-Domain</td> 
 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="grey">NOT APPLICABLE</font> </td> 
+<td>NOT DEFINED</td> 
+<td>NOT APPLICABLE</td> 
 </tr>
 </table>
 </para>
@@ -3402,12 +3383,12 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 <tr>
 <td style="background:#FEA9F3;">Security Cross-Domain</td> 
 <td> STANAG 4609 </td> 
-<td><font color="grey">NOT APPLICABLE</font> </td> 
+<td>NOT APPLICABLE</td> 
 </tr> 
 <tr>
 <td style="background:#AFEEEE;">Business Rules</td> 
 <td>AEDP-8, MAJIIC2 STANAG 4609 Implementation Guide, MAJIIC2 Business Rules</td> 
-<td><font color="grey">NOT APPLICABLE</font> </td> 
+<td>NOT APPLICABLE</td> 
 </tr> 
 <tr>
 <td style="background:#F0FFF0;">Message Structure</td> 
@@ -3426,19 +3407,19 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 </tr> 
 <tr>
 <td style="background:#A8E4FF;">Data Bearer</td> 
-<td><font color="orange">MAJIIC2 STANAG 4609 Implementation Guide, MAJIIC2 Business Rules</font></td> 
+<td>MAJIIC2 STANAG 4609 Implementation Guide, MAJIIC2 Business Rules</td> 
 
 <td> UDP, RTP/RTSP, TCP, HTTP/HTTPS</td>
 </tr>
 <tr>
 <td style="background:#EDBEFE;">Web Services</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="grey">NOT APPLICABLE</font> </td> 
+<td>NOT DEFINED</td> 
+<td>NOT APPLICABLE</td> 
 </tr> 
 <tr>
 <td style="background:#FFCC99;">Operational Cross-Domain</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="grey">NOT APPLICABLE</font> </td> 
+<td>NOT DEFINED</td> 
+<td>NOT APPLICABLE</td> 
 </tr>
 </table>
 </para>
@@ -3628,8 +3609,8 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 </tr> 
 <tr>
 <td style="background:#FEA9F3;">Security Cross-Domain</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="red">MISSING</font></td> 
+<td>NOT DEFINED</td> 
+<td>MISSING</td> 
 </tr> 
 <tr>
 <td style="background:#AFEEEE;">Business Rules</td> 
@@ -3654,8 +3635,8 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 <td> IP-based (UDP or TCP), or RF</td></tr> 
 <tr>
 <td style="background:#EDBEFE;">Web Services</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="red">MISSING</font></td> 
+<td>NOT DEFINED</td> 
+<td>MISSING</td> 
 </tr> 
 <tr>
 <td style="background:#FFCC99;">Operational Cross-Domain</td> 
@@ -3676,13 +3657,13 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 </tr> 
 <tr>
 <td style="background:#FEA9F3;">Security Cross-Domain</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="red">MISSING</font></td> 
+<td>NOT DEFINED</td> 
+<td>MISSING</td> 
 </tr> 
 <tr>
 <td style="background:#AFEEEE;">Business Rules</td> 
-<td><font color="orange">STANAG 5518</font></td> 
-<td><font color="grey">Not clearly defined; missing guidance on how to handle JREAP management messages (such as, Should management messages be forwarded? How should they be processed?  How to avoid circular forwarding? etc.)</font></td> 
+<td>STANAG 5518</td> 
+<td>Not clearly defined; missing guidance on how to handle JREAP management messages (such as, Should management messages be forwarded? How should they be processed?  How to avoid circular forwarding? etc.)</td> 
 </tr> 
 <tr>
 <td style="background:#F0FFF0;">Message Structure</td> 
@@ -3704,13 +3685,13 @@ These gaps were brought to the attention of the Stakeholders.  It was eventually
 </tr> 
 <tr>
 <td style="background:#EDBEFE;">Web Services</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="red">MISSING</font></td> 
+<td>NOT DEFINED</td> 
+<td>MISSING</td> 
 </tr> 
 <tr>
 <td style="background:#FFCC99;">Operational Cross-Domain</td> 
 <td>STANAG 5518</td> 
-<td><font color="orange">Forwarding rules between tactical networks in English; needs to be specified in XML</font></td> 
+<td>Forwarding rules between tactical networks in English; needs to be specified in XML</td> 
 </tr>
 </table>
 </para>
@@ -3782,13 +3763,13 @@ Additional work on the messages and data elements used in the transport layer ha
 </tr> 
 <tr>
 <td style="background:#FEA9F3;">Security Cross-Domain</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="red">MISSING</font></td> 
+<td>NOT DEFINED</td> 
+<td>MISSING</td> 
 </tr> 
 <tr>
 <td style="background:#AFEEEE;">Business Rules</td> 
-<td><font color="orange">STANAG 5522</font></td> 
-<td><font color="grey"> Not captured as STANAG does not provide transactions (yet) in same format as for Link 16</font></td> 
+<td>STANAG 5522</td> 
+<td>Not captured as STANAG does not provide transactions (yet) in same format as for Link 16</td> 
 </tr> 
 <tr>
 <td style="background:#F0FFF0;">Message Structure</td> 
@@ -3810,13 +3791,13 @@ Additional work on the messages and data elements used in the transport layer ha
 </tr> 
 <tr>
 <td style="background:#EDBEFE;">Web Services</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td> <font color="red">MISSING</font></td> 
+<td>NOT DEFINED</td> 
+<td>MISSING</td> 
 </tr> 
 <tr>
 <td style="background:#FFCC99;">Operational Cross-Domain</td> 
-<td><font color="orange">non-NATO MIL-STD 6020</font></td> 
-<td><font color="grey"> Data Forwarding between Link 22 and Link 16 not captured as not yet covered in STANAG 5616</font></td> 
+<td>non-NATO MIL-STD 6020</td> 
+<td>Data Forwarding between Link 22 and Link 16 not captured as not yet covered in STANAG 5616</td> 
 </tr>
 </table>
 </para>
@@ -3854,13 +3835,13 @@ Additional work on the messages and data elements used in the transport layer ha
 </tr> 
 <tr>
 <td style="background:#FEA9F3;">Security Cross-Domain</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td><font color="red">MISSING</font></td> 
+<td>NOT DEFINED</td> 
+<td>MISSING</td> 
 </tr> 
 <tr>
 <td style="background:#AFEEEE;">Business Rules</td> 
-<td><font color="orange">STANAG 5501, ADatP-31</font></td> 
-<td><font color="grey">Not captured as STANAG nor ADatP-31 provide full business rules, specifically not in same format as for Link 16 (transactions)</font></td> 
+<td>STANAG 5501, ADatP-31</td> 
+<td>Not captured as STANAG nor ADatP-31 provide full business rules, specifically not in same format as for Link 16 (transactions)</td> 
 </tr> 
 <tr>
 <td style="background:#F0FFF0;">Message Structure</td> 
@@ -3881,13 +3862,13 @@ Additional work on the messages and data elements used in the transport layer ha
 </tr> 
 <tr>
 <td style="background:#EDBEFE;">Web Services</td> 
-<td><font color="red">NOT DEFINED</font></td> 
-<td> <font color="red">MISSING</font></td> 
+<td>NOT DEFINED</td> 
+<td>MISSING</td> 
 </tr> 
 <tr>
 <td style="background:#FFCC99;">Operational Cross-Domain</td> 
-<td><font color="orange">STANAG 5601 (Data Forwarding between Link 1 and Link 11/11B)</font></td> 
-<td><font color="grey">Not captured; STANAG does not contain full forwarding logic, e.g. message mapping</font></td> 
+<td>STANAG 5601 (Data Forwarding between Link 1 and Link 11/11B)</td> 
+<td>Not captured; STANAG does not contain full forwarding logic, e.g. message mapping</td> 
 </tr>
 </table>
 </para>
