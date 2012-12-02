@@ -1,20 +1,31 @@
 <DataElementConcept deci="366">
      <DataElementConceptName>DEPTH</DataElementConceptName>
-     <DataElementConceptDefinition>USED TO REPORT DEPTH IN METERS OR A PLAIN STATEMENT.</DataElementConceptDefinition>
+     <DataElementConceptDefinition>USED TO REPORT DEPTH IN 
+        METERS OR A PLAIN STATEMENT.
+     </DataElementConceptDefinition>
      <DataElement dei="013">
         <DataElementName>DEPTH, TRANSDUCER</DataElementName>
-        <DataElementExplanation>WHEN MULTIPLIED BY DEPTH INDICATOR (SONOBUOY), EXPRESSES DEPTH OF SONOBUOY TRANSDUCER AS MEASURED DOWNWARD FROM MSL AS A POSITIVE QUANTITY IN METERS.  INTERPRETED ONLY WHEN DEPTH INDICATOR (SONOBUOY) IS  NOT SET TO ZERO.</DataElementExplanation>
+        <DataElementExplanation>WHEN MULTIPLIED BY DEPTH 
+        INDICATOR (SONOBUOY), EXPRESSES DEPTH OF SONOBUOY 
+	TRANSDUCER AS MEASURED DOWNWARD FROM MSL AS A 
+	POSITIVE QUANTITY IN METERS.  INTERPRETED ONLY WHEN 
+	DEPTH INDICATOR (SONOBUOY) IS  NOT SET TO ZERO.
+	</DataElementExplanation>
         <ValueType>Enumeration</ValueType>
         <Formula name="EnumerationFormula"/>
-        <CodingSwitch deci="366" dei="012"> <!-- DEPTH INDICATOR (SONOBUOY) -->
+        <CodingSwitch deci="366" dei="012"> 
+		<!-- DEPTH INDICATOR (SONOBUOY) -->
            <When>
               <Case value="0"/>
               <ValueType>Enumeration</ValueType>
               <Formula name="EnumerationFormula"/>
               <Enum type="inconsistency">
                  <DataItem>INCONSISTENCY</DataItem>
-                 <Explanation>CANNOT DECODE THIS COMBINATION OF DFI/DUI VALUE(S) AND STRUCTURE-SWITCH VALUE(S)</Explanation>
-                 <BitCodeRange><Min>0</Min><Max>15</Max></BitCodeRange>
+                 <Explanation>CANNOT DECODE THIS COMBINATION
+		 OF DFI/DUI VALUE(S) AND STRUCTURE-SWITCH 
+		 VALUE(S)</Explanation>
+                 <BitCodeRange><Min>0</Min><Max>15</Max>
+                 </BitCodeRange>
               </Enum>
            </When>
            <When>
@@ -22,8 +33,10 @@
               <Unit>METER</Unit>
               <ValueType>Integer</ValueType>
               <Formula name="LinearExpressionIntegerFormula">
-                 <Parameter name="factor" valueType="Enumeration" value="3"/>
-                 <FormulaRange><Min>1</Min><Max>9</Max></FormulaRange>
+                 <Parameter name="factor" 
+		 valueType="Enumeration" value="3"/>
+                 <FormulaRange><Min>1</Min><Max>9</Max>
+                 </FormulaRange>
               </Formula>
               <Enum type="no statement">
                  <DataItem>NO STATEMENT</DataItem>
@@ -31,14 +44,17 @@
                  <BitCode>0</BitCode>
               </Enum>
               <Enum type="data">
-                 <DataItem>DEPTH (METERS X DEPTH INDICATOR)</DataItem>
+                 <DataItem>DEPTH (METERS X DEPTH INDICATOR)
+		 </DataItem>
                  <Explanation/>
-                 <BitCodeRange><Min>1</Min><Max>9</Max></BitCodeRange>
+                 <BitCodeRange><Min>1</Min><Max>9</Max>
+                 </BitCodeRange>
               </Enum>
               <Enum type="undefined">
                  <DataItem>UNDEFINED</DataItem>
                  <Explanation/>
-                 <BitCodeRange><Min>10</Min><Max>15</Max></BitCodeRange>
+                 <BitCodeRange><Min>10</Min><Max>15</Max>
+                 </BitCodeRange>
               </Enum>
            </When>
            <When>
@@ -46,8 +62,10 @@
               <Unit>METER</Unit>
               <ValueType>Integer</ValueType>
               <Formula name="LinearExpressionIntegerFormula">
-                 <Parameter name="factor" valueType="Enumeration" value="30"/>
-                 <FormulaRange><Min>1</Min><Max>9</Max></FormulaRange>
+                 <Parameter name="factor" 
+		 valueType="Enumeration" value="30"/>
+                 <FormulaRange><Min>1</Min><Max>9</Max>
+                 </FormulaRange>
               </Formula>
               <Enum type="no statement">
                  <DataItem>NO STATEMENT</DataItem>
@@ -55,14 +73,17 @@
                  <BitCode>0</BitCode>
               </Enum>
               <Enum type="data">
-                 <DataItem>DEPTH (METERS X DEPTH INDICATOR)</DataItem>
+                 <DataItem>DEPTH (METERS X DEPTH INDICATOR)
+		 </DataItem>
                  <Explanation/>
-                 <BitCodeRange><Min>1</Min><Max>9</Max></BitCodeRange>
+                 <BitCodeRange><Min>1</Min><Max>9</Max>
+                 </BitCodeRange>
               </Enum>
               <Enum type="undefined">
                  <DataItem>UNDEFINED</DataItem>
                  <Explanation/>
-                 <BitCodeRange><Min>10</Min><Max>15</Max></BitCodeRange>
+                 <BitCodeRange><Min>10</Min><Max>15</Max>
+                 </BitCodeRange>
               </Enum>
            </When>
            <When>
@@ -70,8 +91,11 @@
               <Unit>METER</Unit>
               <ValueType>Integer</ValueType>
               <Formula name="LinearExpressionIntegerFormula">
-                 <Parameter name="factor" valueType="Enumeration" value="300"/>
-                 <FormulaRange><Min>1</Min><Max>9</Max></FormulaRange>
+                 <Parameter name="factor" 
+			valueType="Enumeration" 
+			value="300"/>
+                 <FormulaRange><Min>1</Min><Max>9</Max>
+                 </FormulaRange>
               </Formula>
               <Enum type="no statement">
                  <DataItem>NO STATEMENT</DataItem>
@@ -79,18 +103,20 @@
                  <BitCode>0</BitCode>
               </Enum>
               <Enum type="data">
-                 <DataItem>DEPTH (METERS X DEPTH INDICATOR)</DataItem>
+                 <DataItem>DEPTH (METERS X DEPTH INDICATOR)
+		 </DataItem>
                  <Explanation/>
-                 <BitCodeRange><Min>1</Min><Max>9</Max></BitCodeRange>
+                 <BitCodeRange><Min>1</Min><Max>9</Max>
+                 </BitCodeRange>
               </Enum>
               <Enum type="undefined">
                  <DataItem>UNDEFINED</DataItem>
                  <Explanation/>
-                 <BitCodeRange><Min>10</Min><Max>15</Max></BitCodeRange>
+                 <BitCodeRange><Min>10</Min><Max>15</Max>
+                 </BitCodeRange>
               </Enum>
            </When>
         </CodingSwitch>
         <Length>4</Length>
      </DataElement>
   </DataElementConcept>
-
