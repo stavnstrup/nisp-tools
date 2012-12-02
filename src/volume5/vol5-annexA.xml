@@ -725,7 +725,7 @@ A structured, layered approach that identifies and captures the gaps and address
 </para>
 
 <figure id="v5a-f4" float="0">
-  <title>Britain's first Official Post Card, the first commercial telephone switchboard TBD</title>
+  <title>Britain's first Official Post Card, the first commercial telephone switchboard</title>
   <mediaobject>
     <imageobject>
       <imagedata fileref="../figures/Postcard-Switchboard.svg" />
@@ -1354,7 +1354,7 @@ This approach can be easily mapped on that used by various other communities to 
 </para>
 <para>Rule 2: The DataElementDictionary-TextBased.xsd shall be applied in case the Information Exchange is based on structured text, e.g. MTF.
 </para>
-<para>Rule 3: TBD - The DataElementDictionary-XMLBased.xsd shall be applied in case the Information Exchange is based on XML.  
+<para>Rule 3: (TBD) - The DataElementDictionary-XMLBased.xsd shall be applied in case the Information Exchange is based on XML.  
 <emphasis>This XSD is not provided within the current version of the STF.</emphasis>
 </para>
 </sect4>
@@ -1974,11 +1974,13 @@ The examples shown before demonstrate the use of these additional elements.
 </para>
 <para>Rule 1: The MessageStructure-BitBasedFixedLength.xsd shall be applied in case the Information Exchange is bit-based and the Message Structure type defines messages of fixed length, i.e. no presence of optional contents and use of filler bits.
 </para>
-<para>Rule 2: (TBD) <emphasis> The MessageStructure-BitBasedVariableLength.xsd shall be applied in case the Information Exchange is bit-based and the Message Structure type defines messages of variable length, i.e. presence of optional contents.</emphasis>
+<para>Rule 2: (TBD) - The MessageStructure-BitBasedVariableLength.xsd shall be applied in case the Information Exchange is bit-based and the Message Structure type defines messages of variable length, i.e. presence of optional contents.
+<emphasis>This XSD is not provided within the current version of the STF.</emphasis>
 </para>
 <para>Rule 3: The MessageStructure-TextBased.xsd shall be applied in case the Information Exchange is text-based and the Message Structure type is non-XML.
 </para>
-<para>Rule 4: (TBD) <emphasis> The MessageStructure-XMLBased.xsd  shall be applied in case the Information Exchange is based on XML. This will capture the Container Elements for each message. The message structure itself is provided by the XSD as defined in the STANAG. The MessageStructure-XMLBased.xsd defines the mapping between the STF Container Elements and the corresponding XSD constructs (e.g. xsd:group, xsd:sequence). </emphasis>
+<para>Rule 4: (TBD) - The MessageStructure-XMLBased.xsd  shall be applied in case the Information Exchange is based on XML. This will capture the Container Elements for each message. The message structure itself is provided by the XSD as defined in the STANAG. The MessageStructure-XMLBased.xsd defines the mapping between the STF Container Elements and the corresponding XSD constructs (e.g. xsd:group, xsd:sequence).
+<emphasis>This XSD is not provided within the current version of the STF.</emphasis>
 </para>
 </sect4>
 <sect4 id='methodology-for-message-structure-definition'><title>Methodology for Message Structure Definition</title>
@@ -2132,7 +2134,7 @@ For example, extra words may be added if they are necessary to group repeated fi
 </para>
 <para>The example below depicts an example of the representation of a StructureSwitch from STANAG 5516 Ed6. The example specifies that after DataField 758/004, different DataFields can occur depending on the value of the DataField 385/003. If its value is 0, then the DataField will be 376/007, while if the value is 1, the DataField will be 376/001. Taking the definitions of these DataElements from STANAG 5516 Ed6 into account, this means that the EXERCISE INDICATOR field controls whether the field is interpreted as either the IDENTITY field or the IDENTITY AMPLIFYING DESCRIPTOR.</para>
 <figure id="v5a-f30" float="0">
-  <title>Bit-based Message Structure XML Schema TBD</title>
+  <title>Bit-based Message Structure XML Schema</title>
   <mediaobject>
     <imageobject>
       <imagedata fileref="../figures/STF_-_MessageStructure_StructureSwitch_example_link16.svg" />
@@ -4066,10 +4068,12 @@ Additional work on the messages and data elements used in the transport layer ha
 </itemizedlist>
 </para>
 </sect3>
+<!--
 <sect3 id='asterix'><title id='asterix-title'>ASTERIX</title>
 <para>TBD
 </para>
 </sect3>
+-->
 </sect2>
 </sect1>
 <sect1 id='methods'><title id='methods-title'>Methods</title>
@@ -4093,47 +4097,47 @@ Additional work on the messages and data elements used in the transport layer ha
 </para>
 
 <informaltable frame="all">
-<tgroup cols="2">
-<colspec colwidth="50*"/>
-<colspec colwidth="50*"/>
-<thead>
-<row><entry>Planned STF versions</entry><entry>Planned enhancements and additions</entry></row>
-</thead>
-<tbody>
-<row><entry>2.0</entry> 
-<entry>Enhanced STF Layers: 
-<itemizedlist>
-  <listitem>
-    <para>Data Element Dictionary:
-      <itemizedlist>
-        <listitem><para>XML-based</para></listitem>
-      </itemizedlist>
-    </para>
-  </listitem>
-  <listitem>
-    <para>Message Structure:
-      <itemizedlist>
-         <listitem><para>Variable-length Bit-based</para></listitem>
-         <listitem><para>XML-based</para></listitem>
-      </itemizedlist>
-    </para>
-  </listitem>
-</itemizedlist>
-<para>Additional STF Layers:</para>
-<itemizedlist>
-  <listitem><para>Security Cross-domain</para></listitem>
-  <listitem><para>Others: TBD</para></listitem>
-</itemizedlist>
+  <tgroup cols="2">
+    <colspec colwidth="50*"/>
+    <colspec colwidth="50*"/>
+    <thead>
+      <row><entry>Planned STF versions</entry><entry>Planned enhancements and additions</entry></row>
+    </thead>
+    <tbody>
+      <row><entry>2.0</entry> 
+        <entry>Enhanced STF Layers: 
+        <itemizedlist>
+          <listitem>
+            <para>Data Element Dictionary:
+              <itemizedlist>
+                <listitem><para>XML-based</para></listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+          <listitem>
+            <para>Message Structure:
+              <itemizedlist>
+                 <listitem><para>Variable-length Bit-based</para></listitem>
+                 <listitem><para>XML-based</para></listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </itemizedlist>
+        <para>Additional STF Layers:</para>
+        <itemizedlist>
+          <listitem><para>Security Cross-domain</para></listitem>
+          <listitem><para>Others: TBD</para></listitem>
+        </itemizedlist>
 
-<para>Analysis report sections:</para> 
-<itemizedlist>
-  <listitem><para>Outstanding questions</para></listitem>
- <listitem><para>Miscellaneous</para></listitem>
-</itemizedlist>
-</entry></row>
-<row><entry>3.0</entry><entry>TBD</entry></row>
-</tbody>
-</tgroup>
+        <para>Analysis report sections:</para> 
+        <itemizedlist>
+          <listitem><para>Outstanding questions</para></listitem>
+         <listitem><para>Miscellaneous</para></listitem>
+        </itemizedlist>
+      </entry></row>
+      <row><entry>3.0</entry><entry>TBD</entry></row>
+    </tbody>
+  </tgroup>
 </informaltable>
 
 </sect1>
