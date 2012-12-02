@@ -71,6 +71,8 @@
     <para>This profile will be used in the implementation of NATO Common Funded Systems.
     Nations participating in AMN agree to use this profile at Network Interconnection 
     Points (NIPs) and at other Service Interoperability Points as applicable.</para>
+
+	<para>Nations participationg in the AMN have agreed to comply with the AMN joining instructions. This profile is a technical document that changes more frequently than the joining instructions.</para>
     
     <para>NNEC Services must be able to function in a network environment containing
     firewalls and various routing and filtering schemes; therefore, developers must
@@ -121,6 +123,118 @@
   </sect1>
   
   <sect1>
+    <title>Service Management and Control (SMC) Processes</title>
+    
+      <table frame="all" id="v4t-SMC Processes">
+        <title>SMC Processes</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID:Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:Provide Service Management within the AMN Core and between the Core and the TCN/Partners.</entry>
+              <entry>
+                <para>Mandatory: ITIL 2011 update /ISO/IEC 20000</para>
+              </entry>
+              <entry>
+		<para>See also AMN SMF CONOPS</para>
+		<para>POC: NCIA / Gary Wright</para>
+	      </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+  
+  <sect1>
+    <title>SMC Governance</title>
+    
+      <table frame="all" id="v4t-SMC Governance">
+        <title>SMC Governance</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID:Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:Provide the Control (Governance) required to efficiently and effectively control the AMN.</entry>
+              <entry>
+                <para>Mandatory: Control Objectives for Information and related Technology (COBIT 5).</para>
+              </entry>
+              <entry>
+		<para>COBIT is based on established frameworks, such as the Software Engineering Institute’s Capability Maturity Model,ISO 9000, ITIL, and ISO 17799 (standard security framework, now ISO 27001).</para>
+		<para>POC: NCIA / Gary Wright</para>
+	      </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+  
+  <sect1>
+    <title>SMC Configuration Management Database (CMDB)</title>
+    
+      <table frame="all" id="v4t-SMC CMDB">
+        <title>SMC CMDB</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID:Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:Represent and share Configuration Items and details about the important attributes and relationships between them.</entry>
+              <entry>
+                <para>Emerging Dec 2013: CIM Schema version 2.29.0, dated 3 May 2011, Distributed Management Task Force</para>
+                <para>Emerging Dec 2013: CMDB Federation Specification V1.0.1, dated 22 Apr 2010, Distributed Management Task Force</para>
+              </entry>
+              <entry>POC: NCIA / Gernot Friedrich</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </sect1>
+  
+  <sect1>
     <title>Communication and Network Services Standards</title>
     
       <table frame="all" id="v4t-Comms-andNetwork-Stds">
@@ -132,7 +246,7 @@
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">Purpose</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
@@ -164,7 +278,7 @@ Border Gateway Protocol V4 (IET RFC 1771, March 1995)</para><para>
 BGP Communities Attribute (IETF RFC 1997, August 1996)</para><para>
 Multicast Source Discovery Protocol (MSDP) (IETF RFC 3618, October 2003)</para><para>
 Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 2006)</para></entry>
-              <entry>Detailed Interface Control Document for "Connection Between CISAF network and TCN networks" (Thales Doc: F0057/62543313/558/-/G/EN)
+              <entry>Detailed Interface Control Document for "Connection Between CISAF network and TCN networks" (Thales Doc: F0057/62543313/558/-/I/EN), dated 24 Feb 2012
               </entry>
             </row>
             <row>
@@ -217,19 +331,27 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
               <entry>The AMN OPT has identified three options available to a nation
                 when joining their national network extension to the AMN:
                 <orderedlist inheritnum="ignore" continuation="restarts">
-                  <listitem><para>Join ISAF Secret Forest</para></listitem>
-                  <listitem><para>Join CX-I Forest</para></listitem>
-                  <listitem><para>Create standalone TCN forest</para></listitem>
+                  <listitem><para>Join the ISAF SECRET AD forest on AMN Core</para></listitem>
+                  <listitem><para>Join the AD forest of an existing AMN TCN</para></listitem>
+                  <listitem><para>Create own AD forest for the new AMN TCN</para></listitem>
                 </orderedlist>
                 <para>(Option 1 and 2 should be considered before option 3. Ref: 
                   AMN Systems engineering CONOPS dated 29 April 10).</para>
                 <para>Whilst LDAP is a vendor independent standard, in practice 
                   Active Directory (AD) is the product providing directory services
                   on the AMN. AD provides additional services aside from LDAP like 
-                  functionality. The new Active Directory Federation Services 2.0
-                  are likely to be used in future to better support Option 3 above.
-                </para>
+                  functionality.</para>
               </entry>
+            </row>
+            <row>
+              <entry>8:Time synchronisation on the AMN</entry>
+              <entry>Mandatory: Network Time Protocol version 3 (NTPv3), dated March 1992. RFC 1305</entry>
+              <entry>The W32Time service on all Windows DCs on the AMN Core is synchronizing time through the Domain hierarchy (NT5DS type).<para>POC: NCIA / Pierre Calvez</para></entry>
+            </row>
+            <row>
+              <entry>9:Video Collaboration</entry>
+              <entry>Mandatory: Signalling - H.323, Audio - G.722.1c and Video - H.263</entry>
+              <entry>AMN VTC over IP is based on a QoS-Enabled Network Infrastructure(QENI) using Diffserve. AMN Wide allowed interconnections are A) Peer to Peer, B) Peer to MCU and C) Peer to MCU to MCU to Peer<para>POC: NCIA / Pierre Calvez</para></entry>
             </row>
           </tbody>
         </tgroup>
@@ -248,7 +370,7 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">Purpose</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
@@ -339,6 +461,7 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
               <entry>WS-Security: SOAP Message Security 1.1
                 <para>XML Encryption Syntax and Processing  (dtd. 10 December 2002)</para>
                 <para>XML Signature Syntax and Processing 1.0 (Second Edition)</para>
+		<para>WS-I Basic Security profile 1.1</para>
               </entry>
               <entry>Specifies how integrity and confidentiality can be enforced on 
                 messages and allows the communication of various security token formats, 
@@ -386,9 +509,9 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
               <entry></entry>
             </row>
             <row>
-              <entry>10:Public Key Infrastructure to support SSL and single sign-on</entry>
+              <entry>10:Public Key Infrastructure to support single sign-on</entry>
               <entry>Version 3 public-key certificates and Version 2 CRLs in accordance
-                with ITU-T X.509v3
+                with ITU-T X.509
                 <para>NATO Public Key Infrastructure (NPKI) Certificate Policy (CertP)
                   Rev2, AC/322-D(2004)0024REV2</para>
               </entry>
@@ -415,7 +538,7 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
         under ADatP-3 in this new service environment.</para>
         
       <table frame="all" id="v4t-CES-Stds2">
-        <title>Infrastructure and Core Enterprise Services Standards, Part2</title>
+        <title>Infrastructure and Core Enterprise Services Standards, Part 2</title>
         <tgroup cols="3">
           <colspec colwidth="30*" />
           <colspec colwidth="35*" />
@@ -423,7 +546,7 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">Purpose</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
@@ -455,7 +578,8 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
             </row>
             <row>
               <entry>3:Transforming XML documents into other XML documents</entry>
-              <entry>XSL Translation (XSLT 1.0)</entry>
+              <entry><para>XSL Translation (XSLT 1.0)</para>
+<para>Emerging March 2013: XSL Transformation (XSLT) 2.0</para></entry>
               <entry>Developer best practice for the translation of XML based documents 
                 into other formats or schemas.</entry>
             </row>
@@ -469,12 +593,13 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
                   <listitem><para>SOAP, WSDL, UDDI</para></listitem>
                   <listitem><para>Hypertext Transfer Protocol, HTTP v1.1</para></listitem>
                   <listitem><para>RFC2246 TLS Protocol v1.0</para></listitem>
-                  <listitem><para>RFC2560, x.509 Public Key Infrastructure Certificate</para>
-                  </listitem>
+                  <listitem><para>RFC2560, x.509 Public Key Infrastructure Certificate</para></listitem>
+                  <listitem><para>Emerging (2013):WS-I Basic Profile 1.2</para></listitem>
+                  <listitem><para>Emerging (2014):WS-I Basic Profile 2.0</para></listitem>
                 </orderedlist>
               </entry>
               <entry>Conformance to this standards-set is required for all SOAP based
-                services.</entry>
+                services although WS-I Basic Profile mandates the use of UDDI 2.0 and TLS 1.0, the AMN Profile mandates TLS 1.2 and UDDI 3.0.</entry>
             </row>
             <row>
               <entry>5:Configuration management of structured data standards, service 
@@ -498,8 +623,9 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
                   Model (ebRIM), OASIS Standard, 2 May 2005,Registry Services and 
                   Protocols (ebRS), OASIS Standard, 2 May 2005.</para>
                 <para>Universal Description, Discovery, and Integration Specification
-                  (UDDI v 2.0), OASIS Standard, April 2003.</para>
+                  (UDDI v 2.0), OASIS Standard.</para>
                 <para>Emerging (Dec 2011): UDDI v3.0</para>
+                <para>Emerging (2014): SOAP 1.2</para>
               </entry>
               <entry>The preferred method for implementing webservices are SOAP, 
                 however, there are many use cases (mash-ups etc.) where a REST based 
@@ -572,7 +698,7 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">Purpose</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
@@ -585,10 +711,10 @@ Protocol Independent Multicast - Sparse Mode (PIM-SM) (IETF RFC 4601, August 200
           <tbody>
             <row>
               <entry>1:General formatted message exchange</entry>
-              <entry>STANAG 5500 Ed.6:2009
-                <para>AdatP-3 - Concept of NATO Message Text Formatting System (CONFORMETS) - ADatP-3(A)</para>
+              <entry>STANAG 5500 Ed.6:2010
+                <para>AdatP-3 - Concept of NATO Message Text Formatting System (CONFORMETS) - ADatP-3(A) Change 1</para>
               </entry>
-              <entry>ADatP-3(A) contains two different equivalent presentations of data: one as "classic" message or alternatively as XML-MTF instance.<para>
+              <entry>This change does not have any impact on existing implementations<para>ADatP-3(A) contains two different equivalent presentations of data: one as "classic" message or alternatively as XML-MTF instance.</para><para>
 A) Automated processing of XML-files in static facilities/systems is much easier and thus preferred for the exchange between national AMN extensions and the AMN Core.</para><para> 
 B) At the tactical edge of the AMN and the "classic" message format is the preferred option as this format is "leaner" and easier to transmit via tactical radio systems.</para></entry>
             </row>
@@ -599,12 +725,15 @@ B) At the tactical edge of the AMN and the "classic" message format is the prefe
                 also known as the Dublin Core Metadata Element Set
                 <para>TIDE Information Discovery (v2.3.0, Oct 2009)</para>
                 <para>TIDE Service Discovery (v.2.2.0 Oct 2008)</para>
-<para>Emerging (by Dec 2012): OpenSearch 1.1 Draft 4</para></entry>
+<para>Emerging (by Dec 2012): OpenSearch 1.1 Draft 4</para>
+<para>Emerging 2013: SPARQL Ver 1.1 (2009)</para>
+<para>Emerging 2013: OWL Ver 2 (2009)</para>
+</entry>
               <entry>The policy defines a subset of the NATO Discovery Metadata
                 Specification (NDMS) intended for information resource discovery.
                 <para>ISO 15836:2009 does not define implementation detail.</para>
                 <para>The technical implementation specifications are part of the 
-                  TIDE Transformational Baseline v3.0.</para>
+                  TIDE Transformational Baseline v3.0, however, Query-by-Example (QBE), has been deprecated with the TIDE Information Discovery specs v2.3.0.</para>
 <para>The TIDE community is evaluating OpenSearch for potential inclusion into the 
 TIDE Information Discovery specifications. On the AMN CORE a commercial product called FAST ESP is being used to generate search indexes. This product could act as an OpenSearch "slave", but requires adaptation to this Open Standard but only using HTTP. CUR 1021, will request automated information discovery across the AMN for 2012. Therefore all potential information sources must provide this standard search interface in order to allow tools like FAST ESP to discover relevant information.</para>
               </entry>
@@ -667,7 +796,7 @@ TIDE Information Discovery specifications. On the AMN CORE a commercial product 
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">Purpose</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
@@ -776,7 +905,7 @@ Emerging: Dec 2012</para>
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">Purpose</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
@@ -896,18 +1025,20 @@ Until the EVENTEXPLOITREP XML Schema definition is finalised, it is recommended 
                   <listitem><para>SALTATIC (A073)</para></listitem>
                   <listitem><para>CASEVACREQ (A015)</para></listitem>
                   <listitem><para>MEDEVAC MESSAGE (A012)</para></listitem>
+                  <listitem><para>FRIENDLY FORCE INFORMATION (J025) is the ADatP-3 representation of NFFI</para></listitem>
+                  <listitem><para>OPSITREP IRREGULAR ACTOR (A011)</para></listitem>
               </itemizedlist>
 </entry>
               <entry>The following messages that are not compliant with STANAG 7149 
                 Ed 4. will be accepted by the AMN Core:
               <itemizedlist>
-                  <listitem><para>UXO/IED Find (11 Liner)</para></listitem>
+                  <listitem><para>UXO IED REPORT 10-LINER (UXOIED) (A075)</para></listitem>
                   <listitem><para>Joint Tactical Air Strike Request (JTAR) - US DD Form 1972</para></listitem>
-                  <listitem><para>CIED (10 Liner)</para></listitem>
                   <listitem><para>ROZ Status / KILLBOX MESSAGE (F083)</para></listitem>
-                  <listitem><para>SALUTE (Size, Activity, Location, Unit/Uniform, Time, Equipment) / ENEMY CONTACT REP (A023)</para></listitem>
-                  <listitem><para>FRIENDLY FORCE INFORMATION (J025) is the ADatP-3 representation of NFFI</para></listitem>
-                </itemizedlist><para>Change request proposals reflecting the requirements for those non-standard messages should be submitted within the configuration management process of ADatP-3 by those nations that are the primary originators of those messages.</para>
+                  <listitem><para>SALUTE (Size, Activity, Location, Unit/Uniform, Time, Equipment)</para></listitem>
+                  <listitem><para>ENEMY CONTACT REP (A023)</para></listitem>
+                </itemizedlist>
+<para>Change request proposals reflecting the requirements for those non-standard messages should be submitted within the configuration management process of ADatP-3 by those nations that are the primary originators of those messages.</para>
               </entry>
             </row>
             <row>
@@ -948,7 +1079,7 @@ Until the EVENTEXPLOITREP XML Schema definition is finalised, it is recommended 
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">Purpose</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
@@ -1025,7 +1156,7 @@ Until the EVENTEXPLOITREP XML Schema definition is finalised, it is recommended 
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">Purpose</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
@@ -1091,7 +1222,7 @@ Until the EVENTEXPLOITREP XML Schema definition is finalised, it is recommended 
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">Purpose</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
