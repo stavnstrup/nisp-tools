@@ -7,7 +7,7 @@ generation of Rich Text Format files.
 
 The following changes to the FO file are applied:
 
-
+   Repæace percentages specification with proportional spec.
 
 
 Copyright (c) 2012, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
@@ -24,13 +24,7 @@ Danish Defence Acquisition and Logistic Organisation (DALO)
 
 <!-- ==================================================================== -->
 
-<xsl:template match="fo:table">
-  <fo:table table-layout="fixed" width="15.8cm">
-    <xsl:apply-templates/>
-  </fo:table>
-</xsl:template>  
-
-
+<!-- Percentages are not supported everywhere by the RTF converter  -->
 
 <xsl:template match="fo:table-column[contains(@column-width,'%')]">
   <fo:table-column>
