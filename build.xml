@@ -252,6 +252,7 @@ $Id$
            classname="org.apache.fop.tools.anttasks.Fop"
            classpathref="lib-fop-classpath"/>
 
+
   <!-- =================================================================== -->
   <!-- Creates output build directories and doc prerequistes               -->
   <!-- =================================================================== -->
@@ -267,6 +268,8 @@ $Id$
 
     <mkdir dir="${build.fo}"/>
     <mkdir dir="${build.dir}/debug/"/>
+
+    <mkdir dir="${build.dir}/rtf/"/>
 
     <copy todir="${build.dir}/css" 
       preservelastmodified="yes">

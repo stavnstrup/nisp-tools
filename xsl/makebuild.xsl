@@ -57,6 +57,12 @@ $Id $
   </xsl:call-template>
 
   <xsl:call-template name="alldocs">
+    <xsl:with-param name="ext" select="'rtf'"/>
+    <xsl:with-param name="othertargets" select="'init, pdf'"/>
+    <xsl:with-param name="comment" select="'* Create all RTF files'"/>   
+  </xsl:call-template>
+
+  <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'pdf'"/>
     <xsl:with-param name="othertargets" select="'init'"/>
     <xsl:with-param name="comment" select="'* Create a PDF version of NISP'"/>
@@ -235,6 +241,9 @@ $Id $
 
   <!-- PDF target -->
   <xsl:call-template name="makePDF"/>
+
+  <!-- RTF target -->
+  <xsl:call-template name="makeRTF"/>
 
   <!-- ZIP target -->
   <xsl:call-template name="makeZIP"/>
@@ -868,7 +877,6 @@ $Id $
 
     <xsl:choose>
       <xsl:when test=".//target[@type='pdf'][@heapmemory]">
-
     
         <java classname="org.apache.fop.apps.Fop" fork="yes">
 <!--
@@ -915,6 +923,86 @@ $Id $
     </xsl:choose>
   </target>
 </xsl:template>
+
+<!-- =================================================================== -->
+<!-- Create RTF targets                                                  -->
+<!-- =================================================================== -->
+
+
+<xsl:template name="makeRTF">
+  <xsl:variable name="docid" select="./@id"/>
+  <xsl:variable name="dir" select="../@dir"/>
+  <xsl:variable name="title" select="./titles/title"/>
+  <xsl:variable name="ltitle" select="./titles/longtitle"/>
+  <xsl:variable name="pdf.prefix" select="./targets/target[@type='pdf']"/>
+
+  <target name="{$docid}.rtf"
+          description="* Create {$title} in RTF"
+          depends="{$docid}.pdf">
+    <echo message="FIX FO version"/>    
+    <java fork="yes">
+      <xsl:attribute name="classname"><xsl:text>${xslt.class}</xsl:text></xsl:attribute>
+      <xsl:attribute name="dir"><xsl:text>${build.dir}/rtf/</xsl:text></xsl:attribute>
+      <arg>
+        <xsl:attribute name="line">
+          <xsl:text> -o </xsl:text> 
+          <xsl:value-of select="$docid"/>
+          <xsl:text>.fo ${build.fo}/</xsl:text>
+          <xsl:value-of select="$docid"/>
+          <xsl:text>.fo ${xsl-styles.dir}/rtf-prepare.xsl</xsl:text>
+        </xsl:attribute>
+      </arg>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+
+    <echo message="Make RTF version"/>
+    <xsl:choose>
+      <xsl:when test=".//target[@type='pdf'][@heapmemory]">
+        <echo message="RTF 1"/>
+        <java classname="org.apache.fop.apps.Fop" fork="yes">
+          <xsl:attribute name="dir">
+            <xsl:text>${build.dir}/rtf/</xsl:text>
+          </xsl:attribute>
+          <xsl:attribute name="maxmemory">
+            <xsl:value-of select=".//target[@type='pdf']/@heapmemory"/>
+          </xsl:attribute>
+          <arg>
+            <xsl:attribute name="line">
+              <xsl:text> </xsl:text>
+              <xsl:value-of select="$docid"/>
+              <xsl:text>.fo -rtf </xsl:text>
+              <xsl:value-of select="$docid"/>
+              <xsl:text>.rtf</xsl:text>
+            </xsl:attribute>
+          </arg>
+          <classpath refid="lib-fop-classpath"/>
+        </java>
+      </xsl:when>
+      <xsl:otherwise>
+        <echo message="RTF 2"/>
+        <fop>
+          <xsl:attribute name="basedir"><xsl:text>${build.dir}/rtf/</xsl:text></xsl:attribute>
+          <xsl:attribute name="fofile">
+            <xsl:text>${build.dir}/rtf/</xsl:text>
+            <xsl:value-of select="$docid"/>
+            <xsl:text>.fo</xsl:text>
+          </xsl:attribute>
+          <xsl:attribute name="outfile">
+            <xsl:text>${build.dir}/rtf/</xsl:text>
+            <xsl:text></xsl:text>	    
+            <xsl:value-of select="$docid"/>
+            <xsl:text>.rtf</xsl:text>
+          </xsl:attribute>
+          <xsl:attribute name="format"><xsl:text>text/rtf</xsl:text></xsl:attribute>
+          <xsl:attribute name="messagelevel"><xsl:text>${fop.message}</xsl:text></xsl:attribute>
+          <xsl:attribute name="userconfig"><xsl:text>${basedir}/lib/fop.xconf</xsl:text></xsl:attribute>
+        </fop>
+      </xsl:otherwise>
+    </xsl:choose>
+  </target>
+</xsl:template>
+
+
 
 
 <!-- =================================================================== -->

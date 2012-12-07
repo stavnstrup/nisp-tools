@@ -3,6 +3,7 @@
    <target name="resolve" depends="init, vol1.resolve, vol2.resolve, vol3.resolve, vol4.resolve, vol5.resolve"/>
    <target name="olinks" depends="init, vol1.olinks, vol2.olinks, vol3.olinks, vol4.olinks, vol5.olinks"/>
    <target name="html" depends="init, master, acronyms, vol1.html, vol2.html, vol3.html, vol4.html, vol5.html" description="* Create all HTML files destined for the web"/>
+   <target name="rtf" depends="init, pdf, vol1.rtf, vol2.rtf, vol3.rtf, vol4.rtf, vol5.rtf" description="* Create all RTF files"/>
    <target name="pdf" depends="init, vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf, vol5.pdf" description="* Create a PDF version of NISP"/>
    <target name="copy.svg">
       <mkdir dir="${build.dir}/figures"/>
@@ -109,6 +110,16 @@
       <echo message="Transforming Volume 1.fo to PDF"/>
       <fop basedir="${build.fo}/" fofile="${build.fo}/vol1.fo" outfile="${build.fo}/${vol1.pdf.file}" format="application/pdf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
+   <target name="vol1.rtf" description="* Create Volume 1 in RTF" depends="vol1.pdf">
+      <echo message="FIX FO version"/>
+      <java fork="yes" classname="${xslt.class}" dir="${build.dir}/rtf/">
+         <arg line=" -o vol1.fo ${build.fo}/vol1.fo ${xsl-styles.dir}/rtf-prepare.xsl"/>
+         <classpath refid="lib-saxon-classpath"/>
+      </java>
+      <echo message="Make RTF version"/>
+      <echo message="RTF 2"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol1.fo" outfile="${build.dir}/rtf/vol1.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+   </target>
    <target name="vol1.zip" description="* Create source archive of Volume 1">
       <tstamp/>
       <echo message="Creating src archive of Volume 1"/>
@@ -203,6 +214,16 @@
       </java>
       <echo message="Transforming Volume 2.fo to PDF"/>
       <fop basedir="${build.fo}/" fofile="${build.fo}/vol2.fo" outfile="${build.fo}/${vol2.pdf.file}" format="application/pdf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+   </target>
+   <target name="vol2.rtf" description="* Create Volume 2 in RTF" depends="vol2.pdf">
+      <echo message="FIX FO version"/>
+      <java fork="yes" classname="${xslt.class}" dir="${build.dir}/rtf/">
+         <arg line=" -o vol2.fo ${build.fo}/vol2.fo ${xsl-styles.dir}/rtf-prepare.xsl"/>
+         <classpath refid="lib-saxon-classpath"/>
+      </java>
+      <echo message="Make RTF version"/>
+      <echo message="RTF 2"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol2.fo" outfile="${build.dir}/rtf/vol2.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
    <target name="vol2.zip" description="* Create source archive of Volume 2">
       <tstamp/>
@@ -299,6 +320,16 @@
       <echo message="Transforming Volume 3.fo to PDF"/>
       <fop basedir="${build.fo}/" fofile="${build.fo}/vol3.fo" outfile="${build.fo}/${vol3.pdf.file}" format="application/pdf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
+   <target name="vol3.rtf" description="* Create Volume 3 in RTF" depends="vol3.pdf">
+      <echo message="FIX FO version"/>
+      <java fork="yes" classname="${xslt.class}" dir="${build.dir}/rtf/">
+         <arg line=" -o vol3.fo ${build.fo}/vol3.fo ${xsl-styles.dir}/rtf-prepare.xsl"/>
+         <classpath refid="lib-saxon-classpath"/>
+      </java>
+      <echo message="Make RTF version"/>
+      <echo message="RTF 2"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol3.fo" outfile="${build.dir}/rtf/vol3.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+   </target>
    <target name="vol3.zip" description="* Create source archive of Volume 3">
       <tstamp/>
       <echo message="Creating src archive of Volume 3"/>
@@ -376,6 +407,16 @@
       <echo message="Transforming Volume 4.fo to PDF"/>
       <fop basedir="${build.fo}/" fofile="${build.fo}/vol4.fo" outfile="${build.fo}/${vol4.pdf.file}" format="application/pdf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
+   <target name="vol4.rtf" description="* Create Volume 4 in RTF" depends="vol4.pdf">
+      <echo message="FIX FO version"/>
+      <java fork="yes" classname="${xslt.class}" dir="${build.dir}/rtf/">
+         <arg line=" -o vol4.fo ${build.fo}/vol4.fo ${xsl-styles.dir}/rtf-prepare.xsl"/>
+         <classpath refid="lib-saxon-classpath"/>
+      </java>
+      <echo message="Make RTF version"/>
+      <echo message="RTF 2"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol4.fo" outfile="${build.dir}/rtf/vol4.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+   </target>
    <target name="vol4.zip" description="* Create source archive of Volume 4">
       <tstamp/>
       <echo message="Creating src archive of Volume 4"/>
@@ -452,6 +493,16 @@
       </java>
       <echo message="Transforming Volume 5.fo to PDF"/>
       <fop basedir="${build.fo}/" fofile="${build.fo}/vol5.fo" outfile="${build.fo}/${vol5.pdf.file}" format="application/pdf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+   </target>
+   <target name="vol5.rtf" description="* Create Volume 5 in RTF" depends="vol5.pdf">
+      <echo message="FIX FO version"/>
+      <java fork="yes" classname="${xslt.class}" dir="${build.dir}/rtf/">
+         <arg line=" -o vol5.fo ${build.fo}/vol5.fo ${xsl-styles.dir}/rtf-prepare.xsl"/>
+         <classpath refid="lib-saxon-classpath"/>
+      </java>
+      <echo message="Make RTF version"/>
+      <echo message="RTF 2"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol5.fo" outfile="${build.dir}/rtf/vol5.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
    <target name="vol5.zip" description="* Create source archive of Volume 5">
       <tstamp/>
