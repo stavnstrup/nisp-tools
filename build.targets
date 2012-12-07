@@ -50,6 +50,7 @@
    <property name="vol1.main.src" value="vol1.xml"/>
    <property name="vol1.resolve.src" value="vol1-resolved.xml"/>
    <property name="vol1.pdf.file" value="NISP-Vol1-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
+   <property name="vol1.rtf.file" value="NISP-Vol1-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
    <property name="xsl-resolve-vol1" value="resolve.xsl"/>
    <target name="vol1" description="* Create Volume 1 in XHTML and PDF" depends="vol1.html, vol1.pdf"/>
    <target name="vol1.resolve.check">
@@ -118,7 +119,7 @@
       </java>
       <echo message="Make RTF version"/>
       <echo message="RTF 2"/>
-      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol1.fo" outfile="${build.dir}/rtf/vol1.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol1.fo" outfile="${build.dir}/rtf/${vol1.rtf.file}" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
    <target name="vol1.zip" description="* Create source archive of Volume 1">
       <tstamp/>
@@ -137,6 +138,7 @@
    <property name="vol2.main.src" value="vol2.xml"/>
    <property name="vol2.resolve.src" value="vol2-resolved.xml"/>
    <property name="vol2.pdf.file" value="NISP-Vol2-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
+   <property name="vol2.rtf.file" value="NISP-Vol2-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
    <property name="xsl-resolve-vol2" value="resolve2.xsl"/>
    <target name="vol2" description="* Create Volume 2 in XHTML and PDF" depends="vol2.html, vol2.pdf"/>
    <target name="vol2.db-resolve.check">
@@ -223,7 +225,7 @@
       </java>
       <echo message="Make RTF version"/>
       <echo message="RTF 2"/>
-      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol2.fo" outfile="${build.dir}/rtf/vol2.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol2.fo" outfile="${build.dir}/rtf/${vol2.rtf.file}" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
    <target name="vol2.zip" description="* Create source archive of Volume 2">
       <tstamp/>
@@ -242,6 +244,7 @@
    <property name="vol3.main.src" value="vol3.xml"/>
    <property name="vol3.resolve.src" value="vol3-resolved.xml"/>
    <property name="vol3.pdf.file" value="NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
+   <property name="vol3.rtf.file" value="NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
    <property name="xsl-resolve-vol3" value="resolve3.xsl"/>
    <target name="vol3" description="* Create Volume 3 in XHTML and PDF" depends="vol3.html, vol3.pdf"/>
    <target name="vol3.db-resolve.check">
@@ -328,7 +331,7 @@
       </java>
       <echo message="Make RTF version"/>
       <echo message="RTF 2"/>
-      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol3.fo" outfile="${build.dir}/rtf/vol3.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol3.fo" outfile="${build.dir}/rtf/${vol3.rtf.file}" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
    <target name="vol3.zip" description="* Create source archive of Volume 3">
       <tstamp/>
@@ -347,6 +350,7 @@
    <property name="vol4.main.src" value="vol4.xml"/>
    <property name="vol4.resolve.src" value="vol4-resolved.xml"/>
    <property name="vol4.pdf.file" value="NISP-Vol4-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
+   <property name="vol4.rtf.file" value="NISP-Vol4-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
    <property name="xsl-resolve-vol4" value="resolve.xsl"/>
    <target name="vol4" description="* Create Volume 4 in XHTML and PDF" depends="vol4.html, vol4.pdf"/>
    <target name="vol4.resolve.check">
@@ -415,7 +419,7 @@
       </java>
       <echo message="Make RTF version"/>
       <echo message="RTF 2"/>
-      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol4.fo" outfile="${build.dir}/rtf/vol4.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol4.fo" outfile="${build.dir}/rtf/${vol4.rtf.file}" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
    <target name="vol4.zip" description="* Create source archive of Volume 4">
       <tstamp/>
@@ -434,6 +438,7 @@
    <property name="vol5.main.src" value="vol5.xml"/>
    <property name="vol5.resolve.src" value="vol5-resolved.xml"/>
    <property name="vol5.pdf.file" value="NISP-Vol5-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
+   <property name="vol5.rtf.file" value="NISP-Vol5-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
    <property name="xsl-resolve-vol5" value="resolve.xsl"/>
    <target name="vol5" description="* Create Volume 5 in XHTML and PDF" depends="vol5.html, vol5.pdf"/>
    <target name="vol5.resolve.check">
@@ -502,7 +507,7 @@
       </java>
       <echo message="Make RTF version"/>
       <echo message="RTF 2"/>
-      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol5.fo" outfile="${build.dir}/rtf/vol5.rtf" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
+      <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol5.fo" outfile="${build.dir}/rtf/${vol5.rtf.file}" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
    <target name="vol5.zip" description="* Create source archive of Volume 5">
       <tstamp/>

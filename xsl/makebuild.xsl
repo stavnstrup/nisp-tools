@@ -207,6 +207,13 @@ $Id $
     </xsl:attribute>
   </property>
 
+  <property name="{$docid}.rtf.file">
+    <xsl:attribute name="value">
+      <xsl:value-of select=".//target[@type='pdf']"/>
+      <xsl:text>-v${src-version-major}${nisp.lifecycle.postfix}.rtf</xsl:text>
+    </xsl:attribute>
+  </property>
+
 
   <xsl:variable name="resolve" select="./resolve"/>
 
@@ -971,8 +978,9 @@ $Id $
               <xsl:text> </xsl:text>
               <xsl:value-of select="$docid"/>
               <xsl:text>.fo -rtf </xsl:text>
+              <xsl:text>${</xsl:text>	    
               <xsl:value-of select="$docid"/>
-              <xsl:text>.rtf</xsl:text>
+              <xsl:text>.rtf.file}</xsl:text>
             </xsl:attribute>
           </arg>
           <classpath refid="lib-fop-classpath"/>
@@ -988,10 +996,10 @@ $Id $
             <xsl:text>.fo</xsl:text>
           </xsl:attribute>
           <xsl:attribute name="outfile">
-            <xsl:text>${build.dir}/rtf/</xsl:text>
-            <xsl:text></xsl:text>	    
-            <xsl:value-of select="$docid"/>
-            <xsl:text>.rtf</xsl:text>
+            <xsl:text>${build.dir}/rtf/</xsl:text>	    
+              <xsl:text>${</xsl:text>	    
+              <xsl:value-of select="$docid"/>
+              <xsl:text>.rtf.file}</xsl:text>
           </xsl:attribute>
           <xsl:attribute name="format"><xsl:text>text/rtf</xsl:text></xsl:attribute>
           <xsl:attribute name="messagelevel"><xsl:text>${fop.message}</xsl:text></xsl:attribute>
