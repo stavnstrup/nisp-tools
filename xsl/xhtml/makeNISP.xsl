@@ -30,10 +30,12 @@ $Id$
                 exclude-result-prefixes="#default">
   
 
-<xsl:import href="../docbook-xsl/xhtml/chunk.xsl"/>
+<xsl:import href="../docbook-xsl/xhtml5/chunk.xsl"/>
 <xsl:import href="../common/common.xsl"/>
 
+
 <xsl:output method="saxon:xhtml" encoding="utf-8" omit-xml-declaration="yes"/>
+
 
 <!-- ==================================================================== -->
 <!--  Global parameters used to modify the functionality of the Chunked   -->
@@ -105,21 +107,28 @@ $Id$
 
 <!-- Chunking -->
 
+<!--
 <xsl:param name="chunker.output.doctype-public"
            select="'-//W3C//DTD XHTML 1.0 Transitional//EN'"/>
 
 <xsl:param name="chunker.output.doctype-system" 
            select="'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'"/>
+-->
+
+<xsl:param name="docbook.css.source"></xsl:param>
+
 
 <xsl:param name="chunker.output.method">saxon:xhtml</xsl:param>
 
-<xsl:param name="chunker.output.encoding" select="'iso-8859-1'"/>
+<xsl:param name="chunker.output.encoding" select="'UTF-8'"/>
 
 <xsl:param name="chunker.output.indent" select="'yes'"/>
 
 <xsl:param name="chunker.output.omit-xml-declaration">yes</xsl:param>
 
 <xsl:param name="html.extra.head.links" select="1"/>
+
+<xsl:param name="html.ext">.html</xsl:param>
 
 <xsl:param name="chunk.section.depth" select="1"/>
 
@@ -401,10 +410,13 @@ $Id$
 
 <!-- ==================================================================== -->
 
+<xsl:template name="system.head.content">
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Language" content="en-uk" />
+  <meta name="viewport" content="width=device-width" />
+</xsl:template>
 
 <xsl:template name="user.head.content">
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-  <meta http-equiv="Content-Language" content="en-uk" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
   <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
   <meta http-equiv="Expires" content="0" />
