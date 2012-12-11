@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*****************************************************************
+                   Vol 4 -   A N N E X - G - SIP Template Document
+
+*****************************************************************  
+-->
+
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd" [
+<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+]>
+
+<appendix id="v4-g">
+  <title>Service Interface Profile (SIP) Template Document
+  </title>
+
+  <sect1>
+    <title>References</title>
+    <itemizedlist>
+      <listitem>
+        <para>[C3 Taxonomy] C3 Classification Taxonomy v. 1.0, AC/322-N(2012)0092</para>
+      </listitem>
+      <listitem>
+        <para>[CESF 1.2] Core Enterprise Services Framework v. 1.2, AC/322-D(2009)0027</para>
+      </listitem>
+      <listitem>
+        <para>[DEUeu SDS] Technical Service Data Sheet. Notification Broker v.002, IABG</para>
+      </listitem>
+      <listitem>
+        <para>[NAF 3.0] NATO Architectural Framework v. 3.0, AC/322-D(2007)0048</para>
+      </listitem>
+      <listitem>
+        <para>[NC3A RD-3139] Publish/Subscribe Service Interface Profile Proposal v.1.0,
+          NC3A RD-3139</para>
+      </listitem>
+      <listitem>
+        <para>[NDMS] Guidance On The Use Of Metadata Element Descriptions For Use In
+          The NATO Discovery Metadata Specification (NDMS). Version 1.1, AC/322-D(2006)0007</para>
+      </listitem>
+      <listitem>
+        <para>[NISP] NATO Interoperability Standards and Profiles</para>
+      </listitem>
+      <listitem>
+        <para>[NNEC FS] NNEC Feasibility Study v. 2.0</para>
+      </listitem>
+      <listitem>
+        <para>[RFC 2119] Key words for use in RFCs to Indicate Requirement Levels, IETF</para>
+      </listitem>
+      <listitem>
+        <para>[SOA Baseline] Core Enterprise Services Standards Recommendations. The
+          Service Oriented Architecture (SOA) Baseline Profile, AC/322-N(20122)0205</para>
+      </listitem>
+      <listitem>
+        <para><ulink url="http://ws-i.org/Profiles/BasicProfile-1.2-2010-11-09.html#philosophy">[WS-I Basic Profile]</ulink></para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+  <sect1>
+    <title>Background</title>
+    <para>Within the heterogeneous NATO environment, experience has shown that different
+      services implement differing standards, or even different profiles of
+      the same standards. This means that the interfaces between the services
+      of the CES need to be tightly defined and controlled. This is the only
+      way to achieve interoperability between diverse systems and system implementations.
+      Recommendations for the use of specific open standards for the individual
+      CES are laid down in the C3B document “CES Standards Recommendations -
+      The SOA Baseline Profile” [SOA Baseline], which will also be included
+      as a dedicated CES set of standards in the upcoming NISP version.</para>
+    <para>Our experience shows that while open standards are a good starting point,
+      they are often open to different interpretations which lead to interoperability
+      issues. Further profiling is required and this has been independently
+      recognised by NCIA (under ACT sponsorship) and IABG (under sponsorship
+      of IT-AmtBw).</para>
+    <para>The SDS (for example [DEU SDS], IABG) and SIP (for example [NC3A RD-3139],
+      NCIA) have chosen slightly different approaches. The SIP tries to be implementation
+      agnostic, focusing on interface and contract specification, with no (or
+      minimal, optional and very clearly marked) deviations from the underlying
+      open standard. The SDS is more implementation specific, providing internal
+      implementation details and in some cases extends or modifies the underlying
+      open standard, based on specific National requirements. Our previous experience
+      with the former CES WG while working on [SOA Baseline] is that Nations
+      will not accept any implementation details that might constrain National
+      programmes. Therefore, a safer approach seems to focus on the external
+      interfaces and protocol specification.</para>
+  </sect1>
+  <sect1>
+    <title>Scope</title>
+    <para>The aim of this document is to define a template based on the NCIA and
+      IABG proposal for a standard profiling document, which from now on will
+      be called Service Interface Profile (SIP). This document template is to
+      be proposed to the Interoperability CaT and IIS CaT under the C3B structure.</para>
+    <para>Additionally, this document provides guiding principles and how the profile
+      relates to other NATO documentation.</para>
+  </sect1>
+  <sect1>
+    <title>Service Interface Profile Relationships to Other Documents</title>
+    <para>SIPs were introduced in the NNEC Feasibility Study [NNEC FS] and further
+      defined in subsequent NATO documents. In essence:</para>
+    <para>SIP describes the stack-of-standards that need to be implemented at an
+      interface, as described in the [NNEC FS]</para>
+    <para>SIPs are technology dependent and are subject to change - provisions need
+      to be made to allow SIPs to evolve over time (based on [NNEC FS])</para>
+    <para>SIP represents the technical properties of a key interface used to achieve
+      interoperability within a federation of systems (see [NAF 3.0])</para>
+    <para>SIP reference documents to be provided by NATO in concert with the Nations
+      (see [CESF 1.2])</para>
+    <para>The SIP will not be an isolated document, but will have relationships
+      with many other external and NATO resources, as depicted in the following
+      picture:</para>
+    <para>[picture]</para>
+    <itemizedlist>
+      <listitem>
+        <para>[C3 Taxonomy] – the C3 Taxonomy captures concepts from various communities
+          and maps them for item classification, integration and harmonization purposes.
+          It provides a tool to synchronize all capability activities for Consultation,
+          Command and Control (C3) in the NATO Alliance. The C3 Taxonomy level 1
+          replaces the Overarching Architecture.</para>
+      </listitem>
+      <listitem>
+        <para>Reference Architectures – defined for specific subject areas to guide
+          programme execution.</para>
+      </listitem>
+      <listitem>
+        <para>[NISP] – provides a minimum profile <footnote><para>Please note that word
+          “profile” can be used at different levels of abstraction and slightly
+          different meanings. In the NISP context, “profile” means a minimal set
+          of standards identified for a given subject area (e.g. AMN Profile, CES/SOA
+          Baseline Profile). In the context of SIP, “profile” means more detailed
+          technical properties of an interface specified with a given standard(s).</para></footnote>
+          of services and standards that are sufficient to provide
+          a useful level of interoperability.</para>
+      </listitem>
+      <listitem>
+        <para>[SOA Baseline] – recommends a set of standards to fulfil an initial subset
+          of the Core Enterprise Service requirements by providing a SOA baseline
+          infrastructure. As such, it is intended to be incorporated into the NISP
+          as a dedicated CES set of standards.</para>
+      </listitem>
+      <listitem>
+        <para>SIPs - will provide a normative profile of standards used to implement
+          a given service. As such it provides further clarification to standards
+          as provided in the NISP/SOA Baseline. The SIP may also contain NATO specific
+          and agreed extensions to given standards.</para>
+      </listitem>
+      <listitem>
+        <para>There will be multiple national/NATO implementations of a given SIP. These
+          implementations must implement all mandatory elements of a SIP and in
+          addition can provide own extensions, which can be documented in a Nationally
+          defined document, e.g. in a form of a Service Description Sheet.</para>
+      </listitem>
+    </itemizedlist>
+    <para>The process, governance and the responsible bodies for the SIPs need to
+      be urgently determined. This includes the implementation of a repository
+      to store the different artefacts.</para>
+  </sect1>
+  <sect1>
+    <title>Guiding principles for a consolidated SIP/SDS Profile</title>
+    <para>The following guiding principles derived from the WS-I Basic Profile<footnote><para>Based
+      on <ulink url="http://ws-i.org/Profiles/BasicProfile-1.2-2010-11-09.html#philosophy"/></para></footnote>
+      are proposed to drive the development of a consolidated SIP/SDS Profile:</para>
+    <para>The Profile SHOULD provide further clarifications to open and NATO standards
+      and specifications. This cannot guarantee complete interoperability, but
+      will address the most common interoperability problems experienced to
+      date.</para>
+    <itemizedlist>
+      <listitem>
+        <para>The Profile SHOULD NOT repeat referenced specifications but make them
+          more precise.</para>
+      </listitem>
+      <listitem>
+        <para>The Profile SHOULD make strong requirements (e.g., MUST, MUST NOT) wherever
+          feasible; if there are legitimate cases where such a requirement cannot
+          be met, conditional requirements (e.g., SHOULD, SHOULD NOT) are used.
+          Optional and conditional requirements introduce ambiguity and mismatches
+          between implementations. The keywords "MUST", "MUST NOT", "REQUIRED",
+          "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and
+          "OPTIONAL" are to be interpreted as described in [IETF RFC 2119].</para>
+      </listitem>
+      <listitem>
+        <para>The Profile SHOULD make statements that are testable wherever possible.
+          Preferably, testing is achieved in a non-intrusive manner (e.g., by examining
+          artefacts "on the wire").</para>
+      </listitem>
+      <listitem>
+        <para>The Profile MUST provide information on externally visible interfaces,
+          behaviour and protocols, but it SHOULD NOT provide internal implementation
+          details. It MAY also state non-functional requirements to the service
+          (e.g., notification broker must store subscription information persistently
+          in order to survive system shutdown).</para>
+      </listitem>
+      <listitem>
+        <para>The Profile MUST clearly indicate any deviations and extensions from the
+          underlying referenced specifications. It is RECOMMENDED that any extensions
+          make use of available extensibility points in the underlying specification.
+          The extensions MUST be made recommended or optional in order to not break
+          interoperability with standard-compliant products (e.g. COTS) that will
+          not be able to support NATO specific extensions. Extensions SHOULD be
+          kept to the minimum.</para>
+      </listitem>
+      <listitem>
+        <para>When amplifying the requirements of referenced specifications, the Profile
+          MAY restrict them (e.g., change a MAY to a MUST), but not relax them (e.g.,
+          change a MUST to a MAY).</para>
+      </listitem>
+      <listitem>
+        <para>If a referenced specification allows multiple mechanisms to be used interchangeably,
+          the Profile SHOULD select those that best fulfil NATO requirements, are
+          well-understood, widely implemented and useful. Extraneous or underspecified
+          mechanisms and extensions introduce complexity and therefore reduce interoperability.</para>
+      </listitem>
+      <listitem>
+        <para>Backwards compatibility with deployed services is not a goal of the SIP,
+          but due consideration is given to it.</para>
+      </listitem>
+      <listitem>
+        <para>Although there are potentially a number of inconsistencies and design
+          flaws in the referenced specifications, the SIP MUST only address those
+          that affect interoperability.</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+  <sect1>
+    <title>Proposed structure for a consolidated SIP/SDS Profile</title>
+    <para>Based on analysis of the “Technical Service Data Sheet for Notification
+      Broker v.002”, [NC3A RD-3139] and “RD-3139 Publish/Subscribe Service Interface
+      Profile Proposal v.1.0” [DEU SDS] the following document structure is
+      proposed for the consolidated Profile:</para>
+      <table>
+        <title>Service Interface Profile</title>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry><emphasis role="bold">Section</emphasis></entry>
+              <entry><emphasis role="bold">Description</emphasis></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><emphasis role="bold">Keywords</emphasis></entry>
+              <entry>Should contain relevant names of the [C3 Taxonomy] services plus other
+                relevant keywords like the names of profiled standards.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">Metadata </emphasis></entry>
+              <entry>Metadata of the document, that should be based on the NATO Discovery Metadata
+                Specification [NDMS] and MUST include: Security classification, Service
+                name (title), Version, Unique identifier, Date, Creator, Subject, Description,
+                Relation with other SIPs. The unique identifier MUST encode a version
+                number and C3 Board needs to decide on a namespace. It needs to be decided
+                whether URN or URL should be used to format the identifier.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">Abstract</emphasis></entry>
+              <entry>General description of the service being profiled.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">Record of changes and amendments</emphasis></entry>
+              <entry>The list of changes should include version number, date, originator and
+                main changes. The originator should identify an organisation/Nation (not
+                a person).</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">Table of Contents</emphasis></entry>
+              <entry><emphasis role="italic">Self-explanatory</emphasis></entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">Table of Figures</emphasis></entry>
+              <entry><emphasis role="italic">Self-explanatory</emphasis></entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1. Introduction</emphasis></entry>
+              <entry>Should provide an overview about the key administrative information and
+                the goals/non-goals of the service</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.1 Purpose of the document</emphasis></entry>
+              <entry>Same for all SIPs. Does not contain a service specific description. <emphasis role="italic">“Provide a set of specifications, along with clarifications, refinements, interpretations and amplifications of those specifications which promote interoperability.”</emphasis></entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.2 Audience</emphasis></entry>
+              <entry>The envisioned audience consists of: Project Managers procuring Bi-SC
+                or NNEC related systems; The architects and developers of service consumers
+                and providers; Coalition partners whose services may need to interact
+                with NNEC Services; Systems integrators delivering systems into the NATO
+                environment</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.3 Notational Conventions</emphasis></entry>
+              <entry>Describes the notational conventions for this document: <emphasis role="italic">italics</emphasis> Syntax derived from underpinning standards should use the Courier font.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.4 Taxonomy allocation</emphasis></entry>
+              <entry>Provides information on the position and description of the service within
+                the [C3 Taxonomy]</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.5 Terminology/Definitions</emphasis></entry>
+              <entry>Introducing service specific terminology used in the document with short
+                descriptions for every term.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.6 Namespaces</emphasis></entry>
+              <entry>Table with the prefix and the namespaces used in the document.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.7 Goals</emphasis></entry>
+              <entry>Service specific goals of the profile. They will tell which aspects of
+                the service will be covered by the profile, e.g. identify specific protocols,
+                data structures, security mechanisms etc.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.8 Non-goals</emphasis></entry>
+              <entry>An explanation for not addressing the listed non-goals potentially relevant
+                in a given context. This section may contain references to external documents
+                dealing with the identified issues (e.g. security mechanisms are described
+                in different SIP/document).</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.9 References</emphasis></entry>
+              <entry>Normative and non-normative references to external specifications.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">1.10 Service relationship</emphasis></entry>
+              <entry>Relationships to other services in the [C3 Taxonomy].</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold"> 1.11 Constraints</emphasis></entry>
+              <entry>Preconditions to run the service; when to use and when not to use the
+                service. <emphasis role="italic">service is not intended to work with encrypted messages</emphasis>”</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">2. Background (non-normative)</emphasis></entry>
+              <entry>Descriptive part of the document</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">2.1 Description of the operational requirements </emphasis></entry>
+              <entry>Description of the operational background of the service to give an overview
+                where and in which environment the service will be deployed.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">2.2 Description of the Service</emphasis></entry>
+              <entry>Purpose of the service, its functionality and intended use. Which potential
+                issues can be solved with this service?</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">2.3 Typical Service Interactions</emphasis></entry>
+              <entry>Most typical interactions the service can take part in. Should provide
+                better understanding and potential application of a service and its context.
+                This part is non-normative and will not be exhaustive (i.e. is not intended
+                to illustrate all possible interactions). Interactions can be illustrated
+                using UML interaction, sequence, use case, and/or state diagrams.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">3. Service Interface Specification (normative)</emphasis></entry>
+              <entry>Prescriptive part of the document (not repeating the specification)</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">3.1 Interface Overview</emphasis></entry>
+              <entry>Introduction with a short description (containing operations, etc.) of
+                the interface. Short overview table with all operations identifying which
+                ones are defined by the SIP as mandatory, recommended or optional. Any
+                extensions to underlying services (e.g. new operations) must be clearly
+                marked. Specific example: Response “service unavailable” if operations
+                are not implemented/available.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">3.2 Technical Requirements</emphasis></entry>
+              <entry>Description of the specific technical requirements. Generic non-functional
+                requirements</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">3.3 Operations </emphasis></entry>
+              <entry>Detailed description of mandatory, recommended and optional operations:
+                input, output, faults, sequence diagram if necessary. Clearly mark extensions
+                to the underlying referenced standards. Any non-standard behaviour must
+                be explicitly requested and described, including specific operations or
+                parameters to initiate it. Specific examples : Explicitly request non-standard
+                filter mode; explicitly request particular transport mode. - Internal
+                faults could be handled as an unknown error. Additional information (internal
+                error code) can be ignored by the user.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">3.4 Errors (Optional section)</emphasis></entry>
+              <entry>Description of the specific errors and how the recipient is informed about
+                them.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">4. References</emphasis></entry>
+              <entry>Contains document references.</entry>
+            </row>
+            <row>
+              <entry><emphasis role="bold">Appendices (optional) </emphasis></entry>
+              <entry>Service specific artefacts (non-normative and normative), e.g. WSDLs /
+                Schemas for specific extensions</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+  </sect1>
+  <sect1>
+    <title>Testing</title>
+    <para>As indicated in the guiding principles, the profile should make statements
+      that are testable. An attempt should be made to make any testable assertions
+      in SIPs explicit in a similar way to the WS-I profiles, i.e. by highlighting
+      the testable assertions and even codifying them such that an end user
+      of the SIP can run them against their service to check conformance. It
+      should also be possible to come up with testing tools and scenarios similar
+      to those defined by the WS-I for the Basic
+      Profile<footnote><para><ulink url="http://www.ws-i.org/docs/BPTestMethodology-WorkingGroupApprovalDraft-042809.pdf"/></para></footnote>.</para>
+    <para>It needs to be decided how formal testing could be organized. Possibilities
+      include dedicated testing body, multinational venues and exercises (like
+      CWIX) and others.</para>
+  </sect1>
+</appendix>
