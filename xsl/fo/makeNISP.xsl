@@ -173,7 +173,7 @@ $Id$
 <!--
 <xsl:param name="dingbat.font.family" select="'Zapf Dingbats'"/>
 -->
-<xsl:param name="dingbat.font.family" select="''"/>
+<xsl:param name="dingbat.font.family" select="'Serif'"/>
 
 <xsl:param name="monospace.font.family" select="'Courier'"/>
 <xsl:param name="sans.font.family" select="'Helvetica'"/>

@@ -12,7 +12,7 @@ Description : This stylesheet is a customization of Norman Walsh
               specification: "Extensible Stylesheet Language" version
               1.0.  (see: http://www.w3c.org/REC/2001/XSL.html).
 
-              Copyright (C) 2001,2011 Jens Stavnstrup/DALO <stavnatrup@mil.dk>,
+              Copyright (C) 2001,2012 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
