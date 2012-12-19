@@ -8,7 +8,7 @@ Description:  This stylesheet is created for the NC3 Technical Architecture, and
               intendet for the NC3 TA HTML "container" documents
               in src/master/.
 
-              Copyright (C) 2001,2011 Jens Stavnstrup/DALO <stavnatrup@mil.dk>,
+              Copyright (C) 2001,2012 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
@@ -196,8 +196,7 @@ $Id $
         <xsl:apply-templates/>
       </div>
     </div>
-    <div id="footer">Copyright &#x00A9; NATO - OTAN 1998-2011 | <a href="disclaimer.html">Disclaimer</a></div>
-
+    <xsl:call-template name="copyright.notice"/>
   </body>
   </html>
 </xsl:template>

@@ -22,6 +22,18 @@
 -->
 <!-- ==================================================================== -->
 
+<!-- Copyright notice -->
+
+<xsl:param name="datestamp" select="''"/>
+
+<xsl:param name="copyright.first.year" select="'1998'"/>
+<xsl:param name="copyright.last.year" select="substring($datestamp,1,4)"/>
+
+<xsl:param name="copyright.years" select="concat($copyright.first.year, '-', 
+                                                 $copyright.last.year)"/>
+
+
+
 <!-- Should we use the paragraph numbering hack ? -->
 
 <xsl:param name="use.para.numbering" select="1"/>
@@ -74,6 +86,14 @@
 </xsl:template>  
 
 
+<xsl:template name="copyright.notice">
+  <div xmlns="http://www.w3.org/1999/xhtml" id="footer">
+    <xsl:text>Copyright &#x00A9; NATO - OTAN </xsl:text>
+    <xsl:value-of select="$copyright.years"/>
+    <xsl:text> | </xsl:text>
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+</xsl:template>
 
 </xsl:stylesheet>
 

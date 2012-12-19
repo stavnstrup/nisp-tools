@@ -509,7 +509,7 @@ $Id$
           <xsl:call-template name="user.footer.navigation"/>
         </div>
       </div>
-      <div id="footer">Copyright &#x00A9; NATO - OTAN 1998-2011 | <a href="../disclaimer.html">Disclaimer</a></div>
+      <xsl:call-template name="copyright.notice"/>
     </body>
   </html>
 </xsl:template>
