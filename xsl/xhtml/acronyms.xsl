@@ -28,14 +28,15 @@ $Id
 <!-- Set method to html to avoid Saxon for printing an XML Decl to stdout -->
 <xsl:output method="html"/>
 
-
+<!--
 <xsl:param name="doctype-public"
            select="'-//W3C//DTD XHTML 1.0 Transitional//EN'"/>
 
 <xsl:param name="doctype-system" 
            select="'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'"/>
+-->
 
-<xsl:param name="encoding" select="'iso-8859-1'"/>
+<xsl:param name="encoding" select="'UTF-8'"/>
 
 
 <xsl:template name="mkLetterBar">
@@ -81,16 +82,20 @@ $Id
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:document href="{$documentname}" 
-                method="xml" indent="no"
+<!--
                 doctype-public="{$doctype-public}"
                 doctype-system="{$doctype-system}"
+-->
+  <xsl:document href="{$documentname}"
+                method="xml" indent="yes"
+                omit-xml-declaration="yes"
                 encoding="{$encoding}">
+    <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
     <html xmlns="http://www.w3.org/1999/xhtml"><head>
       <title>NC3 Acronyms</title>
-      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      <meta charset="UTF-8" />
       <meta http-equiv="Content-Language" content="en-uk" />
-      <meta name="MSSmartTagsPreventParsing" content="true" />
+      <meta name="viewport" content="width=device-width" />
       <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
       <link rel="stylesheet" href="../css/nisp.css" type="text/css" media="all" />
     </head>

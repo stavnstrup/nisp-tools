@@ -4,8 +4,8 @@
 
 Name:         master.xml
 
-Description:  This stylesheet is created for the NC3 Technical Architecture, and is
-              intendet for the NC3 TA HTML "container" documents
+Description:  This stylesheet is created for the NATO Interoperability Standards and Profiles, and is
+              intendet for the NISP XHTML "container" documents
               in src/master/.
 
               Copyright (C) 2001,2012 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
@@ -23,17 +23,19 @@ $Id $
                 version='1.1'>
 
 
-<xsl:import href="../docbook-xsl/xhtml/docbook.xsl"/>
+<xsl:import href="../docbook-xsl/xhtml5/docbook.xsl"/>
 
 <xsl:import href="../common/common.xsl"/>
 
 <xsl:import href="html-common.xsl"/>
 
 
-<xsl:output method="saxon:xhtml" encoding="ISO-8859-1"
+<xsl:output method="saxon:xhtml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
+
+<!--
             doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
             doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
-
+-->
 
 
 <!-- ==================================================================== -->
@@ -62,7 +64,12 @@ $Id $
 <xsl:param name="section.label.includes.component.label" select="0"/>
 
 
+
 <!-- HTML -->
+
+
+
+
 
 <xsl:param name="css.decoration" select="0"/>
 
@@ -75,6 +82,11 @@ $Id $
 
 
 <!-- Chunking -->
+
+<xsl:param name="docbook.css.source"></xsl:param>
+<xsl:param name="html.ext">.html</xsl:param>
+
+
 
 <xsl:param name="chunk.section.depth" select="1"/>
 
@@ -89,6 +101,14 @@ $Id $
 <xsl:param name="include.hhc" select="0"/>
 
 <xsl:param name="id.warnings" select="0"/>
+
+
+<xsl:template name="system.head.content">
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Language" content="en-uk" />
+  <meta name="viewport" content="width=device-width" />
+</xsl:template>
+ 
 
 
 <!-- ==================================================================== -->
@@ -161,12 +181,19 @@ $Id $
 </xsl:template>
 
 <xsl:template match="chapter">
+  <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Language" content="en-uk" />
+    <meta name="viewport" content="width=device-width" />
+    
     <title><xsl:value-of select="./chapterinfo/title"/></title>
     <link rel="stylesheet" href="css/nisp.css" type="text/css" media="all" />
+<!--
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <meta http-equiv="Content-Language" content="en-uk" />
+-->
     <meta name="MSSmartTagsPreventParsing" content="true" />
     <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
    
