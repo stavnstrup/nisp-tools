@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                version='1.1'
-                exclude-result-prefixes="#default">
+                xmlns:saxon="http://icl.com/saxon"
+                extension-element-prefixes="saxon"
+                version='1.1'>
+
 
 <!-- 
 
@@ -87,29 +89,32 @@ $Id
                 doctype-system="{$doctype-system}"
 -->
   <xsl:document href="{$documentname}"
-                method="xml" indent="yes"
+                method="saxon:xhtml" indent="yes"
                 omit-xml-declaration="yes"
                 encoding="{$encoding}">
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-    <html xmlns="http://www.w3.org/1999/xhtml"><head>
-      <title>NC3 Acronyms</title>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
       <meta charset="UTF-8" />
       <meta http-equiv="Content-Language" content="en-uk" />
       <meta name="viewport" content="width=device-width" />
-      <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
+      <title>NC3 Acronyms</title>
+      <link rel="stylesheet" href="../css/foundation.min.css"  type="text/css" media="all" /> 
       <link rel="stylesheet" href="../css/nisp.css" type="text/css" media="all" />
+      <script src="../javascripts/modernizr.foundation.js" />
+      <meta name="author" content="Interoperability Capability Team (IP CaT)" />
     </head>
     <body>
       <xsl:call-template name="create-header"/>
       <xsl:call-template name="create-menubar"/>
-      <div id="container">
-        <div id="nav">
+      <div id="container" class="row">
+        <div id="nav" class="three columns">
           <ul>
             <li id="menuhead">Acronyms</li>
             <li><img src="../images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
           </ul>
         </div> 
-        <div id="docbook">
+        <div id="docbook" class="nine columns">
           <xsl:call-template name="mkLetterBar"/>
           <table id="acrotable" border="0">
             <tr>
@@ -126,6 +131,9 @@ $Id
         </div>
       </div>
       <xsl:call-template name="copyright.notice"/>
+      <script src="../javascripts/jquery.js"/>
+      <script src="../javascripts/foundation.min.js"/>
+      <script src="../javascripts/app.js"/>
     </body>
     </html>
   </xsl:document>

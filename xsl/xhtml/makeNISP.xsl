@@ -225,16 +225,6 @@ $Id$
 
 <xsl:template name="book.titlepage.separator"/>
 
-<!--
-<xsl:template match="corpauthor" mode="titlepage.mode">
-  <div class="{name(.)}">Version <xsl:apply-templates select="..//revision[1]/revnumber" 
-       mode="titlepage.mode"/> [<xsl:apply-templates 
-       select="..//revision[1]/date" 
-       mode="titlepage.mode"/>] - <xsl:value-of select="."/>
-  </div>
-</xsl:template>
--->
-
 <xsl:template match="corpauthor" mode="titlepage.mode">
   <div class="{name(.)}">AdatP-34(<xsl:value-of select="$adatp34edition"/>)
     <xsl:apply-templates select="..//revision[1]/revnumber" 
@@ -302,9 +292,8 @@ $Id$
   <xsl:variable name="docs" select="document('../../src/documents.xml')"/>
   <xsl:variable name="bookid" select="/book/@id"/>
   <ul>
-    <li id="menuhead">NISP Volumes</li>
 <!--
-    <li><a href="../about.html">About the volumes</a></li>
+    <li id="menuhead">NISP Volumes</li>
 -->
     <li class="pdf"><span class="h">Download </span>
       <a>
@@ -313,15 +302,11 @@ $Id$
           <xsl:value-of select="$pdf.prefix"/>
           <xsl:text>-v</xsl:text>
           <xsl:value-of select="$docs/documents/versioninfo/package/@major"/>
-<!--
-            <xsl:value-of select=
-              "substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
--->
-         <xsl:if test="$nisp.lifecycle.stage != 'draft'">
-           <xsl:text>-</xsl:text>
-           <xsl:value-of select="$nisp.lifecycle.stage"/>
-         </xsl:if>
-         <xsl:text>.pdf</xsl:text>
+          <xsl:if test="$nisp.lifecycle.stage != 'draft'">
+            <xsl:text>-</xsl:text>
+            <xsl:value-of select="$nisp.lifecycle.stage"/>
+          </xsl:if>
+          <xsl:text>.pdf</xsl:text>
         </xsl:attribute>
         <xsl:text>PDF of </xsl:text><xsl:value-of 
            select="$db//docinfo[@id=$docid]/titles/short"/>
@@ -371,6 +356,7 @@ $Id$
 </xsl:template>
 
 
+
 <xsl:template match="preface|chapter|appendix" mode="navElement">     
   <!-- write index for components (chapter/appendix) -->
   <xsl:variable name="uid">
@@ -414,20 +400,20 @@ $Id$
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Language" content="en-uk" />
   <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="../css/foundation.min.css"/>
 </xsl:template>
 
 <xsl:template name="user.head.content">
   <meta name="MSSmartTagsPreventParsing" content="true" />
   <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
   <meta http-equiv="Expires" content="0" />
-<!--
-  <meta http-equiv="X-UA-Compatible" content="IE=8" />
--->
+
+  <script src="../javascripts/modernizr.foundation.js"></script>
+  
 </xsl:template>
 
 
 <!-- ==================================================================== -->
-
 
 
 <xsl:template name="user.header.navigation">
@@ -446,7 +432,6 @@ $Id$
     </div>
   </xsl:if>
 </xsl:template>
-
 
 
 <!-- ==================================================================== -->
@@ -482,11 +467,11 @@ $Id$
 
       <xsl:call-template name="create-header"/>
       <xsl:call-template name="create-menubar"/>
-      <div id="container">
-        <div id="nav">
+      <div class="row" id="container">
+        <div class="three columns" id="nav">
           <xsl:call-template name="create-navbar"/>
         </div>
-        <div id="docbook">
+        <div class="nine columns" id="docbook">
           <xsl:call-template name="user.header.navigation"/>
 
           <xsl:call-template name="header.navigation">
@@ -510,6 +495,9 @@ $Id$
         </div>
       </div>
       <xsl:call-template name="copyright.notice"/>
+      <script src="../javascripts/jquery.js"/>
+      <script src="../javascripts/foundation.min.js"/>
+      <script src="../javascripts/app.js"/>
     </body>
   </html>
 </xsl:template>

@@ -1,9 +1,9 @@
 <!--
 
-This stylesheet is created for the NC3 Technical Architecture, and contains
-intended for the one-page HTML version.
+This stylesheet is created for the NATO Interoperability Standards and
+Profiles (NISP), and contains intended for the one-page HTML version.
 
-Copyright (c) 2001, 2011 Jens Stavnstrup/DDRE <js@ddre.dk>
+Copyright (c) 2001, 2012 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 $Id $
 

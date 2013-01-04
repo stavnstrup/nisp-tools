@@ -189,6 +189,7 @@ $Id $
     <meta name="viewport" content="width=device-width" />
     
     <title><xsl:value-of select="./chapterinfo/title"/></title>
+    <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/nisp.css" type="text/css" media="all" />
 <!--
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -196,7 +197,7 @@ $Id $
 -->
     <meta name="MSSmartTagsPreventParsing" content="true" />
     <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
-   
+    <script src="javascripts/modernizr.foundation.js"/>
 <!--
       #tophead { background-image: url(images/cgey/logo_NATO-top.gif); }
       #bottomhead { background-image: url(images/cgey/logo_NATO-bottom.gif); }
@@ -209,21 +210,23 @@ $Id $
     <xsl:call-template name="create-header">
       <xsl:with-param name="prefix" select="''"/>
     </xsl:call-template>
-
     <xsl:call-template name="create-menubar">
       <xsl:with-param name="prefix" select="''"/>
     </xsl:call-template>
 
-    <div id="container">
-      <div id="nav">
+    <div class="row" id="container">
+      <div class="three columns" id="nav">
         <xsl:call-template name="create-navbar"/>
       </div>
-      <div id="docbook">
+      <div class="nine columns" id="docbook">
         <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
         <xsl:apply-templates/>
       </div>
     </div>
     <xsl:call-template name="copyright.notice"/>
+    <script src="javascripts/jquery.js"/>
+    <script src="javascripts/foundation.min.js"/>
+    <script src="javascripts/app.js"/>
   </body>
   </html>
 </xsl:template>
