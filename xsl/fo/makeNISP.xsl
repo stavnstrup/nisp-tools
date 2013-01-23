@@ -862,7 +862,7 @@ $Id$
       </xsl:if>
       <xsl:if test="$nisp.lifecycle.stage='final' or $nisp.lifecycle.stage='board'">Final </xsl:if>
       <xsl:if test="$nisp.lifecycle.stage!='release'">Draft</xsl:if>
-      <xsl:if test="$nisp.lifecycle.stage='board'"><fo:block>Released to NC3B</fo:block></xsl:if>
+      <xsl:if test="$nisp.lifecycle.stage='board'"><fo:block>Released to C3B</fo:block></xsl:if>
     </xsl:if>
     <xsl:if test="$position='center' and $nisp.lifecycle.stage!='release'">
     </xsl:if>
