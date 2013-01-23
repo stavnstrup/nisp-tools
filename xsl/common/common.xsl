@@ -67,7 +67,7 @@
   <header xmlns="http://www.w3.org/1999/xhtml" id="header">
     <div class="row">
       <nav class="twelve columns" id="tophead">
-        <ul class="nav-bar right" id="quickbar">
+        <ul class="nav-bar right hide-for-small" id="quickbar">
           <li><a href="{$prefix}index.html">Home</a></li>
           <li><a href="{$prefix}acronyms/index.html">Acronyms</a></li>
           <li><a href="{$prefix}member.html">Contact</a></li>
