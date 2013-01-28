@@ -15,8 +15,6 @@ Description : This stylesheet is a customization of Norman Walsh
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
 
-$Id$
-
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
