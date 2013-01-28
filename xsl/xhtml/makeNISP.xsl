@@ -468,10 +468,7 @@ $Id$
       <xsl:call-template name="create-header"/>
       <xsl:call-template name="create-menubar"/>
       <div class="row" id="container">
-        <div class="three columns" id="nav">
-          <xsl:call-template name="create-navbar"/>
-        </div>
-        <div class="nine columns" id="docbook">
+        <div class="nine columns push-three" id="docbook">
           <xsl:call-template name="user.header.navigation"/>
 
           <xsl:call-template name="header.navigation">
@@ -492,6 +489,9 @@ $Id$
 	    <xsl:with-param name="nav.context" select="$nav.context"/>
           </xsl:call-template>
           <xsl:call-template name="user.footer.navigation"/>
+        </div>
+        <div class="three columns pull-nine" id="nav">
+          <xsl:call-template name="create-navbar"/>
         </div>
       </div>
       <xsl:call-template name="copyright.notice"/>

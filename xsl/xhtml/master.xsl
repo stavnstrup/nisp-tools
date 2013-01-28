@@ -215,12 +215,12 @@ $Id $
     </xsl:call-template>
 
     <div class="row" id="container">
-      <div class="three columns" id="nav">
-        <xsl:call-template name="create-navbar"/>
-      </div>
-      <div class="nine columns" id="docbook">
+      <div class="nine columns push-three" id="docbook">
         <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
         <xsl:apply-templates/>
+      </div>
+      <div class="three columns pull-nine" id="nav">
+        <xsl:call-template name="create-navbar"/>
       </div>
     </div>
     <xsl:call-template name="copyright.notice"/>
