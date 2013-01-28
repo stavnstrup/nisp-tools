@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-
 <!--
-
 Name        : makeNISP.xsl
 
 Description : This stylesheet is a customization of Norman Walsh
@@ -12,7 +10,7 @@ Description : This stylesheet is a customization of Norman Walsh
               specification: "Extensible Stylesheet Language" version
               1.0.  (see: http://www.w3c.org/REC/2001/XSL.html).
 
-              Copyright (C) 2001,2012 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
+              Copyright (C) 2001,2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
@@ -28,14 +26,12 @@ $Id$
                 version='1.1'
                 extension-element-prefixes="exsl saxon"
                 exclude-result-prefixes="#default">
-  
+
 
 <xsl:import href="../docbook-xsl/xhtml5/chunk.xsl"/>
 <xsl:import href="../common/common.xsl"/>
 
-
-<xsl:output method="saxon:xhtml" encoding="utf-8" omit-xml-declaration="yes"/>
-
+<xsl:output omit-xml-declaration="yes"/>
 
 <!-- ==================================================================== -->
 <!--  Global parameters used to modify the functionality of the Chunked   -->
@@ -117,14 +113,15 @@ $Id$
 
 <xsl:param name="docbook.css.source"></xsl:param>
 
-
 <xsl:param name="chunker.output.method">saxon:xhtml</xsl:param>
 
 <xsl:param name="chunker.output.encoding" select="'UTF-8'"/>
 
 <xsl:param name="chunker.output.indent" select="'yes'"/>
 
+<!--
 <xsl:param name="chunker.output.omit-xml-declaration">yes</xsl:param>
+-->
 
 <xsl:param name="html.extra.head.links" select="1"/>
 
@@ -156,7 +153,6 @@ $Id$
 <xsl:param name="nisp.release.label" select="''"/>
 
 
-
 <!-- ==================================================================== -->
 <!-- Customized Docbook templates                                         -->
 <!-- ==================================================================== -->
@@ -180,19 +176,6 @@ $Id$
     </xsl:otherwise>
   </xsl:choose>
 </xsl:variable>
-
-
-<!--
-
-<xsl:template match="/">
-  <xsl:comment>
-    Comment using <xsl:value-of select="system-property('xsl:vendor')"/>
-    on 
-  </xsl:comment>
-  <xsl:apply-templates/>
-</xsl:template>
-
--->
 
 
 <!-- We don't use beginpage here, however it is parts of some documents
@@ -220,8 +203,7 @@ $Id$
 
 <!-- ==================================================================== -->
 
-<!-- Titlepage relates templates -->
-
+<!-- Titlepage related templates -->
 
 <xsl:template name="book.titlepage.separator"/>
 
@@ -284,9 +266,7 @@ $Id$
 <!-- ==================================================================== -->
 <!-- Create navigation bar                                                -->
 
-
 <xsl:template name="create-navbar">
-
   <xsl:variable name="docroot" select="/"/>
 
   <xsl:variable name="docs" select="document('../../src/documents.xml')"/>
@@ -356,7 +336,6 @@ $Id$
 </xsl:template>
 
 
-
 <xsl:template match="preface|chapter|appendix" mode="navElement">     
   <!-- write index for components (chapter/appendix) -->
   <xsl:variable name="uid">
@@ -394,6 +373,11 @@ $Id$
                          'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
 </xsl:template>
 
+
+<!-- ==================================================================== -->
+
+<xsl:template name="user.preroot"/>
+
 <!-- ==================================================================== -->
 
 <xsl:template name="system.head.content">
@@ -404,12 +388,9 @@ $Id$
 </xsl:template>
 
 <xsl:template name="user.head.content">
-  <meta name="MSSmartTagsPreventParsing" content="true" />
   <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
   <meta http-equiv="Expires" content="0" />
-
-  <script src="../javascripts/modernizr.foundation.js"></script>
-  
+  <script src="../javascripts/modernizr.foundation.js" />
 </xsl:template>
 
 
@@ -423,7 +404,6 @@ $Id$
     </div>
   </xsl:if>
 </xsl:template>
-
 
 <xsl:template name="user.footer.navigation">
   <xsl:if test="$nisp.lifecycle.stage != 'release'">
@@ -444,7 +424,6 @@ $Id$
      Descr.: 
 
      .................................................................... -->
-
 
 <xsl:template name="chunk-element-content">
   <xsl:param name="prev"/>
@@ -503,6 +482,63 @@ $Id$
 </xsl:template>
 
 
-<!-- ==================================================================== -->
+<!-- =================================================================== -->
+
+<!-- Simpliefied template originally taken from 
+     xhtml/chunker.xsl (1.77.1) Id 9147 2011-11-12 00:05:44Z bobstayton
+
+     We have extracted the part of the template, which generates saxon output and with empty 
+     doctype declaration and empty media-type and finaly extended the saxon:output element with
+     a saxon:next-in-chain attribute.
+-->
+
+<xsl:template name="write.chunk">
+  <xsl:param name="filename" select="''"/>
+  <xsl:param name="quiet" select="$chunk.quietly"/>
+  <xsl:param name="suppress-context-node-name" select="0"/>
+  <xsl:param name="message-prolog"/>
+  <xsl:param name="message-epilog"/>
+
+  <xsl:param name="method" select="$chunker.output.method"/>
+  <xsl:param name="encoding" select="$chunker.output.encoding"/>
+  <xsl:param name="indent" select="$chunker.output.indent"/>
+  <xsl:param name="omit-xml-declaration" select="$chunker.output.omit-xml-declaration"/>
+  <xsl:param name="standalone" select="$chunker.output.standalone"/>
+  <xsl:param name="doctype-public" select="$chunker.output.doctype-public"/>
+  <xsl:param name="doctype-system" select="$chunker.output.doctype-system"/>
+  <xsl:param name="media-type" select="$chunker.output.media-type"/>
+  <xsl:param name="cdata-section-elements" select="$chunker.output.cdata-section-elements"/>
+
+  <xsl:param name="content"/>
+
+  <xsl:if test="$quiet = 0">
+    <xsl:message>
+      <xsl:if test="not($message-prolog = '')">
+        <xsl:value-of select="$message-prolog"/>
+      </xsl:if>
+      <xsl:text>Writing </xsl:text>
+      <xsl:value-of select="$filename"/>
+      <xsl:if test="name(.) != '' and $suppress-context-node-name = 0">
+        <xsl:text> for </xsl:text>
+        <xsl:value-of select="name(.)"/>
+        <xsl:if test="@id or @xml:id">
+          <xsl:text>(</xsl:text>
+          <xsl:value-of select="(@id|@xml:id)[1]"/>
+          <xsl:text>)</xsl:text>
+        </xsl:if>
+      </xsl:if>
+      <xsl:if test="not($message-epilog = '')">
+        <xsl:value-of select="$message-epilog"/>
+      </xsl:if>
+    </xsl:message>
+  </xsl:if>
+
+  <saxon:output saxon:character-representation="{$saxon.character.representation}" href="{$filename}" method="{$method}"
+         encoding="{$encoding}" indent="{$indent}" omit-xml-declaration="{$omit-xml-declaration}"
+         cdata-section-elements="{$cdata-section-elements}" standalone="{$standalone}"
+         saxon:next-in-chain="html5.xsl">
+    <xsl:copy-of select="$content"/>
+  </saxon:output>
+</xsl:template>
 
 </xsl:stylesheet>

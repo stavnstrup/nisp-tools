@@ -26,20 +26,11 @@ $Id
 
 <xsl:import href="../common/common.xsl"/>
 
+<xsl:output  omit-xml-declaration="yes"/>
 
 <!-- Set method to html to avoid Saxon for printing an XML Decl to stdout -->
-<xsl:output method="html"/>
-
-<!--
-<xsl:param name="doctype-public"
-           select="'-//W3C//DTD XHTML 1.0 Transitional//EN'"/>
-
-<xsl:param name="doctype-system" 
-           select="'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'"/>
--->
 
 <xsl:param name="encoding" select="'UTF-8'"/>
-
 
 <xsl:template name="mkLetterBar">
   <div xmlns="http://www.w3.org/1999/xhtml" class="letterBar">
@@ -91,8 +82,7 @@ $Id
   <xsl:document href="{$documentname}"
                 method="saxon:xhtml" indent="yes"
                 omit-xml-declaration="yes"
-                encoding="{$encoding}">
-    <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
+                encoding="{$encoding}" saxon:next-in-chain="html5.xsl">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
       <meta charset="UTF-8" />

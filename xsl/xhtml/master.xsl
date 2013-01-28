@@ -8,12 +8,10 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
               intendet for the NISP XHTML "container" documents
               in src/master/.
 
-              Copyright (C) 2001,2012 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
+              Copyright (C) 2001,2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
-
-$Id $
 
 -->
 
@@ -24,19 +22,11 @@ $Id $
 
 
 <xsl:import href="../docbook-xsl/xhtml5/docbook.xsl"/>
-
 <xsl:import href="../common/common.xsl"/>
-
 <xsl:import href="html-common.xsl"/>
 
 
-<xsl:output method="saxon:xhtml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
-
-<!--
-            doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
-            doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
--->
-
+<xsl:output output="saxon:xhtml" saxon:next-in-chain="html5.xsl"/>
 
 <!-- ==================================================================== -->
 <!--  Global parameters used to modify the functionality of the DocBook   -->
@@ -46,7 +36,6 @@ $Id $
 <!-- ToC/LoT/Index Generation -->
 
 <xsl:variable name="toc.section.depth">3</xsl:variable>
-
 
 <!-- Extensions -->
 
@@ -169,6 +158,9 @@ $Id $
   </div>
 </xsl:template>
 
+<!-- ==================================================================== -->
+
+<xsl:template name="user.preroot"/>
 
 
 <!-- ==================================================================== -->
@@ -181,7 +173,6 @@ $Id $
 </xsl:template>
 
 <xsl:template match="chapter">
-  <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8" />
@@ -196,8 +187,8 @@ $Id $
     <meta http-equiv="Content-Language" content="en-uk" />
 -->
     <meta name="MSSmartTagsPreventParsing" content="true" />
+    <script type="text/javascript" src="javascripts/modernizr.foundation.js"></script>
     <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
-    <script src="javascripts/modernizr.foundation.js"/>
 <!--
       #tophead { background-image: url(images/cgey/logo_NATO-top.gif); }
       #bottomhead { background-image: url(images/cgey/logo_NATO-bottom.gif); }
@@ -224,9 +215,9 @@ $Id $
       </div>
     </div>
     <xsl:call-template name="copyright.notice"/>
-    <script src="javascripts/jquery.js"/>
-    <script src="javascripts/foundation.min.js"/>
-    <script src="javascripts/app.js"/>
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/foundation.min.js"></script>
+    <script type="text/javascript" src="javascripts/app.js"></script>
   </body>
   </html>
 </xsl:template>
