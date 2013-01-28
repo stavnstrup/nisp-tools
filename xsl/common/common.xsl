@@ -66,16 +66,20 @@
 
   <header xmlns="http://www.w3.org/1999/xhtml" id="header">
     <div class="row">
-      <nav class="twelve columns" id="tophead">
-        <ul class="nav-bar right hide-for-small" id="quickbar">
-          <li><a href="{$prefix}index.html">Home</a></li>
-          <li><a href="{$prefix}acronyms/index.html">Acronyms</a></li>
-          <li><a href="{$prefix}member.html">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="twelve columns">
+        <nav id="tophead">
+          <ul class="nav-bar right hide-for-small" id="quickbar">
+            <li><a href="{$prefix}index.html">Home</a></li>
+            <li><a href="{$prefix}acronyms/index.html">Acronyms</a></li>
+            <li><a href="{$prefix}member.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
     <div class="row">
-      <div class="twelve columns" id="bottomhead"><span>NATO Interoperability Standards &amp; Profiles</span></div>
+      <div class="twelve columns">
+        <div id="bottomhead"><span>NATO Interoperability Standards &amp; Profiles</span></div>
+      </div>
     </div>
   </header>
 </xsl:template>
@@ -88,10 +92,8 @@
   <xsl:variable name="bookid" select="/book/@id"/>
 
   <div xmlns="http://www.w3.org/1999/xhtml" class="row">
-<!--
     <div class="twelve columns">
       <div class="contain-to-grid">
--->
         <nav  class="top-bar" id="menubar">
           <ul>
             <li class="name"><h1><a href="../index.html">NISP</a></h1></li>
@@ -124,21 +126,21 @@
             </ul>
           </section>
         </nav>
-<!--
       </div>
     </div>
--->
   </div>
 </xsl:template>  
 
 
 <xsl:template name="copyright.notice">
   <div xmlns="http://www.w3.org/1999/xhtml" class="row">
-    <div class="twelve columns" id="footer">
-      <xsl:text>Copyright &#x00A9; NATO - OTAN </xsl:text>
-      <xsl:value-of select="$copyright.years"/>
-      <xsl:text> | </xsl:text>
-      <a href="disclaimer.html">Disclaimer</a>
+    <div class="twelve columns">
+      <div id="footer">
+        <xsl:text>Copyright &#x00A9; NATO - OTAN </xsl:text>
+        <xsl:value-of select="$copyright.years"/>
+        <xsl:text> | </xsl:text>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
     </div>
   </div>
 </xsl:template>
