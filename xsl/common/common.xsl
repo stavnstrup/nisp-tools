@@ -88,51 +88,46 @@
   <xsl:variable name="bookid" select="/book/@id"/>
 
   <div xmlns="http://www.w3.org/1999/xhtml" class="row">
-    <nav  class="top-bar" id="menubar">
-      <ul>
-        <li class="name"><h1><a href="../index.html">NISP</a></h1></li>
-        <li class="toggle-topbar"><a href="#"></a></li>
-      </ul>
-      <section>
-        <ul class="left">
-          <xsl:for-each select="$docs//docinfo">
-            <li>
-              <a>
-                <xsl:attribute name="href">
-                  <xsl:value-of select="$prefix"/>
-                  <xsl:value-of select="../@dir"/>
-                  <xsl:text>/</xsl:text>
-                  <xsl:value-of select="./targets/target[@type='html']"/>
-                </xsl:attribute>
+<!--
+    <div class="twelve columns">
+      <div class="contain-to-grid">
+-->
+        <nav  class="top-bar" id="menubar">
+          <ul>
+            <li class="name"><h1><a href="../index.html">NISP</a></h1></li>
+            <li class="toggle-topbar"><a href="#"></a></li>
+          </ul>
+          <section>
+            <ul class="left">
+              <xsl:for-each select="$docs//docinfo">
+                <li>
+                  <a>
+                    <xsl:attribute name="href">
+                      <xsl:value-of select="$prefix"/>
+                      <xsl:value-of select="../@dir"/>
+                      <xsl:text>/</xsl:text>
+                      <xsl:value-of select="./targets/target[@type='html']"/>
+                    </xsl:attribute>
 
-                <xsl:attribute name="title">
-                  <xsl:value-of select="./titles/longtitle"/>
-                </xsl:attribute>
-                <xsl:value-of select="./titles/title"/>
+                    <xsl:attribute name="title">
+                      <xsl:value-of select="./titles/longtitle"/>
+                    </xsl:attribute>
+                    <xsl:value-of select="./titles/title"/>
+                  </a>
+                </li>
+              </xsl:for-each>
+            </ul>
+            <ul class="right">
+              <li><a href="{$prefix}index.html">About NISP</a></li>
+              <li><a  href="{$prefix}userinfo.html">User Information</a></li>
+              <li><a href="{$prefix}introduction.html">Introduction</a></li>
+            </ul>
+          </section>
+        </nav>
 <!--
-                <span class="show-for-small">
-                  <xsl:text> - </xsl:text>
-                  <xsl:value-of select="./titles/longtitle"/>
-                </span>
+      </div>
+    </div>
 -->
-              </a>
-            </li>
-          </xsl:for-each>
-<!--
-          <li><a href="{$prefix}volume1/index.html">Vol 1</a></li>
-          <li><a href="{$prefix}volume2/index.html">Vol 2</a></li>
-          <li><a href="{$prefix}volume3/index.html">Vol 3</a></li>
-          <li><a href="{$prefix}volume4/index.html">Vol 4</a></li>
-          <li><a href="{$prefix}volume5/index.html">Vol 5</a></li>
--->
-        </ul>
-        <ul class="right">
-          <li><a href="{$prefix}index.html">About NISP</a></li>
-          <li><a  href="{$prefix}userinfo.html">User Information</a></li>
-          <li><a href="{$prefix}introduction.html">Introduction</a></li>
-        </ul>
-      </section>
-    </nav>
   </div>
 </xsl:template>  
 
