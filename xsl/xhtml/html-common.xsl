@@ -162,13 +162,15 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:template name="copyright.notice">
+  <xsl:param name="prefix" select="'../'"/>
+
   <div xmlns="http://www.w3.org/1999/xhtml" class="row">
     <div class="twelve columns">
       <div id="footer">
         <xsl:text>Copyright &#x00A9; NATO - OTAN </xsl:text>
         <xsl:value-of select="$copyright.years"/>
         <xsl:text> | </xsl:text>
-        <a href="disclaimer.html">Disclaimer</a>
+        <a href="{$prefix}disclaimer.html">Disclaimer</a>
       </div>
     </div>
   </div>

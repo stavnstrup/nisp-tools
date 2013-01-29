@@ -207,7 +207,9 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
         <xsl:call-template name="create-navbar"/>
       </div>
     </div>
-    <xsl:call-template name="copyright.notice"/>
+    <xsl:call-template name="copyright.notice">
+      <xsl:with-param name="prefix" select="''"/>
+    </xsl:call-template>
     <script type="text/javascript" src="javascripts/jquery.js"></script>
     <script type="text/javascript" src="javascripts/foundation.min.js"></script>
     <script type="text/javascript" src="javascripts/app.js"></script>
