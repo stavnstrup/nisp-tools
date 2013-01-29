@@ -7,8 +7,6 @@
 
 Make dynamic targets.
 
-$Id $
-
 -->
 
 <xsl:import href="common/common.xsl"/>
@@ -220,7 +218,7 @@ $Id $
   <property name="xsl-resolve-{$docid}" value="{$resolve}"/>
 
   <!-- HTML/PDF targets -->
-  <target name="{$docid}" description="* Create {$title} in XHTML and PDF" depends="{$docid}.html, {$docid}.pdf"/>
+  <target name="{$docid}" description="* Create {$title} in HTML5 and PDF" depends="{$docid}.html, {$docid}.pdf"/>
 
   <!-- Validate targets -->
 <!--
@@ -243,7 +241,7 @@ $Id $
   <xsl:call-template name="getFIGS"/>
 -->
 
-  <!-- XHTML targets -->
+  <!-- HTML5 targets -->
   <xsl:call-template name="makeHTML"/>
 
   <!-- PDF target -->
@@ -699,7 +697,7 @@ $Id $
 </xsl:template>
 
 <!-- =================================================================== -->
-<!-- Create XHTML targets                                                -->
+<!-- Create HTML5 targets                                                -->
 <!-- =================================================================== -->
 
 <xsl:template name="makeHTML">
@@ -746,10 +744,10 @@ $Id $
     </uptodate>
   </target>
 
-  <target name="{$docid}.html" description="* Create {$title} in XHTML" 
+  <target name="{$docid}.html" description="* Create {$title} in HTML5" 
           depends="svg, {$docid}.resolve, {$docid}.html.check" 
           unless="{$docid}-html.notRequired">
-    <echo message="Create {$title} as chunked XHTML pages"/>
+    <echo message="Create {$title} as chunked HTML5 pages"/>
     <java fork="yes">
       <xsl:attribute name="classname">
         <xsl:text>${xslt.class}</xsl:text>
