@@ -28,6 +28,7 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:import href="../docbook-xsl/xhtml5/chunk.xsl"/>
 <xsl:import href="../common/common.xsl"/>
+<xsl:import href="html-common.xsl"/>
 
 <xsl:output omit-xml-declaration="yes"/>
 

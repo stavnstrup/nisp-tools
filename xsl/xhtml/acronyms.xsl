@@ -13,7 +13,7 @@ Description : This stylesheet is created for the NATO Interoperability
               Standards and profilesTechnical Architecture, and is
               intended for the creation of the acronyms pages.
 
-              Copyright (C) 2001,2012 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
+              Copyright (C) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and
               NATO Command, Control and Consultation Organisation.(NC3O)
@@ -24,9 +24,13 @@ $Id
 
 <!-- ==================================================================== -->
 
-<xsl:import href="../common/common.xsl"/>
+
+<xsl:import href="html-common.xsl"/>
 
 <xsl:output  omit-xml-declaration="yes"/>
+
+
+<xsl:template name="anchor"/>
 
 <!-- Set method to html to avoid Saxon for printing an XML Decl to stdout -->
 

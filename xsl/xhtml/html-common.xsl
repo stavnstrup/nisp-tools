@@ -3,9 +3,7 @@
 This stylesheet is created for the NATO Interoperability Standards and
 Profiles (NISP), and contains intended for the one-page HTML version.
 
-Copyright (c) 2001, 2012 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
-
-$Id $
+Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -13,7 +11,11 @@ $Id $
                 version='1.1'
                 exclude-result-prefixes="#default">
 
+
+<xsl:import href="../common/common.xsl"/>
+
 <!-- parameters for output media -->
+
 
 
 
@@ -87,6 +89,90 @@ $Id $
   </p>
 </xsl:template>
 
+
+<xsl:template name="create-header">
+  <xsl:param name="prefix" select="'../'"/>
+
+  <header xmlns="http://www.w3.org/1999/xhtml" id="header" class="hide-for-small">
+    <div class="row">
+      <div class="twelve columns">
+        <nav id="tophead">
+          <ul class="nav-bar right" id="quickbar">
+            <li><a href="{$prefix}index.html">Home</a></li>
+            <li><a href="{$prefix}acronyms/index.html">Acronyms</a></li>
+            <li><a href="{$prefix}member.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <div id="bottomhead"><span>NATO Interoperability Standards &amp; Profiles</span></div>
+      </div>
+    </div>
+  </header>
+</xsl:template>
+
+
+<xsl:template name="create-menubar">
+  <xsl:param name="prefix" select="'../'"/>
+
+  <xsl:variable name="docs" select="document('../../src/documents.xml')"/>
+  <xsl:variable name="bookid" select="/book/@id"/>
+
+  <div xmlns="http://www.w3.org/1999/xhtml" class="row">
+    <div class="twelve columns">
+      <div class="contain-to-grid">
+        <nav  class="top-bar" id="menubar">
+          <ul>
+            <li class="name"><h1><a href="{$prefix}index.html">NISP</a></h1></li>
+            <li class="toggle-topbar"><a href="#"></a></li>
+          </ul>
+          <section>
+            <ul class="left">
+              <xsl:for-each select="$docs//docinfo">
+                <li>
+                  <a>
+                    <xsl:attribute name="href">
+                      <xsl:value-of select="$prefix"/>
+                      <xsl:value-of select="../@dir"/>
+                      <xsl:text>/</xsl:text>
+                      <xsl:value-of select="./targets/target[@type='html']"/>
+                    </xsl:attribute>
+
+                    <xsl:attribute name="title">
+                      <xsl:value-of select="./titles/longtitle"/>
+                    </xsl:attribute>
+                    <xsl:value-of select="./titles/title"/>
+                  </a>
+                </li>
+              </xsl:for-each>
+            </ul>
+            <ul class="right">
+              <li><a href="{$prefix}index.html">About NISP</a></li>
+              <li><a  href="{$prefix}userinfo.html">User Information</a></li>
+              <li><a href="{$prefix}introduction.html">Introduction</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+    </div>
+  </div>
+</xsl:template>  
+
+
+<xsl:template name="copyright.notice">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="row">
+    <div class="twelve columns">
+      <div id="footer">
+        <xsl:text>Copyright &#x00A9; NATO - OTAN </xsl:text>
+        <xsl:value-of select="$copyright.years"/>
+        <xsl:text> | </xsl:text>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</xsl:template>
 
  
 </xsl:stylesheet>

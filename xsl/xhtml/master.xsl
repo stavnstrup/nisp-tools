@@ -8,7 +8,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
               intendet for the NISP XHTML "container" documents
               in src/master/.
 
-              Copyright (C) 2001,2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
+              Copyright (C) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
@@ -53,12 +53,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
 <xsl:param name="section.label.includes.component.label" select="0"/>
 
 
-
 <!-- HTML -->
-
-
-
-
 
 <xsl:param name="css.decoration" select="0"/>
 
@@ -74,7 +69,6 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
 
 <xsl:param name="docbook.css.source"></xsl:param>
 <xsl:param name="html.ext">.html</xsl:param>
-
 
 
 <xsl:param name="chunk.section.depth" select="1"/>
@@ -135,7 +129,6 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
             <li>
               <a>
                 <xsl:attribute name="href">
-                  <xsl:text></xsl:text>
                   <xsl:value-of select="../@dir"/>
                   <xsl:text>/</xsl:text>
                   <xsl:value-of select="./targets/target[@type='html']"/>
