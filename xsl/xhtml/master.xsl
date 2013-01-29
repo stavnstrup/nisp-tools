@@ -153,7 +153,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
           </xsl:for-each>
         </xsl:otherwise>
       </xsl:choose>
-      <li><img src="images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
+      <li class="hide-for-small"><img src="images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
     </ul>
   </div>
 </xsl:template>

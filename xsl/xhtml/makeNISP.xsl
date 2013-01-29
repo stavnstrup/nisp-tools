@@ -329,7 +329,7 @@ Description : This stylesheet is a customization of Norman Walsh
         </xsl:choose>
       </li>
     </xsl:for-each>
-    <li><img src="../images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
+    <li class="hide-for-small"><img src="../images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
   </ul>
 </xsl:template>
 

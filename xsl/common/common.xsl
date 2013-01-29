@@ -64,11 +64,11 @@
 <xsl:template name="create-header">
   <xsl:param name="prefix" select="'../'"/>
 
-  <header xmlns="http://www.w3.org/1999/xhtml" id="header">
+  <header xmlns="http://www.w3.org/1999/xhtml" id="header" class="hide-for-small">
     <div class="row">
       <div class="twelve columns">
         <nav id="tophead">
-          <ul class="nav-bar right hide-for-small" id="quickbar">
+          <ul class="nav-bar right" id="quickbar">
             <li><a href="{$prefix}index.html">Home</a></li>
             <li><a href="{$prefix}acronyms/index.html">Acronyms</a></li>
             <li><a href="{$prefix}member.html">Contact</a></li>
