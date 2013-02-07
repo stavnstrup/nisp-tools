@@ -92,6 +92,7 @@ $Id
       <meta charset="UTF-8" />
       <meta http-equiv="Content-Language" content="en-uk" />
       <meta name="viewport" content="width=device-width" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <title>NC3 Acronyms</title>
       <link rel="stylesheet" href="../css/foundation.min.css"  type="text/css" media="all" /> 
       <link rel="stylesheet" href="../css/nisp.css" type="text/css" media="all" />
