@@ -115,7 +115,7 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <div class="contain-to-grid">
           <nav  class="top-bar">
             <ul>
-              <li class="name"><a href="{$prefix}index.html">Home</a></li>
+              <li class="name"><a href="{$prefix}index.html">NISP</a></li>
               <li class="toggle-topbar"><a href="#"></a></li>
             </ul>
             <section>
