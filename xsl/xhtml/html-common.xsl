@@ -94,11 +94,8 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:param name="prefix" select="'../'"/>
 
   <header xmlns="http://www.w3.org/1999/xhtml" id="header" class="hide-for-small">
-    <div class="row">
-      <div class="twelve columns">
-        <div id="bottomhead"><span>NATO Interoperability Standards and Profiles</span></div>
-      </div>
-    </div>
+    <div class="nisp">NATO Interoperability Standards and Profiles</div>
+    <div class="banner"/>
   </header>
 </xsl:template>
 
