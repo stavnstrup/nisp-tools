@@ -88,7 +88,6 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
 
 <xsl:template name="system.head.content">
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Language" content="en-uk" />
   <meta name="viewport" content="width=device-width" />
 </xsl:template>
  
@@ -174,22 +173,9 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />    
 
     <title><xsl:value-of select="./chapterinfo/title"/></title>
-    <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/nisp.css" type="text/css" media="all" />
-<!--
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-    <meta http-equiv="Content-Language" content="en-uk" />
--->
-    <meta name="MSSmartTagsPreventParsing" content="true" />
     <script type="text/javascript" src="javascripts/modernizr.foundation.js"></script>
     <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
-<!--
-      #tophead { background-image: url(images/cgey/logo_NATO-top.gif); }
-      #bottomhead { background-image: url(images/cgey/logo_NATO-bottom.gif); }
-      #menubar { background-image: url(images/cgey/menu_strook.gif); }
-      #taFooter { background-image: url(images/cgey/credit_strook.gif); }
-    </style>
--->
   </head>
   <body>
     <xsl:call-template name="create-header">
@@ -200,15 +186,12 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
     </xsl:call-template>
 
     <div class="row" id="container">
-      <div class="nine columns push-three" id="docbook">
+      <div class="twelve columns" id="docbook">
         <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
         <xsl:apply-templates/>
       </div>
-      <div class="three columns pull-nine" id="nav">
-        <xsl:call-template name="create-navbar"/>
-      </div>
     </div>
-    <xsl:call-template name="copyright.notice">
+    <xsl:call-template name="nisp.footer">
       <xsl:with-param name="prefix" select="''"/>
     </xsl:call-template>
     <script type="text/javascript" src="javascripts/jquery.js"></script>

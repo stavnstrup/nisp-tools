@@ -281,6 +281,11 @@ $Id$
       <fileset dir="${basedir}/xsl/javascripts"/>
     </copy>
 
+    <copy todir="${build.dir}/fonts" 
+      preservelastmodified="yes">
+      <fileset dir="${basedir}/xsl/fonts"/>
+    </copy>
+
     <copy todir="${build.dir}/images" 
       preservelastmodified="yes">
       <fileset dir="${basedir}/xsl/images"/>
@@ -351,7 +356,7 @@ $Id$
      </uptodate>
   </target>
 
-  <target name="master" description="* Create the NISP master documents" 
+  <target name="master" description="* Create the NISP master documents as HTML5 pages" 
           depends="master-check" unless="master.notRequired">
     <echo message="Creating the NISP master documents"/>
 <!--
@@ -398,7 +403,7 @@ $Id$
   </target>
 
   <target name="acronyms" 
-          description="* Create the acronyms as chunked XHTML pages"
+          description="* Create the acronyms as chunked HTML5 pages"
           depends="init, acronyms-check" unless="acronyms.notrequired">
     <echo message="Create the acronyms as chunked XHTML pages"/>
 <!--

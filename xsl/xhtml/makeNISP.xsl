@@ -39,13 +39,10 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <!-- ToC/LoT/Index Generation -->
 
-<xsl:variable name="toc.section.depth">0</xsl:variable>
+<xsl:variable name="toc.section.depth">3</xsl:variable>
 
 <xsl:param name="generate.toc">
-  chapter  toc
-  sect1    toc
-  sect2    toc
-  appendix toc
+  book toc
 </xsl:param>
 
 <xsl:param name="generate.index" select="0"/>
@@ -101,14 +98,6 @@ Description : This stylesheet is a customization of Norman Walsh
 
 
 <!-- Chunking -->
-
-<!--
-<xsl:param name="chunker.output.doctype-public"
-           select="'-//W3C//DTD XHTML 1.0 Transitional//EN'"/>
-
-<xsl:param name="chunker.output.doctype-system" 
-           select="'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'"/>
--->
 
 <xsl:param name="docbook.css.source"></xsl:param>
 
@@ -206,26 +195,35 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:template name="book.titlepage.separator"/>
 
+
 <xsl:template match="corpauthor" mode="titlepage.mode">
-  <div class="{name(.)}">AdatP-34(<xsl:value-of select="$adatp34edition"/>)
-    <xsl:apply-templates select="..//revision[1]/revnumber" 
-       mode="titlepage.mode"/> [<xsl:apply-templates 
+  <div class="{name(.)}">
+    <div>AdatP-34(<xsl:value-of select="$adatp34edition"/>)</div>
+    <div><xsl:apply-templates select="..//revision[1]/revnumber" 
+       mode="titlepage.mode"/></div>
+    <div><xsl:apply-templates 
        select="..//revision[1]/date" 
-       mode="titlepage.mode"/>] - <xsl:value-of select="."/>
+       mode="titlepage.mode"/>]</div>
+    <div><xsl:value-of select="."/></div>
   </div>
 </xsl:template>
 
+
 <xsl:template match="book" mode="titlepage.mode"/>
+
 
 <xsl:template match="//*/bookinfo/subtitle" mode="titlepage.mode">
   <xsl:variable name="volume">
     <xsl:apply-templates select="../volumenum" mode="titlepage.mode"/>
   </xsl:variable>
-  <div class="book-subtitle"><xsl:if test="$volume &lt; 6">VOLUME <xsl:number 
-       format="I" value="$volume"/> - </xsl:if><xsl:apply-templates 
-       mode="titlepage.mode"/>
+  <div class="book-subtitle">
+     <div><xsl:if test="$volume &lt; 6">VOLUME <xsl:number 
+       format="I" value="$volume"/></xsl:if></div>
+     <div><xsl:apply-templates 
+       mode="titlepage.mode"/></div>
   </div>
 </xsl:template>
+
 
 <xsl:template match="revhistory"  mode="book.titlepage.recto.auto.mode"/>
 
@@ -263,7 +261,7 @@ Description : This stylesheet is a customization of Norman Walsh
 
 
 <!-- ==================================================================== -->
-<!-- Create navigation bar                                                -->
+<!-- Create navigation bar (Sidebar)                                      -->
 
 <xsl:template name="create-navbar">
   <xsl:variable name="docroot" select="/"/>
@@ -381,10 +379,11 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:template name="system.head.content">
   <meta charset="UTF-8" />
+<!--
   <meta http-equiv="Content-Language" content="en-uk" />
+-->
   <meta name="viewport" content="width=device-width" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <link rel="stylesheet" href="../css/foundation.min.css"/>
 </xsl:template>
 
 <xsl:template name="user.head.content">
@@ -447,7 +446,7 @@ Description : This stylesheet is a customization of Norman Walsh
       <xsl:call-template name="create-header"/>
       <xsl:call-template name="create-menubar"/>
       <div class="row" id="container">
-        <div class="nine columns push-three" id="docbook">
+        <div class="twelve columns" id="docbook">
           <xsl:call-template name="user.header.navigation"/>
 
           <xsl:call-template name="header.navigation">
@@ -469,17 +468,43 @@ Description : This stylesheet is a customization of Norman Walsh
           </xsl:call-template>
           <xsl:call-template name="user.footer.navigation"/>
         </div>
-        <div class="three columns pull-nine" id="nav">
-          <xsl:call-template name="create-navbar"/>
-        </div>
       </div>
-      <xsl:call-template name="copyright.notice"/>
+      <xsl:call-template name="nisp.footer"/>
       <script src="../javascripts/jquery.js"/>
       <script src="../javascripts/foundation.min.js"/>
       <script src="../javascripts/app.js"/>
     </body>
   </html>
 </xsl:template>
+
+
+
+
+<!-- =================================================================== -->
+
+<xsl:template name="navig.content">
+  <xsl:param name="direction" select="next"/>
+  <xsl:choose>
+    <xsl:when test="$direction = 'prev'">
+      <i class="foundicon-left-arrow"></i>
+    </xsl:when>
+    <xsl:when test="$direction = 'next'">
+      <i class="foundicon-right-arrow"></i>
+    </xsl:when>
+    <xsl:when test="$direction = 'up'">
+      <i class="foundicon-up-arrow"></i>
+    </xsl:when>
+    <xsl:when test="$direction = 'home'">
+      <i class="foundicon-home"></i>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>xxx</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+
 
 
 <!-- =================================================================== -->
