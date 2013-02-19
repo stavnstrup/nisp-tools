@@ -203,7 +203,7 @@ Description : This stylesheet is a customization of Norman Walsh
        mode="titlepage.mode"/></div>
     <div><xsl:apply-templates 
        select="..//revision[1]/date" 
-       mode="titlepage.mode"/>]</div>
+       mode="titlepage.mode"/></div>
     <div><xsl:value-of select="."/></div>
   </div>
 </xsl:template>
