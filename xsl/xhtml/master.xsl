@@ -93,62 +93,6 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
  
 
 
-<!-- ==================================================================== -->
-<!--          Create NavigationBar for master documents                   -->
-<!-- ==================================================================== -->
-
-
-<xsl:template name="create-navbar">
-
-  <xsl:variable name="menu" select="/processing-instruction('menu')"/>
-
-  <div id="nav" xmlns="http://www.w3.org/1999/xhtml">
-    <ul>
-      <xsl:choose>
-        <xsl:when test="$menu='contact'">
-          <li id="menuhead">Contacts</li>
-          <li><a href="userinfo.html">User information</a></li>
-          <li><a href="introduction.html">Introduction</a></li>
-          <li><a href="member.html">Becoming a member</a></li>
-        </xsl:when>
-
-        <xsl:when test="$menu='disclaimer'">
-          <li id="menuhead">Disclaimer</li>
-        </xsl:when>
-
-        <xsl:otherwise>
-          <li id="menuhead">NISP Volumes</li>
-       
-          <xsl:variable name="docs" select="document('../../src/documents.xml')"/>
-          <xsl:variable name="bookid" select="/book/@id"/>
-
-          <li><a href="about.html">About the volumes</a></li>
-
-          <xsl:for-each select="$docs//docinfo">
-            <li>
-              <a>
-                <xsl:attribute name="href">
-                  <xsl:value-of select="../@dir"/>
-                  <xsl:text>/</xsl:text>
-                  <xsl:value-of select="./targets/target[@type='html']"/>
-                </xsl:attribute>
-                <xsl:attribute name="title">
-                  <xsl:value-of select="./titles/longtitle"/>
-                </xsl:attribute>
-                <xsl:value-of select="./titles/short"/>
-                <xsl:if test="not(./titles/short='')">
-                  <xsl:text> - </xsl:text>
-                </xsl:if>
-                <xsl:value-of select="./titles/longtitle"/>
-              </a>
-            </li>
-          </xsl:for-each>
-        </xsl:otherwise>
-      </xsl:choose>
-      <li class="hide-for-small"><img src="images/menu_icon-onder.gif" alt="NATO Logo" width="195" height="72"/></li>
-    </ul>
-  </div>
-</xsl:template>
 
 <!-- ==================================================================== -->
 
@@ -186,10 +130,27 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
     </xsl:call-template>
 
     <div class="row" id="container">
-      <div class="twelve columns" id="docbook">
-        <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
-        <xsl:apply-templates/>
-      </div>
+      <xsl:choose>
+        <xsl:when test="@condition='PDFcoverdoc'">
+          <div class="twelve columns" id="docbook">
+            <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
+            <xsl:apply-templates/>
+          </div>
+        </xsl:when>
+        <xsl:otherwise>
+          <div class="nine columns" id="docbook">
+            <xsl:apply-templates select="chapterinfo" mode="titlepage.mode"/>
+            <xsl:apply-templates/>
+          </div>
+          <div class="three columns">
+            <div class="panel getpdf">
+              <h5>NISP in PDF</h5>
+              <p>Get all NISP volumes as PDF files.</p>
+              <a class="small button" href="PDFcoverdoc.html">Get PDF</a>
+            </div>
+          </div>
+        </xsl:otherwise>
+	</xsl:choose>
     </div>
     <xsl:call-template name="nisp.footer">
       <xsl:with-param name="prefix" select="''"/>

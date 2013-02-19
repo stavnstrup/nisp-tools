@@ -19,8 +19,16 @@
 
   <target name="all" depends="newbuild, olinks"/>
 
+  <target name="createPDFcoverdoc">
+    <java classname="${xslt.class}" fork="yes" dir="${basedir}">
+      <arg line="-o ${basedir}/src/master/PDFcoverdoc.xml ${basedir}/src/documents.xml 
+                  ${basedir}/xsl/PDFcoverdoc.xsl"/>
+      <classpath refid="saxon.classpath"/>
+    </java>
+  </target>
 
-  <target name="newbuild" description="* Update the build file">
+
+  <target name="newbuild" depends="createPDFcoverdoc" description="* Update the build file">
     <echo message="Create a new build fragment in file build.targets"/>
 
     <!-- Create a new build file -->
