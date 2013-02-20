@@ -60,8 +60,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <para>
       <ulink condition="check.lifecycle.postfix">
         <xsl:attribute name="url">
-          <xsl:text>pdf/NISP-</xsl:text>
-          <xsl:value-of select="@id"/>
+          <xsl:text>pdf/</xsl:text>
+          <xsl:value-of select=".//target[@type='pdf']"/>
           <xsl:text>-v</xsl:text>
           <xsl:value-of select="/documents/versioninfo/package/@major"/>
           <xsl:text>.pdf</xsl:text>
