@@ -85,6 +85,13 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
 
 <xsl:param name="id.warnings" select="0"/>
 
+<!-- Set by build file -->
+<xsl:param name="nisp.lifecycle.stage" select="''"/>
+<xsl:param name="nisp.lifecycle.postfix" select="''"/>
+<xsl:param name="nisp.class.label" select="''"/>
+<xsl:param name="nisp.release.label" select="''"/>
+
+
 
 <xsl:template name="system.head.content">
   <meta charset="UTF-8" />
@@ -163,10 +170,13 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
 </xsl:template>
 
 
-<xsl:template match="ulink[@condition='fix.for.internet']">
+<xsl:template match="ulink[@condition='check.lifecycle.postfix'] ">
   <xsl:variable name="new.file.name">
     <xsl:value-of select="substring-before(./@url,'.')"/>
-    <xsl:value-of select="$nisp.lifecycle.postfix"/>
+    <xsl:if test="$nisp.lifecycle.stage != 'draft'">
+      <xsl:text>-</xsl:text>
+      <xsl:value-of select="$nisp.lifecycle.stage"/>
+    </xsl:if>
     <xsl:text>.</xsl:text>
     <xsl:value-of select="substring-after(./@url,'.')"/>
   </xsl:variable>
