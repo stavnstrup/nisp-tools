@@ -44,7 +44,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <title/>
     <section><title>NISP in PDF</title>
 
-      <para>The following documents are of PDF versions of the NISP.</para>
+      <para>The following documents are PDF versions of the NISP.</para>
 
       <itemizedlist>
           <xsl:apply-templates select=".//docinfo"/>
