@@ -397,19 +397,23 @@ Description : This stylesheet is a customization of Norman Walsh
 
 
 <xsl:template name="user.header.navigation">
+<!--
   <xsl:if test="$nisp.lifecycle.stage != 'release'">
     <div class="classification">
       <xsl:value-of select="$class.label"/>
     </div>
   </xsl:if>
+-->
 </xsl:template>
 
 <xsl:template name="user.footer.navigation">
+<!--
   <xsl:if test="$nisp.lifecycle.stage != 'release'">
     <div class="classification">
       <xsl:value-of select="$class.label"/>
     </div>
   </xsl:if>
+-->
 </xsl:template>
 
 
