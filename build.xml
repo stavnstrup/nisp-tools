@@ -425,7 +425,7 @@ $Id$
 -->
     <java classname="${xslt.class}" fork="yes" dir="${build.acronyms}">
       <arg line="${xslt.opts} ${src.acronyms}/acronyms.xml 
-         ${xsl-xhtml.dir}/acronyms.xsl datestamp=${DSTAMP}"/>
+         ${xsl-xhtml.dir}/acronyms.xsl ${nisp.lifecycle.opts} datestamp=${DSTAMP}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>

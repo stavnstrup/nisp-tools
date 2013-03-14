@@ -27,6 +27,13 @@ Description : This stylesheet is created for the NATO Interoperability
 <xsl:param name="encoding" select="'UTF-8'"/>
 
 
+<!-- Set by build file -->
+<xsl:param name="nisp.lifecycle.stage" select="''"/>
+<xsl:param name="nisp.lifecycle.postfix" select="''"/>
+<xsl:param name="nisp.class.label" select="''"/>
+<xsl:param name="nisp.release.label" select="''"/>
+
+
 <xsl:template name="anchor"/>
 
 <!-- ==================================================================== -->
