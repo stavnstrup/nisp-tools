@@ -153,7 +153,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
             <div class="panel getpdf">
               <h5>NISP in PDF</h5>
               <p>Get all NISP volumes as PDF files.</p>
-              <a class="small button" href="PDFcoverdoc.html">Get PDF</a>
+              <div class="btn"><a class="small button" href="PDFcoverdoc.html">Get PDF</a></div>
             </div>
           </div>
         </xsl:otherwise>
