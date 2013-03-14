@@ -94,6 +94,15 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:param name="prefix" select="'../'"/>
 
   <header xmlns="http://www.w3.org/1999/xhtml" id="header" class="hide-for-small">
+    <xsl:if test="$nisp.lifecycle.stage != 'release'">
+      <div class="nisp-lifecycle-stage">
+        <xsl:text>NISP </xsl:text>
+        <xsl:choose>
+          <xsl:when test="$nisp.lifecycle.stage='draft'">DRAFT</xsl:when>
+          <xsl:when test="$nisp.lifecycle.stage='final'">FINAL DRAFT</xsl:when>
+	</xsl:choose>
+      </div>
+    </xsl:if>
     <div class="nisp">NATO Interoperability Standards and Profiles</div>
     <div class="banner"/>
   </header>
@@ -173,6 +182,15 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         </div>
       </div>
     </div>
+    <xsl:if test="$nisp.lifecycle.stage != 'release'">
+      <div class="nisp-lifecycle-stage">
+        <xsl:text>NISP </xsl:text>
+        <xsl:choose>
+          <xsl:when test="$nisp.lifecycle.stage='draft'">DRAFT</xsl:when>
+          <xsl:when test="$nisp.lifecycle.stage='final'">FINAL DRAFT</xsl:when>
+	</xsl:choose>
+      </div>
+    </xsl:if>
   </footer>
 </xsl:template>
 
