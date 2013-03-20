@@ -17,7 +17,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
                 exclude-result-prefixes="#default">
 
 
-<xsl:output method="xml" version="1.0" encoding="ISO-8859-1"
+<xsl:output method="xml" version="1.0" encoding="utf-8"
             doctype-public="-//OASIS//DTD DocBook XML V4.5//EN"
             doctype-system="../src/schema/dtd/docbkx45/docbookx.dtd"/>
 
