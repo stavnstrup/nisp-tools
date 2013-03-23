@@ -552,7 +552,8 @@ $Id$
   </target>
 
   <target name="htmlhelp"
-          description="* Create HTMLHelp version of the architecture">
+          description="* Create HTMLHelp version of the architecture"
+          if="hcc.present">
     <antcall target="chm"/>
     <antcall target="no.chm"/>
   </target>
