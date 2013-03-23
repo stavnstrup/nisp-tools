@@ -86,10 +86,6 @@ $Id$
   <property name="debug" value="off"/>
 
   <!-- Image conversion parameters -->
-<!--
-  <property name="nisp.image.ext" value="jpg"/>
-  <property name="nisp.image.mimetype" value="image/jpeg"/>
--->
   <property name="nisp.image.ext" value="png"/>
   <property name="nisp.image.mimetype" value="image/png"/>
 
@@ -161,13 +157,6 @@ $Id$
             value="-x org.apache.xml.resolver.tools.ResolvingXMLReader 
                    -y org.apache.xml.resolver.tools.ResolvingXMLReader
                    -r org.apache.xml.resolver.tools.CatalogResolver"/>
-
-<!--
-        -x org.apache.xml.resolver.tools.ResolvingXMLReader 
-        -y org.apache.xml.resolver.tools.ResolvingXMLReader
-        -r org.apache.xml.resolver.tools.CatalogResolver"/>
-
--->
 
   <!-- Allows XInclude procesing -->
   <property name="use.dom" 
@@ -406,23 +395,7 @@ $Id$
           description="* Create the acronyms as chunked HTML5 pages"
           depends="init, acronyms-check" unless="acronyms.notrequired">
     <echo message="Create the acronyms as chunked XHTML pages"/>
-<!--
-    <xslt basedir="${src.acronyms}" destdir="${build.acronyms}"
-          style="${xsl-xhtml.dir}/acronyms.xsl"
-          includes="${src.acronyms}/acronyms.xml">
 
-       <factory name="com.icl.saxon.TransformerFactoryImpl">
-         <attribute name="http://saxon.icl.com/feature/source_parser_class"
-                    value="com.sun.resolver.tools.ResolvingXMLReader"/>
-         <attribute name="http://saxon.icl.com/feature/style_parser_class"
-                    value="com.sun.resolver.tools.ResolvingXMLReader"/>
-         <attribute name="http://saxon.icl.com/feature/output_uri_reslver"
-                    value="com.sun.resolver.tools.CatalogResolver"/>
-       </factory>
-       <param name="nisp.lifecycle.stage" expression="${nisp.lifecycle.stage}"/>      
-       <param name="nisp.lifecycle.postfix" expression="${nisp.lifecycle.postfix}"/>
-    </xslt> 
--->
     <java classname="${xslt.class}" fork="yes" dir="${build.acronyms}">
       <arg line="${xslt.opts} ${src.acronyms}/acronyms.xml 
          ${xsl-xhtml.dir}/acronyms.xsl ${nisp.lifecycle.opts} datestamp=${DSTAMP}"/>
@@ -561,14 +534,8 @@ $Id$
 
   <target name="dbvalid">
     <xmlvalidate failonerror="no">
-<!--
-                 classname="org.apache.xerces.parsers.SAXParser">
--->
       <fileset dir="src/standards/" includes="standards.xml"/>
       <attribute name="http://xml.org/sax/features/namespaces" value="true"/>
-<!--
-     <xmlcatalog refid="allcatalogs"/>
--->
     </xmlvalidate>
   </target>
 
@@ -746,13 +713,6 @@ $Id$
         ${basedir}/xdocs/manual.xml ${xsl-fo.dir}/doc.xsl"/>
       <classpath refid="lib-saxon-classpath"/> 
     </java>
-<!--
-    <java classname="org.apache.fop.apps.Fop" fork="yes"
-          dir="${basedir}/docs">
-        <arg line=" manual.fo manual.pdf"/>
-        <classpath refid="lib-fop-classpath"/>
-    </java>
--->
     <fop basedir="${basedir}/docs/" fofile="${basedir}/docs/manual.fo" 
          outfile="${basedir}/docs/manual.pdf" format="application/pdf" 
          messagelevel="${fop.message}"/> 
