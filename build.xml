@@ -246,11 +246,44 @@ $Id$
   <!-- Creates output build directories and doc prerequistes               -->
   <!-- =================================================================== -->
 
-  <target name="init" depends="-newbuild">
+  <target name="-build-check">
+    <uptodate property="build-uptodate" targetfile="build.targets">
+       <srcfiles dir="${src.dir}" includes="documents.xml"/>
+       <srcfiles dir="${xsl-styles.dir}" includes="makebuild.xsl"/>
+    </uptodate>
+  </target>
+
+  <target name="-newbuild" depends="-build-check" unless="build-uptodate">
+    <fail message="Build file is not uptodate, please run: build -f newbuild.xml"/>
+  </target>
+
+
+  <target name="checkdb">
+    <mkdir dir="${build.dir}"/>
+    <java classname="${xslt.class}" fork="yes">
+       <arg line="-o ${build.dir}/build.uuid
+                  ${basedir}/src/standards/standards.xml
+                  ${xsl-styles.dir}/checkdb.xsl"/>
+       <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+  
+  <target name="-newdb" depends="checkdb">
+    <property file="${build.dir}/build.uuid"/>
+    <condition property="no-uuids-missing">
+      <equals arg1="${missing.uuids}" arg2="0"/>
+    </condition>
+    <fail message="Please run: build -f uuid-build.xml"
+          unless="no-uuids-missing"/>    
+  </target>
+
+  <target name="init" depends="-newbuild, -newdb">
     <echo  message="NISP Build system - ver. ${tool-version}. Released on ${tool-date}"/>
     <echo message="compiling sources ver. ${src-version}."/>
     <tstamp/>
     <mkdir dir="${build.dir}"/>
+    <!-- We do not need this file anymore -->
+    <delete file="${build.dir}/build.uuid"/>
 
     <mkdir dir="${build.acronyms}"/>
     <mkdir dir="${build.resolve}"/>
@@ -310,16 +343,6 @@ $Id$
   </target>
 
 
-  <target name="-build-check">
-    <uptodate property="build-uptodate" targetfile="build.targets">
-       <srcfiles dir="${src.dir}" includes="documents.xml"/>
-       <srcfiles dir="${xsl-styles.dir}" includes="makebuild.xsl"/>
-    </uptodate>
-  </target>
-
-  <target name="-newbuild" depends="-build-check" unless="build-uptodate">
-    <fail message="Build file is not uptodate, please run: build -f newbuild.xml"/>
-  </target>
 
 
 
@@ -427,18 +450,6 @@ $Id$
     </java>
   </target>
 
-  <!-- =================================================================== -->
-  <!-- Database                                                            -->
-  <!-- =================================================================== -->
-
-  <target name="checkdb">
-    <echo message="Checking standards DB"/>
-    <java classname="${xsltclass]" fork="yes">
-       <arg line="${basedir}/src/standards/standards.xml
-                  ${docbook-xsl.dir}/checkdb.xsl"/>
-       <classpath refid="lib-saxon-classpath"/>
-    </java>
-  </target>
 
   <!-- =================================================================== -->
   <!-- Targets                                                             -->

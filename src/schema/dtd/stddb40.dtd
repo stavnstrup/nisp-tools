@@ -122,7 +122,7 @@
 
 <!ELEMENT records ((standard | profile )*)>
 
-<!ELEMENT standard (document, applicability, status)>
+<!ELEMENT standard (document, applicability, status, uuid?)>
 <!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED>
@@ -180,10 +180,11 @@
           version CDATA   #REQUIRED>
 
 
+<!ELEMENT uuid (#PCDATA)>
 
 <!-- profile -->          
 
-<!ELEMENT profile (profilespec?, profilenote?, parts, configuration?,  applicability, status)>
+<!ELEMENT profile (profilespec?, profilenote?, parts, configuration?,  applicability, status, uuid?)>
 <!ATTLIST profile
           type (base | coi-minor | coi) "base"
           tag CDATA #REQUIRED

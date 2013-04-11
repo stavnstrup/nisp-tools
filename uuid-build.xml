@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+
+<project name="NISP-Build" default="updateDB" basedir=".">
+
+  <!-- XSLT Processor -->
+  <property name="xslt.class" value="com.icl.saxon.StyleSheet"/>
+
+  <path id="saxon.classpath">
+    <pathelement path="${basedir}/lib"/>
+    <fileset dir="${basedir}/lib">
+      <include name="**/xercesImpl*.jar"/>
+      <include name="**/xml-apis*.jar"/>
+      <include name="**/resolver*.jar"/>
+      <include name="**/saxon*.jar"/>
+    </fileset>
+  </path>
+
+
+  <target name="updateDB" description="* Create missing UUID elements">
+    <echo message="Create new UUID elements in standards and profiles"/>
+
+    <java classname="${xslt.class}" fork="yes" dir="${basedir}">
+      <arg line="-o ${basedir}/src/standards/standards.xml.new
+                 ${basedir}/src/standards/standards.xml 
+                 ${basedir}/xsl/makeUUID.xsl"/>
+      <classpath refid="saxon.classpath"/>
+    </java>
+    <move file="${basedir}/src/standards/standards.xml.new"
+          tofile="${basedir}/src/standards/standards.xml"/>
+  </target>
+
+</project>

@@ -3,13 +3,23 @@
                 version='1.1'
                 exclude-result-prefixes="#default">
 
+<xsl:output method="text"/>
 
 <xsl:template match="/">
-  <xsl:apply-templates select="standard"/>
+  <xsl:variable name="standards.wo.uuid" select="count(//standard[not(uuid)])"/>
+  <xsl:variable name="profiles.wo.uuid" select="count(//profile[not(uuid)])"/>
+  <xsl:if test="$standards.wo.uuid + $profiles.wo.uuid >0">
+    <xsl:message terminate="no">
+      <xsl:value-of select="$standards.wo.uuid"/>
+      <xsl:text> standards and </xsl:text>
+      <xsl:value-of select="$profiles.wo.uuid"/>
+      <xsl:text> profiles do not have an UUID element.</xsl:text>
+    </xsl:message>
+  </xsl:if>
+  <xsl:text>missing.uuids=</xsl:text>
+  <xsl:value-of select="$standards.wo.uuid + $profiles.wo.uuid"/>
 </xsl:template>
 
-<xsl:template match="standard">
-</xsl:template>
 
 
 </xsl:stylesheet>
