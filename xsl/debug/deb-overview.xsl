@@ -94,16 +94,6 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
   <p>This section describes all standards and profiles included in the database.</p>
 
-  <p>The database is organised in the following way. The database
-  consists of a number of <em>servicearea</em> elements. Each
-  <em>servicearea</em> consists of a number of
-  <em>serviceategories</em> elements, which again consists of a number
-  of <em>categories</em> In each <em>servicearea</em> the primary
-  elements are a <em>standardrecord</em>, <em>profilerecords</em> or
-  <em>referencerecord</em>. A <em>standardrecord</em> describes a
-  given <em>standard</em>, which also might contain sub standards. A
-  <em>profilerecord</em> describes a set of standards.</p>
-
   <p>In this overview, records with a red background are marked as
   deleted. Cells with a yellow background, indicates that that we
   properly don't have the information for this field. It will be
