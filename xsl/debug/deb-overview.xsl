@@ -9,7 +9,7 @@
 This stylesheet is created for the NISP , and is
 intended to create an overview of the starndard database.
 
-Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -92,19 +92,18 @@ Copyright (c) 2003, 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
   <h2>Standards</h2>
 
-  <p>This section describes all standards and profiles included in the database.</p>
+  <p>This page contains tables all standards and profiles included in
+  the database. The standards and profiles are sorted by IDs.</p>
 
   <p>In this overview, records with a red background are marked as
   deleted. Cells with a yellow background, indicates that that we
   properly don't have the information for this field. It will be
-  appreciated very much, if YOU will send this information to chairman
-  syndicate 2.</p>
+  appreciated very much, if YOU will send this information to the chairman
+  of syndicate 2.</p>
 
-  <p>These columns describes properties for a <em>standardrecord</em>,
-  <em>profilerecord</em> or a <em>referencerecord</em></p>
 
    <ul>
-     <li><b>Rec</b> - The position of the <i>standard</i> or <i>profile</i> in the database</li>
+     <li><b>Rec</b> - The sorted position of the <i>standard</i> or <i>profile</i> in the database</li>
      <li><b>ID</b> - What ID is associated with this <i>standard</i></li>
      <li><b>Type</b> - Is this a <i>coverstandard</i> (CS), a <i>single standard</i> (S) or a <i>sub standard</i> (SS)</li>
      <li><b>Org</b> - What organisation have published this <i>standard</i></li>
