@@ -2,11 +2,12 @@
 
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:saxon="http://icl.com/saxon"
                 version='1.1'
-                exclude-result-prefixes="#default">
+                exclude-result-prefixes="#default saxon">
   
 
-<xsl:output method="html" encoding="ISO-8859-1" indent="no"/>
+<xsl:output method="saxon:xhtml" encoding="ISO-8859-1" indent="no"/>
 
 
 <xsl:template match="table[@class='overview']/tr[position()>1]">
