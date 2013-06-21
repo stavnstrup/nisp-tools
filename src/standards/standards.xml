@@ -13746,6 +13746,28 @@
          <uuid>99286039-f795-4fb6-8b52-227fc77afb0d</uuid>
       </standard>
 
+      <standard id="ieee-802.1Q-2011" tag="VLAN">
+         <document date="2011" orgid="ieee" pubnum="802.1Q Revision 2011" title="Virtual Bridged Local Area Networks" />
+         <applicability>
+            <para>This standard specifies a general method for the operation of MAC 
+               Bridges that support the construction of Virtual LANs.</para>
+            <para>The standard provides common interoperable solutions to the 
+               establishment of Virtual LAN Bridged infrastructures. Revision is 
+               needed in order to deal with editorial and technical corrections, to 
+               remove obsolete material, and also to reflect changes necessary as a 
+               result of enhancements to IEEE Std 802.1D - Standard for Local and 
+               Metropolitan Area Networks: Media Access Control (MAC) Bridges, upon 
+               which IEEE Std 802.1Q depends</para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ieee802.org/1/pages/802.1Q-2011.html</uri>
+            <history>
+               <event date="2011-10-17" flag="added" rfcp="5-61" version="5.0" />
+               <event flag="added" date="2013-06-18" rfcp="" version="7.0"></event>
+            </history>
+         </status>
+         <uuid>7b12f0fa-d91e-4c2e-b6c9-3d1809139a04</uuid>
+      </standard>
       
       <standard id="ieee-802.1X" tag="RADIUS">
          <document date="2010-02-02" orgid="ieee" pubnum="802.1X" title="Port-Based Network Access Control" />
@@ -13793,8 +13815,10 @@
             </para>
          </applicability>
          <status mode="unknown">
+            <uri>http://www.ieee802.org/1/pages/802.1D.html</uri>
             <history>
                <event date="2012-09-02" flag="added" rfcp="6-33" version="7.0" />
+               <event flag="changed" date="2013-06-18" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>46ebd498-b433-4ffb-af2b-2b34442d9f66</uuid>
@@ -13804,11 +13828,15 @@
       <standard id="ieee-802.1s" tag="Multiple Spanning Trees">
          <document date="2002" orgid="ieee" pubnum="802.1S" title="Multiple Spanning Trees" />
          <applicability>
-            This standard extends the architecture, protocols, and algorithms specified
-            in IEEE 802.1Q, 1998 edition, to allow data traffic belonging to different
-            VLANs to be allocated to different spanning trees, while retaining interoperability
-            with bridges conformant to that prior specification. Now included in 802.1Q-2005.
-         </applicability>
+            IEEE 802 local area networks (LANs) of all types may be connected 
+            together with media access control (MAC) bridges. IEEE Std 802.1Q 
+            specifies the operation of virtual local area network (VLAN) bridges, 
+            which support VLAN operation within an IEEE 802 bridged LAN. This 
+            Supplement to IEEE Std 802.1Q adds the facility for VLAN bridges to use 
+            multiple spanning trees, providing for traffic belonging to different 
+            VLANs to flow over potentially different paths within the virtual 
+            bridged LAN. 
+          </applicability>
          <status mode="unknown">
             <uri>http://www.ieee802.org/1/pages/802.1s.html</uri>
             <history>
@@ -13965,7 +13993,7 @@
 
       
       <standard id="unknown-4G" tag="4G">
-         <document date="2008" orgid="ITU" pubnum="" title="International Mobile Telecommunications-Advanced (IMT-Advanced)" />
+         <document date="2012-01" orgid="ITU" pubnum="M.2012" title="International Mobile Telecommunications-Advanced (IMT-Advanced)" />
          <applicability>
             <para>
                In March 2008, the International Telecommunications Union-Radio
@@ -13996,9 +14024,11 @@
             </para>
          </applicability>
          <status mode="unknown">
+            <uri>http://www.itu.int/rec/R-REC-M.2012/en</uri>
             <history>
                <event date="2007-02-23" flag="added" version="1.0" />
                <event flag="changed" date="2012-11-05" rfcp="" version="6.0" />
+               <event flag="changed" date="2013-06-18" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>23551db7-cc95-4961-b047-3073d0bf17d3</uuid>
@@ -14067,10 +14097,11 @@
             of up to 250 km/h
          </applicability>
          <status mode="unknown">
-            <uri>http://standards.ieee.org/getieee802/download/802.20-2008.pdf</uri>
+            <uri>http://www.ieee802.org/20/Documents.htm</uri>
             <history>
                <event date="2007-02-23" flag="added" version="1.0" />
                <event flag="changed" date="2012-11-05" rfcp="" version="6.0" />
+               <event flag="changed" date="2013-06-18" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>664488b7-5cfa-499d-9063-27fd797bbde4</uuid>
@@ -14090,9 +14121,10 @@
             802.16e.
          </applicability>
          <status mode="unknown">
-            <uri>http://standards.ieee.org/findstds/standard/802.16e-2005.html</uri>
+            <uri>http://grouper.ieee.org/groups/802/16/tge/</uri>
             <history>
                <event date="2007-02-23" flag="added" version="1.0" />
+               <event flag="changed" date="2013-06-18" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>fe0221a0-2e12-48e5-bdc8-8baf93edaac1</uuid>
@@ -14158,8 +14190,10 @@
             </para>
          </applicability>
          <status mode="unknown">
+            <uri>http://ic.mycdt.se/projectweb/42c13bdf2e759/Flash%20OFDM.html</uri>
             <history>
                <event date="2007-02-23" flag="added" version="1.0" />
+               <event flag="changed" date="2013-06-18" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>fc12603e-92fc-48eb-923d-464d3cd3e336</uuid>
@@ -14254,10 +14288,11 @@
             in relation to the transport-level handling of data. (Definition from Wikipedia)
          </applicability>
          <status mode="unknown">
-            <uri>https://forge.gridforum.org/sf/docman/do/listDocuments/projects.ogsa-wg/docman.root</uri>
+            <uri>https://forge.gridforum.org/sf/docman/do/listDocuments/projects.ogsa-wg/docman.root.published_documents.ogsa_1_5</uri>
             <history>
                <event date="2007-02-23" flag="added" version="1.0" />
                <event flag="changed" date="2012-11-05" rfcp="" version="6.0" />
+				 <event flag="changed" date="2013-06-19" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>e7c9007e-5215-4aab-99e4-9899f70c492a</uuid>
@@ -14279,10 +14314,11 @@
             over their networks.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.osgi.org/</uri>
+            <uri>http://www.osgi.org/Download/Release4V41</uri>
             <history>
                <event date="2007-02-23" flag="added" version="1.0" />
                <event date="2010-11-04" flag="changed" version="4.0" />
+				 <event flag="changed" date="2013-06-19" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>84b9a970-46d2-475a-9068-7263edcc3ef6</uuid>
