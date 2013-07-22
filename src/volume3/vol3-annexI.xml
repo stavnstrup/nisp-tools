@@ -9,179 +9,159 @@
 "../schema/dtd/docbkx45/docbookx.dtd" [
 <!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
 ]>
+
 <appendix id="v3-i">
     <title>NATO Future Mission Network (FMN) Profile of NATO Interoperability
       Standards</title>
 
   <sect1>
-    <title>Purpose</title>
-
-    <para>NATO, through its interoperability directive, has recognized that widespread 
-    interoperability is a key component in achieving effective and efficient operations.
-    In many of the operations world-wide in which NATO nations are engaged, they 
-    participate together with a wide variety of other organizations on the ground.
-    Such organizations include coalition partners from non-NATO nations, Non-Governmental
-    Organization (NGOs - e.g. Aid Agencies) and industrial partners. The NATO Interoperability 
-    Standards and Profile (NISP) provides the necessary guidance and technical components
-    to support project implementations and transition to NATO Network Enabled Capability
-    (NNEC).</para>
-
-<para>The figure below characterizes the information environment and various scenarios that exist for exchanging operational information.  This environment, although rich in participation and basic connectivity, lacks fully meshed interoperability at the services layer.  This diagram represents the AMN environment, and the starting point for future mission network for NATO-led operations.  It is presumed for the purposes of this document that the AMN Profile will only address capabilities between the AMN Core and national AMN extensions.</para>
-
-<figure id="amnf1" float="0">
-          <title>AMN Information Environment</title>
+    <title>Aim</title>
+    <para>On 21 November, the Military Committee agreed the NATO Future Mission Network 
+      Concept<footnote><para>MCM-0125-2012, Future Mission Network Concept, dated 21 November 
+      20</para></footnote>. This document is intended to inform training and equipping 
+      investments to facilitate a nation or organization to lead or participate in a 
+      Federated Mission Network (FMN) instance.</para>
+    <para>The aim of the FMN Profile is to provide a generic minimum set of specifications 
+      which enable different members (nations or organizations) to promptly establish a 
+      federated environment for exchanging data and information under harmonized security 
+      policies across national/organizational boundaries and for providing and using
+      services to and from other members.</para>
+    <para>The FMN Profile provides a suite of interoperability standards and existing 
+      standardized profiles for interoperability of communications services and core enterprise
+      services in federated network in support of multinational (military) operations. It
+      places the required interoperability requirements, standards and specifications, to
+      include the related reference architecture elements, in context for those nations/organizations
+      providing for or participating in the FMN capability development.</para>
+    <para>Within the FMN Profile, interoperability standards and formats fall into four 
+      obligation categories:</para>
+    <itemizedlist>
+      <listitem><para>(M)andatory: these interoperability standards and formats must be adhered to in all FMN instances;</para></listitem>
+      <listitem><para>(C)onditional: these interoperability standards and formats must be present under certain circumstances;</para></listitem>
+      <listitem><para>(R)ecommended: there may be valid reasons in particular circumstances not to 
+        include these interoperability standards and formats, but the full implications must be
+        understood and carefully weighed; and</para></listitem>
+      <listitem><para>(O)ptional: these interoperability standards and formats are truly optional.</para></listitem>
+    </itemizedlist>
+    <para>Within the NATO context, this FMN Profile will also support the new MC 593/1 developed 
+      by the Land C3 Requirements Tiger Team (LC3R TT) which will provide a more detailed
+      applications and system catalogue. In their development, NHQC3S will ensure that the
+      FMN Concept, the FMN Profile and MC 593/1 remain consistent and mutually supporting.</para>
+    <para>The starting point for development of this initial version of the FMN profile is the C3
+      Classification Taxonomy<footnote><para>AC/322-N(2012)0092-AS1</para></footnote>, the
+      Afghanistan Mission Network (AMN) Profile<footnote><para>ADatP-34(G) – Vol 4</para></footnote>,
+      and TACOMS STANAGS<footnote><para>STANAG 4637 Ed1, 4639 Ed1, 4640 Ed1, 4643 Ed1, 4644 Ed1, 
+      4646 Ed1, 4647 Ed1</para></footnote>. The C3 Classification Taxonomy will be used to 
+      identify particular services and associated Service Interoperability Point where two
+      entities will interface and the standards in use by the relevant systems. The profile 
+      is a generic specification; it allows for independent national technical service implementations,
+      not losing the interoperability aspects.</para>
+    <para>A FMN instance will provide an environment within which data and information can be 
+      exchanged without being impeded by security gateways and enables various communities of
+      interest to execute their mission thread information exchange requirements more effectively.</para>
+    <para>Interoperability standards for community of interest services will have to be determined 
+      based on commonly agreed Mission Threads such as Battlespace Awareness, Joint Fires, Joint
+      ISR or Medical Evacuation. Currently these standards are primarily based on the AMN Profile
+      and are not part of the minimum set of interoperability requirements to connect to a FMN 
+      instance and are only recommended. Over time Communities of interest will define additional
+      mission threads and associated interoperability standards to be included into this FMN Profile.</para>
+    <para>Further Doctrine, Organization, Training, Materiel, Leadership and education, Personnel,
+      Facilities and Interoperability (DOTMLPFI) capability analysis may result in changes to this
+      FMN Profile.</para>
+    <para>The NCI Agency acts as the custodian for this interim FMN Profile. When using this interim
+      profile for particular experiments or exercises some of the capability elements may not be 
+      relevant. In such cases, those "not applicable" sections shall be marked "not applicable for …".</para>
+  </sect1>
+  
+  <sect1>
+    <title>Interoperability</title>
+    <para>Within NATO, interoperability is defined as, the ability to act together coherently, effectively
+      and efficiently to achieve Allied tactical, operational and strategic objectives. In the context
+      of the information exchange, interoperability means that a system, unit or forces of any service,
+      nation can transmit data to and receive data from any other system, unit or forces of any service 
+      or nation, and use the exchanged data to operate effectively together.</para>
+    <para>NATO, through its interoperability directive, has recognized that widespread interoperability
+      is a key component in achieving effective and efficient operations. In many of the operations
+      world-wide in which NATO Nations are engaged, they participate together with a wide variety of
+      other organizations on the ground. Such organizations include coalition partners from non-NATO 
+      Nations, Non-Governmental Organizations (NGO) e.g. Aid Agencies and industry partners. The NATO 
+      Interoperability Standards and Profiles (NISP) is the governing authoritative reference for NATO 
+      interoperability profiles and is co-published together with the Combined Communications Electronics
+      Board (CCEB) as an Allied Data Publication (ADatP-34). It provides the necessary guidance and 
+      technical components to support project implementations and transition to NATO Network Enabled
+      Capability (NNEC).</para>
+    <para>According to the categorization schema of NISP Volume 4, the FMN Profile is an “Operational 
+      Profile”; and it is intended to be included into Volume 4 of the NISP once the FMN Profile 
+      reaches a more mature state.</para>
+  </sect1>
+  
+  <sect1>
+    <title>FMN Architecture</title>
+    <para>The following FMN architecture principles have been developed during the FMN Concept development
+      phase:</para>
+    <itemizedlist>
+      <listitem><para>Federation: A FMN instance is a federation of autonomous network elements.</para></listitem>
+      <listitem><para>Information Sharing: Provide access to information.</para></listitem>
+      <listitem><para>Security: Secure information against unauthorized access.</para></listitem>
+      <listitem><para>Flexibility: the ability to scale-up or scale-down capacity and performance or 
+        increase, decrease support for operational footprints based on the mission life-cycle needs.</para></listitem>
+      <listitem><para>Change: Modifications to applications and technology are driven by operational needs.</para></listitem>
+      <listitem><para>Standards: Establish mandatory and recommended FMN interoperability standards.</para></listitem>
+      <listitem><para>Shared Awareness: Enable a single view of the battle space.</para></listitem>
+      <listitem><para>Data Management: Minimize the data management burden.</para></listitem>
+      <listitem><para>Continual Improvement: Leverage existing technology investments to generate
+        operational benefits.</para></listitem>
+      <listitem><para>Proven Technologies: Select and implement proven technologies that are
+        commonly available.</para></listitem>
+      <listitem><para>Reuse: Share and re-use common functions and systems.</para></listitem>
+    </itemizedlist>
+    <para>In addition well defined Governance and Life-cycle management capabilities (incl. Service 
+      Management and Control) must be in place to ensure controlled management of capability 
+      enhancements for the generic FMN templates as well as the in-service FMN instances and 
+      to ensure assured delivery of services from providers/producers to consumers/customers
+      based on well-defined Service Level Agreements (SLAs).</para>
+    <para>The following figure below depicts a high level illustration of a future FMN information
+      environment and the different membership options (Options A, B and C):</para>
+    <figure id="v4i-fmn-info" float="0">
+          <title>Sample FMN Information Environment</title>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="../figures/AMN-info-env.svg" />
+              <imagedata fileref="../figures/fmn-information-environment.svg"/>
             </imageobject>
           </mediaobject>
         </figure>
-        
-
-    <para>The purpose of this document is to define an Interoperability Standards 
-    Profile to support the Afghanistan Mission Network (AMN) and transition from 
-    today's legacy systems to NNEC by defining a useful level of interoperability.</para>
-    
-    <para>This document will also serve as a resource for NATO C4ISR
-    planners, to be used as a guide in achieving interoperability
-    between NATO nations, coalition partners and NATO provided
-    capabilities.  The AMN Profile is for use throughout the complete
-    lifecycle of the ISAF mission.  The AMN Profile will enable Net
-    Centric operations by enhancing collaboration across the entire
-    operational environment across all levels of command.  Subsequent
-    NATO led missions will benefit from the modular nature of the AMN
-    Profile, which will allow for maximum reuse of established
-    capabilities, while accommodating unique requirements and
-    technology improvements.</para>
-<para>Coalition Interoperability Assurance and Validation (CIAV) supports the AMN change management process by assessing proposed changes on the Coalition Test and Evaluation Environment (CTE2) replication of the AMN before they are deployed to the operational network.  In the CIAV, all functionalities and interactions can be assured before the upgrades are implemented.</para>
-
-<para>Additional benefits to deployment and sustained operations include:</para>
-<itemizedlist>
-<listitem><para>Speed of execution of operations,</para></listitem>
-<listitem><para>Richer information environment,</para></listitem>
-<listitem><para>More dynamic information exchange between all members of the network,</para></listitem>
-<listitem><para>Speedier standup of an NATO-led operation,</para></listitem>
-<listitem><para>Reach-back to feature rich information enterprise(s), and</para></listitem>
-<listitem><para>Elimination of hierarchical information flow.</para></listitem>
-</itemizedlist>
-
-<para>Participating nations are encouraged to use this document as part of the planning process for coordination and establishment of connectivity and interoperability with respect to joint NATO-led operations.
-</para>
-    
-    <para>This profile will be used in the implementation of NATO Common Funded Systems.
-    Nations participating in AMN agree to use this profile at Network Interconnection 
-    Points (NIPs) and at other Service Interoperability Points as applicable.</para>
-
-	<para>Nations participationg in the AMN have agreed to comply with the AMN joining instructions. This profile is a technical document that changes more frequently than the joining instructions.</para>
-    
-    <para>NNEC Services must be able to function in a network environment containing
-    firewalls and various routing and filtering schemes; therefore, developers must
-    use standard and well-known ports wherever possible, and document non-standard
-    ports as part of their service interface. Service developers must assume network
-    behavior and performance consistent with the existing limits of these networks,
-    taking bandwidth limitations and potentially unreliable networks into account.</para>
-    
+    <para>This profile is primarily aimed for services provided by Option A members. Option B 
+      and C members may initially not meet minimum service requirements. To allow participation
+      in those cases, Option B and C members must establish a hosting agreement with an Option A 
+      member. Option B members must provide their local area networks incl. IP management 
+      capability within the respective physical and cyber security boundaries of the host. 
+      Services must be able to function in a network environment containing firewalls and various
+      routing and filtering schemes; therefore, developers must use standards and well-known ports
+      wherever possible, and document non-standard configurations as part of their service interface. 
+      Service developers must assume network behavior and performance consistent with the existing 
+      characteristics of these networks, taking bandwidth limitations, extended latency and potential
+      unreliablities into account, e.g. the speed differential between a typical wired network and
+      a wireless wide area radio network is ~10 <superscript>6</superscript>.</para>
+    <para>Within the Federated Mission Network architecture, new services shall be designed around 
+      the Request/Response, Publish/Subscribe, or Message Queue patterns. IT capabilities used in
+      a FMN context shall provide read or read/write services as appropriate, support dynamic 
+      bindings, and must include authentication as part of their service.</para>
+  </sect1>
+  <sect1>
+    <title>Change Mangement</title>
+    <para>Until the formal Life-cycle Management capability for FMN has been established the NCI
+      Agency acts as the custodian for this interim FMN Profile; it is a living document and is
+      expected to be updated on a regularly. NISP defines four stages within the life-cycle of a 
+      standard: emerging, mandatory, fading and retired; in those situations where multiple stages
+      are mentioned the FMN Profile recommends dates by which the transition to the next stage is
+      to be completed by all FMN members. If a nation decides to implement emerging standards it
+      is her responsibility to maintain backwards compatibility to the mandatory standard.</para>
+    <para>Any discrepancies discovered between different elements of this Profile, shall be resolved
+      through a change proposal prepared by the responsible NATO body or an FMN member. Requests 
+      for change (RFC) shall be submitted to NCI Agency. In the interim the NATO FMN Implementation
+      Plan WG 3 will review RFCs and if required will publish new versions of the Interim FMN Profile.
+    </para>
   </sect1>
 
-  <sect1>
-    <title>Change Management</title>
-    
-    <para>Applying existing NATO standards or - in those areas where NATO STANAGS
-    do not yet exist - International Standards are key for achieving interoperability
-    in a federated environment. The dynamic nature of ISAF operations results in
-    unforeseen information exchange requirements within and across ISAF. This might
-    require the development and design of new data and metadata exchange formats 
-    which are not part of current STANAGs and/or Standards. Those ad-hoc formats
-    shall be developed in-line with existing NATO policies and guidelines so that
-    they can be quickly transformed into standards (e.g. STANAGS) by the appropriate 
-    NATO Bodies based on the NATO Bi-SC Data Strategy, the NATO NNEC Data Strategy, 
-    and when appropriate, based on the APP-15 process.The AMN Profile is being maintained
-    by the AMN Architecture Working Group; it is a living document and is expected 
-    to be updated every six months.</para>
-    
-    <para>ADatP-34 defines four stages within the life-cycle of a standard: emerging,
-    mandatory, fading and retired; in those situations where multiple stages are 
-    mentioned the AMN Profile recommends dates by which the transition to the next
-    stage is to be completed by all AMN members. If a nation decides to implement
-    emerging standards it is her responsibility to maintain backwards compatibility
-    to the mandatory standard.</para>
-    
-    <para>Any discrepancies discovered between different elements of this Profile,
-    shall be resolved through a change proposal prepared by the responsible NATO
-    body or an AMN member nation.</para>
-    
-    <para>AMN Profile change requests can only be submitted by NATO civil or military
-    bodies or AMN member nations.</para>
-    
-    <para>The AMN Architecture Working Group will review updates to
-    ADatP-34, the ISAF Baseline Architecture and AMN Profile change
-    proposals and if required will produce a new version of the AMN
-    Profile. The AMN profile of the NISP is reviewed by the AMN
-    Architecture Working Group (AWG) on a quarterly basis and requests
-    for formal adoption by the IP CaT are made by the AWG on a six
-    monthly basis.</para>
-  </sect1>
-  
-  <sect1>
-    <title>Service Management and Control (SMC)</title>
-    
-      <table frame="all" id="v3t-SMC-Processes">
-        <title>SMC Processes</title>
-        <tgroup cols="3">
-          <colspec colwidth="30*" />
-          <colspec colwidth="35*" />
-          <colspec colwidth="35*" />
-          <thead>
-            <row>
-              <entry>
-                <emphasis role="bold">ID:Purpose</emphasis>
-              </entry>
-              <entry>
-                <emphasis role="bold">Standard</emphasis>
-              </entry>
-              <entry>
-                <emphasis role="bold">Guidance</emphasis>
-              </entry>
-            </row>
-          </thead>
-          <tbody>
-            <row>
-              <entry>1:Provide Service Management within a FMN instance.</entry>
-              <entry><para>Mandatory: ITIL 2011 update /ISO/IEC 20000</para></entry>
-              <entry><para>See also AMN Service Management Framework CONOPS</para></entry>
-            </row>
-            <row>
-              <entry>2:Provide the Control (Governance) required to efficiently and effectively control an FMN instance.</entry>
-              <entry><para>Mandatory: Control Objectives for Information and related Technology (COBIT 5).
-                           Optional: Frameworx (Business Process Framework (eTOM)) as required for Business Processes especially Customer Relationship Management activities.</para></entry>          
-              <entry><para>COBIT is based on established frameworks, such as the Software Engineering Institute’s Capability Maturity Model, ISO 9000, ITIL, and ISO 17799 (standard security framework, now ISO 27001).</para></entry>        
-            </row>
-            <row>
-              <entry>3:Network management</entry>
-              <entry><para>Simple Network Management Protocol Version 3 (SNMPv3)</para></entry>
-              <entry></entry>
-            </row>
-            <row>
-              <entry>4:SOA Platform SMC Services</entry>
-              <entry><para>Web Services for Management:</para>
-                <itemizedlist>
-                  <listitem><para>WS-Management Specification Version 1.0.0 (DSP0226), dated: 12 Feb 2008, Distributed Management Task Force</para></listitem>
-                  <listitem><para>WS-Management CIM Binding Specification Version 1.0.0 (DSP0227), dated: 19 June 2009, Distributed Management Task Force</para></listitem>
-                </itemizedlist>
-              </entry>
-              <entry><para>WS-Management provides a common way for systems to access and exchange management information across the IT infrastructure.</para></entry>
-            </row>
-            <row>
-              <entry>5:Represent and share Configuration Items and details about the important attributes and relationships between them</entry>
-              <entry><para>CIM Schema version 2.29.0, dated 3 May 2011, Distributed Management Task Force</para>
-                     <para>CMDB Federation Specification V1.0.1, dated 22 Apr 2010, Distributed Management Task Force</para></entry>
-              <entry></entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </table>
-    </sect1>
-  
   <sect1>
     <title>Communication Services</title>
       <para>Communications Services interconnect systems and mechanisms for the opaque transfer of selected
@@ -194,12 +174,12 @@
         interconnection between autonomous systems will be based on IPv4. However, the next evolution (FMN 
         Milestone 2) will be based on IPv6 for interconnecting autonomous systems. Therefore all new 
         equipment, services and applications must support a dual IPv4/IPv6 stack implementation.</para>
-      <table frame="all" id="v3t-Comms-andNetwork-Stds">
-        <title>Communication and Network Services Standards</title>
+      <table frame="all">
+        <title>Communication Services Standards</title>
         <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
           <colspec colwidth="30*" />
-          <colspec colwidth="35*" />
-          <colspec colwidth="35*" />
           <thead>
             <row>
               <entry>
@@ -279,7 +259,7 @@
         </tgroup>
       </table>
     </sect1>
-    
+
     <sect1>
       <title>Core Enterprise Services</title>
       <para>Core Enterprise Services (CES) provide generic, domain independent, technical 
@@ -295,12 +275,12 @@
           <para>Infrastructure Services provide software resources required to host services in a 
             distributed and federated environment. They include computing, storage and high-level
             networking capabilities.</para>
-          <table frame="all" id="t-CES-Stds">
+          <table frame="all">
           <title>Infrastructure Services Standards</title>
           <tgroup cols="3">
+            <colspec colwidth="20*" />
+            <colspec colwidth="50*" />
             <colspec colwidth="30*" />
-            <colspec colwidth="35*" />
-            <colspec colwidth="35*" />
             <thead>
               <row>
                 <entry>
@@ -376,12 +356,12 @@
             message busses, orchestration, information abstraction and access, etc.) and can be
             used as a capability integration platform in a heterogeneous service-provisioning 
             ecosystem.</para>
-          <table frame="all" id="t-Platform-Stds">
+          <table frame="all">0
           <title>SOA Platform Services and Data Standards</title>
           <tgroup cols="3">
+            <colspec colwidth="20*" />
+            <colspec colwidth="50*" />
             <colspec colwidth="30*" />
-            <colspec colwidth="35*" />
-            <colspec colwidth="35*" />
             <thead>
               <row>
                 <entry>
@@ -574,13 +554,22 @@
             voice) should be used.</para>
           <para>For text-based collaboration there is also a basic profile sufficient for operating
             this service with reduced protection requirements as well as an enhanced XMPP profile 
-            that includes additional security mechanisms.</para>
-          <table frame="all" id="t-ESS-Stds">
+            that includes additional security mechanisms.
+            <figure id="v4i-fmn-audio" float="0">
+              <title>Audio-based Collaboration Services</title>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata fileref="../figures/fmn-audio-collaboration.svg"/>
+                  </imageobject>
+                </mediaobject>
+              </figure>
+            </para>
+          <table frame="all">
           <title>SOA Platform Services and Data Standards</title>
           <tgroup cols="3">
+            <colspec colwidth="20*" />
+            <colspec colwidth="50*" />
             <colspec colwidth="30*" />
-            <colspec colwidth="35*" />
-            <colspec colwidth="35*" />
             <thead>
               <row>
                 <entry>
@@ -739,12 +728,12 @@
             technical services with capabilities to organize, store and retrieve information 
             (in any format, structured or unstructured) through services and managed processes,
             governed by policies, directives, standards, profiles and guidelines.</para>
-          <table frame="all" id="t-IMS-Stds">
+          <table frame="all">
           <title>Information Management Services and Data Standards</title>
           <tgroup cols="3">
+            <colspec colwidth="20*" />
+            <colspec colwidth="50*" />
             <colspec colwidth="30*" />
-            <colspec colwidth="35*" />
-            <colspec colwidth="35*" />
             <thead>
               <row>
                 <entry>
@@ -796,12 +785,12 @@
 
       <sect2>
         <title>Mimimum Metadata Set</title>
-          <table frame="all" id="t-Metadata-set">
+          <table frame="all">
           <title>Minimum Metadata Set</title>
           <tgroup cols="4">
-            <colspec colwidth="25*" />
-            <colspec colwidth="25*" />
-            <colspec colwidth="10*" />
+            <colspec colwidth="24*" />
+            <colspec colwidth="22*" />
+            <colspec colwidth="14*" />
             <colspec colwidth="40*" />
             <thead>
               <row>
@@ -894,12 +883,12 @@
             creating, and displaying geographic data. The generic nature of Geospatial 
             Services - "organizing information by location" - is interdisciplinary and not
             specific to any Community of Interest (COI) or application.</para>
-          <table frame="all" id="t-GEO-Stds">
+          <table frame="all">
           <title>Geospatial Services and Data Standards</title>
           <tgroup cols="3">
+            <colspec colwidth="20*" />
+            <colspec colwidth="50*" />
             <colspec colwidth="30*" />
-            <colspec colwidth="35*" />
-            <colspec colwidth="35*" />
             <thead>
               <row>
                 <entry>
@@ -999,7 +988,7 @@
           </table>
       </sect2>
     </sect1>
-                        
+                      
     <sect1>
       <title>COI Services and Data Standards</title>
       <para>Interoperability standards for COI services will have to be determined based on 
@@ -1008,12 +997,12 @@
       <para>The following COI standards for Battlespace Awareness and Joint ISR are primarily
         based on the AMN Profile and are not defined by the FMN Concept as part of the minimum 
         set of interoperability requirements for capabilities on a Federated Mission Network.</para>
-      <table frame="all" id="tTech-services">
+      <table frame="all">
         <title>General Data Format Standards</title>
         <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
           <colspec colwidth="30*" />
-          <colspec colwidth="35*" />
-          <colspec colwidth="35*" />
           <thead>
             <row>
               <entry>
@@ -1030,7 +1019,7 @@
           <tbody>
             <row>
               <entry>1:General definition for the Representation of Dates and Times.</entry>
-              <entry>ISO 8601:2004 - Data elements and interchange formats -- Information interchange -- Representation of dates and times</entry>
+              <entry>ISO 8601:2004 - Data elements and interchange formats - Information interchange - Representation of dates and times</entry>
               <entry>If not otherwise specified, implementation of the W3C profile of ISO 8601:2004 (W3CDTF profile) is mandatory.</entry>
             </row>
             <row>
@@ -1071,9 +1060,9 @@
       <table frame="all" id="battlespace-mgmt">
         <title>Battlespace Management Interoperability Protocols and Standards</title>
         <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
           <colspec colwidth="30*" />
-          <colspec colwidth="35*" />
-          <colspec colwidth="35*" />
           <thead>
             <row>
               <entry>
@@ -1200,9 +1189,9 @@
       <table frame="all" id="joint-isrt">
         <title>JISR Interoperability Protocols and Standards</title> 
         <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
           <colspec colwidth="30*" />
-          <colspec colwidth="35*" />
-          <colspec colwidth="35*" />
           <thead>
             <row>
               <entry>
@@ -1272,12 +1261,12 @@
       <para>User Applications, also known as application software, software applications, applications 
         or apps, are computer software components designed to help a user perform singular or multiple 
         related tasks and provide the logical interface between human and automated activities.</para>     
-      <table frame="all" id="t-userinterface">
+      <table frame="all">
         <title>User Applications Standards</title> 
         <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
           <colspec colwidth="30*" />
-          <colspec colwidth="35*" />
-          <colspec colwidth="35*" />
           <thead>
             <row>
               <entry>
@@ -1346,14 +1335,14 @@
             <row>
               <entry>5:Document exchange, storage and archiving</entry>
               <entry>ISO 19005-1:2005 - Document management -Electronic document file format for long-term preservation –Part 1: Use of PDF 1.4 (PDF/A-1)
-              <para>Emerging: ISO 19005: Document management -- Electronic document file format for long-term preservation -- Part 2: Use of ISO 32000-1 (PDF/A-2)</para></entry>
+              <para>Emerging: ISO 19005: Document management - Electronic document file format for long-term preservation - Part 2: Use of ISO 32000-1 (PDF/A-2)</para></entry>
               <entry></entry>
             </row>
           </tbody>
         </tgroup>
       </table>
     </sect1>
-
+ 
     <sect1>
       <title>Service Management and Control</title>      
       <para>Service Management and Control (SMC) provides a collection of capabilities to coherently 
@@ -1361,12 +1350,12 @@
         tools enable service providers to provide the desired quality of service as specified by the
         customer. In a federated environment such as a FMN instance, utilizing common process and 
         data is a critical enabler to manage a FMN.</para>     
-      <table frame="all" id="t-smc">
+      <table frame="all">
         <title>Service Management and Control Interoperability Standards</title> 
         <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
           <colspec colwidth="30*" />
-          <colspec colwidth="35*" />
-          <colspec colwidth="35*" />
           <thead>
             <row>
               <entry>
@@ -1421,4 +1410,5 @@
         </tgroup>
       </table>
     </sect1>
+
 </appendix>
