@@ -1568,424 +1568,616 @@
   </sect1>
   
   <sect1>
-    <title>Related Standards and Profiles</title>
-    <para></para>
-    
+    <title>Related Standards and Profiles</title>      
     <sect2>
-      <title>Standards for Service Access / Provision</title>
-      
-      <para>The World Wide Web Consortium (W3C) is an international consortium aiming
-      to enable the full scope of possibilities for and to ensure continuous growth
-      of the World Wide Web by standardization (protocols and guidelines).</para>
-      
-      <para>The challenge when creating open, standardized service endpoints and a
-      standardized SOA-(ESB-) infrastructure is the development of lists of standards
-      that a SOA-environment must support. This list of standards should form a kind
-      a profile in order to create a uniform access to the service-endpoints.</para>
-      
-      <para>There are efforts by the W3C, to define a profile – the WS-I Basic Profile
-      – that could be used as basis for a service-endpoint.</para>
-      
-      <para>However, not all capabilities/requirements related to overarching and
-      shared services of a SOA-(ESB-) infrastructure, e. g. related to registry, 
-      repository or policies are included in the standards.</para>
-      
-      <para>Generally a SOA (ESB) must not support all standards. But the more a SOA
-      (ESB) is employed overarchingly in heterogeneous IT-sceneries, the more the
-      extended WS* - Specifications gain importance.</para>
-      
-      <para>The following table summarizes the capabilities, the existing technologies 
-      and the associated related WS* -Specifications in an overview.</para>
-      
-      <table frame="all" id="v3t-WS-Specifications">
-        <title>WS*-Specifications</title>
+      <title>Communication Services</title>
+        <para>Communications Services interconnect systems and mechanisms for the opaque transfer of selected
+          data between or among access points, in accordance with agreed quality parameters and without change
+          in the form or content of the data as sent and received. Internet Protocol (IP) technology is the
+          enabler of adaptive and flexible connectivity. Its connectionless structure, with its logical 
+          connectivity, provides scalability and manageability and is also future-proof by insulating services
+          above from the diverse transport technologies below. Tactical usage of these communication services
+          dictates some specialties, where specifications are needed with a modified behaviour because of the
+          nature of the communication means and the requirments towards robustness and perhabs autonomous 
+          operation. All new equipment, services and applications must support a dual IPv4/IPv6 stack 
+          implementation in addition.</para>
+        <table frame="all">
+          <title>Communication Services Standards</title>
+          <tgroup cols="3">
+            <colspec colwidth="20*" />
+            <colspec colwidth="50*" />
+            <colspec colwidth="30*" />
+            <thead>
+              <row>
+                <entry>
+                  <emphasis role="bold">ID:Purpose</emphasis>
+                </entry>
+                <entry>
+                  <emphasis role="bold">Standard</emphasis>
+                </entry>
+                <entry>
+                  <emphasis role="bold">Guidance</emphasis>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>1:Naming and addressing</entry>
+                <entry>Classless Inter Domain Routing (IETF RFC 4632)
+                  <para>Host Extensions for IP Multicasting (IETF RFC 1112)</para>
+                  <para>The Internet Multicast Address Allocation (IETF RFC 2908)</para>
+                  <para>IANA Guidelines for IPv4 Multicast Address Assignments (IETF RFC 3171)</para>
+                  <para>Administratively Scoped IP Multicast (IETF RFC 2365)</para></entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry>2:Basic connectivity between technical services</entry>
+                <entry>Internet Protocol (IETF RFCs 791/792, 919/922/950/1112, 1812, 2644)
+                  <para>Internet Protocol, Version 6 (IPv6) (IETF RFCs 2460/2474/3484/3810/4291/4443/4861/5095)</para>
+                  <para>QoS: TBD</para>
+                  <para>User Datagram Protocol (IETF Standard 6, RFC 768)</para>
+                  <para>Transmission Control Protocol (IETF Standard 7, RFC 793 updated by RFC 3168)</para></entry>
+                <entry>IP networking. Accommodate both IPv4 and IPv6 addressing.
+                  <para>Utilize Quality of Service capabilities of the network: TBD</para>
+                  <para>MTU reduced to 1300 bytes, MSS set to 1260 bytes in order to accommodate IP crypto tunnelling within autonomous systems</para></entry>
+              </row>
+              <row>
+                <entry>3a:Connectivity between coalition networks (autonomous systems)</entry>
+                <entry>Border Gateway Protocol V4 (IETF RFC 4271, 1997, 4760, 3392, 2545)
+                  <para>Optimized Link State Routing (IETF RFC 3626)</para>
+                  <para>Open Shortest Path First v3 (IETF RFC 5340)</para>
+                  <para>Support of Address Families in OSPFv3 (IETF RFC 5838)</para>
+                  <para>Simplified Multicast Forwarding (IETF RFC 6621)</para></entry>                  
+                <entry>BGP deployment guidance in RFC 1772 must be considered. (RFC 4271 obsoletes RFC 1771)
+                  <para>The mapping between SMF and PIM-SM is still an open issue and has to be solved.
+                    (across BGP or in parallel)</para></entry>
+              </row>
+              <row>
+                <entry>3b:Connectivity between coalition networks (autonomous systems)</entry>
+                <entry>Point-to-point (PPP) (IETF Standard 51)
+                  <para>Challenge handshake authentication protocol (CHAP) (IETF RFC1994).</para>
+                  <para>RObust Header Compression (IETF RFC 4995)</para>
+                  <para>IP Version 6 over PPP (IETF RFC 5072) (for IPv6 only)</para>
+                  <para>Border Gateway Protocol V4 (IETF RFC 4271, 1997, 4760, 3392, 2545)</para>
+                  </entry>
+                <entry>BGP deployment guidance in RFC 1772 must be considered. (RFC 4271 obsoletes RFC 1771)</entry>
+              </row>
+              <row>
+                <entry>4:Provide communications security over the network within the 
+                  Network Layer</entry>
+                <entry>Mandatory: IPsec (RFC 5246)
+                  <para> IPsec Discovery Protocol (Reference TBD)</para></entry>
+                <entry></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </sect2>
+      <sect2>
+        <title>Core Enterprise Services</title>
+        <para>Core Enterprise Services (CES) provide generic, domain independent, technical 
+          functionality that enables or facilitates the operation and use of Information Technology
+          (IT) resources. CES will be broken up further into:</para>
+        <itemizedlist>
+          <listitem><para>Infrastructure Services (incl. Information Assurance (IA) services)</para></listitem>
+          <listitem><para>Service Oriented Architecture (SOA) Platform Services</para></listitem>
+          <listitem><para>Enterprise Support Services</para></listitem>
+        </itemizedlist>
+        <sect3>
+          <title>Infrastructure Services</title>
+            <para>Infrastructure Services provide software resources required to host services in a 
+              distributed and federated environment. They include computing, storage and high-level
+              networking capabilities.</para>
+            <table frame="all">
+            <title>Infrastructure Services Standards</title>
+            <tgroup cols="3">
+              <colspec colwidth="20*" />
+              <colspec colwidth="50*" />
+              <colspec colwidth="30*" />
+              <thead>
+                <row>
+                  <entry>
+                    <emphasis role="bold">ID:Purpose</emphasis>
+                  </entry>
+                  <entry>
+                    <emphasis role="bold">Standard</emphasis>
+                  </entry>
+                  <entry>
+                    <emphasis role="bold">Guidance</emphasis>
+                  </entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>1:Distributed Time Services: Time synchronization</entry>
+                  <entry>Mandatory: Network Time Protocol version 3 (NTPv3), dated March 1992. RFC 1305
+                    <para>Option A members must be able to provide a time server on their network element
+                      either directly connected to a stratum-0 device or over a network path to a stratum-1 
+                      time server of another Option A member.</para>
+                    <para>Option B members must use the time service of their host.</para></entry>
+                  <entry>A stratum-1 time server is directly linked (not over a network path) to a reliable
+                    source of UTC time (Universal Time Coordinate) such as GPS, WWV, or CDMA transmissions 
+                    through a modem connection, satellite, or radio.
+                    <para>The W32Time service on all Windows Domain Controllers is synchronizing time through
+                      the Domain hierarchy (NT5DS type).</para></entry>
+                </row>
+                <row>
+                  <entry>2:Domain Name Services: Naming and Addressing on a tactical instance</entry>
+                  <entry>Domain Name System (IETF Standard 13, RFC 1034/RFC 1035)</entry>
+                  <entry>The use of a DNS in a tactical network is optional.</entry>
+                </row>
+                <row>
+                  <entry>3:Identification and addressing of objects on the network.</entry>
+                  <entry>RFC 1738, Uniform Resource Locators (URL), 20 December 1994
+                    <para>RFC 2396, Uniform Resource Identifiers (URI), Generic Syntax, August 
+                      1998 (updates RFC 1738)</para></entry>
+                  <entry>Namespaces within XML documents shall use unique URLs or URIs for the namespace designation.</entry>
+                </row>
+                <row>
+                  <entry>4:Infrastructure IA Services: Facilitate the access and authorization between tactical users and services.</entry>
+                  <entry>Directory access and management service:
+                    <para>Version 3 of the Lightweight Directory Access Protocol (LDAPv3), RFC 4510
+                        and associated LDAP Technical Specification (RFC 4511-4519)</para>
+                    <para>LDAP Interchange Format, RFC 2849</para>
+                    <para>Public Key Infrastructure: Version 3 public-key certificates and
+                      Version 2 CRLs in accordance with ITU-T X.509v3</para></entry>
+                  <entry>Options available to tactical members when joining their network element:
+                    <itemizedlist>
+                      <listitem><para>Join global Forest</para></listitem>
+                      <listitem><para>Create standalone forest</para></listitem>
+                    </itemizedlist>
+                    <para>(Option 1should be considered before option 2).</para>
+                    <para>Whilst LDAP is a vendor independent standard, in practice Microsoft Active Directory
+                      (AD) is a common product providing directory services on national and NATO owned Mission 
+                      Network elements. AD provides additional services aside from LDAP like functionality.</para></entry>
+                </row>
+              </tbody>
+            </tgroup>
+            </table>
+        </sect3>
+        <sect3>
+          <title>SOA Platform Services</title>
+            <para>SOA Platform Services provide a foundation to implement web-based services in a 
+              loosely coupled environment, where flexible and agile service orchestration is a 
+              requirement. They offer generic building blocks for SOA implementation (e.g. discovery,
+              message busses, orchestration, information abstraction and access, etc.) and can be
+              used as a capability integration platform in a heterogeneous service-provisioning 
+              ecosystem.</para>
+            <table frame="all">
+            <title>SOA Platform Services and Data Standards</title>
+            <tgroup cols="3">
+              <colspec colwidth="20*" />
+              <colspec colwidth="50*" />
+              <colspec colwidth="30*" />
+              <thead>
+                <row>
+                  <entry>
+                    <emphasis role="bold">ID:Purpose</emphasis>
+                  </entry>
+                  <entry>
+                    <emphasis role="bold">Standard</emphasis>
+                  </entry>
+                  <entry>
+                    <emphasis role="bold">Guidance</emphasis>
+                  </entry>
+                </row>
+              </thead>
+              <tbody>           
+                <row>
+                  <entry>1: Web Platform Services</entry>
+                  <entry>Hypertext Transfer Protocol HTTP 1.1 (RFC 2616)
+                    <para>Uniform Resource Identifier (URI): Generic Syntax (RFC 3938)</para></entry>
+                  <entry>HTTP shall be used as the transport protocol for information without 
+                    'need-to-know' caveats between all service providers and consumers.</entry>
+                </row>
+                <row>
+                  <entry>2:Publishing information including text, multimedia, hyperlink 
+                    features, scripting languages and style sheets on the network</entry>
+                  <entry>HTML 4.01(RFC2854:2000), HyperText Markup Language (HTML), W3C</entry>
+                  <entry></entry>
+                </row>
+                <row>
+                  <entry>4:General formatting of information for sharing or exchange</entry>
+                  <entry>Extensible Markup Language (XML), v1.0 3rd Edition
+                    <para>XML Schema: Structures 1.0</para>
+                    <para>XML Schema: Data types 1.0 XML Namespaces: W3C (REC-xmlnames-1999-01-14)</para>
+                    <para>XML compression (Reference TBD)</para></entry>
+                  <entry>XML shall be used for data exchange to satisfy those IERs that are not 
+                    addressed by a specific information exchange standard. XML Schemas and namespaces 
+                    are required for all XML documents.
+                    <para>Currently, for XML compression, GZIP is used</para></entry>
+                </row>
+                <row>
+                  <entry>7: Message Security for web services</entry>
+                  <entry>WS-Security: SOAP Message Security 1.1
+                    <para>XML Encryption Syntax and Processing (dtd. 10 December 2002)</para>
+                    <para>XML Signature Syntax and Processing 1.0 (Second Edition)</para>
+                    <para>WS-I Basic Security profile 1.1</para></entry>
+                  <entry>Specifies how integrity and confidentiality can be enforced on messages
+                    and allows the communication of various security token formats, such as SAML, 
+                    Kerberos, and X.509v3. Its main focus is the use of XML Sig nature and XML 
+                    Encryption to provide end-to-end security.
+                    <para>Specifies a process for encrypting data and representing the result in XML.
+                      Referenced by WS-Security specification.</para>
+                    <para>Specifies XML digital signature processing rules and syntax. Referenced 
+                      by WS-Security specification.</para></entry>
+                </row>
+                <row>
+                  <entry>8:Security token format</entry>
+                  <entry>SAML 2.0
+                    <para>Web Services Security: SAML Token Profile 1.1</para></entry>
+                  <entry>Provides XML-based syntax to describe uses security tokens containing assertions 
+                    to pass information about a principal (usually an end-user) between an identity provider
+                    and a web service.
+                    <para>Describes how to use SAML security tokens with WS-Security specification.</para></entry>
+                </row>
+                <row>
+                  <entry>9: Security token issuing</entry>
+                  <entry>WS-Trust 1.4
+                    <para>WS-Federation 1.1</para>
+                    <para>WS-Policy 1.5 and WS-Security Policy 1.3</para></entry>
+                  <entry>Uses WS-Security base mechanisms and defines additional primitives and extensions
+                    for security token exchange to enable the issuance and dissemination of credentials 
+                    within different trust domains. Extends WS-Trust to allow federation of different 
+                    security realms.
+                    <para>Used to describe what aspects of the federation framework are required/supported
+                      by federation participants and that this information is used to determine the appropriate
+                      communication options.</para></entry>
+                </row>
+                <row>
+                  <entry>10:Transforming XML documents into other XML documents</entry>
+                  <entry>XSL Transformations (XSLT) Version 2.0, W3C Recommendation 23 Jan 2007</entry>
+                  <entry>Developer best practice for the translation of XML based documents into other formats or schemas.</entry>
+                </row>
+                <row>
+                  <entry>12:Exchanging structured information in a decentralized, distributed 
+                    environment via web services</entry>
+                  <entry>W3C SOAP 1.1, Simple Object Access Protocol v1.1 (SOAP)
+                    <para>WSDL v1.1: Web Services Description Language (WSDL) 1.1, W3C Note, 15 March 2001.</para></entry>
+                  <entry>The mandatory method for implementing web-services is SOAP.</entry>
+                </row>
+                <row>
+                  <entry>13:Secure exchange of data objects and documents across multiple security domains</entry>
+                  <entry>The Draft X-Labels syntax definition is called the "NATO Profile for the XML 
+                    Confidentiality Label Syntax" and is based on version 1.0 of the RTG-031 proposed 
+                    XML confidentiality label syntax, see "Sharing of information across communities of
+                    interest and across security domains with object level protection" below.</entry>
+                  <entry></entry>
+                </row>
+                <row>
+                  <entry>14:Topic based publish / subscribe web services communication</entry>
+                  <entry>WS-Notification 1.3 including:
+                    <itemizedlist>
+                      <listitem><para>WS-Base Notification 1.3</para></listitem>
+                      <listitem><para>WS-Brokered Notification 1.3</para></listitem>
+                      <listitem><para>WS-Topics 1.3</para></listitem>
+                    </itemizedlist></entry>
+                  <entry>Enable topic based subscriptions for web service notifications,
+                    with extensible filter mechanism and support for message brokers</entry>
+                </row>
+                <row>
+                  <entry>15:Providing transport-neutral mechanisms to address web services</entry>
+                  <entry>WS-Addressing 1.0</entry>
+                  <entry>Provides transport-neutral mechanisms to addressWeb services and messages
+                    which is crucial in providing end-to- message level security, reliable messaging 
+                    or publish / subscribe based web services end.</entry>
+                </row>
+                <row>
+                  <entry>16:Reliable messaging for web services</entry>
+                  <entry>WS-Reliable Messaging 1.2</entry>
+                  <entry>Describes a protocol that allows messages to be transferred reliably between
+                    nodes implementing this protocol in the presence of software component, system, 
+                    or network failures.</entry>
+                </row>
+              </tbody>                   
+            </tgroup>
+            </table>
+        </sect3>
+        <sect3>
+          <title>Information Management Services</title>
+            <para>Information Management Services provide technical services "...to direct and support
+              the handling of information throughout its life-cycle ensuring it becomes the right 
+              information in the right form and of adequate quality to satisfy the demands of an
+              organization." These services support organizations, groups, individuals and other
+              technical services with capabilities to organize, store and retrieve information 
+              (in any format, structured or unstructured) through services and managed processes,
+              governed by policies, directives, standards, profiles and guidelines.</para>
+            <table frame="all">
+            <title>Information Management Services and Data Standards</title>
+            <tgroup cols="3">
+              <colspec colwidth="20*" />
+              <colspec colwidth="50*" />
+              <colspec colwidth="30*" />
+              <thead>
+                <row>
+                  <entry>
+                    <emphasis role="bold">ID:Purpose</emphasis>
+                  </entry>
+                  <entry>
+                    <emphasis role="bold">Standard</emphasis>
+                  </entry>
+                  <entry>
+                    <emphasis role="bold">Guidance</emphasis>
+                  </entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>1:Enterprise Search Services: Automated information resource discover, information extraction and interchange of metadata</entry>
+                  <entry>TIDE Information Discovery (v2.3.0, Oct 2009)
+                    <para>TIDE Service Discovery (v.2.2.0 Oct 2008)</para></entry>
+                  <entry>The technical implementation specifications are part of the TIDE 
+                      Transformational Baseline v3.0, however, Query-by-Example (QBE), has 
+                      been deprecated with the TIDE Information Discovery specs v2.3.0 and 
+                      replaced by SPARQL.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+            </table>
+        </sect3>
+        <sect3>
+          <title>Geospatial Services</title>
+            <para>Geospatial Services deliver network-based access to quality raster, vector 
+              and terrain data, available in varying degrees of format and complexity. Geospatial
+              Services form a distinct class of information services through their unique 
+              requirements for collecting, converting, storing, retrieving, processing, analysing, 
+              creating, and displaying geographic data. The generic nature of Geospatial 
+              Services - "organizing information by location" - is interdisciplinary and not
+              specific to any Community of Interest (COI) or application.</para>
+            <table frame="all">
+            <title>Geospatial Services and Data Standards</title>
+            <tgroup cols="3">
+              <colspec colwidth="20*" />
+              <colspec colwidth="50*" />
+              <colspec colwidth="30*" />
+              <thead>
+                <row>
+                  <entry>
+                    <emphasis role="bold">ID:Purpose</emphasis>
+                  </entry>
+                  <entry>
+                    <emphasis role="bold">Standard</emphasis>
+                  </entry>
+                  <entry>
+                    <emphasis role="bold">Guidance</emphasis>
+                  </entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>1:Distribution of geospatial data as maps rendered in raster image formats.</entry>
+                  <entry>OGC 04-024 (ISO 19128:2005), Web Map Service (WMS) v.1.3
+                    <para>OGC 05-078r4, OpenGIS Styled Layer Descriptor Profile of the Web Map Service (SLD) v.1.1.0</para>
+                    <para>OGC 07-057r7, OpenGIS Web Map Tile Service Implementation Standard (WMTS) v.1.0.0</para></entry>
+                  <entry>WMTS are to be provided as a complimentary service to WMS to ease access to users 
+                    operating in bandwidth constraint environments. WMTS trades the flexibility of custom 
+                    map rendering for the scalability possible by serving of static data (base maps) where
+                    the bounding box and scales have been constrained to discrete tiles which enables the 
+                    use of standard network mechanisms for scalability such as distributed cache systems 
+                    to cache images between the client and the server, reducing latency and bandwidth use.
+                  </entry>
+                </row>
+                <row>
+                  <entry>2:Distribution of geo feature (vector) data between applications</entry>
+                  <entry>OGC 04-094, Web Feature Service (WFS) v.1.1.</entry>
+                  <entry></entry>
+                </row>
+                <row>
+                  <entry>4: Catalogue services support the ability to publish and search collections of 
+                    descriptive information (metadata) for geospatial data, services, and related information 
+                    objects.</entry>
+                  <entry>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP message</entry>
+                  <entry></entry>
+                </row>
+              </tbody>
+            </tgroup>
+            </table>
+        </sect3>
+    </sect2>
+  </sect1>     
+  <sect1>
+    <title>COI Services and Data Standards</title>
+      <para>Interoperability standards for COI services will have to be determined based on 
+        commonly agreed Mission Threads.</para>
+      <para>The following COI standards are part of the minimum set of interoperability
+        requirements for capabilities on a Federated Mission Network.</para>
+      <table frame="all">
+        <title>General Data Format Standards</title>
         <tgroup cols="3">
-          <colspec colwidth="35*" />
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
           <colspec colwidth="30*" />
-          <colspec colwidth="35*" />
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">SOA capability</emphasis>
+                <emphasis role="bold">ID:Purpose</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Existing ESB Technology</emphasis>
+                <emphasis role="bold">Standard</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Related WS*-Specification</emphasis>
+                <emphasis role="bold">Guidance</emphasis>
               </entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry>Secure Communication Channel</entry>
-              <entry>SSL, HTTPS</entry>
-              <entry>WS-Security, WS-Secure Conversation</entry>
+              <entry>1:General definition for the Representation of Dates and Times.</entry>
+              <entry>ISO 8601:2004 - Data elements and interchange formats - Information interchange - Representation of dates and times</entry>
+              <entry>If not otherwise specified, implementation of the W3C profile of ISO 8601:2004 (W3CDTF profile) is mandatory.</entry>
             </row>
             <row>
-              <entry>Authentication</entry>
-              <entry>PKI Digital Certification</entry>
-              <entry>WS-Trust, SAML, WS-Federation</entry>
+              <entry>2:General definition of letter codes for Geographical Entities</entry>
+              <entry>Country Codes (ISO 3166)</entry>
+              <entry>Whenever possible, the ISO-3166 alpha-3 (three-letter codes) contained in STANAG 1059 should be used.</entry>
             </row>
             <row>
-              <entry>Message Payload Encryption and Signature</entry>
-              <entry>Standard Cipher Suites</entry>
-              <entry>WS-Encryption WS-Signature</entry>
+              <entry>4:General definition of geospatial coverage areas in discovery metadata</entry>
+              <entry>World Geodetic System (WGS) 84, ISO 19115 and ISO 19136 (for point references)
+              </entry>
+              <entry>ISO 19139 provides encoding guidance for ISO 19115</entry>
             </row>
             <row>
-              <entry>Access Control List</entry>
-              <entry>LDAP, JMX, proprietary</entry>
-              <entry>XACML</entry>
-            </row>
-            <row>
-              <entry>Publish and Subscribe</entry>
-              <entry>JMS, proprietary</entry>
-              <entry>WS-Notification, WS-Eventing</entry>
-            </row>
-            <row>
-              <entry>Service Endpoint Description</entry>
-              <entry>WSDL, LDAP, JNDI, proprietary</entry>
-              <entry>WSDL, WS*-Policy, SOAP 1.2 F and P</entry>
-            </row>
-            <row>
-              <entry>Reliable Messaging</entry>
-              <entry>JMS, proprietary MOM</entry>
-              <entry>WS-ReliableMessaging</entry>
-            </row>
-            <row>
-              <entry>Itinerary-based Routing</entry>
-              <entry>WSDL, proprietary</entry>
-              <entry>WSDL, WS-Addressing</entry>
-            </row>
-            <row>
-              <entry>Business Process Orchestration</entry>
-              <entry>Proprietary</entry>
-              <entry>WS-BPEL, WS-Choreography, proprietary</entry>
-            </row>
-            <row>
-              <entry>Transaction</entry>
-              <entry>JTA, JCA, XA, proprietary</entry>
-              <entry>WS-Coordination WS-Transaction WS-Atomic Transaction WS-Business Activity, WS-CAF</entry>
+              <entry>5:General definition of geospatial coverage areas in discovery metadata</entry>
+              <entry>World Geodetic System (WGS) 84, ISO 19115 and ISO 19136 (for point 
+                references)</entry>
+              <entry>ISO 19139 provides encoding guidance for ISO 19115</entry>
             </row>
           </tbody>
         </tgroup>
       </table>
-      
-      <para>As ESB-profile for open, standardized service-endpoints the WS-I Basic
-      Profile V1.1 (an extension of the WS-I Basic Profile V1.0) including some extensions
-      with the following parts could be a good choice:
-        <itemizedlist>
-          <listitem><para>WS-I Web Service Basic Profile, v1.1:2nd ed. 2006</para>
-            </listitem>
-          <listitem><para>WS-I Simple SOAP Binding Profile v1.0:2004</para></listitem>
-        </itemizedlist>
-      </para>
-      
-      <para>The following standards are included:
-        <itemizedlist>
-          <listitem><para>Simple Object Access Protocol (SOAP) 1.1;</para></listitem>
-          <listitem><para>RFC2616: Hypertext Transfer Protocol -- HTTP / 1.1;</para></listitem>
-          <listitem><para>RFC2965: HTTP State Management Mechanism;</para></listitem>
-          <listitem><para>Extensible Markup Language (XML) 1.0 (Second Edition);</para></listitem>
-          <listitem><para>Namespaces in XML 1.0;</para></listitem>
-          <listitem><para>XML Schema Part 1: Structures;</para></listitem>
-          <listitem><para>XML Schema Part 2: Data types;</para></listitem>
-          <listitem><para>Web Services Description Language (WSDL) 1.1;</para></listitem>
-          <listitem><para>UDDI Version 2.04 API Specification;</para></listitem>
-          <listitem><para>UDDI Version 2.03 Data Structure Reference;</para></listitem>
-          <listitem><para>UDDI Version 2 XML Schema;</para></listitem>
-          <listitem><para>RFC2818: HTTP Over TLS;</para></listitem>
-          <listitem><para>RFC2246: The TLS Protocol Version 1.0;</para></listitem>
-          <listitem><para>The SSL Protocol Version 3.0;</para></listitem>
-          <listitem><para>RFC2459: Internet X.509 Public Key Infrastructure Certificate
-            and CRL Profile.</para></listitem>
-        </itemizedlist>
-      </para>
-      
-      <para>For interoperability reasons further standards should be included, that 
-      are currently neither within the WS-I Profile nor in the NATO ADatP-34 NISP-Vol2-v2:
-        <itemizedlist>
-          <listitem><para>TCP (IETF STD 7:1981, RFC0793:1981 updated by RFC3168:2001);</para></listitem>
-          <listitem><para>UDP (IETF STD 6:1980, RFC0768:1980);</para></listitem>
-          <listitem><para>XML Encryption Syntax and Processing (W3C Recommendation
-            10 December 2002);</para></listitem>
-          <listitem><para>XML Signature Syntax and Processing Second Edition (W3C
-            Recommendation 10 June 2008);</para></listitem>
-          <listitem><para>Security Assertion Markup Language, SAML v1.1 (OASIS);</para></listitem>
-          <listitem><para>XKMS: XML Key Management Specification (W3C Note 30 March 
-            2001);</para></listitem>
-          <listitem><para>XACML eXtensible Access Control Markup Language Version 2.0
-            (OASIS Standard, 1 Feb 2005).</para></listitem>
-        </itemizedlist>
-      </para>
-      
-      <para>The examination of standards to be considered gives the following requirement 
-      for an open, standardized service-endpoint of the reference environment for 
-      services (SRE):
-        <orderedlist inheritnum="ignore" continuation="restarts">
-          <listitem><para>The open, standardized procedures for access and provision
-            of service-endpoints provided through an ESB (ESB-stub and SOA-(ESB-) 
-            infrastructure) must be based on an extended WS-I profile.</para></listitem>
-        </orderedlist>
-      </para>
-    </sect2>
-    
-    <sect2>
-      <title>SOA- (ESB-) Infrastructure Services</title>
-      
-      <para>Besides the standardized service-interfaces (open service-endpoints), 
-      the service layer of the SOA-model encompasses the mechanisms for service 
-      administration as well as specialized services. In the broader sense the specialized 
-      services are cross-functions for an ESB.</para>
-      
-      <para>To make services work it takes more than SOAP, WSDL and UDDI. Services
-      must work with different security-levels. Complex processes between several 
-      services must be able to execute related roll-back-mechanisms as transactions.
-      Also routing and general Quality-of-Service rules are of importance in a global
-      infrastructure</para>
-      
-      <para>Further on services must be labeled with defined Service Level Agreements 
-      in order to sufficiently define their quality features.</para>
-      
-      <para>A global service-architecture, that provides a SOA-(ESB-) infrastructure
-      for services, can be illustrated as a layer-model composed of a Core Layer and
-      a Higher Layer.
-        <itemizedlist>
-          <listitem><para><emphasis role="bold">Core Layer:</emphasis> The core layer
-            of the architecture comprises XML and SOAP. XML is the basis of all formats
-            and protocols. As a default SOAP can be transferred via TCP / IP and HTTP.
-            The flexibility of SOAP also allows other transfer protocols.</para></listitem>
-          <listitem><para><emphasis role="bold">Higher Layer:</emphasis> The higher
-            layer comprises for example a directory-service (Registry) and security-services
-            (X.509 or SAML). This layer is composed of a variety of additional products and
-            consists of standards like e.g. the WS*-Specification: WS*-Security,
-            WS-ReliableMessaging, WS-Reliable or WS*-Transaction.</para></listitem>
-        </itemizedlist>
-      </para>
-      
-      <para>Now we look at services that are necessary for the provision of a service 
-      (service infrastructure). They are the SOA-(ESB-) infrastructure.</para>
-      
-      <para>From the SOA-perspective the specialized services, that form the SOA-(ESB-) 
-      infrastructure, are also „just services“, which in turn are based on SOA-mechanisms.
-      </para>
-      
-      <para>Under consideration of the SRE capability 3 (The reference environment
-      for services (SRE) is based on different classifications of the providers 
-      (service classes)) the specialized services of the SOA-(ESB) infrastructure
-      form a superior, self-sufficient service-class on the ESB. A service of the
-      specialized services of the SOA-(ESB-) infrastructure is either self-sufficient
-      (does not use further services), or uses only services of self-sufficient service
-      sub-classes of the SOA-(ESB-) infrastructure.</para>
-      
-      <para>The necessary SOA-(ESB-) infrastructure (specialized services) resulting 
-      from the use of services leads to the following capabilities/requirements for
-      the ESB:
-        <orderedlist inheritnum="ignore" continuation="restarts">
-          <listitem><para>For the use of a service the consumer as well as the provider
-            needs information (e.g. service description) and infrastructure-services 
-            (e.g. policies) that have to be provided by the SOA-(ESB-) infrastructure.
-            </para></listitem>
-          <listitem><para>The services of the SOA-(ESB-) infrastructure by themselves
-            form a service, that is based on the ESB-mechanisms in an analog manner
-            to the application-services (provider) and which are necessary for the 
-            provision of an application-service.</para></listitem>
-          <listitem><para>The services of the SOA-(ESB-) infrastructure constitute
-            service-classes (e.g. the core services of a directory service and the 
-            security services), that are structured hierarchically, and are either
-            self-sufficient or must be based on services of self-sufficient 
-            service-classes.</para></listitem>
-        </orderedlist>
-      </para>
-      
-      <para>The next two chapters deal with the essential components like the directory
-      service (Registry and Repository) and the services and the procedure for the
-      area of security. A SOA-(ESB-) infrastructure comprises much more specialized
-      services that are being used by consumers and providers and further specialized 
-      services that are necessary to ensure operations of an ESB-configuration.
-      </para>
-      
-      <para>As these further specialized services fulfill specific tasks they are
-      not dealt with in detail in this chap-ter. Rather, they are described in more
-      detail in the respective subject areas. There, the correspond-ing capability
-      requirements will be derived.</para>
-      
-      <para>Currently, the following core series are recommended for the tact ESB:
-      </para>
-      
-      <sect3>
-        <title>Service Registry Service</title>
-        
-        <para>One of the functions of a Registry and Repository System is the cataloging
-        of all service information. A Registry and Repository System regulates first
-        and foremost the collaboration of management and monitoring tools which in
-        turn enable run-time policies or Service Level Agreements (SLAs) to be monitored.
-        To this end, the Registry and Repository System automatically analyses run-time 
-        data. The registry must be closely interlocked with the ESB, as well as with 
-        the management and monitoring tools.</para>
-        
-        <para>Due to the fact that in the military field, mobile and stationary 
-        systems are employed and that larger and smaller platforms are necessary 
-        in the application, SRE prefers the inclusion of separate Registry and
-        Repository Systems.</para>
-        
-        <para>In doing so, the ESB Service Repository, is used more for configuration
-        management (Metadata Re-pository). The ESB Service Repository supports the
-        whole life cycle of processes, policies and services. Conversely, the ESB 
-        Service Repository is used as an operational service of the SOA (ESB) and
-        hereby supports the administration, control, search and definition of services
-        throughout the life-span of the ESBs.</para>
-        
-        <para>A synchronization mechanism transmits the relevant service definitions
-        from the ESB Service Repository (master with the WSDL and policy description)
-        to the ESB Service Registry.</para>
-        
-        <para>The service definition for the service registry is specified in [1].</para>
-      </sect3>
-      
-      <sect3>
-        <title>Security Services</title>
-        
-        <para>The security services are sub-divided into the following separate services:
-        </para>
-        
-        <sect4>
-          <title>Authorization Service</title>
-          
-          <para>The Authentication Service encapsulates the respective functionalities
-          necessary to determine the identity of the entity. For those who login to
-          an SOA associated system this means, for example, the implementation of 
-          a single sign-on concept. Therefore, the user only has to login once even
-          if he uses different entry points for SOA services. His identity and downstream
-          (supporting services) is provided insofar as this complies with the current
-          process definition. Therefore, subject to the security regulations, various
-          authentication measures may be required:
-            <itemizedlist>
-              <listitem><para>Username and Password</para></listitem>
-              <listitem><para>X.509 Certificate e.g. on a Smartcard for equipment</para></listitem>
-              <listitem><para>X.509 Certificate for Services</para></listitem>
-            </itemizedlist>
-          </para>
-          
-          <para>The Authentication Service verifies the log on information of the 
-          entity. With people, the test is carried out using the directory service. 
-          Should the test turn out positive, a security confirmation in accordance
-          with the standard ‘Security Assertion Mark-up Language’ (SAML) is issued. 
-          By using this service, the identity of an entity is confirmed, possibly
-          even beyond the borders of trustworthy organizations.</para>
-          
-          <para>Furthermore, the Authentication Service verifies certain fundamental 
-          properties of the considered entity in the form of attributes. For people
-          this is, for example, the degree of VS authority, their mili-tary rank or 
-          current position. These defined properties, together with the security 
-          regulations, are consulted when deciding to allow access to a resource.
-          </para>
-          
-          <para>The service definition for the authorization service is specified 
-          in [2], the security token service in [6].</para>
-        </sect4>
-        
-        <sect4>
-          <title>Access Control Service (Authorization)</title>
-          
-          <para>As described in the previous section, the identity of an entity is 
-          generally determined by a certificate.</para>
-          
-          <para>Via the Access Control Service (Authorization Service) of the SOA 
-          (ESB) Infrastructure, user authorization to resources (a resource is a 
-          service including operation) relating to identification / role is checked,
-          permission granted to the entity and accordingly signed by the Access 
-          Control Service.</para>
-          
-          <para>The service definition for the access control service is to be specified.
-          </para>
-        </sect4>
-        
-        <sect4>
-          <title>Domain Service</title>
-          
-          <para>If different security domains (for example, different nations or 
-          national domains) wanted to collaborate, certain trust relationships must
-          be defined. These include, among others, the establishment of trust connections
-          between SOA PKIs of the organizations involved.</para>
-          
-          <para>The Domain Service – a component of an SOA PKI – supports this in
-          observing the following tasks which can also be directly taken over by 
-          the synchronization:
-            <itemizedlist>
-              <listitem><para>Registration and accreditation of a co-operating
-                organization,</para></listitem>
-              <listitem><para>Publication of information through existing trust
-                connections,</para></listitem>
-              <listitem><para>Transformation of security attributes between the
-              individual information areas of the part-ner organizations.</para></listitem>
-            </itemizedlist>
-          </para>
-          
-          <para>The service definition for the domain controller service is specified 
-          in [7].</para>
-        </sect4>
-        
-        <sect4>
-          <title>SOA Public Key Infrastructure (SOA PKI)</title>
-          
-          <para>The SOA PKI is a system which provides an infrastructure for the 
-          creation and distribution of digital certificates. Furthermore, the SOA
-          PKI maintains its own revocation list (block) for certificates (public key)
-          and synchronizes the revocation list between security domains. In the 
-          distribution of certificates, generally only public keys are assigned.
-          </para>
-          
-          <para>Additionally, there is a requirement for the dynamic generation of 
-          key material within the interplay of SOA Services, such as the signing 
-          and encrypting of tasks with an asymmetric key pair.</para>
-          
-          <para>With the help of the ‘XML Key Management Specification’ (XKMS) service, 
-          SOA PKI compliant public key applications are provided to the applications
-          and validated.</para>
-          
-          <para>The SOA PKI components are divided into two service areas:
-            <itemizedlist>
-              <listitem><para><emphasis role="bold">Public Key Infrastructure (PKI)
-                </emphasis></para>
-                <para>By means of the SOA PKI, certificates are created and distributed,
-                the certification and life-cycle management of keys carried out and
-                the central revocation lists managed. The PKI is a hierarchical 
-                CA <footnote><para>CA = certification authority</para></footnote> 
-                structure and controls the trust connections between CAs.</para>
-                <para>The service definition for the SoaPki service is specified in 
-                [3], the GenKey service is specified in [5]. </para></listitem>
-              <listitem><para><emphasis role="bold">XML Key Management Specification
-                (XKMS)</emphasis></para>
-                <para>The XML Key Management Specification (XKMS) defines a protocol
-                  for a trust service which provides the functions of a PKI (Public
-                  Key Infrastructure). XKMS consists of the following two components:
-                  <itemizedlist>
-                    <listitem><para>XML Key Information Service Specification (X-KISS)
-                      defines methods to search for and validate public keys. Its goal
-                      is to minimize the complexity of the key search and validation 
-                      for the users by means of the X-KISS syntax. This then provides
-                      the Access Control Service (authorization) with methods for 
-                      searching and validating and forwards these to an underlying PKI.
-                      </para></listitem>
-                   <listitem><para>XML Key Registration Specification (X-KRSS defines
-                     methods to register, reissue and revoke keys.</para></listitem>
-                 </itemizedlist>
-               </para></listitem>
-             </itemizedlist>
-           </para>
-           
-           <para>The SOA PKO is indeed an infrastructure component but one which is
-           not necessarily attached to the SOA (ESB) Infrastructure. It is only 
-           contacted by the SOA (ESB) Infrastructure at specific times, such as 
-           upon initial operation or when adding users/hardware components.</para>
-           
-           <para>The service definition for the XKMS service is specified in [4].</para>
-         </sect4>
-       </sect3>
-     </sect2>
-   </sect1>
-   
+      <table frame="all">
+        <title>Battlespace Management Interoperability Protocols and Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
+          <colspec colwidth="30*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID:Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:Expressing digital geographic annotation and visualization on, two-dimensional maps and three dimensional globes</entry>
+              <entry>TIDE Transformational Baseline Vers. 3.0
+                <para>NATO Vector Graphics (NVG 1.5)</para></entry>
+              <entry>NVG shall be used as the standard Protocol and Data Format for encoding and sharing of information layers
+                <para>NVG is a XML based language schema for expressing geographic annotations.</para> 
+              </entry>
+            </row>
+            <row>
+              <entry>5:Exchange of digital Friendly Force Information such as positional tracking 
+                information amongst airborne and land-based tactical data systems and C2 systems.
+              </entry>
+              <entry>AC/322-D(2006)0066 Interim NFFI Standard for Interoperability of Force Tracking Systems
+              </entry>
+              <entry>All positional information of friendly ground forces (e.g. ground forces of Troop 
+                Contributing Nations or commercial transport companies working in support of ISAF Forces) 
+                shall be as a minimum made available in a format that can be translated into the NFFI V1.3 format.
+              </entry>
+            </row>
+            <row>
+              <entry>6:Military Symbology interoperability</entry>
+              <entry>STANAG 2019, Ed.5:2008, Joint SmbologyAPP-6(B)
+                <para>MIL-STD-2525B (w/Change 2), Common Warfighting Symbology, Mar 2007</para>
+                <para>MIL-STD-2525C, Common Warfighting Symbology, Nov 2008</para>
+                <para>Emerging: STANAG 2019, Ed.6:2011, Joint SmbologyAPP-6(C)</para>
+                <para>MIL-STD-2525C, Common Warfighting Symbology, Nov 2008</para>
+              </entry>
+              <entry>Note that the different standards are not fully compatible with each other 
+                and may require mapping services.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+  </sect1>    
+  <sect1>
+    <title>User Applications</title>      
+    <para>User Applications, also known as application software, software applications, applications 
+      or apps, are computer software components designed to help a user perform singular or multiple 
+      related tasks and provide the logical interface between human and automated activities.</para>     
+    <table frame="all">
+      <title>User Applications Standards</title> 
+      <tgroup cols="3">
+        <colspec colwidth="20*" />
+        <colspec colwidth="50*" />
+        <colspec colwidth="30*" />
+        <thead>
+          <row>
+            <entry>
+              <emphasis role="bold">ID:Purpose</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="bold">Standard</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="bold">Guidance</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>1:Displaying content within web browsers.</entry>
+            <entry>W3C Hypertext Markup Language HTML 4.0.1
+              <para>W3C Extensible Hypertext Markup Language XHTML 1.0</para>
+              <para>W3C Cascading Style Sheets CSS 2.0</para></entry>
+            <entry>Applications must support the following browsers: Microsoft 
+              Internet Explorerv9.0 and newer, and Mozilla Firefox12.0 and newer.
+              When a supported browser is not true to the standard, choose to support
+              the browser.
+              <para>Some organizations or end-user devices do not allow the use of 
+                proprietary extensions such as Adobe Flash or Microsoft Silverlight.
+                Those technologies shall be avoided. Implementers should use open 
+                standard based solutions (HTML5 / CSS3) instead.</para></entry>
+          </row>
+          <row>
+            <entry>2:Visualize common operational symbology within C4ISR systems 
+              in order to convey information about objects in the battlespace.</entry>
+            <entry>STANAG 2019, Ed.5:2008, Joint Symbology- APP-6(B)
+              <para>U.S. MIL-STD 2525 B (w/Change 2), Common Warfighting Symbology, bMar 2007</para>
+              <para>MIL-STD-2525C, Common Warfighting Symbology, Nov 2008</para>
+              <para>Emerging: STANAG 2019, Ed.6:2011, Joint SmbologyAPP-6(C)</para>
+              <para>TIDE Transformational Baseline Vers. 3-0, NATO Vector Graphics 
+                (NVG 1.5)</para>
+            </entry>
+            <entry>All presentation service shall render tracks, tactical graphics,
+              and MOOTW objects using this standard except in the case where the
+              object being rendered is not covered in the standard. In these exceptional
+              cases, additional symbols shall be defined as extensions of existing 
+              symbols and must be backwards compatible. These extensions shall be
+              submitted as a change proposal within the configuration control process
+              to be considered for inclusion in the next version of the specification.
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </sect1>      
+  <sect1>
+    <title>Service Management and Control</title>      
+    <para>Service Management and Control (SMC) provides a collection of capabilities to coherently 
+      manage components in a federated service-enabled information technology infrastructure. SMC
+      tools enable service providers to provide the desired quality of service as specified by the
+      customer. In a federated environment such as a FMN instance, utilizing common process and 
+      data is a critical enabler to manage a FMN.</para>     
+    <table frame="all">
+      <title>Service Management and Control Interoperability Standards</title> 
+      <tgroup cols="3">
+        <colspec colwidth="20*" />
+        <colspec colwidth="50*" />
+        <colspec colwidth="30*" />
+        <thead>
+          <row>
+            <entry>
+              <emphasis role="bold">ID:Purpose</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="bold">Standard</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="bold">Guidance</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>3:Network management</entry>
+            <entry>XSimple Network Management Protocol Version 3 (SNMPv3)</entry>
+            <entry></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </sect1>           
    <sect1>
      <title>References</title>
      <itemizedlist>
