@@ -276,14 +276,12 @@
          <servicecategory id="ces-esm-sys" title="System Mgmt" />
       </servicearea>
    </taxonomy>
-
-
    
-   <lists>
-      
+   <lists>     
       <sp-list tref="coi-gen-sgv">
          <sp-view idx="d0e641">
             <select id="ogc-09-000" mode="emerging">Sensor Planning Servicde (SPS) (OGC 09-000:2011)</select>
+            <remarks>Used in Profile: FMN</remarks>
             <rationale> SPS added in NISP v.6 through RFCP 5-23</rationale>
          </sp-view>
       </sp-list>
@@ -315,11 +313,12 @@
             </rationale>
          </sp-view>
          <sp-view idx="d0e632">
-            <select id="nato-stanag1317ed3" mode="mandatory">NATO Oceanographic Data Exchange Format (STANAG 1317 ed.3:2008)</select>
+            <select id="nato-stanag1317ed3" mode="fading">NATO Oceanographic Data Exchange Format (STANAG 1317 ed.3:2008)</select>
             <remarks>For CCEB interoperability this standard is only applicable for NATO lead operations</remarks>
             <rationale>
                STANAG 1317 ed.3, added in NISP v.5 through RFCP 4-12. For CCEB
                interoperability this standard is only applicable for NATO lead operations
+               STANAG 1317 ed.3 cancelled by NSA, no valid other edition available.
             </rationale>
          </sp-view>
          <sp-view idx="d0e633">
@@ -395,8 +394,7 @@
       <sp-list tref="coi-ci-ovm">
          <sp-view idx="d0e9607">
             <select id="nato-stanag7170" mode="mandatory">
-               Additional military Layers
-               for digital geospatial data products (AML), STANAG 7170 ed.2:2010
+               Additional military Layers for digital geospatial data products (AML), STANAG 7170 ed.2:2010
             </select>
             <remarks>
                STANAG 7170 is the reference to the NATO Maritime Concepts standard
@@ -461,7 +459,7 @@
                The USA, custodians of DTED, are working with the DGIWG to define and develop
                appropriate replacement standards for the exchange format in order to address
                new and emerging elevation requirements.
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN</para>
             </remarks>
             <rationale>STANAG 3809 ed.4 changed in NCSP v.6</rationale>
          </sp-view>
@@ -502,7 +500,7 @@
       <sp-list tref="ts-ces-infr">
          <sp-view idx="d0e642">
             <select id="oasis-wsfed" mode="emerging">WS-Federation (OASIS)</select>
-            <remarks>Used in Profile: CES</remarks>
+            <remarks>Used in Profiles: CES, FMN, tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e644">
             <select id="osf-f201" mode="emerging">Distributed Computing Environment (DCE) v1.1:1997 (OSF)</select>
@@ -584,7 +582,7 @@
             <remarks>
                UDDI 2.0 provides a platform-independent way of describing- and
                disovering service. For CCEB interoperability UDDI 3.0 is mandatory.
-               <para>Used in Profiles: AMN, CES (v.3.0.2), tactESB (v2.03)</para>
+               <para>Used in Profiles: AMN, CES (v.3.0.2), FMN (3.0), tactESB (v2.03)</para>
             </remarks>
             <rationale>
                Included in v.5 through RFCP 4-38 and updated in NCSP v.6 through
@@ -642,13 +640,13 @@
          <sp-view idx="d0e1178">
             <select id="w3c-rec-rdf-sparql11-query-20121108" mode="emerging">SPARQL 1.1 Query Language:2012 (W3C)</select>
             <remarks>Part of TIDE specification at ACT. 
-              <para>Used in Profile: AMN</para>
+              <para>Used in Profiles: AMN, FMN</para>
                <para>For CCEB interoperability this standard is not applicable.</para>
             </remarks>
             <rationale>Included in NISP v.3 by RFCP 2-19, updated to v1.1 in NISP v.7 through RFCP 6-113.</rationale>
          </sp-view>
          <sp-view idx="d0e4970">
-            <select id="ietf-draft-lee-sip-dns-sd-uri-03.txt" mode="emerging">DNS Service Disvovery (DNS-SD):2010 (ACT TIDE)</select>
+            <select id="ietf-rfc6763" mode="emerging">DNS-Based Service Disvovery (DNS-SD):2013 (IETF)</select>
             <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
             <rationale>DNS-SD included in NISP v.3 by RFCP 2-15</rationale>
          </sp-view>
@@ -675,7 +673,8 @@
             <remarks>
                LDAP is an IETF protocol and close to a functional subset of DAP.
                Many Web-browsers can act as LDAP clients, which is highly desirable.
-               <para>Used in Profile: AMN, CES</para>
+               <para>Used in Profile: AMN, CES, FMN, tactESB
+               </para>
             </remarks>
          </sp-view>
          <sp-view idx="d0e6747">
@@ -715,14 +714,14 @@
       
       <sp-list tref="ts-ces-rep">
          <sp-view idx="d0e8554">
-            <select id="nato-stanag5523" mode="mandatory">NC3 Repository</select>
+            <select id="nato-stanag5523" mode="fading">NC3 Repository</select>
             <remarks>
                Common repository for standard data elements and their
                related tool for the NATO Corporate Data Model for Data
                Administration. See also XML.
                <para>
                   As this is currently not a formal standard, this entry is under
-                  further consideration within the NC3B.
+                  further consideration within the NC3B. Current STANAG cancelled in 2013.
                </para>
                <para>For CCEB interoperability this standard is partially applicable</para>
                <para>Used in Profile: AMN</para>
@@ -781,25 +780,22 @@
          </sp-view>
          <sp-view idx="d0e8654">
             <select id="nato-c2iedm" mode="emerging">
-               C2 Information
-               Exchange Data Model (C2IEDM) and Data Exchange Mechanism (DEM)
+               C2 Information Exchange Data Model (C2IEDM) and Data Exchange Mechanism (DEM)
             </select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profiles: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
          <sp-view idx="d0e8659">
             <select id="mip-MTIDP-SEAWG-ed3.0.10-annex-b" mode="mandatory">
-               DEM Data
-               Replication Mechanism from MIP baseline 3:2009
+               DEM Data Replication Mechanism from MIP baseline 3:2009
             </select>
             <select id="mip-MTIDP-SEAWG-ed3.0.10-annex-b" mode="emerging">
-               DEM Data
-               Replication Mechanism from MIP baseline 4
+               DEM Data Replication Mechanism from MIP baseline 4
             </select>
-            <remarks>Used in Profile: AMN</remarks>
+            <remarks>Used in Profiles: AMN, FMN</remarks>
             <rationale>
                C2IEDM replaced by JC3IEDM in v.7 by RFCP 6-21; changed to mandatory
                through RFCP 5-62; Baseline 4 added in NISP v.7 through RFCP 6-40.
@@ -931,16 +927,21 @@
             <select id="w3c-note-vml" mode="emerging">Vector Markup Language (VML), W3C Note 19980513, 1998 (W3C)</select>
             <rationale>VML added in NISP v.6 through RFCP 5-39.</rationale>
          </sp-view>
+         <sp-view idx="d0e9005">
+            <select id="nato-ttb_30" mode="emerging">TIDE Transformational Baseline 3.0:2009 (ACT)</select>
+            <remarks>Used in Profiles: FMN, tactESB</remarks>
+         </sp-view>
          <sp-view idx="d0e9008">
-            <select id="nato-tide-nvg" mode="emerging">NVG - NATO Vector Graphics Protocol v.1.5:2010 (ACT)</select>
+            <select id="nato-tide-nvg" mode="mandatory">NVG - NATO Vector Graphics Protocol v.1.5:2010 (ACT)</select>
+            <select id="nato-tide-nvg20" mode="emerging">NVG - NATO Vector Graphics Protocol v.2.0:2012 (ACT)</select>
             <remarks>
                Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.
-               <para>Used in Profle: AMN</para>
+               <para>Used in Profles: AMN, FMN, tactESB</para>
             </remarks>
-            <rationale>NVG added in NISP v.3 through RFCP 2-20.</rationale>
+            <rationale>NVG added in NISP v.3 through RFCP 2-20, v1.5 changed to mandatory in NISP v.8 through RFCP 7-27, v2.0 added in v.8 through RFCP 2-27.</rationale>
          </sp-view>
          <sp-view idx="d0e9010">
-            <select id="unknown-geotiff" mode="mandatory">
+            <select id="osgeo-geotiff" mode="mandatory">
                Geographical Tagged Image Format (GeoTIFF)
             </select>
             <remarks>
@@ -985,7 +986,7 @@
             </remarks>
          </sp-view>
          <sp-view idx="d0e9035">
-            <select id="unknown-mrsid" mode="emerging">Multiresolution seamless Image Database (MrSid Res. 2)</select>
+            <select id="LizardTech-mrsid" mode="emerging">Multiresolution seamless Image Database (MrSid Res. 2)</select>
             <remarks>
                <para>
                   <emphasis>Used in Profile: AMN</emphasis>
@@ -1050,8 +1051,8 @@
             </rationale>
          </sp-view>
          <sp-view idx="d0e9396">
-            <select id="nato-stanag5500ed6" mode="mandatory">ADatP-3(A), CONFORMETS (STANAG 5500, ed. 7:2010)</select>
-            <remarks>Used in Profile: AMN</remarks>
+            <select id="nato-stanag5500ed7" mode="mandatory">ADatP-3(A), CONFORMETS (STANAG 5500, ed. 7:2010)</select>
+            <remarks>Used in Profiles: AMN, FMN (ed.6)</remarks>
             <rationale>STANAG 5500 ed.5 changed in NCSP v.6 and in NISP v.2 based on RFCP 1-8</rationale>
          </sp-view>
          <sp-view idx="d0e9418">
@@ -1072,7 +1073,7 @@
                      <secondary>OTH-T</secondary>
                   </indexterm>
                </para>
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN (ed.4)</para>
             </remarks>
             <rationale>APP-11/STANAG 7149 ed.2 added in NISP v.2 based on RFCP 1-9</rationale>
          </sp-view>
@@ -1110,7 +1111,7 @@
             <select id="ogc-10-100r2" mode="emerging">GML Simple Feature Profile v2.0 (OGC:2010)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profile: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -1122,7 +1123,7 @@
             <select id="ogc-09-026r1" mode="emerging">Filter Encoding v2.0 (OGC:2010)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profiles: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -1130,7 +1131,7 @@
             <select id="esri-shapefile" mode="emerging">ESRI Shapefile Specification (ESRI:2008)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profiles: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -1150,6 +1151,7 @@
             <remarks>
                WGS specifies the set of parameters that define mathematically the
                shape of the earth
+               <para>Used in Profile: FMN</para>
             </remarks>
             <rationale>WGS 92 deleted because of no concrete specification</rationale>
          </sp-view>
@@ -1161,7 +1163,7 @@
                Core Geo Catalogue. It is likely that a NATO profile of this standard will
                have to be produced based on the DGIWG profile.
                <para>For CCEB interoperability this standard is emerging</para>
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profile: AMN, FMN, tactESB</para>
             </remarks>
             <rationale>
                ISO 19115 included in v.5 through RFCP 4-1. NameISO DIS 19115:2003
@@ -1209,6 +1211,7 @@
          </sp-view>
          <sp-view idx="d0e10072">
             <select id="dod-mil-std2525b" mode="mandatory">Common Warfighting Symbology (Mil-Std 2525B)</select>
+            <select id="dod-mil-std2525c" mode="emerging">Common Warfighting Symbology (Mil-Std 2525C)</select>
             <remarks>
                For CCEB interoperability the mandatory standard is
                MIL-STD 2525B COMMON WARFIGHTING SYMBOLOGY and the emerging
@@ -1221,7 +1224,7 @@
                   <primary>dod</primary>
                   <secondary>MIL-STD 2525C</secondary>
                </indexterm>
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
             <rationale>Included in NCSP v.6</rationale>
          </sp-view>
@@ -1229,7 +1232,7 @@
             <select id="nato-stanag2019" mode="mandatory">Joint Symbology (APP-6(C)/STANAG 2019 ed.6:2011)</select>
             <remarks>
                For CCEB interoperability this standard is not applicable.
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
             <rationale>Remarks included in v.5 through RFCP 4-1; STANAG 2019 ed.4 changed in NCSP v.6</rationale>
          </sp-view>
@@ -1265,7 +1268,7 @@
             <select id="ogc-ogc06-042" mode="mandatory">Web Map Service (WMS) Implementation Specification v.1.3:2006 (OGC 06-042)</select>
             <remarks>
                Used as a means of distributing compiled mapping data between applications.
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
             <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
          </sp-view>
@@ -1273,7 +1276,7 @@
             <select id="ogc-ogc05-078r4" mode="emerging">OpenGIS Styled Layer Descriptor Profile of the Web Map Service (SLD 1.1.0) (OGC 05-078r4)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profiles: AMN, FMN, tactESB</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -1283,6 +1286,7 @@
                Used as a means of distributing geo feature (vector) data between
                applications.
                <para>For CCEB interoperability this standard is emerging</para>
+               <para>Used inProfile: FMN</para>
             </remarks>
             <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
          </sp-view>
@@ -1292,7 +1296,7 @@
                Used as a means of distributing geo coverages (raster) data between
                applications.
                <para>For CCEB interoperability this standard is emerging</para>
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profile: AMN, FMN</para>
             </remarks>
             <rationale>Included NCSP in v.6 through RFCP 5-27</rationale>
          </sp-view>
@@ -1307,7 +1311,7 @@
          </sp-view>
          <sp-view idx="d0e10194">
             <select id="ogc-kml" mode="mandatory">KeyholeMarkup Language (KML) v.2.2:2008 (OGC 07-147r2)</select>
-            <remarks>Used in Profile: AMN</remarks>
+            <remarks>Used in Profiles: AMN, FMN</remarks>
             <rationale>Included in NISP v.4 through RFCP 4-27 and changed to mandatory in NISP v.7 through RFCP 6-47.</rationale>
          </sp-view>
          <sp-view idx="d0e10200">
@@ -1319,6 +1323,7 @@
                for georeferencing images and gives guidelines for augmenting that definition
                to address the additional encoding of metadata, features, annotations, styles,
                coordinate reference systems, and units of measure for data encoded in JP2K
+               <para>Used in Profile: FMN</para>
             </remarks>
             <rationale>Included in NCSP v.7 through RFCP 6-16</rationale>
          </sp-view>
@@ -1336,7 +1341,7 @@
             </select>
             <remarks>
                Used as a means of discovering geo metadata.
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
             <rationale>Included in NCSP v.6 through RFCP 5-27</rationale>
          </sp-view>
@@ -1346,7 +1351,7 @@
             </select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profiles: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -1414,14 +1419,12 @@
             </select>
          </sp-view>
          <sp-view idx="d0e10517">
-            <select id="nato-stanag1059ed8" mode="mandatory">Letters for Geographic Entities, STANAG 1059, ed.8:2004</select><!--
-            <select id="nato-stanag1059ed8" mode="emerging">Letters for Geographic Entities, STANAG 1059, ed.9 (RD)</select>
-            -->
+            <select id="nato-stanag1059ed8" mode="mandatory">Letters for Geographic Entities, STANAG 1059, ed.8:2004</select>
             <remarks>
                For CCEB interoperability the country codes standard is ISO 3166
                trigraphs except for military messaging - see CCEB COMAG Policy On Security
                Labelling
-               <para>Used in Profile: AMN (ed.9)</para>
+               <para>Used in Profiles: AMN (ed.9), FMN, tact ESB (only ISO-3166)</para>
             </remarks>
          </sp-view>
          <sp-view idx="d0e10687">
@@ -1497,6 +1500,7 @@
             <select id="iso-8601" mode="mandatory">
                Representation of Dates and Times (ISO 8601:2004)
             </select>
+            <remarks>Used in Profiles: FMN, tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e11145">
             <select id="w3c-datetime" mode="mandatory">
@@ -1512,7 +1516,7 @@
             </select>
             <select id="bp-smime" mode="emerging">S/MIME ESS (IETF RFC 3850:2004, 3851:2004)</select>
             <remarks>
-               Base64 is included in RFC 2045:1996 <para>Used in Profile: CES</para>
+               Base64 is included in RFC 2045:1996 <para>Used in Profiles: CES, FMN</para>
             </remarks>
          </sp-view>
          <sp-view idx="d0e11150">
@@ -1541,7 +1545,8 @@
             <select id="bp-dnssec" mode="emerging">DNSSEC (IETF RFC 4025 - 4033:2005)</select>
             <remarks>
                Bind version 9 or later should be used.
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profile: AMN, FMN, tactESB.</para>
+               <para>In tactESB only used, if enough bandwidth available</para>
             </remarks>
             <rationale>
                RFC 1034:1987 and RFC 1035:1987 updated by RFC 1101:1989, 1183:1990,
@@ -1551,7 +1556,7 @@
             </rationale>
          </sp-view>
          <sp-view idx="d0e1277">
-            <select id="ietf-draft-cheshire-dnsext-multicastdns-06.txt" mode="emerging">mDNS (IETF Draft draft-cheshire-dnsext-multicastdns-06.txt)</select>
+            <select id="ietf-rfc6762" mode="emerging">mDNS (IETF RFC 6762)</select>
             <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
             <rationale>mDNS included in NISP v.3 by RFCP 2-14</rationale>
          </sp-view>
@@ -1579,10 +1584,10 @@
          <sp-view idx="d0e1454">
             <select id="ietf-rfc791" mode="mandatory">
                IPv4 (STD 5, RFC 791:1981, 792:1981, 894:1984, 919:1984,
-               922:1984, 950:1985 updated by RFC 1112:1989, 2474:1998, 2507:1999, 2508:1999,
-               3168:2001, 3260:2002, 3376:2002, 4604:2006, 4884:2007)
+               922:1984, 950:1985 updated by RFC 1112:1989, 2365:1998, 2474:1998, 2507:1999, 2508:1999,
+               2908:2000, 3168:2001, 3171:2001, 3260:2002, 3376:2002, 4604:2006, 4884:2007)
             </select>
-            <remarks>Used in Profile: AMN</remarks>
+            <remarks>Used in Profiles: AMN, FMN, tactESB</remarks>
             <rationale>
                RFC 894:1984, 2374:1998, 2710:1999, 3513:2003 included in v.5
                through RFCP 4-3; STD 5, RFC 791:1981, 792:1981, 894:1984, 919:1984,
@@ -1603,7 +1608,7 @@
             </select>
             <remarks>
                Note: Category of RFC 2375:1998 is ´Informal´
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
             <rationale>
                RFC 894:1984, 2374:1998, 2710:1999, 3513:2003 included in v.5
@@ -1699,6 +1704,13 @@
             </select>
             <rationale>STANAG 4711 added in NISP v.7 through RFCP 6-73.</rationale>
          </sp-view>
+         <sp-view idx="d01535">
+            <select id="nato-TN-1417" mode="emerging">
+               IP QoS for the NII, NC3A TN-1417
+            </select>
+            <remarks>Used in Profile: FMN</remarks>
+            <rationale>TN-1417 added in NISP v.8 through RFCP 7.</rationale>
+         </sp-view>
          <sp-view idx="d0e1537">
             <select id="ietf-rfc2474" mode="mandatory">
                Differentiated Services Field (IETF RFC 2474:1998
@@ -1757,7 +1769,10 @@
                (RFC 4760:2007); Use of BGP-4 Multiprotocol Extensions for IPv6 Inter-Domain
                Routing (RFC 2545:1999)
             </select>
-            <rationale>RFC 2858:2000 included in v.5 through RFCP 4-3</rationale>
+            <select id="ietf-rfc1997" mode="emerging">BGP Communities Attribute (RFC 1997:1996)</select>
+            <select id="ietf-rfc5492" mode="emerging">Capabilities Advertisement with BGP-4 (RFC 5492:2009)</select>
+            <remarks>Used in Profiles: FMN, tactESB</remarks>
+            <rationale>RFC 2858:2000 included in v.5 through RFCP 4-3, RFC 1997:1996 and 5492:2009 added in v.8 through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e1580">
             <select id="ietf-rfc3913" mode="emerging">BGMP (RFC 3913:2004)</select>
@@ -1772,8 +1787,16 @@
                Protocol Independent Multicast
                Sparse Mode(PIM-SM) (RFC 4601:2006, updated by 5059:2008)
             </select>
-            <remarks>PIM-SM is implemented by the router market leaders.</remarks>
+            <remarks>PIM-SM is implemented by the router market leaders.
+              <para>Used in Profile: FMN</para></remarks>
             <rationale>PIM-SM changed to mandatory in v.4 through RFCP 3-25</rationale>
+         </sp-view>
+         <sp-view idx="d0e1598">
+            <select id="ietf-rfc6621" mode="emerging">
+               Simplified Multicast Forwarding (SMF) (RFC 6621:2012)
+            </select>
+            <remarks>Used in Profile: tactESB</remarks>
+            <rationale>Included in NISP v.8 through RFCP 7-26.</rationale>
          </sp-view>
          <sp-view idx="d0e1603">
             <select id="ietf-rfc3973" mode="emerging">
@@ -1781,6 +1804,13 @@
             </select>
             <remarks>PIM-DM is included as a second concept for tactical networks</remarks>
             <rationale>PIM-DM included in v.4 through RFCP 3-25</rationale>
+         </sp-view>
+         <sp-view idx="d0e1605">
+            <select id="ietf-rfc3618" mode="emerging">
+               Multicast Source Discovery Protocol (MSDP) (RFC 3618:2003)
+            </select>
+            <remarks>Used in Profiles: FMN, tactESB</remarks>
+            <rationale>MSDP included in v.8 through RFCP 7-27</rationale>
          </sp-view>
          <sp-view idx="d0e1612">
             <select id="ietf-rfc4023" mode="mandatory">Generic Routing Encapsulation (GRE) (RFC 4023:2005, updated by 5332:2008)</select>
@@ -1819,7 +1849,8 @@
             <select id="ietf-rfc1519" mode="mandatory">
                Classless Inter Domain Routing (CIDR) (RFC 4632:2006)
             </select>
-            <remarks>CIDR is only valid for IPv4</remarks>
+            <remarks>CIDR is only valid for IPv4
+              <para>Used in Profiles: FMN, tactESB</para></remarks>
             <rationale>
                Included in v.4 through RFCP 3-24; moved to mandatory in v.5 through
                RFCP 4-3
@@ -1891,6 +1922,7 @@
                1661:1994 updated by 2153:1997; 1662:1994, updated by 5342:2008)
             </select>
             <select id="ietf-rfc2472" mode="emerging">IPv6 over PPP (RFC 5072:2007, 5172:2008)</select>
+            <remarks>Used in Profiles: FMN, tactESB, mandatory in tactESB, optinal in FMN</remarks>
             <rationale>
                Included in v.5 through RFCP 4-6; STD 51, RFC 1661:1994 updated by
                2153:1997, changed in NCSP v.6
@@ -1901,7 +1933,7 @@
                PPP Challenge Handshake
                Authentication Protocol (CHAP) (RFC 1994:1996 updated by 2484:1999)
             </select>
-            <remarks>Used in routers</remarks>
+            <remarks>Used in routers. <para>Used in Profile: FMN</para></remarks>
             <rationale>RFC 1994:1996 updated by 2484:1999, changed in NCSP v.6</rationale>
          </sp-view>
          <sp-view idx="d0e1742">
@@ -1928,12 +1960,12 @@
                TCP (IETF STD 7:1981, RFC 793:1981 updated
                by RFC 1122:1989, 3168:2001)
             </select>
-            <remarks>Used in Profiles: AMN, tactESB</remarks>
+            <remarks>Used in Profiles: AMN,FMN, tactESB</remarks>
             <rationale>STD 7:1981, RFC 0793:1981 updated by RFC 3168:2001 changed in NCSP v.6</rationale>
          </sp-view>
          <sp-view idx="d0e4329">
             <select id="ietf-rfc768" mode="mandatory">UDP (IETF STD 6:1980, RFC 0768:1980)</select>
-            <remarks>Used in Profile: tactESB</remarks>
+            <remarks>Used in Profiles: FMN, tactESB</remarks>
             <rationale>STD 6:1980, RFC 0768:1980 changed in NCSP v.6</rationale>
          </sp-view>
          <sp-view idx="d0e4336">
@@ -1971,7 +2003,19 @@
             <remarks>ISDN Telephony</remarks>
             <rationale>ISDN Telephony</rationale>
          </sp-view>
+         <sp-view idx="d0e1779">
+            <select id="itu-tg703" mode="mandatory">Physical/electrical characteristics of
+              hierarchical digital interfaces</select>
+            <remarks>Used in Profile: FMN</remarks>
+            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
+         </sp-view>
          <sp-view idx="d0e1780">
+            <select id="itu-tg704" mode="mandatory">Synchronous frame structures used at 1544,
+              6312, 2048, 8448 and 44 736 kbit/s hierarchical levels</select>
+             <remarks>Used in Profile: FMN</remarks>
+            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
+         </sp-view>  
+         <sp-view idx="d0e1781">
             <select id="thirdgpp-umts" mode="emerging">UMTS (3GPP)</select>
             <rationale>Included in NISP v.6 through RFCP 5-26.</rationale>
          </sp-view>
@@ -2016,11 +2060,11 @@
             <rationale>Included in v.4 through RFCP 3-20</rationale>
          </sp-view>
          <sp-view idx="d0e1827">
-            <select id="nato-stanag5616ed4" mode="mandatory">
+            <select id="nato-stanag5616ed5" mode="mandatory">
                Standards for Data Forwarding between
                Tactical Data Systems employing Link-11/11B and Link-16 (STANAG 5616 ed.5:2011)
             </select>
-            <select id="nato-stanag5616ed4" mode="emerging">
+            <select id="nato-stanag5616ed5" mode="emerging">
                Standards for Data Forwarding between
                Tactical Data Systems employing Link-11/11B and Link-16 (STANAG 5616 ed.6 (RD))
             </select>
@@ -2071,7 +2115,7 @@
             <rationale>MIDS SSS: Included in NISP v.7 through RFCP 6-39.</rationale>
          </sp-view>
          <sp-view idx="d0e1874">
-            <select id="nato-stanag7085ed2" mode="mandatory">STANAG 7085 ed.3:2009 (IDL for Imaging Systems)</select>
+            <select id="nato-stanag7085ed3" mode="mandatory">STANAG 7085 ed.3:2009 (IDL for Imaging Systems)</select>
             <remarks>
                STANAG 7085 provides the interoperability standards for 3
                classes of imagery DL used for primary imagery data transmission.
@@ -2082,8 +2126,8 @@
             </rationale>
          </sp-view>
          <sp-view idx="d0e1883">
-            <select id="nato-stanag4586ed2" mode="mandatory">STANAG 4586 ed.3:2012</select>
-            <select id="nato-stanag4586ed2" mode="emerging">STANAG 4586 ed.4</select>
+            <select id="nato-stanag4586ed3" mode="mandatory">STANAG 4586 ed.3:2012</select>
+            <select id="nato-stanag4586ed3" mode="emerging">STANAG 4586 ed.4</select>
             <remarks>
                STANAG 4586 facilitates communication between a UCS and
                different UAVs and their payloads as well as multiple C4I users.
@@ -2148,8 +2192,7 @@
          </sp-view>
          <sp-view idx="d0e1905">
             <select id="nato-stanag4206ed3" mode="mandatory">
-               NATO Multi-channel tactical
-               digital Gateway (STANAG 4206: Ed.3:1999)
+               NATO Multi-channel tactical digital Gateway (STANAG 4206: Ed.3:1999)
             </select>
             <remarks>
                For CCEB interoperability this standard is not applicable
@@ -2175,6 +2218,7 @@
          <sp-view idx="d0e1926">
             <select id="nato-stanag5067" mode="mandatory">Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels, STANAG 5067 ed.1:2007 (RD)</select>
             <select id="nato-stanag5067" mode="emerging">Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels, STANAG 5067 ed.2 (Draft)</select>
+            <remarks>Used in Profile: FMN</remarks>
             <rationale>
                Included in NISP v.4 through RFCP 3-3; ed. 1 moved to mandatory
                and ed. 2 added as emerging in NISP v.7 through RFCP 6-70.
@@ -2282,6 +2326,11 @@
          <sp-view idx="d0e4476">
             <select id="ieee-802.1AB" mode="mandatory">Link Layer Discovery Protocol (IEEE 802.1AB:2009)</select>
             <rationale>Included in NISP v.6 through RFCP 5-61.</rationale>
+         </sp-view>
+         <sp-view idx="d0e4478">
+            <select id="ieee-802.3z" mode="mandatory">Gigabit Ethernet, 1000BASE-LX10 (IEEE 802.3z:1998)</select>
+            <remarks>Used in Profile: FMN</remarks>
+            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
          </sp-view>
       </sp-list>
 
@@ -2405,7 +2454,7 @@
             </rationale>
          </sp-view>
          <sp-view idx="d0e4593">
-            <select id="cceb-acp190b" mode="mandatory">ACP 190 (B)</select>
+            <select id="cceb-acp190d" mode="mandatory">ACP 190 (D)</select>
             <rationale>Included in v.5 through RFCP 4-39 and RFCP 4-40</rationale>
          </sp-view>
          <sp-view idx="d0e4600">
@@ -2866,8 +2915,14 @@
          </sp-view>
          <sp-view idx="d0e1158">
             <select id="bp-owl" mode="emerging">Web Ontology Language (OWL):2009, W3C</select>
-            <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
+            <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.
+              <para>Used in Profile: FMN</para></remarks>
             <rationale />
+         </sp-view>
+         <sp-view idx="d0e1159">
+            <select id="opensearch11" mode="emerging">OpenSearch 1.1, OpenSearch</select>
+            <remarks>Used in Profile: FMN</remarks>
+            <rationale>Added in NISP v.7 through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e1160">
             <select id="nato-metadata-pol" mode="emerging">ISAF Minimum Metadata Implementation Policy (NATO:2010)</select>
@@ -2948,7 +3003,7 @@
       <sp-list tref="ias-smi">
          <sp-view idx="d0e5162">
             <select id="bp-wss" mode="mandatory">Web-Services Security Profile (WSS), v1.0 (OASIS)</select>
-            <remarks>Used in Profile: AMN</remarks>
+            <remarks>Used in Profile: AMN, FMN (v1.1), tactESB</remarks>
             <rationale>WSS added in NISP v.4 through RFCP 4-35; changed to mandatory through RFCP 5-63.</rationale>
          </sp-view>
          <sp-view idx="d0e5164">
@@ -2959,14 +3014,13 @@
             <select id="bp-saml2.0" mode="mandatory">
                Security Assertion Markup Language, SAML v2.0 (OASIS)
             </select>
-            <remarks>
-               For CCEB interoperability the Security Ascertion Markup Language
+            <remarks>For CCEB interoperability the Security Ascertion Markup Language
                (SAML) v1.1 is mandatory and SAML 2.0 is emerging
                <indexterm significance="normal">
                   <primary>oasis</primary>
                   <secondary>SAML 1.1</secondary>
                </indexterm>
-               <para>Used in Profile: CES (v2.0)</para>
+               <para>Used in Profiles: CES (v2.0), FMN, tactESB</para>
             </remarks>
             <rationale>
                SAML added in NISP v.3 through RFCP 2-8; v.2.0 changed to mandatory
@@ -3062,7 +3116,9 @@
          </sp-view>
          <sp-view idx="d0e5258">
             <select id="iicwg-scip-214" mode="emerging">Network Specific MERs for SCIP Devices, SCIP-214 rev.1.2:2011 (IICWG)</select>
-            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
+            <remarks>Used in Profile: FMN
+              <para>For CCEB interoperability the SCIP standard is mandatory</para>
+            </remarks>
             <rationale>
                SCIP-214 included in NISP v.7 through RFCP 6-84.
             </rationale>
@@ -3083,21 +3139,35 @@
          </sp-view>
          <sp-view idx="d0e5252">
             <select id="iicwg-scip-215" mode="emerging">U.S. SCIP/IP Implementation Standard and MER Publication, SCIP-215 rev.2.2:2011 (IICWG)</select>
-            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
+            <remarks>Used in Profile: FMN
+              <para>For CCEB interoperability the SCIP standard is mandatory</para>
+            </remarks>
             <rationale>
                SCIP-215 included in NISP v.7 through RFCP 6-84.
             </rationale>
          </sp-view>
          <sp-view idx="d0e5254">
             <select id="iicwg-scip-216" mode="emerging">Minimum Essential Requirements (MER) for V.150.1 Gateways Publication, SCIP-216 rev.2.2:2011 (IICWG)</select>
-            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
+            <remarks>For CCEB interoperability the SCIP standard is mandatory
+              <para>Used in Profile: FMN</para>
+            </remarks>
             <rationale>
                SCIP-216 included in NISP v.7 through RFCP 6-84.
             </rationale>
          </sp-view>
          <sp-view idx="d0e5255">
+            <select id="iicwg-scip-220" mode="emerging">Requirement Document, SCIP-220:2006 (IICWG)</select>
+            <remarks>Used in Profile: FMN
+              <para>For CCEB interoperability the SCIP standard is mandatory</para></remarks>
+            <rationale>
+               SCIP-221 included in NISP v.7 through RFCP 6-84.
+            </rationale>
+         </sp-view>
+         <sp-view idx="d0e5256">
             <select id="iicwg-scip-221" mode="emerging">Mimimum Implementation Profile (MIP), SCIP-221 rev.3.0:2011 (IICWG)</select>
-            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
+            <remarks>For CCEB interoperability the SCIP standard is mandatory
+              <para>Used in Profile: FMN</para>
+            </remarks>
             <rationale>
                SCIP-221 included in NISP v.7 through RFCP 6-84.
             </rationale>
@@ -3112,7 +3182,9 @@
          </sp-view>
          <sp-view idx="d0e8000">
             <select id="iicwg-scip-233" mode="emerging">SCIP Cryptography Specification - Main Module, SCIP-233 rev.1.1:2012 (IICWG)</select>
-            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
+            <remarks>For CCEB interoperability the SCIP standard is mandatory
+              <para>Used in Profile: FMN</para>
+            </remarks>
             <rationale>
                SCIP-233 included in NISP v.7 through RFCP 6-84.
             </rationale>
@@ -3233,13 +3305,14 @@
             <select id="nato-rto-mp-ist-091" mode="emerging">NATO XML Labelling version 1.0 (Ref:-NC3A Technical Note 1455 "NATO Profile for the 'Binding of Metadata to Data Objects' - version 1.0"; and - NC3A Technical Note 1456, "NATO Profile for the 'XML Confidentiality Label Syntax' - version 1.0".)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profiles: AMN, CES, tactESB</emphasis>
+                  <emphasis>Used in Profiles: AMN, CES, FMN, tactESB</emphasis>
                </para>
             </remarks>
          </sp-view>
          <sp-view idx="d0e5262">
             <select id="oasis-wss-v1.1-spec-os-SOAPMessageSecurity" mode="mandatory">SOAP Message Security 1.1:2004 (OASIS)</select>
-            <remarks>Used in Profile: CES</remarks>
+            <select id="w3c-soap12" mode="emerging">SOAP Message Security 1.2:2001 (W3C)</select>
+            <remarks>Used in Profile: CES, FMN, tactESB</remarks>
             <rationale>WS-Security: Changed to v.1.1 and to mandatory in NISP v.7 through RFCP 6-60.</rationale>
          </sp-view>
          <sp-view idx="d0e5264">
@@ -3254,7 +3327,7 @@
             <select id="nato-npki-certp" mode="emerging">NATO PKI (NPKI) Certificate Policy, rev.2 (NATO:2008)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profile: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -3278,11 +3351,11 @@
          </sp-view>
          <sp-view idx="d0e5276">
             <select id="oasis-wstrust-1.3" mode="emerging">WS-Trust 1.4:2007 (OASIS)</select>
-            <remarks>Used in Profile: CES</remarks>
+            <remarks>Used in Profiles: CES, FMN, tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e5278">
             <select id="ws-i-BasicSecurityProfile-1.1" mode="mandatory">Basic Security Profile Version 1.1:2010 (WS-I)</select>
-            <remarks>Used in Profile: AMN</remarks>
+            <remarks>Used in Profile: AMN, FMN, tactESB</remarks>
             <rationale>Added in NISP v.7 through RFCP 6-107.</rationale>
          </sp-view>
       </sp-list>
@@ -3294,7 +3367,7 @@
             <select id="ietf-rfc5246" mode="fading">SSL excluded in NCSP v.6</select>
             <remarks>
                Used as a transport layer security protocol.
-               <para>Used in Profiles: AMN (v1.1), CES, tactESB</para>
+               <para>Used in Profiles: AMN (v1.1), CES, FMN, tactESB</para>
             </remarks>
             <rationale>SSL excluded and RFC 4366:2006 updated in NCSP v.6</rationale>
          </sp-view>
@@ -3304,7 +3377,7 @@
          </sp-view>
          <sp-view idx="d0e5193">
             <select id="w3c-xmldsig-core" mode="emerging">XML Encryption (W3C):2008</select>
-            <remarks>Used in Profile: tactESB</remarks>
+            <remarks>Used in Profile: FMN, tactESB</remarks>
             <rationale>XML Encryption added in NISP v.3 through RFCP 2-7</rationale>
          </sp-view>
          <sp-view idx="d0e5034">
@@ -3327,14 +3400,14 @@
             <rationale>AES added through RFCP 6-1.</rationale>
          </sp-view>
       </sp-list>
-
-      
+    
       <sp-list tref="ias-integ">
          <sp-view idx="d0e5060">
             <select id="bp-ip-security" mode="mandatory">IP ESP (RFC 4303:2005)</select>
             <remarks>
                Encapsulating Security Payload (ESP) may support integrity and authentication
                depending on the use of algorithms
+               <para>Used in Profile: tactESB</para>
             </remarks>
             <rationale>
                RFC 3168:2001 updated in NCSP v.6; changed to RFC 4303:2005
@@ -3431,7 +3504,7 @@
             <select id="ietf-rfc1510" mode="emerging">Kerberos v.5, IETF RFC 1510:1993</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profile: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -3448,7 +3521,7 @@
          </sp-view>
          <sp-view idx="d0e5018">
             <select id="iso-iec-9594-8" mode="mandatory">Public-key and attribute certificate frameworks, X.509 v3:2005 (ITU-T)</select>
-            <remarks>Used in Profiles: AMN, CES, tactESB</remarks>
+            <remarks>Used in Profiles: AMN, CES, FMN, tactESB</remarks>
             <rationale>X.509 changed to mandatory through RFCP 5-62.</rationale>
          </sp-view>
          <sp-view idx="d0e5020">
@@ -3461,6 +3534,7 @@
          </sp-view>
          <sp-view idx="d0e5178">
             <select id="w3c-xmlenc-core" mode="mandatory">XML Signature (W3C):2008</select>
+            <remarks>Used in Profiles: FMN, tactESB</remarks>
             <rationale>XML Signature added in NISP v.3 through RFCP 2-7; changed to mandatory through RFCP 5-62.</rationale>
          </sp-view>
          <sp-view idx="d0e5187">
@@ -3616,7 +3690,7 @@
             </select>
             <select id="ietf-rfc3030" mode="emerging">eSMTP (IETF RFC 3030:2000)</select>
             <remarks>
-               Used for interpersonal messaging (email)<para>Used in Profile: AMN</para>
+               Used for interpersonal messaging (email)<para>Used in Profiles: AMN, FMN</para>
             </remarks>
             <rationale>RFC 3207:2001 and RFC 3461:1996 changed to 3207:2002 and 3461:2003 in NCSP v.6; eSMTP: Added in NISP v.7 through RFCP 6-26.</rationale>
          </sp-view>
@@ -3651,7 +3725,7 @@
             <remarks>
                For CCEB interoperability this standard is mandatory
                <para>Base profile includes as extensions XEP-0184 and XEP-0202</para>
-               <para>Used in Profile: AMN, CES</para>
+               <para>Used in Profiles: AMN, CES, FMN</para>
             </remarks>
             <rationale>Included in v.8 through RFCP 7-5</rationale>
          </sp-view>
@@ -3662,7 +3736,7 @@
             <select id="itu-t-g.722.1c" mode="mandatory">
                G.722.1C 14kHz audio codec  (ITU-T G.722.1 Annex C:2012)
             </select>
-            <remarks>Used in Profile: AMN</remarks>
+            <remarks>Used in Profile: AMN, FMN</remarks>
             <rationale>G.722.1c added in NISP v.7 through RFCP 6-97.</rationale>
          </sp-view>
          <sp-view idx="d0e5962">
@@ -3670,6 +3744,7 @@
                Session Initialisation Protocol
                (SIP) (IETF RFC 3261:2002, updated by 3265:2002, 3853:2004, 4320:2006, 4916:2007, 5393:2008, 5621:2009, 5626:2009, 5630:2009, 5922:2010)
             </select>
+            <remarks>Used in Profile: FMN</remarks>
             <rationale>Included in v.4 through RFCP 3-46</rationale>
          </sp-view>
          <sp-view idx="d0e5966">
@@ -3729,7 +3804,19 @@
       <sp-list tref="ces-esm-sys">
          <sp-view idx="d0e6015">
             <select id="dmtf-dsp0226" mode="emerging">WS-Management v1.0 (DMTF)</select>
-            <remarks>Used in Profile: CES</remarks>
+            <remarks>Used in Profiles: CES, FMN</remarks>
+         </sp-view>
+         <sp-view idx="d0e6017">
+            <select id="dmtf-dsp0227" mode="emerging">WS-Management CIM Binding Specification, v1.0.0 (DMTF)</select>
+            <remarks>Used in Profile: FMN</remarks>
+         </sp-view>         
+         <sp-view idx="d0e6018">
+            <select id="dmtf-cimschema" mode="emerging">CIM Schema v2.29.0 (DMTF)</select>
+            <remarks>Used in Profile: FMN</remarks>
+         </sp-view>         
+         <sp-view idx="d0e6019">
+            <select id="dmtf-dsp0252" mode="emerging">CMDB Federation Specification v1.0.1 (DMTF)</select>
+            <remarks>Used in Profile: FMN</remarks>
          </sp-view>
          <sp-view idx="d0e6016">
             <select id="bp-itil" mode="mandatory">ITIL (ISO/IEC 20000:2012)</select>
@@ -3738,7 +3825,7 @@
          </sp-view>
          <sp-view idx="d0e6014">
             <select id="cobit" mode="mandatory">COBIT 5: A Business Framework for the Governance and Management of Enterprise IT (ISACA: 2012)</select>
-            <remarks>Used in Profile: AMN</remarks>
+            <remarks>Used in Profiles: AMN, FMN</remarks>
             <rationale>COBIT added in NISP v.6 through RFCP 6-88 as part of AMN.</rationale>
          </sp-view>
          <sp-view idx="d0e6013">
@@ -3753,7 +3840,7 @@
                SNMPv3 is considered emerging because of current lack of
                agreement on the concept of operations for distributed management
                <para>For CCEB interoperability this standard is not applicable</para>
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
             <rationale>
                SNMPv3 is considered emerging because of current lack of
@@ -3959,6 +4046,7 @@
                Telnet (IETF STD 8:1983, IETF RFC 0854:1983 updated by RFC 5198:2008,
                0855:1983)
             </select>
+            <remarks>Used in Profile: FMN (RTP)</remarks>
             <rationale>RFC 0854:1983, 0855:1983 changed in NCSP v.6</rationale>
          </sp-view>
          <sp-view idx="d0e6823">
@@ -3966,6 +4054,7 @@
          </sp-view>
          <sp-view idx="d0e6828">
             <select id="ietf-rfc1305" mode="mandatory">Network Time Protocol (NTP)(RFC 1305:1992)</select>
+            <remarks>Used in Profiles: FMN, tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e6830">
             <select id="ietf-rfc2030" mode="mandatory">Simple Network Time Protocol (SNTP)(RFC 2030:1996)</select>
@@ -4016,6 +4105,7 @@
          </sp-view>
          <sp-view idx="d0e6870">
             <select id="bp-iLBC" mode="mandatory">Internet Low Bitrate Coding (iLBC) (IETF RFC 3951:2004)</select>
+            <remarks>Used in Profile: FMN (G.729)</remarks>
             <rationale>iLBC: Added in NISP v.7 through RFCP 6-27.</rationale>
          </sp-view>
          <sp-view idx="d0e6871">
@@ -4024,6 +4114,7 @@
             <remarks>
                ITU-T H.263 (Video coding for low bit rate communication);
                ITU-T H.264 (The Advanced Video Coding Standard)
+               <para>Used in Profile: FMN</para>
             </remarks>
             <rationale>H.263/264: Added in NISP v.7 through RFCP 6-31.</rationale>
          </sp-view>
@@ -4085,17 +4176,14 @@
             </rationale>
          </sp-view>
          <sp-view idx="d0e7327">
-            <select id="nato-stanag4545ed1" mode="mandatory">
-               Nato Secondary Imagery Format (NSIF), STANAG 4545 ed.1:1998
-            </select>
-            <select id="nato-stanag4545ed1" mode="mandatory">
-               Nato Secondary Imagery Format (NSIF), STANAG 4545 ed 2 (RD)
+            <select id="nato-stanag4545ed2" mode="mandatory">
+               Nato Secondary Imagery Format (NSIF), STANAG 4545 ed.2:2013
             </select>
             <remarks>
                NSIF establishes the format for exchange of electronic secondary imagery.
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN</para>
             </remarks>
-            <rationale>NSIF (STANAG 4545): Included in v.5 through RFCP 4-14</rationale>
+            <rationale>NSIF (STANAG 4545): Included in v.5 through RFCP 4-14; changed to ed.2 in v.7</rationale>
          </sp-view>
          <sp-view idx="d0e7336">
             <select id="iso-iec-12087-5" mode="mandatory">BIIF (ISO 12087-5:1998)</select>
@@ -4105,7 +4193,7 @@
             <remarks>
                NSILI provides interoperability between NATO nations reconnaissance
                databases and product libraries
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN</para>
             </remarks>
             <rationale>NSILI (STANAG 4559): Included in NCSP v.5 through RFCP 4-14</rationale>
          </sp-view>
@@ -4118,15 +4206,16 @@
             <rationale>NIIRS (STANAG 7194): Included in NISP v.5 through RFCP 4-38</rationale>
          </sp-view>
          <sp-view idx="d0e7350">
-            <select id="nato-stanag4575ed3" mode="mandatory">NADS (STANAG 4575 ed.3:2009)</select>
-            <remarks>NADS defines an interface for advanced digital storage systems.</remarks>
-            <rationale>NADS (STANAG 4575): Included in v.5 through RFCP 4-14</rationale>
+            <select id="nato-stanag4575ed3" mode="mandatory">NADSI (STANAG 4575 ed.3:2009)</select>
+            <select id="nato-stanag4575ed3" mode="emerging">NADSI (STANAG 4575 ed.4 (RD))</select>
+            <remarks>NADSI defines an interface for advanced digital storage systems.</remarks>
+            <rationale>NADS (STANAG 4575): Included in v.5 through RFCP 4-14; ed.4 added in v.7</rationale>
          </sp-view>
          <sp-view idx="d0e7359">
             <select id="nato-stanag4607ed3" mode="mandatory">GMTIF (STANAG 4607 ed.3:2010)</select>
             <remarks>
                GMTIF defines a ground moving target indicator format.
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN</para>
             </remarks>
             <rationale>GMTIF (STANAG 4607): Included in v.8 through RFCP 7-8</rationale>
          </sp-view>
@@ -4135,7 +4224,7 @@
             <remarks>
                DMIS defines a digital motion imagery standard.
                <para>For CCEB interoperability this standard is not applicable.</para>
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN</para>
             </remarks>
             <rationale>DMIS (STANAG 4609): Included in v.8 through RFCP 7-9</rationale>
          </sp-view>
@@ -4243,13 +4332,14 @@
                      <secondary>PDFv. 1.4</secondary>
                   </indexterm>
                </para>
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN</para>
             </remarks>
             <rationale>PDF 5.1 changed in NCSP v.6 through RFCP 5-41</rationale>
          </sp-view>
          <sp-view idx="d0e7696">
             <select id="iso-19005-2" mode="mandatory">PDF/A (ISO 19005-2:2011)</select>
-            <remarks>Electronic document file format for long-term preservation.</remarks>
+            <remarks>Electronic document file format for long-term preservation.
+            <para>Used in Profile: FMN</para></remarks>
             <rationale>PDF/A: Added separately in NISP v.7 through RFCP 6-52.</rationale>
          </sp-view>
          <sp-view idx="d0e7724">
@@ -4298,7 +4388,7 @@
             <select id="ecma-376" mode="emerging">Office Open XML, ed.1 (ECMA-376)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profiles: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -4306,13 +4396,13 @@
             <select id="iso-iec-29500-3" mode="mandatory">Office Open XML, ISO/IEC 29500-3:2012</select>
             <remarks>
                XML variant of Microsoft Office.
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN</para>
             </remarks>
             <rationale>Office Open XML included in NISP v.3 through RFCP 2-11; changed in NISP v.7 through RFCP 6-36.</rationale>
          </sp-view>
          <sp-view idx="d0e7795">
             <select id="w3c-rec-html401-19991224" mode="mandatory">HTML 4.01 (RFC 2854:2000)</select>
-            <remarks>Used in Profile: AMN</remarks>
+            <remarks>Used in Profile: AMN, FMN, tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e7797">
             <select id="w3c-wd-html5-20101019" mode="midterm">HTML 5.0</select>
@@ -4321,7 +4411,7 @@
             <select id="rss-2.0" mode="emerging">Real Simple Syndication (RSS 2.0) (WS-I:2010)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profile: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -4329,7 +4419,7 @@
             <select id="ogc-06-050r3" mode="emerging">GeoRSS (GeoRSS 1.0):2007 (OGC)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profile: AMN, FMN</emphasis>
                </para>
             </remarks>
          </sp-view>
@@ -4342,7 +4432,7 @@
             <select id="w3c-rec-xforms-20031014" mode="emerging">XForms 1.0:2003 (W3C)</select>
             <remarks>
                XHTML is specified in XML
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profile: AMN, FMN, tactESB</para>
             </remarks>
             <rationale>
                XHTML 1.0:2000 revised 1 August 2002 changed in NCSP v.6; XForms
@@ -4362,7 +4452,7 @@
                HTTP v. 1.1 (IETF RFC 2616:1999
                updated by RFC 2817:2000), URL (RFC 4248:2005, 4266:2005), URI (RFC 3986:2005)
             </select>
-            <remarks>Used in Profiles: AMN, CES, tactESB</remarks>
+            <remarks>Used in Profiles: AMN, CES, FMN, tactESB</remarks>
             <rationale>
                RFC 2616:1999 updated with RFC 2817:2000; RFC 2368:1998, 4248:2005,
                4266:2005; RFC 2396:1998 updated by RFC 2732:1999 changed in NCSP v.6
@@ -4455,7 +4545,7 @@
             <select id="iso-15836" mode="mandatory">Dublin Core Metadata Element Set (DCES) (ISO 15836:2009)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profiles: AMN, FMN</emphasis>
                </para>
             </remarks>
             <rationale>DCES: Changed to mandatory in NISP v.7 through RFCP 6-53.</rationale>
@@ -4472,19 +4562,20 @@
             <select id="nato-tide-id-rr" mode="emerging">NATO TIDE Information Discovery (Request-Response), v.2.3:2009 (ACT)</select>
             <remarks>
                Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
             <rationale>Included in NISP v.3 through RFCP 2-21.</rationale>
          </sp-view>
          <sp-view idx="d0e11351">
             <select id="nato-tide-sd-sp" mode="emerging">NATO TIDE Service Discovery (Subscribe-Publish), v.2.2.0:2008 (ACT)</select>
-            <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.</remarks>
+            <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.
+              <para>Used in Profiles: FMN, tactESB</para></remarks>
             <rationale>Included in NISP v.3 through RFCP 2-22.</rationale>
          </sp-view>
          <sp-view idx="d0e11358">
             <select id="w3c-note-wsdl-20010315" mode="mandatory">WSDL v1.1:2001, W3C</select>
             <select id="w3c-REC-wsdl20-20070626" mode="emerging"> WSDL v2.0:2007 Part 1: Core Language, W3C</select>
-            <remarks>Used in Profiles: AMN, CES, tactESB</remarks>
+            <remarks>Used in Profiles: AMN, CES, FMN, tactESB</remarks>
             <rationale>Included in v.5 through RFCP 4-38; date added in NCSP v.6 through RFCP 5-25 and changed to mandatory through RFCP 4-6; WSDL 2.0 added in NISP v.7 through RFCP 4-16.</rationale>
          </sp-view>
          <sp-view idx="d0e11360">
@@ -4558,7 +4649,7 @@
          <sp-view idx="d0e7885">
             <select id="w3c-rec-xslt-19991116" mode="mandatory">Extensible Stylesheet Language Transformation (XSLT) 1.0 (W3C:1999)</select>
             <select id="w3c-REC-xslt20-20070123" mode="emerging">XSL Transformations (XSLT) Version 2.0 (W3C:2007)</select>
-            <remarks>Used in Profiles: AMN, CES</remarks>
+            <remarks>Used in Profiles: AMN, CES, FMN (2.0), tactESB (2.0)</remarks>
             <rationale>XSLT 2.0: Added in NISP v.7 through RFCP 6-13.</rationale>
          </sp-view>
          <sp-view idx="d0e7888">
@@ -4567,17 +4658,18 @@
             <rationale>XSL 1.1: Added in NISP v.7 through RFCP 6-12.</rationale>
          </sp-view>
          <sp-view idx="d0e7890">
-            <select id="w3c-css-lev1" mode="mandatory">Cascading Style Sheets (CSS) 2.1:2001</select>
+            <select id="w3c-css-lev2" mode="mandatory">Cascading Style Sheets (CSS) 2.1:2001</select>
+            <select id="w3c-css-lev3" mode="emerging">Cascading Style Sheets (CSS) level 3</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profile: AMN, FMN, tactESB</emphasis>
                </para>
             </remarks>
             <rationale>CSS: Changed to mandatory in NISP v.7 through RFCP 6-43.</rationale>
          </sp-view>
          <sp-view idx="d0e7895">
             <select id="bp-xsd" mode="mandatory">XML Schema, Part 1-2:2004</select>
-            <remarks>Used in Profiles: AMN, CES, tactESB</remarks>
+            <remarks>Used in Profiles: AMN, CES, FMN, tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e7900">
             <select id="wapforum-wap-238-wml-20010911-a" mode="mandatory">Wireless Markup Language (WML) 2.0:2001</select>
@@ -4633,21 +4725,23 @@
          </sp-view>
          <sp-view idx="d0e11418">
             <select id="oasis-relmes" mode="emerging">WS-I Reliable Messaging v1.2:2009</select>
-            <remarks>Used in Profile: CES</remarks>
+            <remarks>Used in Profile: CES, FMN, tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e11420">
             <select id="w3c-address" mode="emerging">WS-Addressing v1.0:2010</select>
-            <remarks>Used in Profile: CES</remarks>
+            <remarks>Used in Profile: CES, FMN, tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e11422">
             <select id="oasis-notif" mode="emerging">WS-Notification v1.3:2006</select>
-            <remarks>Used in Profile: CES</remarks>
+            <select id="oasis-brokerednotif" mode="emerging">WS-BrokeredNotification v1.3:2006</select>
+            <select id="oasis-ws-topics" mode="emerging">WS-Topics v1.3:2006</select>
+            <remarks>Used in Profile: CES, FMN, tactESB</remarks>
          </sp-view>
          <sp-view idx="d0e11425">
             <select id="acm-2002-rest-toit" mode="emerging">Representational State Transfer (REST):2002, (ACM)</select>
             <remarks>
                <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
+                  <emphasis>Used in Profile: AMN, FMN</emphasis>
                </para>
             </remarks>
             <rationale>Included in NCSP v.6 through RFCP 5-29</rationale>
@@ -4753,7 +4847,7 @@
                Until the develoment of STANAG 5527 is more stable, document
                AC/322(SC/5) N(2006)0025 should be used.
                <para>For CCEB interoperability this standard is not applicable.</para>
-               <para>Used in Profile: AMN</para>
+               <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
          </sp-view>
       </sp-list>
@@ -4940,8 +5034,7 @@
          </status>
          <uuid>1bc8d108-5510-485c-8523-62849a7fc02d</uuid>
       </standard>
-
-      
+  
       <standard id="oasis-notif" tag="WS-Notif. 1.3">
          <document orgid="oasis" pubnum="" date="2006-10-01" title="WS-BaseNotification 1.3" version="1.3" />
          <applicability>
@@ -4966,6 +5059,53 @@
          <uuid>a28cff2e-4d3c-4bf0-8125-ed81598ddc1f</uuid>
       </standard>
 
+      <standard id="oasis-brokerednotif" tag="WS-BrokNotif. 1.3">
+         <document orgid="oasis" pubnum="wsn-ws_brokered_notification-1.3-spec-os" date="2006-10-01" title="WS-BrokeredNotification 1.3" version="1.3" />
+         <applicability>
+            The Event-driven, or Notification-based, interaction pattern is a commonly used 
+            pattern for inter-object communications. Examples exist in many domains, for
+            example in publish/subscribe systems provided by Message Oriented Middleware
+            vendors, or in system and device management domains. This notification pattern
+            is increasingly being used in a Web services context.
+            <para>WS-Notification is a family of related specifications that define a standard 
+              Web services approach to notification using a topic-based publish/subscribe pattern.
+              It includes: standard message exchanges to be implemented by service providers that
+              wish to participate in Notifications, standard message exchanges for a notification
+              broker service provider (allowing publication of messages from entities that are
+              not themselves service providers), operational requirements expected of service
+              providers and requestors that participate in notifications, and an XML model that
+              describes topics. The WS-Notification family of documents includes three normative
+              specifications: WS-BaseNotification, WS-BrokeredNotification, and WS-Topics.
+            </para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://docs.oasis-open.org/wsn/wsn-ws_brokered_notification-1.3-spec-os.pdf</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>      
+
+      <standard id="oasis-ws-topics" tag="WS-Topics 1.3">
+         <document orgid="oasis" pubnum="wsn-ws_topics-1.3-spec-os" date="2006-10-01" title="WS-Topics 1.3" version="1.3" />
+         <applicability>
+            This document defines a mechanism to organize and categorize items of interest 
+            for subscription known as “topics”. These are used in conjunction with the 
+            notification mechanisms defined in WS-BaseNotification. WS-Topics defines three
+            topic expression dialects that can be used as subscription expressions in
+            subscribe request messages and other parts of the WS-Notification system. 
+            It further specifies an XML model for describing metadata associated with topics. 
+            This specification should be read in conjunction with the WS-Base Notification specification.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://docs.oasis-open.org/wsn/wsn-ws_topics-1.3-spec-os.pdf</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="ietf-httpudp" tag="HTTP over UDP 1.1">
          <document orgid="ietf" pubnum="" date="2010-04-08" title="HTTP over UDP 1.1" version="1.1" />
@@ -5039,7 +5179,6 @@
          </status>
          <uuid>a847ad53-dcbf-4550-b6ec-9ec0676dd6fe</uuid>
       </standard>
-
       
       <standard id="dmtf-dsp0226" tag="WS-Mgmt. 1.1">
          <document orgid="dmtf" pubnum="DSP0226" date="2010-03-03" title="Web Services for Management (WS-Management) Specification" version="1" />
@@ -5057,6 +5196,92 @@
          <uuid>f93b62cc-b4aa-49b9-a4c7-ba4c060c4eea</uuid>
       </standard>
 
+      <standard id="dmtf-dsp0227" tag="CIM Binding">
+         <document orgid="dmtf" pubnum="DSP0227" date="2010-03-03" title="WS-Management CIM Binding Specification" version="1.0.0" />
+         <applicability>
+            This document describes the CIM binding for WS-Management. It describes how 
+            transformed CIM resources, as specified by the WS-CIM Mapping Specification, 
+            are bound to WS-Management operations and WSDL definitions.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.dmtf.org/sites/default/files/standards/documents/DSP0227_1.2.0.pdf</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
+
+      <standard id="dmtf-cimschema" tag="CIM Schema">
+         <document orgid="dmtf" pubnum="cim_schema_v2290" date="" title="CIM Schema: Version 2.29.0" />
+         <applicability>
+            The CIM V2.29.0 Release Notes describe the changes that have been incorporated
+            into this release, as well as instructions for installing the Schema. We 
+            recommend that you review this document first.
+            <para>As part of CIM 2.29.0, a number of enhancements and additions are introduced 
+              throughout the Schema, including ongoing improvements to support product and alliance
+              partners and to support DMTF Profiles and Management Initiatives.  Examples include 
+              updates to BIOS, printers, standard messages, operating system state, modern power
+              management paradigms, virtualization and security.  In addition, it should be noted 
+              that the CIM Schema is built automatically for the DMTF.  All of the change requests
+              for the CIM 2.29.0 release were applied programmatically, instead of by hand. 
+              Contributions to the CIM schema have been made possible through the DMTF Alliance
+              Partnerships with the Storage Networking Industry Association (SNIA) and the Open 
+              Grid Forum (OGF).
+            </para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://dmtf.org/standards/cim/cim_schema_v2290</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
+      
+      <standard id="dmtf-dsp0252" tag="CMDB Federation">
+         <document orgid="dmtf" pubnum="DSP0252" date="2010-04-22" title="Configuration Management Database (CMDB) Federation Specification" version="1.0.1" />
+         <applicability>
+            Many organizations are striving to base IT management on a Configuration
+            Management Database (CMDB). A CMDB contains data describing the following entities:
+            <itemizedlist>
+              <listitem><para>managed resources, such as computer systems and application software</para></listitem>
+              <listitem><para>process artifacts, such as incident, problem, and change records</para></listitem>
+              <listitem><para>relationships among managed resources and process artifacts</para></listitem>
+            </itemizedlist>
+            <para>The contents of the CMDB should be managed by a configuration management
+              process and serve as the foundation for other IT management processes, such 
+              as change management and availability management.</para>
+            <para>However, in practice it is challenging to implement such a CMDB because
+              the management data are scattered across repositories that are poorly integrated
+              or coordinated.</para>
+            <para>The definition of a CMDB in the context of this specification is based on
+              the definition described in the IT Infrastructure Library (ITIL): a database that
+              tracks and records configuration items associated with the IT infrastructure and
+              the relationships between them. Strictly speaking, the ITIL CMDB contains a
+              record of the expected configuration of the IT environment, as authorized and
+              controlled through the change management and configuration management processes. 
+              The federated CMDB in this specification extends this base definition to federate
+              any management information that complies with the specification’s patterns, schema, 
+              and interfaces, such as the discovered actual state in addition to the expected
+              state. Typically, an administrator selects the data to be included in a CMDB by
+              configuring the tool that implements the CMDB.</para>
+            <para>The federated CMDB described in this specification is a collection of
+              services and data repositories that contain configuration and other data records
+              about resources. The term "resource" includes configuration items (for example,
+              a computer system, an application, or a router), process artifacts (for example,
+              an incident record or a change record), and relationships between configuration 
+              items and process artifacts. The architecture describes a logical model and does
+              not necessarily reflect a physical manifestation.</para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.dmtf.org/sites/default/files/standards/documents/DSP0252_1.0.0.pdf</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="oasis-wssutil" tag="WS-Security Utility 1.0">
          <document orgid="oasis" pubnum="" date="2001-01-00" title="WSS XML Schema" />
@@ -5693,6 +5918,36 @@
          <uuid>7b663a0a-8c4b-4b13-90d7-2aa952ad00d2</uuid>
       </standard>
 
+      <standard id="w3c-css-lev3" tag="CSS Level 3">
+         <document orgid="w3c" pubnum="" date="" title="Cascading Style Sheets, level 3" />
+         <applicability>
+            Unlike CSS 2, which is a large single specification defining various features, 
+            CSS 3 is divided into several separate documents called "modules". Each module 
+            adds new capabilities or extends features defined in CSS 2, over preserving 
+            backward compatibility. Work on CSS level 3 started around the time of publication
+            of the original CSS 2 recommendation. The earliest CSS 3 drafts were published 
+            in June 1999.
+            <para>Due to the modularization, different modules have different stability and 
+              statuses. As of June 2012, there are over fifty CSS modules published from the
+              CSS Working Group., and four of these have been published as formal recommendations:</para>
+            <itemizedlist>
+              <listitem><para>Media Queries</para></listitem>
+              <listitem><para>Namespaces</para></listitem>
+              <listitem><para>Selectors Level 3</para></listitem>
+              <listitem><para>Color</para></listitem>
+            </itemizedlist>
+            <para>Some modules (including Backgrounds and Borders and Multi-column Layout among
+              others) have Candidate Recommendation (CR) status and are considered moderately stable. 
+              At CR stage, implementations are advised to drop vendor prefixes.</para>
+         </applicability>
+         <status mode="unknown">
+            <uri></uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>      
       
       <standard id="rss-2.0" tag="RSS 2.0">
          <document orgid="ws-i" pubnum="" date="2009-03-30" title="RSS 2.0 Specification" version="2" />
@@ -5905,7 +6160,7 @@
          <document orgid="nima" pubnum="" date="2010-04-08" title="Raster Product Format" />
          <applicability>
             The Raster Product Format (RPF) is a standard data structure developed
-            in 1994 as a U.S. Military Standard for geospatial databases composed of
+            in 1994 as a U.S. Military Standard for geospatial databases composed ofb
             rectangular arrays of pixel values (e.g. in digitized maps or images)
             in compressed or uncompressed form. Its intended use was to govern the design
             of a family of digital data interchange products that comprise digital maps,
@@ -6414,6 +6669,7 @@
             <uri>https://nsa.nato.int/protected/STRAP/_CommonList.html</uri>
             <history>
                <event flag="added" date="2010-08-13" rfcp="4-13" version="4.0" />
+               <event flag="deleted" date="2013-07-24" rfcp="" version="7.0"/>
             </history>
          </status>
          <uuid>5fac346c-38ad-4281-809f-f9a12e5e90e7</uuid>
@@ -7914,8 +8170,8 @@
       </standard>
 
       
-      <standard id="ietf-draft-cheshire-dnsext-multicastdns-06.txt" tag="mDNS">
-         <document orgid="ietf" pubnum="draft-cheshire-dnsext-multicastdns-06.txt" date="2006" title="Multicast DNS" />
+      <standard id="ietf-rfc6762" tag="mDNS">
+         <document orgid="ietf" pubnum="RFC 6762" date="2013" title="Multicast DNS" />
          <applicability>
             Multicast DNS (mDNS) provides the ability to do DNS-like operations
             on the local link in the absence of any conventional unicast DNS server. In
@@ -7924,9 +8180,10 @@
             delegations or otherwise configure a conventional DNS server to answer for those names.
          </applicability>
          <status mode="unknown">
-            <uri>http://tools.ietf.org/html/draft-cheshire-dnsext-multicastdns-06</uri>
+            <uri>http://www.ietf.org/rfc/rfc6762.txt</uri>
             <history>
                <event flag="added" date="2008-12-10" rfcp="2-14" version="3.0" />
+               <event flag="changed" date="2013-07-25" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>4b4d9725-4d72-49ac-a166-e2d6540c6c00</uuid>
@@ -12371,7 +12628,6 @@
          </status>
          <uuid>8470a33d-6bef-4c6e-b2ef-33a6854a0ba4</uuid>
       </profile>
-
       
       <standard id="w3c-rec-owl-features-20040210" tag="">
          <document date="2004-02-10" orgid="w3c" pubnum="REC-owl-features-20040210" title="OWL Web Ontology Language Overview" />
@@ -12400,6 +12656,27 @@
          <uuid>09704e64-8d6e-458e-bdae-05a05dd1b819</uuid>
       </standard>
 
+      <standard id="opensearch11" tag="">
+         <document date="" orgid="opensearch" pubnum="OpenSearch 1.1 Draft 4" title="OpenSearch 1.1" />
+         <applicability>
+            This document defines the OpenSearch description document, the OpenSearch Query
+            element, the OpenSearch URL template syntax, and the OpenSearch response elements.
+            Collectively these formats may be referred to as "OpenSearch 1.1" or simply "OpenSearch".
+            <para>Search clients can use OpenSearch description documents to learn about the 
+              public interface of a search engine. These description documents contain parameterized 
+              URL templates that indicate how the search client should make search requests. Search
+              engines can use the OpenSearch response elements to add search metadata to results in
+              a variety of content formats.
+            </para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.opensearch.org/index.php?title=Specifications/OpenSearch/1.1</uri>
+            <history>
+               <event date="2013-07-28" flag="added" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="w3c-rec-owl-guide-20040210" tag="">
          <document date="2004-02-10" orgid="w3c" pubnum="REC-owl-guide-20040210" title="OWL Web Ontology Language Guide" />
@@ -13879,6 +14156,29 @@
          <uuid>02de7f7c-f5b3-4891-94a8-167330c91b1a</uuid>
       </standard>
 
+      <standard id="ieee-802.3z" tag="1000BASE-LX10">
+         <document date="1998" orgid="ieee" pubnum="802.3z" title="Single-mode fiber using 1,310 nm wavelength" />
+         <applicability>
+            1000BASE-LX is a fiber optic gigabit Ethernet standard specified in IEEE 802.3
+            Clause 38 which uses a long wavelength laser (1,270–1,355 nm), and a maximum RMS
+            spectral width of 4 nm.
+            <para>1000BASE-LX is specified to work over a distance of up to 5 km over 10 µm single-mode fiber.</para>
+            <para>1000BASE-LX can also run over all common types of multi-mode fiber 
+              with a maximum segment length of 550 m. For link distances greater than 300 m,
+              the use of a special launch conditioning patch cord may be required.[6] This
+              launches the laser at a precise offset from the center of the fiber which 
+              causes it to spread across the diameter of the fiber core, reducing the effect
+              known as differential mode delay which occurs when the laser couples onto
+              only a small number of available modes in multi-mode fiber.</para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ieee802.org/1/pages/802.3z-1998.html</uri>
+            <history>
+               <event date="2013-07-26" flag="added" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="ieee-802.15.1" tag="Bluetooth 3.0">
          <document date="" orgid="ieee" pubnum="802.15.1" title="Bluetooth 3.0" version="3.0" />
@@ -14379,34 +14679,28 @@
       </profile>
 
       
-      <standard id="cceb-acp200" tag="ACP 200">
-         <document orgid="cceb" pubnum="ACP 200" date="2005-05" title="Maritime Tactical Wide Area Networking" />
+      <standard id="cceb-acp200" tag="ACP 200(C)">
+         <document orgid="cceb" pubnum="ACP 200" date="2010-03" title="Maritime Tactical Wide Area Networking" />
          <applicability>
             The aim of this publication is to provide guidance for the design,
             implementation, and operation of a MTWAN.
             <para>
-               Allied maritime forces have
-               traditionally employed stovepipe communications systems to support information
-               exchange requirements. While stovepipe systems can be individually effective,
-               collectively they are equipment intensive, do not enable the efficient use of
-               bandwidth or data throughput and require use of military specific equipment and
-               applications. In contrast, IP based networks allow the convergence of many types
-               of data onto a single network. This simplifies network management, and enables
-               efficient use of communication bearers, COTS applications and network equipment.
-               An IP Network allows information to be presented to the warfighter in a variety of forms.
+               A Maritime Tactical Wide Area Network (MTWAN) is an affordable, effective
+               and efficient means to share information in a tactical environment.
+               This publication provides guidance as to the procedures, applications, 
+               infrastructure and data attributes required for tactical mobile IP networking.
+               To enable widest distribution, the information contained within the main
+               part of this document is unclassified. Classified information will be 
+               incorporated in separate supplements.
             </para>
             <para>
-               A peer-to-peer secure network established at a secret high level enables
-               the timely and efficient exchange of data (voice, video, e-mail, chat, webservices
-               etc). A single security domain at the secret high level opposed to multiple
-               security domains reduces the network resources, costs and complexity.
-            </para>
-            <para>
-               The ability to exchange information between other networks and the tactical
-               WAN through approved border protections devices enable information flows between
-               National and Allied domains of different security levels. Approved order
-               protection devices may include physical separation (air gaps) policies,
-               approved security guards and firewalls.
+               An MTWAN is a maritime Internet Protocol (IP) based network developed to
+               promote the effective and efficient sharing of information within the
+               maritime tactical environment. The term ―MTWAN used in the context of 
+               this document describes generic ―networking at sea capabilities and not
+               a specific network. There are currently a number of tactical operational
+               networks fielded within the allied and coalition communities, the most
+               common being CENTRIXS.
             </para>
          </applicability>
          <status mode="unknown">
@@ -14415,6 +14709,7 @@
                <event flag="added" date="2003-09-28" rfcp="4-39" version="0.5" />
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7" />
                <event flag="changed" date="2012-11-05" rfcp="" version="6.0" />
+               <event flag="changed" date="2013-07-26" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>10bb5522-4da7-418f-87ec-2f877afe4a63</uuid>
@@ -14606,6 +14901,41 @@
          <uuid>42cd15d7-7743-4a62-8e62-69e7949b4edc</uuid>
       </standard>
 
+      <standard id="ietf-rfc2365" tag="Scoped IP Mult.">
+         <document orgid="ietf" pubnum="RFC 2365" date="1998" title="Administratively Scoped IP Multicast" />
+         <applicability>
+            This document defines the "administratively scoped IPv4 multicast
+            space" to be the range 239.0.0.0 to 239.255.255.255. In addition, it
+            describes a simple set of semantics for the implementation of
+            Administratively Scoped IP Multicast. Finally, it provides a mapping
+            between the IPv6 multicast address classes [RFC1884] and IPv4
+            multicast address classes.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc2365.txt</uri>
+            <history>
+               <event flag="added" date="2013-07-26" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
+
+      <standard id="ietf-rfc3171" tag="Mult. Addr. Ass.">
+         <document orgid="ietf" pubnum="RFC 3171" date="2001" title="IANA Guidelines for IPv4 Multicast Address Assignments" />
+         <applicability>
+            This document specifies an Internet Best Current Practices for the
+            Internet Community, and requests discussion and suggestions for
+            improvements. 
+
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc3171.txt</uri>
+            <history>
+               <event flag="added" date="2013-07-26" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="ietf-rfc3376" tag="IGMP v3">
          <document orgid="ietf" pubnum="RFC 3376" date="2002" title="Internet Group Management Protocol, Version 3" version="3" />
@@ -15612,7 +15942,6 @@
          </status>
          <uuid>248c6ad2-4f54-4a4f-aebc-aa59a98ea035</uuid>
       </standard>
-
       
       <standard id="ietf-rfc1771" tag="BGP-4">
          <document orgid="ietf" pubnum="RFC 1771" date="1995" title="Border Gateway Protocol 4 (BGP-4)" />
@@ -15631,6 +15960,40 @@
          <uuid>181a880b-769c-4175-a84d-a3c6176dd624</uuid>
       </standard>
 
+      <standard id="ietf-rfc1997" tag="BGP-4 attr">
+         <document orgid="ietf" pubnum="RFC 1997" date="1996" title="BGP Communities Attribute" />
+         <applicability>
+            This document describes an extension to BGP which may be used to pass
+            additional information to both neighboring and remote BGP peers.
+            <para>The intention of the proposed technique is to aid in policy
+              administration and reduce the management complexity of maintaining
+              the Internet.</para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc1997.txt</uri>
+            <history>
+               <event flag="added" date="2013-07-28" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
+
+      <standard id="ietf-rfc5492" tag="BGP-4 capabilities">
+         <document orgid="ietf" pubnum="RFC 5492" date="2009" title="Capabilities Advertisement with BGP-4" />
+         <applicability>
+            This document defines an Optional Parameter, called Capabilities,
+            that is expected to facilitate the introduction of new capabilities
+            in the Border Gateway Protocol (BGP) by providing graceful capability
+            advertisement without requiring that BGP peering be terminated.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc5492.txt</uri>
+            <history>
+               <event flag="added" date="2013-07-28" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="ietf-rfc1772" tag="BGP-4 Application">
          <document orgid="ietf" pubnum="RFC 1772" date="1995" title="Application of the Border Gateway Protocol in the Internet" />
@@ -15912,7 +16275,6 @@
          </status>
          <uuid>b7455b78-c2ce-4284-b357-28793dedc938</uuid>
       </standard>
-
       
       <standard id="ietf-rfc3973" tag="PIM-DM">
          <document orgid="ietf" pubnum="RFC 3973" date="2005" title="Protocol Independent Multicasting Dense Mode (PIM-DM)" />
@@ -15933,7 +16295,24 @@
          <uuid>39d4c529-c956-4f32-bad3-b29baaa6c606</uuid>
       </standard>
 
-      
+      <standard id="ietf-rfc3618" tag="MSDP">
+         <document orgid="ietf" pubnum="RFC 3618" date="2003" title="Multicast Source Discovery Protocol (MSDP)" />
+         <applicability>
+            The Multicast Source Discovery Protocol (MSDP) describes a mechanism
+            to connect multiple IP Version 4 Protocol Independent Multicast
+            Sparse-Mode (PIM-SM) domains together. Each PIM-SM domain uses its
+            own independent Rendezvous Point (RP) and does not have to depend on
+            RPs in other domains. 
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc3618.txt</uri>
+            <history>
+               <event flag="added" date="2013-07-26" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>      
+
       <standard id="ietf-rfc2362" tag="PIM-SM">
          <document orgid="ietf" pubnum="RFC 2362" date="1998" title="Protocol Independent Multicasting Sparse Mode (PIM-SM)" />
          <applicability>
@@ -15953,6 +16332,36 @@
          <uuid>e5627374-7af8-4dbb-b470-b01e0c48252b</uuid>
       </standard>
 
+      <standard id="ietf-rfc6621" tag="SMF">
+         <document orgid="ietf" pubnum="RFC 6621" date="2012" title="Simplified Multicast Forwarding (SMF)" />
+         <applicability>
+            This document describes a Simplified Multicast Forwarding (SMF)
+            mechanism that provides basic Internet Protocol (IP) multicast
+            forwarding suitable for limited wireless mesh and mobile ad hoc
+            network (MANET) use. It is mainly applicable in situations where
+            efficient flooding represents an acceptable engineering design trade-
+            off. It defines techniques for multicast duplicate packet detection
+           (DPD), to be applied in the forwarding process, for both IPv4 and
+           IPv6 protocol use.  This document also specifies optional mechanisms
+           for using reduced relay sets to achieve more efficient multicast data
+           distribution within a mesh topology as compared to Classic Flooding.
+           Interactions with other protocols, such as use of information
+           provided by concurrently running unicast routing protocols or
+           interaction with other multicast protocols, as well as multiple
+           deployment approaches are also described. Distributed algorithms for
+           selecting reduced relay sets and related discussion are provided in
+           the appendices. Basic issues relating to the operation of multicast
+           MANET border routers are discussed, but ongoing work remains in this
+           area and is beyond the scope of this document.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.ietf.org/rfc/rfc6621.txt</uri>
+            <history>
+               <event flag="added" date="2013-07-26" rfcp="7-26" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="ietf-rfc1058" tag="RIP">
          <document orgid="ietf" pubnum="RFC 1058" date="1988" title="Routing Information Protocol (RIP)">
@@ -18465,6 +18874,47 @@
          <uuid>5b9f8a6d-c169-4648-a2ad-cf69dd530b4c</uuid>
       </standard>
 
+      <standard id="itu-tg703" tag="G.703">
+         <document orgid="itu" pubnum="ITU-T G.703" date="2001-11" title="Physical/electrical 
+           characteristics of hierarchical digital interfaces" />
+         <applicability>
+            This Recommendation specifies the recommended physical and electrical characteristics of the
+            interfaces at hierarchical bit rates as described in ITU-T Recs. G.702 (PDH) and G.707 (SDH). The
+            interfaces are defined in terms of general characteristics, specifications at the output ports and input
+            ports and/or cross-connect points, earthing of outer conductor or screen and coding rules.
+         </applicability>
+         <status mode="unknown">
+            <uri>https://www.itu.int/rec/T-REC-G.703/en</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>      
+
+      <standard id="itu-tg704" tag="G.704">
+         <document orgid="itu" pubnum="ITU-T G.704" date="1998-10" title="Synchronous frame structures used at 1544,
+           6312, 2048, 8448 and 44 736 kbit/s hierarchical levels" />
+         <applicability>
+            This Recommendation gives functional characteristics of interfaces associated with:
+            <itemizedlist>
+              <listitem><para>network nodes, in particular, synchronous digital multiplex equipment 
+                and digital exchanges in IDNs for telephony and ISDNs; and</para></listitem>
+              <listitem><para>PCM multiplexing equipment.</para></listitem>
+            </itemizedlist>
+            <para>It deals with basic frame structures, including details of frame length, frame 
+              alignment signals, Cyclic Redundancy Check (CRC) procedures and other basic information.</para>
+            <para>It contains more specific information about how certain channels at 64 kbit/s
+              and at other bit rates are accommodated within the basic frame structures.</para>
+         </applicability>
+         <status mode="unknown">
+            <uri>https://www.itu.int/rec/T-REC-G.704/en</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>      
       
       <standard id="thirdgpp-umts" tag="UMTS">
          <document orgid="3gpp" pubnum="" date="" title="3GPP UMTS Series" />
@@ -18771,8 +19221,8 @@
       </standard>
 
       
-      <standard id="nato-stanag5616ed4" tag="STANAG 5616 ed.4:2008">
-         <document orgid="nato" pubnum="STANAG 5616 ed.4" date="2008" title="Standards for Data Forwarding between Tactical Data Systems employing Link-11/11B and Link-16" version="4" />
+      <standard id="nato-stanag5616ed5" tag="STANAG 5616 ed.5:2008">
+         <document orgid="nato" pubnum="STANAG 5616 ed.5" date="2011" title="Standards for Data Forwarding between Tactical Data Systems employing Link-11/11B and Link-16" version="5" />
          <applicability>
             The purpose of this STANAG is to specify rules, protocols, and
             translations required between J series and M series messages. Data forwarding
@@ -18796,10 +19246,11 @@
             maintained among all users of the data.
          </applicability>
          <status mode="unknown">
-            <uri>http://nsa.nato.int:9000/documents/stanags/dr%20en/5616eed04.pdf</uri>
+            <uri>http://nsa.nato.int:9000/documents/stanags/dr%20en/5616eed05.pdf</uri>
             <history>
                <event flag="added" date="2002-12-03" rfcp="" version="0.4" />
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7" />
+               <event flag="changed" date="2013-07-25" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>46a8e283-53a4-4e5d-bc0b-6ddd4db81819</uuid>
@@ -18892,7 +19343,7 @@
 
       
       <standard id="nato-stanag4691" tag="MARLIN">
-         <document orgid="nato" pubnum="STANAG 4691 ed.1" date="" title="Multi-hop IP Networking with legacy UHF radios:             Mobile ad-hoc relay Line of Sight Networking (MARLIN)" />
+         <document orgid="nato" pubnum="STANAG 4691 ed.1" date="" title="Multi-hop IP Networking with legacy UHF radios: Mobile ad-hoc relay Line of Sight Networking (MARLIN)" />
          <applicability>
             The aim of this agreement (MARLIN – Mobile Ad Hoc Relay LIne of sight Networking)
             is to describe the system concept and set of protocols that provide Internet Protocol (IP) data
@@ -20346,20 +20797,22 @@
       </standard>
 
       
-      <standard id="cceb-acp190b" tag="ACP 190 (B)">
-         <document orgid="cceb" pubnum="ACP 190(B)" date="2003" title="Conformance Testing Methodology and Framework" />
+      <standard id="cceb-acp190d" tag="ACP 190 (D)">
+         <document orgid="cceb" pubnum="ACP 190(D)" date="2013-02" title="Guide to electromagnetic Spectrum Management in military Operations" />
          <applicability>
-            This publication covers spectrum management in the full range
-            and intensity of combined military operations to include peacetime,
-            humanitarian operations, and warfare. It covers management of all equipment
-            operating within the electromagnetic spectrum in the frequency range 9kHz to
-            400GHz. It does not cover specific alliance or national arrangements, which
-            may be covered by either individual supplements to this publication, or by
-            separate publications.
+            This publication provides guidance to Military Planners and spectrum managers
+            supporting Combined Task Forces, on the organization required and the 
+            responsibilities of staff engaged in planning, coordinating, and managing 
+            access to the Electromagnetic Spectrum (hereafter referred to as spectrum)
+            in military operations. This guidance is designed to optimise the use of 
+            the available spectrum by friendly forces in order to enable and support 
+            all military operations, including command and control, intelligence,
+            surveillance and weapon systems.
          </applicability>
          <status mode="unknown">
             <history>
                <event flag="added" date="2003-09-28" version="0.5" />
+               <event flag="changed" date="2013-07-26" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>0f464164-c673-4fdf-bbd0-ca99702db692</uuid>
@@ -22322,21 +22775,22 @@
       </standard>
 
       
-      <standard id="ietf-draft-lee-sip-dns-sd-uri-03.txt" tag="DNS SD">
-         <document orgid="ietf" pubnum="draft-lee-sip-dns-sd-uri-03.txt" date="2008" title="SIP URI Service Discovery using DNS-SD:2010" />
+      <standard id="ietf-rfc6763" tag="DNS SD">
+         <document orgid="ietf" pubnum="RFC 6763" date="2013" title="DNS-Based Service Discovery"/>
          <applicability>
-            This document describes how to use the DNS-based Service Discovery
-            (DNS-SD), better known as Apple Bonjour, for advertising Session
-            Initiation Protocol (SIP) URIs in local area networks.  Using this
-            mechanism, a SIP user agent (UA) can communicate with another UA even
-            when no SIP registrar is available, as in a wireless ad-hoc network
-            for example.
+           This document specifies how DNS resource records are named and structured 
+           to facilitate service discovery.  Given a type of service that a client is
+           looking for, and a domain in which the client is looking for that service,
+           this mechanism allows clients to discover a list of named instances of 
+           that desired service, using standard DNS queries.  This mechanism is referred
+           to as DNS-based Service Discovery, or DNS-SD.
          </applicability>
          <status mode="unknown">
-            <uri>http://tools.ietf.org/html/draft-lee-sip-dns-sd-uri-03.txt</uri>
+            <uri>http://www.ietf.org/rfc/rfc6763.txt</uri>
             <history>
                <event flag="added" date="2008-12-10" rfcp="2-15" version="3.0" />
                <event flag="changed" date="2010-08-09" rfcp="" version="4.0" />
+               <event flag="changed" date="2013-07-25" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>0302f4ab-3307-4a09-b16f-09212ac83b7c</uuid>
@@ -23717,6 +24171,27 @@
          <uuid>d8dab608-97ad-4fc7-b387-cbef9ac49fbe</uuid>
       </standard>
 
+      <standard id="w3c-soap12" tag="SOAP 1.2">
+         <document orgid="w3c" pubnum="SOAP Version 1.2" date="2001-07-09" title="SOAP Version 1.2" version="1.2" />
+         <applicability>
+            SOAP version 1.2 is a lightweight protocol for exchange of information in a
+            decentralized, distributed environment. It is an XML based protocol that consists
+            of four parts: an envelope that defines a framework for describing what is in a
+            message and how to process it, a set of encoding rules for expressing instances
+            of application-defined data types, a convention for representing remote procedure
+            calls and responses and a binding convention for exchanging messages using an
+            underlying protocol. SOAP can potentially be used in combination with a variety
+            of other protocols; however, the only bindings defined in this document describe
+            how to use SOAP in combination with HTTP and the experimental HTTP Extension Framework.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://www.w3.org/TR/soap12</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="oasis-wss-username-token-profile-1.0" tag="">
          <document orgid="oasis" pubnum="wss-username-token-profile-1.0" date="2004-04-06" title="Web Services Security: Username Token Profile V1.0" version="1" />
@@ -25050,6 +25525,16 @@
          <uuid>cc0c904f-33bd-4100-864e-70319a98fbe0</uuid>
       </standard>
 
+      <standard id="iicwg-scip-220" tag="SCIP-220">
+         <document orgid="IICWG" pubnum="SCIP-220" date="2006-07-13" title="Requirement Document"/>
+         <applicability />
+         <status mode="unknown">
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="iicwg-scip-221" tag="SCIP-221">
          <document orgid="IICWG" pubnum="SCIP-221" date="2011-04-26" title="Mimimum Implementation Profile (MIP) rev.3.0" version="3" />
@@ -31468,33 +31953,25 @@
       </standard>
 
       
-      <standard id="nato-stanag4545ed1" tag="NSIF">
-         <document orgid="nato" pubnum="STANAG 4545 ed.1" date="1998" title="NATO Secondary Imagery Format (NSIF)" />
+      <standard id="nato-stanag4545ed2" tag="NSIF">
+         <document orgid="nato" pubnum="STANAG 4545 ed.2" date="2013" title="NATO Secondary Imagery Format (NSIF)" />
          <applicability>
-            This STANAG establishes the format for exchange of electronic
-            secondary imagery. Secondary imagery is sensor data that has been previously
-            exploited and/or processed into a human readable picture.This format enables
-            an operator at one workstation to compose and capture a multimedia image on
-            his workstation, and send it to another workstation where it is capable of
-            being reproduced exactly as it was composed on the origination workstation.
-            The NSIF format can be composed of images, graphics and text. Because of the
-            wide variety of display capabilities, the implementations of NSIF readers and
-            writers are classified by their level of complexity, where the highest level
-            will handle very large images with many bands of data, and the simplest level
-            will only handle small, single band images. For interoperability considerations,
-            a reader of an NSIF file must be greater than or equal to the complexity level
-            of the image it is reading in order to display it. There are reserved segments
-            at the end of the NSIF file and within the different segments of the file for
-            other types of information not currently defined in the baseline standard
-            (e.g. GMTI data or motion imagery). For example a reconnaissance exploitation
-            report (RECCEXREP) formatted in an ADatP-3 format could be attached to an image
-            segment through a text segment.
+            This STANAG promotes interoperability for the exchange of Secondary Imagery
+            among North Atlantic Treaty Organisation (NATO) Command Control Communications
+            and Intelligence (C<superscript>3</superscript>I) Systems. The NATO Secondary 
+            Imagery Format (NSIF) is the standard for formatting digital imagery files 
+            and imagery-related products and exchanging them among NATO members. The NSIF 
+            is part of a collection of related standards and specifications, known as the
+            NATO ISR Interoperability Architecture (NIIA), developed to provide a 
+            foundation for interoperability in the dissemination of intelligence-related 
+            products among different computer systems.
          </applicability>
          <status mode="unknown">
-            <uri>http://nsa.nato.int:9000/documents/stanags/4545eed01.pdf</uri>
+            <uri>http://nsa.nato.int:9000/documents/stanags/4545eed02.pdf</uri>
             <history>
                <event flag="added" date="2003-05-14" rfcp="" version="0.5" />
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7" />
+               <event flag="chasnged" date="2013-07-26" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>737b6d73-4425-43e0-899c-fe9506554d41</uuid>
@@ -32119,8 +32596,8 @@
       </standard>
 
       
-      <standard id="nato-stanag7085ed2" tag="STANAG 7085">
-         <document orgid="nato" pubnum="STANAG 7085 ed.2" date="2004-01-15" title="Interoperable Data Links for Imaging Systems" />
+      <standard id="nato-stanag7085ed3" tag="STANAG 7085">
+         <document orgid="nato" pubnum="STANAG 7085 ed.3" date="2011-10-21" title="Interoperable Data Links for Imaging Systems" />
          <applicability>
             This STANAG provide the interoperability standards for 3 classes
             of imagery DL used for primary imagery data transmission: analogue links
@@ -32143,13 +32620,14 @@
             <history>
                <event flag="added" date="2003-05-14" rfcp="" version="0.5" />
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7" />
+               <event flag="changed" date="2013-07-25" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>b8773a53-b983-420c-9a6c-1091642b8ffd</uuid>
       </standard>
 
       
-      <standard id="nato-stanag4586ed2" tag="UCS">
+      <standard id="nato-stanag4586ed3" tag="UCS">
          <document orgid="nato" pubnum="STANAG 4586" date="2012-11-09" title="Standard Interfaces of UAV Control System (UCS) for NATO UAV Interoperability ed.3" version="3" />
          <applicability>
             The objective of this STANAG is to facilitate communication between
@@ -38002,8 +38480,8 @@
       </standard>
 
       
-      <standard id="unknown-mrsid" tag="MrSid">
-         <document orgid="" pubnum="" date="" title="Multiresolution seamless image database (MrSid Generation 2)" />
+      <standard id="LizardTech-mrsid" tag="MrSid">
+         <document orgid="LizardTech" pubnum="" date="" title="Multiresolution seamless image database (MrSid Generation 2)" />
          <applicability>
             MrSID is a patented, wavelet-based file format designed to enable 
             portability of massive bit-mapped (raster) images. The format employs 
@@ -38029,6 +38507,31 @@
          <uuid>4ed7597e-293d-4fae-a832-ce641a6c5858</uuid>
       </standard>
 
+      <standard id="nato-ttb_30" tag="TTB">
+         <document orgid="nato" pubnum="TIDE/TTB" date="2009" title="NATO Transformational Baseline 3.0:2009 (ACT)" version="3.0" />
+         <applicability>
+            This document details the most commonly used specifications managed by the TIDE
+            community. The specifications presented here have been proven through years of
+            experimentation by many NATO and National systems. More recently these specifications
+            are being used by operational systems. From a technical perspective, the reuse of these
+            specifications is an indicator of their success and by extrapolation the success of the TIDE
+            process. As a consequence of this success greater care must now be taken in the management
+            and evolution of these specifications. The TIDE Transformational Baseline documents are
+            intended to formalize the underlying specification while opening them up to the broader
+            technical community.
+            <para>The specifications documented here are general in nature and can be easily implemented and
+              made useful by nearly all network enabled systems and software. The following sections
+              discuss the applicability of these specifications from both a technical and operational
+              perspective.</para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://tide.act.nato.int/tidepedia/images/5/50/TTB_3.0_Main.pdf</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>
       
       <standard id="nato-tide-nvg" tag="NVG">
          <document orgid="nato" pubnum="TIDE/NVG" date="2008" title="NATO Vector Graphics (NVG) Protocol version 1.5:2010 (ACT)" version="1.5" />
@@ -38048,6 +38551,32 @@
             </history>
          </status>
          <uuid>e4148c51-4238-42b3-8530-9fac787f61c0</uuid>
+      </standard>
+
+      <standard id="nato-tide-nvg20" tag="NVG2.0">
+         <document orgid="nato" pubnum="TIDE/NVG20" date="2012" title="NATO Vector Graphics (NVG) Protocol version 2.0:2012 (ACT)" version="2.0" />
+         <applicability>
+            The NATO Vector Graphics (NVG) Data Format was created to ease
+            the encoding and sharing of battle-space information between command and control
+            systems with particular emphasis placed on military symbology. The data format
+            is utilized in several NATO systems. Over the years a protocol evolved to support
+            the discovery and acquisition of NVG data. The NATO Vector Graphics (NVG) Protocol
+            is the formal specification of this protocol.
+            <para>The following changes were included in this version compared to v.1.5:</para>
+            <itemizedlist>
+              <listitem><para>Data Format 2.x</para></listitem>
+              <listitem><para>Capabilities 2.x</para></listitem>
+              <listitem><para>Filter 2.x</para></listitem>
+              <listitem><para>Integration of the NVG Streaming Protocol in the baseline </para></listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://tide.act.nato.int/tidepedia/index.php?title=NATO_Vector_Graphics_(NVG)_Protocol</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
       </standard>
 
       
@@ -38080,6 +38609,18 @@
          <uuid>deba8aeb-6f95-4e26-8a15-5547c930d0e0</uuid>
       </standard>
 
+      <standard id="nato-qos" tag="IP QoS">
+         <document orgid="nato" pubnum="TN-1417" date="" title="IP QoS for the NII" />
+         <applicability>
+         </applicability>
+         <status mode="unknown">
+            <uri></uri>
+            <history>
+               <event flag="added" date="2013-07-26" rfcp="7-27" version="7.0" />
+            </history>
+         </status>
+         <uuid></uuid>
+      </standard>           
       
       <standard id="ietf-rfc2083" tag="PNG">
          <document orgid="ietf" pubnum="RFC 2083" date="1997" title="Portable Network Graphics (PNG) Specification, v. 1.0" version="1.0" />
@@ -38415,8 +38956,8 @@
       </standard>
 
       
-      <standard id="nato-stanag5500ed6" tag="FORMETS/ ADatP-3 Baseline 13">
-         <document orgid="nato" pubnum="STANAG 5500" date="2010" title="Concept of NATO Message Text Formatting System (CONFORMETS), ed.7, (ADatP-3)" version="6" />
+      <standard id="nato-stanag5500ed7" tag="FORMETS/ ADatP-3 Baseline 13">
+         <document orgid="nato" pubnum="STANAG 5500" date="2010" title="Concept of NATO Message Text Formatting System (CONFORMETS), ed.7, (ADatP-3)" version="7" />
          <applicability>
             FORMETS is a collection of character-oriented information procedural
             standards suitable for the efficient exchange of information. The system includes
@@ -38447,6 +38988,7 @@
                <event flag="changed" date="2007-08-02" rfcp="" version="2.0" />
                <event flag="changed" date="2007-10-30" rfcp="1-8" version="2.0" />
                <event flag="changed" date="2010-12-09" rfcp="" version="4.0" />
+               <event flag="changed" date="2013-07-25" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>0d10f87a-164b-4b92-9d00-248dc4556135</uuid>
@@ -41159,8 +41701,8 @@
       </standard>
 
       
-      <standard id="unknown-geotiff" tag="GeoTIFF">
-         <document orgid="" pubnum="" date="2000" title="Geographical Tagged Image Format (GeoTIFF)" />
+      <standard id="osgeo-geotiff" tag="GeoTIFF">
+         <document orgid="osgeo" pubnum="" date="2000" title="Geographical Tagged Image Format (GeoTIFF)" />
          <applicability>
             The GeoTIFF spec defines a set of TIFF tags provided to describe
             all "Cartographic" information associated with TIFF imagery that originates
@@ -41175,6 +41717,7 @@
                <event flag="added" date="2003-08-01" rfcp="4-30" version="0.5" />
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7" />
                <event flag="changed" date="2011-10-16" rfcp="5.63" version="5.0" />
+               <event flag="changed" date="2013-07-25" rfcp="" version="7.0" />
             </history>
          </status>
          <uuid>66f845f1-3598-4fc2-903f-4f1ec3f411ff</uuid>
@@ -47033,7 +47576,16 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
       
       <standard id="nato-tide-sd-sp" tag="TIDE-SD-SP">
          <document orgid="nato" pubnum="TIDE/TIDE-ID-SP" date="2008" title="TIDE Service Discovery" />
-         <applicability />
+         <applicability>
+           The current solution within TIDE community to announce and discover services
+           is based on Multicast DNS and DNS Service Discovery. It was proven to work
+           efficiently in LAN networks where multicast DNS is used. In the WAN environment
+           where for the proper registration and discovery a control over regular DNS 
+           servers is required the solution approach a barrier. In most scenarios,
+           because of the sites security policies, the required access to DNS servers
+           is not granted. As one of the possible ways to overcome this obstacle was
+           introduction of bridging solutions. The problem with this approach is scalability.
+         </applicability>
          <status mode="unknown">
             <uri>http://</uri>
             <history>
@@ -48767,6 +49319,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
       <orgkey key="jcp" text="Java Community Process" />
       <orgkey key="linux" text="Linux" />
       <orgkey key="linuxbase" text="Linux-Base" />
+      <orgkey Key="LizardTech" text="Lizard Tech" />
       <orgkey key="microsoft" text="Microsoft" />
       <orgkey key="mip" text="Multilateral Interoperability Program" />
       <orgkey key="mod-uk" text="UK MoD" />
@@ -48780,7 +49333,9 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
       <orgkey key="ogis" text="Open GIS Forum (OGIS)" />
       <orgkey key="opengl" text="OpenGL" />
       <orgkey key="opengroup" text="The Open Group" />
+      <orgkey key="opensearch" text="OpenSearch.org" />
       <orgkey key="osf" text="OSF" />
+      <orgkey key="osgeo" text="Open Source Geospatial Foundation" />
       <orgkey key="osgi" text="OSGi Alliance" />
       <orgkey key="omg" text="OMG" />
       <orgkey key="odmg" text="ODMG" />
