@@ -2,125 +2,346 @@
 <!--
 *****************************************************************
                    Vol 3 - A N N E X - D
+REF: NCI Agency Technical Report TR-2013/ACO008868/04
 *****************************************************************  
 -->
-
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "../schema/dtd/docbkx45/docbookx.dtd" [
 <!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
 ]>
 <appendix id="v3-d">
-    <title>The Afghanistan Mission Network (AMN) Profile of NATO Interoperability
-      Standards</title>
+    <title>The Afghanistan Mission Network (AMN) Profile of NATO Interoperability Standards</title>
+<para>Ref(A): NCI Agency Technical Report TR-2013/ACO008868/04 - Dated 01 July 2013</para>
+  <sect1>
+  <sect2>
+    <title>General</title>
+
+    <para>NATO, through its interoperability directive, has recognized that widespread interoperability is a key component in achieving effective and efficient operations. In many of the operations world-wide in which the military of the NATO nations are engaged, they participate together with a wide variety of the military of other nations and non-military organizations on the ground. The NATO Interoperability Standards and Profile (NISP) provides the necessary guidance and technical components to support project implementations and transition to NATO Network Enabled Capability (NNEC).</para>
+  </sect2>
+
+  <sect2>
+    <title>Authorised Version</title>
+    
+    <para>The standards extant for the AMN are described in the NISP. This is published as ADatP-34 by the NATO C3 Board. As part of the NISP, an AMN Profile of NATO Interoperability Standards has been published among the several operational profiles permitted as part of ADatP-34. The latest authorised version can be found in Volume 4 of the NISP [ADaTP-34(G)-REV1, Volume 4 Annex D, 8 March 2013]. These are the extant and NATO agreed list of practical standards to achieve immediately usable interoperability between the national network extensions of the NATO nations, coalition partners and NATO provided capabilities.</para>
+<para>Nations participating in the AMN have agreed to comply with the AMN joining instructions, of which these standards form an integral part.</para>
+  </sect2>
+
+  <sect2>
+    <title>Application</title>
+    
+    <para>The AMN Profile will be used in the implementation of NATO Common Funded Systems. Nations participating in AMN agree to use this profile at Network Interconnection Points (NIPs) and at other Service Interoperability Points as applicable.</para>
+    
+    <para>NNEC Services must be able to function in a network environment containing firewalls and various routing and filtering schemes; therefore, developers must use standard and well-known ports wherever possible, and document non-standard ports as part of their service interface. Service developers must assume network behaviour and performance consistent with the existing limits of these networks, taking bandwidth limitations and potentially unreliable networks into account.</para>
+  </sect2>
+
+  <sect2>
+    <title>Life-Cycle of Standards</title>
+    
+    <para>ADatP-34 defines four stages within the life-cycle of a standard: emerging, mandatory, fading and retired. In those situations where multiple stages are mentioned, the AMN Profile recommends dates by which the transition to the next stage is to be completed by all AMN members. If a TCN (or NCI Agency) decides to implement emerging standards it is her responsibility to maintain backwards compatibility to the mandatory standard.</para>
+  </sect2>
+
+  <sect2>
+    <title>Forthcoming/Agreed Changes</title>
+    
+    <para>Volume 4 of the Joining, Membership and Exit Instructions (JMEI) is oriented around the AMN Profile of NATO Interoperability Standards. The AMN Profile is maintained within this document.</para>
+    <para>The extant authorised version of the AMN Profile is as published in ADaTP-34(G). This formal published version of the AMN Profile is to only be originated from this document (i.e. Vol 4 of the JMEI published as NCI Agency Technical Report <cite>TR-2013/ACO008868/04<cite>).</para>
+    <para>The NCI Agency acts as the custodian for the AMN Profile and is to be used as the conduit for changes (via her membership of the AMN AWG). This must be via the process outlined at section 2.7 of the JMEI Volume 4</para>
+    <para>Any changes already collectively agreed by the AMN TCN and NCI Agency via the AMN AWG for use on the AMN but not yet published in ADaTP-34 were indicated as changes in the document. These changes will be submitted for publication in the next authorised issue of ADatP-34 (i.e. ADaTP-34(H) and thereafter).</para>
+  </sect2>
+
+  <sect2>
+    <title>Relationship to NATO C3 Classification Taxonomy</title>
+    
+    <para>The AMN has been designed and is managed as far as possible using a service approach. The AMN Services are based on the NATO C3 Classification Taxonomy [<cite>AC/322-N(2012)0092-AS1<cite>].</para>
+    <para>The C3 Classification Taxonomy is used to identify particular services and associated Service Interoperability Point where two entities will interface and the standards in use by the relevant systems.</para>
+    <para>Where required, the implementation of the standard is described in an annex associated with the Service.</para>
+    <para>Where a composite suite of services (with their standards) are required to implement a suite of services that are typically grouped together to form a familiar “composite service” or a “user facing Service”, then the implementation annex is housed at the assessed “centre of gravity” of the composite service. This is done simply to keep the instructions together. This applies for those services which network engineers, system administrators, users or operators  recognise as distinct (e.g. “Text based Chat”, “VoSIP” or “VTC”), and for which technical skills/specialisms/instructions already exist. For Example the VTC implementation annex is placed under “Enterprise Support Services” despite the fact that the VTC is also affected by settings implemented in “Communications Access Services”.</para>
+    <para>The C3 Classification Taxonomy is used to structure this document, commencing with Communications and working up the Taxonomy from beneath.</para>
+  </sect2>
+
+  <sect2>
+    <title>Relationship to the Future (Federated) Mission Network</title>
+    
+    <para>Subsequent NATO led missions will benefit from the modular nature of the AMN Profile, which will allow for maximum reuse of established capabilities, while accommodating unique requirements and technology improvements.</para>
+    <para>Based on the AMN Profile, a Federated Mission Network Profile of NATO Interoperability Standards has been proposed and is anticipated to be published in the next version of ADaTP-34. This will support the implementation of the Future Mission Network (FMN) Concept [<cite>MCM-0125-2012<cite>].</para>
+    <para>Given the strong linkage between AMN and FMN, the opportunity to maintain a single Federated Mission Network Profile is possible in future versions of this document, but will firstly require the establishment of the FMN Governance and FMN Framework Management Structures. To this end it is anticipated that any future development of capabilities for the AMN in the future should be done in the direction indicated by the Federated Mission Network Profile.</para>
+    <para>This AMN Profile contains footnotes from the FMN Profile that if applied would implement the AMN in the direction of the FMN. These are indicated as a footnote to the referenced standard. Please note however: <emphasis role="bold"><u>The FMN notes are only included for information. They are not yet approved by the AWG for use on the AMN.</u></emphasis></para>
+  </sect2>
+  </sect1>
 
   <sect1>
-    <title>Purpose</title>
+    <title>Communication Services</title>
+    <para><u>Definition</u>: <i>Communications Services interconnect systems and mechanisms for the opaque transfer of selected data between or among access points, in accordance with agreed quality parameters and without change in the form or content of the data as sent and received.</i></para>
+    <para>Communications Services can be further defined as:</para>
+    <itemizedlist>
+	<listitem>Transmission and Transport Services</listitem>
 
-    <para>NATO, through its interoperability directive, has recognized that widespread 
-    interoperability is a key component in achieving effective and efficient operations.
-    In many of the operations world-wide in which NATO nations are engaged, they 
-    participate together with a wide variety of other organizations on the ground.
-    Such organizations include coalition partners from non-NATO nations, Non-Governmental
-    Organization (NGOs - e.g. Aid Agencies) and industrial partners. The NATO Interoperability 
-    Standards and Profile (NISP) provides the necessary guidance and technical components
-    to support project implementations and transition to NATO Network Enabled Capability
-    (NNEC).</para>
+	<listitem>Communications Access Services</listitem>
+    </itemizedlist>
+    <para>In addition, standards and implementation practice must also be adhered to in the following area:</para>
+    <itemizedlist>
+	<listitem>Communications Equipment</listitem>
+   </itemizedlist>
+   <sect2>
+	<title>Communications Equipment</title>
+        <para>Although technically not part of the AMN, fundamental to the establishment of any federated communications service, there are a few equipment standards that must be adhered to. These are listed in Table 1 below.</para>
+      <table frame="all" id="v3t-COMMS-equipment-stds">
+        <title>Communications Equipment Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID:Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:Connectivity between coalition networks (autonomous systems) Fibre</entry>
+              <entry>
+                <para>Single-mode optical fibre (SMF) 9/125μm, ISO/IEC OS1, LC duplex single-mode connector.</para><para>IEEE 802.3z Gigabit Ethernet, 1000BASE-LX10, 1310nm</para>
+              </entry>
+              <entry><para>This interconnection is based on STANAG 5067 enhanced with a non-tactical connector and optional 1Gb/s Ethernet.</para><para> 
+ST 5067 provides additional implementation, security and management guidance.</para><para>
+Use 1Gb/s Ethernet over SMF.</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+   </sect2>
+	<sect2>
+    <title>Transmission and Transport Services</title>
+    <para><u>Definition</u>: <i>Transmission Services cover the physical layer (also referred to as media layer or air-interface in wireless/satellite (SATCOM) communications) supporting Transport Services, as well as Communications Access Services. Support for the latter is relevant to personal communications systems, in which the User Appliances directly connect to the transmission element without any transport elements in between.</i></para>
 
-<para>The figure below characterizes the information environment and various scenarios that exist for exchanging operational information.  This environment, although rich in participation and basic connectivity, lacks fully meshed interoperability at the services layer.  This diagram represents the AMN environment, and the starting point for future mission network for NATO-led operations.  It is presumed for the purposes of this document that the AMN Profile will only address capabilities between the AMN Core and national AMN extensions.</para>
-
-<figure id="v3amnf1" float="0">
-          <title>AMN Information Environment</title>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="../figures/AMN-info-env.svg" />
-            </imageobject>
-          </mediaobject>
-        </figure>
-        
-
-    <para>The purpose of this document is to define an Interoperability Standards 
-    Profile to support the Afghanistan Mission Network (AMN) and transition from 
-    today's legacy systems to NNEC by defining a useful level of interoperability.</para>
-    
-    <para>This document will also serve as a resource for NATO C4ISR
-    planners, to be used as a guide in achieving interoperability
-    between NATO nations, coalition partners and NATO provided
-    capabilities.  The AMN Profile is for use throughout the complete
-    lifecycle of the ISAF mission.  The AMN Profile will enable Net
-    Centric operations by enhancing collaboration across the entire
-    operational environment across all levels of command.  Subsequent
-    NATO led missions will benefit from the modular nature of the AMN
-    Profile, which will allow for maximum reuse of established
-    capabilities, while accommodating unique requirements and
-    technology improvements.</para>
-<para>Coalition Interoperability Assurance and Validation (CIAV) supports the AMN change management process by assessing proposed changes on the Coalition Test and Evaluation Environment (CTE2) replication of the AMN before they are deployed to the operational network.  In the CIAV, all functionalities and interactions can be assured before the upgrades are implemented.</para>
-
-<para>Additional benefits to deployment and sustained operations include:</para>
+    <para><u>Definition</u>: <i>Transport Services provide resource-facing services, providing metro and wide-area connectivity to the Communications Access Services that operate at the edges of the network. In that role, Transport Services interact with the Transmission Services using them as the physical layer fabric supporting the transfer of data over a variety of transmission bearers as and where needed.</i></para>
+	<sect3>
+	<title>Standards</title>
+	<para>To provide federated services the standards listed in Table 2 should be adhered to.</para>
+      <table frame="all" id="v3t-TandT-stds">
+        <title>Transmission and Transport Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID:Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:Naming and addressing</entry>
+              <entry>
+                <para>Classless Inter Domain Routing (IETF RFC 4632)</para>
+		<para>Host Extensions for IP Multicasting (IETF RFC 1112)</para>
+		<para>The Internet Multicast Address Allocation (IETF RFC 2908)</para>
+		<para>IANA Guidelines for IPv4 Multicast Address Assignments (IETF RFC 3171)</para>
+		<para>Administratively Scoped IP Multicast (IETF RFC 2365)</para>
+              </entry>
+              <entry>
+		<para></para>
+	      </entry>
+            </row>
+            <row>
+              <entry>2:Basic connectivity between technical services.</entry>
+              <entry>
+                <para>User Datagram Protocol (IETF Standard 6, RFC 768)</para>
+		<para>Transmission Control Protocol (IETF Standard 7, RFC 793:1981 updated by RFC 3168:2001)</para>
+              </entry>
+              <entry>
+		<para>Max Transmission Unit (MTU) reduced to 1300 bytes, Max Segment Size (MSS) set to 1260 bytes in order to accommodate IP crypto tunnelling within autonomous systems</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+ 	</sect3>
+	<sect3>
+	<title>Implementation</title>
+	<para>Although the implementation scope of AMN technically does not cover Transmission and Transport Services (see definition in REF(A) section 3.2) the TCN joining the AMN require guidance on options on how to provide communications within Theatre.</para>
+	<para>The following Annexes provide guidance on implementing these services:</para>
 <itemizedlist>
-<listitem><para>Speed of execution of operations,</para></listitem>
-<listitem><para>Richer information environment,</para></listitem>
-<listitem><para>More dynamic information exchange between all members of the network,</para></listitem>
-<listitem><para>Speedier standup of an NATO-led operation,</para></listitem>
-<listitem><para>Reach-back to feature rich information enterprise(s), and</para></listitem>
-<listitem><para>Elimination of hierarchical information flow.</para></listitem>
+<listitem><para>Annex A.1: Provision of Terrestrial Communications.</para></listitem>
+<listitem><para>Annex A.2: Use of Deployable CIS (including SATCOM).</para></listitem>
 </itemizedlist>
-
-<para>Participating nations are encouraged to use this document as part of the planning process for coordination and establishment of connectivity and interoperability with respect to joint NATO-led operations.
+<para>With respect to creating the connection at the NIP the following Annex is provided:</para>
+<itemizedlist>
+<listitem><para>Annex A.3: Connecting to the Network Interconnection Points (NIP).</para>
+</listitem>
+</itemizedlist>
+	</sect3>
+ 	</sect2>
+	<sect2>
+	<title>Communications Access Services</title>
+    <para><u>Definition</u>: <i>Transport Communications Access Services provide end-to-end connectivity of communications or computing devices. Communications Access Services can be interfaced directly to Transmission Services (e.g. in the case of personal communications systems) or to Transport Services, which in turn interact with Transmission Services for the actual physical transport. Communications Access Services correspond to customer-facing communications services. As such, they can also be referred to as Subscriber Services, or Customer-Edge (CE) Services.</i></para>
+	<para>With respect to the current implementation scope of AMN, the following Communications Access services apply:</para>
+<itemizedlist>
+<listitem><para>Packet-Based Access Services</para></listitem>
+<listitem><para>Communications Access Information Assurance (IA) Services</para></listitem>
+<listitem><para>Communications Access Service Management Control (SMC) Services</para></listitem>
+<listitem><para>Multimedia Services</para></listitem>
+</itemizedlist>
+	<sect3>
+	<title>Standards</title>
+	<para>To provide federated services, the standards listed Table 3 should be adhered to.</para>
+	<table frame="all" id="v3t-commsAccessSvs">
+        <title>Communications Access Services Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID:Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:Basic connectivity between technical services.</entry>
+              <entry>
+                <para>Internet Protocol (IETF RFCs 791/792, 919/922/950/1112/1812
+<footnote><para>FMN: will also implement IETF RFC 2644. It is advisory that AMN also follows this.</para></footnote>
 </para>
-    
-    <para>This profile will be used in the implementation of NATO Common Funded Systems.
-    Nations participating in AMN agree to use this profile at Network Interconnection 
-    Points (NIPs) and at other Service Interoperability Points as applicable.</para>
+		<para>Internet Protocol version 6 (IPv6)  (IETF RFCs 2460:1998)
+<footnote><para>FMN: will also implement IETF RFC 2474/3484/3810/4291/4443/4861/5095. If IPv6 is ever implemented for the AMN, many of these would be also advisable.</para></footnote>
+</para>
+		<para>QoS – AMN standard was constructed based on QENI – see Annex B.3 for details
+<footnote><para>FMN: will implement QoS: IP QoS for the NII, [NC3A TN-1417]. Note for implementation: Utilize Quality of Service capabilities of the network according to TN-1417 maturity level QoS-1 (Diffserve, no military precedence on IP).</para></footnote>
+</para>
+              </entry>
+              <entry>
+		<para>IP networking. Accommodate both IPv4 and IPv6 addressing
+<footnote><para>Note that although IPv6 has always been part of the AMN Profile it has never been taken up. There has always been the intent to provide a tunnel of v6 over v4 or via a dual stack, should a TCN require it.</para></footnote>
+</para>
+	      </entry>
+            </row>
+            <row>
+              <entry><para>2:Connectivity between coalition networks (autonomous systems)</para><para>Fibre<footnote><para>FMN: A key improvement that the FMN will bring is the ability to create connectivity over a Time-division multiplexing (TDM) Wide Area Network (WAN). For this a suite of standards additional to those for a fibre based network has been drawn from TACOMs and demonstrated. The FMN Profile will include implementation notes and instructions for these.</para></footnote></para></entry>
+              <entry>
+                <para>Ethernet Address Resolution Protocol (IETF Standard 37. RFC 826) (for IPv4 only)</para>
+<para>Border Gateway Protocol V4 (IETF RFC 1771, March 1995)
+<footnote><para>FMN: Will implement IETF RFC 4271, 4760, 3392, 2545. FMN notes: BGP deployment guidance in RFC 1772 must be considered. (RFC 4271 obsoletes RFC 1771). BGP sessions must be authenticated, through a TCP message authentication code (MAC) using a one-way hash function (MD5), as described in RFC 4271.</para></footnote></para>
+<para>BGP Communities Attribute (IETF RFC 1997, Aug 1996)</para>
+<para>FMN footnote
+<footnote><para>FMN: Will implement Neighbor Discovery for IP version 6 (IPv6) (IETF RFC 4861) (for IPv6 only)</para></footnote></para>
+<para>Multicast Source Discovery Protocol (MSDP) (IETF RFC 3618, Oct 2003)</para>
+<para>Protocol Independent Multicast Sparse Mode (PIM-SM) (IETF RFC 4601, Aug 2006)</para>
+              </entry>
+              <entry>
+		<para>Detailed Interface Control Document for “Connection Between CISAF network and TCN networks” [Thales ICD NIP Dec 2013]</para>
+	      </entry>
+            </row>
+            <row>
+              <entry>3:Provide communications security over the network above the Transport Layer</entry>
+              <entry>
+                <para>Mandatory: Transport Layer Security (TLS) Protocol Version 1.2 (RFC 5246:2008)</para>
+<para>Fading (to Dec 2011): Transport Layer Security (TLS) Protocol version 1.0 (RFC 2246:1999)
+</para>
+              </entry>
+              <entry>
+		<para></para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+	</sect3>
+	<sect3>
+	<title>Implementation of Packet-Based Access Services</title>
+    <para><u>Definition</u>: <i>Transport Packet-based Access Services involve delivery or exchange of data (or digitised voice, video) encapsulated in IP packets. In the case of the AMN, IPv4 and IPv6 (if implemented) routed access services can be considered under this Service Category.</i></para>
+	<para>The NIP provides a network interconnection at the IP layer for the ISAF SECR3T environment making up the AMN. It serves 3 major purposes:</para>
+<itemizedlist>
+<listitem><para>Intra autonomous system (AS) routing (routing of traffic between nations or between nations and NATO, where each nation is a BGP Autonomous System)</para></listitem>
+<listitem><para>QoS policy enforcement (to provide end-to-end QoS for the required services)</para></listitem>
+<listitem><para>IPSLA compliance verification (to verify end-to-end performance compliance)</para></listitem>
+</itemizedlist>
+	<para>The following Annexes provide guidance on implementing services:</para>
+<itemizedlist>
+<listitem><para>Annex B.1: Numbering Registration [incl 5.2.5.4 from v2]</para></listitem>
+<listitem><para>Annex B.2: Sample Router Configuration Template</para></listitem>
+<listitem><para>Annex B.3: BGP and IP Multicast Routing [incl note about IP accelerators]</para></listitem>
+<listitem><para>Annex B.4: Quality of Service (QOS)</para></listitem>
+<listitem><para>Annex B.5: Internet Protocol Service Level Agreement Monitoring [incl 5.2.4.5 from v2]</para></listitem>
+</itemizedlist>
+	</sect3>
+	<sect3>
+	<title>Implementation of Communications Access Information Assurance (IA) Services</title>
+	</sect3>
+	<sect3>
+	<title>Implementation of Communications Access Service Management Control (SMC) Services</title>
+	</sect3>
+	<sect3>
+	<title>Implementation of Multimedia Services</title>
+	</sect3>
+	</sect2>
+   </sect1>
+<!--
+*****************************************************************
+                   OLD TEXT FOLLOWS
 
-	<para>Nations participationg in the AMN have agreed to comply with the AMN joining instructions. This profile is a technical document that changes more frequently than the joining instructions.</para>
-    
-    <para>NNEC Services must be able to function in a network environment containing
-    firewalls and various routing and filtering schemes; therefore, developers must
-    use standard and well-known ports wherever possible, and document non-standard
-    ports as part of their service interface. Service developers must assume network
-    behavior and performance consistent with the existing limits of these networks,
-    taking bandwidth limitations and potentially unreliable networks into account.</para>
-    
-  </sect1>
+Reuse this code as needed
 
-  <sect1>
-    <title>Change Management</title>
-    
-    <para>Applying existing NATO standards or - in those areas where NATO STANAGS
-    do not yet exist - International Standards are key for achieving interoperability
-    in a federated environment. The dynamic nature of ISAF operations results in
-    unforeseen information exchange requirements within and across ISAF. This might
-    require the development and design of new data and metadata exchange formats 
-    which are not part of current STANAGs and/or Standards. Those ad-hoc formats
-    shall be developed in-line with existing NATO policies and guidelines so that
-    they can be quickly transformed into standards (e.g. STANAGS) by the appropriate 
-    NATO Bodies based on the NATO Bi-SC Data Strategy, the NATO NNEC Data Strategy, 
-    and when appropriate, based on the APP-15 process.The AMN Profile is being maintained
-    by the AMN Architecture Working Group; it is a living document and is expected 
-    to be updated every six months.</para>
-    
-    <para>ADatP-34 defines four stages within the life-cycle of a standard: emerging,
-    mandatory, fading and retired; in those situations where multiple stages are 
-    mentioned the AMN Profile recommends dates by which the transition to the next
-    stage is to be completed by all AMN members. If a nation decides to implement
-    emerging standards it is her responsibility to maintain backwards compatibility
-    to the mandatory standard.</para>
-    
-    <para>Any discrepancies discovered between different elements of this Profile,
-    shall be resolved through a change proposal prepared by the responsible NATO
-    body or an AMN member nation.</para>
-    
-    <para>AMN Profile change requests can only be submitted by NATO civil or military
-    bodies or AMN member nations.</para>
-    
-    <para>The AMN Architecture Working Group will review updates to
-    ADatP-34, the ISAF Baseline Architecture and AMN Profile change
-    proposals and if required will produce a new version of the AMN
-    Profile. The AMN profile of the NISP is reviewed by the AMN
-    Architecture Working Group (AWG) on a quarterly basis and requests
-    for formal adoption by the IP CaT are made by the AWG on a six
-    monthly basis.</para>
-  </sect1>
+      <table frame="all" id="v3t-id-string">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID:Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standard</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
+*****************************************************************  
+-->
   
   <sect1>
     <title>Service Management and Control (SMC) Processes</title>
@@ -903,6 +1124,7 @@ TIDE Information Discovery specifications. On the AMN CORE a commercial product 
       <table frame="all" id="v3battlespace-mgmt">
         <title>Battlespace Management Interoperability</title>
         <tgroup cols="3">
+
           <colspec colwidth="30*" />
           <colspec colwidth="35*" />
           <colspec colwidth="35*" />
