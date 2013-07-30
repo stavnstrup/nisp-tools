@@ -7,8 +7,10 @@
                 exclude-result-prefixes="#default saxon">
   
 
+
 <xsl:output method="saxon:xhtml" encoding="ISO-8859-1" indent="no"/>
 
+<xsl:strip-space elements="*"/>
 
 <xsl:template match="table[@class='overview']/tr[position()>1]">
   <tr>

@@ -19,12 +19,16 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
                 extension-element-prefixes="date"
                 version='1.1'
                 exclude-result-prefixes="#default date saxon">
+
+<xsl:strip-space elements="*"/>
   
+
 <xsl:output method="xml" indent="no" saxon:next-in-chain="p2-overview.xsl"/>
 
 
+
 <!-- If this param is set to one, only one headline is generated.
-     You can therefore use the import the html file in excell XP 
+     You can therefore use the import the html file in a spreadsheet program 
      and use the freeze pane facility -->
 
 <xsl:param name="excelXP" select="0"/>
@@ -49,19 +53,21 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
     <h1>Overview of the NISP Standard Database</h1>
 
-    <p>Created on 
     <xsl:variable name="date">
       <xsl:value-of select="date:date-time()"/>
     </xsl:variable>
 
-    <xsl:value-of select="date:month-abbreviation($date)"/>
-    <xsl:text> </xsl:text>
-    <xsl:value-of select="date:day-in-month()"/>
-    <xsl:text>, </xsl:text>
-    <xsl:value-of select="date:year()"/>
-    <xsl:text> - </xsl:text>
-    <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
-    </p>
+    <xsl:variable name="formatted-date">
+      <xsl:value-of select="date:month-abbreviation($date)"/>
+      <xsl:text> </xsl:text>
+      <xsl:value-of select="date:day-in-month()"/>
+      <xsl:text>, </xsl:text>
+      <xsl:value-of select="date:year()"/>
+      <xsl:text> - </xsl:text>
+      <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
+    </xsl:variable>
+
+    <p><xsl:text>Created on </xsl:text><xsl:value-of select="$formatted-date"/></p>
    
     <h2>Statistics</h2>
 
@@ -98,8 +104,8 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <p>In this overview, records with a red background are marked as
   deleted. Cells with a yellow background, indicates that that we
   properly don't have the information for this field. It will be
-  appreciated very much, if YOU will send this information to the chairman
-  of syndicate 2.</p>
+  appreciated very much, if YOU will send this information to the
+  chairman of syndicate 2.</p>
 
 
    <ul>
