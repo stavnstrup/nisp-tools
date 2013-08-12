@@ -332,8 +332,8 @@
    <property name="build.vol4" value="${build.dir}/volume4"/><!-- Source file names -->
    <property name="vol4.main.src" value="vol4.xml"/>
    <property name="vol4.resolve.src" value="vol4-resolved.xml"/>
-   <property name="vol4.pdf.file" value="NISP-vol4-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
-   <property name="vol4.rtf.file" value="NISP-vol4-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
+   <property name="vol4.pdf.file" value="NISP-Vol4-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
+   <property name="vol4.rtf.file" value="NISP-Vol4-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
    <property name="xsl-resolve-vol4" value="resolve.xsl"/>
    <target name="vol4" description="* Create Volume 4 in HTML5 and PDF" depends="vol4.html, vol4.pdf"/>
    <target name="vol4.resolve.check">
@@ -375,7 +375,7 @@
    <target name="vol4.html" description="* Create Volume 4 in HTML5" depends="svg, vol4.resolve, vol4.html.check" unless="vol4-html.notRequired">
       <echo message="Create Volume 4 as chunked HTML5 pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol4}">
-         <arg line="${xslt.opts} ${build.resolve}/${vol4.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol4 pdf.prefix=NISP-vol4 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP}"/>
+         <arg line="${xslt.opts} ${build.resolve}/${vol4.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol4 pdf.prefix=NISP-Vol4 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
    </target>
@@ -388,7 +388,7 @@
    <target name="vol4.pdf" description="* Create Volume 4 in PDF" depends="layout-fo, copy.svg, vol4.resolve, vol4.pdf.check" unless="vol4-pdf.notRequired">
       <echo message="Create Volume 4 print version"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
-         <arg line="${xslt.opts} -o vol4.fo ${build.resolve}/${vol4.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-vol4 use.para.numbering=${use.para.numbering}"/>
+         <arg line="${xslt.opts} -o vol4.fo ${build.resolve}/${vol4.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol4 use.para.numbering=${use.para.numbering}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
       <echo message="Transforming Volume 4.fo to PDF"/>
