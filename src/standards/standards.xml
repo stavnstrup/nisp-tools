@@ -3,7 +3,6 @@
 <!DOCTYPE standards
   PUBLIC "-//DDRE//DTDStandardDB XML V4.0//EN" "../schema/dtd/stddb40.dtd">
 <standards revision="ADatP-34(G)">
-
     
    
    <revhistory>
@@ -1227,8 +1226,8 @@
             <rationale>Included in v.5 through RFCP 4-1; STANAG 2211 ed.6 included in NCSP v.6</rationale>
          </sp-view>
          <sp-view idx="d0e10072">
-            <select id="dod-mil-std2525b" mode="mandatory">Common Warfighting Symbology (Mil-Std 2525B)</select>
-            <select id="dod-mil-std2525c" mode="emerging">Common Warfighting Symbology (Mil-Std 2525C)</select>
+            <select id="dod-mil-std-2525b" mode="mandatory">Common Warfighting Symbology (Mil-Std 2525B)</select>
+            <select id="dod-mil-std-2525c" mode="emerging">Common Warfighting Symbology (Mil-Std 2525C)</select>
             <remarks>
                For CCEB interoperability the mandatory standard is
                MIL-STD 2525B COMMON WARFIGHTING SYMBOLOGY and the emerging
@@ -3203,7 +3202,7 @@
                SCIP-221 included in NISP v.7 through RFCP 6-84.
             </rationale>
          </sp-view>
-         <sp-view idx="d0e5256">
+         <sp-view idx="d0e7256">
             <select id="iicwg-scip-221" mode="emerging">Mimimum Implementation Profile (MIP), SCIP-221 rev.3.0:2011 (IICWG)</select>
             <remarks>For CCEB interoperability the SCIP standard is mandatory
               <para>Used in Profile: FMN</para>
@@ -3880,7 +3879,7 @@
             <remarks>Used in Profile: AMN</remarks>
             <rationale>CMDB added in NISP v.6 through RFCP 6-89 as part of AMN.</rationale>
          </sp-view>
-         <sp-view idx="d0e6017">
+         <sp-view idx="d0e7017">
             <select id="bp-snmpv3" mode="mandatory">SNMPv3 Applications (IETF RFC 3413:2002)</select>
             <select id="bp-snmpv1" mode="fading">SNMPv1 (IETF Std 15) not for new systems</select>
             <remarks>
@@ -6308,7 +6307,7 @@
 
       
       
-      <standard id="dod-MIL-STD-2525C" tag="Common Warfighting Symbology">
+      <standard id="dod-mil-std-2525c" tag="Common Warfighting Symbology">
          <document orgid="dod" pubnum="MIL-STD-2525C" date="2008-11-17" title="Common Warfighting Symbology"/>
          <applicability>
             The mil standard provides common operational symbology along
@@ -14585,7 +14584,7 @@
               only a small number of available modes in multi-mode fiber.</para>
          </applicability>
          <status mode="unknown">
-            <uri>http://www.ieee802.org/1/pages/802.3z-1998.html</uri>
+            <uri>http://standards.ieee.org/about/get/802/802.3.html</uri>
             <history>
                <event date="2013-07-26" flag="added" rfcp="7-27" version="7.0"/>
             </history>
@@ -16548,7 +16547,7 @@
       
       
       <standard id="iso-iec-10589" tag="IS-IS">
-         <document orgid="iso-iec" pubnum="10589" date="2002-11-15" title="Intermediate System to Intermediate System            intra-domain routeing information exchange protocol for use in conjunction with the protocol for providing the            connectionless-mode network service (ISO 8473)"/>
+         <document orgid="iso-iec" pubnum="10589" date="2002-11-15" title="Intermediate System to Intermediate System intra-domain routeing information exchange protocol for use in conjunction with the protocol for providing the connectionless-mode network service (ISO 8473)"/>
          <applicability>
             This International Standard specifies a protocol which is used by Network
             Layer entities operating the protocol specified in ISO 8473 in Intermediate
@@ -19468,10 +19467,11 @@
             (ISDN) telephone systems.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.itu.int/ITU-T/recommendations/index.aspx</uri>
+            <uri>http://www.itu.int/ITU-T/recommendations/index.aspx?ser=I</uri>
             <history>
                <event flag="added" date="2002-10-11" rfcp="" version="0.4"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
+               <event flag="changed" date="2013-07-27" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>5b9f8a6d-c169-4648-a2ad-cf69dd530b4c</uuid>
@@ -19597,7 +19597,7 @@
       
       
       <standard id="etsi-en300468" tag="DVB-SI">
-         <document orgid="etsi" pubnum="en300468" date="2010-04" title="Digital Video Broadcasting (DVB);            Specification for Service Information (SI) in DVB systems, v.1.11.1"/>
+         <document orgid="etsi" pubnum="en300468" date="2010-04" title="Digital Video Broadcasting (DVB); Specification for Service Information(SI)in DVB systems, v.1.11.1"/>
          <applicability>
             The  document specifies the Service Information (SI) data which forms a
             part of DVB bitstreams, in order that the user can be provided with information
@@ -21478,6 +21478,7 @@
             surveillance and weapon systems.
          </applicability>
          <status mode="unknown">
+            <uri>http://jcs.dtic.mil/j6/cceb/acps/acp190/ACP190D%20Feb%2013.pdf</uri>
             <history>
                <event flag="added" date="2003-09-28" version="0.5"/>
                <event flag="changed" date="2013-07-26" rfcp="" version="7.0"/>
@@ -21546,8 +21547,8 @@
 
       
       
-      <standard id="ieee-802.3z" tag="1000Base-T">
-         <document orgid="ieee" pubnum="802.3z" date="1998" title="The 802.3z Gigabit Ethernet Standard"/>
+      <standard id="ieee-802.3ab" tag="1000Base-T">
+         <document orgid="ieee" pubnum="802.3ab" date="1999" title="Ethernet IEEE 802.3 Clause 40"/>
          <applicability>
             1000Base-T provides half-duplex (CSMA/CD) and full-duplex 1000 Mb/s
             Ethernet service over Category 5 links as defined by ANSI/TIA/EIA-568-A.
@@ -21556,10 +21557,11 @@
             cabling standard. Only one CSMA/CD repeater will be allowed in a collision domain.
          </applicability>
          <status mode="unknown">
-            <uri>http://ieeexplore.ieee.org/xpl/login.jsp?reload=true&amp;tp=&amp;arnumber=690946&amp;url=http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=690946</uri>
+            <uri>http://www.ieee802.org/3/ab/index.html</uri>
             <history>
                <event flag="added" date="2001-11-20" rfcp="" version="0.3"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
+               <event flag="changed" date="2013-08-13" rfcp="" version="7.0"/>
             </history>
          </status>
          <uuid>21ca8dda-d240-43a8-b113-8b00189149e4</uuid>
@@ -22037,7 +22039,7 @@
       
       
       <standard id="itu-t-x.25" tag="Packet switched Wide Area Networking">
-         <document orgid="itu" pubnum="X.25" date="1996" title="Interface between Data Terminal Equipment           (DTE) and Data Circuit-terminating Equipment (DCE) for terminals operating in the packet mode           and connected to public data networks by dedicated circuit">
+         <document orgid="itu" pubnum="X.25" date="1996" title="Interface between Data Terminal Equipment (DTE) and Data Circuit-terminating Equipment (DCE) for terminals operating in the packet mode and connected to public data networks by dedicated circuit">
             <correction cpubnum="Corrigendum 11" date="1998"/>
          </document>
          <applicability>
@@ -22280,7 +22282,7 @@
       
       
       <standard id="eia-rs-232" tag="RS-232">
-         <document orgid="eia" pubnum="RS-232" date="" title="Interface Between Data Terminal Equipment and Data Communications Equipment Employing Serial Binary Data Interchange (identical with ITU-T V.24/V.28:1991)"/>
+         <document orgid="eia" pubnum="TIA-232" date="2012-07-12" title="Interface Between Data Terminal Equipment and Data Communications Equipment Employing Serial Binary Data Interchange (identical with ITU-T V.24/V.28:1991)"/>
          <applicability>
             RS-232 has been around as a standard for decades is an electrical
             interface between Data Terminal Equipment (DTE) and Data Circuit-Terminating
@@ -22301,11 +22303,12 @@
             </para>
          </applicability>
          <status mode="unknown">
-            <uri>http://standardsdocuments.tiaonline.org/tia-232-f.htm</uri>
+            <uri>http://www.itu.int/rec/T-REC-V.24-200002-I/en</uri>
             <history>
                <event flag="added" date="2001-11-20" rfcp="" version="0.3"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-08-09" rfcp="" version="4.0"/>
+				 <event flag="changed" date="2013-08-12" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>5c34f01d-85f3-41be-82a3-0cc969307b0a</uuid>
@@ -22343,11 +22346,12 @@
             </para>
          </applicability>
          <status mode="unknown">
-            <uri>http://www.datasheetarchive.com/RS-422%2F423%2F485-datasheet.html</uri>
+            <uri>http://tia.nufu.eu/comm/TR-30.2</uri>
             <history>
                <event flag="added" date="2001-11-20" rfcp="" version="0.3"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
+               <event flag="changed" date="2013-08-12" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>d895d7a1-e3db-44ff-891a-de16ce31969c</uuid>
@@ -22367,11 +22371,12 @@
             connector used for RS-232. However, RS-530 and RS-232 are not compatible!
          </applicability>
          <status mode="unknown">
-            <uri>http://www.datasheetarchive.com/EIA%2FTIA-530-A-datasheet.html</uri>
+            <uri>http://www.datasheetarchive.com/EIA/TIA-530-A-datasheet.html</uri>
             <history>
                <event flag="added" date="2001-11-20" rfcp="" version="0.3"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
+				 <event flag="changed" date="2013-08-12" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>9e1e6070-eed7-4da3-9f8b-388316d7ae94</uuid>
@@ -22389,10 +22394,11 @@
             product performance requirements and test procedures.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.tiaonline.org/standards/buy-tia-standards?iframeurl=/search.cfm</uri>
+            <uri>http://tia.nufu.eu/comm/FO-4</uri>
             <history>
                <event flag="added" date="2001-11-20" rfcp="" version="0.3"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
+				 <event flag="changed" date="2013-08-12" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>3d22a089-5fc1-4066-af62-a8bece0ca710</uuid>
@@ -23198,12 +23204,11 @@
          <uuid>2346fecd-db0e-4a8a-82a3-73455eb2b63c</uuid>
       </standard>
 
-      
-      
-      <standard id="iso-iec-8073" tag="">
+      <standard id="iso-iec-8073" tag=""> 
          <document orgid="iso-iec" pubnum="8073" date="1997" title="Connection-oriented Transport protocol">
+            <correction cpubnum="AMD1" date="1998" />
             <alsoknown orgid="itu" pubnum="X.224" date="1995"/>
-         </document>
+         </document>      
          <applicability>
             This Recommendation | International Standard specifies:
             <para>
@@ -23283,11 +23288,11 @@
                <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-11-01" rfcp="" version="4.0"/>
+               <event flag="changed" date="2013-08-12" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>9ad98e3a-a467-4dbe-90e5-b44bef311ef4</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-8602" tag="">
@@ -23303,13 +23308,14 @@
             and control information.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=24883</uri>
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=15907</uri>
             <history>
                <event flag="added" date="1998-11-10" version="0.1"/>
                <event flag="changed" date="2000-07-17" rfcp="" version="0.2"/>
                <event flag="changed" date="2003-07-31" rfcp="" version="0.5"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-11-01" rfcp="" version="4.0"/>
+				 <event flag="changed" date="2013-08-12" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>30c18e91-1093-426f-aace-b7270776945f</uuid>
@@ -23564,7 +23570,9 @@
       
       
       <standard id="iso-iec-14443-1" tag="">
-         <document orgid="iso-iec" pubnum="14443-1" date="2008" title="Contactless Smartcards Part 1: Physical Characteristics"/>
+         <document orgid="iso-iec" pubnum="14443-1" date="2008" title="Contactless Smartcards Part 1: Physical Characteristics">
+            <correction cpubnum="Amd 1" date="2012" />
+         </document>
          <applicability>
             ISO/IEC 14443-1:2008 defines the physical characteristics of PICCs, commonly known
             as proximity cards. It is to be used in conjunction with other parts of ISO/IEC 14443.
@@ -23577,6 +23585,7 @@
                <event flag="changed" date="2007-07-27" rfcp="" version="2.0"/>
                <event flag="changed" date="2009-09-08" rfcp="" version="3.0"/>
                <event flag="changed" date="2010-11-01" rfcp="" version="4.0"/>
+				 <event flag="changed" date="2013-08-12" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>6019448f-7d8b-4c4d-ab40-b2521461fbbc</uuid>
@@ -23585,7 +23594,11 @@
       
       
       <standard id="iso-iec-14443-2" tag="">
-         <document orgid="iso-iec" pubnum="14443-2" date="2010" title="Contactless Smartcards Part 2: Radio frequency power and signal interface"/>
+         <document orgid="iso-iec" pubnum="14443-2" date="2010" title="Contactless Smartcards Part 2: Radio frequency power and signal interface">
+            <correction cpubnum="Amd 1" date="2011" />
+            <correction cpubnum="Amd 2" date="2012" />
+            <correction cpubnum="Amd 3" date="2012" />
+         </document>
          <applicability>
             ISO/IEC 14443-2:2010 specifies the characteristics of the fields to be provided for power and
             bi-directional communication between proximity coupling devices (PCDs) and proximity cards or
@@ -23604,6 +23617,7 @@
                <event flag="changed" date="2007-07-27" rfcp="" version="2.0"/>
                <event flag="changed" date="2009-09-08" rfcp="" version="3.0"/>
                <event flag="changed" date="2010-11-01" rfcp="" version="4.0"/>
+				 <event flag="changed" date="2013-08-12" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>6a377c22-9e09-4fbd-8354-c51cb6fbd48e</uuid>
@@ -23612,7 +23626,10 @@
       
       
       <standard id="iso-iec-14443-3" tag="">
-         <document orgid="iso-iec" pubnum="14443-3" date="2011" title="Contactless Smartcards Part 3: Initialization and anticollision"/>
+         <document orgid="iso-iec" pubnum="14443-3" date="2011" title="Contactless Smartcards Part 3: Initialization and anticollision">
+            <correction cpubnum="Amd 1" date="2011" />
+            <correction cpubnum="Amd 2" date="2012" />
+         </document>
          <applicability>
             This part of ISO/IEC 14443 describes:
             <para>
@@ -23664,7 +23681,10 @@
       
       
       <standard id="iso-iec-14443-4" tag="">
-         <document orgid="iso-iec" pubnum="14443-4" date="2008" title="Contactless Smartcards Part 4: Transmission protocol"/>
+         <document orgid="iso-iec" pubnum="14443-4" date="2008" title="Contactless Smartcards Part 4: Transmission protocol">
+            <correction cpubnum="Amd 1" date="2012" />
+            <correction cpubnum="Amd 2" date="2012" />
+         </document>
          <applicability>
             ISO/IEC 14443-4:2008 specifies a half-duplex block transmission protocol featuring the special
             needs of a contactless environment and defines the activation and deactivation sequence of the
@@ -23678,6 +23698,7 @@
             <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=50648</uri>
             <history>
                <event flag="added" date="2010-11-01" rfcp="" version="4.0"/>
+				 <event flag="changed" date="2013-08-12" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>14774918-dab5-49af-8493-b238fb768246</uuid>
@@ -23722,12 +23743,13 @@
             CAPI, primarily for access to personal cryptographic tokens.
          </applicability>
          <status mode="unknown">
-            <uri>http://www.rsasecurity.com/rsalabs/node.asp?id=2133</uri>
+            <uri>ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs-11v2-20.pdf</uri>
             <history>
                <event flag="added" date="1996-04-11" version="0.1"/>
                <event flag="changed" date="2000-03-21" rfcp="" version="0.2"/>
                <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
                <event flag="changed" date="2011-09-22" rfcp="" version="5.0"/>
+				 <event flag="changed" date="2013-08-13" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>f0e70a73-e1dd-492d-bd5b-a0dd6aea7fa8</uuid>
@@ -23758,6 +23780,9 @@
       
       <standard id="iso-iec-9594-8" tag="X.509">
          <document orgid="iso-iec" pubnum="9594-8" date="2008" title="The Directory: Public-key and attribute certificate frameworks">
+            <correction cpubnum="COR1" date="2011" />
+            <correction cpubnum="COR2" date="2012" />
+            <correction cpubnum="COR3" date="2013" />
             <alsoknown orgid="ccitt" pubnum="X.509" date="2005"/>
          </document>
          <applicability>
@@ -23777,6 +23802,7 @@
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-08-13" rfcp="4-4" version="4.0"/>
                <event flag="changed" date="2011-10-16" rfcp="5-63" version="5.0"/>
+				 <event flag="changed" date="2013-08-13" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>e30f4335-3c23-4df9-83c7-5924ec27b3f0</uuid>
@@ -23811,7 +23837,6 @@
          </status>
          <uuid>00bc89ae-3f33-4cb8-b9be-70bb7e861292</uuid>
       </standard>
-
       
       
       <standard id="nist-fips-186-2" tag="DSS/DSA">
@@ -23824,14 +23849,13 @@
             It is used by the PCT within STANAG 4406 Ed.2.
          </applicability>
          <status mode="unknown">
-            <uri>http://csrc.nist.gov/publications/fips/archive/fips186-2/fips186-2.pdf</uri>
+            <uri>http://csrc.nist.gov/publications/PubsFIPS.html#fips186-3</uri>
             <history>
                <event flag="added" date="2000-09-29" rfcp="" version="0.2"/>
             </history>
          </status>
          <uuid>1a07fce4-8ac5-4492-980d-5fa031325857</uuid>
       </standard>
-
       
       
       <standard id="nist-fips-186-2-change-notice-1" tag="DSA-1024">
@@ -23845,7 +23869,7 @@
             verification of digital signatures for sensitive unclassified applications.
          </applicability>
          <status mode="unknown">
-            <uri>http://csrc.nist.gov/publications/fips/archive/fips186-2/fips186-2-change1.pdf</uri>
+            <uri>http://csrc.nist.gov/publications/PubsFIPS.html</uri>
             <history>
                <event flag="added" date="2005-07-26" rfcp="6-1" version="0.7"/>
                <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
@@ -23853,7 +23877,6 @@
          </status>
          <uuid>b7e777a1-b292-4d0f-bdee-165029d4d6b6</uuid>
       </standard>
-
       
       
       <standard id="opengroup-p442" tag="GCS-API">
@@ -23901,7 +23924,6 @@
          </status>
          <uuid>6f1b53a0-6ca3-4d98-8cd5-9a347161e189</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc4422" tag="SASL">
@@ -23930,7 +23952,6 @@
          </status>
          <uuid>b0eb85dc-f4b8-41db-99f1-1586d6e35730</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc4752" tag="GSS-API">
@@ -23950,11 +23971,13 @@
          </status>
          <uuid>db494b0a-7bdd-4d09-adec-f1c90bda230b</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7810" tag="Identification Cards">
-         <document orgid="iso-iec" pubnum="7810" date="2003" title="Identification Cards -- Physical Characteristics"/>
+         <document orgid="iso-iec" pubnum="7810" date="2003" title="Identification Cards -- Physical Characteristics">
+            <correction cpubnum="Amd1" date="2009" />
+            <correction cpubnum="Amd2" date="2012" />
+         </document>
          <applicability>
             Describes requirements for the physical characteristics of
             identification cards, specifies card materials, construction, characteristics
@@ -23966,11 +23989,11 @@
             <history>
                <event flag="added" date="2002-08-02" rfcp="" version="0.4"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
+				 <event flag="changed" date="2013-08-13" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>aab55f06-2312-4323-aead-4eae5066e231</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7816-1" tag="">
@@ -23998,7 +24021,6 @@
          </status>
          <uuid>d8fd7762-0141-427f-81a0-94a09a74d7ad</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7816-2" tag="">
@@ -24023,11 +24045,12 @@
          </status>
          <uuid>315d0d0d-a459-4a0d-93e5-9207b3e274ea</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7816-3" tag="">
-         <document orgid="iso-iec" pubnum="7816-3" date="2006" title="Identification Cards with Contacts Part 3: Electronic interface and transmission protocols"/>
+         <document orgid="iso-iec" pubnum="7816-3" date="2006" title="Identification Cards with Contacts Part 3: Electronic interface and transmission protocols">
+            <correction cpubnum="Amd1" date="2002" />
+         </document>
          <applicability>
             ISO/IEC 7816-3:2006 specifies the power and signal structures, and information exchange between an integrated circuit card and an interface device such as a terminal.
             <para>
@@ -24048,11 +24071,12 @@
          </status>
          <uuid>a765581a-d6de-48a0-a515-23e7cc6ef595</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7816-4" tag="">
-         <document orgid="iso-iec" pubnum="7816-4" date="2005" title="Identification Cards with Contacts Part 4: Organization, security and commands for interchange "/>
+         <document orgid="iso-iec" pubnum="7816-4" date="2005" title="Identification Cards with Contacts Part 4: Organization, security and commands for interchange ">
+            <comment>This standard has been revised by: ISO/IEC 7816-4:2013</comment>
+         </document>
          <applicability>
             ISO/IEC 7816-4:2005 specifies:
             <para>
@@ -24090,18 +24114,18 @@
             <para>ISO/IEC 7816-4:2005 is independent from the physical interface technology. It applies to cards accessed by one or more of the following methods: contacts, close coupling, and radio frequency.</para>
          </applicability>
          <status mode="unknown">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=36134</uri>
+            <uri>http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=54550</uri>
             <history>
                <event flag="added" date="2002-08-02" rfcp="" version="0.4"/>
                <event flag="changed" date="2003-08-01" rfcp="" version="0.5"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
                <event flag="changed" date="2007-07-27" rfcp="" version="2.0"/>
                <event flag="changed" date="2010-11-01" rfcp="" version="4.0"/>
+				 <event flag="changed" date="2013-08-13" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>cd7f349b-3a02-43d6-9007-8323336ad94f</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7816-5" tag="">
@@ -24141,7 +24165,6 @@
          </status>
          <uuid>4997bd0e-ea87-4cac-940d-c12cd43b53b9</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7816" tag="Identification Cards with Contacts">
@@ -24172,7 +24195,6 @@
          </status>
          <uuid>3ce18c9f-0b5c-42be-8856-8f0c9b1a6188</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7812-1" tag="">
@@ -24193,7 +24215,6 @@
          </status>
          <uuid>dd2c9ef6-339a-4cc9-9768-bdf422ffe009</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7812-2" tag="">
@@ -24217,7 +24238,6 @@
          </status>
          <uuid>3088a2ea-fd06-4bdd-b967-270cb6983608</uuid>
       </standard>
-
       
       
       <standard id="iso-iec-7812" tag="Identification of Issuers">
@@ -24243,7 +24263,6 @@
          </status>
          <uuid>d042ec57-49b8-4eea-87fa-774d406f378b</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc4301" tag="IPsec Arch">
@@ -24274,7 +24293,6 @@
          </status>
          <uuid>cfa5c56f-03da-4d6e-a993-02c1e0404340</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc4302" tag="IPsec AH">
@@ -24311,7 +24329,6 @@
          </status>
          <uuid>ff693d12-6cc1-4633-b76e-fafa0c42adfb</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc2403" tag="IPsec MD5">
@@ -24334,7 +24351,6 @@
          </status>
          <uuid>52026ea5-32b6-4c04-87bb-35c8e746ddb8</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc2404" tag="IPsec SHA">
@@ -24358,7 +24374,6 @@
          </status>
          <uuid>55414b91-ffbb-4a2d-9563-75f67f5806f4</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc2405" tag="IPsec DES">
@@ -24380,7 +24395,6 @@
          </status>
          <uuid>eead42d6-ce5f-4389-a235-8cd7ceb5b8e8</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc4303" tag="IPsec ESP">
@@ -24404,7 +24418,6 @@
          </status>
          <uuid>e3f62edc-ce75-4d24-b3ee-e3138984293e</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc4835" tag="IPsec Crypto Requ.">
@@ -24430,7 +24443,6 @@
          </status>
          <uuid>aaf791cd-525c-4521-a563-58c356624b24</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc5996" tag="IPsec IKE">
@@ -24467,7 +24479,6 @@
          </status>
          <uuid>4b2fa6f0-27e3-4884-8250-5598660fc3e8</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc2408" tag="ISAKMP">
@@ -24525,7 +24536,6 @@
          </status>
          <uuid>bbe4ac86-a0e4-4923-a81f-ceaab2309862</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc2409" tag="IKE">
@@ -24583,7 +24593,6 @@
          </status>
          <uuid>51461039-3c2f-4086-adb1-1bf2a817e5f1</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc2410" tag="IPsec NULL">
@@ -24606,7 +24615,6 @@
          </status>
          <uuid>7bf020bf-e337-48ef-af07-dac2a372be68</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc2412" tag="IPsec OAKLEY">
@@ -24634,7 +24642,6 @@
          </status>
          <uuid>60529b13-b66e-4789-b0df-537a14cf2fb5</uuid>
       </standard>
-
       
       
       <profile id="bp-nine-security" tag="NINE" type="base">
@@ -24661,7 +24668,6 @@
          </status>
          <uuid>b1d7b473-bc2c-4958-a797-ab9400a3daf5</uuid>
       </profile>
-
       
       
       <standard id="NINE-Core" tag="NINE-Core">
@@ -24674,7 +24680,6 @@
          </status>
          <uuid>406a17dc-db5d-4db9-9fc3-5bd5315b6f91</uuid>
       </standard>
-
       
       
       <standard id="NINE-Automated_SA-IKE2" tag="NINE-ASA">
@@ -24687,7 +24692,6 @@
          </status>
          <uuid>00131001-3cce-439c-823b-8b927a850363</uuid>
       </standard>
-
       
       
       <standard id="NINE-Bandwidth_Management" tag="NINE-Bw-Mgmt">
@@ -24700,7 +24704,6 @@
          </status>
          <uuid>eb38bdc7-30d4-4f8a-8c6a-e8c38a82e4f9</uuid>
       </standard>
-
       
       
       <standard id="NINE-Dynamic_Multicast_Discovery_and_Keying" tag="NINE-Discovery">
@@ -24713,7 +24716,6 @@
          </status>
          <uuid>990e5c46-e285-4444-afc5-e56dfcc0a746</uuid>
       </standard>
-
       
       
       <standard id="NINE-Gateway" tag="NINE-Gateway">
@@ -24726,7 +24728,6 @@
          </status>
          <uuid>c29a5192-2c9b-400a-aa53-04ada773cb39</uuid>
       </standard>
-
       
       
       <standard id="NINE-Generic_Discovery_Client" tag="NINE-Disc.-Client">
@@ -24739,7 +24740,6 @@
          </status>
          <uuid>134086af-e834-4704-a620-fa47e85686d4</uuid>
       </standard>
-
       
       
       <standard id="NINE-Header_Compression" tag="NINE-Compression">
@@ -24752,7 +24752,6 @@
          </status>
          <uuid>aa777b40-e5c9-411b-9d15-b77cc3589015</uuid>
       </standard>
-
       
       
       <standard id="NINE-Reachability" tag="NINE-Reachability">
@@ -24765,7 +24764,6 @@
          </status>
          <uuid>dc80f8a9-dff4-4ee3-a728-3211ee0303e0</uuid>
       </standard>
-
       
       
       <standard id="NINE-Remote_Configuration_and_Monitoring" tag="NINE-Monitoring">
@@ -24778,7 +24776,6 @@
          </status>
          <uuid>58163c17-41bc-4e1a-abeb-50a1ad05c627</uuid>
       </standard>
-
       
       
       <standard id="NINE-Remote_Provisioning_Authority" tag="NINE-Provisioning-Auth">
@@ -24791,7 +24788,6 @@
          </status>
          <uuid>dd5709d1-15a4-4793-908b-7b1e303c7f97</uuid>
       </standard>
-
       
       
       <standard id="NINE-Remote_Provisioning" tag="NINE-Provisioning">
@@ -24804,7 +24800,6 @@
          </status>
          <uuid>83f4b6a2-59a7-41e2-bdd9-731af09ce0d0</uuid>
       </standard>
-
       
       
       <standard id="NINE-Traffic_Protection-IKEv2_Suite_B_Cryptography" tag="NINE-Traffic-Protection">
@@ -24817,7 +24812,6 @@
          </status>
          <uuid>94d4728d-d3b1-47df-9b92-9b2b50def848</uuid>
       </standard>
-
       
       
       <profile id="bp-ip-security" tag="IP Security" type="base">
@@ -24888,7 +24882,6 @@
          </status>
          <uuid>5e8ebc3e-7c54-4529-97c9-517c81e2ee4c</uuid>
       </profile>
-
       
       
       <standard id="teletrust-ag8_isis-mtt-corespec-v1.0.2" tag="ISIS-MTT">
@@ -24913,7 +24906,6 @@
          </status>
          <uuid>e08ef504-2e36-445a-9f21-ab402c888b9c</uuid>
       </standard>
-
       
       
       <standard id="sun-java_card_kit-2_2_1-fr-spec" tag="JAVACard">
@@ -24932,7 +24924,6 @@
          </status>
          <uuid>331e4b09-79d2-47d8-a0df-559bef5ac4a3</uuid>
       </standard>
-
       
       
       <standard id="oasis-wss-v1.1-spec-os-SOAPMessageSecurity" tag="WSS">
@@ -24966,7 +24957,7 @@
          </status>
          <uuid>d8dab608-97ad-4fc7-b387-cbef9ac49fbe</uuid>
       </standard>
-
+      
       
       <standard id="w3c-soap12" tag="SOAP 1.2">
          <document orgid="w3c" pubnum="SOAP Version 1.2" date="2001-07-09" title="SOAP Version 1.2" version="1.2"/>
@@ -25009,7 +25000,6 @@
          </status>
          <uuid>5ea85a60-0d23-4f45-bb01-5dd26e27791e</uuid>
       </standard>
-
       
       
       <standard id="oasis-wss-x.509-certificate-token-profile-1.0" tag="">
@@ -25038,7 +25028,6 @@
          </status>
          <uuid>24ef8b79-919b-4009-ac60-7cc03893abbc</uuid>
       </standard>
-
       
       
       <standard id="oasis-wss-v1.1-spec-cs-REL-token-profile" tag="REL">
@@ -25058,7 +25047,6 @@
          </status>
          <uuid>4ee42e91-2003-4097-b24d-52acda027a83</uuid>
       </standard>
-
       
       
       <standard id="oasis-wss-v1.1-spec-os-KerberosTokenProfile" tag="">
@@ -25074,14 +25062,13 @@
             </para>
          </applicability>
          <status mode="unknown">
-            <uri>http://www.oasis-open.org/committees/download.php/16788/wss-v1.1-spec-os-KerberosTokenProfile.pdf</uri>
+            <uri>http://docs.oasis-open.org/wss/v1.1/wss-v1.1-spec-os-KerberosTokenProfile.pdf</uri>
             <history>
                <event flag="added" date="2010-12-05" rfcp="" version="4.0"/>
             </history>
          </status>
          <uuid>08a1160c-fca2-47b8-a3d0-ecc646076368</uuid>
       </standard>
-
       
       
       <standard id="oasis-wss-v1.1-errata-os-SAMLTokenProfile" tag="">
@@ -25101,7 +25088,6 @@
          </status>
          <uuid>ae3de897-d56e-4c0f-ba07-27b2ebbbfc1f</uuid>
       </standard>
-
       
       
       <standard id="oasis-wss-v1.1-spec-os-SwAProfile" tag="SwA">
@@ -25122,7 +25108,6 @@
          </status>
          <uuid>8bcc5046-b646-4d36-b82d-1a58a1ed2d9c</uuid>
       </standard>
-
       
       
       <profile id="bp-wss" tag="OASIS WSS 1.1" type="base">
@@ -25172,7 +25157,6 @@
          </status>
          <uuid>09a00322-cf3c-4094-95ae-f0fe425315f8</uuid>
       </profile>
-
       
       
       <standard id="iso-iec-7498-2" tag="OSI Security Architecture">
@@ -25192,7 +25176,6 @@
          </status>
          <uuid>b4029ef0-75ec-4545-8011-3afa1133415a</uuid>
       </standard>
-
       
       
       <standard id="ps-sc-wg-pcsc-part-1" tag="">
@@ -25250,7 +25233,6 @@
          </status>
          <uuid>f100c901-b599-47d9-8f4f-f90167351b6f</uuid>
       </standard>
-
       
       
       <standard id="ps-sc-wg-pcsc-part-2" tag="">
@@ -25296,7 +25278,6 @@
          </status>
          <uuid>d192238a-274f-4650-b5b5-6735ebef6997</uuid>
       </standard>
-
       
       
       <standard id="ps-sc-wg-pcsc-part-3" tag="">
@@ -25323,7 +25304,6 @@
          </status>
          <uuid>4a8fe6c3-72fe-44b9-818e-fc4529a34d0d</uuid>
       </standard>
-
       
       
       <standard id="ps-sc-wg-pcsc-part-4" tag="">
@@ -25366,7 +25346,6 @@
          </status>
          <uuid>8376ef6a-f838-4dbe-aa2a-85cc801a9990</uuid>
       </standard>
-
       
       
       <standard id="ps-sc-wg-pcsc-part-5" tag="">
@@ -25386,7 +25365,6 @@
          </status>
          <uuid>0760b925-e689-4992-a853-8f8a89859f53</uuid>
       </standard>
-
       
       
       <standard id="ps-sc-wg-pcsc-part-6" tag="">
@@ -25411,7 +25389,6 @@
          </status>
          <uuid>0156be3f-f316-46cc-ba46-6caa652f2218</uuid>
       </standard>
-
       
       
       <standard id="ps-sc-wg-pcsc-part-7" tag="">
@@ -25432,7 +25409,6 @@
          </status>
          <uuid>fe09223a-a6c4-4773-a4bb-0f29b7e274fa</uuid>
       </standard>
-
       
       
       <standard id="ps-sc-wg-pcsc-part-8" tag="">
@@ -25561,7 +25537,6 @@
          </status>
          <uuid>8d9a4d4f-9bab-48e0-bc08-7b5d3be33c2f</uuid>
       </standard>
-
       
       
       <standard id="pc-sc-spec" tag="PC/SC Specifications">
@@ -25593,11 +25568,12 @@
          </status>
          <uuid>18527ba6-50d2-4d75-a86c-633ce3507894</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc2058" tag="Radius">
-         <document orgid="ietf" pubnum="RFC 2058" date="1997" title="Remote Authentication Dial In User Service (RADIUS):2006"/>
+         <document orgid="ietf" pubnum="RFC 2058" date="1997" title="Remote Authentication Dial In User Service (RADIUS):2006">
+         <comment>obsoleted by RFC 2138</comment>
+         </document>
          <applicability>
             This document describes a protocol for carrying authentication,
             authorization, and configuration information between a Network Access Server
@@ -25612,7 +25588,6 @@
          </status>
          <uuid>9c506c61-0a47-41d5-9c31-45d1d486785d</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc3162" tag="Radius and IPv6">
@@ -25630,7 +25605,6 @@
          </status>
          <uuid>08d25e08-93a8-4527-aa8c-bb50b8bd899f</uuid>
       </standard>
-
       
       
       <standard id="rsa-pkcs-1-v2.1" tag="RSA 2048">
@@ -25670,14 +25644,14 @@
             </para>
          </applicability>
          <status mode="unknown">
-            <uri>http://www.rsasecurity.com/rsalabs/node.asp?id=2125</uri>
+            <uri>tp://ftp.rsasecurity.com/pub/pkcs/pkcs-1/pkcs-1v2-1.pdf</uri>
             <history>
                <event flag="added" date="2005-07-26" version="0.7"/>
+				 <event flag="changed" date="2013-08-14" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>abbf4a20-2da1-45e8-a00b-96639fd0393b</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc5750" tag="S/MIME Cert">
@@ -25702,7 +25676,6 @@
          </status>
          <uuid>542d6a9c-9b6b-4d27-be55-dff414caf5ee</uuid>
       </standard>
-
       
       
       <standard id="ietf-rfc5751" tag="S/MIME Spec.">
@@ -25725,7 +25698,6 @@
          </status>
          <uuid>4b94d417-3c54-48be-b433-be69db875a10</uuid>
       </standard>
-
       
       
       <profile id="bp-smime" tag="S/MIME" type="base">
@@ -25752,7 +25724,6 @@
          </status>
          <uuid>2710c235-28ce-4a77-95bd-c527af9edfe1</uuid>
       </profile>
-
       
       
       <standard id="nist-fips180-1" tag="SHS/SHA">
@@ -25776,11 +25747,12 @@
          </status>
          <uuid>1f858698-c4f8-432b-98f4-ee52f088bea3</uuid>
       </standard>
-
       
       
       <standard id="nist-fips180-2-change-notice1" tag="SHA 256">
-         <document orgid="nist" pubnum="FIPS 180-2 with Change Notice 1" date="2004" title="Secure Hash Algorithm 256, SHA-256:2002"/>
+         <document orgid="nist" pubnum="FIPS 180-2 with Change Notice 1" date="2004" title="Secure Hash Algorithm 256, SHA-256:2002">
+            <comment>superseded on October 17, 2008</comment>
+         </document>
          <applicability>
             Hash algorithm to accompany the DSA and RSA for use in NMS.
             FIPS 180-2 specifies four secure hash algorithms SHA-1, SHA-256, SHA-384 and
@@ -25792,19 +25764,19 @@
             algorithms in NATO are typically used with digital signature algorithms.
          </applicability>
          <status mode="unknown">
-            <uri>http://csrc.nist.gov/publications/fips/fips180-2/fips180-2withchangenotice.pdf</uri>
+            <uri>http://csrc.nist.gov/publications/PubsFIPS.html#fips180-4</uri>
             <history>
                <event flag="added" date="2005-07-26" rfcp="" version="0.7"/>
                <event flag="changed" date="2010-08-10" rfcp="" version="4.0"/>
+				 <event flag="changed" date="2013-08-14" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>354572db-dfe3-409f-9be4-5907a41b0637</uuid>
       </standard>
-
       
       
       <standard id="ieee-p802-10a" tag="SILS">
-         <document orgid="ieee" pubnum="P802.10a" date="1999" title="Security Architecture Framework"/>
+         <document orgid="ieee" pubnum="P802.10a" date="1999" title="Interoperable Lan/Man Security (Sils), Security Architectureframework"/>
          <applicability>
             The withdrawn standard provides different service interfaces for key
             management, secure data exchange, and security management.
@@ -25815,18 +25787,18 @@
             </para>
          </applicability>
          <status mode="unknown">
-            <uri>http://www.chrismitchell.net/Papers/mossas.pdf</uri>
+            <uri>http://www.document-center.com/standards/show/IEEE-802.10A</uri>
             <history>
                <event flag="added" date="1998-11-10" version="0.1"/>
                <event flag="changed" date="2000-03-21" rfcp="" version="0.2"/>
                <event flag="changed" date="2003-08-07" rfcp="" version="0.5"/>
                <event flag="changed" date="2005-09-23" rfcp="" version="0.7"/>
                <event flag="changed" date="2012-11-22" rfcp="" version="6.0"/>
+				 <event flag="changed" date="2013-08-14" rfcp="" version="7.0"></event>
             </history>
          </status>
          <uuid>4a34084a-56b8-4c92-9ea9-8d3529c8aedd</uuid>
       </standard>
-
       
       
       <standard id="ieee-p802-10b" tag="">
@@ -33003,6 +32975,30 @@
       </standard>
 
       
+      <standard id="nato-stanag4545ed1" tag="NSIF">
+         <document orgid="nato" pubnum="STANAG 4545 ed.1" date="" title="NATO Secondary Imagery Format (NSIF)"/>
+         <applicability>
+            This STANAG promotes interoperability for the exchange of Secondary Imagery
+            among North Atlantic Treaty Organisation (NATO) Command Control Communications
+            and Intelligence (C<superscript>3</superscript>I) Systems. The NATO Secondary 
+            Imagery Format (NSIF) is the standard for formatting digital imagery files 
+            and imagery-related products and exchanging them among NATO members. The NSIF 
+            is part of a collection of related standards and specifications, known as the
+            NATO ISR Interoperability Architecture (NIIA), developed to provide a 
+            foundation for interoperability in the dissemination of intelligence-related 
+            products among different computer systems.
+         </applicability>
+         <status mode="unknown">
+            <uri>http://nsa.nato.int:9000/documents/stanags/4545eed01.pdf</uri>
+            <history>
+               <event flag="added" date="2003-05-14" rfcp="" version="0.5"/>
+               <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+               <event flag="changed" date="2013-08-13" rfcp="" version="7.0"/>
+            </history>
+         </status>
+         <uuid>9c576263-0665-4696-b669-827a516a0817</uuid>
+      </standard>
+
       
       <standard id="nato-stanag4545ed2" tag="NSIF">
          <document orgid="nato" pubnum="STANAG 4545 ed.2" date="2013" title="NATO Secondary Imagery Format (NSIF)"/>
@@ -33022,7 +33018,7 @@
             <history>
                <event flag="added" date="2003-05-14" rfcp="" version="0.5"/>
                <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
-               <event flag="chasnged" date="2013-07-26" rfcp="" version="7.0"/>
+               <event flag="changed" date="2013-07-26" rfcp="" version="7.0"/>
             </history>
          </status>
          <uuid>737b6d73-4425-43e0-899c-fe9506554d41</uuid>
@@ -39905,7 +39901,7 @@
       </standard>
 
       
-      <standard id="nato-qos" tag="IP QoS">
+      <standard id="nato-TN-1417" tag="IP QoS">
          <document orgid="nato" pubnum="TN-1417" date="" title="IP QoS for the NII"/>
          <applicability/>
          <status mode="unknown">
@@ -40262,6 +40258,44 @@
             </history>
          </status>
          <uuid>51e0848d-5719-45c6-bdfd-77997910bb3d</uuid>
+      </standard>
+
+      
+      <standard id="nato-stanag5500ed6" tag="FORMETS/ ADatP-3 Baseline 13">
+         <document orgid="nato" pubnum="STANAG 5500" date="2010" title="Concept of NATO Message Text Formatting System (CONFORMETS), ed.6, (ADatP-3)" version="6"/>
+         <applicability>
+        FORMETS is a collection of character-oriented information procedural
+        standards suitable for the efficient exchange of information. The system includes
+        the syntax and rules governing the representation of agreed conceptual definitions
+        (fields), and the arrangement of these fields into sentences (sets) and message
+        texts. FORMETS is intended to be used for all formatted character-oriented
+        messages within the NATO Command, Control and Information System (NCCIS).
+        <para>
+          ADatP-3 CONFORMETS provides all required guidance to define Message
+          Text Formats (MTF). CONFORMETS also specifies XML-MTF family of technical
+          specifications as they are applied to ADatP-3 MTF to produce equivalent derived
+          XML-MTF formats. ADatP-3 is covered by STANAG 5500.
+        </para>
+            <para>
+          The ADatP-3 Database contains all Message Text Formats under configuration
+          control of the MTFWG.
+        </para>
+            <para>
+          The agreed MTFs, once published in a Baseline, will regularly be inserted
+          into STANAG 7149, NATO Message Catalogue ? APP-11, current edition.
+        </para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://nsa.nato.int:9000/documents/stanags/dr%20en/5500e.pdf</uri>
+            <history>
+               <event flag="added" date="1997-02-28" version="0.1"/>
+               <event flag="changed" date="2005-09-15" rfcp="" version="0.7"/>
+               <event flag="changed" date="2007-08-02" rfcp="" version="2.0"/>
+               <event flag="changed" date="2007-10-30" rfcp="1-8" version="2.0"/>
+               <event flag="changed" date="2010-12-09" rfcp="" version="4.0"/>
+            </history>
+         </status>
+         <uuid>018fd14f-ad47-474d-8fde-fe605e18c674</uuid>
       </standard>
 
       
@@ -43703,7 +43737,7 @@
 
       
       
-      <standard id="dod-mil-std2525b" tag="MIL-STD 2525B">
+      <standard id="dod-mil-std-2525b" tag="MIL-STD 2525B">
          <document orgid="dod" pubnum="MIL-STD 2525B" date="1999-01-30" title="Common Warfighting Synbology"/>
          <applicability>
             This standard applies to all DOD components directly or indirectly
@@ -50800,7 +50834,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
                <refstandard refid="nato-stanag5500ed6"/>
                <refstandard refid="nato-stanag1059ed8"/>
                <refstandard refid="iso-8601"/>
-               <refstandard refid="unknown-geotiff"/>
+               <refstandard refid="osgeo-geotiff"/>
                <refstandard refid="iso-iec-15444"/>
                <refstandard refid="erdas-ecw"/>
                <refstandard refid="nima-mil-prf-89038"/>
@@ -50810,7 +50844,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
                <refstandard refid="nato-app-11"/>
                <refstandard refid="nato-stanag2019"/>
                <refstandard refid="nato-stanag5042ed1"/>
-               <refstandard refid="dod-MIL-STD-2525C"/>
+               <refstandard refid="dod-mil-std-2525c"/>
             </parts>
             <applicability/>
             <status mode="unknown">
@@ -50983,7 +51017,7 @@ stavnstrup (2010-10-13) Another UML standard exists in the database
       <orgkey key="jcp" text="Java Community Process"/>
       <orgkey key="linux" text="Linux"/>
       <orgkey key="linuxbase" text="Linux-Base"/>
-      <orgkey Key="LizardTech" text="Lizard Tech"/>
+      <orgkey key="LizardTech" text="Lizard Tech"/>
       <orgkey key="microsoft" text="Microsoft"/>
       <orgkey key="mip" text="Multilateral Interoperability Program"/>
       <orgkey key="mod-uk" text="UK MoD"/>
