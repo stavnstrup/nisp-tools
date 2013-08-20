@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;">
+  <meta name="dcterms.date" content="2012-01-17">
+  <title>nisp-build</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="../xsl/css/man.css">
+</head>
+<body>
+<header>
+<h1 class="title">nisp-build</h1>
+</header>
+<h1 id="name">Name</h1>
+<p>nisp-build - Using the nisp tools to build the NISP documents</p>
+<h1 id="synopsis">Synopsis</h1>
+<pre><code>build [OPTIONS] [TARGET [TARGET2 [TARGET3] ...]] </code></pre>
+<p>By default this command uses build.xml as its default build file.</p>
+<h1 id="options">Options</h1>
+<p>Since the <code>build</code> script is just a wrapper around <a href="" title="http://ant.apache.org/">Ant</a>, it takes the same options, but only the options below are relevant.</p>
+<dl>
+<dt>-buildfile, -file, -f <file></dt>
+<dd><p>use the given buildfile instead of the default build.xml file. This is the ant equivalent of Makefile</p>
+</dd>
+<dt>-help, -h</dt>
+<dd><p>print help on the command line options</p>
+</dd>
+<dt>-projecthelp, -p</dt>
+<dd><p>print project help information</p>
+</dd>
+<dt>-version</dt>
+<dd><p>print the version information of ant</p>
+</dd>
+<dt>-diagnostics</dt>
+<dd><p>print information that might be helpful to diagnose or report problems</p>
+</dd>
+<dt>-quiet, -q</dt>
+<dd><p>be extra quiet</p>
+</dd>
+<dt>-verbose, -v</dt>
+<dd><p>be extra verbose</p>
+</dd>
+<dt>-debug, -d</dt>
+<dd><p>print debugging information</p>
+</dd>
+<dt>-logfile <file></dt>
+<dd><p>use the given file to output log to</p>
+</dd>
+</dl>
+<h1 id="description">Description</h1>
+<p>The NISP tools uses the make-like tool <a href="http://ant.apache.org/">Ant</a> to build HTML and PDF versions of the NISP. NISP wraps ant in a shell file <strong>build.bat</strong> for use in Windows and <strong>build.sh</strong> for use in Linux/Unix.</p>
+<p>Running the command</p>
+<pre><code>    build</code></pre>
+<p>will build all HTML and PDF files</p>
+<h2 id="build-targets">Build targets</h2>
+<p>The syntax for using the build script is</p>
+<pre><code>    build [-f buildfile] [target*]</code></pre>
+<p>The XML based buildfile consist of a project definition defining one or more targets. A target is a set of tasks which should be executed. When the buildfile is not specified Ant will by default use the file <code>build.xml</code>, and if a target is not defined, Ant will build the default target as specified in the project element.</p>
+<p>A target <em>A</em> may depend on other targets <em>B</em> and <em>C</em>, which have to be build before target <em>A</em> can be build. The build process therefore identifies the dependency between targets and build only the necessary targets depending on if anything have changed since the last build was executed.</p>
+<h2 id="nisp-targets">NISP Targets</h2>
+<p>The NISP build file contain more than 100 different targets. Some targets exists only for technical reasons and will not be described here. The rest of the target can shown by issuing the command</p>
+<pre><code>    build -projecthelp</code></pre>
+<p>The targets can be separated into dynamic and static targets.</p>
+<h3 id="dynamic-targets">Dynamic Targets</h3>
+<p>The dynamic targets are located in the file <em>build.target</em>, which is automatically imported by the file <em>build.xml</em> and the targets made availible to the user.</p>
+<p>Historically, NISP have changed a lot, we have added and removed multiple volumes, and every time the dynamic target had to be recreated, which is quite complicated. As a consequence the creation of dynamic is done semiautomatic. Whenever the <em>src/documents</em> used to specify the volumes in NISP are changed, the build process will refuse to run until a new <em>build.targets</em> have been created. This is done by executing the command</p>
+<pre><code>    build -f newbuild.xml</code></pre>
+<p>The dynamic targets are targets created for each volume of the NISP. E.g. for volume 1 the following targets exists.</p>
+<dl>
+<dt>vol1</dt>
+<dd>Create Volume 1 in HTML5 and PDF
+</dd>
+<dt>vol1.resolve</dt>
+<dd>Resolve volume 1
+</dd>
+<dt>vol1.html</dt>
+<dd>Create Volume 1 in HTML5
+</dd>
+<dt>vol1.pdf</dt>
+<dd>Create Volume 1 in PDF
+</dd>
+<dt>vol1.rtf</dt>
+<dd>Create Volume 1 in RTF (Word exchange format)
+</dd>
+<dt>vol1.zip</dt>
+<dd>Create source archive of Volume 1
+</dd>
+</dl>
+<p>Similar instructions exists for the other volumes.</p>
+<p>Additionaly the targets <em>html</em>, <em>pdf</em>, <em>rtf</em> and <em>all</em> are created used to specify that <em>HTML5</em>, <em>PDF</em>, <em>RTF</em> and <em>all</em> (HTML5 and PDF) versions of all the volumes should be created.</p>
+<dl>
+<dt>html</dt>
+<dd>Create all HTML files destined for the web
+</dd>
+</dl>
+<p>pdf: Create a PDF version of NISP rtf : Create all RTF files</p>
+<dl>
+<dt>htmlhelp</dt>
+<dd>Create HTMLHelp version of the NISP
+</dd>
+</dl>
+<h3 id="static-targets">Static targets</h3>
+<p>The static targets are used to create the directory structure, creating archives of the sources and the tools, debugging etc.</p>
+<h4 id="additional-pages-for-the-html5-version">Additional pages for the HTML5 version</h4>
+<dl>
+<dt>master</dt>
+<dd>Create the NISP master documents as HTML5 pages
+</dd>
+<dt>acronyms</dt>
+<dd>Create the acronyms as chunked HTML5 pages
+</dd>
+</dl>
+<h4 id="cleaning-targets">Cleaning targets</h4>
+<p>Clean-up targets</p>
+<dl>
+<dt>clean</dt>
+<dd>Clean all (only build and distribution directories)
+</dd>
+<dt>clean-build</dt>
+<dd>Clean the build directories
+</dd>
+<dt>clean-dist</dt>
+<dd>Clean the distribution directories
+</dd>
+<dt>clean-zip</dt>
+<dd>Clean the distribution zip directories
+</dd>
+</dl>
+<h4 id="debugging-targets">Debugging targets</h4>
+<p>These target are usefull to debug aspects of NISP especially to catch semanticl errors in the standards database.</p>
+<dl>
+<dt>debug</dt>
+<dd>Create misc. debugging reports
+</dd>
+<dt>deb-overview</dt>
+<dd>Create DB Overview
+</dd>
+<dt>deb-dates</dt>
+<dd>Create DB Dated list
+</dd>
+<dt>deb-family</dt>
+<dd>Create DB parent/child relationship list
+</dd>
+<dt>deb-info</dt>
+<dd>Show infomation about all documents
+</dd>
+<dt>deb-figures</dt>
+<dd>Show all figures
+</dd>
+<dt>deb-upcoming</dt>
+<dd>Create list of upcoming/fading standards/profiles
+</dd>
+</dl>
+<h4 id="documentation-target">Documentation target</h4>
+<dl>
+<dt>doc</dt>
+<dd><p>Create documentation pages</p>
+<p>Note, The documentation pages are written in <a href="" title="http://daringfireball.net/projects/markdown/">Markdown</a> and requires the tool <a href="" title="http://johnmacfarlane.net/pandoc/">Pandoc</a>, which is not included in the tools package.</p>
+</dd>
+</dl>
+<h4 id="archieving-targets">Archieving targets</h4>
+<p>These two targets are used to create ofline versions of the NISP</p>
+<dl>
+<dt>web</dt>
+<dd>Create the website containing the NISP
+</dd>
+<dt>pdf-only</dt>
+<dd>Create a zip containing only PDF files
+</dd>
+</dl>
+<p>Additional archiving targets are</p>
+<dl>
+<dt>source</dt>
+<dd>Create a new source distribution
+</dd>
+<dt>tool</dt>
+<dd>Create a new tool distribution
+</dd>
+<dt>zip</dt>
+<dd>Create source, tool, xsl, web and pdf archives
+</dd>
+<dt>resolve.zip</dt>
+<dd>Create a resolved version of the XML sources
+</dd>
+</dl>
+<h2 id="additional-build-files">Additional build files</h2>
+<p>NISP are released according to the IP CaT Standard Operation Procedures (SOP). The NISP tools implements these procedures in three different build files.</p>
+<dl>
+<dt>build.xml</dt>
+<dd>Version developed by the IP CaT (this version containes all the targets described above)
+</dd>
+<dt>build-final.xml</dt>
+<dd>Final draft distributed among IP CaT only.
+</dd>
+<dt>build-release.xml</dt>
+<dd>This is the version distributed to the NC3 Board.
+</dd>
+</dl>
+<p>Note that there is actually an addional stage in the publication process, but since the board normaly send out NISP to Nato and nations under silence procedure, which skips this step, otherwise NISP will be published with a draft label.</p>
+<h1 id="see-also">See Also</h1>
+<p><a href="" title="nisp.html">nisp</a></p>
+<h1>Author</h1>
+<p class="author">Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;</p>
+<p class="date">Last updated on January 17, 2012</p>
+</body>
+</html>

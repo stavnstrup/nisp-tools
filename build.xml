@@ -536,7 +536,7 @@ $Id$
   </target>
 
   <target name="htmlhelp"
-          description="* Create HTMLHelp version of the architecture"
+          description="* Create HTMLHelp version of the NISP"
           if="hcc.present">
     <antcall target="chm"/>
     <antcall target="no.chm"/>
@@ -632,102 +632,32 @@ $Id$
   <!-- Create documentation                                                -->
   <!-- =================================================================== -->
 
+  <macrodef name="makemanpage">
+    <attribute name="manpage"/>
 
-  <target name="copy.doc-figures" depends="init">
-    <copy preservelastmodified="true" todir="${basedir}/docs">
-      <fileset dir="${basedir}/xdocs">
-        <include name="*.svg"/>
-      </fileset>
-    </copy>
-  </target>
-
-  <target name="svg.doc-figures.required" depends="copy.doc-figures">
-    <uptodate property="svg.doc-figures.notRequired">
-      <srcfiles includes="*.svg" dir="${basedir}/docs"/>
-      <mapper type="glob" from="*.svg" to="${basedir}/docs/*.${nisp.image.ext}"/>
-    </uptodate>
-  </target>
-
-   <target name="svg.doc-figures" depends="init, svg.doc-figures.required" unless="svg.doc-figures.notRequired">
-      <echo message="Create figures for HTML (${dpi.raster} dpi)"/>
-      <rasterize bg="255,255,255" result="${nisp.image.mimetype}" quality="${nisp.image.quality}" dpi="${dpi.raster}" destdir="${basedir}/docs/">
-         <fileset dir="${basedir}/docs/">
-            <include name="*.svg"/>
-            <depend targetdir="${basedir}/docss/">
-               <mapper type="glob" from="*.svg" to="*.${nisp.image.ext}"/>
-            </depend>
-         </fileset>
-      </rasterize>
-   </target>
-
-  <target name="doc-layout-fo-check" depends="init">
-    <uptodate property="doc-layout-fo.notRequired"
-              targetfile="${xsl-fo.dir}/doc-layout.xsl">
-      <srcfiles dir="${xsl-fo.dir}" includes="doc-layout.xml"/>
-      <srcfiles dir="${docbook-xsl.dir}/template" includes="templates.xsl"/>
-    </uptodate>
-  </target>
-
-  <target name="doc-layout-fo" depends="doc-layout-fo-check"
-          unless="doc-layout-fo.notRequired">
-    <echo message="Creating Layout for fo documents"/>
-      <java classname="${xslt.class}" fork="yes" dir="${xsl-fo.dir}">
-      <arg line="${xslt.opts} -o doc-layout.xsl 
-           ${xsl-fo.dir}/doc-layout.xml 
-           ${docbook-xsl.dir}/template/titlepage.xsl"/>
-      <classpath refid="lib-saxon-classpath"/>
-    </java>
-  </target>
-
-
-  <target name="doc-html.check" depends="svg.doc-figures">
-    <uptodate property="doc.notRequired"
-              targetfile="${basedir}/docs/index.html">
-      <srcfiles dir="${basedir}/xdocs" 
-               includes="manual.xml, el-stat.xml software.ent"/>
-      <srcfiles dir="${basedir}" includes="VERSION"/>
-      <srcfiles dir="${basedir}/src" includes="VERSION"/>
-      <srcfiles dir="${xsl-html.dir}" includes="doc.xsl"/>
-    </uptodate>
-  </target>
+    <sequential>
+      <echo>Create the @{manpage} manpage</echo>
+      <exec os="Linux" executable="pandoc" dir="${basedir}/xdocs/">
+        <arg value="-s"/>
+        <arg value="-thtml5"/>
+        <arg value="-c../xsl/css/man.css"/>
+        <arg value="--template=nisp-default.html5"/>
+        <arg value="-o@{manpage}.html"/>
+        <arg value="@{manpage}.md"/>
+      </exec>
+    </sequential>
+  </macrodef>
   
-  <target name="doc-pdf.check" depends="copy.doc-figures">
-    <uptodate property="doc-pdf.notRequired"
-              targetfile="${basedir}/docs/manual.pdf">
-      <srcfiles dir="${basedir}/xdocs"
-               includes="manual.xml, el-stat.xml, software.ent"/>
-      <srcfiles dir="${basedir}" includes="VERSION"/>
-      <srcfiles dir="${basedir}/src" includes="VERSION"/>
-      <srcfiles dir="${xsl-fo.dir}" includes="doc.xsl,doc-layout.xsl"/>
-    </uptodate>
-  </target>
-  
-  <target name="doc" description="* Create documentation pages"
-          depends="doc.html, doc.pdf"/>
-
-  <target name="doc.html" description="* Create documentation pages in html"
-          depends="init, doc-html.check" unless="doc.notRequired">
-    <echo message="Create documentation pages in HTML"/>
-    <java classname="${xslt.class}" fork="yes" dir="${basedir}/docs">
-      <arg line="-o ${basedir}/docs/index.html 
-        ${basedir}/xdocs/manual.xml ${xsl-html.dir}/doc.xsl"/>
-      <classpath refid="lib-saxon-classpath"/>
-    </java>     
-  </target>
-
-
-  <target name="doc.pdf" description="* Create documentation pages in PDF"
-          depends="init, doc-layout-fo, doc-pdf.check" unless="doc-pdf.notRequired">
-    <echo message="Create documentation pages in PDF"/>
-    <java classname="${xslt.class}" fork="yes" dir="${basedir}/xdocs">
-      <arg line="-o ${basedir}/docs/manual.fo
-        ${basedir}/xdocs/manual.xml ${xsl-fo.dir}/doc.xsl"/>
-      <classpath refid="lib-saxon-classpath"/> 
-    </java>
-    <fop basedir="${basedir}/docs/" fofile="${basedir}/docs/manual.fo" 
-         outfile="${basedir}/docs/manual.pdf" format="application/pdf" 
-         messagelevel="${fop.message}"/> 
-    <delete file="${basedir}/docs/manual.fo"/>
+  <target name="doc" description="* Create documentation pages">
+    <makemanpage manpage="nisp"/>
+    <makemanpage manpage="nisp-database"/>
+    <makemanpage manpage="nisp-database-schema"/>
+    <makemanpage manpage="nisp-install"/>
+    <makemanpage manpage="nisp-debug"/>
+    <makemanpage manpage="nisp-build"/>
+    <move todir="${basedir}/docs/">
+      <fileset dir="${basedir}/xdocs/" includes="*.html"/> 
+    </move>
   </target>
 
 
@@ -785,7 +715,7 @@ $Id$
   <!-- Create the tools distribution -->
 
   <target name="tool" description="* Create a new tool distribution"
-          depends="doc.pdf, new-dtd">
+          depends="new-dtd">
     <mkdir dir="${zip.dir}"/>
     
     <mkdir dir="${dist.dir}/src"/>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;">
+  <meta name="dcterms.date" content="2013-04-11">
+  <title>nisp-database</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="../xsl/css/man.css">
+</head>
+<body>
+<header>
+<h1 class="title">nisp-database</h1>
+</header>
+<h1 id="name">Name</h1>
+<p>nisp.database - The database used to describe standards and profiles in NISP</p>
+<h1 id="description">Description</h1>
+<p>The NISP database contains all standards and profiles used in the NISP and the NC3TA since 1998.</p>
+<p>The standard database is logically separated into four different parts:</p>
+<ul>
+<li>service taxonomy based on the Core Enterprise Service Framework (CESF)</li>
+<li>standard selection</li>
+<li>standard and profile description</li>
+<li>community of interest profiles</li>
+<li>mapping between organisation abbrevations and full names</li>
+</ul>
+<p>The structure of the database is described in detail in <a href="nisp-database-schema.html">nisp-database-schema</a>.</p>
+<p>The remaining of this document describes specific issues of the database the user should be aware off.</p>
+<h2 id="introduction-of-uuids">Introduction of UUIDs</h2>
+<p>The introduction of UUIDs in the database put significant restrictions on how we in the future update standards and profiles. Except for fixing errors in the description of a standard or profile, the and standard and profile should never be modified. So when e.g. a standard is updated from version 2.0 to verion 3.0, we should create a complete new <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element. When creating the new <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element, it would make sence to just copy the old elemen and then change the appropiate attributes and child elemnts, then make sure you delete the copied UUID element from the new <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element.</p>
+<h2 id="usage-of-identifiers-in-the-database">Usage of identifiers in the database</h2>
+<p>Each <code>&lt;standard&gt;</code> and <code>&lt;profile&gt;</code> element have two identifiers, i.e. <code>id</code> in the form of an attribute and ùuid` in form of a child element. which are used to uniquely identify a specific standard or profile.</p>
+<p>The two identifiers serves different purposes:</p>
+<dl>
+<dt><code>id</code></dt>
+<dd><p>This identifier is manually created and by convention we use a combination of the <code>orgid</code>, a hyphen and and the <code>pubnum</code> attribute of the <code>&lt;document&gt;</code> element. This identifier is userfriendly, as it is easy to remember and are therefore the id we are using to refere to a standard or profile from a <code>&lt;select&gt;</code> element. Examples of such identifiers are <em>iso-8859-1</em> and <em>rfc-793</em>.</p>
+</dd>
+<dt><code>uuid</code></dt>
+<dd><p>This identifier is <em>automatically</em> generated and should under no cicumstances be changed. The UUID identifier will be unique for a specific version of a <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element, so e.g. two different version of a given standard will have different UUIDs. This will enable us to import the NISP database into a architecture repository and whenever the NISP database is updated we syncronise with the data in the architecture repository.</p>
+</dd>
+</dl>
+<h2 id="generating-uuids">Generating UUIDs</h2>
+<p>To ensure that new UUID elements are created, whenever new standards and profiles are added to the database, the build system will refuse to create HTML and PDF version of the NISP until missing UUID elements have been added to the database.</p>
+<p>The new UUID elemnts are created by running the command</p>
+<pre><code>build -f uuid-build.xml</code></pre>
+<h2 id="usage-of-organisation-abbreaviations">Usage of organisation abbreaviations</h2>
+<p>Each <code>&lt;standard&gt;</code> element contains a <code>&lt;document&gt;</code> element, which describes the standard the element represents. Among the attributes is <code>orgid</code>, which should only use values from a pre-defined set of maps. This set is described in the element <code>&lt;organisations&gt;</code> and should be extended if the relevant standard organisation is not already defined. An example of such a map, is</p>
+<pre class="sourceCode dtd"><code class="sourceCode dtd">&lt;orgkey key=&quot;opengroup&quot; text=&quot;The Open Group&quot; /&gt;</code></pre>
+<h1 id="see-also">See Also</h1>
+<p><a href="" title="nisp-database-schema.html">nisp-database-schema</a></p>
+<p>The NISP sources and tools are availibale in a subversion repository on TIDE at <a href="http://tide.acr.nato.int/svn/nisp/trunk">http://tide.acr.nato.int/svn/nisp/trunk</a>.</p>
+<h1>Author</h1>
+<p class="author">Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;</p>
+<p class="date">Last updated on April 11, 2013</p>
+</body>
+</html>

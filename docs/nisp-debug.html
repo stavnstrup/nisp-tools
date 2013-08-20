@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jens Stavnstrupk &lt;stavnstrup@mil.dk&gt;">
+  <meta name="dcterms.date" content="2007-08-30">
+  <title>nisp-debug</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="../xsl/css/man.css">
+</head>
+<body>
+<header>
+<h1 class="title">nisp-debug</h1>
+</header>
+<h1 id="name">Name</h1>
+<p>nisp-debug - Debugging targets for NISP</p>
+<h1 id="synopsis">Synopsis</h1>
+<pre><code>build [DEBUGTARGET [DEBUGTARGET2 ...]]</code></pre>
+<h1 id="description">Description</h1>
+<p>Since both the NISP database and the DocBook sources are ordinary XML files, it is relatively easy to make mistakes. Although syntax errors are identified, when using a syntax driven editor, an number of other semantic errors might go unoticed. A number of build targets for debugging purposes have therefore been defined.</p>
+<p>The debugging targets will query the database and the documents and create views designed to identify certain typical errors.</p>
+<h1 id="options">Options</h1>
+<h2 id="global-debug-targets">Global debug targets</h2>
+<dl>
+<dt><code>debug</code></dt>
+<dd>Create all debugging reports
+</dd>
+</dl>
+<h2 id="debugging-the-database">Debugging the database</h2>
+<dl>
+<dt><code>deb-overview</code></dt>
+<dd><p>Create a table listing all standards and profiles in the NISP database. The purpose solves a nummer of issues. 1) Gives a complete overview of all standards and profiles. 2) All rows marked with a red background are deleted standards/profiles and 3) all cells with a yellow background illustrates information misinng in the database.</p>
+<p>The generated file is named <strong>build/debug/overview.html</strong></p>
+</dd>
+<dt><code>deb-dates</code></dt>
+<dd><p>List all event elements belonging to a standard or profile sorted in decending order. When the list of the sorted event are generated, a row spanning all columns with a blue background color is inserted before each event element, if the previous event element do have a different version number. This have the effect, that if there are two blue rows with the same version number, then there is a bug in one or more event record before or after the blue line.</p>
+<p>The generated file is named <strong>build/debug/dates.html</strong></p>
+</dd>
+<dt><code>deb-family</code></dt>
+<dd><p>Create DB parent/child relationship list. The main purpose is to identify any failure in the parent/child relationsship between standards and parents. What we specifically are looking for is if a parent standard/profile links to a child standard/profile, that have been deleted from the database.</p>
+<p>The generated file is named <strong>build/debug/family.html</strong></p>
+</dd>
+<dt><code>deb-upcoming</code></dt>
+<dd><p>Create list of upcoming/fading standards/profiles</p>
+<p>The generated file is named <strong>build/debug/upcoming.html</strong></p>
+</dd>
+</dl>
+<h2 id="document-debug-targets">Document debug targets</h2>
+<dl>
+<dt><code>deb-info</code></dt>
+<dd><p>Show all meta data in all volumes and and the similar information the the document.xml file. The document also list a rasterized version of all figures in each document.in each documentinfomation about all documents</p>
+<p>The generated file is named <strong>build/debug/info.html</strong></p>
+</dd>
+<dt><code>deb-figures</code></dt>
+<dd><p>Show all figures in NISP in a PDF document. Since the PDF document can map the SVG element into similar PDF constructs, we are able to see how each figure scale.</p>
+<p>The generated file is named <strong>build/debug/figures.pdf</strong></p>
+</dd>
+</dl>
+<h1 id="see-also">See also</h1>
+<p><a href="" title="nisp-build.html &quot;nisp-build&quot;">nisp-build</a>, <a href="" title="nisp-standard.html &quot;nisp-standard&quot;">nisp-standard</a> and <a href="" title="nisp-standard-schema.html &quot;nisp-standard-schema&quot;">nisp-standard-schema</a>.</p>
+<h1>Author</h1>
+<p class="author">Jens Stavnstrupk &lt;stavnstrup@mil.dk&gt;</p>
+<p class="date">Last updated on August 30, 2007</p>
+</body>
+</html>
