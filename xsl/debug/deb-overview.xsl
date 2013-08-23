@@ -216,7 +216,11 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td><xsl:value-of select="profilespec/@version"/>&nbsp;</td>        
     <td><xsl:apply-templates select="document/correction"/>&nbsp;</td>
     <td><xsl:apply-templates select="document/alsoknown"/>&nbsp;</td>
-    <td><xsl:value-of select="@tag"/>&nbsp;</td>
+    <td>
+      <xsl:if test="@tag =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="@tag"/>&nbsp;</td>
     <td align="center">
       <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
       <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
@@ -275,7 +279,11 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td><xsl:value-of select="document/@version"/>&nbsp;</td>        
     <td><xsl:apply-templates select="document/correction"/>&nbsp;</td>
     <td><xsl:apply-templates select="document/alsoknown"/>&nbsp;</td>
-    <td><xsl:value-of select="@tag"/>&nbsp;</td>
+    <td>
+      <xsl:if test="@tag =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>            
+      <xsl:value-of select="@tag"/>&nbsp;</td>
     <td align="center">
       <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
       <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
