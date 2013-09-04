@@ -25,16 +25,3 @@ wget -c -O RFC_2396.rdf --user=$username --password=$password http://tide.act.na
 wget -c -O REC-ws-addr-core-20060509.rdf --user=$username --password=$password http://tide.act.nato.int/em/index.php?title=Special:ExportRDF/W3C_Recommendation_-_Web_Services_Addressing_1.0_-_Core
 wget -c -O REC-ws-addr-metadata-20070904.rdf --user=$username --password=$password http://tide.act.nato.int/em/index.php?title=Special:ExportRDF/W3C_Recommendation_-_Web_Services_Addressing_1.0_-_Metadata
 wget -c -O REC-ws-addr-soap-20060509.rdf --user=$username --password=$password http://tide.act.nato.int/em/index.php?title=Special:ExportRDF/W3C_Recommendation_-_Web_Services_Addressing_1.0_-_SOAP_Binding
-
-
-OGC ,  v.1.1
-
-
-  
-
-
-ANSI/NIST ITL 1-2007 Part 1
-We do have ANSI/NIST-ITL Data Format for the Interchange of Fingerprint, Facial, and Scar Mark and Tattoo (SMT) Information from 2008
-
-
-  
