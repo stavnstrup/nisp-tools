@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -8,7 +8,7 @@
   
 
 
-<xsl:output method="saxon:xhtml" encoding="ISO-8859-1" indent="no"/>
+<xsl:output method="saxon:xhtml" indent="no"/>
 
 <xsl:strip-space elements="*"/>
 

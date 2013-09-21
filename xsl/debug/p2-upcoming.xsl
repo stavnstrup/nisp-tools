@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:saxon="http://icl.com/saxon"
@@ -8,7 +8,7 @@
                 exclude-result-prefixes="#default saxon">
   
 
-<xsl:output method="html" encoding="ISO-8859-1" indent="yes"/>
+<xsl:output method="html" indent="yes"/>
 
 <xsl:template match="allupcoming">
   <html>

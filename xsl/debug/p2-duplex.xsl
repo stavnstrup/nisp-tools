@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 
 <!DOCTYPE xsl:stylesheet [
 <!ENTITY nbsp "&#160;">
@@ -24,11 +24,11 @@ Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
                 version='1.1'
                 exclude-result-prefixes="#default">
   
-<xsl:output method="html" encoding="ISO-8859-1" indent="no"/>
+<xsl:output method="html" indent="no"/>
 
 
 <xsl:template match="database">
-  <xsl:variable name="title">Try to identify duplex standards in the NC3TA Standard Database</xsl:variable>
+  <xsl:variable name="title">Try to identify duplex standards in the NISP Standard Database</xsl:variable>
 
   <xsl:message><xsl:text>  </xsl:text><xsl:value-of select="$title"/></xsl:message>
   <html>

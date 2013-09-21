@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 <!--
 
 This stylesheet is created for the NISP, and is intended to create 
@@ -16,7 +16,7 @@ Copyright (c) 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
                 exclude-result-prefixes="#default date saxon">
   
 
-<xsl:output method="html" encoding="ISO-8859-1" indent="yes"/>
+<xsl:output method="html" indent="yes"/>
 
 
 <xsl:template match="standards">

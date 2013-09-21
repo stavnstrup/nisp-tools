@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:svg="http://www.w3.org/2000/svg"
                 version='1.1'
-                exclude-result-prefixes="#default">
+                exclude-result-prefixes="#default svg">
 
 <xsl:import href="../common/common.xsl"/>
 
@@ -164,7 +164,7 @@
 
     <img>
       <xsl:attribute name="src">
-        <xsl:text>../../build/figures/</xsl:text>
+        <xsl:text>../figures/</xsl:text>
         <xsl:value-of select="$svgbasename"/>
         <xsl:text>.</xsl:text>
         <xsl:value-of select="$nisp.image.ext"/>
