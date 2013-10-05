@@ -6,7 +6,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: titles.xsl 9286 2012-04-19 10:10:58Z bobstayton $
+     $Id: titles.xsl 9715 2013-01-24 00:16:57Z bobstayton $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -61,6 +61,15 @@ title of the element. This does not include the label.
               <xsl:value-of select="@xml:id"/>
               <xsl:text>")</xsl:text>
             </xsl:when>
+            <xsl:otherwise>
+              <xsl:text> (contained in </xsl:text>
+              <xsl:value-of select="local-name(..)"/>
+              <xsl:if test="../@id or ../@xml:id">
+                <xsl:text> with id </xsl:text>
+                <xsl:value-of select="../@id | ../@xml:id"/>
+              </xsl:if>
+              <xsl:text>)</xsl:text>
+            </xsl:otherwise>
           </xsl:choose>
         </xsl:message>
       </xsl:if>
@@ -274,7 +283,7 @@ title of the element. This does not include the label.
 </xsl:template>
 
 <xsl:template match="bridgehead" mode="title.markup">
-  <xsl:apply-templates mode="title.markup"/>
+  <xsl:apply-templates/> 
 </xsl:template>
 
 <xsl:template match="refsynopsisdiv" mode="title.markup">
@@ -525,6 +534,9 @@ title of the element. This does not include the label.
 
 <!-- ============================================================ -->
 
+<!-- titleabbrev is always processed in a mode -->
+<xsl:template match="titleabbrev"/>
+
 <xsl:template match="*" mode="titleabbrev.markup">
   <xsl:param name="allow-anchors" select="0"/>
   <xsl:param name="verbose" select="1"/>
@@ -549,7 +561,7 @@ title of the element. This does not include the label.
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="book|preface|chapter|appendix" mode="titleabbrev.markup">
+<xsl:template match="book|part|set|preface|chapter|appendix" mode="titleabbrev.markup">
   <xsl:param name="allow-anchors" select="0"/>
   <xsl:param name="verbose" select="1"/>
 
@@ -557,6 +569,8 @@ title of the element. This does not include the label.
                                            |bookinfo/titleabbrev
                                            |info/titleabbrev
                                            |prefaceinfo/titleabbrev
+                                           |setinfo/titleabbrev
+                                           |partinfo/titleabbrev
                                            |chapterinfo/titleabbrev
                                            |appendixinfo/titleabbrev
                                            |titleabbrev)[1]"/>

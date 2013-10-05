@@ -5,7 +5,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: division.xsl 9124 2011-10-09 21:04:08Z bobstayton $
+     $Id: division.xsl 9730 2013-03-15 15:26:25Z bobstayton $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -28,14 +28,6 @@
       <xsl:with-param name="allow-anchors" select="1"/>
     </xsl:apply-templates>
   </xsl:variable>
-
-  <xsl:if test="$passivetex.extensions != 0">
-    <fotex:bookmark xmlns:fotex="http://www.tug.org/fotex"
-                    fotex-bookmark-level="1"
-                    fotex-bookmark-label="{$id}">
-      <xsl:value-of select="$title"/>
-    </fotex:bookmark>
-  </xsl:if>
 
   <fo:block keep-with-next.within-column="always"
             hyphenate="false">
@@ -501,14 +493,14 @@
     </xsl:call-template>
   </xsl:variable>
 
-  <xsl:variable name="nodes" select="reference|
-                                     preface|
-                                     chapter|
-                                     appendix|
-                                     article|
-                                     bibliography|
-                                     glossary|
-                                     index"/>
+  <xsl:variable name="nodes" select="$part/reference|
+                                     $part/preface|
+                                     $part/chapter|
+                                     $part/appendix|
+                                     $part/article|
+                                     $part/bibliography|
+                                     $part/glossary|
+                                     $part/index"/>
 
   <xsl:if test="count($nodes) &gt; 0 and contains($toc.params, 'toc')">
     <fo:page-sequence hyphenate="{$hyphenate}"

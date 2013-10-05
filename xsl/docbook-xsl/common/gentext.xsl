@@ -5,7 +5,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: gentext.xsl 9286 2012-04-19 10:10:58Z bobstayton $
+     $Id: gentext.xsl 9713 2013-01-22 22:08:30Z bobstayton $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -196,7 +196,8 @@
 </xsl:template>
 
 <xsl:template match="bridgehead" mode="is.autonumber">
-  <xsl:value-of select="$section.autolabel"/>
+  <!-- bridgeheads are not numbered -->
+  <xsl:text>0</xsl:text>
 </xsl:template>
 
 <xsl:template match="procedure" mode="is.autonumber">
@@ -475,6 +476,12 @@
               <xsl:choose>
                 <xsl:when test="$title != ''">
                   <xsl:copy-of select="$title"/>
+                </xsl:when>
+                <xsl:when test="$purpose = 'xref'">
+                  <xsl:apply-templates select="." mode="titleabbrev.markup">
+                    <xsl:with-param name="allow-anchors" select="$allow-anchors"/>
+                    <xsl:with-param name="verbose" select="$verbose"/>
+                  </xsl:apply-templates>
                 </xsl:when>
                 <xsl:otherwise>
                   <xsl:apply-templates select="." mode="title.markup">

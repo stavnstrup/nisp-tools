@@ -9,7 +9,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: glossary.xsl 9364 2012-05-12 23:43:04Z bobstayton $
+     $Id: glossary.xsl 9709 2013-01-22 18:56:09Z bobstayton $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -242,7 +242,12 @@ GlossEntry ::=
 </xsl:template>
 
 <xsl:template match="glossentry/glossterm">
-  <xsl:apply-templates/>
+  <span>
+    <xsl:apply-templates select="." mode="common.html.attributes"/>
+    <xsl:call-template name="id.attribute"/>
+    <xsl:call-template name="anchor"/>
+    <xsl:apply-templates/>
+  </span>
   <xsl:if test="following-sibling::glossterm">, </xsl:if>
 </xsl:template>
 
@@ -318,6 +323,9 @@ GlossEntry ::=
 
 <xsl:template match="glossentry/glossdef">
   <dd>
+    <xsl:apply-templates select="." mode="common.html.attributes"/>
+    <xsl:call-template name="id.attribute"/>
+    <xsl:call-template name="anchor"/>
     <xsl:apply-templates select="*[local-name(.) != 'glossseealso']"/>
     <xsl:if test="glossseealso">
       <p>

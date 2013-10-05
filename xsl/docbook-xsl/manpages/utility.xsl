@@ -7,7 +7,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: utility.xsl 8236 2009-02-09 17:44:52Z xmldoc $
+     $Id: utility.xsl 9703 2013-01-07 20:13:05Z bobstayton $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -63,8 +63,11 @@
   </xsl:template>
 
   <xsl:template name="inline.monoseq">
+    <xsl:param name="content">
+      <xsl:apply-templates/>
+    </xsl:param>
     <xsl:call-template name="code-inline-start"/>
-    <xsl:apply-templates/>
+    <xsl:copy-of select="$content"/>
     <xsl:call-template name="code-inline-end"/>
   </xsl:template>
 
@@ -286,6 +289,7 @@
                     self::address or
                     self::literallayout or
                     self::programlisting or
+                    self::synopsis or
                     self::screen or
                     self::table or
                     self::informaltable
@@ -302,7 +306,7 @@
                     or following-sibling::node()[1][self::processing-instruction()]
                     ">
             <xsl:if test="normalize-space($content) != ''
-                          or concat(normalize-space($content), ' ') = ' '">
+                          or concat(normalize-space($content), ' ') != ' '">
               <xsl:text>&#10;</xsl:text>
             </xsl:if>
           </xsl:if>
