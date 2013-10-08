@@ -7,121 +7,63 @@
 
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "../schema/dtd/docbkx45/docbookx.dtd" [
-<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+<!ENTITY nisp-web-mainpage "http: //nisp.nc3a.nato.int/">
 ]>
 
 <appendix id="v3-i">
     <title>NATO Future Mission Network (FMN) Profile of NATO Interoperability
       Standards</title>
-
+<sect1>
+<title>Foreword</title>
+<para>The FMN Profile is a NATO UNCLASSIFIED publication containing allied military information for official purposes only.  It is permitted to copy or make extracts from this publication and distribute it for the purpose of Federated Mission Networking.</para>
+<para>This Interoperability Standards Profile is to be maintained and amended in accordance with the provisions of this document.</para>
+<para>The FMN Profile will be submitted to the IPCaT for inclusion into Volume 4 of the NISP as an “Operational Profile”.  It is planned to be approved by NATO Nations in ADatP-34(H) so that it becomes mandatory for NATO common funded capabilities.  All nations that wish to participate in future operations as Mission Network Contributing Participants (MNCP) are required to also implement the standards identified in the FMN Profile at Network Interconnection Points (NIPs) and at other Service Interoperability Points as applicable.</para>
+<para>Until the NATO FMN Implementation Plan is approved and the foreseen FMN Secretariat is being operational, the NCI Agency acts as the custodian for this FMN Profile.</para>
+</sect1>
   <sect1>
     <title>Aim</title>
     <para>On 21 November, the Military Committee agreed the NATO Future Mission Network 
       Concept<footnote><para>MCM-0125-2012, Future Mission Network Concept, dated 21 November 
-      20</para></footnote>. This document is intended to inform training and equipping 
-      investments to facilitate a nation or organization to lead or participate in a 
-      Federated Mission Network (FMN) instance.</para>
+      2012</para></footnote>. This document is intended to inform training and equipping investments to facilitate a nation or organization to participate in Federated Mission Networking (FMN) activities and to contribute to the generation of federated Mission Networks.</para>
     <para>The aim of the FMN Profile is to provide a generic minimum set of specifications 
       which enable different members (nations or organizations) to promptly establish a 
       federated environment for exchanging data and information under harmonized security 
       policies across national/organizational boundaries and for providing and using
       services to and from other members.</para>
-    <para>The FMN Profile provides a suite of interoperability standards and existing 
-      standardized profiles for interoperability of communications services and core enterprise
-      services in federated network in support of multinational (military) operations. It
-      places the required interoperability requirements, standards and specifications, to
-      include the related reference architecture elements, in context for those nations/organizations
-      providing for or participating in the FMN capability development.</para>
-    <para>Within the FMN Profile, interoperability standards and formats fall into four 
-      obligation categories:</para>
-    <itemizedlist>
-      <listitem><para>(M)andatory: these interoperability standards and formats must be adhered to in all FMN instances;</para></listitem>
-      <listitem><para>(C)onditional: these interoperability standards and formats must be present under certain circumstances;</para></listitem>
-      <listitem><para>(R)ecommended: there may be valid reasons in particular circumstances not to 
-        include these interoperability standards and formats, but the full implications must be
-        understood and carefully weighed; and</para></listitem>
-      <listitem><para>(O)ptional: these interoperability standards and formats are truly optional.</para></listitem>
-    </itemizedlist>
+    <para>The FMN Profile provides a suite of interoperability standards and other standardized profiles for interoperability of communications services, core enterprise services and selected community of interest services in a federated mission network in support of multinational (military) operations.  It places the required interoperability requirements, standards and specifications, to include the related reference architecture elements, in context for FMN Affiliates.  FMN Affiliates are nations or organizations providing for or participating in the FMN capability development.  The profile is a generic specification; it allows for independent national technical service implementations, without the loss of essential interoperability aspects.</para>
     <para>Within the NATO context, this FMN Profile will also support the new MC 593/1 developed 
       by the Land C3 Requirements Tiger Team (LC3R TT) which will provide a more detailed
       applications and system catalogue. In their development, NHQC3S will ensure that the
       FMN Concept, the FMN Profile and MC 593/1 remain consistent and mutually supporting.</para>
-    <para>The starting point for development of this initial version of the FMN profile is the C3
-      Classification Taxonomy<footnote><para>AC/322-N(2012)0092-AS1</para></footnote>, the
+    <para>The starting points for development and continuous evolution of the FMN profile are the C3 Classification Taxonomy
+	<footnote><para>AC/322-N(2012)0092-AS1</para></footnote>, the
       Afghanistan Mission Network (AMN) Profile<footnote><para>ADatP-34(G) – Vol 4</para></footnote>,
       and TACOMS STANAGS<footnote><para>STANAG 4637 Ed1, 4639 Ed1, 4640 Ed1, 4643 Ed1, 4644 Ed1, 
-      4646 Ed1, 4647 Ed1</para></footnote>. The C3 Classification Taxonomy will be used to 
-      identify particular services and associated Service Interoperability Point where two
-      entities will interface and the standards in use by the relevant systems. The profile 
-      is a generic specification; it allows for independent national technical service implementations,
-      not losing the interoperability aspects.</para>
-    <para>A FMN instance will provide an environment within which data and information can be 
-      exchanged without being impeded by security gateways and enables various communities of
-      interest to execute their mission thread information exchange requirements more effectively.</para>
-    <para>Interoperability standards for community of interest services will have to be determined 
-      based on commonly agreed Mission Threads such as Battlespace Awareness, Joint Fires, Joint
-      ISR or Medical Evacuation. Currently these standards are primarily based on the AMN Profile
-      and are not part of the minimum set of interoperability requirements to connect to a FMN 
-      instance and are only recommended. Over time Communities of interest will define additional
-      mission threads and associated interoperability standards to be included into this FMN Profile.</para>
-    <para>Further Doctrine, Organization, Training, Materiel, Leadership and education, Personnel,
-      Facilities and Interoperability (DOTMLPFI) capability analysis may result in changes to this
-      FMN Profile.</para>
-    <para>The NCI Agency acts as the custodian for this interim FMN Profile. When using this interim
-      profile for particular experiments or exercises some of the capability elements may not be 
-      relevant. In such cases, those "not applicable" sections shall be marked "not applicable for …".</para>
+      4646 Ed1, 4647 Ed1</para></footnote>. The C3 Classification Taxonomy is used to identify particular services and associated Service Interoperability Point where two entities will interface, and the standards in use by the relevant systems.</para>
+ 
   </sect1>
   
   <sect1>
     <title>Interoperability</title>
-    <para>Within NATO, interoperability is defined as, the ability to act together coherently, effectively
-      and efficiently to achieve Allied tactical, operational and strategic objectives. In the context
-      of the information exchange, interoperability means that a system, unit or forces of any service,
-      nation can transmit data to and receive data from any other system, unit or forces of any service 
-      or nation, and use the exchanged data to operate effectively together.</para>
-    <para>NATO, through its interoperability directive, has recognized that widespread interoperability
-      is a key component in achieving effective and efficient operations. In many of the operations
-      world-wide in which NATO Nations are engaged, they participate together with a wide variety of
-      other organizations on the ground. Such organizations include coalition partners from non-NATO 
-      Nations, Non-Governmental Organizations (NGO) e.g. Aid Agencies and industry partners. The NATO 
-      Interoperability Standards and Profiles (NISP) is the governing authoritative reference for NATO 
-      interoperability profiles and is co-published together with the Combined Communications Electronics
-      Board (CCEB) as an Allied Data Publication (ADatP-34). It provides the necessary guidance and 
-      technical components to support project implementations and transition to NATO Network Enabled
-      Capability (NNEC).</para>
-    <para>According to the categorization schema of NISP Volume 4, the FMN Profile is an “Operational 
-      Profile”; and it is intended to be included into Volume 4 of the NISP once the FMN Profile 
-      reaches a more mature state.</para>
-  </sect1>
-  
+	<para>The central purpose of standardization is to enable interoperability in a multi-vendor, multi-network, multi-service environment.  The absence of technical interoperability must not be the reason why final services for which there is operational need do not come into being.</para>
+    <para>Within NATO, interoperability is defined as, the ability to act together coherently, effectively and efficiently to achieve Allied tactical, operational and strategic objectives.  In the context of information exchange, interoperability means that a system, unit or forces of any service, nation can transmit data to and receive data from any other system, unit or forces of any service or nation, and use the exchanged data to operate effectively together.</para>
+    <para>NATO, through its interoperability directive, has recognized that widespread interoperability is a key component in achieving effective and efficient operations. In many of the operations world-wide in which NATO Nations are engaged, they participate together with a wide variety of other organizations on the ground. Such organizations include coalition partners from non-NATO Nations, Non-Governmental Organizations (NGO) e.g. Aid Agencies and industry partners. The NATO Interoperability Standards and Profiles (NISP) is the governing authoritative reference for NATO interoperability profiles and is co-published with the Combined Communications Electronics Board (CCEB) as an Allied Data Publication (ADatP-34). It provides the necessary guidance and technical components to support project implementations and transition to NATO Network Enabled Capability (NNEC).</para>
+<sect1>
+<title>Capability Description</title>
+<para>The FMN Implementation Plan describes four different environments required for successful federated mission networking.  A federated Mission Network provides a mission execution environment within which data and information can be exchanged without being impeded by security gateways and enables various communities of interest to execute their mission thread information exchange requirements more effectively.</para>
+    <para>Interoperability standards for community of interest services will have to be determined based on commonly agreed Mission Threads such as Battlespace Awareness, Joint ISR,  Medical Evacuation or Joint Fires.  Over time, communities of interest will define additional mission threads and associated interoperability standards will be included into future revisions of this FMN Profile.</para>
+    <para>Further Doctrine, Organization, Training, Materiel, Leadership and education, Personnel, Facilities and Interoperability (DOTMLPFI) capability analysis may result in changes to this FMN Profile.</para>
+</sect1>
   <sect1>
     <title>FMN Architecture</title>
-    <para>The following FMN architecture principles have been developed during the FMN Concept development
-      phase:</para>
-    <itemizedlist>
-      <listitem><para>Federation: A FMN instance is a federation of autonomous network elements.</para></listitem>
-      <listitem><para>Information Sharing: Provide access to information.</para></listitem>
-      <listitem><para>Security: Secure information against unauthorized access.</para></listitem>
-      <listitem><para>Flexibility: the ability to scale-up or scale-down capacity and performance or 
-        increase, decrease support for operational footprints based on the mission life-cycle needs.</para></listitem>
-      <listitem><para>Change: Modifications to applications and technology are driven by operational needs.</para></listitem>
-      <listitem><para>Standards: Establish mandatory and recommended FMN interoperability standards.</para></listitem>
-      <listitem><para>Shared Awareness: Enable a single view of the battle space.</para></listitem>
-      <listitem><para>Data Management: Minimize the data management burden.</para></listitem>
-      <listitem><para>Continual Improvement: Leverage existing technology investments to generate
-        operational benefits.</para></listitem>
-      <listitem><para>Proven Technologies: Select and implement proven technologies that are
-        commonly available.</para></listitem>
-      <listitem><para>Reuse: Share and re-use common functions and systems.</para></listitem>
-    </itemizedlist>
-    <para>In addition well defined Governance and Life-cycle management capabilities (incl. Service 
-      Management and Control) must be in place to ensure controlled management of capability 
-      enhancements for the generic FMN templates as well as the in-service FMN instances and 
-      to ensure assured delivery of services from providers/producers to consumers/customers
-      based on well-defined Service Level Agreements (SLAs).</para>
-    <para>The following figure below depicts a high level illustration of a future FMN information
-      environment and the different membership options (Options A, B and C):</para>
-    <figure id="v4i-fmn-info" float="0">
+	<para>The Federated Mission Networking architecture is based on the concept of abstraction: hiding details of individual systems through encapsulation in order to better identify and sustain its properties.  Individual system on each Mission Network Element will contain many levels of abstraction, each with its own architecture. The FMN architecture represents an abstraction of system behaviour at those interface levels that are essential for successful federated mission networking.</para>
+	<para>Service developers must assume network behaviour and performance consistent with the existing characteristics of deployed mission networks, taking bandwidth limitations, extended latency and potential unreliability into account, e.g. speed differentials between typical wired network and wireless wide area radio networks using
+	<itemizedlist>
+      <listitem>static line of sight radio or geostationary satellite circuits are ~500 up to 4000,</listitem>
+      <listitem>Tactical radio circuits are up to ~10<superscript>6</superscript>.</listitem>  
+    </itemizedlist>Within the Federated Mission Network architecture, new services shall be designed around the Request/Response, Publish/Subscribe, or Message Queue patterns.  IT capabilities used in a FMN context shall provide read or read/write services as appropriate, support dynamic bindings, and must include authentication as part of their service.
+    </para>
+	<figure id="v3i-fmn-info" float="0">
           <title>Sample FMN Information Environment</title>
           <mediaobject>
             <imageobject>
@@ -129,53 +71,120 @@
             </imageobject>
           </mediaobject>
         </figure>
-    <para>This profile is primarily aimed for services provided by Option A members. Option B 
-      and C members may initially not meet minimum service requirements. To allow participation
-      in those cases, Option B and C members must establish a hosting agreement with an Option A 
-      member. Option B members must provide their local area networks incl. IP management 
-      capability within the respective physical and cyber security boundaries of the host. 
-      Services must be able to function in a network environment containing firewalls and various
-      routing and filtering schemes; therefore, developers must use standards and well-known ports
-      wherever possible, and document non-standard configurations as part of their service interface. 
-      Service developers must assume network behavior and performance consistent with the existing 
-      characteristics of these networks, taking bandwidth limitations, extended latency and potential
-      unreliablities into account, e.g. the speed differential between a typical wired network and
-      a wireless wide area radio network is ~10 <superscript>6</superscript>.</para>
-    <para>Within the Federated Mission Network architecture, new services shall be designed around 
-      the Request/Response, Publish/Subscribe, or Message Queue patterns. IT capabilities used in
-      a FMN context shall provide read or read/write services as appropriate, support dynamic 
-      bindings, and must include authentication as part of their service.</para>
+    <para>The following FMN architecture principles have been developed: </para>
+    <itemizedlist>
+      <listitem>Federation: A federated Mission Network (MN) is the episodic federation of autonomous mission network elements for the purpose of executing a mission.</listitem>
+      <listitem>Information Sharing: A MN shall enable information discovery and provide access to information relevant to the mission.</listitem>
+	  <listitem>Shared Awareness:  A MN shall provide the ability to end-users to gain a single view of the theatre of operations.</listitem>
+      <listitem>Data Management:  A MN shall minimize the data management burden.</listitem>
+      <listitem>Security: A MN shall secure information against unauthorized access.</listitem>
+      <listitem>Mission Platform: A MN shall provide a reliable foundation for deploying applications and services as required by operational needs.</listitem>
+      <listitem>Elasticity: A MN shall provide the ability to add and remove Mission Network Contributing Participants, to scale-up or scale-down capacity and performance or increase, decrease support for operational footprints based on the mission life-cycle needs.</listitem>
+      <listitem>Robustness: Services that are deployed onto a MN shall be designed to deal with every conceivable error, no matter how unlikely<footnote><para>It is best to assume that the network is filled with malevolent entities that will send requests and response messages designed to have the worst possible effect.  This assumption will lead to suitably protective design.</para></footnote>.</listitem>
+      <listitem>Standards: Federated Technology components of the Mission Platform shall be conformant with agreed FMN interoperability standards.</listitem>
+      <listitem>Continual Improvement: Federated Mission Networking leverages existing technology investments to generate operational benefits.</listitem>
+      <listitem>Proven Technologies:  A MN shall be based on proven technologies that are commonly available.</listitem>
+      <listitem>Reuse:  A MN shall enable the sharing and re-using of services, common functions and systems between Mission Participants.</listitem>
+    </itemizedlist>
+    <para>In addition, well defined Governance and Life-cycle management capabilities (including Service Management and Control) must be in place to ensure controlled management of capability enhancements for the generic FMN configuration templates as well as the in-service MNs and to ensure assured delivery of services from providers/producers to consumers/customers based on well-defined Service Level Agreements (SLAs).</para>
+    <para>The figure above depicts a high level illustration of a future federated mission execution environment with three different options for participating in the Mission (Options A, B and C).</para>
+    <para>This profile is primarily aimed to define interface standards for services provided by Mission Network Contributing Participants (Option A).  Other mission participants (Option B and C) may (initially) not meet minimum service and service interoperability requirements.  To allow participation in those cases, mission participants must establish a hosting agreement with a Mission Network Contributing Participant.  Option B mission participants must provide their local area networks incl. IP management capability within the respective physical and cyber security boundaries of the host.  Services must be able to function in a network environment containing firewalls and various routing and filtering schemes; therefore, developers must use standards and well-known ports wherever possible, and document non-standard configurations as part of their service interface.</para>
   </sect1>
   <sect1>
-    <title>Change Mangement</title>
-    <para>Until the formal Life-cycle Management capability for FMN has been established the NCI
-      Agency acts as the custodian for this interim FMN Profile; it is a living document and is
-      expected to be updated on a regularly. NISP defines four stages within the life-cycle of a 
-      standard: emerging, mandatory, fading and retired; in those situations where multiple stages
-      are mentioned the FMN Profile recommends dates by which the transition to the next stage is
-      to be completed by all FMN members. If a nation decides to implement emerging standards it
-      is her responsibility to maintain backwards compatibility to the mandatory standard.</para>
-    <para>Any discrepancies discovered between different elements of this Profile, shall be resolved
-      through a change proposal prepared by the responsible NATO body or an FMN member. Requests 
-      for change (RFC) shall be submitted to NCI Agency. In the interim the NATO FMN Implementation
-      Plan WG 3 will review RFCs and if required will publish new versions of the Interim FMN Profile.
-    </para>
+    <title>Life-Cycle of FMN Profile Standard Entries</title>
+<para>The FMN Profile defines four stages within the life-cycle of a standard entry: <emphasis role="bold">emerging, current, fading and retired</emphasis>; in addition, FMN interoperability standards and formats fall into four obligation categories: 
+<itemizedlist>
+<listitem><emphasis role="underline">(M)andatory</emphasis>: these interoperability standards and formats must be met to enable Federated Mission Networking;</listitem>
+<listitem><emphasis role="underline">(C)onditional</emphasis>: these interoperability standards and formats must be present under certain circumstances;</listitem>
+<listitem><emphasis role="underline">(R)ecommended</emphasis>: there may be valid reasons in particular circumstances not to include these interoperability standards and formats, but the full implications must be understood and carefully weighed; and</listitem>
+<listitem><emphasis role="underline">(O)ptional</emphasis>: these interoperability standards and formats are truly optional.</listitem>
+</itemizedlist>
+</para>
+<para>It should be noted that these stages are referencing the usage of a standard within the context of the FMN Profile and are different from the life-cycle of the standard itself.  Following the principle of using “Proven Technologies”, it is quite likely that a superseded version of a standard is selected as the current/mandatory standard for implementation on a Mission Network.</para>
+<para>In those situations where multiple stages are mentioned, the FMN Profile recommends timelines (annual increments) by which the transition to the next stage is to be completed.  If a FMN Affiliate decides to implement emerging standards earlier, it is his/her responsibility to maintain backwards compatibility to the mandatory standard version.  If not otherwise specified, standards mentioned in the FMN Profile are current/mandatory.</para>
+	<figure id="v3i-fmn-stds-cat" float="0">
+          <title>FMN Standards Categories</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="../figures/fmn-standards-categories.svg"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+    <para>Until the formal Life-cycle Management capability for FMN has been established the NCI Agency acts as the custodian for this interim FMN Profile; it is a living document and is expected to be updated regularly.  Any discrepancies discovered between different elements of this profile, shall be resolved through a change proposal prepared by the responsible NATO body or an FMN member.  Requests for change (RFC) shall be submitted to NCI Agency.  In the interim the NATO FMN Implementation Plan Team will review RFCs and if required will publish new versions of the FMN Profile.</para>
   </sect1>
-
+  <sect1>
+    <title>Capability Configuration</title>
+	<para>This profile defines the initial baseline for FMN Milestone 1and is expected to evolve over time; the specific profile revision used to achieve interoperability is also noted.      
+	<table frame="all">
+        <title>Capability Configurations</title>
+        <tgroup cols="5">
+          <colspec colwidth="5*" />
+          <colspec colwidth="10*" />
+          <colspec colwidth="20*" />
+          <colspec colwidth="30*" />
+          <colspec colwidth="20*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Target Date</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Name and Originator</emphasis>
+              </entry>
+			  <entry>
+                <emphasis role="bold">High Level Overview</emphasis>
+              </entry>
+			  <entry>
+                <emphasis role="bold">Backward Compatibility</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1.</entry>
+              <entry>Q2 2014</entry>
+              <entry>NRF 2015 (Originator: SHAPE J6)</entry>
+              <entry>NRF 2015 should aim to implement the interoperability standards defined in this profile to identify gaps and potential problem areas.</entry>
+              <entry>NRF 2015 needs to be also compatible with MC 593/1.</entry>
+              <entry>2.</entry>
+              <entry>Q2 2014</entry>
+              <entry>Updated AMN Profile for RSM (AMN Secretariat TMO)</entry>
+              <entry>Further harmonisation of the current AMN Profile with the FMN Profile.</entry>
+              <entry></entry>
+              <entry>3.</entry>
+              <entry>Q2 2015</entry>
+              <entry><para>FMN Milestone 1 – Mission Execution Environment</para>
+			  <para>(Originator: NATO FMN Implementation Plan Team)</para></entry>
+              <entry>FMN Milestone 1 refers to an FMN maturity level in which separate physical infrastructures exist per mission and per security classification level.  Information and data should be labelled electronically to support cross-domain exchange with partners not operating on the mission network.</entry>
+              <entry>FMN Milestone 1 is an evolution of the AMN Fielded baseline. Note: Biometrics interoperability standards have been removed and the network architecture changed from a hub and spoke to a meshed concept.</entry>
+              <entry>4.</entry>
+              <entry>2017</entry>
+              <entry><para>FMN Milestone 2 – Mission Execution Environment</para>
+			  <para>(Originator: NATO FMN Implementation Plan Team)</para></entry>
+              <entry>FMN Milestone 2 aims to achieve support for multiple security classification levels within each mission, still with a separate physical infrastructure per mission, introducing the concept of a dual-level security domain (e.g.: S/C, C/R, R/U). The current FMN Profile will identify relevant standards for this baseline as (emerging).
+</entry>
+              <entry>It is also expected that additional standards for Community of interest services will be identified once the enduring FMN Governance and Management Structure is in place.</entry>
+              </row>
+          </tbody>
+        </tgroup>
+</para>
+  </sect1>
+  <sect1>
+    <title>Interoperability Standards</title>
+	<para>Federated Mission Networking is founded on a service oriented approach.  The interoperability standards applicable to FMN Services are structured in accordance with the NATO C3 Classification Taxonomy [AC/322-N(2012)0092-AS1].  The C3 Classification Taxonomy is used to identify services, and associated Service Interoperability Points (SIP) where two Mission Network Contributing Participants will interface and the standards to be used by the relevant systems.  The taxonomy is also used to structure this section, commencing with Communications Services and working up the Taxonomy from beneath.</para>
+</sect1>
   <sect1>
     <title>Communication Services</title>
-      <para>Communications Services interconnect systems and mechanisms for the opaque transfer of selected
-        data between or among access points, in accordance with agreed quality parameters and without change
-        in the form or content of the data as sent and received. Internet Protocol (IP) technology is the
-        enabler of adaptive and flexible connectivity. Its connectionless structure, with its logical 
-        connectivity, provides scalability and manageability and is also future-proof by insulating services
-        above from the diverse transport technologies below. FMN instances are using a converged IP network
-        applying open standards and industry best practices. For Milestone 1 of the FMN architecture the
-        interconnection between autonomous systems will be based on IPv4. However, the next evolution (FMN 
-        Milestone 2) will be based on IPv6 for interconnecting autonomous systems. Therefore all new 
-        equipment, services and applications must support a dual IPv4/IPv6 stack implementation.</para>
+      <para>Communications Services interconnect systems and mechanisms for the opaque transfer of selected data between or among access points, in accordance with agreed quality parameters and without change in the form or content of the data as sent and received.  Internet Protocol (IP) technology is the enabler of adaptive and flexible connectivity. Its connectionless structure, with its logical connectivity, provides scalability and manageability and is also future-proof by insulating services above from the diverse transport technologies below.</para>
+	  <para>FMN instances are using a converged IP network applying open standards and industry best practices.  For Milestone 1 of the FMN architecture the interconnection between Mission Network Elements (MNE) also referred to as autonomous systems will be based on IPv4.  However, the next evolution (FMN Milestone 2) will be based on IPv6 for interconnecting autonomous systems.  Therefore all new equipment, services and applications must support a dual IPv4/IPv6 stack implementation.</para>
+	 <sect2>
+    <title>Edge Transport Services</title>
+	<para>The interconnection between Mission Network Elements is based on STANAG 5067 enhanced with a non-tactical connector and optional 1Gb/s Ethernet.  STANAG 5067 provides additional implementation, security and management guidance.  Depending on the classification level of the Mission Network dedicated transmission security (crypto) equipment might be used.</para>
       <table frame="all">
-        <title>Communication Services Standards</title>
+        <title>Edge Transport Services and Communications Equipment Standards</title>
         <tgroup cols="3">
           <colspec colwidth="20*" />
           <colspec colwidth="50*" />
@@ -183,98 +192,254 @@
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">ID:Purpose</emphasis>
+                <emphasis role="bold">ID: Services/Purpose</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Standard</emphasis>
+                <emphasis role="bold">Standards</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Guidance</emphasis>
+                <emphasis role="bold">Implementation Guidance</emphasis>
               </entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry>1:Naming and addressing</entry>
-              <entry>Classless Inter Domain Routing (IETF RFC 4632)
-                <para>Host Extensions for IP Multicasting (IETF RFC 1112)</para>
-                <para>The Internet Multicast Address Allocation (IETF RFC 2908)</para>
-                <para>IANA Guidelines for IPv4 Multicast Address Assignments (IETF RFC 3171)</para>
-                <para>Administratively Scoped IP Multicast (IETF RFC 2365)</para></entry>
+              <entry>1.1: Edge Transport Services between autonomous systems</para><para>(IP over point-to-point Ethernet links on optical fibre)</entry>
+              <entry><para>ISO/IEC 11801: 2002-09, Information technology –Generic cabling for customer premises, Clause 9.  Single-mode optical fibre OS1 wavelength 1310nm.</para><para>ITU-T G.652 (11/2009), Characteristics of a single-mode optical fibre and cable. (9/125μm)</para><para>IEC 61754-20: 2012(E), Fibre optic interconnecting devices and passive components - Fibre optic connector interfaces - Part 20: Type LC connector family.  LC-duplex single-mode connector.</para><para>IEEE Std 802.3-2013, Standard for Ethernet- Section 5 - Clause 58 - 1000BASE-LX10, Nominal transmit wavelength 1310nm.</para><para><emphasis role="underline">IPv4 over Ethernet (Mandatory)</emphasis>: IETF STD 37: 1982 / IETF RFC 826: 1982, An Ethernet Address Resolution Protocol.</para><para><emphasis role="underline">IPv6 over Ethernet (Optional)</emphasis>: (M) IETF RFC 4861: 2007, Neighbor Discovery for IP version 6 (IPv6)</para></entry>
+              <entry>Use 1Gb/s Ethernet over Single-mode optical fibre (SMF).</entry>
+            </row>
+            <row>
+              <entry>1.2: Edge Transport Services between autonomous systems ­ (time-division multiplexing wide area network)</entry>
+              <entry><para><emphasis role="underline">Mandatory</emphasis>: Fractional E1 (Nx64kbit/s) conformant with: 
+			  <itemizedlist><listitem>ITU-T G.703 (11/2001), Physical/electrical characteristics of hierarchical digital interfaces.</listitem>
+			  <listitem>ITU-T G.704 (10/1998), Synchronous frame structures used at 1544, 6312, 2048, 8448 and 44 736 kbit/s hierarchical levels.</listitem>
+			  <listitem>IETF STD 51: 1994, Point-to-point Protocol (PPP).</listitem>
+			  </itemizedlist></para>
+			  <para><emphasis role="underline">Recommended</emphasis>: Full E1 (2.048 Mbit/s) conformant with
+			  <itemizedlist><listitem>ITU-T G.703 (11/2001), Physical/electrical characteristics of hierarchical digital interfaces.</listitem>
+			  <listitem>IETF RFC1994: 1996, PPP Challenge Handshake Authentication Protocol (CHAP).</listitem>
+			  </itemizedlist>
+			  </para>
+			  <para>IPv4: 
+			  <itemizedlist><listitem>(O) IETF RFC 3544: 2003, IP header compression over PPP. ()</listitem>
+			  </itemizedlist>
+			  </para>
+			  <para><emphasis role="underline">IPv6 (Optional)</emphasis>: 
+			  <itemizedlist>
+			  <listitem>(M) IETF RFC 5072: 2007, IP Version 6 over PPP.</listitem>
+			  <listitem>(M) IETF RFC 4861: 2007, Neighbor Discovery for IP version 6 (IPv6).</listitem>
+			  <listitem>(O) IETF RFC5172: 2008, Negotiation for IPv6 Datagram Compression Using IPv6 Control Protocol. ()</listitem>
+			  </itemizedlist>
+			  </para>
+			  </entry>
+              <entry><para>This interconnection is based on STANAG 5067, Standard for interconnection of IPv4 networks at Mission Secret and Unclassified Security Levels.  STANAG 5067 provides additional implementation, security and management guidance.</para>
+			  <para>Combined with TRANSEC crypto or other forms of link protection, CHAP (IETF RFC 1994) is not required. Otherwise, CHAP is recommended.</para></entry>
+            </row>
+            <row>
+              <entry>2: Inter-Autonomous System (AS) routing</entry>
+              <entry><para><emphasis role="underline">Mandatory</emphasis>: Border Gateway Protocol V4  
+<itemizedlist>
+<listitem>IETF RFC 1997: 1996, BGP Communities Attribute.</listitem>
+<listitem>IETF RFC 3392: 2002, Capabilities Advertisement with BGP-4.</listitem>
+<listitem>IETF RFC 4271: 2006, A Border Gateway Protocol 4 (BGP-4).</listitem>
+<listitem>IETF RFC 4760: 2007, Multiprotocol Extensions for BGP-4.</listitem>
+</itemizedlist>
+</para>
+<para><emphasis role="underline">Recommended</emphasis> (32-bit autonomous system numbers): 
+<itemizedlist>
+<listitem>IETF RFC 6793: 2012, BGP Support for Four-Octet Autonomous System (AS) Number Space.</listitem>
+<listitem>IETF RFC 4360: 2006, BGP Extended Communities Attribute.</listitem>
+<listitem>IETF RFC 5668: 2009, 4-Octet AS Specific BGP Extended Community.</listitem>
+</itemizedlist>
+</para>
+<para><emphasis role="underline">Optional for IPv6</emphasis>: 
+<itemizedlist><listitem>IETF RFC 2545: 1999, Use of BGP-4 Multiprotocol Extensions for IPv6 Inter-Domain Routing.</listitem>
+</itemizedlist>
+</para>
+</entry>
+              <entry><para>BGP deployment guidance in IETF RFC 1772: 1995, Application of the Border Gateway Protocol in the Internet.</para>
+			  <para>BGP sessions must be authenticated, through a TCP message authentication code (MAC) using a one-way hash function (MD5), as described in IETF RFC 4271.</para>
+		</entry>
+            </row>
+            <row>
+              <entry>3: Inter-Autonomous System (AS) multicast routing</entry>
+              <entry><para><emphasis role="underline">IPv4 (Mandatory)</emphasis>: 
+<itemizedlist>
+<listitem>IETF RFC 3618: 2003, Multicast Source Discovery Protocol (MSDP).()</listitem>
+<listitem>IETF RFC 3376: 2002, Internet Group Management Protocol, Version 3 (IGMPv3).</listitem>
+<listitem>IETF RFC 4601, Protocol Independent Multicast version 2 (PIMv2) Sparse Mode (SM).</listitem>
+<listitem>IETF RFC 4760 “Multiprotocol Extensions for BGP (MBGP)”</listitem>
+</itemizedlist>
+</para>
+<para><emphasis role="underline">Optional</emphasis>: 
+<itemizedlist>
+<listitem>IETF RFC 4604: 2006, Using Internet Group Management Protocol Version 3 (IGMPv3) and Multicast Listener Discovery Protocol Version 2 (MLDv2) for Source-Specific Multicast.</listitem>
+</itemizedlist>
+</para>
+<para><emphasis role="underline">Note on IPv6</emphasis>: 
+<highlight>No standard solution for IPv6 multicast routing has yet been widely accepted.  More research and experimentation is required in this area.</highlight>
+</para>
+			  </entry>
               <entry></entry>
             </row>
             <row>
-              <entry>2:Basic connectivity between technical services</entry>
-              <entry>Internet Protocol (IETF RFCs 791/792, 919/922/950/1112, 1812, 2644)
-                <para>Internet Protocol, Version 6 (IPv6) (IETF RFCs 2460/2474/3484/3810/4291/4443/4861/5095)</para>
-                <para>QoS: IP QoS for the NII, NC3A TN-1417</para>
-                <para>User Datagram Protocol (IETF Standard 6, RFC 768)</para>
-                <para>Transmission Control Protocol (IETF Standard 7, RFC 793 updated by RFC 3168)</para></entry>
-              <entry>IP networking. Accommodate both IPv4 and IPv6 addressing.
-                <para>Utilize Quality of Service capabilities of the network according to TN-1417 maturity level QoS-1 (Diffserve, no military precedence on IP)</para>
-                <para>MTU reduced to 1300 bytes, MSS set to 1260 bytes in order to accommodate IP crypto tunnelling within autonomous systems</para></entry>
+              <entry>4: unicast routing</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: 
+			  <para>- Classless Inter Domain Routing (IETF RFC 4632)</para>
+			  </entry>
+              <entry></entry>
             </row>
             <row>
-              <entry>3a:Connectivity between coalition networks (autonomous systems)
-                <para>Fibre</para></entry>
-              <entry>Single-mode optical fibre (SMF) 9/125μm, ISO/IEC OS1, LC duplex single-mode connector
-                <para>IEEE 802.3z Gigabit Ethernet, 1000BASE-LX10, 1310nm</para>
-                <para>Ethernet Address Resolution Protocol (IETF Standard 37. RFC 826) (for IPv4 only)</para>
-                <para>Neighbor Discovery for IP version 6 (IPv6) (IETF RFC 4861) (for IPv6 only)</para>
-                <para>Border Gateway Protocol V4 (IETF RFC 4271, 1997, 4760, 3392, 2545)</para>
-                <para>Multicast Source Discovery Protocol (MSDP) (IETF RFC 3618)</para>
-                <para>Protocol Independent Multicast Sparse Mode (PIM-SM) (IETF RFC 4601)</para></entry>
-              <entry>This interconnection is based on STANAG 5067 enhanced with a non-tactical connector and optional 1Gb/s Ethernet.
-                <para>STANAG 5067 provides additional implementation, security and management guidance.</para>
-                <para>BGP deployment guidance in RFC 1772 must be considered. (RFC 4271 obsoletes RFC 1771)</para>
-                <para>BGP sessions must be authenticated, through a TCP message authentication code (MAC) using a one-way hash function (MD5), as described in RFC 4271.</para>
-                <para>Use 1Gb/s Ethernet over SMF.</para></entry>
+              <entry>5: multicast routing</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: 
+<para>­ IETF RFC 1112: 1989, Host Extensions for IP Multicasting.</para>
+<para>IETF RFC 2908: 2000, The Internet Multicast Address Allocation Architecture</para>
+<para>­	IETF RFC 3171: 2001, IANA Guidelines for IPv4 Multicast Address Assignments.</para>
+<para>­	IETF RFC 2365: 1998, Administratively Scoped IP Multicast.</para>
+</entry>
+              <entry></entry>
+            </row>
+			</tbody>
+        </tgroup>
+      </table>
+      <table frame="all">
+        <title>Communication IA Services Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
+          <colspec colwidth="30*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Services/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1: Information Assurance during Transmission</entry>
+              <entry><emphasis role="underline">Conditional</emphasis>: 
+<para>ACP 176 NATO SUPP 1 (NC)</para>
+</entry>
+              <entry>ACP 176 NATO SUPP 1 (NC) provides configuration settings necessary to ensure interoperability when different cryptographic devices (e.g. KIV-7/KG84/BID1650) are employed together.</entry>
             </row>
             <row>
-              <entry>3b:Connectivity between coalition networks (autonomous systems)
-                <para>Time-division multiplexing (TDM) Wide Area Network (WAN)</para></entry>
-              <entry>E1 ITU-T G703, or fractional E1 ITU G704.
-                <para>Point-to-point (PPP) (IETF Standard 51).</para>
-                <para>Challenge handshake authentication protocol (CHAP) (IETF RFC1994).</para>
-                <para>IP header compression over PPP (IETF RFC 3544) (IPv4 only)</para>
-                <para>IP Version 6 over PPP (IETF RFC 5072) (for IPv6 only)</para>
-                <para>Negotiation for IPv6 Datagram Compression Using IPv6 Control Protocol (IETF RFC5172) (for IPv6 only)</para>
-                <para>Neighbor Discovery for IP version 6 (IPv6) (IETF RFC 4861) (for IPv6 only)</para>
-                <para>Border Gateway Protocol V4 (IETF RFC 4271, 1997, 4760, 3392, 2545)</para>
-                <para>Multicast Source Discovery Protocol (MSDP) (IETF RFC 3618)</para>
-                <para>Protocol Independent Multicast Sparse Mode (PIM-SM) (IETF RFC 4601)</para></entry>
-              <entry>This interconnection is based on STANAG 5067 which provides additional implementation, security and management guidance.
-                <para>Combined with TRANSEC crypto or other forms of link protection, CHAP (RFC 1994) is not required. Otherwise, CHAP is recommended.</para>
-                <para>IP header compression (RFC 3544/5172) is optional.</para>
-                <para>BGP deployment guidance in RFC 1772 must be considered. (RFC 4271 obsoletes RFC 1771)</para>
-                <para>BGP sessions must be authenticated, through a TCP message authentication code (MAC) using a one-way hash function (MD5), as described in RFC 4271.</para></entry>
-            </row>
-            <row>
-              <entry>4:Provide communications security over the network above the 
-                Transport Layer</entry>
-              <entry>Mandatory: Transport Layer Security (TLS) Protocol Version 1.2 (RFC 5246)</entry>
+              <entry>2: Provide communications security over the network above the Transport Layer</entry>
+              <entry>­ <emphasis role="underline">Mandatory</emphasis>: 
+<para>IETF RFC 5246: 2008, Transport Layer Security (TLS) Protocol Version 1.2.</para>
+</entry>
               <entry></entry>
             </row>
           </tbody>
         </tgroup>
       </table>
-    </sect1>
-
+ 	</sect2>
+	<sect2>
+	<title>Communications Access Services</title>
+	<para>Communications Access Services provide end-to-end connectivity of communications or computing devices.  Communications Access Services can be interfaced directly to Transmission Services (e.g. in the case of personal communications systems) or to Transport Services, which in turn interact with Transmission Services for the actual physical transport. Communications Access Services correspond to customer-facing communications services. As such, they can also be referred to as Subscriber Services, or Customer-Edge (CE) Services.</para>
+	<para>With respect to the implementation scope of FMN Milestone 1, the following standards for Packet-based Communications Access services apply:</para>
+      <table frame="all">
+        <title>Packet-based Communications Access Services Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
+          <colspec colwidth="30*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Services/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1: Host-to-host transport services</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: 
+<para><emphasis role="underline">Conditional (not to be used with IP encryption)</emphasis>: IETF RFC 3168: 2001, The Addition of Explicit Congestion Notification (ECN) to IP.
+</para>
+</entry>
+              <entry>Despite IETF RFC 793 is updated by IETF RFC 3168, ECN cannot be used in the FMN in parallel to the deployment of IP encryption.</entry>
+            </row>
+            <row>
+              <entry>2: host-to-host datagram services</entry>
+              <entry>Internet Protocol (<emphasis role="underline">Mandatory</emphasis>): 
+<para>
+<itemizedlist>
+<listitem>IETF RFC 791: 1981, Internet Protocol.</listitem>
+<listitem>IETF RFC 792: 1981, Internet Control Message Protocol.</listitem>
+<listitem>IETF RFC 919: 1994, Broadcasting Internet Datagrams.</listitem>
+<listitem>IETF RFC 922: 1984, Broadcasting Internet Datagrams in the Presence of Subnets.</listitem>
+<listitem>IETF RFC 950: 1985, Internet Standard Subnetting Procedure.</listitem>
+<listitem>IETF RFC 1112: 1989, Host Extensions for IP Multicasting.</listitem>
+<listitem>IETF RFC 1812: 1995, Requirements for IP Version 4 Routers.</listitem>
+<listitem>IETF RFC 2644: 1999, Changing the Default for Directed Broadcasts in Routers.</listitem>
+</itemizedlist>
+</para>
+<para><emphasis role="underline">Internet Protocol version 6 (Recommended)</emphasis>:
+<itemizedlist>
+<listitem>IETF RFC 2460: 1998, Internet Protocol, Version 6 (IPv6) Specification.</listitem>
+<listitem>IETF RFC 3484: 2003, Default Address Selection for Internet Protocol version 6 (IPv6).</listitem>
+<listitem>IETF RFC 3810: 2004, Multicast Listener Discovery Version 2 (MLDv2) for IPv6.</listitem>
+<listitem>IETF RFC 4291: 2006, IP Version 6 Addressing Architecture.</listitem>
+<listitem>IETF RFC 4443: 2006, Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification.</listitem>
+<listitem>IETF RFC 4861: 2007, Neighbor Discovery for IP version 6 (IPv6).</listitem>
+<listitem>IETF RFC 5095: 2007, Deprecation of Type 0 Routing Headers in IPv6.</listitem>
+</itemizedlist>
+</para>
+</entry>
+              <entry>IP networking. Accommodate both IPv4 and IPv6 addressing.
+			  <para>MTU reduced to 1300 bytes, MSS set to 1260 bytes in order to accommodate IP crypto tunnelling within autonomous systems</para>
+			  </entry>
+            </row>
+            <row>
+              <entry>3: Differentiated host-to-host datagram services <para>(IP Quality of Service)</para></entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: 
+<para></listitem>
+	  <listitem>IETF RFC 2474: 1998, Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers.
+		<itemizedlist>
+			<listitem>updated by IETF RFC 3260: 2002, New Terminology and Clarifications for DiffServ.</listitem>
+			<listitem>Conditional: updated by IETF RFC 3168: 2001, The Addition of Explicit Congestion Notification (ECN) to IP.</listitem>
+		</itemizedlist>
+	  </listitem>
+	  <listitem>IETF RFC 4594: 2006, Configuration Guidelines for DiffServ Service Classes.</listitem>
+	  <listitem>ITU-T Y.1540 (03/2011), Internet protocol data communication service – IP packet transfer and availability performance parameters.</listitem>
+	  <listitem>ITU-T Y.1541 (12/2011), Network performance objectives for IP-based services.</listitem>
+	  <listitem>ITU-T Y.1542 (06/2010), Framework for achieving end-to-end IP performance objectives.</listitem>
+	  <listitem>ITU-T M.2301 (07/2002), Performance objectives and procedures for provisioning and maintenance of IP-based networks .</listitem>
+	  <listitem>ITU-T J.241 (04/2005), Quality of service ranking and measurement methods for digital video services delivered over broadband IP networks.</listitem>
+	  </itemizedlist>
+</para>
+</entry>
+              <entry>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP)</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+	</sect2>
+	</sect1>
     <sect1>
       <title>Core Enterprise Services</title>
-      <para>Core Enterprise Services (CES) provide generic, domain independent, technical 
-        functionality that enables or facilitates the operation and use of Information Technology
-        (IT) resources. CES will be broken up further into:</para>
+      <para>Core Enterprise Services (CES) provide generic, domain independent, technical functionality that enables or facilitates the operation and use of Information Technology (IT) resources.  CES will be broken up further into:</para>
       <itemizedlist>
-        <listitem><para>Infrastructure Services (incl. Information Assurance (IA) services)</para></listitem>
-        <listitem><para>Service Oriented Architecture (SOA) Platform Services</para></listitem>
-        <listitem><para>Enterprise Support Services</para></listitem>
+        <listitem>Infrastructure Services (incl. Information Assurance (IA) services)</listitem>
+        <listitem>Service Oriented Architecture (SOA) Platform Services</listitem>
+        <listitem>Enterprise Support Services</listitem>
       </itemizedlist>
       <sect2>
         <title>Infrastructure Services</title>
-          <para>Infrastructure Services provide software resources required to host services in a 
-            distributed and federated environment. They include computing, storage and high-level
-            networking capabilities.</para>
+          <para>Infrastructure Services provide software resources required to host services in a distributed and federated environment. They include computing, storage and high-level networking capabilities.</para>
           <table frame="all">
           <title>Infrastructure Services Standards</title>
           <tgroup cols="3">
@@ -284,78 +449,102 @@
             <thead>
               <row>
                 <entry>
-                  <emphasis role="bold">ID:Purpose</emphasis>
+                  <emphasis role="bold">ID: Service/Purpose</emphasis>
                 </entry>
                 <entry>
                   <emphasis role="bold">Standard</emphasis>
                 </entry>
                 <entry>
-                  <emphasis role="bold">Guidance</emphasis>
+                  <emphasis role="bold">Implementation Guidance</emphasis>
                 </entry>
               </row>
             </thead>
             <tbody>
               <row>
-                <entry>1:Distributed Time Services: Time synchronization</entry>
-                <entry>Mandatory: Network Time Protocol version 3 (NTPv3), dated March 1992. RFC 1305
-                  <para>Option A members must be able to provide a time server on their network element
-                    either directly connected to a stratum-0 device or over a network path to a stratum-1 
-                    time server of another Option A member.</para>
-                  <para>Option B members must use the time service of their host.</para></entry>
-                <entry>A stratum-1 time server is directly linked (not over a network path) to a reliable
-                  source of UTC time (Universal Time Coordinate) such as GPS, WWV, or CDMA transmissions 
-                  through a modem connection, satellite, or radio.
-                  <para>The W32Time service on all Windows Domain Controllers is synchronizing time through
-                    the Domain hierarchy (NT5DS type).</para></entry>
+                <entry>1: <emphasis role="underline">Distributed Time Services</emphasis>: Time synchronization</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+                  <para>IETF RFC 5905: 2010, Network Time Protocol version 4 (NTPv4).</para>
+				  <para>Mission Network Contributing Participants must be able to provide a time server on their network element either directly connected to a stratum-0 device or over a network path to a stratum-1 time server of another Mission Network Contributing Participant.</para>
+				  <para>Other mission participants must use the time service of their host.</para>
+				</entry>
+                <entry>A stratum-1 time server is directly linked (not over a network path) to a reliable source of UTC time (Universal Time Coordinate) such as GPS, WWV, or CDMA transmissions through a modem connection, satellite, or radio.
+                  <para>Stratum-1 devices must implement IPv4 and IPv6 so that they can be used as timeservers for IPv4 and IPv6 Mission Network Elements.</para>
+				  <para>The W32Time service on all Windows Domain Controllers is synchronizing time through the Domain hierarchy (NT5DS type).</para>
+				</entry>
               </row>
               <row>
-                <entry>2:Domain Name Services: Naming and Addressing on a FMN instance</entry>
-                <entry>Domain Name System (IETF Standard 13, RFC 1034/RFC 1035)</entry>
+                <entry>2: <emphasis role="underline">Domain Name Services</emphasize>: Naming and Addressing on a FMN instance</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<itemizedlist>
+					<listitem>IETF STD 13: 1987 /IETF RFC 1034: 1987, Domain Names – Concepts and Facilities.</listitem>
+					<listitem>IETF RFC 1035: 1987, Domain Names – Implementation and specification.</listitem>
+				</itemizedlist>
+				</entry>
                 <entry></entry>
               </row>
               <row>
-                <entry>3:Identification and addressing of objects on the network.</entry>
-                <entry>RFC 1738, Uniform Resource Locators (URL), 20 December 1994
-                  <para>RFC 2396, Uniform Resource Identifiers (URI), Generic Syntax, August 
-                    1998 (updates RFC 1738)</para></entry>
+                <entry>3: Identification and addressing of objects on the network.</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<itemizedlist>
+					<listitem>IETF RFC 1738: 1994, Uniform Resource Locators (URL).</listitem>
+					<listitem>IETF RFC 3986: 2005, Uniform Resource Identifiers (URI), Generic Syntax.(updates IETF RFC 1738)</listitem>
+				</itemizedlist>
+				</entry>
                 <entry>Namespaces within XML documents shall use unique URLs or URIs for the namespace designation.</entry>
               </row>
               <row>
-                <entry>4:Infrastructure IA Services: Facilitate the access and authorization between FMN users and services.</entry>
-                <entry>Directory access and management service:
-                  <itemizedlist>
-                    <listitem><para>version 3 of the Lightweight Directory Access Protocol (LDAPv3), RFC 4510
-                      and associated LDAP Technical Specification (RFC 4511-4519)</para></listitem>
-                    <listitem><para>LDAP Interchange Format, RFC 2849</para></listitem>
-                  </itemizedlist>
-                  <para>Authentication: Kerberos version 5, RFC 1510</para>
-                  <para>Public Key Infrastructure: Version 3 public-key certificates and
-                    Version 2 CRLs in accordance with ITU-T X.509v3</para>
-                  <para>NATO Public Key Infrastructure (NPKI) Certificate Policy (CertP) Rev2,
-                    AC/322D(2004)0024REV2</para></entry>
-                <entry>Options available to FMN members when joining their network element to a FMN instance:
-                  <itemizedlist>
-                    <listitem><para>Join global Forest</para></listitem>
-                    <listitem><para>Join Forest of the leading Option A FMN member</para></listitem>
-                    <listitem><para>Create standalone forest</para></listitem>
-                  </itemizedlist>
-                  <para>(Option 1 and 2 should be considered before option 3).</para>
-                  <para>Whilst LDAP is a vendor independent standard, in practice Microsoft Active Directory
-                    (AD) is a common product providing directory services on national and NATO owned Mission 
-                    Network elements. AD provides additional services aside from LDAP like functionality.</para></entry>
+                <entry>4: Infrastructure Storage Services:  storing and accessing information about the time of events and transactions</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<para>ISO/IEC 9075 (Parts 1 to-14):2011, Information technology - Database languages - SQL</para>
+				<para>Databases shall stores date and time values everything in TIMESTAMP WITH TIME ZONE or TIMESTAMPTZ</para>
+				</entry>
+                <entry>Missions might conduct transactions across different time zones.  Timestamps are essential for auditing purposes. It is important that the integrity of timestamps is maintained across all Mission Network Elements.  From Oracle 9i, PostgreSQL 7.3 and MS SQL Server 2008 onwards, the time zone can be stored with the time directly by using the TIMESTAMP WITH TIME ZONE (Oracle, PostgreSQL) or datetimeoffset (MS-SQL) data types.</entry>
               </row>
+              <row>
+                <entry>5: <emphasis role="underline">Infrastructure IA Services</emphasize>: Facilitate the access and authorization between FMN users and services.</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				  <para>Directory access and management service: 
+                  <itemizedlist>
+                    <listitem>IETF RFC 4510: 2006, Lightweight Directory Access Protocol   (LDAP) Technical Specification Road Map (LDAPv3).</listitem>
+                    <listitem>IETF RFC 4511-4519:2006, LDAP Technical Specification.()</listitem>
+                    <listitem>IETF RFC 2849: 2000, The LDAP Interchange Format 9 (LDIF).</listitem>
+                  </itemizedlist>
+				  </para>
+				</entry>
+                <entry>Options available to FMN members when joining their network element to a FMN instance: 
+                  <itemizedlist>
+                    <listitem>1) Establish a separate forest.</listitem>
+                    <listitem>2) Join Forest of another Mission Network Contributing Participant</listitem>
+                  </itemizedlist>
+					<para>For cross application/service authentication between separate forests claims based authentication mechanisms (SAML 2.0 or WS-trust/WS-Authentication) shall be used.</para><para>Whilst LDAP is a vendor independent standard, in practice Microsoft Active Directory (AD) is a common product providing directory services on national and NATO owned Mission Network elements. AD provides additional services aside from LDAP like functionality.</para>
+				</entry>
+              </row>
+			  <row>
+              <entry>6: <emphasis role="underline">Infrastructure IA Services: Digital Certificate Services</emphasis></entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: 
+				<para>ITU-T X.509 (11/2008), Information technology - Open systems interconnection - The Directory: Public-key and attribute certificate frameworks 
+                  <itemizedlist>
+                    <listitem>the version of the encoded public-key certificate shall be v3.</listitem>
+                    <listitem>the version of the encoded certificate revocation list (CRL) shall be v2.</listitem>
+                  </itemizedlist>
+				</para>
+				<para>NATO Public Key Infrastructure (NPKI) Certificate Policy (CertP) Rev2, AC/322D(2004)0024REV2</para>
+			  </entry>
+              <entry></entry>
+			  </row>
+              <entry>7: <emphasis role="underline">Infrastructure IA Services: Authentication Services</emphasis></entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: 
+			  <para>IETF RFC 1510:1993, The Kerberos Network Authentication Service (V5).</para>
+			  </entry>
+              <entry></entry>
+			  </row>
             </tbody>
           </tgroup>
           </table>
       </sect2>
       <sect2>
         <title>SOA Platform Services</title>
-          <para>SOA Platform Services provide a foundation to implement web-based services in a 
-            loosely coupled environment, where flexible and agile service orchestration is a 
-            requirement. They offer generic building blocks for SOA implementation (e.g. discovery,
-            message busses, orchestration, information abstraction and access, etc.) and can be
-            used as a capability integration platform in a heterogeneous service-provisioning 
-            ecosystem.</para>
+          <para>SOA Platform Services provide a foundation to implement web-based services in a loosely coupled environment, where flexible and agile service orchestration is a requirement. They offer generic building blocks for SOA implementation (e.g. discovery, message busses, orchestration, information abstraction and access, etc.) and can be used as a capability integration platform in a heterogeneous service-provisioning ecosystem.</para>
           <table frame="all">0
           <title>SOA Platform Services and Data Standards</title>
           <tgroup cols="3">
@@ -365,107 +554,138 @@
             <thead>
               <row>
                 <entry>
-                  <emphasis role="bold">ID:Purpose</emphasis>
+                  <emphasis role="bold">ID: Service/Purpose</emphasis>
                 </entry>
                 <entry>
                   <emphasis role="bold">Standard</emphasis>
                 </entry>
                 <entry>
-                  <emphasis role="bold">Guidance</emphasis>
+                  <emphasis role="bold">Implementation Guidance</emphasis>
                 </entry>
               </row>
             </thead>
             <tbody>           
-              <row>
-                <entry>1: Web Platform Services</entry>
-                <entry>Hypertext Transfer Protocol HTTP 1.1 (RFC 2616)
-                  <para>Upgrading to TLS within HTTP 1.1 (RFC 2817)</para>
-                  <para>Uniform Resource Identifier (URI): Generic Syntax (RFC 3938)</para></entry>
-                <entry>HTTP shall be used as the transport protocol for information without 
-                  'need-to-know' caveats between all service providers and consumers.
-                  <para>HTTPS shall be used as the transport protocol between all service 
-                    providers and consumers to ensure confidentiality requirements.</para></entry>
+              <row><entry><emphasis role="underline">Web Platform Services</emphasis></entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<itemizedlist>
+				<listitem>IETF RFC 2616: 1999, Hypertext Transfer Protocol HTTP/1.1.()</listitem>
+				<listitem>IETF RFC 2817: 2000,Upgrading to TLS Within HTTP/1.1.</listitem>
+				<listitem>IETF RFC 3986: 2005, Uniform Resource Identifier (URI): Generic Syntax.</listitem>
+				</itemizedlist>
+				</entry>
+                <entry><para>HTTP shall be used as the transport protocol for information without 'need-to-know' caveats between all service providers and consumers (unsecured HTTP traffic).</para>
+				<para>HTTPS shall be used as the transport protocol between all service providers and consumers to ensure confidentiality requirements (secured HTTP traffic).</para>
+				<para>Unsecured and secured HTTP traffic shall share the same port.</para>
+				</entry>
               </row>
               <row>
-                <entry>2:Publishing information including text, multimedia, hyperlink 
-                  features, scripting languages and style sheets on the network</entry>
-                <entry>HTML 4.01(RFC2854:2000), HyperText Markup Language (HTML), W3C
-                  <para>Emerging (2014): HyperText Markup Language, Version 5 (HTML 5), 
-                    W3C Candidate Recommendation, Dec 2012</para></entry>
+                <entry>2: Publishing information including text, multimedia, hyperlink features, scripting languages and style sheets on the network</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<para>HyperText Markup Language (HTML) 4.01 (strict)</para>
+				<itemizedlist>
+				<listitem>ISO/IEC 15445:2000, Information technology -- Document description and processing languages -- HyperText Markup Language (HTML).</listitem>
+				<listitem>IETF RFC2854:2000, The 'text/html' Media Type.</listitem>
+				</itemizedlist>
+				<emphasis role="underline">Emerging (2015)</emphasis>:
+				<para>HyperText Markup Language, Version 5 (HTML 5), W3C Candidate Recommendation, Aug 2013</para>
+				</entry>
                 <entry></entry>
               </row>
               <row>
-                <entry>3:Providing a common style sheet language for describing presentation 
-                  semantics (that is, the look and formatting) of documents written
-                  in markup languages like HTML.</entry>
-                <entry>Mandatory: Cascading Style Sheets (CSS), Level 2 revision 1 
-                  (CSS 2.1), W3C Recommendation, Sep 2009.
-                  <para>Emerging: Cascading Style Sheets (CSS), Level 3(CSS 3), W3C Recommendation</para></entry>
+                <entry>3: Providing a common style sheet language for describing presentation semantics (that is, the look and formatting) of documents written in markup languages like HTML.</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<para>Cascading Style Sheets (CSS), Level 2 revision 1 (CSS 2.1), W3C Recommendation, September 2009.</para>
+				<para><emphasis role="underline">Emerging (2014)</emphasis>:</para>
+				<para>Cascading Style Sheets (CSS) Level 3:</para>
+					  <itemizedlist>
+					  <listitem>Cascading Style Sheets (CSS), Level 2 revision 1 (including errata) (CSS 2.1), W3C Recommendation, June 2011.</listitem>
+					  <listitem>CSS Style Attributes, W3C Candidate Recommendation, 12 October 2010</listitem>
+					  <listitem>Media Queries, W3C Recommendation, 19 June 2012.</listitem>
+					  <listitem>CSS Namespaces Module, W3C Recommendation, 29 September 2011.</listitem>
+					  <listitem>Selectors Level 3, W3C Recommendation, 29 September 2011.</listitem>
+					  <listitem>CSS Color Module Level 3, W3C Recommendation, 07 June 2011.</listitem>
+					  </itemizedlist>
+				</entry>
                 <entry></entry>
               </row>
               <row>
-                <entry>4:General formatting of information for sharing or exchange</entry>
-                <entry>Extensible Markup Language (XML), v1.0 3rd Edition
-                  <para>XML Schema: Structures 1.0</para>
-                  <para>XML Schema: Data types 1.0 XML Namespaces: W3C (REC-xmlnames-1999-01-14)</para></entry>
-                <entry>XML shall be used for data exchange to satisfy those IERs within a FMN instance that 
-                  are not addressed by a specific information exchange standard. XML Schemas and namespaces 
-                  are required for all XML documents.</entry>
+                <entry>4: General formatting of information for sharing or exchange.</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>: 
+				<itemizedlist>
+				<listitem>Extensible Markup Language (XML) 1.0 (Fifth Edition), W3C Recommendation, 26 November 2008.</listitem>
+				<listitem>XML Schema Part 1: Structures Second Edition, W3C Recommendation, 28 October 2004.</listitem>
+				<listitem>XML Schema Part 2: Datatypes Second Edition, W3C Recommendation, 28 October 2004.</listitem>
+				</itemizedlist>
+				</entry>
+                <entry>XML shall be used for data exchange to satisfy those IERs within a FMN instance that are not addressed by a specific information exchange standard. XML Schemas and namespaces are required for all XML documents.</entry>
               </row>
               <row>
-                <entry>5:Providing web content or web feeds for syndication to web sites as well as 
-                  directly to user agents.</entry>
-                <entry>Mandatory: Really Simple Syndication (RSS) 2.0 Specification
-                  <para>Atom 1.0: Atom syndication format, Dec 2005 (RFC 4287) and Atom Publishing
-                    Protocol , Oct 2007 (RFC 5023)</para></entry>
-                <entry></entry>
+                <entry>5: Providing web content or web feeds for syndication to web sites as well as directly to user agents.</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>: 
+				<itemizedlist>
+				<listitem>IETF RFC 4287: 2005, The Atom Syndication Format. (Atom 1.0)</listitem>
+				<listitem>IETF RFC 5023: 2007, TheAtom Publishing Protocol.()</listitem>
+				</itemizedlist>
+				<para><emphasis role="underline">Recommended</emphasis>:</para>
+				<para>(Really Simple Syndication) RSS 2.0 Specification Version 2.0.11, 30 March 2009.</para>
+				</entry>
+                <entry>For backwards compatibility it is recommended to also implement RSS 2.0.</entry>
               </row>
               <row>
                 <entry>6: Encoding of location as part of web feeds</entry>
-                <entry>Mandatory: GeoRSS Simple encoding.
-                  <para>Where GeoRSS Simple is not appropriate the OGC GeoRSS Geography Markup Language
-                    (GML) Application Profile shall be used</para></entry>
-                <entry>GeoRSS extensions should be used to describe location aspects within ATOM and RSS feeds.</entry>
+                <entry>­	GeoRSS: Geographically Encoded Objects for RSS feeds:
+				<emphasis role="underline">Mandatory</emphasis>: 
+                  <para>GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <georss:box>.</para>
+				<emphasis role="underline">Recommended</emphasis>: 
+                  <para>GeoRSS GML Profile 1.0 a GML subset for <gml:Point>, <gml:LineString>, <gml:Polygon>, <gml:Envelope> of 
+				  <itemizedlist>
+				  <listitem>OGC 03-105r1: 2004-02-07, OpenGIS Geography Markup Language (GML) Implementation Specification version 3.1.1.</listitem>
+				  </itemizedlist></para></entry>
+                <entry><para>GML allows you to specify a coordinate reference system (CRS) other than WGS84 decimal degrees (think lat/long). If there is a need to express geography in a CRS other than WGS84, it is recommended to specify the geographic object multiple times, one in WGS84 and the others in your other desired CRSes.</para>
+				<para>Schema location for GeoRSS GML Profile 1.0: http://georss.org/xml/1.0/gmlgeorss.xsd</para>
+				</entry>
               </row>
               <row>
                 <entry>7: Message Security for web services</entry>
-                <entry>WS-Security: SOAP Message Security 1.1
-                  <para>XML Encryption Syntax and Processing (dtd. 10 December 2002)</para>
-                  <para>XML Signature Syntax and Processing 1.0 (Second Edition)</para>
-                  <para>WS-I Basic Security profile 1.1</para></entry>
-                <entry>Specifies how integrity and confidentiality can be enforced on messages
-                  and allows the communication of various security token formats, such as SAML, 
-                  Kerberos, and X.509v3. Its main focus is the use of XML Sig nature and XML 
-                  Encryption to provide end-to-end security.
-                  <para>Specifies a process for encrypting data and representing the result in XML.
-                    Referenced by WS-Security specification.</para>
-                  <para>Specifies XML digital signature processing rules and syntax. Referenced 
-                    by WS-Security specification.</para></entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<itemizedlist>
+				  <listitem>WS-Security: SOAP Message Security 1.1.</listitem>
+				  <listitem>XML Encryption Syntax and Processing, W3C Recommendation, 10 December2002.</listitem>
+				  <listitem>XML Signature Syntax and Processing (Second Edition), W3C Recommendation, 10 June 2008. </listitem>
+				  <listitem>OASIS WS-I Basic Security Profile Version 1.1, 24 January 2010.</listitem>
+				</itemizedlist>
+				</entry>
+                <entry>Specifies how integrity and confidentiality can be enforced on messages and allows the communication of various security token formats, such as SAML, Kerberos, and X.509v3. Its main focus is the use of XML Signature and XML Encryption to provide end-to-end security.
+				<para>Specifies a process for encrypting data and representing the result in XML. Referenced by WS-Security specification.</para>
+				<para>Specifies XML digital signature processing rules and syntax. Referenced by WS-Security specification.</para>
+				</entry>
               </row>
               <row>
-                <entry>8:Security token format</entry>
-                <entry>SAML 2.0
-                  <para>Web Services Security: SAML Token Profile 1.1</para></entry>
-                <entry>Provides XML-based syntax to describe uses security tokens containing assertions 
-                  to pass information about a principal (usually an end-user) between an identity provider
-                  and a web service.
+                <entry>8: Security token format</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<itemizedlist>
+				  <listitem>OASIS Standard, Security Assertion Markup Language (SAML) 2.0), March 2005. </listitem>
+				  <listitem>OASIS Standard, Web Services Security: SAML Token Profile 1.1 incorporating approved errata 1, Nov 2006.</listitem>
+				</itemizedlist>
+				</entry>
+                <entry>Provides XML-based syntax to describe users security tokens containing assertions to pass information about a principal (usually an end-user) between an identity provider and a web service.
                   <para>Describes how to use SAML security tokens with WS-Security specification.</para></entry>
               </row>
               <row>
                 <entry>9: Security token issuing</entry>
-                <entry>WS-Trust 1.4
-                  <para>WS-Federation 1.1</para>
-                  <para>WS-Policy 1.5 and WS-Security Policy 1.3</para></entry>
-                <entry>Uses WS-Security base mechanisms and defines additional primitives and extensions
-                  for security token exchange to enable the issuance and dissemination of credentials 
-                  within different trust domains. Extends WS-Trust to allow federation of different 
-                  security realms.
-                  <para>Used to describe what aspects of the federation framework are required/supported
-                    by federation participants and that this information is used to determine the appropriate
-                    communication options.</para></entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<itemizedlist>
+				  <listitem>OASIS Standard, WS-Trust 1.4, incorporating Approved Errata 01, 25 April 2012.</listitem>
+				  <listitem>Web Services Federation Language (WS-Federation) Version 1.1, December 2006.<footnote><para>This specification is subject to the following copyright: (c) 2001-2006 BEA Systems, Inc., BMC Software, CA, Inc., International Business Machines Corporation, Layer 7 Technologies, Microsoft Corporation, Inc., Novell, Inc. and VeriSign, Inc. All rights reserved.</para></footnote></listitem>
+				  <listitem>Web Services Policy 1.5 – Framework, W3C Recommendation, 04 September 2007.</listitem>
+				  <listitem>WS-Security Policy 1.3, OASIS Standard incorporating Approved Errata 01, 25 April 2012.</listitem>
+				</itemizedlist>
+				</entry>
+                <entry>Uses WS-Security base mechanisms and defines additional primitives and extensions for security token exchange to enable the issuance and dissemination of credentials within different trust domains. Extends WS-Trust to allow federation of different security realms.
+                  <para>Used to describe what aspects of the federation framework are required/supported by federation participants and that this information is used to determine the appropriate communication options.</para></entry>
               </row>
               <row>
-                <entry>10:Transforming XML documents into other XML documents</entry>
+                <entry>10: Transforming XML documents into other XML documents</entry>
                 <entry>XSL Transformations (XSLT) Version 2.0, W3C Recommendation 23 Jan 2007</entry>
                 <entry>Developer best practice for the translation of XML based documents into other formats or schemas.</entry>
               </row>
@@ -475,23 +695,35 @@
                   (ebRIM), OASIS Standard, 2 May 2005
                   <para>Registry Services and Protocols (ebRS), OASIS Standard</para>
                   <para>Universal Description, Discovery, and Integration Specification (UDDI v 3.0), OASIS Standard.</para></entry>
-                <entry>Used as foundation for setup, maintenance and interaction with a (FMN) Metadata Registry and Repository
-                  for sharing and configuration management of XML metadata. Also enables federation among metadata 
-                  registries/ repositories.</entry>
+                <entry>Used as foundation for setup, maintenance and interaction with a (FMN) Metadata Registry and Repository for sharing and configuration management of XML metadata. Also enables federation among metadata registries/repositories.</entry>
               </row>
               <row>
-                <entry>12:Exchanging structured information in a decentralized, distributed 
+                <entry>12: Exchanging structured information in a decentralized, distributed 
                   environment via web services</entry>
-                <entry>W3C SOAP 1.1, Simple Object Access Protocol v1.1 (SOAP)
-                  <para>Emerging (2014): SOAP 1.2 2 May 2005</para>
-                  <para>Representational State Transfer (REST)</para>
-                  <para>WSDL v1.1: Web Services Description Language (WSDL) 1.1, W3C Note, 15 March 2001.</para></entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<itemizedlist>
+				  <listitem>Simple Object Access Protocol  (SOAP) 1.1, W3C Note, 8 May 2000</listitem>
+				  <listitem>WSDL v1.1: Web Services Description Language (WSDL) 1.1, W3C Note, 15 March 2001.</listitem>
+				</itemizedlist>
+				<para><emphasis role="underline">Conditional</emphasis>:
+				</para>
+				<para>Representational State Transfer (REST) in accordance with:
+				University of California, Roy Thomas Fielding, Architectural Styles and the Design of Network-based Software Architectures: 2000, Irvine, CA.
+				</para>
+				<para><emphasis role="underline">Emerging (2014)</emphasis>:
+				</para>
+				<itemizedlist>
+				  <listitem>SOAP Version 1.2 Part 1: Messaging Framework (Second Edition), W3C Recommendation, 27 April 2007.</listitem>
+				  <listitem>SOAP Version 1.2 Part 2: Adjuncts (Second Edition), W3C Recommendation, 27 April 2007.</listitem>
+				  <listitem>SOAP Version 1.2 Part 3: One-Way MEP, W3C Working Group Note, 2 July 2007</listitem>
+				</itemizedlist>
+				</entry>
                 <entry>The preferred method for implementing web-services are SOAP, however, there
                   are many use cases (mash-ups etc.) where a REST based interface is easier to implement
                   and sufficient to meet the IERs.</entry>
               </row>
               <row>
-                <entry>13:Secure exchange of data objects and documents across multiple security domains</entry>
+                <entry>13: Secure exchange of data objects and documents across multiple security domains</entry>
                 <entry>The Draft X-Labels syntax definition is called the "NATO Profile for the XML 
                   Confidentiality Label Syntax" and is based on version 1.0 of the RTG-031 proposed 
                   XML confidentiality label syntax, see "Sharing of information across communities of
@@ -499,26 +731,28 @@
                 <entry></entry>
               </row>
               <row>
-                <entry>14:Topic based publish / subscribe web services communication</entry>
-                <entry>WS-Notification 1.3 including:
+                <entry>14: Topic based publish / subscribe web services communication</entry>
+                <entry>WS-Notification 1.3 including: 
                   <itemizedlist>
-                    <listitem><para>WS-Base Notification 1.3</para></listitem>
-                    <listitem><para>WS-Brokered Notification 1.3</para></listitem>
-                    <listitem><para>WS-Topics 1.3</para></listitem>
+                    <listitem>WS-Base Notification 1.3</listitem>
+                    <listitem>WS-Brokered Notification 1.3</listitem>
+                    <listitem>WS-Topics 1.3</listitem>
                   </itemizedlist></entry>
                 <entry>Enable topic based subscriptions for web service notifications,
                   with extensible filter mechanism and support for message brokers</entry>
               </row>
               <row>
-                <entry>15:Providing transport-neutral mechanisms to address web services</entry>
+                <entry>15: Providing transport-neutral mechanisms to address web services</entry>
                 <entry>WS-Addressing 1.0</entry>
                 <entry>Provides transport-neutral mechanisms to addressWeb services and messages
                   which is crucial in providing end-to- message level security, reliable messaging 
                   or publish / subscribe based web services end.</entry>
               </row>
               <row>
-                <entry>16:Reliable messaging for web services</entry>
-                <entry>WS-Reliable Messaging 1.2</entry>
+                <entry>16: Reliable messaging for web services</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<para>OASIS, Web Services Reliable Messaging (WS-Reliable Messaging) Version 1.2, OASIS Standard, February 2009.</para>
+				</entry>
                 <entry>Describes a protocol that allows messages to be transferred reliably between
                   nodes implementing this protocol in the presence of software component, system, 
                   or network failures.</entry>
@@ -534,38 +768,41 @@
             Services facilitate other service and data providers on network elements by providing 
             and managing underlying capabilities to facilitate collaboration and information management
             for end-users.</para>
-          <para>Unified Communication and Collaboration Services provide users with a range of interoperable
+		<sect3>
+		<title>Unified Communication and Collaboration Services</title>
+		  <para>Unified Communication and Collaboration Services provide users with a range of interoperable
             collaboration capabilities, based on standards that fulfill NATO and Coalition operational
             requirements. They will enable real-time situational updates to time-critical planning activities
             between coalition partners, communities of interest (e.g. the Intel community or the Logistics 
             community), and other agencies. Levels of collaboration include awareness, shared information, 
             coordination and joint product development.</para>
-          <para>Different use cases require different levels of protection of these communication and
+            <para>Different use cases require different levels of protection of these communication and
             collaboration services. For voice or audio-based collaboration services, the FMN profile
-            provides interoperability standards for three different scenarios:</para>
+            provides interoperability standards for three different scenarios: </para>
           <itemizedlist>
-            <listitem><para>Voice over IP (VoIP) network services</para></listitem>
-            <listitem><para>Voice over Secure IP (VoSIP) network services</para></listitem>
-            <listitem><para>Network agonistic Secure Voice Services (such as 3G, IP/4G, ISDN)</para></listitem>
+            <listitem>Voice over IP (VoIP) network services</listitem>
+            <listitem>Voice over Secure IP (VoSIP) network services</listitem>
+            <listitem>Network agonistic Secure Voice Services (such as 3G, IP/4G, ISDN)</para>
+			</listitem>
           </itemizedlist>
-          <para>Depending on the security classification of a FMN instance, Scenario A or B are mandatory.
-            If a member choses to use network agnostic Secure Voice services in addition to VoSIP, then 
-            SCIP specifications as defined for audio-based collaboration services (end-to-end protected 
-            voice) should be used.</para>
-          <para>For text-based collaboration there is also a basic profile sufficient for operating
-            this service with reduced protection requirements as well as an enhanced XMPP profile 
-            that includes additional security mechanisms.
-            <figure id="v4i-fmn-audio" float="0">
+            <figure id="v3i-fmn-audio" float="0">
               <title>Audio-based Collaboration Services</title>
                 <mediaobject>
                   <imageobject>
                     <imagedata fileref="../figures/fmn-audio-collaboration.svg"/>
                   </imageobject>
                 </mediaobject>
-              </figure>
-            </para>
+            </figure>
+		  <para>Depending on the security classification of a FMN instance, Scenario A or B are mandatory.
+            If a member choses to use network agnostic Secure Voice services in addition to VoSIP, then 
+            SCIP specifications as defined for audio-based collaboration services (end-to-end protected 
+            voice) should be used.</para>
+          <para>For text-based collaboration there is also a basic profile sufficient for operating
+            this service with reduced protection requirements as well as an enhanced XMPP profile 
+            that includes additional security mechanisms.</para>
+          
           <table frame="all">
-          <title>SOA Platform Services and Data Standards</title>
+          <title>Unified Communication and Collaboration Services and Data Standards</title>
           <tgroup cols="3">
             <colspec colwidth="20*" />
             <colspec colwidth="50*" />
@@ -573,154 +810,179 @@
             <thead>
               <row>
                 <entry>
-                  <emphasis role="bold">ID:Purpose</emphasis>
+                  <emphasis role="bold">ID: Service/Purpose</emphasis>
                 </entry>
                 <entry>
                   <emphasis role="bold">Standard</emphasis>
                 </entry>
                 <entry>
-                  <emphasis role="bold">Guidance</emphasis>
+                  <emphasis role="bold">Implementation Guidance</emphasis>
                 </entry>
               </row>
             </thead>
             <tbody>           
               <row>
-                <entry>1:Video-based Collaboration Services (VTC)</entry>
-                <entry>VTCoIP: Signalling: ITU-T Recommendation H.323
-                  <para>Audio encoding: ITU-T Recommendation G.722.1c</para>
-                  <para>Video encoding: ITU-T Recommendation H.263</para></entry>
+                <entry>1: Video-based Collaboration Services (VTC)</entry>
+                <entry><emphasis role="underline">Mandatory (VTCoIP)</emphasis>:
+				<itemizedlist>
+				<listitem>ITU-T H.323 v7 (12/2009) Packet-based multimedia communications systems;</listitem>
+				<listitem>ITU-T G.722.1 (2005) Corrigendum 1 (06/2008) Low-complexity coding at 24 and 32 kbit/s for hands-free operation in systems with low frame loss;</listitem>
+				<listitem>ITU-T H.263 (01/2005) Video coding for low bit rate communication</listitem>
+				</itemizedlist>
+				</entry>
                 <entry></entry>
               </row>
               <row>
                 <entry>2: Audio-based Collaboration Services</entry>
-                <entry>VoIP: SIP (IETF RFC 3261) + RTP (IETF RFC 3550)
-                  <para>Audio encoding: ITU-T Recommendation G.729A</para></entry>
-                <entry>VoIP refers to unprotected voice communication services running 
-                  on unclassified IP networks e.g. conventional IP telephony (see scenario
-                  A in Figure 2)
-                  <para>VoSIP refers to non-protected voice service running on a classified 
-                    IP networks (see scenario B in Figure 2)</para>
+                <entry>VoIP numbering:
+				<para>STANAG 4705 Ed. 1 Ratification Draft, International Network Numbering for Communications Systems in use in NATO
+				</para>
+				<para><emphasis role="underline">Mandatory (VoIP)</emphasis>: 
+				<itemizedlist>
+				<listitem>SIP (IETF RFC 3261) + RTP (IETF RFC 3550);</listitem>
+				<listitem>Audio encoding: ITU-T Recommendation G.729 Annex A (11/96), Coding of speech at 8 kbit/s using conjugate-structure algebraic-code-excited linear prediction (CS-ACELP)</listitem>
+				</itemizedlist>
+				</para>
+				<para><emphasis role="underline">Emerging (2015)</emphasis>: 
+				<itemizedlist>
+				<listitem>G.729 (06/12): Coding of speech at 8 kbit/s using conjugate-structure algebraic-code-excited linear prediction (CS-ACELP)</listitem>
+				</itemizedlist>
+				</para>
+				</entry>
+                <entry>VoIP refers to unprotected voice communication services running on unclassified IP networks e.g. conventional IP telephony (see scenario A in Figure above)
+                  <para>VoSIP refers to non-protected voice service running on a classified IP networks  (see scenario B in Figure above)</para>
                   <para>Voice sampling Interval 40ms</para></entry>
               </row>
               <row>
-                <entry>3:Audio-based Collaboration Services (end-to-end protected voice)</entry>
-                <entry>Modem over IP (MoIP) according to ITU-T V.150.1 Minimum Essential 
-                  Requirements 
-                  <para>Minimum Essential Requirements (MER) for V.150.1 recommendation: 
-                    SCIP-216</para>
-                  <para>SCIP signalling plan: SCIP-210 Interface requirements for SCIP devices 
-                    to circuit switched networks: SCIP-214</para>
-                  <para>Interface requirements for SCIP devices to IP networks: SCIP-215</para>
-                  <para>Minimum Essential Requirements (MER) for V.150.1 recommendation: SCIP-216</para>
-                  <para>Requirements for SCIP: SCIP-220</para>
-                  <para>SCIP Minimum Implementation Profile (MIP): SCIP-221</para>
-                  <para>NATO interim cryptographic suite: SCIP-233 (NATO and coalition)</para></entry>
-                <entry>Secure voice services (see scenario C in Figure 2) 
+                <entry>3: Audio-based Collaboration Services (end-to-end protected voice)</entry>
+                <entry><emphasis role="underline">Conditional</emphasis>: 
+				<itemizedlist>
+				<listitem>ITU-T V.150.1 (03/2004), Modem-over-IP networks: Procedures for the end-to-end connection of V-series DCEs,  incorporating changes introduced by Corrigendum 1 and 2.</listitem>
+				<listitem>SCIP-210, SCIP signaling plan.</listitem>
+				<listitem>SCIP-214, Interface requirements for SCIP devices to circuit switched networks.</listitem>
+				<listitem>SCIP-215, Interface requirements for SCIP devices to IP networks.</listitem>
+				<listitem>SCIP-216: Minimum Essential Requirements (MER) for V.150.1 recommendation.</listitem>
+				<listitem>SCIP-220: Requirements for SCIP.</listitem>
+				<listitem>SCIP-221: SCIP Minimum Implementation Profile (MIP).</listitem>
+				<listitem>SCIP-233: NATO interim cryptographic suite (NATO and coalition)</listitem>
+				</itemizedlist>
+				</entry>
+                <entry>Secure voice services (see scenario C in Figure above) 
                   <para>V.150.1 support must be end-to-end supported by unclassified voice network</para>
                   <para>SCIP-214 only applies to gateways</para>
                   <para>Note that SCIP-216 requires universal implementation.</para></entry>
               </row>
               <row>
                 <entry>4: Informal messaging services (e-mail)</entry>
-                <entry>SimpleMail Transfer Protocol (SMTP) (RFC 1870:1995 and RFC 2821:2001)
-                  <para>Simple Internet Messages (RFC 2822:2001)</para></entry>
-                <entry>Emerging: RFC 5321:2008 which obsoletes: RFC 2821:2001
-                  <para>Conditional: Depending on the protection requirements within the particular
-                    FMN instance messages must be labeled in the message header field “Keywords” 
-                    (RFC 2811) according to the following convention: [MMM] [CLASSIFICATION], 
-                    Releasable to [MISSION]</para>
-                  <para>Where CLASSIFICATION is the classification {SECRET, CONFIDENTIAL, RESTRICTED,
-                    UNCLASSIFIED} and MMM is the alpha-3 country code e.g. DEU, GBR, as defined in 
-                    Table 8.ID2 with the exception that NATO will be identified by the four letter
-                    acronym “NATO”. The “releasable to” list shall include the short-name of the mission
-                    and may be extended to include other entities.</para>
-                  <para>Example: Keywords: ITA UNCLASSIFIED, Releasable to XFOR</para></entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>: 
+				<itemizedlist>
+				<listitem>IETF RFC 1870:1995, SMTP Service Extension for Message Size Declaration.</listitem>
+				<listitem>IETF RFC 2821:2001, Simple Mail Transfer Protocol (SMTP) ()</listitem>
+				<listitem>IETF RFC 2822:2001, Simple Internet Messages.</listitem>
+				</itemizedlist>
+				<para>Emerging (2016):</para>
+				<para>IETF RFC 5321: 2008, Simple Mail Transfer Protocol which obsoletes: IETF RFC 2821: 2001</para>
+				<para>Emerging (2017):</para>
+				<para>IETF RFC 6477: 2012, Registration of Military Message Handling System (MMHS) Header Fields for Use in Internet Mail</para>
+				</entry>
+                <entry>Conditional: Depending on the protection requirements within the particular FMN instance messages must be marked in the message header field “Keywords”(IETF RFC 2822) and first-line-of-text in the message body according to the following convention:<para>[MMM] [CLASSIFICATION], Releasable to [MISSION]</para>
+<para>Where CLASSIFICATION is the classification {SECRET, CONFIDENTIAL, RESTRICTED, UNCLASSIFIED} and MMM is the alpha-3 country code e.g. DEU, GBR, as defined in Table 8.ID2 with the exception that NATO will be identified by the four letter acronym “NATO”.  The “releasable to” list shall include the short-name of the mission and may be extended to include other entities.</para>
+<para><emphasis>Example:</para>
+<para>Keywords: ITA UNCLASSIFIED, Releasable to XFOR</emphasis></para>
+</entry>
               </row>
               <row>
-                <entry>5:Content encapsulation within bodies of internet messages</entry>
-                <entry>Multipurpose Internet Mail Extensions (MIME) specification (RFC 2045:1996, 
-                  RFC 2046:1996, RFC 2047:1996, RFC 2049:1996, RFC 4288 :2005)</entry>
+                <entry>5: Content encapsulation within bodies of internet messages</entry>
+                <entry>Multipurpose Internet Mail Extensions (MIME) specification:
+				<itemizedlist>
+                    <listitem>IETF RFC 2045:1996, Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies.</listitem>
+                    <listitem>IETF RFC 2046: 1996, Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types.</listitem>
+                    <listitem>IETF RFC 2047: 1996, MIME (Multipurpose Internet Mail Extensions) Part Three: Message Header Extensions for Non-ASCII Text.</listitem>
+                    <listitem>IETF RFC 2049: 1996, Multipurpose Internet Mail Extensions (MIME) Part Five: Conformance Criteria and Examples.</listitem>
+                    <listitem>IETF RFC 4288: 2005, Media Type Specifications and Registration Procedures.</listitem>
+                 </itemizedlist>
+				</entry>
                 <entry>10 MB max message size limit
-                  <para>Minimum Content-Transfer-Encoding:</para>
+                  <para>Minimum Content-Transfer-Encoding: </para>
                   <itemizedlist>
-                    <listitem><para>7bit</para></listitem>
-                    <listitem><para>base64</para></listitem>
-                    <listitem><para>binary BINARYMIME SMTP extension [RFC 3030]</para></listitem>
+                    <listitem>7bit</listitem>
+                    <listitem>base64</listitem>
+                    <listitem>binary BINARYMIME SMTP extension [RFC 3030]</listitem>
                   </itemizedlist>
                   <para>Minimum set of media and content-types:</para>
                   <itemizedlist>
-                    <listitem><para>text/plain [RFC1521]</para></listitem>
-                    <listitem><para>text/enriched [RFC1896]</para></listitem>
-                    <listitem><para>text/html [RFC1866]</para></listitem>
-                    <listitem><para>multipart/mixed [RFC 2046]</para></listitem>
-                    <listitem><para>multipart/signed</para></listitem>
+                    <listitem>text/plain [RFC1521]</listitem>
+                    <listitem>text/enriched [RFC1896]</listitem>
+                    <listitem>text/html [RFC1866]</listitem>
+                    <listitem>multipart/mixed [RFC 2046]</listitem>
+                    <listitem>multipart/signed</listitem>
                   </itemizedlist></entry>
               </row>
               <row>
-                <entry>6:text-based collaboration services</entry>
-                <entry>Mandatory: basic FMN XMPP profile (see 6.1)
-                  <para>Recommended: enhanced FMN XMPP profile (see 6.2)</para></entry>
+                <entry>6: text-based collaboration services</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>: basic FMN XMPP profile (see 6.1)
+                  <para><emphasis role="underline">Recommended</emphasis>: enhanced FMN XMPP profile (see 6.2)</para></entry>
                 <entry>Near-real time text-based group collaboration capability for time 
                   critical reporting and decision making in military operations.</entry>
               </row>
               <row>
-                <entry>6.1:text-based collaboration services (basic FMN XMPP profile)</entry>
-                <entry>IETF RFC 6120 Extensible Messaging and Presence Protocol (XMPP): Core, 
-                   March 2011 covering XML streams, SASL, TLS, stanza semantics
-                   <para>IETF RFC 6121 Extensible Messaging and Presence Protocol (XMPP): 
-                     Instant Messaging and Presence.</para>                         
-                  <para>The following XMPP Extension Protocols shall be supported:</para>
+                <entry>6.1: text-based collaboration services (basic FMN XMPP profile)</entry>
+                <entry>IETF RFC 6120: 2011, Extensible Messaging and Presence Protocol (XMPP): Core.
+                   <para>IETF RFC 6121: 2011, Extensible Messaging and Presence Protocol (XMPP): Instant Messaging and Presence.</para>                         
+                  <para>The following XMPP Extension Protocols (XEP) defined by the XMPP Standards Foundation shall also be supported:</para>
                   <itemizedlist>
-                    <listitem><para>XEP-0004: Data Forms</para></listitem>                  
-                    <listitem><para>XEP-0030: Service Discovery</para></listitem>
-                    <listitem><para>XEP-0045: Multi User Chat</para></listitem>
-                    <listitem><para>XEP-0049: Private XML Storage, March 2004</para></listitem>
-                    <listitem><para>XEP-0050: Ad Hoc Commands, June 2005</para></listitem>
-                    <listitem><para>XEP-0054: vCard Profiles, March 2003</para></listitem>
-                    <listitem><para>XEP-0065: SOCKS5 Bytestreams</para></listitem>
-                    <listitem><para>XEP-0078: Non-SASL Authentication (for support of older clients)</para></listitem>
-                    <listitem><para>XEP-0091: Legacy Delayed Delivery, May 2009</para></listitem>
-                    <listitem><para>XEP-0092: Software Version, February 2007</para></listitem>
-                    <listitem><para>XEP-0096: File Transfer</para></listitem>
-                    <listitem><para>XEP-0114: Jabber Component Protocol, March 2005</para></listitem>
-                    <listitem><para>XEP-0115: Entity Capabilities</para></listitem>
-                    <listitem><para>XEP-0203: Delayed Delivery, September 2009</para></listitem>
-                    <listitem><para>XEP-0220: Server Dialback, December 2007</para></listitem>
-                    <listitem><para>XEP-0288: Bidirectional Server-to-Server Connections, October 2010</para></listitem>
-                  </itemizedlist></entry>
+                    <listitem>XEP-0004: Data Forms, August 2007.</listitem>
+                    <listitem>XEP-0030: Service Discovery, February 2007.</listitem>
+                    <listitem>XEP-0045: Multi-User Chat (MUC), July 2008.</listitem>
+                    <listitem>XEP-0049: Private XML Storage, March 2004.</listitem>
+                    <listitem>XEP-0050: Ad Hoc Commands, June 2005.</listitem>
+                    <listitem>XEP-0054: vCard Profiles, March 2003.</listitem>
+                    <listitem>XEP-0065: SOCKS5 Bytestreams, April 2011.</listitem>
+                    <listitem>XEP-0078: Non-SASL Authentication, October 2008.</listitem>
+                    <listitem>XEP-0091: Legacy Delayed Delivery, May 2009.</listitem>
+                    <listitem>XEP-0092: Software Version, February 2007.</listitem>
+                    <listitem>XEP-0096: SI File Transfer, April 2004.</listitem>
+                    <listitem>XEP-0114: Jabber Component Protocol, March 2005.</listitem>
+                    <listitem>XEP-0115: Entity Capabilities, February 2008.</listitem>
+                    <listitem>XEP-0203: Delayed Delivery, September 2009.</listitem>
+                    <listitem>XEP-0220: Server Dialback, December 2007.</listitem>
+                    <listitem>XEP-0288: Bidirectional Server-to-Server Connections, October 2010.</listitem>
+                  </itemizedlist>
+				  </entry>
                 <entry></entry>
               </row>
               <row>
                 <entry>6.2: text-based collaboration services (enhanced FMN XMPP profile)</entry>
-                <entry>The enhanced profile requires compliance with the basic profile as defined above plus:
+                <entry>The enhanced profile requires compliance with the basic profile as defined above plus: 
                   <itemizedlist>
-                    <listitem><para>XEP-0033: Extended Stanza Addressing</para></listitem>                  
-                    <listitem><para>XEP-0079: Advanced Message Processing</para></listitem>
-                    <listitem><para>XEP-0122: Data Forms Validation</para></listitem>
-                    <listitem><para>XEP-0199: XMPP Ping, June 2009</para></listitem>
-                    <listitem><para>XEP-0249: Direct MUC Invitation</para></listitem>
-                    <listitem><para>XEP-0258: Security Labels in XMPP, March 2009</para></listitem>
-                    <listitem><para>XEP-0289: Federated MUC for Constrained Environments, May 2012</para></listitem>
-                    <listitem><para>XEP-0311: Fast Reconnect</para></listitem>
-                  </itemizedlist></entry>
-                <entry>Developers are also advised to consult the following RFCs:
+                    <listitem>XEP-0033: Extended Stanza Addressing, September 2004.</listitem>
+                    <listitem>XEP-0079: Advanced Message Processing, November 2005.</listitem>
+                    <listitem>XEP-0122: Data Forms Validation, September 2004.</listitem>
+                    <listitem>XEP-0199: XMPP Ping, June 2009. </listitem>
+                    <listitem>XEP-0249: Direct MUC Invitation, September 2011.</listitem>
+                    <listitem>XEP-0258: Security Labels in XMPP, March 2009.</listitem>
+                    <listitem>XEP-0289: Federated MUC for Constrained Environments, May 2012.</listitem>
+                    <listitem>XEP-0311: MUC Fast Reconnect, January 2012.</listitem>
+                  </itemizedlist>
+				</entry>
+                <entry>Developers are also advised to consult the following IETF RFCs:
                   <itemizedlist>
-                    <listitem><para>RFC 6122: Extensible Messaging and Presence Protocol (XMPP): Address Format, March 2011</para></listitem>                  
-                    <listitem><para>RFC 6125: Representation and Verification of Domain-Based Application 
-                      Service Identity within Internet Public Key Infrastructure Using X.509 (PKIX) 
-                      Certificates in the Context of Transport Layer Security (TLS), March 2011</para></listitem>
-                    <listitem><para>RFC 3923: XMPP E2E End-to-end signing and object encryption for XMPP</para></listitem>
-                    <listitem><para>RFC 4854: XMPP URN A uniform Resource Name (URN) tree for use in XMPP</para></listitem>
-                    <listitem><para>RFC 4979: XMPP ENUM IANA registration of an Enumservce (see RFC 3761) for XMPP</para></listitem>
-                    <listitem><para>RFC 5122: XMPP URI A Uniform Resource Identifier (URI) schema for XMPP (this specification corrects several errors in RFC 4622)</para></listitem>
-                  </itemizedlist></entry>
+                    <listitem>IETF RFC 6122: 2011, Extensible Messaging and Presence Protocol (XMPP): Address Format.</listitem>
+                    <listitem>IETF RFC 6125: 2011, Representation and Verification of Domain-Based Application Service Identity within Internet Public Key Infrastructure Using X.509 (PKIX) Certificates in the Context of Transport Layer Security (TLS).</listitem>
+                    <listitem>IETF RFC 3923: 2004, End-to-End Signing and Object Encryption for the Extensible Messaging and Presence Protocol (XMPP).</listitem>
+                    <listitem>IETF RFC 4854: 2007, A Uniform Resource Name (URN) Namespace for Extensions to the Extensible Messaging and Presence Protocol (XMPP).</listitem>
+                    <listitem>IETF RFC 4979: 2007, IANA Registration for Enumservice 'XMPP'</listitem>
+                    <listitem>IETF RFC 3761: 2004, The E.164 to Uniform Resource Identifiers (URI) Dynamic Delegation Discovery System (DDDS) Application (ENUM).</listitem>
+                    <listitem>IETF RFC 5122: 2008, Internationalized Resource Identifiers (IRIs) and Uniform Resource Identifiers (URIs) for the Extensible Messaging and Presence Protocol (XMPP).</listitem>
+                  </itemizedlist>
+				</entry>
               </row>
             </tbody>
             </tgroup>
           </table>
-      </sect2>
-      <sect2>
-        <title>Information Management Services</title>
+		</sect3>
+		<sect3>
+		<title>Information Management Services"</title>
           <para>Information Management Services provide technical services "...to direct and support
             the handling of information throughout its life-cycle ensuring it becomes the right 
             information in the right form and of adequate quality to satisfy the demands of an
@@ -728,6 +990,7 @@
             technical services with capabilities to organize, store and retrieve information 
             (in any format, structured or unstructured) through services and managed processes,
             governed by policies, directives, standards, profiles and guidelines.</para>
+	  
           <table frame="all">
           <title>Information Management Services and Data Standards</title>
           <tgroup cols="3">
@@ -737,54 +1000,58 @@
             <thead>
               <row>
                 <entry>
-                  <emphasis role="bold">ID:Purpose</emphasis>
+                  <emphasis role="bold">ID: Service/Purpose</emphasis>
                 </entry>
                 <entry>
                   <emphasis role="bold">Standard</emphasis>
                 </entry>
                 <entry>
-                  <emphasis role="bold">Guidance</emphasis>
+                  <emphasis role="bold">Implementation Guidance</emphasis>
                 </entry>
               </row>
             </thead>
             <tbody>
               <row>
-                <entry>1:Enterprise Search Services: Automated information resource discover, information extraction and interchange of metadata</entry>
-                <entry>ISO 15836:2009 also known as the Dublin Core Metadata Element Set
-                  <para>TIDE Information Discovery (v2.3.0, Oct 2009)</para>
-                  <para>TIDE Service Discovery (v.2.2.0 Oct 2008)</para>
-                  <para>SPARQL Ver 1.1 (2009)</para>
-                  <para>OWL Ver 2 (2009)</para>
-                  <para>OpenSearch 1.1 Draft 4</para></entry>
-                <entry>ISO 15836:2009 does not define implementation detail.
+                <entry>1: <emphasis role="underline">Enterprise Search Services</emphasis>: Automated information resource discover, information extraction and interchange of metadata</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+				<itemizedlist>
+				<listitem>ISO 15836:2009, Information and documentation - The Dublin Core metadata element set.</listitem>
+				<listitem>TIDE Information Discoveryv2.3.0, Allied Command Transformation Specification, 30 October 2009.</listitem>
+				<listitem>TIDE Transformational Baseline 3.0 – Annex C: Service Discovery v.2.2.0, Allied Command Transformation Specification, December 2009.</listitem>
+				<listitem>SPARQL 1.1 Query Language, W3C Recommendation, 21 March 2013.</listitem>
+				<listitem>OWL 2 Web Ontology Language Document Overview (Second Edition), W3C Recommendation, 11 December 2012.</listitem>
+				</itemizedlist>
+				<para><emphasis role="underline">Emerging (2014)</emphasis>:OpenSearch 1.1 Draft 5
+				</para>
+				</entry>
+                <entry>ISO 15836: 2009 does not define implementation detail.
                   <para>This profile requires a subset of metadata with UTF8 character encoding as defined in the NATO Discovery Metadata Specification (NDMS)</para>
-                  <para>The technical implementation specifications are part of the TIDE 
-                    Transformational Baseline v3.0, however, Query-by-Example (QBE), has 
-                    been deprecated with the TIDE Information Discovery specs v2.3.0 and 
-                    replaced by SPARQL.</para>
+                  <para>The technical implementation specifications are part of the TIDE Transformational Baseline v3.0, however, Query-by-Example (QBE), has been deprecated with the TIDE Information Discovery specs v2.3.0 and replaced by SPARQL.</para><para>The TIDE community is evaluating OpenSearch for potential inclusion into the TIDE Information Discovery specifications.</para>
                 </entry>
               </row>
+			  <row>
+              <entry>2: <emphasis role="underline">Enterprise Search Services</emphasis>: <para>manual information resource discovery, classification marking and file naming conventions</para></entry>
+              <entry><emphasis role="underline">Recommended</emphasis>: <para>AC322-N(2010)0025 – Guidance On File Naming</para>
+			  </entry>
+              <entry>Character codes for permissible Classification Markings will be specified for each Mission Network in the IM Annex of the OPLAN.</entry>
+            </row>
+
               <row>
-                <entry>2:Enterprise Support Guard Services: General definition of Security and Confidentiality metadata</entry>
-                <entry>
+                <entry>3: <emphasis role="underline">Enterprise Support Guard Services</emphasis>: General definition of Security and Confidentiality metadata</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
                   <itemizedlist>
-                    <listitem><para>NO-FFI 00961 (RTO spec on confidentiality labels);</para></listitem>
-                    <listitem><para>NO-FFI 00962 (RTO spec on metadata binding);</para></listitem>
-                    <listitem><para>NC3A TN-1455 (NATO profile of NO-FFI 00962);</para></listitem>
-                    <listitem><para>NC3A TN-1456 (NATO profile of NO-FFI 00961).</para></listitem>
+                    <listitem>NO-FFI-rapport 00961:2010, XML Confidentiality Label Syntax - a proposal for a NATO specification.</listitem>
+                    <listitem>NO-FFI-rapport 00962: 2010, Binding of Metadata to Data Objects - a proposal for a NATO specification.</listitem>
+                    <listitem>NCIA TN-1455-REV1, NATO Profile for the Binding of Metadata to Data Objects, Vers 1.1, December 2012.</listitem>
+                    <listitem>NCIA TN-1456-REV1, NATO Profile for the XML Confidentiality Label Syntax, Vers 1.1, January 2013.</listitem>
                   </itemizedlist>
                 </entry>
-                <entry>Services and applications shall implement object level labeling in order 
-                  to support cross-domain information exchange using common enterprise Support Guard 
-                  Services (e.g. Cross-Domain Solutions or Information Exchange Gateways)</entry>                           
+                <entry>Services and applications shall implement object level labeling in order to support cross-domain information exchange using common enterprise Support Guard Services (e.g. Cross-Domain Solutions or Information Exchange Gateways)</entry>                           
               </row>
             </tbody>
           </tgroup>
           </table>
-      </sect2>
-
-      <sect2>
-        <title>Mimimum Metadata Set</title>
+		
           <table frame="all">
           <title>Minimum Metadata Set</title>
           <tgroup cols="4">
@@ -845,7 +1112,7 @@
               </row>
               <row>
                 <entry>description</entry>
-                <entry>dc:</entry>
+                <entry>dc:description</entry>
                 <entry>C</entry>
                 <entry>An account of the content of the resource. Description may include but is not limited 
                   to: an abstract, table of contents, reference to a graphical representation of content or 
@@ -861,21 +1128,20 @@
               </row>
               <row>
                 <entry>coverage</entry>
-                <entry>ows:BoundingBox</entry>
+                <entry>dc:coverage, ows:BoundingBox, or ows:Position</entry>
                 <entry>C</entry>
                 <entry>The spatial or temporal topic of the resource.
-                  <para>The spatial applicability of the resource specified by its geographic coordinates, 
-                    or the jurisdiction (such as a named administrative entity as defined in ISO-3166-2) 
-                    under which the resource is relevant.</para>
+                  <para>The spatial applicability of the resource specified by its geographic coordinates (conformant with OGC Web Services specifications), or the jurisdiction (such as a named administrative entity as defined in ISO-3166-2) under which the resource is relevant.</para>
+				  <para>OGC Web Services (OWS) is an OGC Standard, the schema is located at http://schemas.opengis.net/ows/1.1.0/owsCommon.xsd.</para>
                 </entry>
               </row>
             </tbody>
           </tgroup>
           </table>
-      </sect2>
-
-      <sect2>
-        <title>Geospatial Services</title>
+		</sect3>
+		
+		<sect3>
+       <title>Geospatial Services</title>
           <para>Geospatial Services deliver network-based access to quality raster, vector 
             and terrain data, available in varying degrees of format and complexity. Geospatial
             Services form a distinct class of information services through their unique 
@@ -883,8 +1149,9 @@
             creating, and displaying geographic data. The generic nature of Geospatial 
             Services - "organizing information by location" - is interdisciplinary and not
             specific to any Community of Interest (COI) or application.</para>
-          <table frame="all">
-          <title>Geospatial Services and Data Standards</title>
+	  
+           <table frame="all">
+          <title>Enterprise Support Services and Data Standards</title>
           <tgroup cols="3">
             <colspec colwidth="20*" />
             <colspec colwidth="50*" />
@@ -892,111 +1159,130 @@
             <thead>
               <row>
                 <entry>
-                  <emphasis role="bold">ID:Purpose</emphasis>
+                  <emphasis role="bold">ID: Service/Purpose</emphasis>
                 </entry>
                 <entry>
                   <emphasis role="bold">Standard</emphasis>
                 </entry>
                 <entry>
-                  <emphasis role="bold">Guidance</emphasis>
+                  <emphasis role="bold">Implementation Guidance</emphasis>
                 </entry>
               </row>
             </thead>
             <tbody>
-              <row>
-                <entry>1:Distribution of geospatial data as maps rendered in raster image formats.</entry>
-                <entry>
+            <row>
+              <entry>1: Geodetic and geophysical model of the Earth.</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: <para>NIMA Technical Report 8350.2 Third Edition incorporating Amendments 1 and 2: 23 June 2004, Department of Defense World Geodetic System 1984 Its Definition and Relationships with Local Geodetic Systems.</para>
+			  </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>2: Electronic format for medium resolution terrain evaluation data.</entry>
+              <entry>MIL-PRF-89020 Rev. B, Performance Specification:  Digital Terrain Elevation Data (DTED), 23 May 2000.</entry>
+              <entry>Used to support line-of-sight analyses, terrain profiling, 3D terrain visualization, mission planning/rehearsal, and modeling and simulation.</entry>
+            </row>
+			<row>
+                <entry>3: Distribution of geospatial data as maps rendered in raster image formats.</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>: 
                   <itemizedlist>
-                    <listitem><para>OGC 04-024 (ISO 19128:2005), Web Map Service (WMS) v.1.3 Fading (2012): OGC WMS v1.0.0, v1.1.0, and v1.1.1</para></listitem>
-                    <listitem><para>OGC 05-078r4, OpenGIS Styled Layer Descriptor Profile of the Web Map Service (SLD) v.1.1.0</para></listitem>
-                    <listitem><para>OGC 07-057r7, OpenGIS Web Map Tile Service Implementation Standard (WMTS) v.1.0.0</para></listitem>
+                    <listitem>ISO 19128:2005, Geographic information - Web map server interface (WMS  v.1.3.0).</listitem>
+                    <listitem>OGC 05-078r4, OpenGIS Styled Layer Descriptor (SLD) Profile of the Web Map Service Implementation Specification  v.1.1.0, June 2007.</listitem>
                   </itemizedlist>
-                </entry>
-                <entry>WMTS are to be provided as a complimentary service to WMS to ease access to users 
-                  operating in bandwidth constraint environments. WMTS trades the flexibility of custom 
-                  map rendering for the scalability possible by serving of static data (base maps) where
-                  the bounding box and scales have been constrained to discrete tiles which enables the 
-                  use of standard network mechanisms for scalability such as distributed cache systems 
-                  to cache images between the client and the server, reducing latency and bandwidth use.
+				  <para><emphasis role="underline">Emerging (2018)</emphasis>:</para>
+				  <itemizedlist>
+                    <listitem>OGC 07-057r7, OpenGIS Web Map Tile Service Implementation Standard (WMTS) v.1.0.0, April 2010.</listitem>
+                  </itemizedlist>
+				</entry>
+                <entry>WMTS are to be provided as a complimentary service to WMS to ease access to users operating in bandwidth constraint environments. WMTS trades the flexibility of custom map rendering for the scalability possible by serving of static data (base maps) where the bounding box and scales have been constrained to discrete tiles which enables the use of standard network mechanisms for scalability such as distributed cache systems to cache images between the client and the server, reducing latency and bandwidth use.
                 </entry>
               </row>
               <row>
-                <entry>2:Distribution of geo feature (vector) data between applications</entry>
-                <entry>
+                <entry>4: Distribution of geo feature (vector) data between applications</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
                   <itemizedlist>
-                    <listitem><para>OGC 04-094, Web Feature Service (WFS) v.1.1.</para></listitem>
-                    <listitem><para>OGC 06-049r1, GML Simple Feature Profil (GML 3.1.1) v.1.0.0 Compliance Level 0</para></listitem>
-                    <listitem><para>OGC 04-095, Filter Encoding v.1.1</para></listitem>
+                    <listitem>OGC 04-094, Web Feature Service (WFS) v.1.1.</listitem>
+                    <listitem>OGC 06-049r1, GML Simple Feature Profil (GML 3.1.1) v.1.0.0 Compliance Level 0</listitem>
+                    <listitem>OGC 04-095, Filter Encoding v.1.1</listitem>
                   </itemizedlist>
                 </entry>
                 <entry></entry>
               </row>
               <row>
-                <entry>3:Electronic interchange of geospatial data as coverage, that is, digital geospatial information representing space varying phenomena</entry>
-                <entry>
+                <entry>5: Electronic interchange of geospatial data as coverage, that is, digital geospatial information representing space varying phenomena</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
                   <itemizedlist>
-                    <listitem><para>OGC 07-067r2, Web Coverage Service (WCS) v.1.1.1</para></listitem>
-                    <listitem><para>OGC 09-110r4, Web Coverage Service (WCS) v2.0</para></listitem>
+                    <listitem>OGC 07-067r2, Web Coverage Service (WCS) v.1.1.1</listitem>
+                  </itemizedlist>
+				  <para><emphasis role="underline">Emerging (2014)</emphasis>:</para>
+				  <itemizedlist>
+                    <listitem>OGC 09-110r4, Web Coverage Service (WCS) v2.0</listitem>
                   </itemizedlist>
                 </entry>
                 <entry>Web Coverage Service v.1.1.1 is limited to describing and requesting grid (or "simple") coverage.
                   <para>OGC Web Coverage Service (WCS) Standard Guidance Implementation Specification 1.0</para>
-                </entry>
+				</entry>
               </row>
               <row>
-                <entry>4: Catalogue services support the ability to publish and search collections of 
-                  descriptive information (metadata) for geospatial data, services, and related information 
-                  objects.</entry>
-                <entry>
+                <entry>6: Catalogue services support the ability to publish and search collections of descriptive information (metadata) for geospatial data, services, and related information objects.</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
                   <itemizedlist>
-                    <listitem><para>OGC 07-110r4, CSW ebRIM Registry Service Part 1: ebRIM profile of CSW v.1.0.1</para></listitem>
-                    <listitem><para>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP message</para></listitem>
+                    <listitem>OGC 07-110r4, CSW ebRIM Registry Service Part 1: ebRIM profile of CSW v.1.0.1.</listitem>
+                  </itemizedlist>
+				  <para><emphasis role="underline">Recommended</emphasis>:</para>
+				  <itemizedlist>
+                    <listitem>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP message</listitem>
                   </itemizedlist>
                 </entry>
                 <entry></entry>
               </row>
               <row>
-                <entry>5:Electronic format for medium resolution terrain evaluation data.</entry>
-                <entry>U.S. Military Specification Digital Terrain Elevation Data (DTED) level 0,1,2 MIL-PRF-89020B</entry>
-                <entry>Used to support line-of-sight analyses, terrain profiling, 3D terrain visualization, mission planning/rehearsal, and modeling and simulation.</entry>
-              </row>
-              <row>
-                <entry>6:File based storage and exchange of digital geospatial mapping (raster) data where services based access is not possible</entry>
-                <entry>
+                <entry>7: File based storage and exchange of digital geospatial mapping (raster) data where services based access is not possible</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
                   <itemizedlist>
-                    <listitem><para>OGC 07-110r4, CSW ebRIM Registry Service Part 1: ebRIM profile of CSW v.1.0.1</para></listitem>
-                    <listitem><para>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP message</para></listitem>
-                    <listitem><para>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP message</para></listitem>
-                    <listitem><para>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP message</para></listitem>
-                    <listitem><para>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP message</para></listitem>
-                    <listitem><para>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP message</para></listitem>
-                    <listitem><para>OGC 07-006r1: Catalogue Service for the Web (CSW) v.2.0.2, SOAP message</para></listitem>  
+                    <listitem>GeoTIFF format specification: GeoTIFF Revision 1, Version 1.8.2, December 2000.</listitem>
+                    <listitem>OGC 05-047r3: OpenGIS GML in JPEG 2000 for Geographic Imagery (GMLJP2) Encoding Specification 1.0.0, January 2006.</listitem>
+                  </itemizedlist>
+				  <para><emphasis role="underline">Recommended</emphasis>:</para>
+				  <itemizedlist>
+                    <listitem>MIL-PRF-89038 (NOTICE 1), Performance Specification Compressed ARC Digitized Raster Graphics (CADRG) incorporating Amendments 1 and 2.</listitem>
+                    <listitem>MIL-STD-2411 (NOTICE 3), Department of Defense Interface Standard: Raster Product Format (31 Mar 2004).</listitem>
                   </itemizedlist>
                 </entry>
-                <entry>This is provided for legacy systems, implementers are encouraged to upgrade their systems to consume OGC Web Services.</entry>
+                <entry>This is provided for legacy systems, implementers are encouraged to upgrade their systems to consume OGC Web Services.
+<para>In practice, the exchange of large geospatial(raster) data sets between Geo organizations of different Mission Network Contributing Participant is conducted in the proprietary Multi-resolution seamless image database (MrSid Generation 4) format. Data in MrSID format could be transformed to GeoTIFF.</para></entry>
               </row>
               <row>
-                <entry>7:File based storage and exchange of non-topological geometry and attribute information or digital geospatial feature (vector) data</entry>
-                <entry>ESRI SHAPE files
-                  <para>Open Geospatial Consortium 07-147r2, Keyhole Markup Language (KML) 2.2</para>
-                </entry>
-                <entry>ESRI SHAPE files are used by legacy systems and as file based interchange format.
-                  Implementers are encouraged to upgrade their systems based on OGC Web Services.</entry>
+                <entry>8: File based storage and exchange of non-topological geometry and attribute information or digital geospatial feature (vector) data</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+                  <itemizedlist>
+                    <listitem>OGC 07-147r2, Keyhole Markup Language (KML) 2.2.0, April 2008.</listitem>
+                  </itemizedlist>
+				  <para><emphasis role="underline">Recommended</emphasis>:</para>
+				  <itemizedlist>
+                    <listitem>ESRI White Paper, ESRI Shapefile Technical Description, July 1998.</listitem>
+                  </itemizedlist>
+				</entry>
+				<entry>ESRI Shapefiles are used by legacy systems and as file based interchange format. Implementers are encouraged to upgrade their systems based on OGC Web  Services.</entry>
               </row>
+            <row>
+              <entry>9: <emphasis role="underline">Geospatial Coordinate Services</emphasis>: general positioning, coordinate systems, and coordinate transformations</entry>
+              <entry><emphasis role="underline">Recommended</emphasis>:
+			  <itemizedlist>
+                    <listitem>OGC 01-009, OpenGIS Coordinate Transformation Service Implementation Specification Revision 1.00, January 2001.</listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry></entry>
+            </row>
             </tbody>
           </tgroup>
           </table>
-      </sect2>
-    </sect1>
-                      
-    <sect1>
+		</sect3>
+	</sect2>
+
+</sect1>
+<sect1>
       <title>COI Services and Data Standards</title>
-      <para>Interoperability standards for COI services will have to be determined based on 
-        commonly agreed Mission Threads such as Battlespace Awareness, Joint Fires, Joint ISR
-        or Medical Evacuation.</para>
-      <para>The following COI standards for Battlespace Awareness and Joint ISR are primarily
-        based on the AMN Profile and are not defined by the FMN Concept as part of the minimum 
-        set of interoperability requirements for capabilities on a Federated Mission Network.</para>
+      <para>Interoperability standards for COI services will have to be determined based on commonly agreed Mission Threads such as Battlespace Awareness, Joint Fires, Joint ISR or Medical Evacuation.</para>
       <table frame="all">
         <title>General Data Format Standards</title>
         <tgroup cols="3">
@@ -1006,30 +1292,31 @@
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">ID:Purpose</emphasis>
+                <emphasis role="bold">ID: Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Guidance</emphasis>
+                <emphasis role="bold">Implementation Guidance</emphasis>
               </entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry>1:General definition for the Representation of Dates and Times.</entry>
-              <entry>ISO 8601:2004 - Data elements and interchange formats - Information interchange - Representation of dates and times</entry>
-              <entry>If not otherwise specified, implementation of the W3C profile of ISO 8601:2004 (W3CDTF profile) is mandatory.</entry>
+              <entry>1: General definition for the Representation of Dates and Times.</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>ISO 8601:2004 - Data elements and interchange formats -- Information interchange -- Representation of dates and times</para></entry>
+              <entry>Implementation of the W3C profile of ISO 8601:2004 (W3CDTF profile) is recommended.</entry>
             </row>
             <row>
-              <entry>2:General definition of letter codes for Geographical Entities</entry>
-              <entry>STANAG 1059, Letter Codes for Geographical Entities (8th edition, 2005).
-                <para>The following alpha-2/alpha-3 codes shall be used to identify international organizations and their sub-ordinated entities:</para>
+              <entry>2: General definition of letter codes for Geographical Entities</entry>
+              <entry>STANAG 1059, Letter Codes for Geographical Entities (8th edition, 2004).
+                <para>The following alpha-2/alpha-3 codes shall be used to identify international organizations and their sub-ordinated entities: </para>
                 <itemizedlist>
-                  <listitem><para>NATO: “XN”/ “XXN”</para></listitem>
-                  <listitem><para>European Union: “EU” / “XEU”</para></listitem>
-                  <listitem><para>United Nations: “XU”/”XUN”</para></listitem>
+                  <listitem>NATO: “XN”/ “XXN”</listitem>
+                  <listitem>European Union: “EU” / “XEU”</listitem>
+                  <listitem>United Nations: “XU”/”XUN”</listitem>
                 </itemizedlist>
               </entry>
               <entry>Whenever possible, the ISO-3166 alpha-3 (three-letter codes) contained in STANAG 1059 should be used.
@@ -1037,19 +1324,28 @@
               </entry>
             </row>
             <row>
-              <entry>3:General definition of letter codes for identifying Nationality of a person</entry>
-              <entry>When STANAG 1059 3-letter codes are being used for identifying nationality, code extensions as defined
-                in ISO/IEC 7501-1 such as XXA, XXB, XXC, XXX for special machine-readable passports are to be used.</entry>
+              <entry>3: General definition of letter codes for identifying Nationality of a person</entry>
+              <entry><emphasis role="underline">Conditioanl</emphasis>:<para>When STANAG 1059 3-letter codes are being used for identifying nationality, code extensions such as XXA, XXB, XXC, XXX for special machine-readable passports as defined in</para>
+			  <itemizedlist>
+                  <listitem>ISO/IEC 7501-1:2008, Identification cards -- Machine readable travel documents - Part 1: Machine readable passport.</listitem>
+                </itemizedlist>
+				<para>are to be used.<para></entry>
               <entry>ISO/IEC 7501-1 for special machine-readable passports</entry>
             </row>
             <row>
-              <entry>4:General definition of geospatial coverage areas in discovery metadata</entry>
-              <entry>World Geodetic System (WGS) 84, ISO 19115 and ISO 19136 (for point references)
+              <entry>4: General definition of geospatial coverage areas in discovery metadata</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>NIMA Technical Report 8350.2 Third Edition Amendment 1+2: 23 June 2004, Department of Defense World Geodetic System 1984 Its Definition and Relationships with Local Geodetic Systems.</para>
+			  <itemizedlist>
+                  <listitem>ISO 19115:2003, Geographic information – Metadata.</listitem>
+				  <listitem>ISO 19115:2003/Cor 1:2006.</listitem>
+				  <listitem>ISO 19136:2007, Geographic Information -- Geography Markup Language (GML).</listitem>
+                </itemizedlist>
               </entry>
               <entry>ISO 19139 provides encoding guidance for ISO 19115</entry>
             </row>
             <row>
-              <entry>5:General definition of geospatial coverage areas in discovery metadata</entry>
+              <entry>5: General definition of geospatial coverage areas in discovery metadata</entry>
               <entry>World Geodetic System (WGS) 84, ISO 19115 and ISO 19136 (for point 
                 references)</entry>
               <entry>ISO 19139 provides encoding guidance for ISO 19115</entry>
@@ -1066,126 +1362,171 @@
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">ID:Purpose</emphasis>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Guidance</emphasis>
+                <emphasis role="bold">Implementation Guidance</emphasis>
               </entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry>1:Expressing digital geographic annotation and visualization on, two-dimensional maps and three dimensional globes</entry>
-              <entry>TIDE Transformational Baseline Vers. 3.0
-                <para>NATO Vector Graphics (NVG 1.5)</para>
-                <para>Emerging: NATO Vector Graphics (NVG) v2.0</para>
-                <para>Open Geospatial Consortium 07-147r2, Keyhole Markup Language (KML) 2.2
-                  Open Geospatial Consortium 05-047r3, GML in JPEG 2000 for Geographic Imagery 
-                  Encoding Specification 1.0.0, (annotations and overlays)</para></entry>
+              <entry>1: Expressing digital geographic annotation and visualization on, two-dimensional maps and three dimensional globes</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <itemizedlist>
+                  <listitem>TIDE Transformational Baseline Vers. 3.0, Annex A: NATO Vector Graphics (NVG) v1.5, Allied Command Transformation Specification, December 2009.</listitem>
+<listitem>Open Geospatial Consortium 07-147r2, Keyhole Markup Language (KML) 2.2, April 2008.</listitem>
+                </itemizedlist>
+<para><emphasis role="underline">Emerging (2014)</emphasis>:</para>
+<itemizedlist>
+                  <listitem>TIDE Transformational Baseline Vers. 4.0 - Annex N: NATO Vector Graphics (NVG) v2.0, Allied Command Transformation Specification, February 2013.</listitem>
+<listitem>Open Geospatial Consortium 05-047r3, GML in JPEG 2000 for Geographic Imagery Encoding Specification 1.0.0,  (annotations and overlays)</listitem>
+                </itemizedlist>
+			  </entry>
               <entry>NVG shall be used as the standard Protocol and Data Format for encoding and sharing of information layers
                 <para>NVG and KML are both XML based language schemas for expressing geographic annotations.</para> 
               </entry>
             </row>
             <row>
-              <entry>2:General formatted message exchange</entry>
-              <entry>STANAG 5500 Ed.6:2010
-                <para>AdatP-3 Concept of NATO Message Text Formatting System (CONFORMETS) ADatP-3(A) Change 1</para>               
+              <entry>2: Formatted military message exchange in support of:
+			  <para>SOA Platform Services/ Message-oriented Middleware Services</para><para>Enterprise Support Services/ Unified Communication and Collaboration Services/ Text-based Collaboration Services</para>
+</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>STANAG 5500 Ed.7:2010, Concept of NATO Message Text Formatting System (CONFORMETS) / ADatP-03 Ed. (A) Ver. 1: December 2009.</para>               
               </entry>
-              <entry>This change does not have any impact on existing implementations
-                ADatP-3(A) contains two different equivalent presentations of data: one 
-                as "classic"message or alternatively as XML-MTF instance.
+              <entry>­	This change does not have any impact on existing implementations ADatP-03(A) contains two different equivalent presentations of data: one as "classic" message or alternatively as XML-MTF instance.
+			  
                 <itemizedlist>
-                  <listitem><para>Automated processing of XML-files in static facilities/systems is much easier and thus preferred for the exchange between network elements.</para></listitem>
-                  <listitem><para>At the tactical edge of a Mission Network the "classic" message format is the preferred option as this format is "leaner" and easier to transmit via tactical radio systems.</para></listitem>
+                  <listitem>A)	Automated processing of XML-files in static facilities/systems is much easier and thus preferred for the exchange between network elements.</listitem>
+                  <listitem>B)	At the tactical edge of a Mission Network   the "classic" message format is the preferred option as this format is "leaner" and easier to transmit via tactical radio systems.</listitem>
                 </itemizedlist>
               </entry>
             </row>
             <row>
-              <entry>3:Message formats for exchanging information in low bandwidth environment between systems enabled for processing Military Message Format</entry>
-              <entry>STANAG 7149 Ed. 4 NATO Message Catalogue APP-11(C)
-                <para>Minimum set of messages supported on a FMN Option A Network Element:</para>
+              <entry>3: Formatted military message exchange in in low bandwidth environments</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  STANAG 7149 Ed. 4 NATO Message Catalogue APP-11(C).
+                <para>Minimum set of messages supported on a FMN Option A Network Element: </para>
                 <itemizedlist>
-                  <listitem><para>INCIDENT REPORT (A078)</para></listitem>
-                  <listitem><para>SARIR (J012)</para></listitem>                  
-                  <listitem><para>EVENTREP (J092)</para></listitem>                  
-                  <listitem><para>EODINCREP (J069)</para></listitem>                  
-                  <listitem><para>AIR SUPPORT REQUEST (F091)</para></listitem>                  
-                  <listitem><para>AIR TASKING ORDER (F058)</para></listitem>                  
-                  <listitem><para>AIRSPACE CONTROL ORDER (F011)</para></listitem>                  
-                  <listitem><para>PRESENCE REPORT (A009)</para></listitem>
-                  <listitem><para>SITREP (J095)</para></listitem>
-                  <listitem><para>ENEMY CONTACT REP (A023)</para></listitem>
-                  <listitem><para>CASEVACREQ (A015)</para></listitem>
-                  <listitem><para>KILLBOX MESSAGE (F083)</para></listitem>
-                  <listitem><para>INCIDENTSPOTREP (J006)</para></listitem>
-                  <listitem><para>SALTATIC (A073)</para></listitem>
-                  <listitem><para>CASEVACREQ (A015)</para></listitem>
-                  <listitem><para>MEDEVAC MESSAGE (A012)</para></listitem>
-                  <listitem><para>FRIENDLY FORCE INFORMATION (J025) is the ADatP-3 representation of NFFI OPSITREP IRREGULAR ACTOR (A011)</para></listitem>
-                </itemizedlist>  
+                  <listitem>INCIDENT REPORT (A078)</listitem>
+                  <listitem>SARIR (J012)</listitem>                  
+                  <listitem>EVENTREP (J092)</listitem>                  
+                  <listitem>EODINCREP (J069)</listitem>                  
+                  <listitem>AIR SUPPORT REQUEST (F091)</listitem>                  
+                  <listitem>AIR TASKING ORDER (F058)</listitem>                  
+                  <listitem>AIRSPACE CONTROL ORDER (F011)</listitem>                  <listitem>PRESENCE REPORT (A009)</listitem>
+                  <listitem>SITREP (J095)</listitem>
+                  <listitem>ENEMY CONTACT REP (A023)</listitem>
+                  <listitem>CASEVACREQ (A015)</listitem>
+                  <listitem>KILLBOX MESSAGE (F083)</listitem>
+                  <listitem>INCIDENTSPOTREP (J006)</listitem>
+                </itemizedlist><para>
+<emphasis role="underline">Emerging (2015)</emphasis><footnote><para>APP-11(C) Change 2, which is satisfying urgent operational requirement and contains new message formats designed for ISAF and similar operations, was not promulgated in 2012.  Their promulgation is now forecasted for 2013 with APP-11(D) (1).</para></footnote>:				
+                <itemizedlist>
+                  <listitem>SALTATIC (A073)</listitem>
+                  <listitem>CASEVACREQ (A015)</listitem>
+                  <listitem>MEDEVAC MESSAGE (A012)</listitem>
+                  <listitem>FRIENDLY FORCE INFORMATION (J025) is the ADatP-3 representation of NFFI OPSITREP</listitem>
+                  <listitem>IRREGULAR ACTOR (A011)</listitem>
+                  <listitem>UXO IED REPORT (UXOIED) (A075) aka 10LINER</listitem>
+                </itemizedlist></para>  
               </entry>
-              <entry>The following messages that are not compliant with STANAG 7149 Ed 4. could be accepted by a NATO FMN Network Element:
+              <entry>The following message that is not compliant with STANAG 7149 Ed 4. could be accepted by a NATO FMN Network Element:
                 <itemizedlist>
-                  <listitem><para>UXO IED REPORT 10LINER (UXOIED) (A075)</para></listitem>
-                  <listitem><para>Joint Tactical Air Strike Request (JTAR) US DD Form 1972</para></listitem>
-                  <listitem><para>ROZ Status / KILLBOX MESSAGE (F083)</para></listitem>
-                  <listitem><para>ENEMY CONTACT REP (A023)</para></listitem> 
+                  <listitem>Joint Tactical Air Strike Request (JTAR) US DD Form 1972</listitem>
                 </itemizedlist>
               </entry>
             </row>
             <row>
-              <entry>4:Exchanging information on Incident and Event information to support information exploitation.</entry>
-              <entry>NC3A JOCWatch Web Services Specification - Operational Incident Report (OIR) – 1.2, Sep 2011
-                <para>Emerging: Draft EVENTEXPLOITREP XML schema.</para>
+              <entry>4: Exchange of digital Friendly Force Information such as positional tracking information between systems hosted on a Mission Network and mobile tactical systems.
               </entry>
-              <entry>This schema will be used to exchange rich and structured incident/ event information between C2 
-                and Exploitation systems like JOCWatch and CIDNE. National capability developers are invited to contribute
-                to the development of the final EVENTEXPLOITREP XML Schema.</entry>
-            </row>
-            <row>
-              <entry>5:Exchange of digital Friendly Force Information such as positional tracking 
-                information amongst airborne and land-based tactical data systems and C2 systems.
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+AC/322-D(2006)0066 Interim NATO Friendly Force Information (FFI) Standard for Interoperability of Force Tracking Systems (FFTS).
+<para><emphasis role="underline">Emerging (2016)</emphasis>:
+<itemizedlist>
+                  <listitem>STANAG 5527 Ed: 1 / ADatP-36 Ed. A Ver. 1, NATO Friendly Force Information (FFI) Standard for Interoperability of Friendly Force Tracking Systems (FFTS).</listitem>
+                  <listitem>FRIENDLY FORCE INFORMATION (J025) is the ADatP-3 MTF.</listitem>
+                </itemizedlist></para>
               </entry>
-              <entry>AC/322-D(2006)0066 Interim NFFI Standard for Interoperability of Force Tracking Systems
-              </entry>
-              <entry>All positional information of friendly ground forces (e.g. ground forces of Troop 
-                Contributing Nations or commercial transport companies working in support of ISAF Forces) 
-                shall be as a minimum made available in a format that can be translated into the NFFI V1.3 format.
+              <entry>All positional information of friendly ground forces (e.g. ground forces of Troop Contributing Nations or commercial transport companies working in support of FMN Forces) shall be as a minimum made available in a format that can be translated into the NFFI V1.3 format.
               </entry>
             </row>
             <row>
-              <entry>6:Military Symbology interoperability</entry>
-              <entry>STANAG 2019, Ed.5:2008, Joint SmbologyAPP-6(B)
-                <para>MIL-STD-2525B (w/Change 2), Common Warfighting Symbology, Mar 2007</para>
-                <para>MIL-STD-2525C, Common Warfighting Symbology, Nov 2008</para>
-                <para>Emerging: STANAG 2019, Ed.6:2011, Joint SmbologyAPP-6(C)</para>
-                <para>MIL-STD-2525C, Common Warfighting Symbology, Nov 2008</para>
-              </entry>
-              <entry>Note that the different standards are not fully compatible with each other 
-                and may require mapping services.</entry>
+              <entry>5: Mediation Services: Mediate between the TDL and MN to provide weapon delivery assets with Situational Awareness on friendly forces.</entry>
+              <entry><emphasis role="underline">Emerging (2016)</emphasis>:
+			  <itemizedlist>
+                  <listitem>STANAG 5528 Ed: 1/ ADatP-37 Ed.  A, Services to forward Friendly Force Information to weapon delivery assets.</listitem>
+                </itemizedlist></entry>
+              <entry></entry>
             </row>
             <row>
-              <entry>7:Digital exchange of semantically rich information about Battlespace Objects</entry>
-              <entry>MIP C2 Information Exchange data model (C2IEDM)
-                <para>MIP Data Exchange Mechanism (DEM) Block 2</para>
-                <para>AMN MIP Implementation Profile (published in Annex A to NC3A AMN MIP Workshop Final Report). RD-3188</para>
-                <para>Emerging: MIP Joint Consultation, Command and Control Information Exchange Data Model v3.1.4</para>
-                <para>MIP Data Exchange Mechanism (DEM) Baseline 3.1</para>
+              <entry>6: Real time automated data exchange such as radar tracking information between TDL networks and MN
+			  <para>Message exchange Over Tactical Data Links</para>
+</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <itemizedlist>
+                  <listitem>STANAG 5518, Ed.1 - Interoperability Standard for the Joint Range Extension Applications Protocol (JREAP).; see also US MIL-STD 3011</listitem>
+                </itemizedlist>
+				<para>In combination with:<itemizedlist>
+                  <listitem>STANAG 5516, Ed.4:2008 - Tactical  Data  Exchange  (Link16)</listitem>
+                  <listitem>STANAG 5511, Feb 28, 2006 - Tactical Data Exchange (Link 11/11B); see also US MIL-STD 6011</listitem>
+                  <listitem>STANAG 5616 Ed 4:2008 - Standards for Data Forwarding between Tactical Data Systems employing Link 11/11B, Link 16 and Link 22.</listitem>
+                </itemizedlist></para>
+				<para><emphasis role="underline">Emerging (2016)</emphasis>:
+			  <itemizedlist>
+                  <listitem>STANAG 5516, Ed.5:2009 - Tactical  Data  Exchange  (Link16)</listitem>
+                </itemizedlist></para>
               </entry>
-              <entry>C2IEDM Business Rule F11.2 b is not applicable in the FMN scope.
-                <para>Implementations shall ensure that the use of CONTEXT-ASSOCIATION does not create circular references between CONTEXTs.</para>
+              <entry>STANAG 5516, Ed.5 is under ratification.
+			  <para>Link-16 data is disseminated via JREAP and ad-hoc (i.e. NACT) protocols in ISAF. The transition to a full JREAP based dissemination needs to be implemented in close coordination with FMN OPT.</para>
               </entry>
             </row>
-          </tbody>
+            <row>
+              <entry>7: Exchanging information on Incident and Event information to support information exploitation.</entry>
+              <entry>Operational Incident Report (OIR) – 1.2, Sep 2011
+			  <para><emphasis role="underline">Emerging (2014)</emphasis>:</para>
+			  <para>Draft EVENTEXPLOITREP XML schema.</para>
+			  </entry>
+              <entry>This schema will be used to exchange rich and structured incident/ event information between C2 and Exploitation systems like JOCWatch and CIDNE. National capability developers are invited to contribute to the development of the final EVENTEXPLOITREP XML Schema<footnote><para>See http://tide.act.nato.int/tidepedia/index.php?title=TP_112:_Event_Exploitation_Reports_(EVENTEXPLOITREP)</para></footnote>.</entry>
+            </row>
+            <row>
+              <entry>8: Military Symbology interoperability</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: <para>STANAG 2019, Ed.6:2011, Joint Symbology APP-6(C).</para>
+			  <emphasis role="underline">Recommended</emphasis>: <para>MIL-STD-2525C, Common Warfighting Symbology, November 2008.</para>
+			  </entry>
+              <entry>Note that the different standards are not fully compatible with each other and may require mapping services.</entry>
+            </row>
+            <row>
+              <entry>9: Digital exchange of semantically rich information about Battlespace Objects</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: 
+			  <itemizedlist>
+                  <listitem>Multilateral Interoperability Programme, Joint Consultation Command and Control Information Exchange Data Model (JC3IEDM) 3.1.4:2012.</listitem>
+                  <listitem>Multilateral Interoperability Programme, MIP Baseline 3.1: 2012, incl. Alternate Development and Exchange Method (ADEM).</listitem>
+                </itemizedlist><para>
+			  <emphasis role="underline">Emerging (2018)</emphasis>: 
+			  <itemizedlist>
+                  <listitem>MIP Information Model (MIM)</listitem>
+                  <listitem>MIP Baseline 4</listitem>
+                </itemizedlist>
+			  </para>
+			  </entry>
+              <entry>Within MIP Baseline 3.1 the implementation of ADEM is optional.  The FMN Service Strategy adopts a service based approach employing loose coupling, therefore the implementation of the ADEM Pub/Sub Exchange pattern with the following schema constructs are mandatory for the FMN:
+			  <itemizedlist>
+                  <listitem>Unit</listitem>
+				  <listitem>Organisations</listitem>
+				  <listitem>Facilities</listitem>
+				  <listitem>Control Features</listitem>
+                </itemizedlist>
+				</entry>
+            </row>
+			</tbody>
         </tgroup>
       </table>
-      <para>The NATO Intelligence, Surveillance, and Reconnaissance Interoperability Architecture 
-        (NIIA) [AEDP-2, Ed.1:2005] provides the basis for the technical aspects of an architecture 
-        that provides interoperability between NATO nations' ISR systems. AEDP-2 provides the 
-        technical and management guidance for implementing the NIIA in ISR systems.</para>
+      <para>The NATO Intelligence, Surveillance, and Reconnaissance Interoperability Architecture (NIIA) [AEDP-2, Ed.1:2005] provides the basis for the technical aspects of an architecture that provides interoperability between NATO nations' ISR systems. AEDP-2 provides the technical and management guidance for implementing the NIIA in ISR systems.</para>
+	  
       <table frame="all" id="joint-isrt">
         <title>JISR Interoperability Protocols and Standards</title> 
         <tgroup cols="3">
@@ -1195,72 +1536,70 @@
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">ID:Purpose</emphasis>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Guidance</emphasis>
+                <emphasis role="bold">Implementation Guidance</emphasis>
               </entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry>1:Storing and exchanging of images and associated data</entry>
-              <entry>STANAG 4545, Ed. Amendment 1:2000, NATO Secondary Imagery Format (NSIF)
+              <entry>1: Storing and exchanging of images and associated data</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>STANAG 4545, Ed. Amendment 1: 2000, NATO Secondary Imagery Format (NSIF)</para>
               </entry>
               <entry>AEDP-4, Ed. 1, NATO Secondary Imagery Format Implementation 
                 Guide, 15 Jun 07, NU</entry>
             </row>
             <row>
-              <entry>2:Providing a standard software interface for searching and retrieving 
+              <entry>2: Providing a standard software interface for searching and retrieving 
                 for ISR products.</entry>
-              <entry>NATO Standard ISR Library Interface (NSILI)
-                <para>Mandatory: STANAG 4559, Ed. 3:2010</para>
+              <entry><emphasis role="underline">Mandatory</emphasis>: 
+			  <para>STANAG 4559, Ed. 3: 2010, NATO Standard ISR Library Interface (NSILI)</para><para><emphasis role="underline">Emerging (2016)</emphasis>:</para>
+			  <para>STANAG 4559, Ed. 4, NATO Standard ISR Library Interface (NSILI).</para>
               </entry>
               <entry>AEDP-5, Ed. 1, NATO Standard Imagery Library Interface Implementation Guide, TBS, NU
-                <para>STANAG 4559,Ed.2 and Ed.3 are NOT compatible with each other (No backwards compatibility). The CSD on the AMN Core only implements Ed.3:2010).</para>
+                <para>STANAG 4559, Ed.2 and Ed.3 are NOT compatible with each other (No backwards compatibility). The CSD on NATO provided Network elements only implements Ed.3:2010).</para>
               </entry>
             </row>
             <row>
-              <entry>3:Exchange of ground moving target indicator radar data</entry>
-              <entry>NATO Ground Moving Target Indicator (GMTI) Format, STANAG 4607, Ed. 3:2010</entry>
-              <entry>AEDP-7, Ed. 1, NATO Ground Moving Target Indication (GMTI) Format
-                Implementation Guide, TBS, NU</entry>
+              <entry>3: Exchange of ground moving target indicator radar data</entry>
+              <entry><emphasis role="underline">Recommended</emphasis>: NATO Ground Moving Target Indicator (GMTI) Format STANAG 4607, Ed.3:2010</entry>
+              <entry>AEDP-7, Ed. 1, NATO Ground Moving Target Indication (GMTI) Format Implementation Guide, TBS, NU</entry>
             </row>
             <row>
-              <entry>4:Provision of common methods for exchanging of Motion Imagery 
+              <entry>4: Provision of common methods for exchanging of Motion Imagery 
                 (MI)across systems</entry>
-              <entry>NATO Digital Motion Imagery Standard
-                <para>Mandatory: STANAG 4609, Ed. 3:2009</para></entry>
-              <entry>AEDP-8, Ed. 2, Implementation Guide For STANAG 4609-NDMI , 
-                Jun 2007, NU</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: 
+			  <para>NATO Digital Motion Imagery Standard STANAG 4609, Ed. 3:2009.</para>
+			  </entry>
+              <entry>­	AEDP-8, Ed. 2, Implementation Guide For STANAG 4609NDMI , June 2007, NU</entry>
             </row>
             <row>
-              <entry>5:Exchange of unstructured data (documents, jpeg imagery)</entry>
-              <entry>IPIWIG V4 Metadata Specification:2009, Intelligence Projects 
-                Integration Working Group (IPIWG), Definition of metadata for unstructured
-                Intelligence.</entry>
+              <entry>5: Exchange of unstructured data (documents, jpeg imagery)</entry>
+              <entry><emphasis role="underline">Recommended</emphasis>:
+			  <para>IPIWIG V4 Metadata Specification:2009, Intelligence Projects Integration Working Group (IPIWG), Definition of metadata for unstructured Intelligence.</para></entry>
               <entry></entry>
             </row>
             <row>
-              <entry>6: Providing a standard software interface for ex changing information about sensor planning,
-                including information about capabilities of sensors, tasking of a sensors and status of sensor-planning
-                requests.</entry>
-              <entry>OGC 09-000: OGC Sensor Planning Service Implementation Standard v2.0, Mar 2011</entry>
+              <entry>6: Providing a standard software interface for exchanging information about sensor planning, including information about capabilities of sensors, tasking of a sensors and status of sensor-planning requests.</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>OGC 09-000: OGC Sensor Planning Service Implementation Standard v2.0, March 2011.</para></entry>
               <entry>For a FMN instance, Sensor Planning Service implementations shall adhere to the SOAP binding as defined in OGC 09-000.</entry>
             </row>
           </tbody>
         </tgroup>
       </table>
     </sect1>
-    
+	  
     <sect1>
       <title>User Applications</title>      
-      <para>User Applications, also known as application software, software applications, applications 
-        or apps, are computer software components designed to help a user perform singular or multiple 
-        related tasks and provide the logical interface between human and automated activities.</para>     
+      <para>User Applications, also known as application software, software applications, applications or apps, are computer software components designed to help a user perform singular or multiple related tasks and provide the logical interface between human and automated activities.</para>
+	  
       <table frame="all">
         <title>User Applications Standards</title> 
         <tgroup cols="3">
@@ -1270,86 +1609,335 @@
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">ID:Purpose</emphasis>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Guidance</emphasis>
+                <emphasis role="bold">Implementation Guidance</emphasis>
               </entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry>1:Displaying content within web browsers.</entry>
-              <entry>W3C Hypertext Markup Language HTML 4.0.1
-                <para>W3C Extensible Hypertext Markup Language XHTML 1.0</para>
-                <para>W3C Cascading Style Sheets CSS 2.0</para></entry>
-              <entry>Applications must support the following browsers: Microsoft 
-                Internet Explorerv9.0 and newer, and Mozilla Firefox12.0 and newer.
-                When a supported browser is not true to the standard, choose to support
-                the browser.
-                <para>Some organizations or end-user devices do not allow the use of 
-                  proprietary extensions such as Adobe Flash or Microsoft Silverlight.
-                  Those technologies shall be avoided. Implementers should use open 
-                  standard based solutions (HTML5 / CSS3) instead.</para></entry>
+              <entry>1: Displaying content within web browsers.</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>W3C Hypertext Markup Language HTML 4.0.1</para>
+			  <para>W3C Extensible Hypertext Markup Language XHTML 1.0</para>
+			  <para>W3C Cascading Style Sheets CSS 2.0</para>
+			  <para><emphasis role="underline">Emerging (2014)</emphasis>:</para>
+			  <para>HyperText Markup Language, Version 5 (HTML 5), W3C Candidate Recommendation, Dec 2012.</para>
+			  <para>Cascading Style Sheets (CSS), Level 3(CSS 3), W3C Recommendation.
+</para></entry>
+              <entry>Applications must support the following browsers: Microsoft Internet Explorer v9.0 and newer, and Mozilla Firefox 16.0 and newer. When a supported browser is not true to the standard, choose to support the browser that is closest to the standard<footnote><para>E.g. using http://html5test.com to compare features for HTML5.</para></footnote>.
+                <para>Some organizations or end-user devices do not allow the use of proprietary extensions such as Adobe Flash or Microsoft Silverlight. Those technologies shall be avoided.  Implementers should use open standard based solutions (HTML5 / CSS3) instead.</para></entry>
             </row>
             <row>
-              <entry>2:Visualize common operational symbology within C4ISR systems 
-                in order to convey information about objects in the battlespace.</entry>
-              <entry>STANAG 2019, Ed.5:2008, Joint Symbology- APP-6(B)
-                <para>U.S. MIL-STD 2525 B (w/Change 2), Common Warfighting Symbology, bMar 2007</para>
-                <para>MIL-STD-2525C, Common Warfighting Symbology, Nov 2008</para>
-                <para>Emerging: STANAG 2019, Ed.6:2011, Joint SmbologyAPP-6(C)</para>
-                <para>TIDE Transformational Baseline Vers. 3-0, NATO Vector Graphics 
-                  (NVG 1.5)</para>
-              </entry>
-              <entry>All presentation service shall render tracks, tactical graphics,
-                and MOOTW objects using this standard except in the case where the
-                object being rendered is not covered in the standard. In these exceptional
-                cases, additional symbols shall be defined as extensions of existing 
-                symbols and must be backwards compatible. These extensions shall be
-                submitted as a change proposal within the configuration control process
-                to be considered for inclusion in the next version of the specification.
-              </entry>
+              <entry>2: Visualize common operational symbology within C4ISR systems in order to convey information about objects in the battlespace.</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>	  
+			  <itemizedlist>
+			  <listitem>STANAG 2019, Ed.6:2011, Joint Smbology APP-6(C).</listitem>
+			  <listitem>TIDE Transformational Baseline Vers. 3.0, Annex A: NATO Vector Graphics (NVG) v1.5, Allied Command Transformation Specification, December 2009.</listitem>
+			  </itemizedlist>
+			  </para>
+			  <para><emphasis role="underline">Recommended</emphasis>:</para>
+			  <para>MIL-STD-2525C, Common Warfighting Symbology, November 2008.
+			  </para>
+			  <para><emphasis role="underline">Emerging (2015)</emphasis>:</para>
+			  <para><itemizedlist>
+			  <listitem>TIDE Transformational Baseline Vers. 4.0, NATO Vector Graphics (NVG 2.0)</listitem>
+			  </itemizedlist>
+			  </para>
+			  </entry>
+              <entry>All presentation service shall render tracks, tactical graphics, and MOOTW objects using this standard except in the case where the object being rendered is not covered in the standard. In these exceptional cases, additional symbols shall be defined as extensions of existing symbol standards and must be backwards compatible. These extensions shall be submitted as a request for change within the configuration management process to be considered for inclusion in the next version of the specification.</entry>
             </row>
             <row>
-              <entry>3:Reliable messaging over XMPP</entry>
-              <entry>XMPP Extension Protocols (XEP)
-                <para>XEP-0184 - Message Delivery Receipts</para>
-                <para>XEP 0202 - Entity Time</para>
+              <entry>3: Reliable messaging over XMPP</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>XMPP Extension Protocols (XEP) Client Proifle:</para>
+			  <itemizedlist>
+			  <listitem>XEP-0184 - Message Delivery Receipts, March 2011.</listitem>
+			  <listitem>XEP 0202 - Entity Time, September 2009.</listitem>
+			  </itemizedlist>
+			  <para>{this section will be enhanced in the next version based on a detailed requirements analysis recently conducted}</para>
               </entry>
-              <entry>All XMPP Chat Clients used on the FMN shall implement these 
-                two protocol extensions.</entry>
+              <entry>All XMPP Chat Clients used on an FMN instance shall implement these two protocol extensions.</entry>
             </row>
             <row>
-              <entry>4:Collaborative generation of spreadsheets, charts, presentations
-                and word processing documents</entry>
-              <entry>ECMA-376, Ed. 1: 2006 Office Open XML
-                <para>Emerging: Document description and processing languages
-                  ISO/IEC 29500:2008 (transitional)</para>
+              <entry>4: Collaborative generation of spreadsheets, charts, presentations and word processing documents</entry>
+              <entry><entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>ISO/IEC 29500:2012, Information technology -- Document description and processing languages -- Office Open XML File Formats</para>	  
+			  <itemizedlist>
+			  <listitem>Part 1: Fundamentals and Markup Language Reference.</listitem>
+			  <listitem>Part 2: Open Packaging Conventions.</listitem>
+			  <listitem>Part 3: Markup Compatibility and Extensibility.</listitem>
+			  <listitem>Part 4: Transitional Migration Features.</listitem>
+			  </itemizedlist>
+			  <para><emphasis role="underline">Recommended (Open Document Format)</emphasis>:</para>
+			  <itemizedlist>
+			  <listitem>ISO/IEC 26300:2006, Information technology -- Open Document Format for Office Applications (OpenDocument) v1.0.</listitem>
+			  <listitem>ISO/IEC 26300:2006/Cor 1:2010.</listitem>
+			  <listitem>ISO/IEC 26300:2006/Cor 2:2011.</listitem>
+			  <listitem>ISO/IEC 26300:2006/Amd 1:2012,  Open Document Format for Office Applications (OpenDocument) v1.1</listitem>
+			  </itemizedlist>
               </entry>
+              <entry>OASIS Open Document Format ODF 1.0 (ISO/IEC 26300) and Office Open XML (ISO/IEC 29500) are both open document formats for saving and exchanging word processing documents, spreadsheets and presentations. Both formats are XML based but differ in design and scope.
+<para>ISO/IEC TR 29166:2011, Information technology -- Document description and processing languages -- Guidelines for translation between ISO/IEC 26300 and ISO/IEC 29500 document formats.</para>
+</entry>
+            </row>
+            <row>
+              <entry>5: Document exchange, storage and archiving</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>ISO 19005-1:2005 - Document management -Electronic document file format for long-term preservation –Part 1: Use of PDF 1.4 (PDF/A-1)</para>
+			  <para><emphasis role="underline">Emerging (2014)</emphasis>:</para>
+			  <para>ISO 19005-2:2011, Document management -- Electronic document file format for long-term preservation -- Part 2: Use of ISO 32000-1 (PDF/A-2)</para>
+			  </entry>
               <entry></entry>
             </row>
             <row>
-              <entry>5:Document exchange, storage and archiving</entry>
-              <entry>ISO 19005-1:2005 - Document management -Electronic document file format for long-term preservation –Part 1: Use of PDF 1.4 (PDF/A-1)
-              <para>Emerging: ISO 19005: Document management - Electronic document file format for long-term preservation - Part 2: Use of ISO 32000-1 (PDF/A-2)</para></entry>
-              <entry></entry>
+              <entry>6: </entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>W3C profile of ISO 8601 defined in:</para>
+			  <itemizedlist>
+			  <listitem>Date and Time Formats, W3C Note, 15 September 1997.</listitem>
+			  </itemizedlist>
+			  <para><emphasis role="underline">Recommended</emphasis>:</para>
+			  <itemizedlist>
+			  <listitem>Working with Time Zones, W3C Working Group Note, July 2011.</listitem>
+			  </itemizedlist>
+			  <para><emphasis role="underline">Conditional (for military command and control systems)</emphasis>:</para>
+			  <itemizedlist>
+			  <listitem>AAP-6:2013, NATO glossary of terms and definitions.  Part 2-D-1, date-time group (DTG) format.</listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry>When a DTG is expressed in local time, this must use the military time zone designator.  A mapping of UTC offsets to military timezone designators can be found in the next table, which is based on JC3IEDM V3.1.4/ADatP-3 BL13.1 FFIRN/FUD 1003/1.<para>Note that up to 4 characters will be required to represent timezone designators (e.g. 042121M120JAN11 for time zone M120).</para>
+</entry>
+            </row>
+            <row>
+              <entry>7: <emphasis role="underline">Internationalization</emphasis>: Designing, developing content and (web) applications, in a way that ensures it will work well for, or can be easily adapted for, users from any culture, region, or language.</entry>
+              <entry><emphasis role="underline">Recommended</emphasis>:
+			  	  <itemizedlist>
+				  <listitem>Internationalization of Web Design and Applications Current Status, http://www.w3.org/standards/techs/i18nauthoring</listitem>
+				  <listitem>Internationalization of Web Architecture Current Status, http://www.w3.org/standards/techs/i18nwebarch#w3c_all</listitem>
+				  <listitem>Internationalization of XML Current Status,  http://www.w3.org/standards/techs/i18nxml</listitem>
+				  <listitem>Internationalization of Web Services Current Status,  http://www.w3.org/standards/techs/i18nwebofservices</listitem>
+				  </itemizedlist>
+			  </entry>
+              <entry>Best practices and tutorials on internationalization can be found at:
+http://www.w3.org/International/articlelist
+</entry>
             </row>
           </tbody>
         </tgroup>
       </table>
+	  
+      <table frame="all">
+        <title>Timezone Designators</title>
+        <tgroup cols="4">
+          <colspec colwidth="20*" />
+          <colspec colwidth="20*" />
+          <colspec colwidth="20*" />
+          <colspec colwidth="20*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">UTC offset (positive)</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Timezone Designator (Eastern Hemisphere)</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">UTC offset (negative)</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Timezone Designator (Western Hemisphere)</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+		  
+            <row>
+              <entry>00:00</entry>
+              <entry>Z</entry>
+              <entry>00:00</entry>
+              <entry>Z</entry>
+            </row>
+		  
+            <row>
+              <entry>+01:00</entry>
+              <entry>A</entry>
+              <entry>-01:00</entry>
+              <entry>N</entry>
+            </row>
+		  
+            <row>
+              <entry>+02:00</entry>
+              <entry>B</entry>
+              <entry>-02:00</entry>
+              <entry>O</entry>
+            </row>
+		  
+            <row>
+              <entry>+03:00</entry>
+              <entry>C</entry>
+              <entry>-03:00</entry>
+              <entry>P</entry>
+            </row>
+		  
+            <row>
+              <entry>+03:30</entry>
+              <entry>C30</entry>
+              <entry>-03:30</entry>
+              <entry>P30</entry>
+            </row>
+		  
+            <row>
+              <entry>+04:00</entry>
+              <entry>D</entry>
+              <entry>-04:00</entry>
+              <entry>Q</entry>
+            </row>
+		  
+            <row>
+              <entry>+04:30</entry>
+              <entry>D30</entry>
+              <entry>-04:30</entry>
+              <entry>Q30</entry>
+            </row>
+		  
+            <row>
+              <entry>+05:00</entry>
+              <entry>E</entry>
+              <entry>-05:00</entry>
+              <entry>R</entry>
+            </row>
+		  
+            <row>
+              <entry>+05:30</entry>
+              <entry>E30</entry>
+              <entry>-06:00</entry>
+              <entry>S</entry>
+            </row>
+		  
+            <row>
+              <entry>+05:45</entry>
+              <entry>E45</entry>
+              <entry>-07:00</entry>
+              <entry>T</entry>
+            </row>
+		  
+            <row>
+              <entry>+06:00</entry>
+              <entry>F</entry>
+              <entry>-08:00</entry>
+              <entry>U</entry>
+            </row>
+		  
+            <row>
+              <entry>+06:30</entry>
+              <entry>F30</entry>
+              <entry>-09:00</entry>
+              <entry>V</entry>
+            </row>
+		  
+            <row>
+              <entry>+07:00</entry>
+              <entry>G</entry>
+              <entry>-09:30</entry>
+              <entry>V30</entry>
+            </row>
+		  
+            <row>
+              <entry>+08:00</entry>
+              <entry>H</entry>
+              <entry>-10:00</entry>
+              <entry>W</entry>
+            </row>
+		  
+            <row>
+              <entry>+08:45</entry>
+              <entry>H45</entry>
+              <entry>-11:00</entry>
+              <entry>X</entry>
+            </row>
+		  
+            <row>
+              <entry>+09:00</entry>
+              <entry>I</entry>
+              <entry>-12:00</entry>
+              <entry>Y</entry>
+            </row>
+		  
+            <row>
+              <entry>+09:30</entry>
+              <entry>I30</entry>
+              <entry></entry>
+              <entry></entry>
+            </row>
+		  
+            <row>
+              <entry>+10:00</entry>
+              <entry>K</entry>
+              <entry></entry>
+              <entry></entry>
+            </row>
+		  
+            <row>
+              <entry>+10:30</entry>
+              <entry>K30</entry>
+              <entry></entry>
+              <entry></entry>
+            </row>
+		  
+            <row>
+              <entry>+11:00</entry>
+              <entry>L</entry>
+              <entry></entry>
+              <entry></entry>
+            </row>
+		  
+            <row>
+              <entry>+11:30</entry>
+              <entry>L30</entry>
+              <entry></entry>
+              <entry></entry>
+            </row>
+		  
+            <row>
+              <entry>+12:00</entry>
+              <entry>M</entry>
+              <entry></entry>
+              <entry></entry>
+            </row>
+		  
+            <row>
+              <entry>+13:00</entry>
+              <entry>M60</entry>
+              <entry></entry>
+              <entry></entry>
+            </row>
+		  
+            <row>
+              <entry>+14:00</entry>
+              <entry>M120</entry>
+              <entry></entry>
+              <entry></entry>
+            </row>
+
+			</tbody>
+        </tgroup>
+      </table>
+
+	  
     </sect1>
  
     <sect1>
       <title>Service Management and Control</title>      
-      <para>Service Management and Control (SMC) provides a collection of capabilities to coherently 
-        manage components in a federated service-enabled information technology infrastructure. SMC
-        tools enable service providers to provide the desired quality of service as specified by the
-        customer. In a federated environment such as a FMN instance, utilizing common process and 
-        data is a critical enabler to manage a FMN.</para>     
+      <para>Service Management and Control (SMC) provides a collection of capabilities to coherently manage components in a federated service-enabled information technology infrastructure. SMC tools enable service providers to provide the desired quality of service as specified by the customer. In a federated environment such as a FMN instance, utilizing common process and data is a critical enabler to manage a FMN.</para>
+
+		
       <table frame="all">
         <title>Service Management and Control Interoperability Standards</title> 
         <tgroup cols="3">
@@ -1359,56 +1947,133 @@
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">ID:Purpose</emphasis>
+                <emphasis role="bold">ID: Purpose</emphasis>
               </entry>
               <entry>
                 <emphasis role="bold">Standard</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Guidance</emphasis>
+                <emphasis role="bold">Implementation Guidance</emphasis>
               </entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry>1:Provide Service Management within a FMN instance.</entry>
-              <entry>Mandatory: ITIL 2011 update / ISO/IEC 20000</entry>
+              <entry>1: Provide Service Management within a FMN instance.</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>: ITIL 2011 update / ISO/IEC 20000</entry>
               <entry>See also AMN Service Management Framework CONOPS</entry>
             </row>
             <row>
-              <entry>2:Provide the Control (Governance) required to efficiently and effectively control an FMN instance.</entry>
-              <entry>Mandatory: Control Objectives for Information and related Technology (COBIT 5).
-                <para>Optional: Frameworx (Business Process Framework (eTOM)) as required for Business Processes especially Customer Relationship Management activities</para>
+              <entry>2: Provide the Control (Governance) required to efficiently and effectively control an FMN instance.</entry>
+              <entry><emphasis role="underline">Recommended</emphasis>: Control Objectives for Information and related Technology (COBIT 5).
+                <para><emphasis role="underline">Optional</emphasis>: TMForumFrameworx, Business Process Framework (eTOM) Release 13.</para>
               </entry>
-              <entry>COBIT is based on established frameworks, such as the Software Engineering
-                Institute’s Capability Maturity Model, ISO 9000, ITIL, and ISO 17799 (standard 
-                security framework, now ISO 27001).
+              <entry>COBIT is based on established frameworks, such as the Software Engineering Institute’s Capability Maturity Model, ISO 9000, ITIL, and ISO 17799 (standard security framework, now ISO 27001).
               </entry>
             </row>
             <row>
-              <entry>3:Network management</entry>
-              <entry>XSimple Network Management Protocol Version 3 (SNMPv3)</entry>
-              <entry></entry>
+              <entry>3: Network management</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <para>IETF STD 62: 2002, An Architecture for Describing Simple Network Management Protocol (SNMP) Management Frameworks.</para></entry>
+              <entry>Details of Simple Network Management Protocol Version 3 (SNMPv3) are defined by IETF RFC 3411 - 3418.</entry>
             </row>
             <row>
-              <entry>4:SOA Platform SMC Services</entry>
-              <entry>Web Services for Management:
+              <entry>4: SOA Platform SMC Services</entry>
+              <entry><emphasis role="underline">Recommended</emphasis>:
+			  <para>Web Services for Management:</para> 
                 <itemizedlist>
-                  <listitem><para>WS-Management Specification Version 1.0.0 (DSP0226), dated: 12 Feb 2008, Distributed Management Task Force</para></listitem>
-                  <listitem><para>WS-Management CIM Binding Specification Version 1.0.0 (DSP0227), dated: 19 June 2009, Distributed Management Task Force</para></listitem>
+                  <listitem>Distributed Management Task Force, WS-Management Specification Version 1.0.0 (DSP0226), 12 Feb 2008.</listitem>
+                  <listitem>Distributed Management Task Force, WS-Management CIM Binding Specification Version 1.0.0 (DSP0227), 19 June 2009.</listitem>
                 </itemizedlist>
               </entry>
               <entry>WS-Management provides a common way for systems to access and exchange management information across the IT infrastructure.</entry>
             </row>
             <row>
-              <entry>5:Represent and share Configuration Items and details about the important attributes and relationships between them.</entry>
-              <entry>CIM Schema version 2.29.0, dated 3 May 2011, Distributed Management Task Force
-                <para>CMDB Federation Specification V1.0.1, dated 22 Apr 2010, Distributed Management Task Force</para></entry>
+              <entry>5: Represent and share Configuration Items and details about the important attributes and relationships between them.</entry>
+              <entry><emphasis role="underline">Mandatory</emphasis>:
+			  <itemizedlist>
+                  <listitem>Distributed Management Task Force, CIM Schema version 2.30.0, 27 Sep 2011.</listitem>
+                  <listitem>Distributed Management Task Force, CMDB Federation Specification V1.0.1, 22 Apr 2010.</listitem>
+                </itemizedlist>
+			  </entry>
               <entry></entry>
             </row>
           </tbody>
         </tgroup>
       </table>
     </sect1>
+<sect1>
+<title>Human-to-human Communication</title>
+<para>For working in a federated mission networking environment it is not sufficient to standardize technical services only.  A key prerequisite is to also agree on a common language for force preparation, training material, user interfaces, common vocabularies etc.  For a particular mission the commander might decide to use a different language; however, this would generate additional risks and would reduce the usefulness of the FMN preparatory activities.</para>
+				   
+      <table frame="all">
+        <title>Human-to-human interoperability Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="20*" />
+          <colspec colwidth="50*" />
+          <colspec colwidth="30*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1: Mutual understanding of terminology</entry>
+              <entry><emphasis role="underline">Recommended</emphasis>:
+	  <itemizedlist>
+	  <listitem>General terminology:  Concise Oxford English Dictionary.</listitem>
+	  <listitem>Specific military terminology: NSA AAP-6, NATO Glossary of terms and definitions.</listitem>
+	  </itemizedlist>
+			  </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>2: General language communication ability of staff working in a federated networking environment</entry>
+              <entry><emphasis role="underline">Recommended</emphasis>:
+			  <para>Standardised Language Profile (SLP) English 3222 in accordance with STANAG 6001 Version 4.</para>
+			  </entry>
+              <entry>For effective voice communications, a proficient speakers shall:
+			  <para>
+a.	communicate effectively in voice-only (telephone/radio) and in face-to-face situations;</para><para> 
+b.	communicate on common, concrete and work-related topics with accuracy and clarity; </para><para> 
+c.	use appropriate communicative strategies to exchange messages and to recognize and resolve misunderstandings (e.g. to check, confirm, or clarify information) in a general or work-related context; </para><para> 
+d.	handle successfully and with relative ease the linguistic challenges presented by a complication or unexpected turn of events that occurs within the context of a routine mission situation or communicative task with which they are otherwise familiar; and </para><para> 
+e.	use a dialect or accent which is intelligible to the multinational mission community.</para><para> 
+Source: International Civil Aviation Organization (ICAO) Holistic Descriptors of operational language proficiency (adapted).</para>
+</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
 
+</sect1>
+<sect1>
+<title>Interoperability Assurance</title>
+<para>Interoperability Assurance for Federated Mission Networking covers the full spectrum of interoperability issues that span technical and procedural aspects.  Interoperability Assurance activities support the life-cycle from capability development as interoperability changes are made to operational processes, and technical systems and services.</para><para>  
+The overall aim of Interoperability Assurance is to give confidence to all parties that processes, products or systems fulfil specified Federated Mission Networking requirements.  The value of Interoperability Assurance is the degree of confidence and trust that is established by an impartial and competent assessment.</para><para> 
+Interoperability Assurance improves information sharing across Mission Networks, eliminates avoidable risks to an acceptable degree and confers error prevention.  To guarantee the rapid instantiation of Mission Networks, Interoperability Assurance activities have to be conducted on a regular basis and in advance of instantiating or joining a MN.  Parties that have an interest in FMN Interoperability Assurance include, but are not limited to governmental authorities, suppliers, purchasing organisations and users of products and systems.</para><para>Interoperability Assurance for Federated Mission Networking is based on two components:
+	  <itemizedlist>
+	  <listitem>Verification of conformity with technical interface standards, and</listitem>
+	  <listitem>Validation of the ability to provide end-to-end services in a federated environment in support of specified mission objectives (CIAV Process).</listitem>
+	  </itemizedlist>
+</para><para>For successful Federated Mission Networking, technical interface standards are critical enablers that have to be collectively followed and for which conformity by all participating members is mandatory.  Products and systems used for Federated Mission Networking must conform to the standards defined in this Federated Mission Networking Standards Profile.  Conformity assessment is an important piece of Federated Mission Networking which is most often carried out by specialist organizations, such as inspection and certification bodies and testing laboratories.  Certificates of conformity may relate to all the requirements of a Standard or to selected sections or characteristics only.  A certificate of conformity might only state that an implementation had been tested to completion, and provide a list of the errors that were found.</para>
+<para>Selection of standards bodies and conformity and interoperability resources:
+	  <itemizedlist>
+	  <listitem>International Telecommunication Union (ITU):  http://www.itu.int/en/ITU-T/C-I</listitem>
+	  <listitem>IEEE Industry Standards and Technology Organization:  http://www.ieee-isto.org/ieee-conformity-assessment-program-icap</listitem>
+	  <listitem>W3C Standards and Recommendations:  https://validator-suite.w3.org/</listitem>
+	  <listitem>Distributed Management Task Force:  http://www.dmtf.org/conformance</listitem>
+	  <listitem>Multilateral Interoperability Programme:  https://trac.fkie.fraunhofer.de/MTRS</listitem>
+	  </itemizedlist>
+</para>
+</sect1>
 </appendix>
