@@ -303,70 +303,456 @@ The standards for Transport and corresponding Communications Equipment are given
 
 <sect2>
 <title>Communications Access Services</title>
-<para></para>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic">Transport Communications Access Services provide end-to-end connectivity of communications or computing devices. Communications Access Services can be interfaced directly to Transmission Services (e.g. in the case of personal communications systems) or to Transport Services, which in turn interact with Transmission Services for the actual physical transport. Communications Access Services correspond to customer-facing communications services. As such, they can also be referred to as Subscriber Services, or Customer-Edge (CE) Services.</emphasis></para>
+
+<para>With respect to the current implementation scope of AMN, the following Communications Access services apply:</para>
+
+<itemizedlist>
+<listitem><para>Packet-Based Communications Access Services</para></listitem>
+<listitem><para>Communications Access Information Assurance (IA) Services</para></listitem>
+<listitem><para>Communications Access Service Management Control (SMC) Services. </para></listitem>
+<listitem><para>Multimedia Services</para></listitem>
+</itemizedlist>
+
 <sect3>
 <title>Standards</title>
-<para></para>
+<para>To provide federated services, the standards listed in the next two Tables should be adhered to.</para>
+
+      <table frame="all" id="v3t-id-reftable4">
+        <title>Packet-based Communications Access Services Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1: Host-to-host transport services</entry>
+              <entry>
+                <para>
+<itemizedlist>
+<listitem><para>Mandatory: IETF STD 6: 1980 /IETF RFC 768: 1980, User Datagram Protocol.</para></listitem>
+<listitem><para>Mandatory: IETF STD 7: 1981 / RFC 793: 1981, Transmission Control Protocol.<footnote><para>FMN: Note that IETF RFC 793 is updated by IETF RFC 3168: 2001, The addition of Explicit Congestion Notification (ECN) to IP.  However, despite the fact that IETF RFC 793 is updated by IETF RFC 3168, ECN cannot be used in parallel to the deployment of IP encryption and therefore IETF RFC 793 will remain in these circumstances.</para></footnote></para></listitem>
+</itemizedlist>
+</para>
+              </entry>
+              <entry>
+		<para></para>
+	      </entry>
+            </row>
+            <row>
+              <entry>2: host-to-host datagram services</entry>
+              <entry>
+                <para>Internet Protocol:
+				<itemizedlist>
+<listitem><para>Mandatory: IETF RFC 791: 1981, Internet Protocol.</para></listitem> 
+<listitem><para>Mandatory: IETF RFC 792: 1981, Internet Control Message Protocol.</para></listitem> 
+<listitem><para>Mandatory: IETF RFC 919: 1994, Broadcasting Internet Datagrams.</para></listitem> 
+<listitem><para>Mandatory: IETF RFC 922: 1984, Broadcasting Internet Datagrams in the Presence of Subnets.</para></listitem> 
+<listitem><para>Mandatory: IETF RFC 950: 1985, Internet Standard Subnetting Procedure.</para></listitem> 
+<listitem><para>Mandatory: IETF RFC 1112: 1989, Host Extensions for IP Multicasting.</para></listitem> 
+<listitem><para>Mandatory: IETF RFC 1812: 1995, Requirements for IP Version 4 Routers.</para></listitem> 
+<listitem><para>Advised: IETF RFC 2644: 1999, Changing the Default for Directed Broadcasts in Routers.<footnote><para>FMN: will also implement IETF RFC 2644. It is advisory that AMN also follows this</para></footnote></para></listitem>
+</itemizedlist>
+<para>IPv6 over Ethernet (Optional):</para>
+				<itemizedlist>
+<listitem><para>Recommended: IETF RFC 2460: 1998, Internet Protocol, Version 6 (IPv6) Specification.</para></listitem> 
+<listitem><para>Recommended: IETF RFC 3484: 2003, Default Address Selection for Internet Protocol version 6 (IPv6).</para></listitem> 
+<listitem><para>Recommended: IETF RFC 3810: 2004, Multicast Listener Discovery Version 2 (MLDv2) for IPv6.</para></listitem> 
+<listitem><para>Recommended: IETF RFC 4291: 2006, IP Version 6 Addressing Architecture.</para></listitem> 
+<listitem><para>Recommended: IETF RFC 4443: 2006, Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification.</para></listitem> 
+<listitem><para>Recommended: IETF RFC 4861: 2007, Neighbor Discovery for IP version 6 (IPv6).</para></listitem> 
+<listitem><para>Recommended: IETF RFC 5095: 2007, Deprecation of Type 0 Routing Headers in IPv6.</para></listitem>
+</itemizedlist>
+</para>
+              </entry>
+              <entry>
+		<para>IP networking. Accommodate both IPv4 and IPv6 addressing<footnote><para>Note that although IPv6 has always been part of the AMN Profile it has never been taken up. There has always been the intent to provide a tunnel of v6 over v4 or via a dual stack, should a TCN require it.</para></footnote>
+		<footnote><para>Due to the fact that one of the early founding TCN networks of the AMN had already implemented NAT on the already existing network that became the extension, historically NAT has had to be presented as an option for the AMN. NAT however is not in line with the openness required on the AMN and has always been highly discouraged within the TCN network. It has since been removed as an option for all subsequent joining nations.</para></footnote></para>
+		<para>Max Transmission Unit (MTU) reduced to 1300 bytes, Max Segment Size (MSS) set to 1260 bytes in order to accommodate IP crypto tunneling within autonomous systems</para>
+	      </entry>
+            </row>
+            <row>
+              <entry>3: Differentiated host-to-host datagram services<para>
+(IP Quality of Service)</para>
+</entry>
+              <entry>
+                <para><itemizedlist>
+<listitem><para>Mandatory: IETF RFC 2474: 1998, Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers<footnote><para>FMN: Note that IETF RFC 2474 is updated by IETF RFC 3168: 2001, The addition of Explicit Congestion Notification (ECN) to IP.  However, despite the fact that IETF RFC 2474 is updated by IETF RFC 3168, ECN <emphasis role="underline">cannot</emphasis> be used in parallel to the deployment of IP encryption and therefore IETF RFC 2474 will remain in these circumstances.</para></footnote>.</para>
+<para><itemizedlist>
+<listitem><para>updated by IETF RFC 3260: 2002, New Terminology and Clarifications for DiffServ.</para></listitem>
+</itemizedlist></para></listitem>
+<listitem><para>Mandatory: IETF RFC 4594: 2006, Configuration Guidelines for DiffServ Service Classes.</para></listitem>
+<listitem><para>Mandatory: ITU-T Y.1540 (03/2011), Internet protocol data communication service – IP packet transfer and availability performance parameters.</para></listitem>
+<listitem><para>Mandatory: ITU-T Y.1541 (12/2011), Network performance objectives for IP-based services.</para></listitem>
+<listitem><para>Mandatory: ITU-T Y.1542 (06/2010), Framework for achieving end-to-end IP performance objectives.</para></listitem>
+<listitem><para>Mandatory: ITU-T M.2301 (07/2002), Performance objectives and procedures for provisioning and maintenance of IP-based networks.</para></listitem>
+<listitem><para>Mandatory: ITU-T J.241 (04/2005), Quality of service ranking and measurement methods for digital video services delivered over broadband IP networks.</para></listitem>
+</itemizedlist>
+</para>
+              </entry>
+              <entry>
+		<para>The AMN QoS standard was constructed based on the NATO QoS Enabled Network Infrastructure (QENI).</para>
+<para>The QoS model adopted is however not quite fully compliant with IP QoS Maturity level QoS-1 as defined in the NII IP QoS Standard [NC3A TN-1417]<footnote><para>FMN: will implement QoS: IP QoS for the NII, [NC3A TN-1417]</para></footnote>  (the deviation has largely to do with the DSCP markings). See Annex C.1 for details.</para>
+<para>AMN IP QoS aggregates all IP traffic into 4x classes - (Real Time (RT); Near Real Time (NRT); Network (routing, signalling, management); Best Effort).</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
+      <table frame="all" id="v3t-id-reftable5">
+        <title>Communications Access IA Services Standards</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1: Provide communications security over the network above the Transport Layer</entry>
+              <entry><para>
+<itemizedlist>
+<listitem><para>Mandatory:  IETF RFC 5246: 2008, Transport Layer Security (TLS) Protocol Version 1.2.</para></listitem>
+</itemizedlist></para>
+              </entry>
+              <entry>
+		<para></para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
+
 </sect3>
 <sect3>
 <title>Implementation of Packet-Based Access Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect3>
 <sect3>
 <title>Implementation of Communications Access Information Assurance (IA) Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect3>
 <sect3>
 <title>Implementation of Communications Access Service Management Control (SMC) Services.</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect3>
 </sect2>
 </sect1>
 
 <sect1>
 <title>Core Enterprise Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 <sect2>
 <title>Infrastructure Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
+
 <sect3>
 <title>Standards</title>
-<para/>
+
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable6">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
+
 </sect3>
 <sect3>
 <title>Implementation</title>
-<para/>
+
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect3>
 </sect2>
 <sect2>
 <title>SOA Platform Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <sect3>
 <title>Standards</title>
-<para/>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable7">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
 </sect3>
 <sect3>
 <title>Implementation</title>
-<para/>
+
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect3>
 </sect2>
 <sect2>
 <title>Enterprise Support Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 <sect3>
 <title>Unified Communication and Collaboration Services</title>
-<para/>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 <sect4>
 <title>Standards</title>
-<para/>
+
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable8">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
 </sect4>
 <sect4>
 <title>Implementation</title>
-<para/>
+
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect4>
 </sect3>
 <sect3>
 <title>Information Management Services</title>
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <sect4>
 <title>Standards</title>
-<para/>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable9">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
 </sect4>
 <sect4>
 <title>Implementation</title>
@@ -375,13 +761,65 @@ The standards for Transport and corresponding Communications Equipment are given
 </sect3>
 <sect3>
 <title>Geospatial Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <sect4>
 <title>Standards</title>
-<para/>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable10">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect4>
 <sect4>
 <title>Implementation</title>
-<para/>
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
+
 </sect4>
 </sect3>
 </sect2>
@@ -389,43 +827,258 @@ The standards for Transport and corresponding Communications Equipment are given
 
 <sect1>
 <title>Communities of Interest Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 <sect2>
 <title>Communities of Interest Enabling Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 <sect3>
-<title>Situational Awareness Services</title>
+<title>General COI-Enabling Data Formats and Standards</title>
 <sect4>
 <title>Standards</title>
-<para/>
-</sect4>
-<sect4>
-<title>Implementation</title>
-<para/>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable11">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
 </sect4>
 </sect3>
+
 <sect3>
-<title>Biometric Services</title>
+<title>Situational Awareness Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <sect4>
 <title>Standards</title>
-<para/>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable12">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
 </sect4>
 <sect4>
 <title>Implementation</title>
-<para/>
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
+
+
+</sect4>
+</sect3>
+
+<sect3>
+<title>Biometric Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
+<sect4>
+<title>Standards</title>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable13">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
+</sect4>
+<sect4>
+<title>Implementation</title>
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect4>
 </sect3>
 </sect2>
 <sect2>
 <title>Communities of Interest Specific Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 <sect3>
 <title>JISR COI Services</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <sect4>
 <title>Standards</title>
-<para/>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable14">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
 </sect4>
 <sect4>
 <title>Implementation</title>
-<para/>
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect4>
 </sect3>
 </sect2>
@@ -433,16 +1086,66 @@ The standards for Transport and corresponding Communications Equipment are given
 
 <sect1>
 <title>User Facing Capabilities</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <para></para>
+
 <sect2>
-  <title>???</title>
-<sect3>
+  <title>User Applications</title>
+
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
+  <sect3>
 <title>Standards</title>
-<para/>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable15">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
 </sect3>
 <sect3>
 <title>Implementation</title>
-<para/>
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
 </sect3>
 </sect2>
 </sect1>
@@ -452,20 +1155,100 @@ The standards for Transport and corresponding Communications Equipment are given
 <para></para>
 <sect2>
 <title>Standards</title>
-<para/>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable16">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
 </sect2>
 </sect1>
 
 <sect1>
 <title>Service Management and Control</title>
-<para></para>
+<
+    <para><emphasis role="bold">Definition</emphasis>: 
+	<emphasis role="italic"></emphasis></para>
+
 <sect2>
 <title>Standards</title>
-<para/>
+<para></para>
+
+      <table frame="all" id="v3t-id-reftable17">
+        <title>Title string</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="35*" />
+          <colspec colwidth="35*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">ID: Service/Purpose</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Standards</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Implementation Guidance</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>1:repeating purpose para</entry>
+              <entry>
+                <para>repeating Standard para</para>
+              </entry>
+              <entry>
+		<para>repeating Guidance para</para>
+	      </entry>
+            </row>
+	  </tbody>
+         </tgroup>
+	</table>
+
 </sect2>
 <sect2>
 <title>Implementation</title>
-<para/>
+<para></para>
+
+<itemizedlist>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+<listitem><para></para></listitem>
+</itemizedlist>
+
+
+
 </sect2>
 </sect1>
 
