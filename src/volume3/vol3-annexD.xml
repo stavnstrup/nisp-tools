@@ -507,21 +507,21 @@ The standards for Transport and corresponding Communications Equipment are given
 <title>Core Enterprise Services</title>
 
     <para><emphasis role="bold">Definition</emphasis>: 
-	<emphasis role="italic"></emphasis></para>
+	<emphasis role="italic">Core Enterprise Services (CES) provide generic, domain independent, technical functionality that enables or facilitates the operation and use of Information Technology (IT) resources.</emphasis></para>
 
-<para></para>
+<para>CES will be broken up further into:</para>
 
 <itemizedlist>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
+<listitem><para>Infrastructure Services (incl. Information Assurance (IA) services)</para></listitem>
+<listitem><para>Service Oriented Architecture (SOA) Platform Services</para></listitem>
+<listitem><para>Enterprise Support Services</para></listitem>
 </itemizedlist>
 
 <sect2>
 <title>Infrastructure Services</title>
 
     <para><emphasis role="bold">Definition</emphasis>: 
-	<emphasis role="italic"></emphasis></para>
+	<emphasis role="italic">Infrastructure Services provide software resources required to host services in a distributed and federated environment. They include computing, storage and high-level networking capabilities that can be used as the foundation for data centre or cloud computing implementations.</emphasis></para>
 
 
 <sect3>
@@ -550,12 +550,116 @@ The standards for Transport and corresponding Communications Equipment are given
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: <emphasis role="underline">Distributed Time Services</emphasis>: Time synchronization</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <para>
+<itemizedlist>
+<listitem><para>Mandatory: IETF RFC 5905: June 2010, Network Time Protocol version 4 (NTPv4).</para></listitem>
+<listitem><para>Fading: IETF RFC 1305: March 1992, NTPv3.</para></listitem>
+</itemizedlist></para>
+<para>To aid rapid post event reconstruction, ALL networked equipment will be set to process time as Coordinated Universal Time (UTC). i.e. ZULU Time Zone should apply to the whole Mission Network [AMN TPT CES Sept 2011].
+</para>
               </entry>
               <entry>
-		<para>repeating Guidance para</para>
+		<para>All new capabilities shall use NTPv4. Some legacy systems may still need to use NTPv3.</para>
+<para>TCN connecting to the AMN Core must use the time service of the AMN Core<footnote><para>For an FMN implementation, if TCN also provide an equivalent to the AMN Core (known in FMN terms as “Option A”), then the time service could also be provided over a network path to a stratum-1 time server on the TCN (Option A) network.</para></footnote>.</para>
+<para>
+A stratum-1 time server is directly linked (not over a network path) to a reliable source of UTC time (Universal Time Coordinate) such as GPS, WWV, or CDMA transmissions through a modem connection, satellite, or radio.</para>
+<para>Stratum-1 devices must implement IPv4 and IPv6 so that they can be used as timeservers for IPv4 and IPv6 Mission Network Elements</para>
+<para>The W32Time service on all Windows Domain Controllers is to synchronize time through the Domain hierarchy (NT5DS type).</para>
+<para>Databases are to implement TIMESTAMP as specified in point 4 below</para>
+	      </entry>
+            </row>
+            <row>
+              <entry>2: <emphasis role="underline">Domain Name Services</emphasis>: Naming and Addressing</entry>
+              <entry>
+<itemizedlist>
+<listitem><para>Mandatory: IETF STD 13: 1987 /, IETF RFC 1034: 1987, Domain Names – Concepts and Facilities.</para></listitem>
+<listitem><para>Mandatory: IETF RFC 1035: 1987, Domain Names – Implementation and specification.</para></listitem>
+</itemizedlist>
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>3: Identification and addressing of objects on the network.</entry>
+              <entry>
+                <itemizedlist>
+				<listitem><para>Mandatory: IETF RFC 1738: 1994, Uniform Resource Locators (URL).</para></listitem>
+				<listitem><para>Mandatory: IETF RFC 3986: 2005, Uniform Resource Identifiers (URI), Generic Syntax., January  2005 (updates IETF RFC 1738)</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry>
+		<para>Namespaces within XML documents shall use unique URLs or URIs for the namespace designation.</para>
+	      </entry>
+            </row>
+            <row>
+              <entry>4: Infrastructure Storage Services: storing and accessing information about the time of events and transactions</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: ISO/IEC 9075(Parts 1 to 14):2011, Information technology - Database languages – SQL</para></listitem>
+			  </itemizedlist>
+
+                <para>Databases shall stores date and time values everything in TIMESTAMP WITH TIME ZONE or TIMESTAMPTZ</para>
+              </entry>
+              <entry>
+		<para>As the AMN user community spans several time zones, applications will increasingly need to conduct transactions across different time zones. Timestamps are essential for auditing purposes. It is important that the integrity of timestamps is maintained across all Mission Network Elements. From Oracle 9i, PostgreSQL 7.3 and MS SQL Server 2008 onwards, the time zone can be stored with the time directly by using the TIMESTAMP WITH TIME ZONE (Oracle, PostgreSQL) or datetimeoffset (MS-SQL) data types.</para>
+		<para>On the AMN, human interfaces may convert the time for display to the user as (e.g.) D30 (i.e. Local) as required.  See also <xref linkend="v3t-id-reftable15" /> for details on representing time within applications</para>
+	      </entry>
+            </row>
+            <row>
+              <entry>5: Infrastructure IA Services:  Facilitate the access and authorization between FMN users and services.
+			  <para>Directory access and management service</para>
+			  </entry>
+              <entry><itemizedlist>
+			  <listitem><para>Mandatory: IETF RFC 4510: 2006, version 3 of the Lightweight Directory Access Protocol (LDAPv3), (LDAP) Technical Specification Road Map (LDAPv3).</para></listitem>
+			  <listitem><para>Mandatory: IETF RFC 4511-4519:2006, RFC 4510 and associated LDAP Technical Specification. (RFC 4511-4519)</para></listitem>
+			  <listitem><para>Mandatory: IETF RFC 2849: 2000, The LDAP Interchange Format 9 (LDIF)., RFC 2849</para></listitem>
+			  </itemizedlist>
+              </entry>
+              <entry>
+		<para>There are three options available to a Troop Contributing Nation (TCN) when joining their national network extension to the AMN:</para>
+		<para>1. Join the ISAF SECRET AD forest on AMN Core</para>
+		<para>2. Join the AD forest of an existing AMN TCN</para>
+		<para>3. Create own AD forest for the new AMN TCN</para>
+		<para>(Option 1 and 2 should be considered by the prospective Joining TCN before Option 3).</para>
+		<para>Whilst LDAP is a vendor independent standard, in practice Microsoft Active Directory (AD) is a common product providing directory services on national and NATO owned Mission Network elements. It should be noted that AD provides additional services aside from LDAP like functionality.</para>
+		<para>Note: Active Directory Federation Services (ADFS) will not be used on the AMN. The AMN is one logical network based on mutual trust. In such a trusted environment there is no requirement or use case for single sign on for webservices. In those cases where an outside or untrusted subdomain of a Nationally implemented Network desires access to webservices on the AMN, then those services will be granted using "local accounts created on the parent (AMN) domain.</para>
+	      </entry>
+            </row>
+            <row>
+              <entry>6: <emphasis role="underline">Infrastructure IA Services</emphasis>: Digital Certificate Services</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: ITU-T X.509 (11/2008), Information technology - Open systems interconnection - The Directory: Public-key and attribute certificate frameworks
+			  <itemizedlist>
+			  <listitem><para>the version of the encoded public-key certificate shall be v3.</para></listitem>
+			  <listitem><para>the version of the encoded certificate revocation list (CRL) shall be v2.</para></listitem>
+			  </itemizedlist>
+			  </para></listitem>
+			  <listitem><para>Mandatory: NATO Public Key Infrastructure (NPKI) Certificate Policy (CertP) Rev2, AC/322D(2004)0024 REV2</para></listitem>
+			  </itemizedlist>
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>7: <emphasis role="underline">Infrastructure IA Services</emphasis>: Authentication Services</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: IETF RFC 1510:1993, The Kerberos Network Authentication Service (V5).</para></listitem>
+			  </itemizedlist>
+              </entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>8: Infrastructure Processing (Operating System) Services</entry>
+              <entry>
+                <para>Operating Systems used on the AMN must be accredited by the respective Security Accreditation Authority.</para>
+				<para>As a minimum the Operating Systems should support the specifications for the above (Infrastructure IA Services).</para>
+              </entry>
+              <entry>
+		<para>Clients on the AMN Core and Option 1 TCN National Network Extensions are strongly advised to use Windows 7 Enterprise due to the mid-2014 End of Support provision by Microsoft for Windows XP.</para>
+		<para>Win 7 Enterprise was selected due to the inclusion of AppLocker (remote enforcement of application control policies) and integration with Sharepoint 2010 and MS Office Professional Plus 2010.</para>
+		<para>Windows 2008 R2 Standard Full Edition 64 bit is strongly advised for all Domain Controllers. Note Service Pack SP1 should be installed</para>
 	      </entry>
             </row>
 	  </tbody>
@@ -566,15 +670,15 @@ The standards for Transport and corresponding Communications Equipment are given
 </sect3>
 <sect3>
 <title>Implementation</title>
-
-<para></para>
-
+<para>The following Annexes provide guidance on implementing services:</para>
 <itemizedlist>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
+<listitem><para>Annex F.1: Active Directory and Joining Options</para></listitem>
+<listitem><para>Annex F.2: Recommended Build of Domain Controllers</para></listitem>
+<listitem><para>Annex F.3: Time Synchronisation</para></listitem>
+<listitem><para>Annex F.4: DNS Synchronisation</para></listitem>
+<listitem><para>Annex F.5: PKI</para></listitem>
+<listitem><para>Annex F.6: Preventive Cyber Defence</para></listitem>
 </itemizedlist>
-
 </sect3>
 </sect2>
 <sect2>
@@ -1274,7 +1378,9 @@ The standards for Transport and corresponding Communications Equipment are given
 
 Reuse this code as needed
 
-<para><emphasis role="bold">Definition</emphasis>: <emphasis role="italic"></emphasis></para>
+<emphasis role="bold">Definition</emphasis>: <emphasis role="italic"></emphasis>
+
+<emphasis role="underline"></emphasis>
 
 <footnote><para></para></footnote>
 
