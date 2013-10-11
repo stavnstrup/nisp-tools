@@ -681,18 +681,19 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
 </itemizedlist>
 </sect3>
 </sect2>
+
 <sect2>
 <title>SOA Platform Services</title>
 
     <para><emphasis role="bold">Definition</emphasis>: 
-	<emphasis role="italic"></emphasis></para>
+	<emphasis role="italic">SOA Platform Services provide a foundation to implement web-based services in a loosely coupled environment, where flexible and agile service orchestration is a requirement. They offer generic building blocks for SOA implementation (e.g. discovery, message busses, orchestration, information abstraction and access, etc.) and can be used as a capability integration platform in a heterogeneous service-provisioning ecosystem.</emphasis></para>
 
 <sect3>
 <title>Standards</title>
-<para></para>
+<para>To provide federated services the standards listed in Table 7 should be adhered to.</para>
 
       <table frame="all" id="v3t-id-reftable7">
-        <title>Title string</title>
+        <title>Service Oriented Architecture (SOA) platform services and data standards</title>
         <tgroup cols="3">
           <colspec colwidth="30*" />
           <colspec colwidth="35*" />
@@ -711,16 +712,176 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             </row>
           </thead>
           <tbody>
-            <row>
-              <entry>1:repeating purpose para</entry>
+
+		  <row>
+              <entry>1: <emphasis role="underline">Web Platform Services</emphasis></entry>
               <entry>
-                <para>repeating Standard para</para>
-              </entry>
-              <entry>
-		<para>repeating Guidance para</para>
-	      </entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: IETF RFC 2616: 1999, Hypertext Transfer Protocol HTTP/ 1.1.</para></listitem>
+			  <listitem><para>Mandatory: IETF RFC 2817: 2000, Upgrading to TLS within HTTP/ 1.1.</para></listitem>
+			  <listitem><para>Mandatory: IETF RFC 3986: 2005, Uniform Resource Identifier (URI): Generic Syntax.</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry><para>HTTP shall be used as the transport protocol for information without 'need-to-know' caveats between all service providers and consumers (unsecured HTTP traffic).</para>
+			  <para>HTTPS shall be used as the transport protocol between all service providers and consumers to ensure Confidentiality requirements (secured HTTP traffic).</para>
+			  <para>Unsecured and secured HTTP traffic shall share the same port.</para>
+			  </entry>
             </row>
-	  </tbody>
+			
+		  <row>
+              <entry>2: Publishing information including text, multimedia, hyperlink features, scripting languages and style sheets on the network</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: HyperText Markup Language (HTML) 4.01 (strict)
+			  <itemizedlist>
+			  <listitem><para>ISO/IEC 15445:2000, Information technology -- Document description and processing languages -- HyperText Markup Language (HTML).</para></listitem>
+			  <listitem><para>IETF RFC2854:2000, The 'text/html' Media Type.</para></listitem>
+			  </itemizedlist>
+			  </para>
+			  </listitem>
+			  <listitem><para>Emerging (2014): HyperText Markup Language, Version 5 (HTML 5), W3C Candidate Recommendation, Aug 2013</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry></entry>
+            </row>
+			
+		  <row>
+              <entry>3: Providing a common style sheet language for describing presentation semantics (that is, the look and formatting) of documents written in mark-up languages like HTML.</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: Cascading Style Sheets (CSS), Level 2 revision 1 (CSS 2.1), W3C Recommendation, September 2009.</para></listitem>
+			  <listitem><para>Emerging (2014): Cascading Style Sheets (CSS) Level 3:
+			  <itemizedlist>
+			  <listitem><para>Cascading Style Sheets (CSS), Level 2 revision 1 (including errata) (CSS 2.1), W3C Recommendation, June 2011.
+</para></listitem>
+			  <listitem><para>CSS Style Attributes, W3C Candidate Recommendation, 12 October 2010</para></listitem>
+			  <listitem><para>Media Queries, W3C Recommendation, 19 June 2012.</para></listitem>
+			  <listitem><para>CSS Namespaces Module, W3C Recommendation, 29 September 2011.</para></listitem>
+			  <listitem><para>Selectors Level 3, W3C Recommendation, 29 September 2011.</para></listitem>
+			  <listitem><para>CSS Color Module Level 3, W3C Recommendation, 07 June 2011.</para></listitem>
+			  </itemizedlist>
+			  </para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry></entry>
+            </row>
+			
+		  <row>
+              <entry>4: General formatting of information for sharing or exchange.</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: Extensible Markup Language (XML) 1.0 (Fifth Edition), W3C Recommendation, 26 November 2008.</para></listitem>
+			  <listitem><para>Mandatory: XML Schema Part 1: Structures Second Edition, W3C Recommendation, 28 October 2004.</para></listitem>
+			  <listitem><para>Mandatory: XML Schema Part 2: Datatypes Second Edition, W3C Recommendation, 28 October 2004.</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry>XML shall be used for data exchange to satisfy those IERs on the AMN that are not addressed by a specific information exchange standard. XML Schemas and namespaces are required for all XML documents.</entry>
+            </row>
+			            
+		  <row>
+              <entry>5: Providing web content or web feeds for syndication to web sites as well as directly to user agents.</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: (Really Simple Syndication) RSS 2.0 Specification Version 2.0.11, 30 March 2009.<footnote><para>FMN: The FMN recommends maintaining RSS 2.0 for backwards compatibility</para></footnote></para></listitem>
+			  <listitem><para>Emerging: IETF RFC 4287: 2005, The Atom Syndication Format. (Atom 1.0).<footnote><para>FMN: For the FMN the  Atom 1.0 syndication format is mandatory</para></footnote></para></listitem>
+			  <listitem><para>Emerging: IETF RFC 5023: 2007, The Atom Publishing Protocol.<footnote><para>FMN: For the FMN the Atom Publishing protocol is mandatory</para></footnote></para></listitem>
+			  </itemizedlist>
+ 			  </entry>
+              <entry></entry>
+            </row>
+			
+		  <row>
+              <entry>6: Encoding of location as part of  web feeds</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: GeoRSS Simple encoding: Geographically Encoded Objects for RSS feeds:<para>
+GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <georss:box> .</para></para></listitem>
+			  <listitem><para>Recommended: GeoRSS GML Profile 1.0 a GML subset for <gml:Point>, <gml:LineString>, <gml:Polygon>, <gml:Envelope> of</para></listitem>
+			  <listitem><para>Recommended: Where GeoRSS Simple is not appropriate the OGC GeoRSS 03-105r1: 2004-02-07, OpenGIS Geography Markup Language (GML) Implementation Specification version 3.1.1.</para></listitem>
+			  </itemizedlist>
+
+			  </entry>
+              <entry><para>GML allows you to specify a coordinate reference system (CRS) other than WGS84 decimal degrees (think lat/long). If there is a need to express geography in a CRS other than WGS84, it is recommended to specify the geographic object multiple times, one in WGS84 and the others in your other desired CRSes</para>
+			  <para>Schema location for GeoRSS GML Profile 1.0: http://geo rss.org /xml/1.0/gmlgeorss.xsd</para>
+			  </entry>
+            </row>
+			
+		  <row>
+              <entry>7: Message Security for web services</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: WS-Security: SOAP Message Security 1.1.</para></listitem>
+			  <listitem><para>Mandatory: XML Encryption Syntax and Processing, W3C Recommendation, 10 December2002.</para></listitem>
+			  <listitem><para>Mandatory: XML Signature Syntax and Processing (Second Edition), W3C Recommendation, 10 June 2008.</para></listitem>
+			  <listitem><para>Mandatory: OASIS WS-I Basic Security Profile Version 1.1, 24 January 2010.</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry><para>Specifies how integrity and confidentiality can be enforced on messages and allows the communication of various security token formats, such as SAML, Kerberos, and X.509v3. Its main focus is the use of XML Signature and XML Encryption to provide end-to-end security.</para>
+			  <para>Specifies a process for encrypting data and representing the result in XML. Referenced by WS-Security specification.</para>
+			  <para>Specifies XML digital signature processing rules and syntax. Referenced by WS-Security specification</para></entry>
+            </row>
+			
+		  <row>
+              <entry>8: Security token format</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: OASIS Standard, Security Assertion Markup Language (SAML) 2.0), March 2005.</para></listitem>
+			  <listitem><para>Mandatory: OASIS Standard,  Web Services Security: SAML Token Profile 1.1 incorporating approved errata 1, Nov 2006.</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry><para>Provides XML-based syntax to describe uses security tokens containing assertions to pass information about a principal (usually an end-user) between an identity provider and a web service.</para>
+			  <para>Describes how to use SAML security tokens with WS-Security specification.</para>
+			  </entry>
+            </row>
+			
+		  <row>
+              <entry>9: repeating purpose para</entry>
+              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
+              <entry><para>repeating Guidance para</para></entry>
+            </row>
+			
+		  <row>
+              <entry>10: repeating purpose para</entry>
+              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
+              <entry><para>repeating Guidance para</para></entry>
+            </row>
+			
+		  <row>
+              <entry>11: repeating purpose para</entry>
+              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
+              <entry><para>repeating Guidance para</para></entry>
+            </row>
+			
+		  <row>
+              <entry>12: repeating purpose para</entry>
+              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
+              <entry><para>repeating Guidance para</para></entry>
+            </row>
+			
+		  <row>
+              <entry>13: repeating purpose para</entry>
+              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
+              <entry><para>repeating Guidance para</para></entry>
+            </row>
+			
+		  <row>
+              <entry>14: repeating purpose para</entry>
+              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
+              <entry><para>repeating Guidance para</para></entry>
+            </row>
+			
+		  <row>
+              <entry>15: repeating purpose para</entry>
+              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
+              <entry><para>repeating Guidance para</para></entry>
+            </row>
+			
+		  <row>
+              <entry>16: repeating purpose para</entry>
+              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
+              <entry><para>repeating Guidance para</para></entry>
+            </row>
+			    	  </tbody>
          </tgroup>
 	</table>
 
@@ -728,12 +889,11 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
 <sect3>
 <title>Implementation</title>
 
-<para></para>
+<para>The following Annexes provide guidance on implementing services:</para>
 
 <itemizedlist>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
+<listitem><para>Annex G.1: Authoritative and Trusted Data Sources</para></listitem>
+<listitem><para>Annex G.2: Service Registration [TBC]</para></listitem>
 </itemizedlist>
 
 </sect3>
@@ -794,7 +954,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -850,7 +1010,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -899,7 +1059,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -989,7 +1149,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -1035,7 +1195,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -1094,7 +1254,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -1165,7 +1325,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -1232,7 +1392,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -1287,7 +1447,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -1333,7 +1493,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
@@ -1413,7 +1573,7 @@ Reuse this code as needed
             <row>
               <entry>1:repeating purpose para</entry>
               <entry>
-                <para>repeating Standard para</para>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
 		<para>repeating Guidance para</para>
