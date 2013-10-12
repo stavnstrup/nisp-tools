@@ -121,7 +121,7 @@ Copyright © 2013 NCIO/NATO - All Rights Reserved.
         <para><emphasis role="bold">Definition</emphasis>: <emphasis role="italic">Transmission Services cover the physical layer (also referred to as media layer or air-interface in wireless/satellite (SATCOM) communications) supporting Transport Services, as well as Communications Access Services. Support for the latter is relevant to personal communications systems, in which the User Appliances directly connect to the transmission element without any transport elements in between.</emphasis></para>
    <sect3>
    <title>Standards</title>
-   <para>Although the implementation scope of AMN technically does not cover Transmission Services, there is one area that provides the foundation for the provision of federated services on the AMN. The Standards listed in the table below need to be adhered to.</para>
+   <para>Although the implementation scope of AMN technically does not cover Transmission Services, there is one area that provides the foundation for the provision of federated services on the AMN. The Standards listed in table <xref linkend="v3t-id-reftable2" /> need to be adhered to.</para>
       <table frame="all" id="v3t-id-reftable2">
         <title>Transmission IA Services Standards</title>
         <tgroup cols="3">
@@ -183,7 +183,7 @@ Copyright © 2013 NCIO/NATO - All Rights Reserved.
 The AMN was originally conceived with IPv6 as the target for interconnecting autonomous systems (although no TCN has yet indicated that they wish to implement this on the AMN). As IPv6 is also the direction that the FMN is progressing, and as the AMN will become one the first FMN instances, IPv6 standards are now listed in the AMN Profile.</para><para>
 It is now advised that all new equipment, services and applications must support a dual IPv4/IPv6 stack implementation to future-proof the AMN for the long term and to enable AMN to remain in line with the development of the FMN.</para><para>
 The interconnection between Mission Networks is based on STANAG 5067 enhanced with a non-tactical connector and optional 1Gb/s Ethernet.  STANAG 5067 provides additional implementation, security and management guidance.  Due to the classification level of the AMN, dedicated transmission security (crypto) equipment is used.</para><para>
-The standards for Transport and corresponding Communications Equipment are given in the table below.</para>
+The standards for Transport and corresponding Communications Equipment are given in table <xref linkend="v3t-id-reftable3" />.</para>
       <table frame="all" id="v3t-id-reftable3">
         <title>Edge Transport Services and Communications Equipment Standards</title>
         <tgroup cols="3">
@@ -318,7 +318,7 @@ The standards for Transport and corresponding Communications Equipment are given
 
 <sect3>
 <title>Standards</title>
-<para>To provide federated services, the standards listed in the next two Tables should be adhered to.</para>
+<para>To provide federated services, the standards listed in table <xref linkend="v3t-id-reftable4" /> and table <xref linkend="v3t-id-reftable5" /> should be adhered to.</para>
 
       <table frame="all" id="v3t-id-reftable4">
         <title>Packet-based Communications Access Services Standards</title>
@@ -527,10 +527,10 @@ The standards for Transport and corresponding Communications Equipment are given
 <sect3>
 <title>Standards</title>
 
-<para></para>
+<para>To provide federated services the standards listed in Table  <xref linkend="v3t-id-reftable6" /> should be adhered to.</para>
 
       <table frame="all" id="v3t-id-reftable6">
-        <title>Title string</title>
+        <title>Infrastructure Services Standards</title>
         <tgroup cols="3">
           <colspec colwidth="30*" />
           <colspec colwidth="35*" />
@@ -690,7 +690,7 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
 
 <sect3>
 <title>Standards</title>
-<para>To provide federated services the standards listed in Table 7 should be adhered to.</para>
+<para>To provide federated services the standards listed in <xref linkend="v3t-id-reftable7" /> should be adhered to.</para>
 
       <table frame="all" id="v3t-id-reftable7">
         <title>Service Oriented Architecture (SOA) platform services and data standards</title>
@@ -835,51 +835,94 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
             </row>
 			
 		  <row>
-              <entry>9: repeating purpose para</entry>
-              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
-              <entry><para>repeating Guidance para</para></entry>
+              <entry>9: Security token issuing</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: OASIS Standard, WS-Trust 1.4, incorporating Approved Errata 01, 25 April 2012.para></listitem>
+			  <listitem><para>Mandatory: Web Services Federation Language (WS-Federation) Version 1.1, December 2006.<footnote><para>This specification is subject to the following copyright: (c) 2001-2006 BEA Systems, Inc., BMC Software, CA, Inc., International Business Machines Corporation, Layer 7 Technologies, Microsoft Corporation, Inc., Novell, Inc. and VeriSign, Inc. All rights reserve.</para></footnote></para></listitem>
+			  <listitem><para>Mandatory: Web Services Policy 1.5 – Framework, W3C Recommendation, 04 September 2007.</para></listitem>
+			  <listitem><para>Mandatory: WS-Security Policy 1.3, OASIS Standard incorporating Approved Errata 01, 25 April 2012.WS-Trust 1.4</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry><para>Uses WS-Security base mechanisms and defines additional primitives and extensions for security token exchange to enable the issuance and dissemination of credentials within different trust domains.</para><para>Extends WS-Trust to allow federation of different security realms.</para><para>Used to describe what aspects of the federation framework are required/supported by federation participants and that this information is used to determine the appropriate communication options.
+</para></entry>
             </row>
 			
 		  <row>
-              <entry>10: repeating purpose para</entry>
-              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
-              <entry><para>repeating Guidance para</para></entry>
+              <entry>10: Transforming XML documents into other XML documents</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: XSL Transformations (XSLT) Version 2.0, W3C Recommendation, 23 January 2007.</para></listitem>
+			  <listitem><para>Note that XSLT 2.0 is a revised version of the XSLT 1.0 Recommendation published on 16 November 1999</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry><para>Developer best practice for the translation of XML based documents into other formats or schemas.</para></entry>
             </row>
 			
 		  <row>
-              <entry>11: repeating purpose para</entry>
-              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
-              <entry><para>repeating Guidance para</para></entry>
+              <entry>11: Configuration management of structured data standards, service descriptions and other structured metadata.</entry>
+              <entry>
+			  <itemizedlist><listitem><para>Mandatory: ebXML v3.0: Electronic business XML Version 3.0,</para></listitem>
+			  <itemizedlist><listitem><para>Mandatory: Registry Information Model (ebRIM), OASIS Standard, 2 May 2005,</para></listitem>
+			  <itemizedlist><listitem><para>Mandatory: Registry Services and Protocols (ebRS)</para></listitem>
+			  <itemizedlist><listitem><para>Mandatory: OASIS Standard, Universal Description, Discovery, and Integration Specification (UDDI v2.0).</para></listitem>
+			  <itemizedlist><listitem><para>Emerging: OASIS Standard, Universal Description, Discovery, and Integration Specification (UDDI v3.0).<footnote><para>FMN: Note that FMN will implement UDDI v3.0</para><footnote></para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry><para>Used as foundation for setup, maintenance and interaction with a (AMN) Metadata Registry and Repository for sharing and configuration management of XML metadata. Also enables federation among metadata registries/ repositories.</para></entry>
             </row>
 			
 		  <row>
-              <entry>12: repeating purpose para</entry>
-              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
-              <entry><para>repeating Guidance para</para></entry>
+              <entry>12: Exchanging structured information in a decentralized, distributed environment via web services</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: W3C SOAP 1.1, Simple Object Access Protocol v1.1 (SOAP) 1.1, W3C Note, 8 May 2000</para></listitem>
+			  <listitem><para>Mandatory: WSDL v1.1: Web Services Description Language (WSDL) 1.1, W3C Note, 15 March 2001.</para></listitem>
+			  <listitem><para>Conditional: Representational State Transfer (REST) in accordance with:
+			  <itemizedlist><listitem><para>University of California, Roy Thomas Fielding, Architectural Styles and the Design of Network-based Software Architectures: 2000, Irvine, CA.</para></listitem>
+			  </itemizedlist></para></listitem>
+			  <listitem><para>Emerging (2014): SOAP Version 1.2 Part 1: Messaging Framework (Second Edition), W3C Recommendation, 27 April 2007.</para></listitem>
+			  <listitem><para>Emerging (2014): SOAP Version 1.2 Part 2: Adjuncts (Second Edition), W3C Recommendation, 27 April 2007.</para></listitem>
+			  <listitem><para>Emerging (2014): SOAP Version 1.2 Part 3: One-Way MEP, W3C Working Group Note, 2 July 2007</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry><para>The preferred method for implementing web-services are SOAP, however, there are many use cases (mash-ups etc.) where a REST based interface is easier to implement and sufficient to meet the IERs.</para></entry>
             </row>
 			
 		  <row>
-              <entry>13: repeating purpose para</entry>
-              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
-              <entry><para>repeating Guidance para</para></entry>
+              <entry>13: Secure exchange of data objects and documents across multiple security domains</entry>
+              <entry>The Draft X-Labels syntax definition is called the "NATO Profile for the XML “Confidentiality Label Syntax" and is based on version 1.0 of the RTG-031 proposed XML confidentiality label syntax, see "Sharing of information across communities of interest and across security domains with object level protection" below.</entry>
+              <entry></entry>
             </row>
 			
 		  <row>
-              <entry>14: repeating purpose para</entry>
-              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
-              <entry><para>repeating Guidance para</para></entry>
+              <entry>14: Topic based publish / subscribe web services communication</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: OASIS Standard, Web Services (WS)-Brokered Notification 1.3, approved October 1st 2006</para></listitem>
+			  <listitem><para>Mandatory: OASIS Standard, WS-Base Notification 1.3, approved October 1st 2006</para></listitem>
+			  <listitem><para>Mandatory: OASIS Standard, WS-Topics 1.3, approved October 1st 2006</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry><para>Enable topic based subscriptions for web service notifications, with extensible filter mechanism and support for message brokers.</para></entry>
             </row>
 			
 		  <row>
-              <entry>15: repeating purpose para</entry>
-              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
-              <entry><para>repeating Guidance para</para></entry>
+              <entry>15: Providing transport-neutral mechanisms to address web services</entry>
+              <entry>
+			  <itemizedlist>
+			  <listitem><para>Mandatory: Web Services (WS) Addressing 1.0 – Core W3C Recommendation, 17 August 2005.</para></listitem>
+			  </itemizedlist>
+			  </entry>
+              <entry><para>Provides transport-neutral mechanisms to address Web services and messages which is crucial in providing end-to- message level security, reliable messaging or publish / subscribe based web services end.</para></entry>
             </row>
 			
 		  <row>
-              <entry>16: repeating purpose para</entry>
-              <entry><itemizedlist><listitem><para></para></listitem></itemizedlist></entry>
-              <entry><para>repeating Guidance para</para></entry>
+              <entry>16: Reliable messaging for web services</entry>
+              <entry>
+			  <itemizedlist><listitem><para>Mandatory: OASIS Standard, Web Services Reliable Messaging (WS-Reliable Messaging) Version 1.2, February 2009.</para></listitem>
+			  </itemizedlist></entry>
+              <entry><para>Describes a protocol that allows messages to be transferred reliably between nodes implementing this protocol in the presence of software component, system, or network failures.</para></entry>
             </row>
 			    	  </tbody>
          </tgroup>
@@ -902,37 +945,36 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
 <title>Enterprise Support Services</title>
 
     <para><emphasis role="bold">Definition</emphasis>: 
-	<emphasis role="italic"></emphasis></para>
+	<emphasis role="italic">Enterprise Support Services are a set of Community Of Interest (COI) independent services that must be available to all members within the AMN.  Enterprise Support Services facilitate other service and data providers on the federated networks by providing and managing underlying capabilities to facilitate collaboration and information management for end-users.</emphasis></para>
 
-<para></para>
+<para>For the purposes of this Volume, Enterprise Support Services will be broken up further into:</para>
 
 <itemizedlist>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
+<listitem><para>Unified Communication and Collaboration Services</para></listitem>
+<listitem><para>Information Management Services</para></listitem>
+<listitem><para>Geospatial Services</para></listitem>
 </itemizedlist>
 
 <sect3>
 <title>Unified Communication and Collaboration Services</title>
 
     <para><emphasis role="bold">Definition</emphasis>: 
-	<emphasis role="italic"></emphasis></para>
-
-<para></para>
-
-<itemizedlist>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-</itemizedlist>
+	<emphasis role="italic">Unified Communication and Collaboration Services provide users with a range of interoperable collaboration capabilities, based on standards that fulfill operational requirements. They will enable real-time situational updates to time-critical planning activities between coalition partners, communities of interest (e.g. the Intel community or the Logistics community), and other agencies. Levels of collaboration include awareness, shared information, coordination and joint product development.</emphasis></para>
+	<para>Different use cases require different levels of protection of these communication and collaboration services. For voice or audio-based collaboration services, the AMN profile can provide interoperability standards for two different scenarios<footnote><para>FMN: Under the FMN profile, 3 scenarios are offered. The first being pure Voice over IP (VoIP) network services, i.e. conventional IP telephony. The choice of this over VoSIP being purely based on classification of the network.</para></footnote>:</para>
+	<itemizedlist>
+	<listitem><para>A.	Voice over Secure IP (VoSIP) network services</para></listitem>
+	<listitem><para>B.	Network agonistic Secure Voice Services (such as 3G, IP/4G, ISDN)</para></listitem>
+	</itemizedlist>
+	<para>On AMN, VoSIP is mandatory.  If however network agnostic Secure Voice services are required in addition to VoSIP<footnote><para>The only scenario where this would apply would be in the case that crypto devices cannot be supplied, protected and managed on site and physical access to the AMN is hence not available at that location.</para></footnote>, then Secure Communications Interoperability Protocol (SCIP) specifications as defined for audio-based collaboration services (end-to-end protected voice) over any network should be used<footnote><para>If SCIP is used, then access to the AMN can only be possible if a gateway for SCIP multi-conferencing and interconnection to VoSIP networks is provided. AMN. Additionally to achieve this there would need to be agreement to re-use a Key Management system that is already deployed in ISAF (for example that used for the OMLTs).</para></footnote>. [Note this has been included due to the emerging requirements regarding Operation Resolute Support (i.e. from Jan 2015, post ISAF)]</para>
+	<para>For text-based collaboration there is also a basic profile sufficient for operating this service with reduced protection requirements as well as an enhanced XMPP profile that includes additional security mechanisms.</para>
 
 <sect4>
 <title>Standards</title>
 
-<para></para>
+<para>To provide federated services the standards listed in <xref linkend="v3t-id-reftable8" /> should be adhered to.</para>
 
       <table frame="all" id="v3t-id-reftable8">
-        <title>Title string</title>
+        <title>Unified Communication and Collaboration Services and Data Standards</title>
         <tgroup cols="3">
           <colspec colwidth="30*" />
           <colspec colwidth="35*" />
@@ -952,13 +994,76 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
               <entry>
-		<para>repeating Guidance para</para>
-	      </entry>
+			  <para>repeating Guidance para</para>
+			  </entry>
+            </row>
+            <row>
+              <entry>2: repeating purpose para</entry>
+              <entry>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+              </entry>
+              <entry>
+			  <para>repeating Guidance para</para>
+			  </entry>
+            </row>
+            <row>
+              <entry>3: repeating purpose para</entry>
+              <entry>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+              </entry>
+              <entry>
+			  <para>repeating Guidance para</para>
+			  </entry>
+            </row>
+            <row>
+              <entry>4: repeating purpose para</entry>
+              <entry>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+              </entry>
+              <entry>
+			  <para>repeating Guidance para</para>
+			  </entry>
+            </row>
+            <row>
+              <entry>5: repeating purpose para</entry>
+              <entry>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+              </entry>
+              <entry>
+			  <para>repeating Guidance para</para>
+			  </entry>
+            </row>
+            <row>
+              <entry>6: repeating purpose para</entry>
+              <entry>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+              </entry>
+              <entry>
+			  <para>repeating Guidance para</para>
+			  </entry>
+            </row>
+            <row>
+              <entry>6.1: repeating purpose para</entry>
+              <entry>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+              </entry>
+              <entry>
+			  <para>repeating Guidance para</para>
+			  </entry>
+            </row>
+            <row>
+              <entry>6.2: repeating purpose para</entry>
+              <entry>
+                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+              </entry>
+              <entry>
+			  <para>repeating Guidance para</para>
+			  </entry>
             </row>
 	  </tbody>
          </tgroup>
@@ -1008,7 +1113,7 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
@@ -1057,7 +1162,7 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
@@ -1147,7 +1252,7 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
@@ -1193,7 +1298,7 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
@@ -1252,7 +1357,7 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
@@ -1323,7 +1428,7 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
@@ -1390,7 +1495,7 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
@@ -1445,7 +1550,7 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
@@ -1491,7 +1596,7 @@ GeoRSS Simple encoding for <georss:point>, <georss:line>, <georss:polygon>, <geo
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
@@ -1571,7 +1676,7 @@ Reuse this code as needed
           </thead>
           <tbody>
             <row>
-              <entry>1:repeating purpose para</entry>
+              <entry>1: repeating purpose para</entry>
               <entry>
                 <itemizedlist><listitem><para></para></listitem></itemizedlist>
               </entry>
