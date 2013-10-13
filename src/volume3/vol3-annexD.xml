@@ -550,7 +550,8 @@ The standards for Transport and corresponding Communications Equipment are given
 <listitem><para>Mandatory: IETF RFC 1812: 1995, Requirements for IP Version 4 Routers.</para></listitem> 
 <listitem><para>Advised: IETF RFC 2644: 1999, Changing the Default for Directed Broadcasts in Routers.<footnote><para>FMN: will also implement IETF RFC 2644. It is advisory that AMN also follows this</para></footnote></para></listitem>
 </itemizedlist>
-<para>IPv6 over Ethernet (Optional):</para>
+</para>
+<para>IPv6 over Ethernet (Optional):
 				<itemizedlist>
 <listitem><para>Recommended: IETF RFC 2460: 1998, Internet Protocol, Version 6 (IPv6) Specification.</para></listitem> 
 <listitem><para>Recommended: IETF RFC 3484: 2003, Default Address Selection for Internet Protocol version 6 (IPv6).</para></listitem> 
@@ -976,8 +977,8 @@ A stratum-1 time server is directly linked (not over a network path) to a reliab
               <entry>6: Encoding of location as part of  web feeds</entry>
               <entry>
 			  <itemizedlist>
-			  <listitem><para>Mandatory: GeoRSS Simple encoding: Geographically Encoded Objects for RSS feeds:<para>
-GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polygon>, &lt;georss:box> .</para></para></listitem>
+			  <listitem><para>Mandatory: GeoRSS Simple encoding: Geographically Encoded Objects for RSS feeds: 
+GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polygon>, &lt;georss:box>.</para></listitem>
 			  <listitem><para>Recommended: GeoRSS GML Profile 1.0 a GML subset for &lt;gml:Point>, &lt;gml:LineString>, &lt;gml:Polygon>, &lt;gml:Envelope> of</para></listitem>
 			  <listitem><para>Recommended: Where GeoRSS Simple is not appropriate the OGC GeoRSS 03-105r1: 2004-02-07, OpenGIS Geography Markup Language (GML) Implementation Specification version 3.1.1.</para></listitem>
 			  </itemizedlist>
@@ -1594,7 +1595,7 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
 				</itemizedlist>
 				</entry>
               <entry>This is provided for legacy systems, implementers are encouraged to upgrade their systems to consume OGC Web Services.
-			  <para>In practice, the exchange of large geospatial(raster) data sets between Geo organizations of different TCN’s is conducted in the proprietary<footnote><area>Requires LizardTech's (lizardtech.com) decoding software development kit (DSDK). The MrSID file format is a proprietary technology that provides tools for the rapid compression, viewing, and manipulation of geospatial raster and LiDAR data.</area></footnote> Multi-resolution seamless image database format (MrSID Generation 3 or 4).</para>
+			  <para>In practice, the exchange of large geospatial(raster) data sets between Geo organizations of different TCN’s is conducted in the proprietary<footnote><para>Requires LizardTech's (lizardtech.com) decoding software development kit (DSDK). The MrSID file format is a proprietary technology that provides tools for the rapid compression, viewing, and manipulation of geospatial raster and LiDAR data.</para></footnote> Multi-resolution seamless image database format (MrSID Generation 3 or 4).</para>
 			  <para>Data in MrSID format could be transformed to GeoTIFF.</para>
 			  </entry>
             </row>
@@ -2260,24 +2261,32 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
               <entry>4: Collaborative generation of spreadsheets, charts, presentations and word processing documents</entry>
               <entry>Office Open XML:
                 <itemizedlist>
-				<listitem><para>Mandatory: Standard ECMA-376, Ed. 1: December 2006, Office Open XML File Formats.</para></listitem>
-				<listitem><para>Emerging (2013): ISO/IEC 29500:2012, Information technology -- Document description and processing languages -- Office Open XML File Formats                
-				<itemizedlist>
-				<listitem><para>Part 1: Fundamentals and Markup Language Reference.</para></listitem>
-				<listitem><para>Part 2: Open Packaging Conventions.</para></listitem>
-				<listitem><para>Part 3: Markup Compatibility and Extensibility.</para></listitem>
-				<listitem><para>Part 4: Transitional Migration Features.</para></listitem>
-				</itemizedlist>
-				<para>Open Document Format:</para>
-                <itemizedlist>
+		  <listitem><para>Mandatory: Standard ECMA-376, Ed. 1: December 2006, Office Open XML File Formats.</para></listitem>
+		  <listitem><para>Emerging (2013): ISO/IEC 29500:2012, Information technology -- Document description and processing languages -- Office Open XML File Formats 
+		    <itemizedlist>
+		      <listitem><para>Part 1: Fundamentals and Markup Language Reference.</para></listitem>
+		      <listitem><para>Part 2: Open Packaging Conventions.</para></listitem>
+		      <listitem><para>Part 3: Markup Compatibility and Extensibility.</para></listitem>
+		      <listitem><para>Part 4: Transitional Migration Features.</para></listitem>
+		    </itemizedlist>
+		    </para>
+		 </listitem>
+		</itemizedlist>
+	          
+		<para>Open Document Format:</para>
+		<para>
+                   <itemizedlist>
 				<listitem><para>Recommended: ISO/IEC 26300:2006, Information technology -- Open Document Format for Office Applications (OpenDocument) v1.0.</para></listitem>
 				<listitem><para>Recommended: ISO/IEC 26300:2006/Cor 1:2010.</para></listitem>
 				<listitem><para>Recommended: ISO/IEC 26300:2006/Cor 2:2011.</para></listitem>
 				<listitem><para>Recommended: ISO/IEC 26300:2006/Amd 1:2012,  Open Document Format for Office Applications (OpenDocument) v1.1</para></listitem>
 				</itemizedlist>
+				</para>
               </entry>
-              <entry><para>OASIS Open Document Format ODF 1.0 (ISO/IEC 26300) and Office Open XML (ISO/IEC 29500) are both open document formats for saving and exchanging word processing documents, spreadsheets and presentations. Both formats are XML based but differ in design and scope.
-			  </para><para>ISO/IEC TR 29166:2011, Information technology -- Document description and processing languages -- Guidelines for translation between ISO/IEC 26300 and ISO/IEC 29500 document formats.</para></entry>
+              <entry><para>OASIS Open Document Format ODF 1.0 (ISO/IEC 26300) and Office Open XML (ISO/IEC 29500) are both open 
+                     document formats for saving and exchanging word processing documents, spreadsheets and presentations. Both formats 
+                     are XML based but differ in design and scope.</para>
+                  <para>ISO/IEC TR 29166:2011, Information technology -- Document description and processing languages -- Guidelines for translation between ISO/IEC 26300 and ISO/IEC 29500 document formats.</para></entry>
             </row>
 		  
             <row>
@@ -2776,7 +2785,7 @@ XML</entry><entry>Extensible Mark-up Language</entry></row></tbody>
             </row>
             <row>
               <entry>Thales ICD NIP Dec 2012</entry>
-              <entry>THALES Customer Service & Support, NATO SATCOM & FOC CIS for ISAF Interface Control Document (ICD) Between CISAF network and TCN networks. ICD NIP TCN_62543313_558_L. 13 December 2012, NATO UNCLASSIFIED. [NU-ICD NIP TCN_62543313_558_L.pdf]</entry>
+              <entry>THALES Customer Service &amp; Support, NATO SATCOM &amp; FOC CIS for ISAF Interface Control Document (ICD) Between CISAF network and TCN networks. ICD NIP TCN_62543313_558_L. 13 December 2012, NATO UNCLASSIFIED. [NU-ICD NIP TCN_62543313_558_L.pdf]</entry>
             </row>
 		</tbody>
         </tgroup>
