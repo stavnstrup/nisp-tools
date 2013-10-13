@@ -1592,13 +1592,11 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
 				</listitem>
 				<listitem><para>Recommended: MIL-STD-2411, Department of Defense Interface Standard: Raster Product Format 6 Oct 1994<footnote><para>Note for the FMN the standard cited is MIL-STD-2411 (NOTICE 3), DEPARTMENT OF DEFENSE INTERFACE STANDARD: RASTER PRODUCT FORMAT (31 MAR 2004). It needs to be checked if there is an impact on the AMN by removing the old 1994 citation.</para></footnote>.</para></listitem>
 				</itemizedlist>
-				<para>Also:</para>
-				<itemizedlist>
-				<listitem><para>Enhanced Compressed Wavelet (ECW 3.3)<footnote><area>ECW is a proprietary wavelet compression image format optimized for aerial and satellite imagery. It was developed by Earth Resource Mapping, and is now owned by Intergraph (geospatial.intergraph.com).</area></footnote>.</para></listitem>
-				<listitem><para>Multi-resolution seamless image database (MrSid<footnote><area>Requires LizardTech's (lizardtech.com) decoding software development kit (DSDK). The MrSID file format is a proprietary technology that provides tools for the rapid compression, viewing, and manipulation of geospatial raster and LiDAR data.</area></footnote> Generation 2)<footnote><area>FMN: This has been removed/retired for the FMN in 2013.</area></footnote>.</para></listitem>
-				</itemizedlist>
-              </entry>
-              <entry>This is provided for legacy systems, implementers are encouraged to upgrade their systems to consume OGC Web Services.</entry>
+				</entry>
+              <entry>This is provided for legacy systems, implementers are encouraged to upgrade their systems to consume OGC Web Services.
+			  <para>In practice, the exchange of large geospatial(raster) data sets between Geo organizations of different TCN’s is conducted in the proprietary<footnote><area>Requires LizardTech's (lizardtech.com) decoding software development kit (DSDK). The MrSID file format is a proprietary technology that provides tools for the rapid compression, viewing, and manipulation of geospatial raster and LiDAR data.</area></footnote> Multi-resolution seamless image database format (MrSID Generation 3 or 4).</para>
+			  <para>Data in MrSID format could be transformed to GeoTIFF.</para>
+			  </entry>
             </row>
             <row>
               <entry>8: File based storage and exchange of non-topological geometry and attribute information or digital geospatial feature (vector) data</entry>
@@ -1748,7 +1746,7 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
 
 <sect4>
 <title>Standards</title>
-<para>To provide federated services the standards listed in  <xref linkend="v3t-id-reftable12" /> should be adhered to.</para>
+<para>To provide federated services the standards listed in Table <xref  linkend="v3t-id-reftable12" /> should be adhered to.</para>
 
       <table frame="all" id="v3t-id-reftable12">
         <title>Battlespace Management Interoperability Protocols and Standards</title>
@@ -2172,22 +2170,22 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
 <title>User Facing Capabilities</title>
 
     <para><emphasis role="bold">Definition</emphasis>: 
-	<emphasis role="italic"></emphasis></para>
+	<emphasis role="italic">User-Facing Capabilities express the requirements for the interaction between end users and all CIS Capabilities, in order to process Information Products in support of Business Processes. User-Facing Capabilities incorporate the User Appliances, as well as the User Applications that run on those appliances.</emphasis></para>
 
-<para></para>
+<para>For the purposes of this Volume, only the standards for User Applications need to be cited.</para>
 
 <sect2>
   <title>User Applications</title>
 
     <para><emphasis role="bold">Definition</emphasis>: 
-	<emphasis role="italic"></emphasis></para>
+	<emphasis role="italic">User Applications, also known as application software, software applications, applications or apps, are computer software components designed to help a user perform singular or multiple related tasks and provide the logical interface between human and automated activities.</emphasis></para>
 
   <sect3>
 <title>Standards</title>
-<para></para>
+<para>To provide federated services the standards listed in Table <xref  linkend="v3t-id-reftable15" /> should be adhered to.</para>
 
       <table frame="all" id="v3t-id-reftable15">
-        <title>Title string</title>
+        <title>User Application Standards</title>
         <tgroup cols="3">
           <colspec colwidth="30*" />
           <colspec colwidth="35*" />
@@ -2206,28 +2204,135 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
             </row>
           </thead>
           <tbody>
+		  
             <row>
-              <entry>1: repeating purpose para</entry>
+              <entry>1: Displaying content within web browsers.</entry>
               <entry>
-                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+                <itemizedlist>
+				<listitem><para>Mandatory (for legacy): HyperText Markup Language (HTML) 4.01 Specification. W3C Recommendation 24 December 1999.</para></listitem>
+				<listitem><para>Mandatory (for legacy): Extensible Hypertext Markup Language (Second Edition) XHTML 1.0. A Reformulation of HTML 4 in XML 1.0. W3C Recommendation 26 January 2000, revised 1 August 2002</para></listitem>
+				<listitem><para>Fading (for legacy): Cascading Style Sheets (CSS), Level 2 (CSS 2.0), W3C Recommendation, May 1998</para></listitem>
+				<listitem><para>Mandatory (for legacy): Cascading Style Sheets (CSS), Level 2 revision 1 (CSS 2.1), W3C Recommendation, September 2009.</para></listitem>
+				<listitem><para>Emerging (2014): HyperText Markup Language, Version 5 (HTML 5), W3C Candidate Recommendation, Dec 2012.</para></listitem>
+				<listitem><para>Emerging (2014): Cascading Style Sheets (CSS) Level 3:<itemizedlist><listitem><para>Cascading Style Sheets (CSS), Level 2 revision 1 (including errata) (CSS 2.1), W3C Recommendation, June 2011.</para></listitem>
+				<listitem><para>CSS Style Attributes, W3C Candidate Recommendation, 12 October 2010</para></listitem>
+				<listitem><para>Media Queries, W3C Recommendation, 19 June 2012.</para></listitem>
+				<listitem><para>CSS Namespaces Module, W3C Recommendation, 29 September 2011.</para></listitem>
+				<listitem><para>Selectors Level 3, W3C Recommendation, 29 September 2011.</para></listitem>
+				<listitem><para>CSS Color Module Level 3, W3C Recommendation, 07 June 2011.</para></listitem>
+				</itemizedlist></para></listitem>
+				</itemizedlist>
+				<para>Browser plug-ins are not covered by a single specification.</para>
               </entry>
-              <entry>
-		<para>repeating Guidance para</para>
-	      </entry>
+              <entry><para>Applications must support the following browsers: Microsoft Internet Explorer v9.0 and newer, and Mozilla Firefox 12.0 and newer<footnote><para>FMN: Has raised the minimum support for Mozilla Firefox to v16.0 and newer.</para></footnote>. When a supported browser is not true to the standard, choose to support the browser that is closest to the standard<footnote><para>E.g. using http://html5test.com to compare features for HTML5.</para></footnote>.</para>
+			  <para>Some organizations or end-user devices do not allow the use of proprietary extensions such as Adobe Flash or Microsoft Silverlight. Those technologies shall be avoided.  Implementers should use open standard based solutions instead (e.g. move to HTML5 / CSS3).</para>
+			  <para>Some AMN members do not allow the use of ActiveX controls in the browser. Browser plug-ins will need to be approved by AMN Change Advisory Board (CAB).</para>
+			  </entry>
             </row>
-	  </tbody>
+		  
+            <row>
+              <entry>2: Visualize common operational symbology within C4ISR systems in order to convey information about objects in the battlespace.</entry>
+              <entry>
+                <itemizedlist>
+				<listitem><para>Mandatory: STANAG 2019, Ed.5:2008, Joint SmbologyAPP-6(B)<footnote><para>FMN: Mandatory: STANAG 2019, Ed.6:2011, Joint SmbologyAPP-6(C)</para></footnote></para></listitem>
+				<listitem><para>Mandatory: MIL-STD-2525B (w/Change 2), Common Warfighting Symbology, Mar 2007<footnote><para>FMN: Mandatory: MIL-STD-2525C, Common Warfighting Symbology, Nov 2008</para></footnote></para></listitem>
+				<listitem><para>Mandatory: TIDE Transformational Baseline Vers. 3.0, Annex A: NATO Vector Graphics (NVG) v1.5, Allied Command Transformation Specification, December 2009.<footnote><para>FMN: Emerging (2014): <emphasis role="italic">TIDE Transformational Baseline Vers. 4.0 - Annex N: NATO Vector Graphics (NVG) v2.0, Allied Command Transformation Specification, February 2013</emphasis></para></footnote></para></listitem>
+				<listitem><para>Fading: NVG 1.4</para></listitem>
+				<listitem><para>Retired: NVG 0.3</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry><para>All presentation service shall render tracks, tactical graphics, and MOOTW objects using this standard except in the case where the object being rendered is not covered in the standard. In these exceptional cases, additional symbols shall be defined as extensions of existing symbol standards and must be backwards compatible. These extensions shall be submitted as a request for change within the configuration management process to be considered for inclusion in the next version of the specification.</para></entry>
+            </row>
+		  
+            <row>
+              <entry>3: Reliable messaging over XMPP</entry>
+              <entry>XMPP Clients must implement the following XMPP Extension Protocols (XEP):
+                <itemizedlist>
+				<listitem><para>Mandatory: XEP-0184 - Message Delivery Receipts, March 2011 (whereby the sender of a message can request notification that it has been received by the intended recipient).</para></listitem>
+				<listitem><para>XEP 0202 - Entity Time, September 2009 (for communicating the local time of an entity)</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry><para>All XMPP Chat Clients used on the AMN shall implement these two protocol extensions {this section will be enhanced in the next version based on a detailed recently conducted requirements analysis}.
+			  </para></entry>
+            </row>
+		  
+            <row>
+              <entry>4: Collaborative generation of spreadsheets, charts, presentations and word processing documents</entry>
+              <entry>Office Open XML:
+                <itemizedlist>
+				<listitem><para>Mandatory: Standard ECMA-376, Ed. 1: December 2006, Office Open XML File Formats.</para></listitem>
+				<listitem><para>Emerging (2013): ISO/IEC 29500:2012, Information technology -- Document description and processing languages -- Office Open XML File Formats                
+				<itemizedlist>
+				<listitem><para>Part 1: Fundamentals and Markup Language Reference.</para></listitem>
+				<listitem><para>Part 2: Open Packaging Conventions.</para></listitem>
+				<listitem><para>Part 3: Markup Compatibility and Extensibility.</para></listitem>
+				<listitem><para>Part 4: Transitional Migration Features.</para></listitem>
+				</itemizedlist>
+				<para>Open Document Format:</para>
+                <itemizedlist>
+				<listitem><para>Recommended: ISO/IEC 26300:2006, Information technology -- Open Document Format for Office Applications (OpenDocument) v1.0.</para></listitem>
+				<listitem><para>Recommended: ISO/IEC 26300:2006/Cor 1:2010.</para></listitem>
+				<listitem><para>Recommended: ISO/IEC 26300:2006/Cor 2:2011.</para></listitem>
+				<listitem><para>Recommended: ISO/IEC 26300:2006/Amd 1:2012,  Open Document Format for Office Applications (OpenDocument) v1.1</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry><para>OASIS Open Document Format ODF 1.0 (ISO/IEC 26300) and Office Open XML (ISO/IEC 29500) are both open document formats for saving and exchanging word processing documents, spreadsheets and presentations. Both formats are XML based but differ in design and scope.
+			  </para><para>ISO/IEC TR 29166:2011, Information technology -- Document description and processing languages -- Guidelines for translation between ISO/IEC 26300 and ISO/IEC 29500 document formats.</para></entry>
+            </row>
+		  
+            <row>
+              <entry>5: Document exchange, storage and archiving</entry>
+              <entry>
+                <itemizedlist>
+				<listitem><para>Mandatory: ISO 19005-1:2005, Document management -Electronic document file format for long-term preservation –Part 1: Use of PDF 1.4 (PDF/A-1)</para></listitem>
+				<listitem><para>Emerging (2014): ISO 19005-2:2011, Document management -- Electronic document file format for long-term preservation -- Part 2: Use of ISO 32000-1 (PDF/A-2)</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry>See Operational Record Retention Schedule and AMN JMEI Exit Instructions (Vol3) for further details.</entry>
+            </row>
+		  
+            <row>
+              <entry>6: Representation of Dates and Times</entry>
+              <entry>
+                <itemizedlist>
+				<listitem><para>Mandatory: W3C profile of ISO 8601 defined in:<itemizedlist>
+				<listitem><para>Date and Time Formats, W3C Note, 15 September 1997</para></listitem>
+				</itemizedlist></para></listitem>
+				<listitem><para>Recommended: Working with Time Zones, W3C Working Group Note, July 2011.</para></listitem>
+				<listitem><para>Conditional (for military command and control systems):<itemizedlist>
+				<listitem><para>AAP-6:2013, NATO glossary of terms and definitions.  Part 2-D-1, date-time group (DTG) format.</para></listitem>
+				</itemizedlist>
+</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry><para>See also Table <xref  linkend="v3t-id-reftable6" /> (ID 1 and 4) for time synchronization within and between systems</para>
+			  <para>When a DTG is expressed in local time, this must use the military time zone designator. For AFG this is D30<footnote>
+			  <para>A mapping of UTC offsets to military time zone designators can be found in the FMN Profile Table 12, which is based one in JC3IEDM V3.1.4/ADatP-3 BL13.1 FFIRN/FUD 1003/1. For notes on implementing timezone designators in military command and control systems please see ID 6 of Table <xref  linkend="v3t-id-reftable10" /> (User Application Standards) of the FMN Profile.</para></footnote>.</para></entry>
+            </row>
+		  
+            <row>
+              <entry>7: Internationalization  designing, developing content and (web) applications, in a way that ensures it will work well for, or can be easily adapted for, users from any culture, region, or language.</entry>
+              <entry>
+                <itemizedlist>
+				<listitem><para>Recommended: Internationalization of Web Design and Applications Current Status, http://www.w3.org/standards/ techs/i18nauthoring</para></listitem>
+				<listitem><para>Recommended: Internationalization of Web Architecture Current Status, http://www.w3.org/standards/ techs/i18nwebarch#w3c_all</para></listitem>
+				<listitem><para>Recommended: Internationalization of XML Current Status,  http://www.w3.org/ standards/techs/i18nxml</para></listitem>
+				<listitem><para>Recommended: Internationalization of Web Services Current Status,  http://www.w3.org/standards /techs/i18nwebofservices</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry><para>Best practices and tutorials on internationalization can be found at: http://www.w3.org /International/articlelist</para></entry>
+            </row>
+		   </tbody>
          </tgroup>
 	</table>
 
 </sect3>
 <sect3>
 <title>Implementation</title>
-<para></para>
+<para>The following Annexes provide guidance on implementing services:</para>
 
 <itemizedlist>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
+<listitem><para>Annex N.1: Enterprise Portal Configuration</para></listitem>
 </itemizedlist>
 
 </sect3>
@@ -2236,13 +2341,13 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
 
 <sect1>
 <title>Human-to-Human Communication</title>
-<para></para>
+<para>To work effectively in a federated mission networking environment, it is not sufficient to only standardise technical services. A key prerequisite is to also agree a common language, and terminology for force preparation, training material, user interfaces, common vocabularies etc.</para>
 <sect2>
 <title>Standards</title>
-<para></para>
+<para>To provide federated services the standards listed in Table <xref  linkend="v3t-id-reftable16" /> should be adhered to.</para>
 
       <table frame="all" id="v3t-id-reftable16">
-        <title>Title string</title>
+        <title>Human-to-human interoperability Standards</title>
         <tgroup cols="3">
           <colspec colwidth="30*" />
           <colspec colwidth="35*" />
@@ -2262,15 +2367,32 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
           </thead>
           <tbody>
             <row>
-              <entry>1: repeating purpose para</entry>
+              <entry>1: Mutual understanding of terminology</entry>
               <entry>
-                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+                <itemizedlist>
+				<listitem><para>Recommended: General terminology:  Concise Oxford English Dictionary.</para></listitem>
+				<listitem><para>Recommended: Specific military terminology: NSA AAP-6, NATO Glossary of terms and definitions.</para></listitem>
+				</itemizedlist>
               </entry>
-              <entry>
-		<para>repeating Guidance para</para>
-	      </entry>
+              <entry></entry>
             </row>
-	  </tbody>
+            <row>
+              <entry>2: General language communication ability of staff working in a federated networking environment.</entry>
+              <entry>
+                <itemizedlist>
+				<listitem><para>Recommended: Standardised Language Profile (SLP) English 3222 in accordance with STANAG 6001 Version 4</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry><para>As an addition to SLP Profiles the following proficiency description could also be considered<footnote><para>Source: International Civil Aviation Organization (ICAO) Holistic Descriptors of operational language proficiency (adapted)</para></footnote>:</para>
+			  <para>For effective voice communications, a proficient speakers shall:</para>
+			  <para>1. communicate effectively in voice-only (telephone/radio) and in face-to-face situations;</para>
+			  <para>2. communicate on common, concrete and work-related topics with accuracy and clarity;</para>
+			  <para>3. use appropriate communicative strategies to exchange messages and to recognize and resolve misunderstandings (e.g. to check, confirm, or clarify information) in a general or work-related context;</para>
+			  <para>4. handle successfully and with relative ease the linguistic challenges presented by a complication or unexpected turn of events that occurs within the context of a routine mission situation or communicative task with which they are otherwise familiar; and</para>
+			  <para>5. use a dialect or accent which is intelligible to the multinational mission community.</para>
+			  </entry>
+            </row>
+			</tbody>
          </tgroup>
 	</table>
 
@@ -2281,14 +2403,14 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
 <title>Service Management and Control</title>
 
     <para><emphasis role="bold">Definition</emphasis>: 
-	<emphasis role="italic"></emphasis></para>
+	<emphasis role="italic">Service Management and Control (SMC) provides a collection of capabilities to coherently manage components in a federated service-enabled information technology infrastructure. SMC tools enable service providers to provide the desired quality of service as specified by the customer. In a federated environment such as the AMN, utilizing common process and data is a critical enabler to management of the network.</emphasis></para>
 
 <sect2>
 <title>Standards</title>
-<para></para>
+<para>To provide federated services the standards listed in Table <xref  linkend="v3t-id-reftable17" /> should be adhered to.</para>
 
       <table frame="all" id="v3t-id-reftable17">
-        <title>Title string</title>
+        <title>Service Management and Control Interoperability Standards</title>
         <tgroup cols="3">
           <colspec colwidth="30*" />
           <colspec colwidth="35*" />
@@ -2308,98 +2430,357 @@ GeoRSS Simple encoding for &lt;georss:point>, &lt;georss:line>, &lt;georss:polyg
           </thead>
           <tbody>
             <row>
-              <entry>1: repeating purpose para</entry>
+              <entry>1: Provide Service Management within the AMN.</entry>
               <entry>
-                <itemizedlist><listitem><para></para></listitem></itemizedlist>
+                <itemizedlist><listitem><para>Mandatory: ITIL 2011 update / ISO/IEC 20000</para></listitem></itemizedlist>
               </entry>
-              <entry>
-		<para>repeating Guidance para</para>
-	      </entry>
+              <entry>See also AMN Service Management Framework CONOPS</entry>
             </row>
-	  </tbody>
+            <row>
+              <entry>2: Provide the Control (Governance) required to efficiently and effectively control the AMN.</entry>
+              <entry>
+                <itemizedlist>
+				<listitem><para>Recommended: ISACA, Control Objectives for Information and related Technology 5 Framework (COBIT 5).</para></listitem>
+				<listitem><para>Optional: TMForum Framework Business Process Framework (eTOM) Release 1.3.</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry>COBIT is based on established frameworks, such as the Software Engineering Institute’s Capability Maturity Model, ISO9000, ITIL, and ISO 17799 (standard security framework, now ISO 27001).</entry>
+            </row>
+            <row>
+              <entry>3: Network management</entry>
+              <entry>
+                <itemizedlist>
+				<listitem><para>Mandatory: IETF STD 62: 2002, An Architecture for Describing Simple Network Management Protocol (SNMP) Management Frameworks.</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry>Details of Simple Network Management Protocol Version 3 (SNMPv3) are defined by IETF RFC 3411 - 3418:2002.</entry>
+            </row>
+            <row>
+              <entry>4: SOA Platform SMC Services</entry>
+              <entry>Web Services for Management:
+                <itemizedlist>
+				<listitem><para>Recommended: Distributed Management Task Force, WS-Management Specification Version 1.0.0 (DSP0226), 12 Feb 2008.</para></listitem>
+				<listitem><para>Recommended: Distributed Management Task Force, WS-Management CIM Binding Specification Version 1.0.0 (DSP0227), 19 June 2009.</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry>WS-Management provides a common way for systems to access and exchange management information across the IT infrastructure.</entry>
+            </row>
+            <row>
+              <entry>5: Represent and share Configuration Items and details about the important attributes and relationships between them.</entry>
+              <entry>
+                <itemizedlist>
+				<listitem><para>Recommended: Distributed Management Task Force, CIM Schema version 2.30.0, 27 Sep 2011.</para></listitem>
+				<listitem><para>Recommended: Distributed Management Task Force, CMDB Federation Specification V1.0.1, 22 Apr 2010.</para></listitem>
+				</itemizedlist>
+              </entry>
+              <entry></entry>
+            </row>
+			</tbody>
          </tgroup>
 	</table>
 
 </sect2>
 <sect2>
 <title>Implementation</title>
-<para></para>
+<para>The following Annexes provide guidance on implementing services:</para>
 
 <itemizedlist>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
+<listitem><para>Annex O.1: End to End Service Monitoring</para></listitem>
+<listitem><para>Annex O.2: Federation of TCN and NATO SMC Systems [TBC]</para>
+</listitem>
 </itemizedlist>
-
-
 
 </sect2>
 </sect1>
 
 <sect1>
 <title>Abbreviations</title>
-<para></para>
-</sect1>
+<para>
 
-<sect1>
-<title>References</title>
-<para></para>
-</sect1>
-
-
-
-
-
-<!--
-*****************************************************************
-
-Reuse this code as needed
-
-<emphasis role="bold">Definition</emphasis>: <emphasis role="italic"></emphasis>
-
-<emphasis role="underline"></emphasis>
-
-<footnote><para></para></footnote>
-
-<itemizedlist>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-<listitem><para></para></listitem>
-</itemizedlist>
-
-      <table frame="all" id="v3t-id-string">
-        <title>Title string</title>
-        <tgroup cols="3">
-          <colspec colwidth="30*" />
-          <colspec colwidth="35*" />
-          <colspec colwidth="35*" />
+      <table frame="all" id="v3t-id-abreviations">
+        <title>Abbreviations</title>
+        <tgroup cols="2">
+          <colspec colwidth="15*" />
+          <colspec colwidth="70*" />
           <thead>
             <row>
               <entry>
-                <emphasis role="bold">ID: Service/Purpose</emphasis>
+                <emphasis role="bold">Acronym</emphasis>
               </entry>
               <entry>
-                <emphasis role="bold">Standards</emphasis>
-              </entry>
-              <entry>
-                <emphasis role="bold">Implementation Guidance</emphasis>
+                <emphasis role="bold">Description</emphasis>
               </entry>
             </row>
           </thead>
           <tbody>
-            <row>
-              <entry>1: repeating purpose para</entry>
-              <entry>
-                <itemizedlist><listitem><para></para></listitem></itemizedlist>
-              </entry>
-              <entry>
-		<para>repeating Guidance para</para>
-	      </entry>
-            </row>
-	  </tbody>
+            <row><entry>
+AAA</entry><entry>Authentication, Authorization, and Accounting</entry></row><row><entry>
+ACL</entry><entry>Access Control List</entry></row><row><entry>
+ACO</entry><entry>Allied Command Operations</entry></row><row><entry>
+ACO</entry><entry>Air Operations... Airspace Control Order</entry></row><row><entry>
+ACP</entry><entry>Allied Communications Publication</entry></row><row><entry>
+ACS</entry><entry>Access Control Service</entry></row><row><entry>
+ACT</entry><entry>Allied Command Transformation</entry></row><row><entry>
+ADAMS</entry><entry>Allied Deployment and Movement System (FAS</entry></row><row><entry>
+ADSF®</entry><entry>Active Directory Federation Services</entry></row><row><entry>
+ADS®</entry><entry>Active Directory Services</entry></row><row><entry>
+ADS</entry><entry>Authoritative Data Sources/Stores (when in the context of Functional Services)</entry></row><row><entry>
+AEP</entry><entry>AMN European Point of Presence</entry></row><row><entry>
+AFPL</entry><entry>Approved Fielded Product List</entry></row><row><entry>
+AMCC</entry><entry>Allied Movement Coordination Cell</entry></row><row><entry>
+AMN</entry><entry>Afghanistan Mission Network</entry></row><row><entry>
+AMNOC</entry><entry>Afghanistan Mission Network Operations Centre</entry></row><row><entry>
+ANSF</entry><entry>Afghan National Security Forces</entry></row><row><entry>
+AOR</entry><entry>Area of Responsibility</entry></row><row><entry>
+APOD</entry><entry>Aerial Port Of Debarkation</entry></row><row><entry>
+ARCENT</entry><entry>Army Component of U.S. Central Command</entry></row><row><entry>
+ARRP</entry><entry>Alliance and Missions Requirements and Resources Plan</entry></row><row><entry>
+AS</entry><entry>autonomous system</entry></row><row><entry>
+ASCM</entry><entry>Airspace Control Measures</entry></row><row><entry>
+ATO</entry><entry>Air Tasking Order</entry></row><row><entry>
+AWCC</entry><entry>Afghan Wireless Communication Company</entry></row><row><entry>
+AWG</entry><entry>Architecture Working Group</entry></row><row><entry>
+BDA</entry><entry>Battle Damage Assessment</entry></row><row><entry>
+BE</entry><entry>Best Effort</entry></row><row><entry>
+Bi-SC</entry><entry>Bi- Strategic Command (ACO and ACT)</entry></row><row><entry>
+BGP</entry><entry>Border Gateway Protocol</entry></row><row><entry>
+C5ISR</entry><entry>Coalition Command, Control, Communications and Computers Intelligence, Surveillance, and Reconnaissance</entry></row><row><entry>
+CAB</entry><entry>Change Advisory Board</entry></row><row><entry>
+CBT</entry><entry>Computer Based Training</entry></row><row><entry>
+CDS</entry><entry>Cross Domain Solution</entry></row><row><entry>
+CCP</entry><entry>Configuration Change Proposal</entry></row><row><entry>
+CE</entry><entry>Crisis Establishment (manpower)</entry></row><row><entry>
+CES</entry><entry>Core Enterprise Services</entry></row><row><entry>
+CIAV</entry><entry>Coalition Interoperability Assurance and Validation</entry></row><row><entry>
+CIDNE®</entry><entry>Combined Information Data Network Exchange (FAS)</entry></row><row><entry>
+CIDR</entry><entry>Classless Inter-domain Routing</entry></row><row><entry>
+CIMIC</entry><entry>Civil-Military Co-operation</entry></row><row><entry>
+CIS</entry><entry>communication and information systems</entry></row><row><entry>
+CJMCC</entry><entry>Combined Joint Movement Coordination Centre</entry></row><row><entry>
+CMB</entry><entry>Change Management Board</entry></row><row><entry>
+CMDB</entry><entry>Configuration Management DataBase</entry></row><row><entry>
+CoI</entry><entry>Community of Interest</entry></row><row><entry>
+COIN</entry><entry>Counter Insurgency (Campaign)</entry></row><row><entry>
+COMIJC</entry><entry>Commander IJC</entry></row><row><entry>
+CONOP</entry><entry>Concept of Operation</entry></row><row><entry>
+COP</entry><entry>Common Operational Picture</entry></row><row><entry>
+COTS</entry><entry>Commercial Off The Shelf</entry></row><row><entry>
+CORSOM</entry><entry>Coalition Reception, Staging and Onward Movement (FAS)</entry></row><row><entry>
+CPU</entry><entry>Central Processing Unit</entry></row><row><entry>
+CPOF</entry><entry>Command Post of the Future (FAS)</entry></row><row><entry>
+CRCB</entry><entry>Crisis Response Coordination Board</entry></row><row><entry>
+CMRB</entry><entry>CRO Management Resource Board</entry></row><row><entry>
+CSD</entry><entry>Coalition Shared Database</entry></row><row><entry>
+CTE2</entry><entry>Coalition Test and Evaluation Environment</entry></row><row><entry>
+CUR</entry><entry>Crisis Response Operations Urgent Requirement</entry></row><row><entry>
+CX-I</entry><entry>CENTRIXS-ISAF</entry></row><row><entry>
+DCIS</entry><entry>Deployed CIS</entry></row><row><entry>
+DGI</entry><entry>Designated Geospatial Information</entry></row><row><entry>
+DML</entry><entry>Definitive Media Library</entry></row><row><entry>
+DNS`</entry><entry>Domain Name Service</entry></row><row><entry>
+DSCP</entry><entry>Differentiated Services Code Point</entry></row><row><entry>
+E2E</entry><entry>End to End (E2E)</entry></row><row><entry>
+eBGP</entry><entry>External BGP</entry></row><row><entry>
+ECM</entry><entry>Electronic Counter Measures</entry></row><row><entry>
+EG</entry><entry>AMN Executive Group</entry></row><row><entry>
+EVE</entry><entry>Effective Visible Execution Module (FAS)</entry></row><row><entry>
+FAS</entry><entry>Functional Area System</entry></row><row><entry>
+FDCM</entry><entry>Final Disconnection Coord Meeting</entry></row><row><entry>
+FMS</entry><entry>Foreign Military Sales</entry></row><row><entry>
+FP</entry><entry>Force Protection</entry></row><row><entry>
+FRAGO</entry><entry>Fragmentary Order</entry></row><row><entry>
+FS</entry><entry>Functional Service</entry></row><row><entry>
+FSC</entry><entry>Forward Schedule of Change</entry></row><row><entry>
+FTP</entry><entry>File Transfer Protocol</entry></row><row><entry>
+GAL</entry><entry>Global Address List</entry></row><row><entry>
+GeoMetOc</entry><entry>Geospatial Meteorological and Oceanographic</entry></row><row><entry>
+GIRoA</entry><entry>Government of the Islamic Republic of Afghanistan</entry></row><row><entry>
+HN</entry><entry>Host Nation</entry></row><row><entry>
+HPOV®</entry><entry>HP (Hewlett Packard) OpenView</entry></row><row><entry>
+HTTP</entry><entry>Hypertext Transfer Protocol</entry></row><row><entry>
+IANA</entry><entry>Internet Assigned Number Authority</entry></row><row><entry>
+iBGP</entry><entry>internal BGP</entry></row><row><entry>
+ICC</entry><entry>Integrated Command and Control (FAS)</entry></row><row><entry>
+ICD</entry><entry>Interface Control Documentation</entry></row><row><entry>
+ICMP</entry><entry>Internet Control Message Protocol</entry></row><row><entry>
+IDC</entry><entry>Information Dominance Center (in IJC)</entry></row><row><entry>
+IEC</entry><entry>International Electrotechnical Commission</entry></row><row><entry>
+IED</entry><entry>Improvised Explosive Device</entry></row><row><entry>
+IEEE</entry><entry>Institute of Electrical and Electronics Engineers</entry></row><row><entry>
+IER</entry><entry>Information Exchange Requirement</entry></row><row><entry>
+IETF</entry><entry>Internet Engineering Task Force</entry></row><row><entry>
+IFTS</entry><entry>ISAF Force Tracking System (FAS)</entry></row><row><entry>
+IJC</entry><entry>ISAF Joint Command</entry></row><row><entry>
+IKM</entry><entry>Information and Knowledge Management</entry></row><row><entry>
+IOC</entry><entry>Initial Operating Capability</entry></row><row><entry>
+IORRB</entry><entry>ISAF Operational Requirements Review Board</entry></row><row><entry>
+IP</entry><entry>Internet Protocol</entry></row><row><entry>
+IPM</entry><entry>Internet Performance Manager</entry></row><row><entry>
+IPS</entry><entry>Intrusion Prevention System</entry></row><row><entry>
+IPSLA</entry><entry>Internet Protocol Service Level Agreement</entry></row><row><entry>IPSLA-MA</entry><entry>IPSLA Management Agent</entry></row><row><entry>
+IPT</entry><entry>Integrated Planning Team</entry></row><row><entry>
+ISAB</entry><entry>ISAF Security Accreditation Board</entry></row><row><entry>
+ISAF</entry><entry>International Security Assistance Force</entry></row><row><entry>ISFCC</entry><entry>ISAF Strategic Flight Coordination Centre</entry></row><row><entry>ISO</entry><entry>International Organization for Standardization</entry></row><row><entry>
+ISR</entry><entry>Intelligence Surveillance and Reconnaissance</entry></row><row><entry>
+ITU</entry><entry>International Telecommunication Union</entry></row><row><entry>
+JALLC</entry><entry>Joint Analysis Lessons Learned Centre (Lisbon)</entry></row><row><entry>
+JFC</entry><entry>Joint Force Command</entry></row><row><entry>
+JFCBS</entry><entry>
+JMEI</entry><entry>Joining, Membership and Exit Instructions</entry></row><row><entry>JOCWATCH</entry><entry>Joint Operations Centre Watchkeeper’s Log (FAS)</entry></row><row><entry>
+JOIIS</entry><entry>Joint Operations/Intelligence Information System (FAS)</entry></row><row><entry>
+JTS</entry><entry>Joint Targeting System (FAS)</entry></row><row><entry>
+KAIA-N</entry><entry>Kabul International Airport – North (the military portion of the Airport)</entry></row><row><entry>
+KPI</entry><entry>Key Performance Indicators</entry></row><row><entry>
+LAN</entry><entry>Local Area Network</entry></row><row><entry>
+LNO</entry><entry>Liaison Officer</entry></row><row><entry>
+LoA</entry><entry>Letter of Agreement</entry></row><row><entry>
+LogFAS</entry><entry>Logistics Functional Area System</entry></row><row><entry>
+LOS</entry><entry>Line of Sight</entry></row><row><entry>
+mBGP</entry><entry>Multi Protocol BGP</entry></row><row><entry>
+MAJIIC</entry><entry>Multi-Sensor Aerospace-Ground Joint Intelligence, Surveillance and Reconnaissance (ISR) interoperability coalition</entry></row><row><entry>
+MCI</entry><entry>Mission Critical Information</entry></row><row><entry>
+MEDEVAC</entry><entry>Medical Evacuation</entry></row><row><entry>
+MIP</entry><entry>Multilateral Interoperability Programme</entry></row><row><entry>
+MMR</entry><entry>minimum military requirement</entry></row><row><entry>
+MNDDP</entry><entry>Multinational Detailed (re)Deployment Plan </entry></row><row><entry>
+MOU</entry><entry>Memorandum of Understanding</entry></row><row><entry>
+MTU</entry><entry>Maximum Transmission Unit</entry></row><row><entry>
+NAT</entry><entry>Network Address Translation</entry></row><row><entry>
+NATEX</entry><entry>National Expert</entry></row><row><entry>
+NC3B</entry><entry>NATO Consultation, Command And Control Board</entry></row><row><entry>
+NCI Agency</entry><entry>NATO Communications and Information Agency</entry></row><row><entry>
+NCIO</entry><entry>NATO Communications and Information Organisation</entry></row><row><entry>
+NCIRC TC</entry><entry>NATO Computer Incident Response Capability Technical Centre</entry></row><row><entry>
+NDSS</entry><entry>NATO Depot and Supply System (FAS)</entry></row><row><entry>
+NETOPS</entry><entry>Network Operations</entry></row><row><entry>
+NIMP</entry><entry>NATO Information Management Policy</entry></row><row><entry>
+NIMM</entry><entry>NATO Information Management Manual </entry></row><row><entry>
+NIP</entry><entry>Network Interconnection Point</entry></row><row><entry>
+NITB</entry><entry>NATO Intel Toolbox (FAS)</entry></row><row><entry>
+NRA</entry><entry>NATO Registration Authority</entry></row><row><entry>
+NOS</entry><entry>NATO Office of Security</entry></row><row><entry>
+NRT</entry><entry>Near Real Time</entry></row><row><entry>
+NSAB</entry><entry>NATO Security Accreditation Board</entry></row><row><entry>
+NTM-A</entry><entry>NATO Training Mission - Afghanistan</entry></row><row><entry>
+NU</entry><entry>NATO Unclassified</entry></row><row><entry>
+OAIS</entry><entry>Open Archival information System</entry></row><row><entry>
+OF-5</entry><entry>Officer Rank (Colonel or Equiv)</entry></row><row><entry>
+OPORDER</entry><entry>Operational Order</entry></row><row><entry>
+OPT</entry><entry>Operational Planning Team</entry></row><row><entry>
+OU</entry><entry>Organizational Unit</entry></row><row><entry>
+PDF/A</entry><entry>Portable Document Format used for digital preservation of electronic documents</entry></row><row><entry>
+PDIM</entry><entry>Primary Directive on Information Management</entry></row><row><entry>
+PE</entry><entry>Peacetime Establishment (manpower)</entry></row><row><entry>
+PKI</entry><entry>Public Key Infrastructure</entry></row><row><entry>
+PNG</entry><entry>Packet Network Gateways</entry></row><row><entry>
+POC</entry><entry>Point of Contact</entry></row><row><entry>
+PoP</entry><entry>Point of Presence</entry></row><row><entry>
+RFC</entry><entry>Request for Change (ITIL)</entry></row><row><entry>
+RFC</entry><entry>Request for Comments (Network Working Group, IETF)</entry></row><row><entry>
+PRT</entry><entry>Provincial Reconstruction Team</entry></row><row><entry>
+QoS</entry><entry>Quality of Service</entry></row><row><entry>
+RC</entry><entry>Regional Command</entry></row><row><entry>
+RAMNOC</entry><entry>Regional Afghanistan Mission Network Operations Centre</entry></row><row><entry>
+RFC</entry><entry>Request for Change</entry></row><row><entry>
+RIR</entry><entry>Regional Internet Registry</entry></row><row><entry>
+RLP</entry><entry>Recognised Logistics Picture</entry></row><row><entry>
+RT</entry><entry>Real Time</entry></row><row><entry>
+SACM</entry><entry>Service Asset and Configuration Management</entry></row><row><entry>SCCM</entry><entry>System Center Configuration Manager</entry></row><row><entry>
+SDD</entry><entry>Service Delivery Division (NCI Agency (Service Delivery))</entry></row><row><entry>
+SDE®</entry><entry>Service Desk Express (FAS)</entry></row><row><entry>
+SGI</entry><entry>Supplementary Geospatial Information (supplementary to DGI)</entry></row><row><entry>
+SHAPE</entry><entry>Supreme Headquarters Allied Powers Europe (i.e. HQ ACO)</entry></row><row><entry>
+SLA</entry><entry>Service Level Agreement</entry></row><row><entry>
+SME</entry><entry>Subject Matter Expert</entry></row><row><entry>
+SMF</entry><entry>Service Management Framework (Implementation of ITIL)</entry></row><row><entry>
+SMF</entry><entry>Single-mode optical fibre (Equipment)</entry></row><row><entry>
+SMTP</entry><entry>Simple Mail Transfer Protocol</entry></row><row><entry>
+SNMP</entry><entry>Simple Network Management Protocol </entry></row><row><entry>
+SNMP MIB</entry><entry>Simple Network Management Protocol Management information base</entry></row><row><entry>
+SoC</entry><entry>Statement of Compliance</entry></row><row><entry>
+SoF</entry><entry>Special Operations Forces</entry></row><row><entry>
+SOP</entry><entry>Standard Operating Procedure</entry></row><row><entry>
+SRTS</entry><entry>Service Requesting Tasking System</entry></row><row><entry>
+SSH</entry><entry>Secure Shell</entry></row><row><entry>
+SSL</entry><entry>Secure Sockets Layer</entry></row><row><entry>
+STD</entry><entry>Standard</entry></row><row><entry>
+SVT</entry><entry>Service Validation and Testing</entry></row><row><entry>
+TA </entry><entry>Technical Agreement</entry></row><row><entry>
+TACACS+</entry><entry>Terminal Access Controller Access Control System plus</entry></row><row><entry>
+TCN</entry><entry>Troop Contributing Nation</entry></row><row><entry>
+TDS</entry><entry>Trusted Data Sources</entry></row><row><entry>
+THoC</entry><entry>Theatre Head of Contracts</entry></row><row><entry>
+TMO</entry><entry>Technical Management Office (of the AMN Secretariat)</entry></row><row><entry>
+TNMA</entry><entry>Theatre Network Management Architect</entry></row><row><entry>
+TOA</entry><entry>Transfer of Authority</entry></row><row><entry>
+TPT</entry><entry>Technical Planning Team</entry></row><row><entry>
+TRN</entry><entry>Theatre Route Network</entry></row><row><entry>
+TSSB</entry><entry>Theatre Sustainment and Synchronisation Board</entry></row><row><entry>
+TTP</entry><entry>Tactics, Techniques and Procedures</entry></row><row><entry>
+UDP</entry><entry>User Datagram Protocol</entry></row><row><entry>
+VoIP</entry><entry>Voice over IP</entry></row><row><entry>
+VoSIP</entry><entry>Voice over Secure IP</entry></row><row><entry>
+VM</entry><entry>Virtual Machine</entry></row><row><entry>
+VTC</entry><entry>Video Tele Conference</entry></row><row><entry>
+WAN</entry><entry>Wide Area Network</entry></row><row><entry>
+WebTAS®</entry><entry>Web Enabled Temporal Analysis System (FAS)</entry></row><row><entry>
+WSUS®</entry><entry>Windows Server Update Services</entry></row><row><entry>
+XML</entry><entry>Extensible Mark-up Language</entry></row></tbody>
          </tgroup>
 	</table>
+</para>
+</sect1>
 
-*****************************************************************  
--->
+<sect1>
+<title>References</title>
+<para>
+      <table frame="all" id="v3t-id-References">
+        <title>References</title>
+        <tgroup cols="3">
+          <colspec colwidth="30*" />
+          <colspec colwidth="70*" />
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="bold">Reference</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Description</emphasis>
+              </entry>
+            </row>
+          </thead>
+        <tbody>
+            <row>
+              <entry>ADaTP-34(F)Vol4D Jan 2012</entry>
+              <entry>Allied Data Publication 34 (ADaTP-34(F)) STANAG 5524, NATO Interoperability Standards and Profiles (NISP), Volume 4 Interoperability Profiles and Guidance, Section D (page 93), The AMN Profile of NATO Interoperability Standards. 19 January 2012. NATO UNCLASSIFIED. [Commencing page 335 in pdf file NU-NISPv6-ADatP34(F)]</entry>
+            </row>
+            <row>
+              <entry>AC/322-N(2012)0092-AS1</entry>
+              <entry>NATO Consultation Command and Control Board. C3 Classification Taxonomy. AC/322- N(2012)0092-AS1. 19 June 2012. NATO UNCLASSIFIED. [NU-AC322-N(2012)0092-AS1.pdf]</entry>
+            </row>
+            <row>
+              <entry>MCM-0125-2012</entry>
+              <entry>Military Committee. Future Mission Network Concept MCM-0125-2012. 19 November 2012. NATO UNCLASSIFIED.</entry>
+            </row>
+            <row>
+              <entry>NC3A TN1417</entry>
+              <entry>NATO C3 Agency. Reference Document 2933, IP QoS Standardisation for the NII, RC 7, R.M. van Selm, G. Szabo, R. van Engelshoven, R. Goode, NATO C3 Agency, The Hague, The Netherlands, 15 June 2010 (Pre publication of Technical Note 1417, expected Q4 2010).NATO Unclassified [NU-RD2933-IP-QoS-Standard-for-the-NII-draft-rc7.pdf]</entry>
+            </row>
+            <row>
+              <entry>NCIA TR-2013/SPW008910/01</entry>
+              <entry>Friedrich, G. Federated Mission Networking Interoperability Standards Profile for Mission Execution Environments, version 0.7 (FMN Profile v0.7). NATO Communications and Information Agency Technical Report  TR-2013/SPW008910/01. 20 September 2013.</entry>
+            </row>
+            <row>
+              <entry>SHAPE CCD J6/CISOPAMN/66/13</entry>
+              <entry>SHAPE CCD J6. Afghanistan Mission Network Governance Directive – Version 2. SH/CCD J6/CISOPAMN/66/13. 15 April 2013. NATO UNCLASSIFIED.</entry>
+            </row>
+            <row>
+              <entry>Thales ICD NIP Dec 2012</entry>
+              <entry>THALES Customer Service & Support, NATO SATCOM & FOC CIS for ISAF Interface Control Document (ICD) Between CISAF network and TCN networks. ICD NIP TCN_62543313_558_L. 13 December 2012, NATO UNCLASSIFIED. [NU-ICD NIP TCN_62543313_558_L.pdf]</entry>
+            </row>
+		</tbody>
+        </tgroup>
+	</table>
+</para>
+</sect1>
 </appendix>
