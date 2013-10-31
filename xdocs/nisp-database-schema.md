@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% February 20, 2012
+% October 2, 2013
 
 
 
@@ -26,7 +26,7 @@ inclusion in the NATO Architecture Repository (NAR)
 
 In order to enable validation of the database, a schema in form
 of a DTD have been defined. This DTD is located in the source distribution at
-`schema/dtd/stddb40.dtd`.
+`schema/dtd/stddb50.dtd`.
 
 Since some of the element in the schema represent textual information
 in the form of DocBook fragments such as paragraphs, unnumbered lists
@@ -44,7 +44,7 @@ is included.
 The standard database DTD is logically separated into four
 different parts:
 
-* service taxonomy  based on the Core Enterprise Service Framework (CESF)
+* service taxonomy on the C3 taxonimy baseline 1 dated june 15, 2012
 * standard selection
 * standard and profile description
 * community of interest profiles
@@ -70,48 +70,23 @@ Service taxonomy
 ----------------
 
 The services taxonomy describes how the standards and profiles are
-organized and is based on the taxonomy described in the C3B Service
-Framework.
+organized and is based on the taxonomy described in the C3 taxonomy.
 
 The service taxonomy is a hierarchical structure, consisting of
-`<servicearea>`, `<subarea>`, `<servicecategory>`,
-`<category>` and `<subcategory>` elements as described
-below. All the taxonomy elements must have an `id` and `title`
+`<node>` elements as described
+below. All the `<node>` elements must have an `id` and `title`
 attribute. The `id` attribute is used to identify the relationship
 between selected standards and the service taxonomy.
 
 ~~~{.dtd}
-<!ELEMENT taxonomy (servicearea+)>
+<!ELEMENT taxonomy (node)>
 
-<!ELEMENT servicearea ((subarea | servicecategory)*)>
+<!ELEMENT node (node*)>
 
-<!ATTLIST servicearea
+<!ATTLIST node
           id ID #REQUIRED
           title CDATA #REQUIRED>
 
-<!ELEMENT subarea ((servicecategory)*)>
-
-<!ATTLIST subarea
-          id ID #REQUIRED
-          title CDATA #REQUIRED>
-
-<!ELEMENT servicecategory ((category)*)>
-
-<!ATTLIST servicecategory
-          id ID #REQUIRED
-          title CDATA #REQUIRED>
-
-<!ELEMENT category ((subcategory)*)>
-
-<!ATTLIST category
-          id ID #REQUIRED
-          title CDATA #REQUIRED>
-
-<!ELEMENT subcategory EMPTY>
-
-<!ATTLIST subcategory
-          id ID #REQUIRED
-          title CDATA #REQUIRED>
 ~~~
 
 

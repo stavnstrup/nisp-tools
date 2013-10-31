@@ -1,6 +1,6 @@
 % nisp-database
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% April 11, 2013
+% October 2, 2013
 
 Name
 ====
@@ -16,7 +16,7 @@ and the NC3TA since 1998.
 The standard database is logically separated into four
 different parts:
 
-* service taxonomy based on the Core Enterprise Service Framework (CESF)
+* service taxonomy based on the C3 Taxonomy baseline 1
 * standard selection
 * standard and profile description
 * community of interest profiles
@@ -104,6 +104,6 @@ See Also
 
 [nisp-database-schema]
 
-The NISP sources and tools are availibale in a subversion repository on TIDE at <http://tide.acr.nato.int/svn/nisp/trunk>.
+The NISP sources and tools are availible in a subversion repository on TIDE at <http://tide.acr.nato.int/svn/nisp/trunk>.
 
 [nisp-database-schema]: (nisp-database-schema.html)

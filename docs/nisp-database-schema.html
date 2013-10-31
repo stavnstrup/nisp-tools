@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;">
-  <meta name="dcterms.date" content="2012-02-20">
   <title>nisp-database-schema</title>
   <style type="text/css">code{white-space: pre;}</style>
   <!--[if lt IE 9]>
@@ -39,12 +38,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>nisp-database-schema - The schema of database used to describe standards and profiles in NISP</p>
 <h1 id="description">Description</h1>
 <p>The current NISP standards database is implemented as a XML document. The original design of the database reflected the structure of the list of standard and profiles described in the NC3 Technical Architecture version 1. In order to enable consistency across the different volumes, the database have been extended to be able to describe the selection of mandatory-, emerging- and fading standards and profiles. This selection of standards and profiles are justified in the rationale statements, which are also part of the database. Recently the database have been reorganized to reflect additional requirements, but also to prepare the database for inclusion in the NATO Architecture Repository (NAR)</p>
-<p>In order to enable validation of the database, a schema in form of a DTD have been defined. This DTD is located in the source distribution at <code>schema/dtd/stddb40.dtd</code>.</p>
+<p>In order to enable validation of the database, a schema in form of a DTD have been defined. This DTD is located in the source distribution at <code>schema/dtd/stddb50.dtd</code>.</p>
 <p>Since some of the element in the schema represent textual information in the form of DocBook fragments such as paragraphs, unnumbered lists etc., the standard database DTD have been implemented as an extension to the DocBook DTD. Ideally we should use multiple name space in order to avoid naming conflicts, but that is very complicated when using a simple schema language such as DTD. A better approach would be to implement the standard database schema in a modern schema language such as Relax NG.</p>
 <p>In the rest of this document, the syntax of the database is described in detail and when appropriate, examples of the actual implementation is included.</p>
 <p>The standard database DTD is logically separated into four different parts:</p>
 <ul>
-<li>service taxonomy based on the Core Enterprise Service Framework (CESF)</li>
+<li>service taxonomy on the C3 taxonimy baseline 1 dated june 15, 2012</li>
 <li>standard selection</li>
 <li>standard and profile description</li>
 <li>community of interest profiles</li>
@@ -56,37 +55,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>The <code>&lt;revhistory&gt;</code> element describes the historic changes to the database.</p>
 <p>The <code>&lt;organisations&gt;</code> element contains a mapping between keywords and organization names and is used to ensure, that only registered organization are used and therefore prevents the same organization name to be spelled in multiple ways.</p>
 <h2 id="service-taxonomy">Service taxonomy</h2>
-<p>The services taxonomy describes how the standards and profiles are organized and is based on the taxonomy described in the C3B Service Framework.</p>
-<p>The service taxonomy is a hierarchical structure, consisting of <code>&lt;servicearea&gt;</code>, <code>&lt;subarea&gt;</code>, <code>&lt;servicecategory&gt;</code>, <code>&lt;category&gt;</code> and <code>&lt;subcategory&gt;</code> elements as described below. All the taxonomy elements must have an <code>id</code> and <code>title</code> attribute. The <code>id</code> attribute is used to identify the relationship between selected standards and the service taxonomy.</p>
-<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">taxonomy</span> <span class="dv">(</span><span class="fu">servicearea</span><span class="fl">+</span><span class="dv">)</span><span class="dt">&gt;</span>
+<p>The services taxonomy describes how the standards and profiles are organized and is based on the taxonomy described in the C3 taxonomy.</p>
+<p>The service taxonomy is a hierarchical structure, consisting of <code>&lt;node&gt;</code> elements as described below. All the <code>&lt;node&gt;</code> elements must have an <code>id</code> and <code>title</code> attribute. The <code>id</code> attribute is used to identify the relationship between selected standards and the service taxonomy.</p>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">taxonomy</span> <span class="dv">(</span><span class="fu">node</span><span class="dv">)</span><span class="dt">&gt;</span>
 
-<span class="dt">&lt;!ELEMENT</span> <span class="fu">servicearea</span> <span class="dv">((</span><span class="fu">subarea</span> <span class="dv">|</span> <span class="fu">servicecategory</span><span class="dv">)</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">node</span> <span class="dv">(</span><span class="fu">node</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 
-<span class="dt">&lt;!ATTLIST</span> <span class="fu">servicearea</span>
-          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span>
-          <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
-
-<span class="dt">&lt;!ELEMENT</span> <span class="fu">subarea</span> <span class="dv">((</span><span class="fu">servicecategory</span><span class="dv">)</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
-
-<span class="dt">&lt;!ATTLIST</span> <span class="fu">subarea</span>
-          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span>
-          <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
-
-<span class="dt">&lt;!ELEMENT</span> <span class="fu">servicecategory</span> <span class="dv">((</span><span class="fu">category</span><span class="dv">)</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
-
-<span class="dt">&lt;!ATTLIST</span> <span class="fu">servicecategory</span>
-          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span>
-          <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
-
-<span class="dt">&lt;!ELEMENT</span> <span class="fu">category</span> <span class="dv">((</span><span class="fu">subcategory</span><span class="dv">)</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
-
-<span class="dt">&lt;!ATTLIST</span> <span class="fu">category</span>
-          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span>
-          <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
-
-<span class="dt">&lt;!ELEMENT</span> <span class="fu">subcategory</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
-
-<span class="dt">&lt;!ATTLIST</span> <span class="fu">subcategory</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">node</span>
           <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span>
           <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
 <h2 id="standard-and-profile-definition">Standard and profile definition</h2>
@@ -265,6 +240,6 @@ The teminology used
 
 <h1>Author</h1>
 <p class="author">Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;</p>
-<p class="date">Last updated on February 20, 2012</p>
+<p class="date">Last updated on October 2, 2013</p>
 </body>
 </html>
