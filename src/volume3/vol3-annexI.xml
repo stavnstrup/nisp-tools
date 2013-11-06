@@ -73,6 +73,11 @@
     <para>The following FMN architecture principles have been developed: </para>
     <itemizedlist>
       <listitem><para>Federation: A federated Mission Network (MN) is the episodic federation of autonomous mission network elements for the purpose of executing a mission.</para></listitem>
+      <listitem><para>Service Management and Control. A MN shall be governed and managed by a central Service Management Authority, to ensure:
+		<itemizedlist>
+			<listitem><para>assured delivery of services from providers/producers to consumers/customers based on well-defined SLAs, and</para></listitem>
+			<listitem><para>assured change and configuration management for federation related aspects.</para></listitem>
+		</itemizedlist></para></listitem>
       <listitem><para>Information Sharing: A MN shall enable information discovery and provide access to information relevant to the mission.</para></listitem>
 	  <listitem><para>Shared Awareness:  A MN shall provide the ability to end-users to gain a single view of the theatre of operations.</para></listitem>
       <listitem><para>Data Management:  A MN shall minimize the data management burden.</para></listitem>
@@ -469,7 +474,16 @@
             </thead>
             <tbody>
               <row>
-                <entry>1:<emphasis role="underline">Distributed Time Services</emphasis>: Time synchronization</entry>
+                <entry>1:<emphasis role="underline">Infrastructure Processing Services</emphasis>: Virtualized Processing Services</entry>
+                <entry><emphasis role="underline">Recommended</emphasis>:
+                  <para>ISO/IEC 17203:2011, Information technology -- Open Virtualization Format (OVF) specification also published as ANSI standard INCITS 469-2010 (OVF 1.1.0)</para>
+				  <para><emphasis role="underline">Emerging</emphasis>:
+                  <para>Distributed Management Task Force - DSP0243  2.0.1 , Open Virtualization Format Specification (OVF 2.0.1), 30 Aug 2013</para></para>
+				</entry>
+                <entry>Using Open Virtualization Format, Option B  Mission Participant can create single, pre-packaged appliances and Service providers can export and import virtual machines that can run across different virtualization platforms.</entry>
+              </row>
+              <row>
+                <entry>2:<emphasis role="underline">Distributed Time Services</emphasis>: Time synchronization</entry>
                 <entry><emphasis role="underline">Mandatory</emphasis>:
                   <para>IETF RFC 5905: 2010, Network Time Protocol version 4 (NTPv4).</para>
 				  <para>Mission Network Contributing Participants must be able to provide a time server on their network element either directly connected to a stratum-0 device or over a network path to a stratum-1 time server of another Mission Network Contributing Participant.</para>
@@ -481,7 +495,7 @@
 				</entry>
               </row>
               <row>
-                <entry>2:<emphasis role="underline">Domain Name Services</emphasis>: Naming and Addressing on a FMN instance</entry>
+                <entry>3:<emphasis role="underline">Domain Name Services</emphasis>: Naming and Addressing on a FMN instance</entry>
                 <entry><emphasis role="underline">Mandatory</emphasis>:
 				<itemizedlist>
 					<listitem><para>IETF STD 13: 1987 /IETF RFC 1034: 1987, Domain Names – Concepts and Facilities.</para></listitem>
@@ -491,7 +505,7 @@
                 <entry></entry>
               </row>
               <row>
-                <entry>3:Identification and addressing of objects on the network.</entry>
+                <entry>4:Identification and addressing of objects on the network.</entry>
                 <entry><emphasis role="underline">Mandatory</emphasis>:
 				<itemizedlist>
 					<listitem><para>IETF RFC 1738: 1994, Uniform Resource Locators (URL).</para></listitem>
@@ -501,7 +515,7 @@
                 <entry>Namespaces within XML documents shall use unique URLs or URIs for the namespace designation.</entry>
               </row>
               <row>
-                <entry>4:Infrastructure Storage Services:  storing and accessing information about the time of events and transactions</entry>
+                <entry>5:Infrastructure Storage Services:  storing and accessing information about the time of events and transactions</entry>
                 <entry><emphasis role="underline">Mandatory</emphasis>:
 				<para>ISO/IEC 9075 (Parts 1 to-14):2011, Information technology - Database languages - SQL</para>
 				<para>Databases shall stores date and time values everything in TIMESTAMP WITH TIME ZONE or TIMESTAMPTZ</para>
@@ -509,7 +523,7 @@
                 <entry>Missions might conduct transactions across different time zones.  Timestamps are essential for auditing purposes. It is important that the integrity of timestamps is maintained across all Mission Network Elements.  From Oracle 9i, PostgreSQL 7.3 and MS SQL Server 2008 onwards, the time zone can be stored with the time directly by using the TIMESTAMP WITH TIME ZONE (Oracle, PostgreSQL) or datetimeoffset (MS-SQL) data types.</entry>
               </row>
               <row>
-                <entry>5:<emphasis role="underline">Infrastructure IA Services</emphasis>: Facilitate the access and authorization between FMN users and services.</entry>
+                <entry>6:<emphasis role="underline">Infrastructure IA Services</emphasis>: Facilitate the access and authorization between FMN users and services.</entry>
                 <entry><emphasis role="underline">Mandatory</emphasis>:
 				  <para>Directory access and management service: 
                   <itemizedlist>
@@ -528,7 +542,7 @@
 				</entry>
               </row>
 			  <row>
-              <entry>6:<emphasis role="underline">Infrastructure IA Services: Digital Certificate Services</emphasis></entry>
+              <entry>7:<emphasis role="underline">Infrastructure IA Services: Digital Certificate Services</emphasis></entry>
               <entry><emphasis role="underline">Mandatory</emphasis>: 
 				<para>ITU-T X.509 (11/2008), Information technology - Open systems interconnection - The Directory: Public-key and attribute certificate frameworks 
                   <itemizedlist>
@@ -541,7 +555,7 @@
               <entry></entry>
 			  </row>
                <row>
-              <entry>7:<emphasis role="underline">Infrastructure IA Services: Authentication Services</emphasis></entry>
+              <entry>8:<emphasis role="underline">Infrastructure IA Services: Authentication Services</emphasis></entry>
               <entry><emphasis role="underline">Mandatory</emphasis>: 
 			  <para>IETF RFC 1510:1993, The Kerberos Network Authentication Service (V5).</para>
 			  </entry>
