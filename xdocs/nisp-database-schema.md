@@ -120,6 +120,7 @@ consists of:
 * document - describes the actual standard
 * applicability - when and where should the standard be used
 * status - contains historical data
+* uuid - an automatically generated UUID. Note, that although the UUID is mandatory, it is defined as optional in the schema, so that the database will comply with the schema befor the UUID is automatically generated. 
 
 ~~~{.dtd}
 <!ELEMENT standard (document, applicability, status, uuid?)>

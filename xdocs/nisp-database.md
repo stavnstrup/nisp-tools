@@ -62,7 +62,7 @@ The two identifiers serves different purposes:
 
 `uuid`
 :   This identifier is *automatically* generated and should under
-    no cicumstances be changed. The UUID identifier will be unique for
+    no circumstances be changed. The UUID identifier will be unique for
     a specific version of a `<standard>` or `<profile>` element, so
     e.g. two different version of a given standard will have different
     UUIDs. This will enable us to import the NISP database into a
