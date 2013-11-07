@@ -37,25 +37,25 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h1 id="name">Name</h1>
 <p>nisp-database-schema - The schema of database used to describe standards and profiles in NISP</p>
 <h1 id="description">Description</h1>
-<p>The current NISP standards database is implemented as a XML document. The original design of the database reflected the structure of the list of standard and profiles described in the NC3 Technical Architecture version 1. In order to enable consistency across the different volumes, the database have been extended to be able to describe the selection of mandatory-, emerging- and fading standards and profiles. This selection of standards and profiles are justified in the rationale statements, which are also part of the database. Recently the database have been reorganized to reflect additional requirements, but also to prepare the database for inclusion in the NATO Architecture Repository (NAR)</p>
-<p>In order to enable validation of the database, a schema in form of a DTD have been defined. This DTD is located in the source distribution at <code>schema/dtd/stddb50.dtd</code>.</p>
+<p>The current NISP standards database is implemented as a XML document. The original design of the database reflected the structure of the list of standard and profiles described in the NC3 Technical Architecture version 1. In order to enable consistency across the different volumes, the database have been extended to be able to describe the selection of mandatory-, emerging- and fading standards and profiles. This selection of standards and profiles are justified in the rationale statements, which are also part of the database. Recently the database have been reorganised to reflect additional requirements, but also to prepare the database for inclusion in the NATO Architecture Repository (NAR)</p>
+<p>In order to enable validation of the database, a schema in form of a DTD have been defined. This DTD is located in the source distribution at <code>schema/dtd/stddb41.dtd</code>.</p>
 <p>Since some of the element in the schema represent textual information in the form of DocBook fragments such as paragraphs, unnumbered lists etc., the standard database DTD have been implemented as an extension to the DocBook DTD. Ideally we should use multiple name space in order to avoid naming conflicts, but that is very complicated when using a simple schema language such as DTD. A better approach would be to implement the standard database schema in a modern schema language such as Relax NG.</p>
 <p>In the rest of this document, the syntax of the database is described in detail and when appropriate, examples of the actual implementation is included.</p>
 <p>The standard database DTD is logically separated into four different parts:</p>
 <ul>
-<li>service taxonomy on the C3 taxonimy baseline 1 dated june 15, 2012</li>
+<li>service taxonomy on the C3 taxonomy baseline 1 - dated june 15, 2012</li>
 <li>standard selection</li>
 <li>standard and profile description</li>
 <li>community of interest profiles</li>
-<li>mapping between organisation abbrevations and full names</li>
+<li>mapping between organisation abbreviations and full names</li>
 </ul>
 <p>The root element of the DTD is the element <code>&lt;standards&gt;</code> and is described by:</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">standards</span> <span class="dv">(</span><span class="fu">revhistory</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">taxonomy</span><span class="dv">,</span> <span class="fu">lists</span><span class="dv">,</span> <span class="fu">records</span><span class="dv">,</span> 
                      <span class="fu">community-of-interest</span><span class="dv">,</span> <span class="fu">organisations</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
 <p>The <code>&lt;revhistory&gt;</code> element describes the historic changes to the database.</p>
-<p>The <code>&lt;organisations&gt;</code> element contains a mapping between keywords and organization names and is used to ensure, that only registered organization are used and therefore prevents the same organization name to be spelled in multiple ways.</p>
+<p>The <code>&lt;organisations&gt;</code> element contains a mapping between keywords and organisation names and is used to ensure, that only registered organisation are used and therefore prevents the same organisation name to be spelled in multiple ways.</p>
 <h2 id="service-taxonomy">Service taxonomy</h2>
-<p>The services taxonomy describes how the standards and profiles are organized and is based on the taxonomy described in the C3 taxonomy.</p>
+<p>The services taxonomy describes how the standards and profiles are organised and is a subset of the C3 taxonomy.</p>
 <p>The service taxonomy is a hierarchical structure, consisting of <code>&lt;node&gt;</code> elements as described below. All the <code>&lt;node&gt;</code> elements must have an <code>id</code> and <code>title</code> attribute. The <code>id</code> attribute is used to identify the relationship between selected standards and the service taxonomy.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">taxonomy</span> <span class="dv">(</span><span class="fu">node</span><span class="dv">)</span><span class="dt">&gt;</span>
 
@@ -65,7 +65,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
           <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span>
           <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
 <h2 id="standard-and-profile-definition">Standard and profile definition</h2>
-<p>Both de-jure and de-facto standards from many different standard 'organizations' are labeled differently. Some standards have multiple parts each having a standard number, where for other standards only the cover standard have a number. Some standards are registered by multiple standard bodies. Some standards are updated, but the actual update are released as a separate document instead of releasing a new version of the standard. The same is true for profiles.</p>
+<p>Both de-jure and de-facto standards from many different standard 'organizations' are labeled differently. Some standards have multiple parts each having a standard number, where for other standards only the cover standard have a number. Some standards are registered by multiple standard bodies. Some standards are updated, but the actual update are released as a separate document instead of releasing a new version of the standard. The same is true for profiles. So the following rules tries to accommodate all the different conventions used, when describing a standard or profile.</p>
 <p>All standards and profiles are contained in the <code>&lt;records&gt;</code> element.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">records</span> <span class="dv">((</span><span class="fu">standard</span> <span class="dv">|</span> <span class="fu">profile</span> <span class="dv">)</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
 <h3 id="standards">Standards</h3>
@@ -83,7 +83,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
           <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
 <p>The standard exposes the attributes <code>tag</code> and <code>id</code>. The <code>tag</code> attribute was previously used the volume 3 of the NC3TA, and a is short title identifying the standard. A few future use could be to provide a title when selecting standards.</p>
 <h4 id="document">Document</h4>
-<p>The <code>&lt;document&gt;</code> element exposes the publishing organization, publication number, publishing date, title and version through the attributes <code>orgid</code>, <code>pubnum</code>, <code>date</code>, <code>title</code> and <code>version</code>. The <code>orgid</code> refers to an organization is embedded in the <code>organisations</code> element. The rule of using organization identifiers instead of the actual name of the organization is mandated to prevent, that the same organization exists in multiple incarnations in the database.</p>
+<p>The <code>&lt;document&gt;</code> element exposes the publishing organisation, publication number, publishing date, title and version through the attributes <code>orgid</code>, <code>pubnum</code>, <code>date</code>, <code>title</code> and <code>version</code>. The <code>orgid</code> refers to an organisation is embedded in the <code>organisations</code> element. The rule of using organisation identifiers instead of the actual name of the organisation is mandated to prevent, that the same organisation exists in multiple incarnations in the database.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">document</span> <span class="dv">(</span><span class="fu">substandards</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">correction</span><span class="fl">*</span><span class="dv">,</span> <span class="fu">alsoknown</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">comment</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">document</span>
@@ -92,20 +92,20 @@ code > span.er { color: #ff0000; font-weight: bold; }
           <span class="fu">date</span>    <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
           <span class="fu">title</span>   <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
           <span class="fu">version</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre>
-<p>If a standard is a coverstandard (e.g ISO-8859), it may implement the <code>&lt;substandards&gt;</code> element, which contains a list of <code>&lt;refstandard&gt;</code> element. Each <code>&lt;refstandard&gt;</code> element will trough the attribute <code>refid</code> contain a reference to the substandard.</p>
+<p>If a standard is a cover standard (e.g ISO-8859), it may implement the <code>&lt;substandards&gt;</code> element, which contains a list of <code>&lt;refstandard&gt;</code> element. Each <code>&lt;refstandard&gt;</code> element will trough the attribute <code>refid</code> contain a reference to the substandard.</p>
 <p>The DTD allows a <code>&lt;standard&gt;</code> element using <code>&lt;refstandard&gt;</code> elements to refer to other standards ('the substandards'), and in principle these substandards could refer to other <code>&lt;standard&gt;</code> elements. However, the later does not make any sense and is therefore not allowed.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">substandards</span> <span class="dv">(</span><span class="fu">refstandard</span><span class="fl">+</span><span class="dv">)</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">refstandard</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">refstandard</span>
           <span class="fu">refid</span> <span class="kw">IDREF</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
-<p>Some standard organizations publish documents which are correction to the standard.</p>
+<p>Some standard organisations publish documents which are correction to the standard.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">correction</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">correction</span>
           <span class="fu">cpubnum</span>  <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
           <span class="fu">date</span>     <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
-<p>Sometime a standard is republished by another standard organization. An <code>&lt;alsoknown&gt;</code> element contains a description which might be empty. A <code>&lt;alsoknown&gt;</code> element must also contain a <code>orgid</code>, <code>pubnum</code> and <code>date</code> attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation Data (DTED) is also know as ISO/IEC 8211.</p>
+<p>Sometime a standard is republished by another standard organisation. An <code>&lt;alsoknown&gt;</code> element contains a description which might be empty. A <code>&lt;alsoknown&gt;</code> element must also contain a <code>orgid</code>, <code>pubnum</code> and <code>date</code> attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation Data (DTED) is also know as ISO/IEC 8211.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">alsoknown</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">alsoknown</span>
@@ -141,11 +141,11 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>The <code>date</code> attribute must use the Comple Date format YYYY-MM-DD as defined in <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601</a>.</p>
 <h4 id="uuid">UUID</h4>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">uuid</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
-<p>The <code>&lt;uuid&gt;</code> element is mandatory in every standard although in the DTD it is stated the there can be zero or one <code>&lt;uuid&gt;</code> element. The reason for this inconsistency is that we do not want a DTD driven editor to complain about a missing element and we do not want the user to manually create an UUID. The UUID must always be automatically created by the NISP tool and comply with RFC 4122: &quot;A Universally Unique IDentifier (UUID) URN Namespace.&quot; The UUID generated is a version 4 type, which means it is a randomly generated UUID.</p>
+<p>The <code>&lt;uuid&gt;</code> element is mandatory in every standard although in the DTD it is stated the there can be zero or one <code>&lt;uuid&gt;</code> element. The reason for this inconsistency is that we do not want a DTD driven editor to complain about a missing element and we do not want the user to manually create an UUID. The UUID must always be automatically created by the NISP tool and comply with RFC 4122: &quot;A Universally Unique Identifier (UUID) URN Namespace.&quot; The UUID generated is a version 4 type, which means it is a randomly generated UUID.</p>
 <h3 id="profiles">Profiles</h3>
 <p>Profiles are described using the <code>&lt;profile&gt;</code> element and contains references to the standards and potential profiles, on which the profile is build.</p>
 <p>A <code>&lt;profile&gt;</code> element may contain <code>&lt;profilenote&gt;</code>, <code>&lt;profilespec&gt;</code>, <code>&lt;configuration&gt;</code>, <code>&lt;parts&gt;</code>, <code>&lt;applicability&gt;</code> or <code>&lt;status&gt;</code> elements.</p>
-<p>A <code>&lt;profile&gt;</code> element must contain a <code>tag</code> and an <code>id</code> attribute. A <code>type</code> attribute is implicit defined with one of the values <code>base</code>, <code>coi-minor</code> or <code>coi</code>. If the attribute has not explicit been defined, it will by default be initialized with the value <code>base</code>. Most <code>&lt;profile&gt;</code> elements will have an <code>type</code> attribute with the value <code>base</code>, which describes the a typical profile, i.e. a subset of a standard or a set of standards, or one of the above with a specific configuration.</p>
+<p>A <code>&lt;profile&gt;</code> element must contain a <code>tag</code> and an <code>id</code> attribute. A <code>type</code> attribute is implicit defined with one of the values <code>base</code>, <code>coi-minor</code> or <code>coi</code>. If the attribute has not explicit been defined, it will by default be initialised with the value <code>base</code>. Most <code>&lt;profile&gt;</code> elements will have an <code>type</code> attribute with the value <code>base</code>, which describes the a typical profile, i.e. a subset of a standard or a set of standards, or one of the above with a specific configuration.</p>
 <p>A <code>&lt;profile&gt;</code> element which have the type attribute set to <code>coi-minor</code> or <code>coi</code>, and typically the responsibility of a NATO community of interest, such as the Afghanistan Mission Network (AMN) profile.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">profile</span> <span class="dv">(</span><span class="fu">profilespec</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">profilenote</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">parts</span><span class="dv">,</span>
                    <span class="fu">configuration</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">applicability</span><span class="dv">,</span> 
@@ -154,7 +154,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
           <span class="fu">type</span> <span class="dv">(</span><span class="fu">base</span> <span class="dv">|</span> <span class="fu">coi-minor</span> <span class="dv">|</span> <span class="fu">coi</span><span class="dv">)</span> <span class="st">&quot;base&quot;</span>
           <span class="fu">tag</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
           <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
-<p>The <code>&lt;profilespec&gt;</code> element describes the organization, publication number, publication data and title. NB - most <code>base</code> profiles have no <code>&lt;profilespec&gt;</code> element.</p>
+<p>The <code>&lt;profilespec&gt;</code> element describes the organisation, publication number, publication data and title. NB - most <code>base</code> profiles have no <code>&lt;profilespec&gt;</code> element.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">profilespec</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">profilespec</span>
@@ -204,7 +204,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">rationale</span> <span class="dv">(</span><span class="kw">#PCDATA</span> <span class="dv">|</span> <span class="fu">para</span> <span class="dv">|</span> <span class="fu">indexterm</span><span class="dv">)</span><span class="fl">*</span><span class="dt">&gt;</span></code></pre>
 <h2 id="community-of-interest-profiles-coi">Community of interest profiles (COI)</h2>
 <p>The <code>&lt;community-of-interest&gt;</code> element contains all the community-of-interest defined profiles defined by NATO communities.</p>
-<p>Each co profile is embedded in a <code>&lt;community&gt;</code> element, which can contain multiple sub profiles represented by <code>&lt;profile&gt;</code>. The <code>&lt;community&gt;</code> element have two mandatory attributes <code>coi</code> and <code>text</code>. The <code>coi</code> attribute is usually an abreveation or shorthand form of the description of the community contained in the <code>text</code> attribute.</p>
+<p>Each co profile is embedded in a <code>&lt;community&gt;</code> element, which can contain multiple sub profiles represented by <code>&lt;profile&gt;</code>. The <code>&lt;community&gt;</code> element have two mandatory attributes <code>coi</code> and <code>text</code>. The <code>coi</code> attribute is usually an abbreviation or shorthand form of the description of the community contained in the <code>text</code> attribute.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">community-of-interest</span> <span class="dv">(</span><span class="fu">community</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">community</span> <span class="dv">(</span><span class="fu">profile</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>

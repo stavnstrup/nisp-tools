@@ -20,13 +20,13 @@ different volumes, the database have been extended to be able to
 describe the selection of mandatory-, emerging- and fading standards
 and profiles. This selection of standards and profiles are justified
 in the rationale statements, which are also part of the
-database. Recently the database have been reorganized to reflect
+database. Recently the database have been reorganised to reflect
 additional requirements, but also to prepare the database for
 inclusion in the NATO Architecture Repository (NAR)
 
 In order to enable validation of the database, a schema in form
 of a DTD have been defined. This DTD is located in the source distribution at
-`schema/dtd/stddb50.dtd`.
+`schema/dtd/stddb41.dtd`.
 
 Since some of the element in the schema represent textual information
 in the form of DocBook fragments such as paragraphs, unnumbered lists
@@ -44,11 +44,11 @@ is included.
 The standard database DTD is logically separated into four
 different parts:
 
-* service taxonomy on the C3 taxonimy baseline 1 dated june 15, 2012
+* service taxonomy on the C3 taxonomy baseline 1 - dated june 15, 2012
 * standard selection
 * standard and profile description
 * community of interest profiles
-* mapping between organisation abbrevations and full names
+* mapping between organisation abbreviations and full names
 
 The root element of the DTD is the element `<standards>` 
 and is described by:
@@ -61,16 +61,16 @@ and is described by:
 The `<revhistory>` element describes the historic changes to the database.
 
 The `<organisations>` element contains a mapping between
-keywords and organization names and is used to ensure, that only
-registered organization are used and therefore prevents the same
-organization name to be spelled in multiple ways.
+keywords and organisation names and is used to ensure, that only
+registered organisation are used and therefore prevents the same
+organisation name to be spelled in multiple ways.
 
 
 Service taxonomy
 ----------------
 
 The services taxonomy describes how the standards and profiles are
-organized and is based on the taxonomy described in the C3 taxonomy.
+organised and is a subset of the C3 taxonomy.
 
 The service taxonomy is a hierarchical structure, consisting of
 `<node>` elements as described
@@ -100,7 +100,9 @@ parts each having a standard number, where for other standards only
 the cover standard have a number. Some standards are registered by
 multiple standard bodies. Some standards are updated, but the actual
 update are released as a separate document instead of releasing a new
-version of the standard. The same is true for profiles.
+version of the standard. The same is true for profiles. So the
+following rules tries to accommodate all the different conventions
+used, when describing a standard or profile.
 
 All standards and profiles are contained in the `<records>` 
 element.
@@ -120,7 +122,10 @@ consists of:
 * document - describes the actual standard
 * applicability - when and where should the standard be used
 * status - contains historical data
-* uuid - an automatically generated UUID. Note, that although the UUID is mandatory, it is defined as optional in the schema, so that the database will comply with the schema before the UUID is automatically generated. 
+* uuid - an automatically generated UUID. Note, that although the UUID
+  is mandatory, it is defined as optional in the schema, so that the
+  database will comply with the schema before the UUID is
+  automatically generated.
 
 ~~~{.dtd}
 <!ELEMENT standard (document, applicability, status, uuid?)>
@@ -139,13 +144,13 @@ standards.
 #### Document
 
 
-The `<document>` element exposes the publishing organization,
+The `<document>` element exposes the publishing organisation,
 publication number, publishing date, title and version through the
 attributes `orgid`, `pubnum`, `date`, `title` and `version`. The
-`orgid` refers to an organization is embedded in the `organisations`
-element. The rule of using organization identifiers instead of the
-actual name of the organization is mandated to prevent, that the same
-organization exists in multiple incarnations in the database.
+`orgid` refers to an organisation is embedded in the `organisations`
+element. The rule of using organisation identifiers instead of the
+actual name of the organisation is mandated to prevent, that the same
+organisation exists in multiple incarnations in the database.
 
 ~~~{.dtd}
 <!ELEMENT document (substandards?, correction*, alsoknown?, comment?)>
@@ -158,7 +163,7 @@ organization exists in multiple incarnations in the database.
           version CDATA #IMPLIED>
 ~~~
 
-If a standard is a coverstandard (e.g ISO-8859), it may implement the
+If a standard is a cover standard (e.g ISO-8859), it may implement the
 `<substandards>` element, which contains a list of
 `<refstandard>` element. Each `<refstandard>` element will
 trough the attribute `refid` contain a reference to the substandard.
@@ -177,7 +182,7 @@ any sense and is therefore not allowed.
           refid IDREF #REQUIRED>
 ~~~
 
-Some standard organizations publish documents which are correction to 
+Some standard organisations publish documents which are correction to 
 the standard.
 
 ~~~{.dtd}
@@ -188,7 +193,7 @@ the standard.
           date     CDATA #REQUIRED>
 ~~~
 
-Sometime a standard is republished by another standard organization. An 
+Sometime a standard is republished by another standard organisation. An 
 `<alsoknown>` element contains a description which might be
 empty. A `<alsoknown>` element must also contain a 
 `orgid`, `pubnum` and `date`
@@ -283,7 +288,7 @@ DTD it is stated the there can be zero or one `<uuid>` element. The
 reason for this inconsistency is that we do not want a DTD driven
 editor to complain about a missing element and we do not want the user
 to manually create an UUID. The UUID must always be automatically created by the
-NISP tool and comply with RFC 4122: "A Universally Unique IDentifier
+NISP tool and comply with RFC 4122: "A Universally Unique Identifier
 (UUID) URN Namespace." The UUID generated is a version 4 type, which
 means it is a randomly generated UUID.
 
@@ -303,7 +308,7 @@ A `<profile>` element may contain `<profilenote>`,
 A `<profile>` element must contain a `tag` and an `id`
 attribute. A `type` attribute is implicit defined with one of the
 values `base`, `coi-minor` or `coi`. If the attribute has not explicit
-been defined, it will by default be initialized with the value `base`.
+been defined, it will by default be initialised with the value `base`.
 Most `<profile>` elements will have an `type` attribute with the
 value `base`, which describes the a typical profile, i.e. a subset of
 a standard or a set of standards, or one of the above with a specific
@@ -324,7 +329,7 @@ profile.
           id ID #REQUIRED>
 ~~~~~~~
 
-The `<profilespec>` element describes the organization, 
+The `<profilespec>` element describes the organisation, 
 publication number, publication data and title. NB - most `base` profiles have no 
 `<profilespec>` element. 
 
@@ -465,7 +470,7 @@ Each co profile is embedded in a `<community>` element,
 which can contain multiple sub profiles represented by
 `<profile>`. The `<community>` element have two mandatory
 attributes `coi` and `text`. The `coi` attribute is usually an
-abreveation or shorthand form of the description of the community
+abbreviation or shorthand form of the description of the community
 contained in the `text` attribute.
 
 
