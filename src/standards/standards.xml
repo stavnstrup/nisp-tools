@@ -5,7 +5,15 @@
 <standards revision="ADatP-34(G)">
    
    <revhistory>
-      <revision>
+       <revision>
+         <revnumber>7.8</revnumber>
+         <date>2013-11-29</date>
+         <revdescription>
+            <para>Inclusion of all RFCPs 7-1 to 7-44, as far as Volume 2 is concerned. In addition, the 
+              C3 Taxonomy, as publishe in June 2012, is used for structuring vol. 2.</para>
+         </revdescription>
+      </revision>
+       <revision>
          <revnumber>7.0</revnumber>
          <date>2013-03-08</date>
          <revdescription>
@@ -315,10 +323,9 @@
                      <subcategory id="ts-coi-enable-sa-bo-inf-weaponsys"
                            title="Weapon System Information Services"/>
                   <!--</subcategory>-->
-                  <subcategory id="ts-coi-enable-sa-bo-comp" title="Battlespace Object Computing Services"></subcategory>                     <subcategory id="ts-coi-enable-sa-bo-comp-patternana"
-                           title="Battlespace Object Pattern Analysis Services"/>
-                     <subcategory id="ts-coi-enable-sa-bo-comp-relationval"
-                           title="Battlespace Object Relationship Validation Services"/>
+                  <subcategory id="ts-coi-enable-sa-bo-comp" title="Battlespace Object Computing Services"></subcategory>                     
+                  <subcategory id="ts-coi-enable-sa-bo-comp-patternana" title="Battlespace Object Pattern Analysis Services"/>
+                     <subcategory id="ts-coi-enable-sa-bo-comp-relationval" title="Battlespace Object Relationship Validation Services"/>
                   <!--</subcategory>-->
                </category>
                <category id="ts-coi-enable-sa-event" title="Battlespace Events Services"/>
@@ -691,6 +698,7 @@
    </taxonomy>
    
    
+   
    <lists>
       <sp-list tref="ts-ces">   <!--Core Enterprise Services-->
          <sp-view idx="d0e4990">
@@ -812,6 +820,10 @@
                SMIL3 added in NISP v.7 based on RFCP 6-8.
             </rationale>
          </sp-view>
+         <sp-view idx="d0e5996">
+            <select id="nato-stanag2591" mode="mandatory">Advanced Distributed Learning (ADL) (STANAG 2591:2013)</select> 
+            <rationale>Included ion NISP v.8 through RFCP 7-39.</rationale>       
+         </sp-view>
       </sp-list>
 
       <sp-list tref="ts-ces-es-cc-ac">   <!--Audio-based Collaboration Services-->
@@ -823,7 +835,7 @@
                G.722.1C 14kHz audio codec  (ITU-T G.722.1 Annex C:2012)
             </select>
             <remarks>Used in Profile: AMN, FMN</remarks>
-            <rationale>G.722.1c added in NISP v.7 through RFCP 6-97.</rationale>
+            <rationale>G.722.1c added in NISP v.7 through RFCP 6-97, updated by RFCP 7-8.</rationale>
          </sp-view>
          <sp-view idx="d0e7724">
             <select id="microsoft-application-note-gc0165" mode="mandatory">Rich Text Format (RTF) v.1.9.1:2007 (MS)</select>
@@ -888,6 +900,7 @@
             <select id="w3c-rec-html401-19991224" mode="mandatory">HTML 4.01 (RFC 2854:2000)</select>
             <select id="w3c-tr-html51" mode="emerging">HTML 5.0 (W3C TR html51:2013)</select>
             <remarks>Used in Profile: AMN, FMN, tactESB</remarks>
+            <rationale>RFCP 7-23 rejected, as otherwise no valid HTML version available.</rationale>
          </sp-view>
       </sp-list>
 
@@ -908,13 +921,7 @@
                <para>Three different, non-overlapping profiles for AMN and FMN - Details: see NISP Vol 3.</para>
                <para>Used in Profiles: AMN, CES, FMN</para>
             </remarks>
-            <rationale>Included in v.8 through RFCP 7-5, changed to mandatory through RFCP 7-27.</rationale>
-         </sp-view>
-         <sp-view idx="d0e5973">
-            <select id="itu-t-h.320" mode="mandatory">
-               Narrow-band visual telephone systems and terminal equipmment (ITU-T
-               H.320:2004)
-            </select>
+            <rationale>Included in v.8 through RFCP 7-9, changed to mandatory through RFCP 7-27.</rationale>
          </sp-view>
       </sp-list>
 
@@ -925,6 +932,12 @@
                (ACP 220:2008)
             </select>
             <rationale>Included in v.5 through RFCP 4-39; changed to mandatory in NCSP v.8</rationale>
+         </sp-view>
+         <sp-view idx="d0e5973">
+            <select id="itu-t-h.320" mode="mandatory">
+               Narrow-band visual telephone systems and terminal equipmment (ITU-T
+               H.320:2004)
+            </select>
          </sp-view>
       </sp-list>
 
@@ -953,8 +966,8 @@
          </sp-view>
          <sp-view idx="d0e9396">
             <select id="nato-stanag5500ed7" mode="mandatory">ADatP-3(A), CONFORMETS (STANAG 5500, ed. 7:2010)</select>
-            <remarks>Used in Profiles: AMN, FMN (ed.6)</remarks>
-            <rationale>STANAG 5500 ed.5 changed in NCSP v.6 and in NISP v.2 based on RFCP 1-8</rationale>
+            <remarks>Used in Profiles: AMN, FMN</remarks>
+            <rationale>STANAG 5500 ed.5 changed in NCSP v.6 and in NISP v.2 based on RFCP 1-8, updated by RFCP 7-10</rationale>
          </sp-view>
          <sp-view idx="d0e9418">
             <select id="nato-app-11" mode="mandatory">APP-11(C) Change 1, NATO Message Catalogue (STANAG 7149 ed.5:2010)</select>
@@ -1106,6 +1119,14 @@
             </remarks>
             <rationale>
                SCIP-221 included in NISP v.7 through RFCP 6-84.
+            </rationale>
+         </sp-view>
+         <sp-view idx="d0e5253">
+            <select id="iicwg-scip-231" mode="emerging">Cryptography Specification for SCIP, SCIP-231 rev.1.3:2008 (IICWG)</select>
+            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
+            <rationale>
+               SCIP included in NISP in v.5 through RFCP 4-3. For CCEB interoperability
+               this standard is mandatory
             </rationale>
          </sp-view>
          <sp-view idx="d0e8000">
@@ -1308,11 +1329,6 @@
             </remarks>
             <rationale>NSIF (STANAG 4545): Included in v.5 through RFCP 4-14; changed to ed.2 in v.7</rationale>
          </sp-view>
-         <sp-view idx="d0e7694">
-            <select id="iso-19005-1" mode="mandatory">PDF/A-1 (ISO 19005-1:2005)</select>
-            <remarks>Used in Profile: FMN</remarks>
-            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
-         </sp-view>
       </sp-list>
 
       <sp-list tref="ts-ces-es-cc-im">   <!--Informal Messaging Services-->
@@ -1353,6 +1369,9 @@
       </sp-list>
 
       <sp-list tref="ts-ces-es-cc-fax">   <!--Fax Services-->
+         <sp-view idx="d0e9056">
+            <select id="bp-t4t6" mode="mandatory">Fax G.3, ITU-T T.4:2003</select>
+         </sp-view>
          <sp-view idx="d0e9061">
             <select id="itu-t-t.30" mode="mandatory">Fax Transmission, ITU-T T.30:2005</select>
             <select id="itu-t-t.38" mode="emerging">Fax Relay for IP Networks, ITU-T T.38:2010 </select>
@@ -1437,14 +1456,6 @@
       </sp-list>
 
       <sp-list tref="ts-ces-es-ia-esg-audio">   <!--Audio-based Collaboration Guard Services-->
-         <sp-view idx="d0e5253">
-            <select id="iicwg-scip-231" mode="emerging">Cryptography Specification for SCIP, SCIP-231 rev.1.3:2008 (IICWG)</select>
-            <remarks>For CCEB interoperability the SCIP standard is mandatory</remarks>
-            <rationale>
-               SCIP included in NISP in v.5 through RFCP 4-3. For CCEB interoperability
-               this standard is mandatory
-            </rationale>
-         </sp-view>
       </sp-list>
 
       <sp-list tref="ts-ces-es-ia-esg-informal">   <!--Informal Messaging Guard Services-->
@@ -1601,6 +1612,10 @@
                </para>
             </remarks>
          </sp-view>
+         <sp-view idx="d0e9523">
+            <select id="ogc-08-007r1" mode="mandatory">OpenGIS City Geography Markup Language (CityGML) v1.0 (OGC:2008)</select>
+            <remarks>Added in NISP v.6 through RFCP 5-46.</remarks>
+         </sp-view>
          <sp-view idx="d0e9525">
             <select id="ogc-09-026r1" mode="emerging">Filter Encoding v2.0 (OGC 09-026r1:2010)</select>
             <remarks>
@@ -1650,6 +1665,23 @@
             <rationale>
                ISO 19115 included in v.5 through RFCP 4-1. NameISO DIS 19115:2003
                changed in ISO 19115:2003 in NCSP v.6 through RFCP 5-27.
+            </rationale>
+         </sp-view>
+         <sp-view idx="d0e9564">
+            <select id="nato-stanag4564ed2" mode="mandatory">WECDIS (STANAG 4564 ed.2:2007)</select>
+            <remarks>
+               Standard for Warship Electronic Chart Display and
+               Information Systems.
+            </remarks>
+            <rationale>STANAG 4564 ed.1 changed in NCSP v.6</rationale>
+         </sp-view>
+         <sp-view idx="d0e9573">
+            <select id="iso-iec-fcd18023-1" mode="mandatory">SEDRIS (ISO/IEC 18023-1:2006)</select>
+            <remarks>Environmental data representation and interchange specification</remarks>
+            <rationale>
+               SEDRIS included in v.5 through RFCP 4-4.
+               CCEB remark included through RFCP 4-19; ISO/IEC FCD 18023-1:2003 changed in
+               ISO/IEC CD 18023-1:2006 in NCSP v.6
             </rationale>
          </sp-view>
          <sp-view idx="d0e9582">
@@ -1783,7 +1815,7 @@
                Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.
                <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
-            <rationale>Included in NISP v.3 through RFCP 2-21, changed to mandatory in v.8 through RFCP 7-27.</rationale>
+            <rationale>Included in NISP v.3 through RFCP 2-21, updated by RFCP 7-19, changed to mandatory in v.8 through RFCP 7-27.</rationale>
          </sp-view>
       </sp-list>
 
@@ -1829,7 +1861,8 @@
          </sp-view>
          <sp-view idx="d0e6828">
             <select id="ietf-rfc5905" mode="mandatory">Network Time Protocol (NTP)(RFC 5905:2010)</select>
-            <remarks>Used in Profiles: FMN, tactESB</remarks>
+            <remarks>Used in Profiles: AMN, FMN, tactESB</remarks>
+            <rationale>AMN as referenced profile included in NISP v.8 through RFCP 7-7.</rationale>
          </sp-view>
          <sp-view idx="d0e6830">
             <select id="ietf-rfc2030" mode="mandatory">Simple Network Time Protocol (SNTP)(RFC 2030:1996)</select>
@@ -1882,9 +1915,9 @@
             <remarks>
                ITU-T H.263 (Video coding for low bit rate communication);
                ITU-T H.264 (The Advanced Video Coding Standard)
-               <para>Used in Profile: FMN</para>
+               <para>Used in Profiles: AMN, FMN</para>
             </remarks>
-            <rationale>H.263/264: Added in NISP v.7 through RFCP 6-31.</rationale>
+            <rationale>H.263/264: Added in NISP v.7 through RFCP 6-31, updated by RFCP 7-8.</rationale>
          </sp-view>
          <sp-view idx="d0e6873">
             <select id="eurocom-d0" mode="fading">Delta-Modulation DM, EUROCOM D/0</select>
@@ -2042,15 +2075,6 @@
                </para>
             </remarks>
          </sp-view>
-         <sp-view idx="d0e5197">
-            <select id="ansinist-itl-1-2007" mode="emerging">Data Format for the Interchange of Fingerprint, Facial, and Other Biometric Information – Part 1 (ANSI ITL-1:2007</select>
-            <remarks>
-               <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
-               </para>
-            </remarks>
-            <rationale>Included in NISP v.8.</rationale>
-         </sp-view>
       </sp-list>
 
       <sp-list tref="ts-ces-is-ia-cm">   <!--Credential Management Services-->
@@ -2078,59 +2102,6 @@
       </sp-list>
 
       <sp-list tref="ts-ces-is-ia-isguard">   <!--Infrastructure Guard Services-->
-         <sp-view idx="d0e6734">
-            <select id="cceb-acp133edD" mode="mandatory">Common Directory Services and Procedures (ACP 133D:2009)</select>
-            <select id="cceb-acp133edC" mode="fading">ACP 133B</select>
-            <remarks>
-               Contains a common directoryschema.
-            </remarks>
-            <rationale>
-               ACP 133C included in NCSP v.6, ACP 133D included in NISPv4
-               through RFCP 4-39; ACP 133D changed to mandatory, based on RFCP 5-63
-            </rationale>
-         </sp-view>
-         <sp-view idx="d0e6745">
-            <select id="bp-ldap" mode="mandatory">LDAP v3 (NATO LDAP Profile)</select>
-            <remarks>
-               LDAP is an IETF protocol and close to a functional subset of DAP.
-               Many Web-browsers can act as LDAP clients, which is highly desirable.
-               <para>Used in Profile: AMN, CES, FMN, tactESB
-               </para>
-            </remarks>
-         </sp-view>
-         <sp-view idx="d0e6747">
-            <select id="ietf-rfc4514" mode="emerging">LDAP: String Representation of Distinguished Names:2006 (IETF)</select>
-            <remarks> Used in Profile: CES</remarks>
-         </sp-view>
-         <sp-view idx="d0e6752">
-            <select id="ietf-rfc2849" mode="mandatory">LDIF (IETF RFC 2849:2000)</select>
-            <remarks>
-               LDIF defines a flexible and almost universally accepted means of
-               exchanging directory information via flat files.
-            </remarks>
-            <rationale>Included in v.5 through RFCP 4-12</rationale>
-         </sp-view>
-         <sp-view idx="d0e6761">
-            <select id="iso-iec-9594" mode="fading">DSP (ITU-T X.500:2008)</select>
-            <remarks>
-               DSP defines X.500 server to server communication, including chaining.
-               <para>For CCEB interoperability this standard is not applicable</para>
-            </remarks>
-         </sp-view>
-         <sp-view idx="d0e6770">
-            <select id="iso-iec-9594" mode="fading">DSIP (ITU-T X.500:2008)</select>
-            <remarks>
-               DISP defines X.500 based information shadowing/replication.
-               <para>For CCEB interoperability this standard is not applicable</para>
-            </remarks>
-         </sp-view>
-         <sp-view idx="d0e6779">
-            <select id="iso-iec-9594" mode="fading">DOP (ITU-T X.500:2008)</select>
-            <remarks>
-               Contains operational management.
-               <para>For CCEB interoperability this standard is not applicable</para>
-            </remarks>
-         </sp-view>
          <sp-view idx="d0e8554">
             <select id="nato-stanag5523" mode="fading">NC3 Repository</select>
             <remarks>
@@ -2212,21 +2183,6 @@
          <sp-view idx="d0e1624">
             <select id="ietf-rfc6724" mode="emerging">Default Address Selection for Internet Protocol Version 6 (IPv6) (RFC 6724:2012)</select>
             <rationale>RFC 6724 added in NISP v.8 through RFCP 7-27.</rationale>
-         </sp-view>
-         <sp-view idx="d0e4480">
-            <select id="iso-iec-11801" mode="mandatory">Generic cabling for customer premises (ISO/IEC 11801:2002)</select>
-            <remarks>Used in Profile: FMN</remarks>
-            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
-         </sp-view>
-         <sp-view idx="d0e4482">
-            <select id="itu-t-g.652" mode="mandatory">Optical Fibre Cables (ITU--T G.652:2009)</select>
-            <remarks>Used in Profile: FMN</remarks>
-            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
-         </sp-view>
-         <sp-view idx="d0e4484">
-            <select id="iso-iec-61754-20" mode="mandatory">LC connectors with protective housings (ISO/IEC 61754-20:2012)</select>
-            <remarks>Used in Profile: FMN</remarks>
-            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e46861">
             <select id="itu-g.993.2" mode="midterm">VDSL2</select>
@@ -2344,13 +2300,6 @@
       </sp-list>
 
       <sp-list tref="ts-ces-is-net-print">   <!--Printing and Scanning Services-->
-         <sp-view idx="d0e7696">
-            <select id="iso-19005-2" mode="mandatory">PDF/A-2 (ISO 19005-2:2011)</select>
-            <remarks>Electronic document file format for long-term preservation.
-            <para>Used in Profile: FMN</para>
-            </remarks>
-            <rationale>PDF/A: Added separately in NISP v.7 through RFCP 6-52.</rationale>
-         </sp-view>
       </sp-list>
 
       <sp-list tref="ts-ces-is-proc">   <!--Infrastructure Processing Services-->
@@ -2443,6 +2392,18 @@
       </sp-list>
 
       <sp-list tref="ts-ces-is-ss">   <!--Infrastructure Storage Services-->
+         <sp-view idx="d0e7694">
+            <select id="iso-19005-1" mode="mandatory">PDF/A-1 (ISO 19005-1:2005)</select>
+            <remarks>Used in Profile: FMN</remarks>
+            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
+         </sp-view>
+         <sp-view idx="d0e7696">
+            <select id="iso-19005-2" mode="mandatory">PDF/A-2 (ISO 19005-2:2011)</select>
+            <remarks>Electronic document file format for long-term preservation.
+            <para>Used in Profile: FMN</para>
+            </remarks>
+            <rationale>PDF/A: Added separately in NISP v.7 through RFCP 6-52.</rationale>
+         </sp-view>
          <sp-view idx="d0e7698">
             <select id="iso-19005-3" mode="mandatory">PDF/A-3 (ISO 19005-3:2012)</select>
             <remarks>
@@ -2543,7 +2504,8 @@
             <remarks>Used in Profiles: AMN, FMN</remarks>
             <rationale>
                C2IEDM replaced by JC3IEDM in v.7 by RFCP 6-21; changed to mandatory
-               through RFCP 5-62; Baseline 4 added in NISP v.7 through RFCP 6-40.
+               through RFCP 5-62; Baseline 4 added in NISP v.7 through RFCP 6-40, RFCP 7-30 only 
+               partially realised (no specific ADEM doc. available), updated by RFCP 7-35, 7-36.
             </rationale>
          </sp-view>
          <sp-view idx="d0e8715">
@@ -2577,17 +2539,18 @@
             </rationale>
          </sp-view>
          <sp-view idx="d0e8783">
-            <select id="mip-jc3iedm" mode="mandatory">Joint C3 Information Exchange Data Model (MIP JC3IEDM 3.1.4:2012)</select>
-            <select id="mip-jc3iedm" mode="mandatory"> MIP Baseline 3.1 (MIP BL 3.1:2012)</select>
+            <select id="mip-jc3iedm" mode="mandatory">Joint C3 Information Exchange Data Model (MIP BL 3.1: 2012; MIP JC3IEDM 3.1.4:2012)</select>
             <select id="nato-stanag5526" mode="emerging">MIP Information Model, Standard Data Elements (SDE) (STANAG 5526ed1 (Study))</select>
-            <select id="mip-bl4" mode="emerging">MIP Baseline 4</select>
+            <select id="mip-bl4" mode="emerging"> MIP Baseline 4</select>
             <select id="mip-jc3iedm" mode="fading">C2IEDM replaced by JC3IEDM</select>
             <remarks>
                C2IEDM replaced by JC3IEDM.
-               <para>MIP BL 3.1.4 used instead of STANAG 5525ed1 because of actuality.</para>
+               <para>MIP BL 3.1.4 used instead of STANAG 5525ed1 to reflect the current version approved by the MIP Community.</para>
                <para>Used in profile: AMN, FMN</para>
             </remarks>
-            <rationale>C2IEDM replaced in NISP v.2 by JC3IEDM through RFCP 1-3, STANAG 5525ed1 replaced by MIP 3.1.4 because of actuality through RFCP 7-27.</rationale>
+            <rationale>C2IEDM replaced in NISP v.2 by JC3IEDM through RFCP 1-3, updated by RFCP 7-25,
+              STANAG 5525ed1 replaced by MIP 3.1.4 because of actuality through RFCP 7-27, updated by RFCP 7-28,
+              RFCP 7-32 only included partially, as no MIM spec. available.</rationale>
          </sp-view>
       </sp-list>
 
@@ -2595,9 +2558,62 @@
       </sp-list>
 
       <sp-list tref="ts-ces-is-ss-directory">   <!--Directory Storage Services-->
+         <sp-view idx="d0e6734">
+            <select id="cceb-acp133edD" mode="mandatory">Common Directory Services and Procedures (ACP 133D:2009)</select>
+            <select id="cceb-acp133edC" mode="fading">ACP 133B</select>
+            <remarks>
+               Contains a common directoryschema.
+            </remarks>
+            <rationale>
+               ACP 133C included in NCSP v.6, ACP 133D included in NISPv4
+               through RFCP 4-39; ACP 133D changed to mandatory, based on RFCP 5-63
+            </rationale>
+         </sp-view>
          <sp-view idx="d0e6738">
             <select id="cceb-acp133supp1" mode="mandatory">Common Directory Services and Procedures Supplement (ACP 133 Suppl.1:2009)</select>
             <rationale>ACP 133 Suppl.1 included in NISP v.4 through RFCP 4-39</rationale>
+         </sp-view>
+         <sp-view idx="d0e6745">
+            <select id="bp-ldap" mode="mandatory">LDAP v3 (NATO LDAP Profile)</select>
+            <remarks>
+               LDAP is an IETF protocol and close to a functional subset of DAP.
+               Many Web-browsers can act as LDAP clients, which is highly desirable.
+               <para>Used in Profile: AMN, CES, FMN, tactESB
+               </para>
+            </remarks>
+         </sp-view>
+         <sp-view idx="d0e6747">
+            <select id="ietf-rfc4514" mode="emerging">LDAP: String Representation of Distinguished Names:2006 (IETF)</select>
+            <remarks> Used in Profile: CES</remarks>
+         </sp-view>
+         <sp-view idx="d0e6752">
+            <select id="ietf-rfc2849" mode="mandatory">LDIF (IETF RFC 2849:2000)</select>
+            <remarks>
+               LDIF defines a flexible and almost universally accepted means of
+               exchanging directory information via flat files.
+            </remarks>
+            <rationale>Included in v.5 through RFCP 4-12</rationale>
+         </sp-view>
+         <sp-view idx="d0e6761">
+            <select id="iso-iec-9594" mode="fading">DSP (ITU-T X.500:2008)</select>
+            <remarks>
+               DSP defines X.500 server to server communication, including chaining.
+               <para>For CCEB interoperability this standard is not applicable</para>
+            </remarks>
+         </sp-view>
+         <sp-view idx="d0e6770">
+            <select id="iso-iec-9594" mode="fading">DSIP (ITU-T X.500:2008)</select>
+            <remarks>
+               DISP defines X.500 based information shadowing/replication.
+               <para>For CCEB interoperability this standard is not applicable</para>
+            </remarks>
+         </sp-view>
+         <sp-view idx="d0e6779">
+            <select id="iso-iec-9594" mode="fading">DOP (ITU-T X.500:2008)</select>
+            <remarks>
+               Contains operational management.
+               <para>For CCEB interoperability this standard is not applicable</para>
+            </remarks>
          </sp-view>
          <sp-view idx="d0e11317">
             <select id="oasis-dsml" mode="emerging">DSML v2.0:2002, OASIS</select>
@@ -2636,7 +2652,7 @@
             <remarks>
                For CCEB interoperability this profile is mandatory.<para>Used in Profiles: AMN (v1.1), CES (v1.0), tactESB (v1.1)</para>
             </remarks>
-            <rationale>Included in NCSP v.6 through RFCP 5-29, WS-BP 2.0 added in NISP v.7 through RFCP 6-109.</rationale>
+            <rationale>Included in NCSP v.6 through RFCP 5-29, WS-BP 2.0 added in NISP v.7 through RFCP 6-109, updated by RFCP 7-14, Basic Profile v2.0 added through RFCP 7-16.</rationale>
          </sp-view>
          <sp-view idx="d0e11396">
             <select id="bp-soap" mode="mandatory">Simple Object Access Protocol v1.1 (SOAP), W3C</select>
@@ -2719,7 +2735,7 @@
             </remarks>
             <rationale>
                STANAG 4631: Added in NCSP v.7 through RFCP 6-7, changed to emerging
-               in v.8 through RFCP 7-11. For CCEB interoperability this standard is not applicable
+               in v.8 through RFCP 7-11. For CCEB interoperability this standard is not applicable.
             </rationale>
          </sp-view>
          <sp-view idx="d0e5892">
@@ -2776,6 +2792,11 @@
             <select id="w3c-rec-xmlbase-20010627" mode="mandatory">XML Base:2001, W3C</select>
             <rationale>XML Base added in NCSP v.6 through RFCP 5-11</rationale>
          </sp-view>
+         <sp-view idx="d0e7860">
+            <select id="iso-19503" mode="mandatory">XMI ed.1:2001 (ISO/IEC 19503:2005)</select>
+            <remarks>XMI can be used for any metadata whose metamodel can be expressed in Meta-Object Facility (MOF).</remarks>
+            <rationale>XMI added in NCSP v.6 through RFCP 5-30</rationale>
+         </sp-view>
          <sp-view idx="d0e7864">
             <select id="w3c-rec-xml-infoset-20011024" mode="mandatory">XML Infoset:2001, W3C</select>
             <rationale>XML Infoset added in NCSP v.6 through RFCP 5-12</rationale>
@@ -2792,7 +2813,7 @@
          <sp-view idx="d0e7885">
             <select id="w3c-REC-xslt20-20070123" mode="mandatory">Extensible Stylesheet Language Transformation (XSLT) Version 2.0 (W3C:2007)</select>
             <remarks>Used in Profiles: AMN, CES, FMN, tactESB</remarks>
-            <rationale>XSLT 2.0: Added in NISP v.7 through RFCP 6-13, changed in v.8 to mandatory through RFCP 7-27.</rationale>
+            <rationale>XSLT 2.0: Added in NISP v.7 through RFCP 6-13, updated by RFCP 7-15, changed in v.8 to mandatory through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e7888">
             <select id="w3c-rec-xsl-20011015" mode="mandatory">Extensible Stylesheet Language (XSL) 1.0:2001</select>
@@ -2905,7 +2926,7 @@
                   <emphasis>Used in Profile: AMN, FMN, tactESB</emphasis>
                </para>
             </remarks>
-            <rationale>CSS: Changed to mandatory in NISP v.7 through RFCP 6-43.</rationale>
+            <rationale>CSS: Changed to mandatory in NISP v.7 through RFCP 6-43, updated by RFCP 7-24.</rationale>
          </sp-view>
          <sp-view idx="d0e7900">
             <select id="wapforum-wap-238-wml-20010911-a" mode="mandatory">Wireless Markup Language (WML) 2.0:2001</select>
@@ -2992,22 +3013,22 @@
          <sp-view idx="d0e6018">
             <select id="dmtf-cimschema" mode="mandatory">CIM Schema v2.30.0 (DMTF)</select>
             <remarks>Used in Profile: FMN</remarks>
-            <rationale>Changed to mandatory in v.8 through RFCP 7-27.</rationale>
+            <rationale>Included in NISP v.8 through RFCP 7-3 as emerging, changed to mandatory through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e6019">
             <select id="dmtf-dsp0252" mode="mandatory">CMDB Federation Specification v1.0.1 (DMTF)</select>
             <remarks>Used in Profile: FMN</remarks>
-            <rationale>Changed to mandatory in v.8 through RFCP 7-27.</rationale>
+            <rationale>Included in NISP v.8 through RFCP 7-3 as emerging, changed to mandatory in v.8 through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e6016">
             <select id="bp-itil" mode="mandatory">ITIL (ISO/IEC 20000:2012)</select>
             <remarks>Used in Profile: AMN</remarks>
-            <rationale>ITIL added in NISP v.6 through RFCP 6-87 as part of AMN.</rationale>
+            <rationale>ITIL added in NISP v.6 through RFCP 6-87 as part of AMN, updated by RFCP 7-1.</rationale>
          </sp-view>
          <sp-view idx="d0e6014">
             <select id="cobit" mode="mandatory">COBIT 5: A Business Framework for the Governance and Management of Enterprise IT (ISACA: 2012)</select>
             <remarks>Used in Profiles: AMN, FMN</remarks>
-            <rationale>COBIT added in NISP v.6 through RFCP 6-88 as part of AMN.</rationale>
+            <rationale>COBIT added in NISP v.6 through RFCP 6-88 as part of AMN, changed to mandatory through RFCP 7-2.</rationale>
          </sp-view>
          <sp-view idx="d0e6013">
             <select id="cmdb" mode="emerging">Configuration Management Database (CMDB) Federation Specification (DMTF DSP0252: 2009)</select>
@@ -3215,7 +3236,7 @@
             </remarks>
             <rationale>
                Included in v.5 through RFCP 4-38 and updated in NCSP v.6 through
-               RFCP 5-26, changed to mandatory through RFCP 5-62, v.2 replaced by v.3 in v.8 through RFCP 7-27.
+               RFCP 5-26, changed to mandatory through RFCP 5-62, updated by RFCP 7-18, v.2 replaced by v.3 in v.8 through RFCP 7-27.
             </rationale>
          </sp-view>
          <sp-view idx="d0e11340">
@@ -3462,15 +3483,6 @@
             <remarks>Base profile consisting of parts 1 - 2.</remarks>
             <rationale>Included in v.4 through RFCP 3-10</rationale>
          </sp-view>
-         <sp-view idx="d0e11284">
-            <select id="oasis-wsfed" mode="emerging">Web Services Federation (WSFED):2010, OASIS</select>
-            <remarks>
-               <para>
-                  <emphasis>Used in Profile: AMN</emphasis>
-               </para>
-            </remarks>
-            <rationale />
-         </sp-view>
       </sp-list>
 
       <sp-list tref="ts-ces-soa-ia-privmgt">   <!--SOA Platform Privilege Management Services-->
@@ -3557,14 +3569,14 @@
               <para>Used in Profiles: AMN, FMN</para>
                <para>For CCEB interoperability this standard is not applicable.</para>
             </remarks>
-            <rationale>Included in NISP v.3 by RFCP 2-19, updated to v1.1 in NISP v.7 through RFCP 6-113, changed to mandatory in v.8 through RFCP 7-27.</rationale>
+            <rationale>Included in NISP v.3 by RFCP 2-19, updated to v1.1 in NISP v.7 through RFCP 6-113, updated by RFCP 7-20, changed to mandatory in v.8 through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e1158">
             <select id="bp-owl" mode="mandatory">Web Ontology Language (OWL):2009, W3C</select>
             <remarks>Part of TIDE specification at ACT. For CCEB interoperability this standard is not applicable.
-              <para>Used in Profile: FMN</para>
+              <para>Used in Profiles: AMN, FMN</para>
             </remarks>
-            <rationale>Changed to mandatory in NISP v.8 through RFCP 7-27.</rationale>
+            <rationale>Updated by RFCP 7-20, changed to mandatory in NISP v.8 through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e1159">
             <select id="opensearch11" mode="emerging">OpenSearch 1.1, OpenSearch</select>
@@ -3918,9 +3930,6 @@
             </remarks>
             <rationale>PNG provides a patent-free replacement for GIF</rationale>
          </sp-view>
-         <sp-view idx="d0e9056">
-            <select id="bp-t4t6" mode="mandatory">Fax G.3, ITU-T T.4:2003</select>
-         </sp-view>
          <sp-view idx="d0e10072">
             <select id="dod-mil-std-2525b" mode="mandatory">Common Warfighting Symbology (Mil-Std 2525B)</select>
             <select id="dod-mil-std-2525c" mode="emerging">Common Warfighting Symbology (Mil-Std 2525C)</select>
@@ -3946,7 +3955,7 @@
                For CCEB interoperability this standard is not applicable.
                <para>Used in Profiles: AMN, FMN, tactESB</para>
             </remarks>
-            <rationale>Remarks included in v.5 through RFCP 4-1; STANAG 2019 ed.4 changed in NCSP v.6</rationale>
+            <rationale>Remarks included in v.5 through RFCP 4-1; STANAG 2019 ed.4 changed in NCSP v.6, moved to new sub-category Symbologgy through RFCP 7-38.</rationale>
          </sp-view>
          <sp-view idx="d0e10091">
             <select id="nato-stanag5042ed1" mode="mandatory">Telecommunications Symbology (STANAG 5042 ed1:1978)</select>
@@ -4281,6 +4290,17 @@
             <rationale>
                For CCEB interoperability the mandatory standard is Digital Line-of-Sight (LOS)
                Microwave Radio Equipment, 7 May 1987 MIL STD 188-145
+            </rationale>
+         </sp-view>
+         <sp-view idx="d0e7316">
+            <select id="nato-stanag5602ed.3" mode="mandatory">SIMPLE (STANAG 5602 ed.3:2010)</select>
+            <remarks>
+               SIMPLE provides specifications to interconnect ground rigs of all
+               types for TDL interoperability testing
+            </remarks>
+            <rationale>
+               SIMPLE (STANAG 5602): Included in NCSP v.5 through RFCP 4-13;
+               STANAG 5602 ed.1 changed in NCSP v.6
             </rationale>
          </sp-view>
          <sp-view idx="d0e7525">
@@ -5125,43 +5145,6 @@
             <remarks>For CCEB interoperability this standard is mandatory</remarks>
             <rationale>HLA: Included in NCSP v.5 and changed to mandatory in NISP v.7 through RFCP 6-45.</rationale>
          </sp-view>
-         <sp-view idx="d0e9523">
-            <select id="ogc-08-007r1" mode="mandatory">OpenGIS City Geography Markup Language (CityGML) v1.0 (OGC:2008)</select>
-            <remarks>Added in NISP v.6 through RFCP 5-46.</remarks>
-         </sp-view>
-         <sp-view idx="d0e9564">
-            <select id="nato-stanag4564ed2" mode="mandatory">WECDIS (STANAG 4564 ed.2:2007)</select>
-            <remarks>
-               Standard for Warship Electronic Chart Display and
-               Information Systems.
-            </remarks>
-            <rationale>STANAG 4564 ed.1 changed in NCSP v.6</rationale>
-         </sp-view>
-         <sp-view idx="d0e9573">
-            <select id="iso-iec-fcd18023-1" mode="mandatory">SEDRIS (ISO/IEC 18023-1:2006)</select>
-            <remarks>Environmental data representation and interchange specification</remarks>
-            <rationale>
-               SEDRIS included in v.5 through RFCP 4-4.
-               CCEB remark included through RFCP 4-19; ISO/IEC FCD 18023-1:2003 changed in
-               ISO/IEC CD 18023-1:2006 in NCSP v.6
-            </rationale>
-         </sp-view>
-         <sp-view idx="d0e7316">
-            <select id="nato-stanag5602ed.3" mode="mandatory">SIMPLE (STANAG 5602 ed.3:2010)</select>
-            <remarks>
-               SIMPLE provides specifications to interconnect ground rigs of all
-               types for TDL interoperability testing
-            </remarks>
-            <rationale>
-               SIMPLE (STANAG 5602): Included in NCSP v.5 through RFCP 4-13;
-               STANAG 5602 ed.1 changed in NCSP v.6
-            </rationale>
-         </sp-view>
-         <sp-view idx="d0e7860">
-            <select id="iso-19503" mode="mandatory">XMI ed.1:2001 (ISO/IEC 19503:2005)</select>
-            <remarks>XMI can be used for any metadata whose metamodel can be expressed in Meta-Object Facility (MOF).</remarks>
-            <rationale>XMI added in NCSP v.6 through RFCP 5-30</rationale>
-         </sp-view>
       </sp-list>
 
       <sp-list tref="ts-coi-spec-ms-infrastruc">   <!--Modeling and Simulation Infrastructure Services-->
@@ -5271,6 +5254,21 @@
             <remarks>Used in Profile: FMN</remarks>
             <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
          </sp-view>
+         <sp-view idx="d0e4480">
+            <select id="iso-iec-11801" mode="mandatory">Generic cabling for customer premises (ISO/IEC 11801:2002)</select>
+            <remarks>Used in Profile: FMN</remarks>
+            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
+         </sp-view>
+         <sp-view idx="d0e4482">
+            <select id="itu-t-g.652" mode="mandatory">Optical Fibre Cables (ITU--T G.652:2009)</select>
+            <remarks>Used in Profile: FMN</remarks>
+            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
+         </sp-view>
+         <sp-view idx="d0e4484">
+            <select id="iso-iec-61754-20" mode="mandatory">LC connectors with protective housings (ISO/IEC 61754-20:2012)</select>
+            <remarks>Used in Profile: FMN</remarks>
+            <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
+         </sp-view>
          <sp-view idx="d0e4488">
             <select id="bp-fddi" mode="mandatory">FDDI, ISO 9314:1989</select>
             <remarks>For CCEB interoperability this standard is not applicable.</remarks>
@@ -5324,6 +5322,16 @@
                (STANAG 5065 ed.1:1999)
             </select>
             <rationale>STANAG 5065: Added as mandatory in NISP v.7 through RFCP 6-19.</rationale>
+         </sp-view>
+         <sp-view idx="d0e4760">
+            <select id="nato-stanag5066ed3" mode="mandatory">
+               Profile for HF radio data communications
+               (STANAG 5066 ed.3:2010)
+            </select>
+            <rationale>
+               STANAG 5066 ed.1 changed and moved to mandatory in NCSP v.6;
+               ed. 3 added as mandatory through RFCP 6-66.
+            </rationale>
          </sp-view>
          <sp-view idx="d0e4783">
             <select id="nato-stanag4292ed2" mode="mandatory">Communication between Single Channel and Frequency Hopping Radios in VHF, STANAG 4292 ed.2:1987</select>
@@ -5384,6 +5392,11 @@
             </select>
             <remarks>For CCEB interoperability this standard is not applicable</remarks>
             <rationale>Included in NCSP v.5 through RFCP 4-9</rationale>
+         </sp-view>
+         <sp-view idx="d0e4873">
+            <select id="nato-stanag4706" mode="emerging">Interoperability Standard for
+               Satellite SHF Deployable Terminals Control and Command Services (STANAG 4706:2013)</select>
+            <rationale>Included in NISP v.8 through RFCP 7-42.</rationale>         
          </sp-view>
       </sp-list>
 
@@ -5488,9 +5501,6 @@
                </indexterm>
             </remarks>
             <rationale>STANAG 4203 ed.3 changed to ed.2 in NCSP v.6</rationale>
-         </sp-view>
-         <sp-view idx="d0e4742">
-            <select id="nato-stanag4444" mode="emerging">HF Radios STANAG 4444 ed.2 (RD)</select>
          </sp-view>
          <sp-view idx="d0e4769">
             <select id="nato-stanag4204ed3" mode="mandatory">
@@ -5828,16 +5838,6 @@
       </sp-list>
 
       <sp-list tref="ts-cs-ca-mba-short">   <!--Short Messaging Access Services-->
-         <sp-view idx="d0e4760">
-            <select id="nato-stanag5066ed3" mode="mandatory">
-               Profile for HF radio data communications
-               (STANAG 5066 ed.3:2010)
-            </select>
-            <rationale>
-               STANAG 5066 ed.1 changed and moved to mandatory in NCSP v.6;
-               ed. 3 added as mandatory through RFCP 6-66.
-            </rationale>
-         </sp-view>
       </sp-list>
 
       <sp-list tref="ts-cs-ca-mba-tact">   <!--Tactical Messaging Access Services-->
@@ -6489,7 +6489,7 @@
       </sp-list>
 
    </lists>
-   
+
 
    <records>      
       <standard id="unknown-dummy" tag="">
@@ -19687,6 +19687,26 @@
          <uuid>6f8cdde4-7836-4dd0-920f-97565527b7f5</uuid>
       </standard>
       
+      <standard id="nato-stanag2591" tag="ADL">
+         <document date="2013-05-08" orgid="NATO" pubnum="STANAG 2591" title="Advanced Distributed Learning"></document>
+	      <applicability>
+		Participating nations agree to adopt SCORM 2004 as the standard for the purpose of 
+		conformance of the following:
+		<itemizedlist>
+		  <listitem><para>Learning Management Systems (LMSs)</para></listitem>
+		  <listitem><para>Content Packages</para></listitem>
+		  <listitem><para>Sharable Content Objects</para></listitem>
+		</itemizedlist>
+	      </applicability>
+	      <status>
+		<uri>http://nsa.nato.int:9000/documents/stanags/2591efed01.pdf</uri>
+		<history>
+		  <event flag="added" date="2013-11-29" rfcp="7-39" version="8.0"/>
+		</history>
+	      </status>
+	      <uuid>1ce52be0-bb80-4c02-975a-860f81e40aea</uuid>
+      </standard>
+
       <standard id="ietf-rfc3198" tag="PBM terminilogy">
          <document orgid="ietf" pubnum="RFC 3198" date="2001-11" title="Terminology for Policy-Based Management"/>
          <applicability>
@@ -24144,6 +24164,27 @@
          <uuid>260cc2ea-e146-43ca-af6b-2c440d4fd9a1</uuid>
       </standard>
       
+      <standard id="nato-stanag4706" tag="STANAG 4706">
+         <document orgid="nato" pubnum="STANAG 4706" date="2007" title="Interoperability Standard for
+            Satellite SHF Deployable Terminals Control and Command Services"/>
+         <applicability>
+            The Satellite Control and Command Service will provide NATO forces with high capacity
+            satellite communications.
+            <para>The purpose of this STANAG is to provide a standard for deployable NATO SHF satellite
+              terminals monitoring and control interface and to allow cross operation between NATO
+              SATCOM infrastructure and national SATCOM infrastructure.</para>
+            <para>The aim of this agreement is to define a common interface baseline between stations and
+              management infrastructure by using the available resources.</para>
+         </applicability>
+         <status mode="unknown">
+            <uri>http://nsa.nato.int:9000/documents/stanags/RD/4706Eed1.pdf</uri>
+            <history>
+               <event flag="added" date="2013-11-29" rfcp="7-42" version="8.0"/>
+            </history>
+         </status>
+         <uuid>d5f3d632-e2b2-4db3-986f-17a78ca9206b</uuid>
+      </standard>
+
       <standard id="nato-stanag4203ed3" tag="STANAG 4203">
          <document orgid="nato" pubnum="STANAG 4203 ed.3" date="2007" title="Technical standards for single channel HF radio equipment"/>
          <applicability>
