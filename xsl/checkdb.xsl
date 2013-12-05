@@ -6,6 +6,45 @@
 <xsl:output method="text"/>
 
 <xsl:template match="/">
+  <!-- Check DB for missing attributes -->
+  <xsl:variable name="empty.tag" select="count(//*[@tag=''])"/>
+  <xsl:variable name="empty.orgid" select="count(//document[@orgid=''])"/>
+  <xsl:variable name="empty.pubnum" select="count(//document[@pubnum=''])"/>
+  <xsl:variable name="empty.date" select="count(//document[@date=''])"/>
+
+  <xsl:if test="$empty.tag">
+    <xsl:message>
+      <xsl:text>Warning: </xsl:text>
+      <xsl:value-of select="$empty.tag"/>
+      <xsl:text> empty tags</xsl:text>
+    </xsl:message>
+  </xsl:if>
+  <xsl:if test="$empty.orgid">
+    <xsl:message>
+      <xsl:text>Warning: </xsl:text>
+      <xsl:value-of select="$empty.orgid"/>
+      <xsl:text> empty organisation identifiers</xsl:text>
+    </xsl:message>
+  </xsl:if>
+  <xsl:if test="$empty.pubnum">
+    <xsl:message>
+      <xsl:text>Warning: </xsl:text>
+      <xsl:value-of select="$empty.pubnum"/>
+      <xsl:text> empty publication numbers</xsl:text>
+    </xsl:message>
+  </xsl:if>
+  <xsl:if test="$empty.date">
+    <xsl:message>
+      <xsl:text>Warning: </xsl:text>
+      <xsl:value-of select="$empty.date"/>
+      <xsl:text> empty dates</xsl:text>
+    </xsl:message>
+  </xsl:if>
+
+  <xsl:if test="$empty.tag + $empty.orgid + $empty.pubnum + $empty.date > 0">
+    <xsl:message>Run the command "build debug" for additional information</xsl:message>
+  </xsl:if>
+
   <xsl:variable name="standards.wo.uuid" select="count(//standard[not(uuid) or uuid = ''])"/>
   <xsl:variable name="profiles.wo.uuid" select="count(//profile[not(uuid) or uuid = ''])"/>
   <xsl:if test="$standards.wo.uuid + $profiles.wo.uuid >0">
