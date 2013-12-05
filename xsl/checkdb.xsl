@@ -6,8 +6,8 @@
 <xsl:output method="text"/>
 
 <xsl:template match="/">
-  <xsl:variable name="standards.wo.uuid" select="count(//standard[not(uuid)])"/>
-  <xsl:variable name="profiles.wo.uuid" select="count(//profile[not(uuid)])"/>
+  <xsl:variable name="standards.wo.uuid" select="count(//standard[not(uuid) or uuid = ''])"/>
+  <xsl:variable name="profiles.wo.uuid" select="count(//profile[not(uuid) or uuid = ''])"/>
   <xsl:if test="$standards.wo.uuid + $profiles.wo.uuid >0">
     <xsl:message terminate="no">
       <xsl:value-of select="$standards.wo.uuid"/>
