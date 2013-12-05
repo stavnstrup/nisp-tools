@@ -47,6 +47,19 @@ Description : This stylesheet creates an UUID element in all standards
 </xsl:template>
 
 
+<xsl:template match="uuid">
+  <uuid>
+    <xsl:value-of select="."/>
+    <xsl:if test="string(.) = ''">
+      <xsl:if test="function-available('uuid:randomUUID')">
+        <xsl:value-of select="uuid:randomUUID()"/>
+      </xsl:if>
+    </xsl:if>
+  </uuid>
+</xsl:template>
+
+
+
 <xsl:template match="@*|node()">
   <xsl:copy>
     <xsl:apply-templates select="@*"/> 
