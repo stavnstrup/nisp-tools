@@ -75,6 +75,7 @@ $Id$
 <xsl:param name="tablecolumns.extension" select="1"/> 
 <xsl:param name="use.extensions" select="1"/>
 
+<xsl:param name="graphicsize.extension" select="1"/>
 
 <!-- Automatic labelling -->
 

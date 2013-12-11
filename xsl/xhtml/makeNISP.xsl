@@ -54,6 +54,8 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:param name="use.extensions" select="1"/>
 
+<xsl:param name="graphicsize.extension" select="1"/>
+
 <!-- XSLT Processing -->
 
 <xsl:param name="id.warnings" select="0"/>
