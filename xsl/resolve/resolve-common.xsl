@@ -67,7 +67,7 @@ $Id$
                <xsl:text>.</xsl:text>
                <xsl:value-of select="$nisp.image.ext"/>
             </xsl:attribute>
-            <xsl:apply-templates select="./imagedata/@*[not(@fileref)]"/>
+            <xsl:apply-templates select="./imageobject/imagedata/@*[not(@fileref)]"/>
           </xsl:element>
         </xsl:element>
 
@@ -81,10 +81,16 @@ $Id$
                   '.svg')"/>
                <xsl:text>.svg</xsl:text>
             </xsl:attribute>
-	    <xsl:attribute name="scalefit">1</xsl:attribute>
-	    <xsl:attribute name="width">100%</xsl:attribute>
-	    <xsl:attribute name="contentdepth">100%</xsl:attribute>
-            <xsl:apply-templates select="./imagedata/@*[not(@fileref)]"/>
+<!--
+            <xsl:if test="not(./imageobject/imagedata/@width !=''  or ./imageobject/imagedata/@depth !='')">
+-->
+              <xsl:attribute name="scalefit">1</xsl:attribute>
+	      <xsl:attribute name="width">100%</xsl:attribute>
+	      <xsl:attribute name="contentdepth">100%</xsl:attribute>
+<!--
+            </xsl:if>
+-->
+            <xsl:apply-templates select="./imageobject/imagedata/@*[not(@fileref)]"/>
           </xsl:element>
         </xsl:element>
       </xsl:otherwise>
