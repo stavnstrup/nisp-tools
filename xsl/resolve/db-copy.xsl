@@ -12,7 +12,6 @@ Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and 
 NATO Command, Control and Consultation Organisation (NC3O).
 
-$Id: db-resolve.xsl 165 2010-05-28 20:39:29Z stavnstrup $
 
 -->
 
