@@ -79,15 +79,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
                   '.svg')"/>
                <xsl:text>.svg</xsl:text>
             </xsl:attribute>
-<!--
-            <xsl:if test="not(./imageobject/imagedata/@width !=''  or ./imageobject/imagedata/@depth !='')">
--->
-              <xsl:attribute name="scalefit">1</xsl:attribute>
-	      <xsl:attribute name="width">100%</xsl:attribute>
-	      <xsl:attribute name="contentdepth">100%</xsl:attribute>
-<!--
-            </xsl:if>
--->
+            <xsl:attribute name="scalefit">1</xsl:attribute>
+            <xsl:attribute name="width">100%</xsl:attribute>
+            <xsl:attribute name="contentdepth">100%</xsl:attribute>
             <xsl:apply-templates select="./imageobject/imagedata/@*[not(@fileref)]"/>
           </xsl:element>
         </xsl:element>
