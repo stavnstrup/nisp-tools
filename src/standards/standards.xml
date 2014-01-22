@@ -7,6 +7,13 @@
    
    <revhistory>
       <revision>
+         <revnumber>7.9</revnumber>
+         <date>2014-01-22</date>
+         <revdescription>
+            <para>Inclusion of all RFCPs 7-1 to 7-49, as far as Volume 2 is concerned.</para>
+         </revdescription>
+      </revision>   
+      <revision>
          <revnumber>7.8</revnumber>
          <date>2013-11-29</date>
          <revdescription>
@@ -3007,7 +3014,20 @@
       </sp-list>
 
       
-      <sp-list tref="ts-ces-soa-web-portlet"><!--Portlet Services--></sp-list>
+      <sp-list tref="ts-ces-soa-web-portlet"><!--Portlet Services-->
+        <sp-view idx="d0e5019">
+           <select id="jcp-jsr168" mode="mandatory">Java Portlet Specification v.1.0, JSR 168:2003 (JCP)</select>
+           <select id="jcp-jsr286" mode="emerging">Java Portlet Specification v.2.0, JSR 286:2008 (JCP)</select>
+           <remarks>Used in Profile: FMN</remarks>
+           <rationale>Included in NISP v.8 through RFCP 7-48.</rationale>
+        </sp-view>
+        <sp-view idx="d0e5020">
+           <select id="oasis-wsrp1.0" mode="mandatory">Remote Portlet Specification v1.0, WSRP 1.0:2003(OASIS)</select>
+           <select id="oasis-wsrp2.0" mode="emerging">Remote Portlet Specification v2.0, WSRP 2.0:2008(OASIS)</select>
+           <remarks>Used in Profile: FMN</remarks>
+           <rationale>Included in NISP v.8 through RFCP 7-49.</rationale>
+        </sp-view>
+      </sp-list>
 
       
       <sp-list tref="ts-ces-soa-web-accel"><!--Web Application Acceleration Services--></sp-list>
@@ -3498,7 +3518,7 @@
             <select id="opengroup-p702" mode="emerging">Single sign on (SSO, the Open Group)</select>
             <rationale>RFC 2289:1998 changed into SSO, as RFC 2289:1998 is not an sso standard</rationale>
          </sp-view>
-         <sp-view idx="d0e5020">
+         <sp-view idx="d0e50201">
             <select id="ietf-rfc5280" mode="emerging">X.509 Public Key Infrastructure Certificate and CRL Profile (IETF RFC 5280:2008)</select>
             <remarks/>
          </sp-view>
@@ -39424,6 +39444,100 @@
          <uuid>2cfd6856-e5e6-435e-9d4f-40f60ae65419</uuid>
       </standard>
       
+      <standard id="jcp-jsr168" tag="Portlet Spec 1.0">
+         <document orgid="jcp" pubnum="JSR 168" date="2003-10-07" title="Java Portlet Specification" version="1.0"/>
+         <applicability>
+            This document is the Java Portlet Specification, v1.0. The standard for the Java
+            Portlet API is described here.
+            <para>The intended audience for this specification includes the following groups:</para>
+            <itemizedlist>
+              <listitem><para>Portal server vendors that want to provide portlet engines that conform to this standard</para></listitem>
+              <listitem><para>Authoring tool developers that want to support web applications that conform to this specification</para></listitem>
+              <listitem><para> Experienced portlet authors who want to understand the underlying mechanisms of portlet technology</para></listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="unknown">
+            <uri>https://jcp.org/aboutJava/communityprocess/final/jsr168/</uri>
+            <history>
+               <event flag="added" date="2014-01-22" rfcp="7-48" version="8.0"/>
+            </history>
+         </status>
+         <uuid>54e65dc2-2e79-4f71-8f4b-cac0aa710980</uuid>
+      </standard>
+
+      <standard id="oasis-wsrp1.0" tag="WSRP 1.0">
+         <document orgid="oasis" pubnum="wsrp-specification-1.0" date="2003-09-03" title="Web Services for Remote Portlets Specification" version="1.0"/>
+         <applicability>
+           Integration of remote content and application logic into an End-User presentation has been a
+           task requiring significant custom programming effort. Typically, vendors of aggregating
+           applications, such as a portal, write special adapters for applications and content providers to
+           accommodate the variety of different interfaces and protocols those providers use. The goal of
+           this specification is to enable an application designer or administrator to pick from a rich choice
+           of compliant remote content and application providers, and integrate them with just a few
+           mouse clicks and no programming effort.
+           <para>This specification is a joint effort of two OASIS technical committees. Web Services for
+             Interactive Applications (WSIA) and Web Services for Remote Portals (WSRP) aim to simplify
+             the integration effort through a standard set of web service interfaces allowing integrating
+             applications to quickly exploit new web services as they become available. The joint authoring
+             of these interfaces by WSRP and WSIA allows maximum reuse of presentation-oriented,
+             interactive web services while allowing the consuming applications to access a much richer set
+             of standardized web services.</para>
+         </applicability>
+          <status mode="unknown">
+            <uri>http://www.oasis-open.org/committees/wsrp</uri>
+            <history>
+               <event flag="added" date="2014-01-22" rfcp="7-49" version="8.0"/>
+            </history>
+         </status>
+         <uuid>a076b148-1f57-4e13-bec8-f35ce1ff818a</uuid>
+      </standard>
+
+      <standard id="oasis-wsrp2.0" tag="WSRP 2.0">
+         <document orgid="oasis" pubnum="wsrp-specification-2.0" date="2008-04-01" title="Web Services for Remote Portlets Specification" version="2.0"/>
+         <applicability>
+           Integration of remote content and application logic into an End-User presentation has been a task requiring
+           significant custom programming effort. Typically, vendors of aggregating applications, such as a portal, write
+           special adapters for applications and content providers to accommodate the variety of different interfaces and
+           protocols those providers use. The goal of this specification is to enable an application designer or administrator
+           to pick from a rich choice of compliant remote content and application providers, and integrate them with just a
+           few mouse clicks and no programming effort. This revision of the specification adds Consumer managed
+           coordination, additional lifecycle management and a set of related aggregation enhancements.
+           <para>This specification is the effort of the OASIS Web Services for Remote Portlets (WSRP) Technical Committee
+             which aims to simplify the effort required of integrating applications to quickly exploit new web services as they
+             become available.</para>
+           <para>This standard layers on top of the existing web services stack, utilizing existing web services standards and will
+             leverage emerging web service standards (such as policy) as they become available. The interfaces defined by
+             this specification use the Web Services Description Language (WSDL).</para>
+         </applicability>
+          <status mode="unknown">
+            <uri>http://docs.oasis-open.org/wsrp/v2/wsrp-2.0-spec-os-01.pdf</uri>
+            <history>
+               <event flag="added" date="2014-01-22" rfcp="7-49" version="8.0"/>
+            </history>
+         </status>
+         <uuid>c383e289-ebbb-41a0-8783-324f8b1c7d66</uuid>
+      </standard>      
+      
+      <standard id="jcp-jsr286" tag="Portlet Spec 2.0">
+         <document orgid="jcp" pubnum="JSR 286" date="2008-01-25" title="Java Portlet Specification" version="2.0"/>
+         <applicability>
+            This document is the Java Portlet Specification, v2.0. The standard for the Java
+            Portlet API is described here.
+            <para>The intended audience for this specification includes the following groups:</para>
+            <itemizedlist>
+              <listitem><para>Portal server vendors that want to provide portlet engines that conform to this standard</para></listitem>
+              <listitem><para>Authoring tool developers that want to support web applications that conform to this specification</para></listitem>
+              <listitem><para> Experienced portlet authors who want to understand the underlying mechanisms of portlet technology</para></listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="unknown">
+            <uri>https://jcp.org/aboutJava/communityprocess/final/jsr286/</uri>
+            <history>
+               <event flag="added" date="2014-01-22" rfcp="7-48" version="8.0"/>
+            </history>
+         </status>
+         <uuid>17585fd2-2811-442d-a88f-704095672b97</uuid>
+      </standard>
       
       <standard id="sun-jsr221" tag="JDBC">
          <document orgid="sun" pubnum="JSR 221" date="" title="Java DataBase Connection version 4.0:2006" version="4"/>
