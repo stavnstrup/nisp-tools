@@ -68,27 +68,32 @@
 <!ELEMENT servicearea ((subarea | servicecategory)*)>
 <!ATTLIST servicearea
           id ID #REQUIRED
-          title CDATA #REQUIRED>
+          title CDATA #REQUIRED
+          emUUID ID #REQUIRED>
 
 <!ELEMENT subarea ((servicecategory)*)>
 <!ATTLIST subarea
           id ID #REQUIRED
-          title CDATA #REQUIRED>
+          title CDATA #REQUIRED
+          emUUID ID #REQUIRED>
 
 <!ELEMENT servicecategory ((category)*)>
 <!ATTLIST servicecategory
           id ID #REQUIRED
-          title CDATA #REQUIRED>
+          title CDATA #REQUIRED
+          emUUID ID #REQUIRED>
 
 <!ELEMENT category ((subcategory)*)>
 <!ATTLIST category
           id ID #REQUIRED
-          title CDATA #REQUIRED>
+          title CDATA #REQUIRED
+          emUUID ID #REQUIRED>
 
 <!ELEMENT subcategory EMPTY>
 <!ATTLIST subcategory
           id ID #REQUIRED
-          title CDATA #REQUIRED>
+          title CDATA #REQUIRED
+          emUUID ID #REQUIRED>
 
 
 <!-- .......................... LISTS .................................. -->

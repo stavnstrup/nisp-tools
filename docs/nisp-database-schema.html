@@ -56,14 +56,16 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>The <code>&lt;organisations&gt;</code> element contains a mapping between keywords and organisation names and is used to ensure, that only registered organisation are used and therefore prevents the same organisation name to be spelled in multiple ways.</p>
 <h2 id="service-taxonomy">Service taxonomy</h2>
 <p>The services taxonomy describes how the standards and profiles are organised and is a subset of the C3 taxonomy.</p>
-<p>The service taxonomy is a hierarchical structure, consisting of <code>&lt;node&gt;</code> elements as described below. All the <code>&lt;node&gt;</code> elements must have an <code>id</code> and <code>title</code> attribute. The <code>id</code> attribute is used to identify the relationship between selected standards and the service taxonomy.</p>
+<p>The service taxonomy is a hierarchical structure, consisting of <code>&lt;node&gt;</code> elements as described below. All the <code>&lt;node&gt;</code> elements must have an <code>id</code>, <code>title</code>, <code>level</code> and <code>emUUID</code> attribute. The <code>id</code> attribute is used to identify the relationship between selected standards and the service taxonomy. The <code>level</code> attribute described on what level in the taxonomy the node is located and the <code>emUUID</code> attribute is the UUID assigned in the TIDE EM-Wiki.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">taxonomy</span> <span class="dv">(</span><span class="fu">node</span><span class="dv">)</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">node</span> <span class="dv">(</span><span class="fu">node</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">node</span>
           <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span>
-          <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
+          <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
+          <span class="fu">level</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
+          <span class="fu">emUUID</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
 <h2 id="standard-and-profile-definition">Standard and profile definition</h2>
 <p>Both de-jure and de-facto standards from many different standard 'organizations' are labeled differently. Some standards have multiple parts each having a standard number, where for other standards only the cover standard have a number. Some standards are registered by multiple standard bodies. Some standards are updated, but the actual update are released as a separate document instead of releasing a new version of the standard. The same is true for profiles. So the following rules tries to accommodate all the different conventions used, when describing a standard or profile.</p>
 <p>All standards and profiles are contained in the <code>&lt;records&gt;</code> element.</p>

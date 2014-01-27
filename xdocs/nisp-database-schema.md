@@ -73,10 +73,12 @@ The services taxonomy describes how the standards and profiles are
 organised and is a subset of the C3 taxonomy.
 
 The service taxonomy is a hierarchical structure, consisting of
-`<node>` elements as described
-below. All the `<node>` elements must have an `id` and `title`
-attribute. The `id` attribute is used to identify the relationship
-between selected standards and the service taxonomy.
+`<node>` elements as described below. All the `<node>` elements must
+have an `id`, `title`, `level` and `emUUID` attribute. The `id`
+attribute is used to identify the relationship between selected
+standards and the service taxonomy. The `level` attribute described on
+what level in the taxonomy the node is located and the `emUUID`
+attribute is the UUID assigned in the TIDE EM-Wiki.
 
 ~~~{.dtd}
 <!ELEMENT taxonomy (node)>
@@ -85,7 +87,9 @@ between selected standards and the service taxonomy.
 
 <!ATTLIST node
           id ID #REQUIRED
-          title CDATA #REQUIRED>
+          title CDATA #REQUIRED
+          level CDATA #REQUIRED
+          emUUID ID #REQUIRED>
 
 ~~~
 
