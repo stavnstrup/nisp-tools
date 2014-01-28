@@ -89,7 +89,7 @@ attribute is the UUID assigned in the TIDE EM-Wiki.
           id ID #REQUIRED
           title CDATA #REQUIRED
           level CDATA #REQUIRED
-          emUUID ID #REQUIRED>
+          emUUID CDATA #REQUIRED>
 
 ~~~
 
