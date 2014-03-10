@@ -34,7 +34,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="book">
   <xsl:copy>
     <xsl:attribute name="condition"><xsl:value-of select="$documentdir"/></xsl:attribute>
-    <xsl:apply-templates select="@*[not(@condition)]"/>
+    <xsl:apply-templates select="@*[local-name() != 'condition']"/>
     <xsl:attribute name="id"><xsl:value-of select="$docid"/></xsl:attribute>
     <xsl:apply-templates/>
   </xsl:copy>
@@ -65,7 +65,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
                <xsl:text>.</xsl:text>
                <xsl:value-of select="$nisp.image.ext"/>
             </xsl:attribute>
-            <xsl:apply-templates select="./imageobject/imagedata/@*[not(@fileref)]"/>
+            <xsl:apply-templates select="./imageobject/imagedata/@*[local-name()!='fileref']"/>
           </xsl:element>
         </xsl:element>
 
@@ -82,7 +82,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
             <xsl:attribute name="scalefit">1</xsl:attribute>
             <xsl:attribute name="width">100%</xsl:attribute>
             <xsl:attribute name="contentdepth">100%</xsl:attribute>
-            <xsl:apply-templates select="./imageobject/imagedata/@*[not(@fileref)]"/>
+            <xsl:apply-templates select="./imageobject/imagedata/@*[local-name() != 'fileref']"/>
           </xsl:element>
         </xsl:element>
       </xsl:otherwise>
