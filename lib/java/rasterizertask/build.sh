@@ -44,9 +44,9 @@ BATIK_HOME=../..
 CP=$JAVA_HOME/lib/tools.jar;
 CP=$CP:../../ant.jar;
 CP=$CP:../../ant-launcher.jar;
-CP=$CP:../../build/xercesImpl-2.9.1.jar;
-CP=$CP:../../xml-api-1.3.04.jar;
-CP=$CP:../../batik-all-1.7.jar;
+CP=$CP:../../build/xercesImpl-2.11.0.jar;
+CP=$CP:../../xml-api-1.4.01.jar;
+CP=$CP:../../batik-all-svn1576673.jar;
 
 CP=$CP:$BATIK_HOME/classes
 

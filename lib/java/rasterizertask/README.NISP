@@ -1,4 +1,4 @@
-Changes to Rasterization 2010-05-11
+Changes to Rasterization 2014-03-12
 
 
 Building SVG images have changed. We used to compile all SVG images, whenever just one image had changed.
@@ -28,32 +28,7 @@ we now use the code
 The depend element enable us to select only the SVG images, which have changed since the imgages were last rasterized.
 
 
-The RaserizeTask have been recompiled against Ant 1.8.1 and Batik 1.7
+The RasterizeTask have been compiled against Ant 1.8.1 and Batik 1.8pre (rev 1576673)
 
-There was one bug in the execute method - see the code for detail.
+Remember to upgrade the rasterizer build.sh in order to use the correct versions of the jars provided with NISP
 
-    sources/org/apache/tools/ant/taskdefs/optional/RasterizerTask.java
-
-N.B. the RasterizeTask still needs not be updated as it uses deprecated APIs as illustrated below.
-
-
-
-
-js@ares:~/work/noswg/nisprepository/trunk/nisp-tools/lib/java/rasterizertask$ sh build.sh jar
-Buildfile: /home/js/work/noswg/nisprepository/trunk/nisp-tools/lib/java/rasterizertask/build.xml
-
-prepare:
-     [echo] Using Apache Ant version 1.8.1 compiled on April 30 2010.
-
-compile:
-    [javac] Compiling 1 source file to /home/js/work/noswg/nisprepository/trunk/nisp-tools/lib/java/rasterizertask/build/classes
-    [javac] Note: /home/js/work/noswg/nisprepository/trunk/nisp-tools/lib/java/rasterizertask/sources/org/apache/tools/ant/taskdefs/optional/RasterizerTask.java uses or overrides a deprecated API.                                                                          
-    [javac] Note: Recompile with -Xlint:deprecation for details.                                                                       
-    [javac] Note: /home/js/work/noswg/nisprepository/trunk/nisp-tools/lib/java/rasterizertask/sources/org/apache/tools/ant/taskdefs/optional/RasterizerTask.java uses unchecked or unsafe operations.                                                                         
-    [javac] Note: Recompile with -Xlint:unchecked for details.                                                                         
-
-jar:
-      [jar] Building jar: /home/js/work/noswg/nisprepository/trunk/nisp-tools/lib/java/rasterizertask/build/lib/RasterizerTask.jar
-
-BUILD SUCCESSFUL
-Total time: 1 second

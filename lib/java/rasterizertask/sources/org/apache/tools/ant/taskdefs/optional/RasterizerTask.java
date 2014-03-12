@@ -62,7 +62,7 @@ import java.util.List;
  * @see org.apache.batik.apps.rasterizer.Main Main
  *
  * @author <a href="mailto:ruini@iki.fi">Henri Ruini</a>
- * @version $Id: RasterizerTask.java 475685 2006-11-16 11:16:05Z cam $
+ * @version $Id: RasterizerTask.java 720465 2008-11-25 11:18:59Z deweese $
  */
 public class RasterizerTask extends MatchingTask {
 
@@ -350,10 +350,7 @@ public class RasterizerTask extends MatchingTask {
         // Store default XML parser information and set user class.
         String defaultParser = XMLResourceDescriptor.getXMLParserClassName();
         // Throws BuildException.
-
-        XMLResourceDescriptor.setXMLParserClassName(getParserClassName(JAXP_PARSER));
-        // Fix for NISP - this does not work with ant 1.8.1 and Batik 1.7
-	// XMLResourceDescriptor.setXMLParserClassName(getParserClassName(readerClassName));
+        XMLResourceDescriptor.setXMLParserClassName(getParserClassName(readerClassName));
 
         try {
             // Check file and directory values.
@@ -686,7 +683,7 @@ public class RasterizerTask extends MatchingTask {
      */
     private String getParserClassName(final String className) {
         String name = className;
-        if(className.equals(JAXP_PARSER)) {
+        if ((className == null) || className.equals(JAXP_PARSER)) {
             // Set first JAXP parser.
             // Throws BuildException.
             XMLReader reader = JAXPUtils.getXMLReader();
@@ -709,7 +706,7 @@ public class RasterizerTask extends MatchingTask {
      * <p>See the Ant documentation for more information.</p>
      *
      * @author <a href="mailto:ruini@iki.fi">Henri Ruini</a>
-     * @version $Id: RasterizerTask.java 475685 2006-11-16 11:16:05Z cam $
+     * @version $Id: RasterizerTask.java 720465 2008-11-25 11:18:59Z deweese $
      */
     public static class ValidImageTypes extends EnumeratedAttribute {
 
@@ -733,7 +730,7 @@ public class RasterizerTask extends MatchingTask {
      * <p>See the Ant documentation for more information.</p>
      *
      * @author <a href="mailto:ruini@iki.fi">Henri Ruini</a>
-     * @version $Id: RasterizerTask.java 475685 2006-11-16 11:16:05Z cam $
+     * @version $Id: RasterizerTask.java 720465 2008-11-25 11:18:59Z deweese $
      */
     public static class ValidMediaTypes extends EnumeratedAttribute {
 
