@@ -11,13 +11,23 @@
 ]>
 
 <appendix id="v3-i">
-    <title>Federated Mission Networking Interoperability Standards Profile for Mission Execution Environments (Emerging)</title>
+    <title>Federated Mission Networking Interoperability Standards Profile for Mission Execution Environments (DRAFT)</title>
 <sect1>
 <title>Foreword</title>
 <para>The FMN Profile is a NATO publication containing allied military information for official purposes only.  It is permitted to copy or make extracts from this publication and distribute it for the purpose of Federated Mission Networking.</para>
 <para>This Interoperability Standards Profile is to be maintained and amended in accordance with the provisions of this document.</para>
-<para>The FMN Profile has been submitted to the NATO C3B IP CaT for inclusion into Volume 3 of the NISP as an “Operational Profile”.  It will submitted for approval by NATO Nations in ADatP-34(H) so that it becomes mandatory for NATO common funded capabilities.  All nations that wish to participate in future operations as Mission Network Contributing Participants (MNCP) are required to also implement the standards identified in the FMN Profile at Network Interconnection Points (NIPs) and at other Service Interoperability Points as applicable.</para>
-<para>Until the NATO FMN Implementation Plan is approved and the foreseen FMN Secretariat is operational, the NCI Agency acts as the custodian for this FMN Profile.</para>
+<para><!--
+*****************************************************************
+    Revised by FMN RFC 40 dated 2014-04-04
+*****************************************************************  
+-->
+The FMN Profile has been submitted to the NATO C3B IP CaT for inclusion into Volume 3 of the NISP as an “Operational Profile”. It will submitted for approval by NATO Nations in ADatP­34(H) so that it becomes mandatory for NATO common funded capabilities.  Until the NATO FMN Implementation Plan is approved and the foreseen FMN Governance and Management Structures are established, this version of the FMN Profile provides guidance for capability development to those entities that intend to become FMN Affiliates and being able to instantiate Mission Network Elements.</para>
+<para><!--
+*****************************************************************
+    Revised by FMN RFC 41 dated 2014-04-04
+*****************************************************************  
+-->
+Until the NATO FMN Implementation Plan is approved and the foreseen Capability Planning Working Group is operational, the NCI Agency acts as the custodian for this FMN Profile.</para>
 </sect1>
   <sect1>
     <title>Aim</title>
@@ -51,7 +61,12 @@
 <title>Capability Description</title>
 <para>The FMN Implementation Plan describes four different environments required for successful federated mission networking.  A federated Mission Network provides a mission execution environment within which data and information can be exchanged without being impeded by security gateways and enables various communities of interest to execute their mission thread information exchange requirements more effectively.</para>
     <para>Interoperability standards for community of interest services will have to be determined based on commonly agreed Mission Threads such as Battlespace Awareness, Joint ISR,  Medical Evacuation or Joint Fires.  Over time, communities of interest will define additional mission threads and associated interoperability standards will be included into future revisions of this FMN Profile.</para>
-    <para>Further Doctrine, Organization, Training, Materiel, Leadership and education, Personnel, Facilities and Interoperability (DOTMLPFI) capability analysis may result in changes to this FMN Profile.</para>
+    <para><!--
+*****************************************************************
+    Revised by FMN RFC 42 dated 2014-04-04
+*****************************************************************  
+-->
+The evolution towards future FMN Milestones and more detailed Doctrine, Organization, Training, Materiel, Leadership and education, Personnel, Facilities and Interoperability (DOTMLPFI) capability analysis will result in changes to this FMN Profile. It is expected that this profile will be updated at least every two years.</para>
 </sect1>
   <sect1>
     <title>FMN Architecture</title>
@@ -63,6 +78,11 @@
     </itemizedlist>Within the Federated Mission Network architecture, new services shall be designed around the Request/Response, Publish/Subscribe, or Message Queue patterns.  IT capabilities used in a FMN context shall provide read or read/write services as appropriate, support dynamic bindings, and must include authentication as part of their service.
     </para>
 	<figure id="v3i-fmn-info" float="0">
+<!--
+*****************************************************************
+    Revised by FMN RFC 43 dated 2014-04-04
+*****************************************************************  
+-->
           <title>Sample FMN Information Environment</title>
           <mediaobject>
             <imageobject>
@@ -91,7 +111,12 @@
       <listitem><para>Reuse:  A MN shall enable the sharing and re-using of services, common functions and systems between Mission Participants.</para></listitem>
     </itemizedlist>
     <para>In addition, well defined Governance and Life-cycle management capabilities (including Service Management and Control) must be in place to ensure controlled management of capability enhancements for the generic FMN configuration templates as well as the in-service MNs and to ensure assured delivery of services from providers/producers to consumers/customers based on well-defined Service Level Agreements (SLAs).</para>
-    <para>The figure above depicts a high level illustration of a future federated mission execution environment with three different options for participating in the Mission (Options A, B and C).</para>
+<!--
+*****************************************************************
+    Revised by FMN RFC 44 dated 2014-04-04
+*****************************************************************  
+-->
+    <para>Figure <xref linkend="v3i-fmn-info" /> above depicts a high level illustration of a future federated mission execution environment with three different options for participating in the Mission (Mission Network Element, Mission Network Extension and Hosted User).</para>
     <para>This profile is primarily aimed to define interface standards for services provided by Mission Network Contributing Participants (Option A).  Other mission participants (Option B and C) may (initially) not meet minimum service and service interoperability requirements.  To allow participation in those cases, mission participants must establish a hosting agreement with a Mission Network Contributing Participant.  Option B mission participants must provide their local area networks incl. IP management capability within the respective physical and cyber security boundaries of the host.  Services must be able to function in a network environment containing firewalls and various routing and filtering schemes; therefore, developers must use standards and well-known ports wherever possible, and document non-standard configurations as part of their service interface.</para>
   </sect1>
   <sect1>
@@ -415,8 +440,13 @@
 </itemizedlist>
 </para>
 </entry>
-              <entry>IP networking. Accommodate both IPv4 and IPv6 addressing.
-			  <para>MTU reduced to 1300 bytes, MSS set to 1260 bytes in order to accommodate IP crypto tunnelling within autonomous systems</para>
+              <entry>
+<!--
+*****************************************************************
+    Revised by FMN RFC 45 dated 2014-04-04
+*****************************************************************  
+-->
+IP networking. Accommodate both IPv4 and IPv6 addressing.  To accommodate IP crypto tunnelling within autonomous systems and avoid packet fragmentation maximum transmission unit (MTU) and maximum segment size (MSS) settings have to be harmonised between MNEs<footnote><para>For current mission networks in support of ISAF, RSM, NRF 15 and NRF 16: MTU set to 1300 bytes, MSS set to 1260 bytes. Emerging in 2016 (e.g. NRF 17) in preparation for IPv6 it is planned to transition to MTU 1280/MSS 1240.</para></footnote>.
 			  </entry>
             </row>
             <row>
@@ -750,7 +780,7 @@
               </row>
               <row><!--
 *****************************************************************
-                   FRA - requests removal of this entry
+                   FRA - requested removal of this entry (Rejected)
 *****************************************************************  
 -->
                 <entry>13:Secure exchange of data objects and documents across multiple security domains</entry>
@@ -758,7 +788,14 @@
                   Confidentiality Label Syntax" and is based on version 1.0 of the RTG-031 proposed 
                   XML confidentiality label syntax, see "Sharing of information across communities of
                   interest and across security domains with object level protection" below.</entry>
-                <entry></entry>
+                <entry>
+<!--
+*****************************************************************
+    Revised by FMN RFC 46 dated 2014-04-04
+*****************************************************************  
+-->As precursor step to the formalization of a Standardization Task in line with AJP­3(J), the C3B validated a
+Standardisation Proposal for a Confidentiality Labelling Standard  (AC/322­N(2014)0031).
+				</entry>
               </row>
               <row>
                 <entry>14:Topic based publish / subscribe web services communication</entry>
