@@ -125,7 +125,7 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         another organisation. There might be multiple AKA record. Each
         record begins on a new line</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
-     <li><b>Select</b> - Is this record selected by NATO (M : Mandatory, E: Emerging, MID: Mid term, FAR: Far term, F: fading)</li>
+     <li><b>Select</b> - Is this record selected by NATO (M : Mandatory, E: Emerging, F: fading)</li>
 
      <li><b>History</b> - What is the history of the record</li>
    </ul>
@@ -224,8 +224,6 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td align="center">
       <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
       <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='midterm') and (@id=$myid)]">MID,</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='farterm') and (@id=$myid)]">FAR,</xsl:if>
       <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F,</xsl:if>
       &nbsp;
     </td>
@@ -287,8 +285,6 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td align="center">
       <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
       <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='midterm') and (@id=$myid)]">MID,</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='farterm') and (@id=$myid)]">FAR,</xsl:if>
       <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F,</xsl:if>
       &nbsp;
     </td>
