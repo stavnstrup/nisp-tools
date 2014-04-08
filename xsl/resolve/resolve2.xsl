@@ -156,7 +156,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <entry>SUBAREA / SERVICE CATEGORY</entry>
 	<entry>CATEGORY / SUBCATEGORY</entry>
         <entry>MANDATORY STANDARDS</entry>
-        <entry>EMERGING NEAR TERM</entry>
+        <entry>EMERGING</entry>
         <entry>FADING</entry>
         <entry>Remarks</entry>
       </row>
