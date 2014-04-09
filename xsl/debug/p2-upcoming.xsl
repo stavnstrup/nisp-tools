@@ -58,25 +58,6 @@
     </table>
 
 
-    <h2>Mid Term</h2>
-    <p><xsl:value-of select="count(element[@mode='midterm'])"/> mid term standards and profiles</p>
-    <table border="1">
-      <xsl:call-template name="header"/>
-      <xsl:apply-templates select="element[@mode='midterm']">
-        <xsl:sort select="@lastchange" order="ascending"/>
-      </xsl:apply-templates>
-    </table>
-
-
-    <h2>Far Term</h2>
-    <p><xsl:value-of select="count(element[@mode='farterm'])"/> far term standards and profiles</p>
-    <table border="1">
-      <xsl:call-template name="header"/>
-      <xsl:apply-templates select="element[@mode='farterm']">
-        <xsl:sort select="@lastchange" order="ascending"/>
-      </xsl:apply-templates>
-    </table>
-
 
     <h2>Fading</h2>
     <p><xsl:value-of select="count(element[@mode='fading'])"/> fading standards and profiles</p>

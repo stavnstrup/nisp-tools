@@ -95,7 +95,7 @@ $Id$
 
 <xsl:param name="formal.title.placement">
   figure after
-  table after
+  table before
 </xsl:param>
 
 <xsl:param name="show.comments" select="0"/>
