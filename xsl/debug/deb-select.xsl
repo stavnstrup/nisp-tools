@@ -57,7 +57,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     select statements, which refers to a wrong standard/profiles.</p>
 
 
-    <p>The standard/profile columen contains "title,orgnum, pubnum" if it is a standard and for a profile we use the tag attribute.</p>
+    <p>The standard/profile columen contains "title,orgnum, pubnum, date" if it is a standard and for a profile we use the tag attribute.</p>
 
     <table border="1">
       <tr>
@@ -131,6 +131,8 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:value-of select="document/@orgid"/>
   <xsl:text>, </xsl:text>
   <xsl:value-of select="document/@pubnum"/>
+  <xsl:text>, </xsl:text>
+  <xsl:value-of select="document/@date"/>
   </td>
 </xsl:template>
 
