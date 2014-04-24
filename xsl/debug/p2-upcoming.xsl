@@ -48,6 +48,8 @@
     (emerging, midterm,...). This report only places the
     standard/profile in one of the possible categories.</p>
 
+    <p>The date coloumn represents the last date, the status of the standard was changed.</p>
+
     <h2>Emerging </h2>
     <p><xsl:value-of select="count(element[@mode='emerging'])"/> emerging standards and profiles</p>
     <table border="1">
