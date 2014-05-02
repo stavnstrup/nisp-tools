@@ -90,7 +90,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:variable name="ref" select="@id"/>
   <tr>
     <td/>
-    <td><xsl:value-of select="."/></td>
+    <td>(<strong><xsl:value-of select="$ref"/></strong>)<xsl:text> </xsl:text><xsl:value-of select="."/></td>
     <td/>
     <td/>
     <xsl:apply-templates select="//standard[@id=$ref]"/>
@@ -103,7 +103,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <tr>
     <td/>
     <td/>
-    <td><xsl:value-of select="."/></td>
+    <td>(<strong><xsl:value-of select="$ref"/></strong>)<xsl:text> </xsl:text><xsl:value-of select="."/></td>
     <td/>
     <xsl:apply-templates select="//standard[@id=$ref]"/>
     <xsl:apply-templates select="//profile[@id=$ref]"/>
@@ -116,7 +116,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td/>
     <td/>
     <td/>
-    <td><xsl:value-of select="."/></td>
+    <td>(<strong><xsl:value-of select="$ref"/></strong>)<xsl:text> </xsl:text><xsl:value-of select="."/></td>
     <xsl:apply-templates select="//standard[@id=$ref]"/>
     <xsl:apply-templates select="//profile[@id=$ref]"/>
   </tr>
@@ -126,6 +126,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="standard">
   <td>S</td><td>
+  (<strong><xsl:value-of select="@id"/></strong>)<xsl:text> </xsl:text>
   <xsl:value-of select="document/@title"/>
   <xsl:text>, </xsl:text>
   <xsl:value-of select="document/@orgid"/>
