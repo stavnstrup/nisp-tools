@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% January 27, 2014
+% May 1, 2014
 
 
 
@@ -305,8 +305,8 @@ Profiles are described using the `<profile>` element and
 contains references to the standards and potential profiles, on which
 the profile is build.
 
-A `<profile>` element may contain `<profilenote>`,
-`<profilespec>`, `<configuration>`, `<parts>`,
+A `<profile>` element must contain a `<profilespec>` element and may
+contain `<profilenote>`, `<configuration>`, `<parts>`,
 `<applicability>` or `<status>` elements.
 
 A `<profile>` element must contain a `tag` and an `id`
@@ -324,7 +324,7 @@ community of interest, such as the Afghanistan Mission Network (AMN)
 profile.
 
 ~~~~~~~{.dtd}
-<!ELEMENT profile (profilespec?, profilenote?, parts,
+<!ELEMENT profile (profilespec, profilenote?, parts,
                    configuration?, applicability, 
                    status, uuid?)>
 <!ATTLIST profile
@@ -333,9 +333,9 @@ profile.
           id ID #REQUIRED>
 ~~~~~~~
 
-The `<profilespec>` element describes the organisation, 
-publication number, publication data and title. NB - most `base` profiles have no 
-`<profilespec>` element. 
+The `<profilespec>` element describes the organisation, publication
+number, publication data and title. In profiles which not has an
+official owner the `orgid` attribute is set to *ipcat*.
 
 ~~~{.dtd}
 <!ELEMENT profilespec EMPTY>
