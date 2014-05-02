@@ -243,7 +243,7 @@ in the DocBook DTD.
 <!ELEMENT status (info?, uri?, history)>
 
 <!ATTLIST status
-          mode   (unknown|rejected|retired) #IMPLIED "unknown"
+          mode   (accepted|rejected|retired) #IMPLIED "accepted"
           stage  CDATA #REQUIRED>
 ~~~
 
