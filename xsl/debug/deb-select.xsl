@@ -140,6 +140,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="profile">
   <td>P</td><td>
+  (<strong><xsl:value-of select="@id"/></strong>)<xsl:text> </xsl:text>
   <xsl:value-of select="@tag"/>
   </td>
 </xsl:template>
