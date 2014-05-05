@@ -6214,8 +6214,8 @@
       
       <sp-list tref="ts-cs-tn-core-packetroute"><!--Packet Routing Services-->
          <sp-view idx="d0e1926">
-            <select id="nato-stanag5067" mode="mandatory">Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels, STANAG 5067 ed.1:2007 (RD)</select>
-            <select id="nato-stanag5067" mode="emerging">Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels, STANAG 5067 ed.2 (Draft)</select>
+            <select id="nato-stanag5067ed1" mode="mandatory">Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels, STANAG 5067 ed.1:2007 (RD)</select>
+            <select id="nato-stanag5067ed2" mode="emerging">Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels, STANAG 5067 ed.2 (Draft)</select>
             <remarks>Used in Profile: FMN</remarks>
             <rationale>
                Included in NISP v.4 through RFCP 3-3; ed. 1 moved to mandatory
@@ -15969,7 +15969,7 @@
          </status>
       </standard>
       
-      <standard id="nato-stanag5067" tag="STANAG 5067">
+      <standard id="nato-stanag5067ed1" tag="STANAG 5067 ed.1">
          <document date="2007" orgid="nato" pubnum="STANAG 5067 ed.1 (RD)" title="Standard for Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels ed.1:2007" version="1"/>
          <applicability>
             This STANAG defines the interface for network
@@ -15994,6 +15994,31 @@
             </history>
          </status>
          <uuid>b6580e94-9995-4f94-8c1d-06254e8e1706</uuid>
+      </standard>
+
+      <standard id="nato-stanag5067ed2" tag="STANAG 5067 ed.2">
+         <document date="" orgid="nato" pubnum="STANAG 5067 ed.2 (RD)" title="Standard for Interconnection of IPv4 Networks at Mission Secret and Unclassified Security Levels ed.2" version="2"/>
+         <applicability>
+            This STANAG defines the interface for network
+            interconnections based on Internet Protocol version 4 (IPv4) between NATO
+            nations or between NATO and a nation.
+            <para>
+               The interface is to be operated between two systems that are operating
+               at the same single security domain of Unclassified or Mission Secret (MS)
+               classification level provided that the connections comply with appropriate
+               security policies. Annex A Appendix 1 provides guidance that could be equally
+               applicable at other security levels or multiple security levels operating across
+               the interface. Even if the interface were to carry multiple security levels of
+               traffic the interface itself will only operate at a single level of security. This
+               STANAG does not explicitly address confidentiality services.
+            </para>
+         </applicability>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2014-05-05" flag="added" rfcp="" version="9.0"/>
+            </history>
+         </status>
       </standard>
       
       <standard id="ieee-802.1D" tag="MAC Bridges">
