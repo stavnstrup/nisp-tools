@@ -5185,9 +5185,9 @@
       
       <sp-list tref="ts-cs-tr"><!--Transmission Services-->
          <sp-view idx="d0e4662">
-            <select id="nato-stanag4175" mode="mandatory">MIDS terminals STANAG 4175 ed. 4:2009</select>
-            <select id="nato-stanag4175" mode="emerging">MIDS terminals STANAG 4175 ed. 5 (RD)</select>
-            <rationale>Changed with erratum list with NCSP v.4; STANAG 4175 ed. 4 changed to ed.3 in NCSP v.6</rationale>
+            <select id="nato-stanag4175ed4" mode="mandatory">MIDS terminals STANAG 4175 ed. 4:2009</select>
+            <select id="nato-stanag4175ed5" mode="emerging">MIDS terminals STANAG 4175 ed. 5 (RD)</select>
+            <rationale>Changed with erratum list with NCSP v.4; STANAG 4175 ed. 4 changed to ed. 3 in NCSP v.6</rationale>
          </sp-view>
          <sp-view idx="d0e4671">
             <select id="eia-rs-232" mode="fading">Single serial line interface (TIA-232-E:1991)</select>
@@ -5559,8 +5559,8 @@
             <rationale>STANAG 5511 ed.5 changed in NCSP v.6; MIL-STD 6011C added in NCSP v.7 through RFCP 6-13</rationale>
          </sp-view>
          <sp-view idx="d0e1863">
-            <select id="nato-stanag4175" mode="mandatory">STANAG 4175 ed.4:2009</select>
-            <select id="nato-stanag4175" mode="emerging">STANAG 4175 ed.5 (RD)</select>
+            <select id="nato-stanag4175ed4" mode="mandatory">STANAG 4175 ed.4:2009</select>
+            <select id="nato-stanag4175ed5" mode="emerging">STANAG 4175 ed.5 (RD)</select>
             <remarks>
                Communications part for Link-16
                <para>Used in Profile: AMN</para>
@@ -21318,7 +21318,7 @@
          <uuid>46a8e283-53a4-4e5d-bc0b-6ddd4db81819</uuid>
       </standard>
       
-      <standard id="nato-stanag4175" tag="STANAG 4175 ed.4">
+      <standard id="nato-stanag4175ed4" tag="STANAG 4175 ed.4">
          <document orgid="nato" pubnum="STANAG 4175 ed.4" date="2009-10-18" title="Technical Characteristics of the Multifunctional Information Distribution System (MIDS)"/>
          <applicability>
             MIDS is an advanced information distribution system that provides
@@ -21365,6 +21365,53 @@
          </status>
          <uuid>b93e90e6-b251-496a-b11b-711893a5a5c1</uuid>
       </standard>
+
+      <standard id="nato-stanag4175ed5" tag="STANAG 4175 ed.5">
+         <document orgid="nato" pubnum="STANAG 4175 ed.5(RD)" date="" title="Technical Characteristics of the Multifunctional Information Distribution System (MIDS)"/>
+         <applicability>
+            MIDS is an advanced information distribution system that provides
+            Communication, Navigation and Identification (CNI) capabilities in an integrated
+            form for application to air, land and maritime tactical operations. These
+            capabilities are provided in support of operational tasks through the ability of
+            the system to:
+            <itemizedlist>
+               <listitem>
+                  <para>
+                     Distribute encrypted information at a high data rate in
+                     Electromagnetic Countermeasures (ECM) environments.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     Interconnect scattered sources of information such as
+                     surveillance, support, and intelligence on a continuing real time basis with
+                     selectable levels of connectivity among force elements such as weapon systems,
+                     weapon controllers and decision-making commanders.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     Provide mobile surface and airborne force elements with a
+                     relative navigation capability within a common position reference grid.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     Provide an identification capability through the dissemination
+                     of crypto-secure position, velocity, and identity information concerning
+                     both friendly and hostile force elements.
+                  </para>
+               </listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2014-05-04" rfcp="" version="9.0"/>
+            </history>
+         </status>
+      </standard>
+
       
       <standard id="CJCSM-SSS-M-10001" tag="MIDS SSS">
          <document orgid="CJCSM" pubnum="SSS-M-10001" date="2011-01" title="System Segment Specification for the Multifunctional Information Distribution System (MIDS) Low-Volume Terminal and Ancillary Equipment, Rev. EG"/>
@@ -51180,7 +51227,7 @@
                <refstandard refid="nima-rpf"/>
                <refstandard refid="mip-jc3iedm"/>
                <refstandard refid="nato-tide-nvg"/>
-               <refstandard refid="nato-app-11"/>
+               <refstandard refid="nato-app-11-c"/>
                <refstandard refid="nato-stanag2019"/>
                <refstandard refid="nato-stanag5042ed1"/>
                <refstandard refid="dod-mil-std-2525c"/>
