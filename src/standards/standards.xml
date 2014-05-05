@@ -5255,8 +5255,8 @@
       
       <sp-list tref="ts-cs-tr-wlmt-narrowtrans"><!--Wireless LOS Mobile Narrowband Transmission Services-->
          <sp-view idx="d0e4495">
-            <select id="nato-stanag4444" mode="mandatory">STANAG 4444 ed.1:1999 RD (Slow hop ECCM)</select>
-            <select id="nato-stanag4444" mode="emerging">STANAG 4444 ed.2:2010 RD (Slow hop ECCM)</select>
+            <select id="nato-stanag4444ed1" mode="mandatory">STANAG 4444 ed.1:1999 RD (Slow hop ECCM)</select>
+            <select id="nato-stanag4444ed2" mode="emerging">STANAG 4444 ed.2:2010 RD (Slow hop ECCM)</select>
             <remarks>
                HF standard for Link-22.
                <para>For CCEB interoperability this STANAG is mandatory</para>
@@ -33423,8 +33423,8 @@
          <uuid>4594acca-7330-4312-9de0-0d7b833813a3</uuid>
       </standard>
       
-      <standard id="nato-stanag4444" tag="STANAG 4444 ed.1">
-         <document orgid="nato" pubnum="STANAG 4444 ed.1 (Draft)" date="" title="Voice Coding Algorithm ed.1:1999" version="1"/>
+      <standard id="nato-stanag4444ed1" tag="STANAG 4444 ed.1">
+         <document orgid="nato" pubnum="STANAG 4444 ed.1 (Draft)" date="1999" title="Voice Coding Algorithm" version="1"/>
          <applicability>
             The aim of this STANAG is to define the technical
             specifications (standards) to ensure the interoperability of land, air and
@@ -33447,6 +33447,30 @@
             </history>
          </status>
          <uuid>92cb17df-51ed-40f1-8ad9-362e27054e8c</uuid>
+      </standard>
+      
+      <standard id="nato-stanag4444ed2" tag="STANAG 4444 ed.2">
+         <document orgid="nato" pubnum="STANAG 4444 ed.2 (Draft)" date="2011-07-01" title="Voice Coding Algorithm" version="2"/>
+         <applicability>
+            The aim of this STANAG is to define the technical
+            specifications (standards) to ensure the interoperability of land, air and
+            maritime HF equipment operating in a slow-hop EPM mode.
+            <para>
+               The transmitting system accepts a continuous data bitstream at
+               2400 bps from the vocoder system. This data bitstream is the digitally
+               processed voice that has been FEC encoded and interleaved by the vocoder
+               system. Its duration corresponds to each PTT voice input. It is transmitted
+               on the traffic channel without any error-control techniques added by the HF
+               EPM system when EEWF4 is employed.
+            </para>
+            <para>N.B. This description should reflect ED.2</para>
+         </applicability>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2014-05-05" rfcp="" version="9.0"/>
+            </history>
+         </status>
       </standard>
       
       <standard id="nato-stanag4479ed.1" tag="STANAG 4479 ed.1">
