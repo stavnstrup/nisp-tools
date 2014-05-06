@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% May 1, 2014
+% May 6, 2014
 
 
 
@@ -278,6 +278,13 @@ elements.
 
 The `<event>` element may contain a `rfcp` attribute and must
 contain the attributes `flag`, `date` and `version`.
+
+The `version` attribute designates the major version where the `rfcp`
+is included. This means, that if e.g we receive a RFCP with the
+number 7-1, which means a change proposal for NISP version 7.0, then
+we should set the `version` attribute to the value `8.0`, since this
+is the first version, this RFCP takes effect.
+
 
 The `date` attribute must use the Comple Date format YYYY-MM-DD as defined in [ISO 8601].
 
