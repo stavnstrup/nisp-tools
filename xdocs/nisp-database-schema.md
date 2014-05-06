@@ -279,7 +279,7 @@ elements.
 The `<event>` element may contain a `rfcp` attribute and must
 contain the attributes `flag`, `date` and `version`.
 
-The `version` attribute designates the major version where the `rfcp`
+The `version` attribute designates the major version where the RFCP
 is included. This means, that if e.g we receive a RFCP with the
 number 7-1, which means a change proposal for NISP version 7.0, then
 we should set the `version` attribute to the value `8.0`, since this
