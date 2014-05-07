@@ -29,8 +29,13 @@ Description : This stylesheet creates an UUID element in all standards
 
 <xsl:strip-space elements="*"/>
 
-<xsl:preserve-space elements="standards records lists community-of-interest community"/>
-
+<xsl:template match="sp-list">
+  <sp-list>
+    <xsl:apply-templates select="@*"/> 
+    <xsl:apply-templates/>
+  </sp-list>
+  <xsl:text>&#x0a;</xsl:text>
+</xsl:template>
 
 <xsl:template match="standard|profile">
   <xsl:element name="{local-name(.)}">
@@ -44,6 +49,7 @@ Description : This stylesheet creates an UUID element in all standards
       </uuid>    
     </xsl:if>
   </xsl:element>
+  <xsl:text>&#x0a;</xsl:text>
 </xsl:template>
 
 
