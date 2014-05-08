@@ -3347,11 +3347,11 @@
             <rationale>RSA 2048 added through RFCP 6-1</rationale>
          </sp-view>
          <sp-view idx="d0e5108">
-            <select id="nist-fips-180-2-change-notice1" mode="mandatory">
+            <select id="ipcat-fips-180-2-c1-256" mode="mandatory">
                Secure Hash Algorithm 256 (SHA-256, NIST FIPS
                180-2 with Change Notice 1, Feb 2004)
             </select>
-            <select id="nist-fips-180-2-change-notice1" mode="emerging">
+            <select id="ipcat-fips-180-2-c1-384" mode="emerging">
                Secure Hash Algorithm 384 (SHA-384, NIST FIPS
                180-2 with Change Notice 1, Feb 2004)
             </select>
@@ -27190,9 +27190,9 @@
          <uuid>1f858698-c4f8-432b-98f4-ee52f088bea3</uuid>
       </standard>
 
-      <standard id="nist-fips-180-2-change-notice1" tag="SHA 256">
-         <document orgid="nist" pubnum="FIPS 180-2 with Change Notice 1" date="2004" title="Secure Hash Algorithm 256, SHA-256:2002">
-            <comment>superseded on October 17, 2008</comment>
+      <standard id="nist-fips-180-2-change-notice1" tag="SHS">
+         <document orgid="nist" pubnum="FIPS 180-2 with Change Notice 1" date="2004" title="Secure Hash Standard">
+            <comment>superseded on October 17, 2008 by FIPS 180-3</comment>
          </document>
          <applicability>
             Hash algorithm to accompany the DSA and RSA for use in NMS.
@@ -27214,6 +27214,34 @@
          </status>
          <uuid>354572db-dfe3-409f-9be4-5907a41b0637</uuid>
       </standard>
+
+      <profile id="ipcat-fips-180-2-c1-256" tag="SHS 256" type="base">
+         <profilespec orgid="ipcat" title="FIPS 180-2 with Change Notice 1 (SHA 256)"/>
+         <parts>
+            <refstandard refid="nist-fips-180-2-change-notice1"/>
+         </parts>
+         <applicability>The SHS 256 profile mandates usage of the secure hash algorithm SHA-256.</applicability>
+         <status mode="accepted">
+            <history>
+               <event flag="added" date="2014-05-08" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>cb647b82-cb2b-49c6-9c30-8a6fd7f358d5</uuid>
+      </profile>
+
+      <profile id="ipcat-fips-180-2-c1-384" tag="SHS 384" type="base">
+         <profilespec orgid="ipcat" title="FIPS 180-2 with Change Notice 1 (SHS 384)"/>
+         <parts>
+            <refstandard refid="nist-fips-180-2-change-notice1"/>
+         </parts>
+         <applicability>The SHS 384 profile mandates usage of the secure hash algorithm SHA-384.</applicability>
+         <status mode="accepted">
+            <history>
+               <event flag="added" date="2014-05-08" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>e8ccb017-c2e4-45f7-965a-b803ff8982bf</uuid>
+      </profile>
 
       <standard id="ieee-p802-10a" tag="SILS">
          <document orgid="ieee" pubnum="P802.10a" date="1999" title="Interoperable Lan/Man Security (Sils), Security Architectureframework"/>
