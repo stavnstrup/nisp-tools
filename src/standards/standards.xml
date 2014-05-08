@@ -952,7 +952,7 @@
             <rationale>Added in NISP v.3 based on RFCP 5-27; ed.2 moved to mandatory in NISP v.7.</rationale>
          </sp-view>
          <sp-view idx="d0e5198">
-            <select id="bp-smime" mode="mandatory">
+            <select id="bp-smime31" mode="mandatory">
                S/MIME with Encrypted Security Service (ESS)
                (IETF RFCs 3850:2004, 3851:2004)
             </select>
@@ -2003,7 +2003,7 @@
             <rationale>ACP 176 added in NISP v.8 through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e5905">
-            <select id="bp-smime" mode="emerging">S/MIME (IETF RFC 5751:2010)</select>
+            <select id="bp-smime32" mode="emerging">S/MIME (IETF RFC 5751:2010)</select>
             <rationale>S/MIME: Added in NISP v.7 through RFCP 6-28.</rationale>
          </sp-view>
       </sp-list>
@@ -3747,7 +3747,7 @@
                MIME (IETF RFC 2045:1996 updated by 2184:1997, 2231:1997, 5335:2008; 2046:1996 updated by 3676:2004, 3798:2004, 5147:2008; 2047:1996 updated by 2184:1997, 2231:1997, 5338:2008;
                2049:1996; 4288:2005; 4289:2005)
             </select>
-            <select id="bp-smime" mode="emerging">S/MIME ESS (IETF RFC 3850:2004, 3851:2004)</select>
+            <select id="bp-smime31" mode="emerging">S/MIME ESS (IETF RFC 3850:2004, 3851:2004)</select>
             <remarks>
                Base64 is included in RFC 2045:1996 <para>Used in Profiles: CES, FMN</para>
             </remarks>
@@ -27154,6 +27154,49 @@
          <uuid>abbf4a20-2da1-45e8-a00b-96639fd0393b</uuid>
       </standard>
 
+      <standard id="ietf-rfc3850" tag="S/MIME Cert 3.1">
+         <document orgid="ietf" pubnum="RFC 3850" date="2004-07" title="Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 3.1 Certificate Handling" version="3.1"/>
+         <applicability>
+            This document specifies conventions for X.509 certificate
+            usage by Secure/Multipurpose Internet Mail Extensions
+            (S/MIME) agents.  S/MIME provides a method to send and
+            receive secure MIME messages, and certificates are an
+            integral part of S/MIME agent processing.  S/MIME agents
+            validate certificates as described in RFC 3280, the
+            Internet X.509 Public Key Infrastructure Certificate and
+            CRL Profile.  S/MIME agents must meet the certificate
+            processing requirements in this document as well as those
+            in RFC 3280.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3850.txt</uri>
+            <history>
+               <event flag="added" date="2014-05-08" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>7b7b9b59-dc5b-4418-9fd2-28aa9fad194c</uuid>
+      </standard>
+
+      <standard id="ietf-rfc3851" tag="S/MIME Spec. 3.1">
+         <document orgid="ietf" pubnum="RFC 3851" date="2004-07" title="Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 3.1 Message Specification" version="3.1"/>
+         <applicability>
+            This document defines Secure/Multipurpose Internet Mail
+            Extensions (S/MIME) version 3.1.  S/MIME provides a
+            consistent way to send and receive secure MIME data.
+            Digital signatures provide authentication, message
+            integrity, and non-repudiation with proof of origin.
+            Encryption provides data confidentiality.  Compression can
+            be used to reduce data size.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3851.txt</uri>
+            <history>
+               <event flag="added" date="2014-05-08" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>67f473f9-526f-4ad5-ae00-c69924a7979d</uuid>
+      </standard>
+
       <standard id="ietf-rfc5750" tag="S/MIME Cert">
          <document orgid="ietf" pubnum="RFC 5750" date="2010" title="Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 3.2 Certificate Handling" version="3.2"/>
          <applicability>
@@ -27198,7 +27241,31 @@
          <uuid>4b94d417-3c54-48be-b433-be69db875a10</uuid>
       </standard>
 
-      <profile id="bp-smime" tag="S/MIME" type="base">
+      <profile id="bp-smime31" tag="S/MIME 3.1" type="base">
+         <profilespec orgid="ipcat" title="S/MIME"/>
+         <parts>
+            <refstandard refid="ietf-rfc3850"/>
+            <refstandard refid="ietf-rfc3851"/>
+         </parts>
+         <applicability>
+            S/MIME (Secure/Multipurpose Internet Mail Extensions), provides
+            a method to send and receive secure MIME messages. Before using a public key
+            to provide security services, the S/MIME agent must certify that the public
+            key is valid. S/MIME agentsmust use PKIX certificates to validate public keys
+            as described in the Internet X.509 Public Key Infrastructure (PKIX) Certificate
+            and CRL Profile. S/MIME agents must meet the certificate processing requirements
+            documented in this document in addition to those stated in X.509.
+         </applicability>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2014-05-08" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>f06a851b-6b66-4412-849f-cf3ff32b7fb6</uuid>
+      </profile>
+
+      <profile id="bp-smime32" tag="S/MIME 3.2" type="base">
          <profilespec orgid="ipcat" title="S/MIME"/>
          <parts>
             <refstandard refid="ietf-rfc5750"/>
@@ -27214,7 +27281,7 @@
             documented in this document in addition to those stated in X.509.
          </applicability>
          <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2633.txt</uri>
+            <uri/>
             <history>
                <event flag="added" date="2001-11-21" rfcp="" version="0.3"/>
                <event flag="changed" date="2005-09-08" rfcp="" version="0.7"/>
