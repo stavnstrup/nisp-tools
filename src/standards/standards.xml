@@ -653,6 +653,7 @@
                </para>
             </remarks>
          </sp-view>
+
          <sp-view idx="d0e4992">
             <select id="iso-iec-15408" mode="mandatory">Common Criteria (ISO/IEC 15408-1:2009, -2 to-3:2008)</select>
             <remarks>
@@ -2872,7 +2873,7 @@
          </sp-view>
          <sp-view idx="d0e7890">
             <select id="w3c-rec-css2-2011067" mode="mandatory">Cascading Style Sheets (CSS) 2.1 (W3C css-lev2:2001)</select>
-            <select id="w3c-css-lev3" mode="emerging">Cascading Style Sheets (CSS) level 3 (W3C css-lev3:2011)</select>
+            <select id="ipcat-css-lev3" mode="emerging">Cascading Style Sheets (CSS) level 3</select>
             <remarks>
                <para>
                   <emphasis>Used in Profiles: AMN, FMN, tactESB</emphasis>
@@ -7750,8 +7751,14 @@
          <uuid>7b663a0a-8c4b-4b13-90d7-2aa952ad00d2</uuid>
       </standard>
 
-      <standard id="w3c-css-lev3" tag="CSS Level 3">
-         <document orgid="w3c" pubnum="" date="" title="Cascading Style Sheets, level 3"/>
+      <profile id="ipcat-css-lev3" tag="CSS Level 3" type="base">
+         <profilespec orgid="ipcat" title="Cascading Style Sheets, level 3"/>
+         <parts>
+            <refstandard refid="w3c-rec-css-namespaces-3-20140320"/>
+            <refstandard refid="w3c-rec-css3-mediaqueries-20120619"/>
+            <refstandard refid="w3c-rec-css3-selectors-20110929"/>
+            <refstandard refid="w3c-rec-css3-color-20110607"/>
+         </parts>
          <applicability>
             Unlike CSS 2, which is a large single specification defining various features, 
             CSS 3 is divided into several separate documents called "modules". Each module 
@@ -7785,7 +7792,55 @@
                <event flag="added" date="2013-07-28" rfcp="7-27" version="8.0"/>
             </history>
          </status>
-         <uuid>da593e6a-d1ab-4834-ad41-49ed264cef3d</uuid>
+         <uuid>ecabe02c-ae18-40a6-8dcc-c2d4bdf17b2a</uuid>
+      </profile>
+
+      <standard id="w3c-rec-css-namespaces-3-20140320" tag="CSS 3 Namespaces">
+         <document orgid="w3c" pubnum="REC-css-namespaces-3-20140320" title="CSS Namespaces Module Level 3" date="2014-03-20"/>
+         <applicability>This CSS Namespaces module defines the syntax for using namespaces in CSS. It defines the @namespace rule for declaring the default namespace and binding namespaces to namespace prefixes, and it also defines a syntax that other specifications can adopt for using those prefixes in namespace-qualified names.</applicability>
+         <status mode="accepted">
+            <uri>http://www.w3.org/TR/2014/REC-css-namespaces-3-20140320/</uri>
+            <history>
+               <event date="2014-05-11" flag="added" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>2546f874-cbb7-49f7-8624-b49a6803c9d9</uuid>
+      </standard>
+
+      <standard id="w3c-rec-css3-mediaqueries-20120619" tag="CSS Media Query">
+         <document orgid="w3c" pubnum="REC-css3-mediaqueries-20120619" title="Media Queries" date="2012-06-19"/>
+         <applicability>HTML4 and CSS2 currently support media-dependent style sheets tailored for different media types. For example, a document may use sans-serif fonts when displayed on a screen and serif fonts when printed. ‘screen’ and ‘print’ are two media types that have been defined. Media queries extend the functionality of media types by allowing more precise labeling of style sheets. A media query consists of a media type and zero or more expressions to limit the scope of style sheets. Among the media features that can be used in media queries are ‘width’, ‘height’, and ‘color’. By using media queries, presentations can be tailored to a specific range of output devices without changing the content itself.</applicability>
+         <status mode="accepted">
+            <uri>http://www.w3.org/TR/2012/REC-css3-mediaqueries-20120619/</uri>
+            <history>
+               <event date="2014-05-11" flag="added" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>4a106495-d7e4-4dad-85ad-5ab521990cef</uuid>
+      </standard>
+
+      <standard id="w3c-rec-css3-selectors-20110929" tag="CSS 3 Selectors">
+         <document orgid="w3c" pubnum="REC-css3-selectors-20110929" title="Selectors Level 3" date="2011-09-29"/>
+         <applicability>Selectors are patterns that match against elements in a tree. Selectors have been optimized for use with HTML and XML, and are designed to be usable in performance-critical code. CSS (Cascading Style Sheets) is a language for describing the rendering of HTML and XML documents on screen, on paper, in speech, etc. CSS uses Selectors for binding style properties to elements in the document. This document describes extensions to the selectors defined in CSS level 2. These extended selectors will be used by CSS level 3.</applicability>
+         <status mode="accepted">
+            <uri>http://www.w3.org/TR/2011/REC-css3-selectors-20110929/</uri>
+            <history>
+               <event date="2014-05-11" flag="added" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>957cd8a0-bad5-45ed-ab87-cfa969261b87</uuid>
+      </standard>
+
+      <standard id="w3c-rec-css3-color-20110607" tag="CSS 3 Colors">
+         <document orgid="w3c" pubnum="REC-css3-color-20110607" title="CSS Color Module Level 3" date="2011-06-07"/>
+         <applicability>CSS (Cascading Style Sheets) is a language for describing the rendering of HTML and XML documents on screen, on paper, in speech, etc. It uses color related properties and respective values to color the text, backgrounds, borders, and other parts of elements in a document. This specification describes color values and properties for foreground color and group opacity. These include properties and values from CSS level 2 and new values.</applicability>
+         <status mode="accepted">
+            <uri>http://www.w3.org/TR/2011/REC-css3-color-20110607/</uri>
+            <history>
+               <event date="2014-05-11" flag="added" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>8da65ff5-5751-4def-b6c8-606fc42ff89b</uuid>
       </standard>
 
       <standard id="rss-2.0" tag="RSS 2.0">
