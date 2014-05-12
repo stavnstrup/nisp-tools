@@ -3474,7 +3474,7 @@
          </sp-view>
          <sp-view idx="d0e5187">
             <select id="ipcat-xacml2.0" mode="mandatory">XACML v2.0:2008 (OASIS)</select>
-            <select id="ipcat-xacml2.0" mode="emerging">XACML v3.0:2010 (OASIS)</select>
+            <select id="oasis-xacml-3.0-core-spec-os" mode="emerging">XACML v3.0:2010 (OASIS)</select>
             <remarks>Used in Profiles: AMN, CES, tactESB</remarks>
             <rationale>XACML added in NISP v.3 through RFCP 2-7; v.2 changed to mandatory through RFCP 5-62, and v.3 added as emerging.</rationale>
          </sp-view>
@@ -21979,13 +21979,13 @@
       <profile id="ipcat-xacml2.0" tag="XACML 2.0" type="base">
          <profilespec orgid="ipcat" title="eXtensible Access Control Markup Language (XACML) Version 2.0"/>
          <parts>
-            <refstandard refid="oasis-oasis-access-control-xacml-2.0-core-spec-os"/>
-            <refstandard refid="oasis-oasis-access-control-xacml-2.0-rbac-profile1-spec-os"/>
-            <refstandard refid="oasis-oasis-access-control-xacml-2.0-hier-profile-spec-os"/>
-            <refstandard refid="oasis-oasis-access-control-xacml-2.0-mult-profile-spec-os"/>
-            <refstandard refid="oasis-oasis-access-control-xacml-2.0-privacy-profile-spec-os"/>
-            <refstandard refid="oasis-oasis-access-control-xacml-2.0-saml-profile-spec-os"/>
-            <refstandard refid="oasis-oasis-access-control-xacml-2.0-dsig-profile-spec-os"/>
+            <refstandard refid="oasis-xacml-2.0-core-spec-os"/>
+            <refstandard refid="oasis-xacml-2.0-rbac-profile1-spec-os"/>
+            <refstandard refid="oasis-xacml-2.0-hier-profile-spec-os"/>
+            <refstandard refid="oasis-xacml-2.0-mult-profile-spec-os"/>
+            <refstandard refid="oasis-xacml-2.0-privacy-profile-spec-os"/>
+            <refstandard refid="oasis-xacml-2.0-saml-profile-spec-os"/>
+            <refstandard refid="oasis-xacml-2.0-dsig-profile-spec-os"/>
          </parts>
          <applicability>
             The security policy of a large enterprise has many elements and many
@@ -44289,8 +44289,43 @@
          <uuid>879ae672-47f3-4186-ab43-ee2a35cb497b</uuid>
       </standard>
 
-      <standard id="oasis-oasis-access-control-xacml-2.0-core-spec-os" tag="">
-         <document orgid="oasis" pubnum="oasis-access_control-xacml-2.0-core-spec-os" date="2005-02-01" title="eXtensible Access Control Markup Language core specification v2.0:2008" version="2"/>
+      <standard id="oasis-xacml-3.0-core-spec-os" tag="XACML 3.0 Core">
+         <document orgid="oasis" pubnum="xacml-3.0-core-spec-os" date="2013-01-22" title="eXtensible Access Control Markup Language core specification" version="3"/>
+         <applicability>
+            The motivation behind XACML is to express the well-established ideas in the field
+            of access- control policy (e.g., rules, policies, policy sets, subjects, decision
+            requests, authorization decisions,) using an extension language of XML. According
+            to the Core specification, "there is a pressing need for a common language for
+            expressing security policy. If implemented throughout an enterprise, a common policy
+            language allows the enterprise to manage the enforcement of all the elements of its
+            security policy in all the components of its information systems. Managing security
+            policy may include some or all of the following steps: writing, reviewing, testing,
+            approving, issuing, combining, analyzing, modifying, withdrawing, retrieving and
+            enforcing policy."
+            <para>
+               The XACML specification thus "enables the use of arbitrary attributes in policies,
+               role-based access control, security labels, time/date-based policies, indexable policies,
+               'deny' policies, and dynamic policies — all without requiring changes to the applications
+               that use XACML. Adoption of XACML across vendor and product platforms should provide the
+               opportunity for organizations to perform access and access policy audits directly across
+               such systems."
+            </para>
+            <para>
+               The principal features of XACML are documented in the core Extensible Access Control
+               Markup Language (XACML) Version 3.0 specification.
+            </para>
+         </applicability>
+         <status mode="accepted">
+            <uri>http://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-core-spec-os.pdf</uri>
+            <history>
+               <event flag="added" date="2014-05-12" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>4cfd8460-5550-4f40-82f7-e7f58b6ded8e</uuid>
+      </standard>
+
+      <standard id="oasis-xacml-2.0-core-spec-os" tag="XACML 2.0 Core">
+         <document orgid="oasis" pubnum="xacml-2.0-core-spec-os" date="2005-02-01" title="eXtensible Access Control Markup Language core specification v2.0:2008" version="2"/>
          <applicability>
             The motivation behind XACML is to express the well-established ideas in the field
             of access- control policy (e.g., rules, policies, policy sets, subjects, decision
@@ -44334,8 +44369,8 @@
          <uuid>bd036a99-814b-4e96-ab5b-049941c85b62</uuid>
       </standard>
 
-      <standard id="oasis-oasis-access-control-xacml-2.0-dsig-profile-spec-os" tag="">
-         <document orgid="oasis" pubnum="oasis-access_control-xacml-2.0-dsig-profile-spec-os" date="2005-02-01" title="XML Digital Signature profile of XACML v2.0"/>
+      <standard id="oasis-xacml-2.0-dsig-profile-spec-os" tag="XACML 2.0 DSIG">
+         <document orgid="oasis" pubnum="xacml-2.0-dsig-profile-spec-os" date="2005-02-01" title="XML Digital Signature profile of XACML v2.0"/>
          <applicability>
             This specification profiles use of the W3C XML-Signature Syntax and Processing
             Standard in providing authentication and integrity protection for XACML schema
@@ -44351,8 +44386,8 @@
          <uuid>10b29f98-e334-439b-a9b9-3525272f4b77</uuid>
       </standard>
 
-      <standard id="oasis-oasis-access-control-xacml-2.0-hier-profile-spec-os" tag="">
-         <document orgid="oasis" pubnum="oasis-access_control-xacml-2.0-hier-profile-spec-os" date="2005-02-01" title="Hierarchical resource profile of XACML v2.0"/>
+      <standard id="oasis-xacml-2.0-hier-profile-spec-os" tag="XACML 2.0 Hierachy">
+         <document orgid="oasis" pubnum="xacml-2.0-hier-profile-spec-os" date="2005-02-01" title="Hierarchical resource profile of XACML v2.0"/>
          <applicability>
             This document provides a profile for the use XACML with resources that are structured as
             hierarchies. The profile addresses resources represented as nodes in XML documents or
@@ -44370,8 +44405,8 @@
          <uuid>e9bda23a-94df-4b02-9f26-026ea79060b2</uuid>
       </standard>
 
-      <standard id="oasis-oasis-access-control-xacml-2.0-mult-profile-spec-os" tag="">
-         <document orgid="oasis" pubnum="oasis-access_control-xacml-2.0-mult-profile-spec-os" date="2005-02-01" title="Multiple resource profile of XACML v2.0"/>
+      <standard id="oasis-xacml-2.0-mult-profile-spec-os" tag="XACML 2.0 Multiple">
+         <document orgid="oasis" pubnum="xacml-2.0-mult-profile-spec-os" date="2005-02-01" title="Multiple resource profile of XACML v2.0"/>
          <applicability>
             This document provides a profile for requesting access to more than one resource in a single
             XACML Request Context, or for requesting a single response to a request for an entire
@@ -44387,8 +44422,8 @@
          <uuid>fa05f1f5-53db-41e5-bc65-7721792ed896</uuid>
       </standard>
 
-      <standard id="oasis-oasis-access-control-xacml-2.0-privacy-profile-spec-os" tag="">
-         <document orgid="oasis" pubnum="oasis-access_control-xacml-2.0-privacy_profile-spec-os" date="2005-02-01" title="Privacy policy profile of XACML v2.0"/>
+      <standard id="oasis-xacml-2.0-privacy-profile-spec-os" tag="XACML 2.0 Privacy">
+         <document orgid="oasis" pubnum="xacml-2.0-privacy-profile-spec-os" date="2005-02-01" title="Privacy policy profile of XACML v2.0"/>
          <applicability>
             This OASIS Standard describes a profile of XACML for expressing privacy policies.
             <para>
@@ -44409,8 +44444,8 @@
          <uuid>b3d57f13-c197-49d9-a7a6-a11e75a6e7f7</uuid>
       </standard>
 
-      <standard id="oasis-oasis-access-control-xacml-2.0-rbac-profile1-spec-os" tag="">
-         <document orgid="oasis" pubnum="oasis-access_control-xacml-2.0-rbac-profile1-spec-os" date="2005-02-01" title="Core and hierarchical role based access control (RBAC) profile of XACML v2.0"/>
+      <standard id="oasis-xacml-2.0-rbac-profile1-spec-os" tag="XACML 2.0 RBAC">
+         <document orgid="oasis" pubnum="xacml-2.0-rbac-profile1-spec-os" date="2005-02-01" title="Core and hierarchical role based access control (RBAC) profile of XACML v2.0"/>
          <applicability>
             This specification defines a profile for the use of XACML in expressing policies that use role
             based access control (RBAC). It extends the XACML Profile for RBAC Version 1.0 to include a
@@ -44427,8 +44462,8 @@
          <uuid>be397c1f-583d-4b47-864c-30d5a32cd611</uuid>
       </standard>
 
-      <standard id="oasis-oasis-access-control-xacml-2.0-saml-profile-spec-os" tag="">
-         <document orgid="oasis" pubnum="oasis-access_control-xacml-2.0-saml-profile-spec-os" date="2005-02-01" title="SAML 2.0 profile of XACML v2.0"/>
+      <standard id="oasis-xacml-2.0-saml-profile-spec-os" tag="XACML 2.0 SAML">
+         <document orgid="oasis" pubnum="xacml-2.0-saml-profile-spec-os" date="2005-02-01" title="SAML 2.0 profile of XACML v2.0"/>
          <applicability>
             This specification defines a profile for the use of the OASIS Security Assertion Markup
             Language (SAML) Version 2.0 to carry XACML 2.0 policies, policy queries and responses,
@@ -51886,7 +51921,7 @@
                <refstandard refid="iso-19794-5"/>
                <refstandard refid="iso-19794-6"/>
                <refstandard refid="fbi-EFTS-7"/>
-               <refprofile refid="bp-xacml2.0"/>
+               <refprofile refid="ipcat-xacml2.0"/>
             </parts>
             <applicability/>
             <status mode="accepted">
