@@ -77,21 +77,18 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td><b>Total</b></td>
         <td><b>Deleted</b></td>
         <td><b>Rejected</b></td>
-        <td><b>Retired</b></td>
       </tr>
       <tr>
         <td>standards</td>
         <td align="right"><xsl:value-of select="count(.//standard)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::standard])"/></td>
         <td align="right"><xsl:value-of select="count(.//standard[status='rejected'])"/></td>
-        <td align="right"><xsl:value-of select="count(.//standard[status='retired'])"/></td>
       </tr>
       <tr>
         <td>profiles</td>
         <td align="right"><xsl:value-of select="count(.//profile)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::profile])"/></td>
         <td align="right"><xsl:value-of select="count(.//profile[status='rejected'])"/></td>
-        <td align="right"><xsl:value-of select="count(.//profile[status='retired'])"/></td>
        </tr>
     </table>
 
