@@ -19,9 +19,10 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:output method="html" indent="yes"/>
 
 <xsl:template match="standards">
+  <xsl:message>Comparison of selectstatement with referenced standard/profile.</xsl:message>
   <html>
     <head>
-      <title>Comparison of select statements and refered standards/profiles</title>
+      <title>Comparison of text in select statement and referenced standards/profiles</title>
       <style type="text/css">
         .head {background-color: #808080;  }
         .body, table {font-family: sans-serif;}
