@@ -243,13 +243,13 @@ in the DocBook DTD.
 <!ELEMENT status (info?, uri?, history)>
 
 <!ATTLIST status
-          mode   (accepted|rejected|retired) #IMPLIED "accepted"
+          mode   (accepted|rejected) #IMPLIED "accepted"
           stage  CDATA #REQUIRED>
 ~~~
 
 The `<status>` element contains the attributes `mode`, which is
-implied and is used to indicate standards, which were either rejected
-or retired.
+implied and is used to indicate standards, which were either accepted
+or rejected.
 
 ~~~{.dtd}
 <!ELEMENT info (#PCDATA | ulink)*>
