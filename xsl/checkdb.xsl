@@ -6,7 +6,7 @@
 <xsl:output method="text"/>
 
 <xsl:template match="/">
-  <!-- Check DB for missing attributes -->
+  <!-- Check DB for missing attributes in standards only -->
   <xsl:variable name="empty.tag" select="count(//*[@tag=''])"/>
   <xsl:variable name="empty.orgid" select="count(//document[@orgid=''])"/>
   <xsl:variable name="empty.pubnum" select="count(//document[@pubnum=''])"/>
