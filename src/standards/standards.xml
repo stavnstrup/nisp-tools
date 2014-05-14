@@ -1571,7 +1571,7 @@
             </remarks>
          </sp-view>
          <sp-view idx="d0e9528">
-            <select id="gdal" mode="emerging"> Geospatial Data Abstraction Library (GDAL:2013)</select>
+            <select id="gdal-gdal" mode="emerging"> Geospatial Data Abstraction Library (GDAL:2013)</select>
             <select id="esri-shapefile" mode="fading">ESRI Shapefile Specification (ESRI:2008)</select>
             <remarks>
                <para>
@@ -2977,7 +2977,7 @@
             <rationale>Included in NISP v.8 through RFCP 7-3 as emerging, changed to mandatory through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e6019">
-            <select id="dmtf-dsp0252" mode="mandatory">CMDB Federation Specification v1.0.1 (DMTF)</select>
+            <select id="dmtf-dsp0252-2010" mode="mandatory">CMDB Federation Specification v1.0.1 (DMTF)</select>
             <remarks>Used in Profile: FMN</remarks>
             <rationale>Included in NISP v.8 through RFCP 7-3 as emerging, changed to mandatory in v.8 through RFCP 7-27.</rationale>
          </sp-view>
@@ -2987,7 +2987,7 @@
             <rationale>ITIL added in NISP v.6 through RFCP 6-87 as part of AMN, updated by RFCP 7-1.</rationale>
          </sp-view>
          <sp-view idx="d0e6014">
-            <select id="cobit" mode="mandatory">COBIT 5: A Business Framework for the Governance and Management of Enterprise IT (ISACA: 2012)</select>
+            <select id="isaca-cobit5" mode="mandatory">COBIT 5: A Business Framework for the Governance and Management of Enterprise IT (ISACA: 2012)</select>
             <remarks>Used in Profiles: AMN, FMN</remarks>
             <rationale>COBIT added in NISP v.6 through RFCP 6-88 as part of AMN, changed to mandatory through RFCP 7-2.</rationale>
          </sp-view>
@@ -2997,7 +2997,7 @@
             <rationale>eTOM included in NISP v.8 through RFCP 7-44.</rationale>
          </sp-view>
          <sp-view idx="d0e6013">
-            <select id="cmdb" mode="emerging">Configuration Management Database (CMDB) Federation Specification (DMTF DSP0252: 2009)</select>
+            <select id="dmtf-dsp0252" mode="emerging">Configuration Management Database (CMDB) Federation Specification (DMTF DSP0252: 2009)</select>
             <remarks>Used in Profile: AMN</remarks>
             <rationale>CMDB added in NISP v.6 through RFCP 6-89 as part of AMN.</rationale>
          </sp-view>
@@ -7049,57 +7049,6 @@
          <uuid>4dccd3a7-1b42-466e-8de9-8a96e2ad446d</uuid>
       </standard>
 
-      <standard id="cmdb" tag="CMDB">
-         <document orgid="dmtf" pubnum="DSP0252" date="2009-06-22" title="Configuration Management Database (CMDB) Federation Specification"/>
-         <applicability>
-           Many organizations are striving to base IT management on a Configuration
-           Management Database (CMDB). A CMDB contains data describing the following entities:
-           <itemizedlist>
-               <listitem>
-                  <para>managed resources, such as computer systems and application software</para>
-               </listitem>
-               <listitem>
-                  <para>process artifacts, such as incident, problem, and change records</para>
-               </listitem>
-               <listitem>
-                  <para>relationships among managed resources and process artifacts</para>
-               </listitem>
-            </itemizedlist>
-           The contents of the CMDB should be managed by a configuration management process
-           and serve as the foundation for other IT management processes, such as change 
-           management and availability management.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://xml.coverpages.org/DMTF-DSP0252-CMDB-Federation.pdf</uri>
-            <history>
-               <event flag="added" date="2012-12-02" rfcp="6-89" version="7.0"/>
-            </history>
-         </status>
-         <uuid>18c59aa3-1654-46c0-94c9-d9b3b78eedc7</uuid>
-      </standard>
-
-      <standard id="cobit" tag="COBIT 5">
-         <document orgid="isaca" pubnum="Cobit 5" date="2012" title="COBIT 5: A Business Framework for the Governance and Management of Enterprise IT"/>
-         <applicability>
-           COBIT 5 is the only business framework for the governance and management 
-           of enterprise IT. This evolutionary version incorporates the latest thinking
-           in enterprise governance and management techniques, and provides globally 
-           accepted principles, practices, analytical tools and models to help increase
-           the trust in, and value from, information systems. COBIT 5 builds and expands
-           on COBIT 4.1 by integrating other major frameworks, standards and resources,
-           including ISACA’s Val IT and Risk IT, Information Technology Infrastructure
-           Library (ITIL®) and related standards from the International Organization
-           for Standardization (ISO).
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.isaca.org/COBIT/Pages/default.aspx</uri>
-            <history>
-               <event flag="added" date="2012-12-02" rfcp="6-88" version="7.0"/>
-            </history>
-         </status>
-         <uuid>8408117a-eea3-4f34-8f75-248ed7533cab</uuid>
-      </standard>
-
       <standard id="compuserve-gif89a" tag="GIF">
          <document orgid="compuserve" pubnum="gif89a" date="1990-07-31" title="Graphics Interchange Format (sm), Version 89a" version="89a"/>
          <applicability>
@@ -7367,7 +7316,36 @@
          <uuid>9300c5ed-6e0e-48e3-9630-3b68e8f8e38f</uuid>
       </standard>
 
-      <standard id="dmtf-dsp0252" tag="CMDB Federation">
+      <standard id="dmtf-dsp0252" tag="CMDB">
+         <document orgid="dmtf" pubnum="DSP0252" date="2009-06-22" title="Configuration Management Database (CMDB) Federation Specification"/>
+         <applicability>
+           Many organizations are striving to base IT management on a Configuration
+           Management Database (CMDB). A CMDB contains data describing the following entities:
+           <itemizedlist>
+               <listitem>
+                  <para>managed resources, such as computer systems and application software</para>
+               </listitem>
+               <listitem>
+                  <para>process artifacts, such as incident, problem, and change records</para>
+               </listitem>
+               <listitem>
+                  <para>relationships among managed resources and process artifacts</para>
+               </listitem>
+            </itemizedlist>
+           The contents of the CMDB should be managed by a configuration management process
+           and serve as the foundation for other IT management processes, such as change 
+           management and availability management.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://xml.coverpages.org/DMTF-DSP0252-CMDB-Federation.pdf</uri>
+            <history>
+               <event flag="added" date="2012-12-02" rfcp="6-89" version="7.0"/>
+            </history>
+         </status>
+         <uuid>18c59aa3-1654-46c0-94c9-d9b3b78eedc7</uuid>
+      </standard>
+
+      <standard id="dmtf-dsp0252-2010" tag="CMDB Federation">
          <document orgid="dmtf" pubnum="DSP0252" date="2010-04-22" title="Configuration Management Database (CMDB) Federation Specification" version="1.0.1"/>
          <applicability>
             Many organizations are striving to base IT management on a Configuration
@@ -9499,7 +9477,7 @@
          <uuid>5c53b623-16af-4208-8018-8d8fec704c8a</uuid>
       </standard>
 
-      <standard id="gdal" tag="GDAL">
+      <standard id="gdal-gdal" tag="GDAL">
          <document orgid="gdal" pubnum="gdal" date="2013-08" title=" Geospatial Data Abstraction Library (GDAL)"/>
          <applicability>
             GDAL is a translator library for raster geospatial data formats that is released
@@ -22031,6 +22009,28 @@
          </status>
          <uuid>99d52a89-1bd2-4c6c-9e3d-76c7e313f940</uuid>
       </profile>
+
+      <standard id="isaca-cobit5" tag="COBIT 5">
+         <document orgid="isaca" pubnum="Cobit 5" date="2012" title="COBIT 5: A Business Framework for the Governance and Management of Enterprise IT"/>
+         <applicability>
+           COBIT 5 is the only business framework for the governance and management 
+           of enterprise IT. This evolutionary version incorporates the latest thinking
+           in enterprise governance and management techniques, and provides globally 
+           accepted principles, practices, analytical tools and models to help increase
+           the trust in, and value from, information systems. COBIT 5 builds and expands
+           on COBIT 4.1 by integrating other major frameworks, standards and resources,
+           including ISACA’s Val IT and Risk IT, Information Technology Infrastructure
+           Library (ITIL®) and related standards from the International Organization
+           for Standardization (ISO).
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.isaca.org/COBIT/Pages/default.aspx</uri>
+            <history>
+               <event flag="added" date="2012-12-02" rfcp="6-88" version="7.0"/>
+            </history>
+         </status>
+         <uuid>8408117a-eea3-4f34-8f75-248ed7533cab</uuid>
+      </standard>
 
       <standard id="iso-10005" tag="ISO-10005">
          <document orgid="iso" pubnum="10005" date="2005" title="Guidelines for quality plans"/>
