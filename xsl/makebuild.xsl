@@ -785,6 +785,7 @@ Make dynamic targets.
           <xsl:value-of select="$pdf.prefix"/>
           <xsl:text> use.para.numbering=${use.para.numbering}</xsl:text>
           <xsl:text> datestamp=${DSTAMP}</xsl:text>
+          <xsl:text> describe=${describe}</xsl:text>
         </xsl:attribute>
       </arg>
       <classpath refid="lib-saxon-classpath"/>
@@ -874,6 +875,7 @@ Make dynamic targets.
           <xsl:text> pdf.prefix=</xsl:text>
           <xsl:value-of select="$pdf.prefix"/>
           <xsl:text> use.para.numbering=${use.para.numbering}</xsl:text>
+          <xsl:text> describe=${describe}</xsl:text>
         </xsl:attribute>
       </arg>
       <classpath refid="lib-saxon-classpath"/>

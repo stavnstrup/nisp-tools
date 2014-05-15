@@ -135,6 +135,8 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:param name="docid" select="''"/>
 <xsl:param name="pdf.prefix" select="''"/>
+<xsl:param name="describe" select="''"/>
+
 
 <!-- Set by build file -->
 <xsl:param name="nisp.lifecycle.stage" select="''"/>

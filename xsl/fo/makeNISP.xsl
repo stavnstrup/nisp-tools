@@ -237,6 +237,7 @@ $Id$
 <xsl:param name="nisp.lifecycle.stage" select="draft"/>
 <xsl:param name="nisp.class.label" select="''"/>
 <xsl:param name="nisp.release.label" select="''"/>
+<xsl:param name="describe" select="''"/>
 
 
 
@@ -584,7 +585,7 @@ $Id$
         <fo:block><xsl:value-of select="$nisp.release.label"/></fo:block>
         <fo:block font-size="9pt" font-family="mono">revision: <xsl:value-of select="/book/bookinfo/productnumber"/></fo:block>
 -->
-        <fo:block font-family="{$title.font.family}">revision: <xsl:value-of select="/book/bookinfo/productnumber"/></fo:block>
+        <fo:block font-family="{$title.font.family}">revision: <xsl:value-of select="$describe"/></fo:block>
       </xsl:when>
 
       <xsl:when test="$pageclass='titlepage' or $sequence='first' or $sequence='odd'">
