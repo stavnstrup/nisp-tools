@@ -16,6 +16,7 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <!-- parameters for output media -->
 
+<xsl:param name="describe" select="''"/>
 
 
 
@@ -98,8 +99,8 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <div class="nisp-lifecycle-stage">
         <xsl:text>NISP </xsl:text>
         <xsl:choose>
-          <xsl:when test="$nisp.lifecycle.stage='draft'">DRAFT</xsl:when>
-          <xsl:when test="$nisp.lifecycle.stage='final'">FINAL DRAFT</xsl:when>
+          <xsl:when test="$nisp.lifecycle.stage='draft'">DRAFT - rev. <xsl:value-of select="$describe"/></xsl:when>
+          <xsl:when test="$nisp.lifecycle.stage='final'">FINAL DRAFT - rev. <xsl:value-of select="$describe"/></xsl:when>
 	</xsl:choose>
       </div>
     </xsl:if>
@@ -186,8 +187,8 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <div class="nisp-lifecycle-stage">
         <xsl:text>NISP </xsl:text>
         <xsl:choose>
-          <xsl:when test="$nisp.lifecycle.stage='draft'">DRAFT</xsl:when>
-          <xsl:when test="$nisp.lifecycle.stage='final'">FINAL DRAFT</xsl:when>
+          <xsl:when test="$nisp.lifecycle.stage='draft'">DRAFT - rev. <xsl:value-of select="$describe"/></xsl:when>
+          <xsl:when test="$nisp.lifecycle.stage='final'">FINAL DRAFT - rev. <xsl:value-of select="$describe"/></xsl:when>
 	</xsl:choose>
       </div>
     </xsl:if>

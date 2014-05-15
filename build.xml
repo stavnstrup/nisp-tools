@@ -392,7 +392,8 @@ $Id$
     <java classname="${xslt.class}" fork="yes" dir="${build.dir}">
       <arg line="${xslt.opts} -o ${build.dir}/ ${src.dir}/master/ 
                  ${xsl-xhtml.dir}/master.xsl ${nisp.lifecycle.opts}
-                 datestamp=${DSTAMP}"/>
+                 datestamp=${DSTAMP}
+                 describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
     <!-- After upgrading to Java 1.4 and Saxon 6.5.3 all output files
@@ -431,7 +432,7 @@ $Id$
 
     <java classname="${xslt.class}" fork="yes" dir="${build.acronyms}">
       <arg line="${xslt.opts} ${src.acronyms}/acronyms.xml 
-         ${xsl-xhtml.dir}/acronyms.xsl ${nisp.lifecycle.opts} datestamp=${DSTAMP}"/>
+         ${xsl-xhtml.dir}/acronyms.xsl ${nisp.lifecycle.opts} datestamp=${DSTAMP} describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
