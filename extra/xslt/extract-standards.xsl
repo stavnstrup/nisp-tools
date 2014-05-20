@@ -59,6 +59,15 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:variable name="next.version" select="'9.0'"/>
 
+
+<xsl:variable name="col.org" select="1"/>
+<xsl:variable name="col.pubnum" select="2"/>
+<xsl:variable name="col.title" select="3"/>
+<xsl:variable name="col.date" select="4"/>
+<xsl:variable name="col.applicability" select="5"/>
+<xsl:variable name="col.uri" select="6"/>
+<xsl:variable name="col.tag" select="7"/>
+
 <!-- Get current date & time adjusted to UTC -->
 
 <xsl:variable name="now">
@@ -96,30 +105,30 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:template match="table:table-row">
   <standard>
     <xsl:attribute name="id">
-      <xsl:value-of select="table:table-cell[position()=1]"/>
+      <xsl:value-of select="table:table-cell[position()=$col.org]"/>
       <xsl:text>-</xsl:text>
-      <xsl:value-of select="lower-case(table:table-cell[position()=2])"/>
+      <xsl:value-of select="lower-case(table:table-cell[position()=$col.pubnum])"/>
     </xsl:attribute>
     <xsl:attribute name="tag">
-      <xsl:value-of select="table:table-cell[position()=7]"/>      
+      <xsl:value-of select="table:table-cell[position()=$col.tag]"/>      
     </xsl:attribute>
     <document>
       <xsl:attribute name="orgid">
-        <xsl:value-of select="table:table-cell[position()=1]/text:p"/>
+        <xsl:value-of select="table:table-cell[position()=$col.id]/text:p"/>
       </xsl:attribute>
       <xsl:attribute name="pubnum">
-        <xsl:value-of select="table:table-cell[position()=2]/text:p"/>
+        <xsl:value-of select="table:table-cell[position()=$col.pubnum]/text:p"/>
       </xsl:attribute>
       <xsl:attribute name="title">
-        <xsl:value-of select="table:table-cell[position()=3]/text:p"/>
+        <xsl:value-of select="table:table-cell[position()=$col.title]/text:p"/>
       </xsl:attribute>
       <xsl:attribute name="date">
-        <xsl:value-of select="substring(table:table-cell[position()=4]/@office:date-value, 1, 10)"/>
+        <xsl:value-of select="substring(table:table-cell[position()=$col.date]/@office:date-value, 1, 10)"/>
       </xsl:attribute>
     </document>
-    <applicability><xsl:value-of select="table:table-cell[position()=5]/text:p"/></applicability>
+    <applicability><xsl:value-of select="table:table-cell[position()=$col.applicability]/text:p"/></applicability>
     <status mode="accepted">
-      <uri><xsl:value-of select="table:table-cell[position()=6]/text:p"/></uri>
+      <uri><xsl:value-of select="table:table-cell[position()=$col.uri]/text:p"/></uri>
       <history>
         <event date="{substring($now, 1, 10)}" flag="added" rfcp="" version="{$next.version}"/>
       </history>
