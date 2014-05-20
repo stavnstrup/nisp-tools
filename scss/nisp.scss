@@ -1,0 +1,342 @@
+// This SASS stylesheet ...
+
+@import "foundation-override";
+
+// @import "foundation";
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+@import "compass/css3";
+@import "foundation/settings";
+@import "foundation/functions/all";
+
+// Control which mixins you have access too
+
+@import "foundation/mixins/clearfix";
+@import "foundation/mixins/css-triangle";
+@import "foundation/mixins/font-size";
+
+// Must include next two for semantic grid to work
+
+@import "foundation/mixins/respond-to";
+@import "foundation/mixins/semantic-grid";
+
+@import "modular-scale";
+@import "foundation/common/globals";
+
+// Must include the grid for any responsiveness
+
+@import "foundation/components/grid";
+
+// Control which common styles get compiled
+
+@import "foundation/common/typography";
+// @import "foundation/common/forms";
+
+
+// Control which components you get if customizing
+
+@import "foundation/components/modules/buttons";
+// @import "foundation/components/modules/tabs";
+@import "foundation/components/modules/ui";
+@import "foundation/components/modules/topbar";
+@import "foundation/components/modules/navbar";
+// @import "foundation/components/modules/orbit";
+// @import "foundation/components/modules/reveal";
+// @import "foundation/components/modules/offcanvas";
+// @import "foundation/components/modules/clearing";
+// @import "foundation/components/modules/joyride";
+
+// Media Queries Overrides
+@import "foundation/components/modules/mqueries";
+
+
+
+
+
+
+
+//////////////////
+
+
+
+
+
+
+
+$nisp-Header-Color: #005a9c;
+
+
+// 
+@import "general_foundicons"; 
+
+
+/* NISP specific styles */
+
+.foundicon-left-arrow,
+.foundicon-right-arrow,
+.foundicon-up-arrow,
+.foundicon-home {
+    font-size: 1.6em;
+}
+
+
+/* Generic styles */
+
+ul, ol {
+    list-style-position: outside;
+    list-style-type: square;
+    margin-left: 3em;
+}
+
+
+dt {
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+dd {
+    margin: 0px;
+    margin-left: 2em;
+    padding-top: 0px;
+    padding-bottom: 1em;
+}
+
+
+body {
+    font-family: "liberation sans", "Myriad ", "Bitstream Vera Sans", "Lucida Grande", "Luxi Sans", 
+                 "Trebuchet MS", helvetica, verdana, arial, sans-serif
+}
+
+
+.book .titlepage {
+    text-align: center;
+}
+
+.book-subtitle div, .corpauthor div {
+    font-size: 34px;
+    color: $nisp-Header-Color;
+    font-weight: bold;
+    padding-bottom: 2em;
+}
+
+.toc {
+    padding-top: 1.5em;
+
+    a, a:link, a:visited {
+       text-decoration: none;
+       color: #0A84C1;
+       font-weight: bold;
+    }
+
+}
+
+.toc li {
+    list-style-type: none;
+}
+
+.toc .sect1 {
+    padding-bottom: 20px;
+}
+
+
+
+header {
+//    border-top: 5px solid #60AFD7;
+    width: 100%;
+    .columns {
+        padding: 0;
+    }
+}
+
+.nisp-lifecycle-stage {
+    width: 100%;
+    background: yellow;
+    color: black;
+//    border: 2px solid black;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 1.3em;
+//    letter-spacing: 1.2em;
+}
+
+.nisp {
+    color: white;
+    font-size: 1.6em;
+    background: $topBarBgColor;
+    padding: 5px 0 5px 20px; 
+}
+
+.banner {
+    height: 180px;
+    background: white url(../images/nisp-banner.jpg) no-repeat 25%;
+}
+
+
+
+#bottomhead {
+    color: white;
+//    background-color: #ffffff55;
+    font-size: 2.6em;
+    font-weight: bold;
+    padding: 10px 30px 0;
+    text-align: right;
+}
+
+
+.nav-container {
+     width: 100%;
+     background-color: $topBarBgColor;
+     .columns {
+         padding: 0;
+     }
+     margin-bottom: 20px;
+}
+
+
+
+.navheader, .navfooter {
+    table {
+        border: 0;
+        tbody {
+            tr:nth-child(even) {
+                background: inherit;
+            }
+        }
+    }
+    td[align="left"] {
+        text-align: left;
+    }
+    td[align="center"] {
+        text-align: center;
+    }
+    td[align="right"] {
+        text-align: right;
+    }
+}
+
+
+.top-bar section ul li.active a {
+    background-color: #464646; 
+}
+
+
+.classification {
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 1.2em;
+    padding-top: 20px;
+}
+
+
+@mixin figure-mx {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    img {
+        display: block;
+        margin: 0px auto;
+    }
+}
+
+.informalfigure {
+    @include figure-mx;
+}
+
+.figure {
+    @include figure-mx;
+}
+
+
+.table-title, .figure-title {
+    padding-top: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    color: $nisp-Header-Color;
+}
+
+
+h1, h2, h3, h4, h5, .figure-title {
+    color: $nisp-Header-Color;
+}
+
+
+/* Small display targeting */
+@media only screen and (max-width: $screenSmall - 1) {
+    h1 { font-size: ms(3); }
+    h2 { font-size: ms(3); }
+    .nisp-lifecycle-stage, .copyright {
+        display: none;
+    }
+    footer {
+        margin-top: 5px;
+    }
+}
+
+
+
+
+.getpdf {
+   margin-top: 20px;
+   .btn {
+       text-align: center;
+   }
+}
+
+.pdffiles {
+   ul {
+       list-style: none;
+       li {
+           background: url(../images/pdf_icon_48.jpg) 0 0 no-repeat;
+           padding: 10px 60px;
+           padding-right: 0px;
+       }
+   }
+}
+
+
+footer {
+    margin-top: 20px;
+    padding-top: 10px;
+    color: #0A84C1;
+    font-weight: normal;
+    a:link, 
+    a:visited {
+       text-decoration: none;
+       color: #0A84C1;
+    }
+
+    .footernav {
+          border-top: 1px solid #ddd;
+          padding-top: 20px;
+          text-align: center;
+    }
+    a:hover {
+         text-decoration: underline;
+    }
+    .copyright {
+         padding-top: 20px;
+         padding-bottom: 10px;
+         color: #0A84C1;
+         text-align: right;
+    }
+}
+
+
+#acronyms {
+    table {
+        width: 100%;
+    }
+    .sub-nav {
+        padding-top: 20px;
+    }
+    dd {
+        padding: 2px 4px;
+    }
+    dd[class='active'] {
+        color: white;
+        background-color: $nisp-Header-Color;
+    }
+}
+  
