@@ -13,7 +13,7 @@
 <xsl:template match="allupcoming">
   <html>
     <head>
-      <title>Upcoming stuff in the database in the NISP Standard Database</title>
+      <title>Upcoming stuff in the NISP Standard Database</title>
       <style type="text/css">
         .head {background-color: #808080;  }
         .body, table {font-family: sans-serif;}
@@ -28,7 +28,7 @@
     <body>
 
 
-    <h1>Upcoming and fading standards and profiles in the NISP Standard Database</h1>
+    <h1>Emerging and fading standards and profiles in the NISP Standard Database</h1>
 
     <p>Created on 
     <xsl:variable name="date">
@@ -42,13 +42,10 @@
     <xsl:value-of select="date:year()"/>
     <xsl:text> - </xsl:text>
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
-    </p>
+    <xsl:text> using rev. </xsl:text><xsl:value-of select="@describe"/></p>
    
-    <p>N.B. A standard/profile might be in several categories, i.e
-    (emerging, midterm,...). This report only places the
-    standard/profile in one of the possible categories.</p>
-
-    <p>The date coloumn represents the last date, the status of the standard was changed.</p>
+    <p>N.B. Besides being selected as mandatory a standard or profile might be other categories such as
+    emerging or fasing. The date coloumn represents the last date, the status of the standard was changed.</p>
 
     <h2>Emerging </h2>
     <p><xsl:value-of select="count(element[@mode='emerging'])"/> emerging standards and profiles</p>

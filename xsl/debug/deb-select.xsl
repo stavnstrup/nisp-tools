@@ -18,6 +18,9 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   
 <xsl:output method="html" indent="yes"/>
 
+<xsl:param name="describe" select="''"/>
+
+
 <xsl:template match="standards">
   <xsl:message>Comparison of selectstatement with referenced standard/profile.</xsl:message>
   <html>
@@ -51,7 +54,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:value-of select="date:year()"/>
     <xsl:text> - </xsl:text>
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
-    </p>
+    <xsl:text> using rev. </xsl:text><xsl:value-of select="$describe"/></p>
 
     <p>All select statements contains a small text describing the
     standard it is supposed to referer to. This report reveals all

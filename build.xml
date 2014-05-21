@@ -283,7 +283,12 @@ $Id$
           unless="no-uuids-missing"/>    
   </target>
 
-  <target name="init" depends="-newbuild, -newdb">
+  <target name="-get-describe">
+    <!-- Get describe parameter -->
+    <git-describe dir="${basedir}/.git" property="describe"/>
+  </target>
+
+  <target name="init" depends="-newbuild, -newdb, -get-describe">
     <echo  message="NISP Build system - ver. ${tool-version}. Released on ${tool-date}"/>
     <echo message="compiling sources ver. ${src-version}."/>
     <tstamp/>
@@ -347,8 +352,6 @@ $Id$
           preservelastmodified="yes"
           file="${basedir}/src/RFCP-Form.doc"/>
 
-    <!-- Get describe parameter -->
-    <git-describe dir="${basedir}/.git" property="describe"/>
     <echo message="Generating NISP with revision ${describe}"/>
   </target>
 
@@ -575,53 +578,64 @@ $Id$
           depends="debug, deb-info, deb-figures">
   </target>
 
-  <target name="deb-overview" description="* [DEBUG] Create DB Overview">
+  <target name="deb-overview" description="* [DEBUG] Create DB Overview"
+          depends="-get-describe">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o overview.html
                  ${basedir}/src/standards/standards.xml
-                 ${xsl-debug.dir}/deb-overview.xsl"/>
+                 ${xsl-debug.dir}/deb-overview.xsl
+                 describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
 
 
-  <target name="deb-family" description="* [DEBUG] Create DB parent/child relationship list">
+  <target name="deb-family" description="* [DEBUG] Create DB parent/child relationship list"
+          depends="-get-describe">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o family.html 
                  ${basedir}/src/standards/standards.xml
-                 ${xsl-debug.dir}/deb-family.xsl"/>
+                 ${xsl-debug.dir}/deb-family.xsl
+                 describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
 
-  <target name="deb-dates" description="* [DEBUG] Create DB Dated list">
+  <target name="deb-dates" description="* [DEBUG] Create DB Dated list"
+          depends="-get-describe">
+
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o dates.html
                  ${basedir}/src/standards/standards.xml
-                 ${xsl-debug.dir}/deb-dates.xsl"/>
+                 ${xsl-debug.dir}/deb-dates.xsl
+                 describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
 
-  <target name="deb-select" description="* [DEBUG] Check what standard/profile a select statement referes to">
+  <target name="deb-select" description="* [DEBUG] Check what standard/profile a select statement referes to"
+          depends="-get-describe">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o select.html
                  ${basedir}/src/standards/standards.xml
-                 ${xsl-debug.dir}/deb-select.xsl"/>
+                 ${xsl-debug.dir}/deb-select.xsl
+                 describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>    
   </target>
 
-  <target name="deb-upcoming" description="* [DEBUG] Create list of upcoming/fading standards/profiles">
+  <target name="deb-upcoming" description="* [DEBUG] Create list of upcoming/fading standards/profiles"
+          depends="-get-describe">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/debug/">
       <arg line="${xslt.opts} -o upcoming.html
                  ${basedir}/src/standards/standards.xml
-                 ${xsl-debug.dir}/deb-upcoming.xsl"/>
+                 ${xsl-debug.dir}/deb-upcoming.xsl
+                 describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
@@ -632,7 +646,8 @@ $Id$
     <java classname="${xslt.class}" fork="yes">
        <arg line="${xslt.opts} -o ${build.dir}/debug/info.html
                   ${basedir}/src/documents.xml
-                  ${xsl-debug.dir}/deb-info.xsl nisp.image.ext=${nisp.image.ext}"/>
+                  ${xsl-debug.dir}/deb-info.xsl nisp.image.ext=${nisp.image.ext}
+                  describe=${describe}"/>
        <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
@@ -643,7 +658,8 @@ $Id$
     <java classname="${xslt.class}" fork="yes">
        <arg line="${xslt.opts} -o ${build.dir}/debug/figures.fo
                   ${basedir}/src/documents.xml
-                  ${xsl-debug.dir}/deb-figures.xsl nisp.image.ext=${nisp.image.ext}"/>
+                  ${xsl-debug.dir}/deb-figures.xsl nisp.image.ext=${nisp.image.ext}
+                  describe=${describe}"/>
        <classpath refid="lib-saxon-classpath"/>
     </java>
     <fop basedir="${build.dir}/debug" fofile="${build.dir}/debug/figures.fo" outfile="${build.dir}/debug/figures.pdf" format="application/pdf" userconfig="${basedir}/lib/fop.xconf"/>

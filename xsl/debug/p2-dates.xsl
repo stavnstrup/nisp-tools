@@ -11,7 +11,7 @@ intended to identify duplex records in  the starndard database.
 
 Output from the stylesheet db-dates.xsl should be piped into this stylesheet.
 
-Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
+Copyright (c) 2003, 2014  Jens Stavnstrup/DDRE <js@ddre.dk>
 
 -->
 
@@ -47,7 +47,7 @@ Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
     <xsl:value-of select="date:year()"/>
     <xsl:text> - </xsl:text>
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
-    </p>
+    <xsl:text> using rev. </xsl:text><xsl:value-of select="@describe"/></p>
 
 
    <p>These columns describes all standards in the database. The

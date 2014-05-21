@@ -4,7 +4,7 @@
 This stylesheet is created for the NISP, and is intended to create 
 a parent/child relationship in the standard database.
 
-Copyright (c) 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -18,6 +18,7 @@ Copyright (c) 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:output method="html" indent="yes"/>
 
+<xsl:param name="describe" select="''"/>
 
 <xsl:template match="standards">
   <xsl:message>Generating parent/child relationship in DB.</xsl:message>
@@ -49,7 +50,7 @@ Copyright (c) 2010  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:value-of select="date:year()"/>
     <xsl:text> - </xsl:text>
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
-    </p>
+    <xsl:text> using rev. </xsl:text><xsl:value-of select="$describe"/></p>
    
     <p>Note:
       <ul>

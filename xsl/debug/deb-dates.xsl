@@ -19,11 +19,12 @@ Copyright (c) 2003,2010  Jens Stavnstrup/DDRE <js@ddre.dk>
   
 <xsl:output method="xml" indent="no" saxon:next-in-chain="p2-dates.xsl"/>
 
+<xsl:param name="describe" select="''"/>
 
 <xsl:template match="standards">
   <xsl:message>Generating DB Dates</xsl:message>
   <xsl:message>  sort all time events</xsl:message>
-  <history>
+  <history describe="{$describe}">
     <xsl:apply-templates select=".//event">
       <xsl:sort select="@date" order="descending"/>
     </xsl:apply-templates>

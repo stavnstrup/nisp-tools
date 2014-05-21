@@ -9,7 +9,7 @@
 This stylesheet is created for the NISP , and is
 intended to create an overview of the starndard database.
 
-Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -20,11 +20,14 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
                 version='1.1'
                 exclude-result-prefixes="#default date saxon">
 
-<xsl:strip-space elements="*"/>
-  
 
 <xsl:output method="xml" indent="no" saxon:next-in-chain="p2-overview.xsl"/>
 
+<xsl:param name="describe" select="''"/>
+
+
+<xsl:strip-space elements="*"/>
+  
 
 
 <!-- If this param is set to one, only one headline is generated.
@@ -67,7 +70,7 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
     </xsl:variable>
 
-    <p><xsl:text>Created on </xsl:text><xsl:value-of select="$formatted-date"/></p>
+    <p><xsl:text>Created on </xsl:text><xsl:value-of select="$formatted-date"/><xsl:text> using rev. </xsl:text><xsl:value-of select="$describe"/></p>
    
     <h2>Statistics</h2>
 
@@ -95,14 +98,13 @@ Copyright (c) 2003, 2013  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
   <h2>Standards</h2>
 
-  <p>This page contains tables all standards and profiles included in
-  the database. The standards and profiles are sorted by IDs.</p>
+  <p>This page contains tables of all standards and profiles included in
+  the database. The standards and profiles are sorted by the <emphasis>id</emphasis> attribute.</p>
 
-  <p>In this overview, records with a red background are marked as
-  deleted. Cells with a yellow background, indicates that that we
+  <p>In this overview, rows with a red background are represent 
+  deleted standards and profiles. Cells with a yellow background, indicates that that we
   properly don't have the information for this field. It will be
-  appreciated very much, if YOU will send this information to the
-  chairman of syndicate 2.</p>
+  appreciated very much, if YOU will identify this information and send it to the mailinglist <a href="mailto:noswg@nw3.dk">noswg@nw3.dk</a>.</p>
 
 
    <ul>
