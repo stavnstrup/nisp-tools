@@ -205,6 +205,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="profilespec/@title"/>&nbsp;
+      <xsl:apply-templates select="parts"/>
     </td>
     <td class="date">
       <xsl:if test="profilespec/@date =''">
@@ -228,6 +229,33 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </td>
     <td><xsl:apply-templates select=".//event"/>&nbsp;</td>
   </tr>
+</xsl:template>
+
+<xsl:template match="parts">
+  <ul>
+   <xsl:apply-templates/>
+  </ul>
+</xsl:template>
+
+
+<xsl:template match="refstandard">
+  <xsl:variable name="refid" select="@refid"/>
+  <li>
+    <xsl:text>(S: </xsl:text>
+    <xsl:value-of select="@refid"/>
+    <xsl:text>) </xsl:text>
+    <xsl:apply-templates select="/standards/records/standard[@id=$refid]/document/@title"/>
+  </li>
+</xsl:template>
+
+<xsl:template match="refprofile">
+  <xsl:variable name="refid" select="@refid"/>
+  <li>
+    <xsl:text>(P: </xsl:text>
+    <xsl:value-of select="@refid"/>
+    <xsl:text>) </xsl:text>
+    <xsl:apply-templates select="/standards/records/profile[@id=$refid]/profilespec/@title"/>
+  </li>
 </xsl:template>
 
 
