@@ -104,7 +104,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <p>In this overview, rows with a red background are represent 
   deleted standards and profiles. Cells with a yellow background, indicates that that we
   properly don't have the information for this field. It will be
-  appreciated very much, if YOU will identify this information and send it to the mailinglist <a href="mailto:noswg@nw3.dk">noswg@nw3.dk</a>.</p>
+  appreciated very much, if YOU will identify this information and send it to <a href="mailto:stavnstrup@mil.dk">me</a>.</p>
 
 
    <ul>
