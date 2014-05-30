@@ -79,7 +79,6 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:param name="generate.id.attributes" select="1"></xsl:param>
 
-
 <!-- Linking -->
 
 <xsl:param name="target.database.document" select="'../../src/olinks/olinksdb.xml'"/> 
@@ -97,6 +96,8 @@ Description : This stylesheet is a customization of Norman Walsh
 <xsl:param name="show.revisionflag" select="0"/>
 
 <xsl:param name="xref.with.number.and.title" select="0"/>
+
+<xsl:param name="draft.watermark.image" select="''"/>
 
 
 <!-- Chunking -->
