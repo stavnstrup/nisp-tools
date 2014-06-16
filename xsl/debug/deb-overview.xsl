@@ -142,7 +142,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </xsl:apply-templates>
   </table>
 
-  <h2>Profiles</h2>
+  <h2 id="profiles">Profiles</h2>
     
   <table class="overview" border="1">
     <xsl:call-template name="htmlheader"/>
