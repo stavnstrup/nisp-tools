@@ -4,10 +4,10 @@
   xmlns:saxon="http://saxon.sf.net/"
   exclude-result-prefixes="saxon">
 
-
 <!--
 
 This stylesheet is under continously development and will eventually be used to convert the standards database from version 4.1a to version 4.1b.
+
 
 The following issues will be resolved:
 
@@ -27,6 +27,8 @@ TODO
 
 
 
+=======
+
 -->
 
 
@@ -41,6 +43,7 @@ TODO
     <xsl:apply-templates/>
   </interoperabilityprofile>
 </xsl:template>
+
 
 
 <xsl:template match="@*|node()">
