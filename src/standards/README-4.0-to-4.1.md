@@ -35,9 +35,14 @@ convert-4.0-to-4.1.xsl to the database.
 * Document changes to the DTD
 
 
-## TODO - after the transformation (development in the **9.0-WIP-stylesheets** branch)
+## TODO (fixed) - after the transformation (development in the **9.0-WIP-stylesheets** branch)
+
+* Add basleline profile to xsl/makeUUID.xsl stylesheet 
 
 
+## TODO (not yet) - after the transformation (development in the **9.0-WIP-stylesheets** branch)
+
+*
 
 
 
