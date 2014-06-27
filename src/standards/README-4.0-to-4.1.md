@@ -15,7 +15,7 @@ Goal: Enable new user defined profiles, som we can add the profiles in
 
 
 The actual transformation will be done by applying the stylesheet
-convert-4.0-to-4.1.xsl to the database.
+convert-4.01a-to-4.1b.xsl to the database.
 
 ## Finished - developed in the **90-WIP-new-schema** branch
 
@@ -34,6 +34,7 @@ convert-4.0-to-4.1.xsl to the database.
 * Remove profile (coi-minor,coi) from the DTD 
 * Document changes to the DTD
 
+
 * A new profile will properly consists of a number of service
   InterOperability Profiles (SIOP). And each SIOP will list
   standards/baslineprofiles will supports the inplementation of a
@@ -42,6 +43,11 @@ convert-4.0-to-4.1.xsl to the database.
 
 
 * Add new custodian element to standards/profiles DTD. The custodian is actually what is currently mentioned as org in profile, but is not defined in profiles.
+=======
+
+## TODO - after the transformation (development in the **9.0-WIP-stylesheets** branch)
+
+
 
 
 
@@ -59,4 +65,6 @@ convert-4.0-to-4.1.xsl to the database.
 
 
 
+
+=======
 
