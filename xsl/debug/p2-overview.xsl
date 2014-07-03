@@ -8,7 +8,7 @@
   
 
 
-<xsl:output method="saxon:xhtml" indent="no"/>
+<xsl:output method="html" indent="no"/>
 
 <xsl:strip-space elements="*"/>
 

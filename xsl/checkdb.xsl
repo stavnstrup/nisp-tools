@@ -11,6 +11,7 @@
   <xsl:variable name="empty.orgid" select="count(//document[@orgid=''])"/>
   <xsl:variable name="empty.pubnum" select="count(//document[@pubnum=''])"/>
   <xsl:variable name="empty.date" select="count(//document[@date=''])"/>
+  <xsl:variable name="empty.uri" select="count(//standard)-count(//status/uri)"/>
 
   <xsl:if test="$empty.tag">
     <xsl:message>
@@ -40,6 +41,14 @@
       <xsl:text> empty dates</xsl:text>
     </xsl:message>
   </xsl:if>
+  <xsl:if test="$empty.uri">
+    <xsl:message>
+      <xsl:text>Warning: </xsl:text>
+      <xsl:value-of select="$empty.uri"/>
+      <xsl:text> empty uris</xsl:text>
+    </xsl:message>
+  </xsl:if>
+  
 
   <xsl:if test="$empty.tag + $empty.orgid + $empty.pubnum + $empty.date > 0">
     <xsl:message>Run the command "build debug" for additional information</xsl:message>
