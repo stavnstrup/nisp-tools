@@ -31,6 +31,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DDRE <js@ddre.dk>
 <xsl:template match="history">
   <xsl:message>  generate HTML view of time events</xsl:message>
   <html>
+    <meta charset="utf-8" />
     <head><title>Sort all records by date</title></head>
   <body>
     <h1>Sort all records by date</h1>
