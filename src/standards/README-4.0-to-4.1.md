@@ -34,6 +34,12 @@ convert-4.0-to-4.1.xsl to the database.
 * Remove profile (coi-minor,coi) from the DTD 
 * Document changes to the DTD
 
+* A new profile will properly consists of a number of service
+  InterOperability Profiles (SIOP). And each SIOP will list
+  standards/baslineprofiles will supports the inplementation of a
+  service from the C3-taxonomy. I.e. we now have three profile
+  elements: profile, siop and baselineprofile.
+
 
 ## TODO (fixed) - after the transformation (development in the **9.0-WIP-stylesheets** branch)
 
