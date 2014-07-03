@@ -125,8 +125,8 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         record begins on a new line</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
      <li><b>Select</b> - Is this record selected by NATO (M : Mandatory, E: Emerging, F: fading)</li>
-
      <li><b>History</b> - What is the history of the record</li>
+     <li><b>URI</b> - Location of the standard</li>
    </ul>
 
   <xsl:if test="$excelXP = 1">
@@ -170,6 +170,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td><b>Tag</b></td>
     <td><b>Select</b></td>
     <td><b>History</b></td>
+    <td><b>URI</b></td>
    </tr>
 </xsl:template>
 
@@ -228,6 +229,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       
     </td>
     <td><xsl:apply-templates select=".//event"/></td>
+    <td>N/A</td>
   </tr>
 </xsl:template>
 
@@ -316,6 +318,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       
     </td>
     <td class="date"><xsl:apply-templates select=".//event"/></td>
+    <td><xsl:apply-templates select="status/uri"/></td>
   </tr>
 </xsl:template>
 
@@ -334,6 +337,16 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:value-of select="@orgid"/><xsl:text>:</xsl:text><xsl:value-of 
        select="@pubnum"/><xsl:text>:</xsl:text><xsl:value-of select="@date"/>
   <xsl:if test="following-sibling::alsoknown[position()=1]"><br /></xsl:if>
+</xsl:template>
+
+
+<xsl:template match="uri">
+  <a>
+    <xsl:attribute name="href">
+      <xsl:value-of select="."/>
+    </xsl:attribute> 
+    <xsl:value-of select="."/>
+  </a>
 </xsl:template>
 
 
