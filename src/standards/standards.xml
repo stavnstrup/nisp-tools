@@ -4080,8 +4080,7 @@
          </sp-view>
          <sp-view idx="d0e10517">
             <select id="nato-stanag1059ed8" mode="mandatory">Letters for Geographic Entities, STANAG 1059, ed.8:2004</select>
-            <remarks>
-<!--               The codes CY and CYP refer to Island of Cyprus, the code 8P refers to Istanbul Strait, the code 8U refers to Canakkale Strait, and for the codes FY and FYR; Turkey recognizes Republic of Macedonia with its constitutional name. -->
+            <remarks><!--               The codes CY and CYP refer to Island of Cyprus, the code 8P refers to Istanbul Strait, the code 8U refers to Canakkale Strait, and for the codes FY and FYR; Turkey recognizes Republic of Macedonia with its constitutional name. -->
                For CCEB interoperability the country codes standard is ISO 3166
                trigraphs except for military messaging - see CCEB COMAG Policy On Security
                Labelling
@@ -45472,6 +45471,27 @@
          <uuid>8e3c891b-fd47-4e3a-bf3a-5df9af9d1d72</uuid>
       </standard>
 
+      <standard id="ogc-01-024r1" tag="WRS">
+         <document orgid="ogc" pubnum="01-024r1" date="2001-01-26" title="Web Registry Server (WRS):2001">
+            <comment>deprecated</comment>
+         </document>
+         <applicability>
+            A Web Coverage Service supports ?one stop shopping? for the
+            registration, metadata publishing, descriptor ingest, push and pull update
+            of descriptors, and discovery of Web Services (e.g. WMS, WFS, WCS) using HTTP
+            as the distributed computing platform.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://portal.opengeospatial.org/files/?artifact_id=1028</uri>
+            <history>
+               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
+               <event flag="changed" date="2005-09-15" version="0.7"/>
+               <event flag="changed" date="2010-08-09" version="5.0"/>
+            </history>
+         </status>
+         <uuid>8bdd50db-3fad-4a1d-b710-0060a9f7be16</uuid>
+      </standard>
+
       <standard tag="WCS Impl." id="ogc-03-065r6">
          <document orgid="ogc" pubnum="03-065r6" date="2003-10-16" title="Web Coverage Service (WCS) Standard Guidance Implementation Specification" version="1.0"/>
          <applicability>Extends the Web Map Server (WMS) interface to allow
@@ -45486,6 +45506,69 @@
             </history>
          </status>
          <uuid>da461f55-5e79-4346-b7a2-836adcb07577</uuid>
+      </standard>
+
+      <standard id="ogc-03-081r2" tag="WTS">
+         <document orgid="ogc" pubnum="OGC 03-081r2" date="2003-11-07" title="Web Terrain Service"/>
+         <applicability>
+            This document is a companion specification to the OpenGIS Web Map Service
+            Interface Implementation Specification verion 1.1.1, hereinafter WMS.
+            WMS specifies how individual map servers describe and provide their map
+            content. The present Web Terrain Service specification describes a new
+            operation, GetView, and extended Capabilities which allow a 3D terrain
+            view image to be requested, given a map composition, a terrain model on
+            which to drape a map, and a 3D viewpoint from which to render the terrain
+            view. A simple attempt is also made to reconcile 2D and 3D viewpoints by
+            allowing the requested 3D area of a view to be approximated with a WMS 1.1.1
+            bounding box.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://portal.opengeospatial.org/files/?artifact_id=11499</uri>
+            <history>
+               <event flag="added" date="2011-04-27" version="5.0"/>
+            </history>
+         </status>
+         <uuid>265db3fd-e949-4eb0-8403-74f9eae9fcdd</uuid>
+      </standard>
+
+      <standard id="ogc-04-038r1" tag="OGC CSW Profile">
+         <document orgid="ogc" pubnum="04-038r1" date="2004" title="ISO 19115/19119 Profile for OGC Catalogue Services CSW 2.0" version="2"/>
+         <applicability>
+            In the context of spatial data infrastructures, the international
+            of OGC and ISO standards form the basis of most existing catalogue interface
+            implementations. However, practical interoperability has not yet been achieved:
+            the available specifications still possess varying degrees of freedom, which
+            lead to a diversity of implementations and lack of interoperability. A solution
+            of this problem is currently under development within the context of the
+            Catalogue Service Implementation Specification 2.0 (CSW 2.0) that introduces
+            a conceptual framework for the definition of Catalogue Application Profiles
+            (CAPs). The document at hand demonstrates how to set up an application profile
+            that handles metadata description based on ISO 19115/19119.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://portal.opengeospatial.org/files/?artifact_id=6495</uri>
+            <history>
+               <event flag="added" date="2005-11-22" rfcp="6-16" version="0.7"/>
+            </history>
+         </status>
+         <uuid>74ca578f-1a29-452a-a39d-f424caac700d</uuid>
+      </standard>
+
+      <standard id="ogc-04-094" tag="WFS">
+         <document orgid="ogc" pubnum="04-094" date="2005-05-03" title="Web Feature Service Implementation Specification"/>
+         <applicability>
+           The OGC Web Map Service allows a client to overlay map images for display served 
+           from multiple Web Map Services on the Internet. In a similar fashion, the OGC Web 
+           Feature Service allows a client to retrieve and update geospatial data encoded in
+           Geography Markup Language (GML) from multiple Web Feature Services.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.opengeospatial.org/standards/wfs</uri>
+            <history>
+               <event flag="added" date="2013-10-23" rfcp="7-27" version="8.0"/>
+            </history>
+         </status>
+         <uuid>5f050235-a040-462b-bffc-901fe2d83fec</uuid>
       </standard>
 
       <standard id="ogc-05-007r7" tag="OpenGis WPS">
@@ -45505,6 +45588,74 @@
             </history>
          </status>
          <uuid>c2d55dcd-53eb-4f40-a6b5-7152246f94fd</uuid>
+      </standard>
+
+      <standard id="ogc-05-047r3" tag="GMLJP2">
+         <document orgid="ogc" pubnum="05-047r3" date="2006-01-20" title="GML in JPEG 2000 for Geographic Imagery (GMLJP2)"/>
+         <applicability>
+            This specification applies to capabilities and contents of a Web
+            Terrain Service This specification defines an encoding for service requests
+            and responces using Key-Value Pairs, and for service capabilities using
+            eXtensible Markup Language [XML 1.0]. This specification is a companion to
+            the OGC Web Map Service Specification [WMS 1.0.0, WMS 1.1.0, WMS 1.1.1].
+            Reference is made to normative material from [WMS 1.1.1]. In some cases,
+            reference is made to normative material from the Styled Layer Descriptor
+            specification [SLD].
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.opengeospatial.org/projects/groups/gmljp2-1.1swg</uri>
+            <history>
+               <event flag="added" date="2005-11-22" rfcp="6-16" version="0.7"/>
+               <event flag="changed" date="2011-04-27" version="5.0"/>
+            </history>
+         </status>
+         <uuid>789bffd9-2001-4d91-8385-afe73f64f247</uuid>
+      </standard>
+
+      <standard id="ogc-05-078r4" tag="OGC SLD">
+         <document orgid="ogc" pubnum="05-078r4" date="2007-06-29" title="OpenGIS Styled Layer Descriptor Profile of the Web Map Service (SLD) v1.1.0"/>
+         <applicability>
+            This document explains how the Web Map Server specification can be extended
+            to allow user-defined symbolization of feature and coverage data. It should
+            be read in conjunction with the latest version WMS specification. At the time
+            of writing the latest version WMS specification was defined by the WMS 1.3
+            Specification.
+            <para>
+               This document is together with the Symbology Encoding Implementation
+               Specification the direct follow-up of Styled Layer Descriptor Implementation
+               Specification 1.0.0. The old specification document was split up into two
+               document to allow the parts that are not specific to WMS to be reused by
+               other service specifications.
+            </para>
+         </applicability>
+         <status mode="accepted">
+            <uri>http://portal.opengeospatial.org/files/?artifact_id=22364</uri>
+            <history>
+               <event flag="added" date="2010-12-04" version="5.0"/>
+            </history>
+         </status>
+         <uuid>758eacdb-c4ab-4f53-8271-eb905028d98b</uuid>
+      </standard>
+
+      <standard id="ogc-06-042" tag="OGC WMS">
+         <document orgid="ogc" pubnum="06-042" date="2006" title="Open GIS Web Map Service Implementation Specification v1.3:2006" version="1.3"/>
+         <applicability>
+            A WMS (OGC Web Map Server) is capable of producing maps drawn
+            into a standard image format (PNG, JPEG, etc). based on a standard set of
+            input parameters. The resulting map can contain 'transparent' pixels where
+            there is no information and thus several independently drawn maps can be laid
+            on top of each other to produce an overall map. This is possible even when
+            the maps come from different Web Map Servers.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.opengeospatial.org/standards/wms</uri>
+            <history>
+               <event flag="added" date="2005-11-22" rfcp="6-16" version="0.7"/>
+               <event flag="changed" date="2010-08-09" version="5.0"/>
+               <event flag="changed" date="2011-04-27" version="5.0"/>
+            </history>
+         </status>
+         <uuid>8ffc7726-6d66-4b04-ae07-56dc06976147</uuid>
       </standard>
 
       <standard id="ogc-06-050r3" tag="GeoRSS">
@@ -45527,6 +45678,29 @@
          <uuid>82f54702-c45a-40aa-b54e-ec2a27215a27</uuid>
       </standard>
 
+      <standard id="ogc-07-006r1" tag="CSW 2.0">
+         <document orgid="ogc" pubnum="07-006r1" date="2007-02-23" title="Catalogue Service Specification v.2.0.2"/>
+         <applicability>
+            This document specifies the interfaces between clients and catalogue services,
+            through the presentation of abstract and implementation-specific models.
+            Catalogue services support the ability to publish and search collections
+            of descriptive information (metadata) for data, services, and related
+            information objects. Metadata in catalogues represent resource characteristics
+            that can be queried and presented for evaluation and further processing by
+            both humans and software. Catalogue services are required to support the
+            discovery and binding to registered information resources within an information community.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.opengeospatial.org/standards/cat</uri>
+            <history>
+               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
+               <event flag="changed" date="2005-09-15" version="0.7"/>
+               <event flag="changed" date="2010-12-04" version="5.0"/>
+            </history>
+         </status>
+         <uuid>8accb0b2-26dc-473b-86bb-9fc773b91a76</uuid>
+      </standard>
+
       <standard id="ogc-07-036" tag="OGC GML">
          <document date="2007" orgid="ogc" pubnum="07-036" title="OpenGIS Geography Markup Language (GML) Encoding Standard"/>
          <applicability>
@@ -45542,6 +45716,65 @@
             </history>
          </status>
          <uuid>17d711be-d9dd-42df-b473-fc8828312f3f</uuid>
+      </standard>
+
+      <standard id="ogc-07-057r7" tag="WMTS">
+         <document orgid="ogc" pubnum="07-057r7" date="2010-04-06" title="OpenGIS Web Map Tile Service Implementation Standard"/>
+         <applicability>
+           This OGC document is applicable to servers and clients that can serve and consume
+           rendered tile maps. It can be combined with other OGC standards and also integrated
+           with the emerging RESTful applications and "mash-ups".
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.opengeospatial.org/standards/wmts</uri>
+            <history>
+               <event flag="added" date="2013-10-23" rfcp="7-27" version="8.0"/>
+            </history>
+         </status>
+         <uuid>f7163e33-8514-4a0a-ad52-b1b197c631d4</uuid>
+      </standard>
+
+      <standard id="ogc-07-110r4" tag="OGC HTTP binding">
+         <document orgid="ogc" pubnum="07-110r4" date="2009-02-05" title="CSW-ebRIM Registry Service - Part 1: ebRIM profile of CSW v.1.0.1"/>
+         <applicability>
+            The OGC Catalogue Services 2.0.2 specification (OGC 07-006r1) establishes
+            a general framework for implementing catalogue services that can be used
+            to meet the needs of stakeholders in a wide variety of application domains.
+            This profile is based on the HTTP protocol binding described in Clause 10
+            of the Catalogue 2.0.2 specification; it qualifies as a ‘Class 2’ profile
+            under the terms of ISO 19106 since it includes extensions permitted within
+            the context of the base specifications, some of which are not part of the
+            ISO 19100 series of geomatics standards.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://portal.opengeospatial.org/files/?artifact_id=31137</uri>
+            <history>
+               <event flag="added" date="2010-12-04" version="5.0"/>
+            </history>
+         </status>
+         <uuid>5465e6cb-46d1-4b1a-9ee0-0c3ac5141e45</uuid>
+      </standard>
+
+      <standard id="ogc-07-147r2" tag="OGC KML">
+         <document orgid="ogc" pubnum="07-147r2" date="2008-04-14" title="OGC KML"/>
+         <applicability>
+            KML is an XML language focused on geographic visualization,
+            including annotation of maps and images. Geographic visualization includes
+            not only the presentation of graphical data on the globe, but also the
+            control of the user's navigation in the sense of where to go and where to
+            look. From this perspective, KML is complementary to most of the key
+            existing OGC standards including GML (Geography Markup Language),
+            WFS (Web Feature Service) and WMS (Web Map Service). Currently, KML 2.2
+            utilizes certain geometry elements derived from GML 2.1.2. These elements
+            include point, line string, linear ring, and polygon.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.opengeospatial.org/standards/kml/</uri>
+            <history>
+               <event flag="added" date="2010-09-22" rfcp="4-28" version="5.0"/>
+            </history>
+         </status>
+         <uuid>b4033d47-84c0-4933-95ac-25497c254bcb</uuid>
       </standard>
 
       <standard id="ogc-08-007r1" tag="CityGML">
@@ -45619,6 +45852,50 @@
          <uuid>1d81d4ef-51ae-454f-8a41-abeb373bb8dd</uuid>
       </standard>
 
+      <standard id="ogc-09-025r1" tag="WFS 2.0">
+         <document orgid="ogc" pubnum="09-025r1" date="2009" title="Web Feature Service Implementation Specification v2.0:2009" version="2.0"/>
+         <applicability>
+            The Web Map Service allows a client to overall map images for
+            display served from multiple Web Map Services on a network. In a similar
+            fashion, a Web Feature Service allows a client to retrieve geospatial vector
+            data encoded in Geography Markup Language (GML) from multiple Web Feature
+            Services. It can:
+            <itemizedlist>
+               <listitem>
+                  <para>Distribute vector data encoded in GML</para>
+               </listitem>
+               <listitem>
+                  <para>Answer basic queries about the features</para>
+               </listitem>
+               <listitem>
+                  <para>Tell other programs what capabilities the service can perform</para>
+               </listitem>
+            </itemizedlist>
+            <para>A transactional Web Feature Service can further:</para>
+            <itemizedlist>
+               <listitem>
+                  <para>Create a new feature instance</para>
+               </listitem>
+               <listitem>
+                  <para>Delete a feature instance</para>
+               </listitem>
+               <listitem>
+                  <para>Update a feature instance</para>
+               </listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.opengeospatial.org/docs/02-058.pdf</uri>
+            <history>
+               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
+               <event flag="changed" date="2005-11-22" rfcp="6-16" version="0.7"/>
+               <event flag="changed" date="2010-08-09" version="5.0"/>
+               <event flag="changed" date="2011-04-27" version="5.0"/>
+            </history>
+         </status>
+         <uuid>fcf183db-b319-49dc-bcfd-dcb73d197f1d</uuid>
+      </standard>
+
       <standard id="ogc-09-026r1" tag="CCQL Encoding">
          <document orgid="ogc" pubnum="09-026r1" date="2010-11-22" title="Filter Encoding Implementation Specification v2.0"/>
          <applicability>
@@ -45634,6 +45911,42 @@
             </history>
          </status>
          <uuid>979e7a81-f02f-4188-bd87-5fe302defae0</uuid>
+      </standard>
+
+      <standard id="ogc-09-110r4" tag="WCS Core">
+         <document orgid="ogc" pubnum="09-110r4" date="2012" title="Web Coverage Service Core (WCS):2012"/>
+         <applicability>
+            A Web Coverage Service supports the networked interchange of
+            geospatial data as coverages (i.e. raster, matrix and imagery data). Unlike
+            a Web Map Service which filters and portrays geospatial data to return static
+            maps (server-rendered as pictures), the Web Coverage Service provides access
+            to intact (unrendered) geospatial information, as needed for client-side
+            rendering, multi-valued coverages, and input into scientific models and other
+            clients beyond simple viewers. It can:
+            <itemizedlist>
+               <listitem>
+                  <para>
+                     Distribute geospatial raster data in standardised formats (e.g.
+                     GeoTIFF)
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>Answer basic queries about the coverages</para>
+               </listitem>
+               <listitem>
+                  <para>Tell other programs what capabilities the service can perform</para>
+               </listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="accepted">
+            <uri>http://portal.opengeospatial.org/files/?artifact_id=41437</uri>
+            <history>
+               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
+               <event flag="changed" date="2010-08-09" version="5.0"/>
+               <event flag="changed" date="2013-10-23" rfcp="7-27" version="8.0"/>
+            </history>
+         </status>
+         <uuid>d7a476ca-f3cf-43b5-8edc-b758862adb63</uuid>
       </standard>
 
       <standard id="ogc-10-090r3" tag="NetCDF">
@@ -45698,320 +46011,6 @@
             </history>
          </status>
          <uuid>8c18af2b-e62d-4c54-b0a9-7061b923f309</uuid>
-      </standard>
-
-      <standard id="ogc-07-147r2" tag="OGC KML">
-         <document orgid="ogc" pubnum="07-147r2" date="2008-04-14" title="OGC KML"/>
-         <applicability>
-            KML is an XML language focused on geographic visualization,
-            including annotation of maps and images. Geographic visualization includes
-            not only the presentation of graphical data on the globe, but also the
-            control of the user's navigation in the sense of where to go and where to
-            look. From this perspective, KML is complementary to most of the key
-            existing OGC standards including GML (Geography Markup Language),
-            WFS (Web Feature Service) and WMS (Web Map Service). Currently, KML 2.2
-            utilizes certain geometry elements derived from GML 2.1.2. These elements
-            include point, line string, linear ring, and polygon.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.opengeospatial.org/standards/kml/</uri>
-            <history>
-               <event flag="added" date="2010-09-22" rfcp="4-28" version="5.0"/>
-            </history>
-         </status>
-         <uuid>b4033d47-84c0-4933-95ac-25497c254bcb</uuid>
-      </standard>
-
-      <standard id="ogc-01-024r1" tag="WRS">
-         <document orgid="ogc" pubnum="01-024r1" date="2001-01-26" title="Web Registry Server (WRS):2001">
-            <comment>deprecated</comment>
-         </document>
-         <applicability>
-            A Web Coverage Service supports ?one stop shopping? for the
-            registration, metadata publishing, descriptor ingest, push and pull update
-            of descriptors, and discovery of Web Services (e.g. WMS, WFS, WCS) using HTTP
-            as the distributed computing platform.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://portal.opengeospatial.org/files/?artifact_id=1028</uri>
-            <history>
-               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2010-08-09" version="5.0"/>
-            </history>
-         </status>
-         <uuid>8bdd50db-3fad-4a1d-b710-0060a9f7be16</uuid>
-      </standard>
-
-      <standard id="ogc-03-081r2" tag="WTS">
-         <document orgid="ogc" pubnum="OGC 03-081r2" date="2003-11-07" title="Web Terrain Service"/>
-         <applicability>
-            This document is a companion specification to the OpenGIS Web Map Service
-            Interface Implementation Specification verion 1.1.1, hereinafter WMS.
-            WMS specifies how individual map servers describe and provide their map
-            content. The present Web Terrain Service specification describes a new
-            operation, GetView, and extended Capabilities which allow a 3D terrain
-            view image to be requested, given a map composition, a terrain model on
-            which to drape a map, and a 3D viewpoint from which to render the terrain
-            view. A simple attempt is also made to reconcile 2D and 3D viewpoints by
-            allowing the requested 3D area of a view to be approximated with a WMS 1.1.1
-            bounding box.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://portal.opengeospatial.org/files/?artifact_id=11499</uri>
-            <history>
-               <event flag="added" date="2011-04-27" version="5.0"/>
-            </history>
-         </status>
-         <uuid>265db3fd-e949-4eb0-8403-74f9eae9fcdd</uuid>
-      </standard>
-
-      <standard id="ogc-04-038r1" tag="OGC CSW Profile">
-         <document orgid="ogc" pubnum="04-038r1" date="2004" title="ISO 19115/19119 Profile for OGC Catalogue Services CSW 2.0" version="2"/>
-         <applicability>
-            In the context of spatial data infrastructures, the international
-            of OGC and ISO standards form the basis of most existing catalogue interface
-            implementations. However, practical interoperability has not yet been achieved:
-            the available specifications still possess varying degrees of freedom, which
-            lead to a diversity of implementations and lack of interoperability. A solution
-            of this problem is currently under development within the context of the
-            Catalogue Service Implementation Specification 2.0 (CSW 2.0) that introduces
-            a conceptual framework for the definition of Catalogue Application Profiles
-            (CAPs). The document at hand demonstrates how to set up an application profile
-            that handles metadata description based on ISO 19115/19119.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://portal.opengeospatial.org/files/?artifact_id=6495</uri>
-            <history>
-               <event flag="added" date="2005-11-22" rfcp="6-16" version="0.7"/>
-            </history>
-         </status>
-         <uuid>74ca578f-1a29-452a-a39d-f424caac700d</uuid>
-      </standard>
-
-      <standard id="ogc-04-094" tag="WFS">
-         <document orgid="ogc" pubnum="04-094" date="2005-05-03" title="Web Feature Service Implementation Specification"/>
-         <applicability>
-           The OGC Web Map Service allows a client to overlay map images for display served 
-           from multiple Web Map Services on the Internet. In a similar fashion, the OGC Web 
-           Feature Service allows a client to retrieve and update geospatial data encoded in
-           Geography Markup Language (GML) from multiple Web Feature Services.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.opengeospatial.org/standards/wfs</uri>
-            <history>
-               <event flag="added" date="2013-10-23" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>5f050235-a040-462b-bffc-901fe2d83fec</uuid>
-      </standard>
-
-      <standard id="ogc-05-047r3" tag="GMLJP2">
-         <document orgid="ogc" pubnum="05-047r3" date="2006-01-20" title="GML in JPEG 2000 for Geographic Imagery (GMLJP2)"/>
-         <applicability>
-            This specification applies to capabilities and contents of a Web
-            Terrain Service This specification defines an encoding for service requests
-            and responces using Key-Value Pairs, and for service capabilities using
-            eXtensible Markup Language [XML 1.0]. This specification is a companion to
-            the OGC Web Map Service Specification [WMS 1.0.0, WMS 1.1.0, WMS 1.1.1].
-            Reference is made to normative material from [WMS 1.1.1]. In some cases,
-            reference is made to normative material from the Styled Layer Descriptor
-            specification [SLD].
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.opengeospatial.org/projects/groups/gmljp2-1.1swg</uri>
-            <history>
-               <event flag="added" date="2005-11-22" rfcp="6-16" version="0.7"/>
-               <event flag="changed" date="2011-04-27" version="5.0"/>
-            </history>
-         </status>
-         <uuid>789bffd9-2001-4d91-8385-afe73f64f247</uuid>
-      </standard>
-
-      <standard id="ogc-05-078r4" tag="OGC SLD">
-         <document orgid="ogc" pubnum="05-078r4" date="2007-06-29" title="OpenGIS Styled Layer Descriptor Profile of the Web Map Service (SLD) v1.1.0"/>
-         <applicability>
-            This document explains how the Web Map Server specification can be extended
-            to allow user-defined symbolization of feature and coverage data. It should
-            be read in conjunction with the latest version WMS specification. At the time
-            of writing the latest version WMS specification was defined by the WMS 1.3
-            Specification.
-            <para>
-               This document is together with the Symbology Encoding Implementation
-               Specification the direct follow-up of Styled Layer Descriptor Implementation
-               Specification 1.0.0. The old specification document was split up into two
-               document to allow the parts that are not specific to WMS to be reused by
-               other service specifications.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://portal.opengeospatial.org/files/?artifact_id=22364</uri>
-            <history>
-               <event flag="added" date="2010-12-04" version="5.0"/>
-            </history>
-         </status>
-         <uuid>758eacdb-c4ab-4f53-8271-eb905028d98b</uuid>
-      </standard>
-
-      <standard id="ogc-06-042" tag="OGC WMS">
-         <document orgid="ogc" pubnum="06-042" date="2006" title="Open GIS Web Map Service Implementation Specification v1.3:2006" version="1.3"/>
-         <applicability>
-            A WMS (OGC Web Map Server) is capable of producing maps drawn
-            into a standard image format (PNG, JPEG, etc). based on a standard set of
-            input parameters. The resulting map can contain 'transparent' pixels where
-            there is no information and thus several independently drawn maps can be laid
-            on top of each other to produce an overall map. This is possible even when
-            the maps come from different Web Map Servers.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.opengeospatial.org/standards/wms</uri>
-            <history>
-               <event flag="added" date="2005-11-22" rfcp="6-16" version="0.7"/>
-               <event flag="changed" date="2010-08-09" version="5.0"/>
-               <event flag="changed" date="2011-04-27" version="5.0"/>
-            </history>
-         </status>
-         <uuid>8ffc7726-6d66-4b04-ae07-56dc06976147</uuid>
-      </standard>
-
-      <standard id="ogc-07-006r1" tag="CSW 2.0">
-         <document orgid="ogc" pubnum="07-006r1" date="2007-02-23" title="Catalogue Service Specification v.2.0.2"/>
-         <applicability>
-            This document specifies the interfaces between clients and catalogue services,
-            through the presentation of abstract and implementation-specific models.
-            Catalogue services support the ability to publish and search collections
-            of descriptive information (metadata) for data, services, and related
-            information objects. Metadata in catalogues represent resource characteristics
-            that can be queried and presented for evaluation and further processing by
-            both humans and software. Catalogue services are required to support the
-            discovery and binding to registered information resources within an information community.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.opengeospatial.org/standards/cat</uri>
-            <history>
-               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2010-12-04" version="5.0"/>
-            </history>
-         </status>
-         <uuid>8accb0b2-26dc-473b-86bb-9fc773b91a76</uuid>
-      </standard>
-
-      <standard id="ogc-07-057r7" tag="WMTS">
-         <document orgid="ogc" pubnum="07-057r7" date="2010-04-06" title="OpenGIS Web Map Tile Service Implementation Standard"/>
-         <applicability>
-           This OGC document is applicable to servers and clients that can serve and consume
-           rendered tile maps. It can be combined with other OGC standards and also integrated
-           with the emerging RESTful applications and "mash-ups".
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.opengeospatial.org/standards/wmts</uri>
-            <history>
-               <event flag="added" date="2013-10-23" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>f7163e33-8514-4a0a-ad52-b1b197c631d4</uuid>
-      </standard>
-
-      <standard id="ogc-07-110r4" tag="OGC HTTP binding">
-         <document orgid="ogc" pubnum="07-110r4" date="2009-02-05" title="CSW-ebRIM Registry Service - Part 1: ebRIM profile of CSW v.1.0.1"/>
-         <applicability>
-            The OGC Catalogue Services 2.0.2 specification (OGC 07-006r1) establishes
-            a general framework for implementing catalogue services that can be used
-            to meet the needs of stakeholders in a wide variety of application domains.
-            This profile is based on the HTTP protocol binding described in Clause 10
-            of the Catalogue 2.0.2 specification; it qualifies as a ‘Class 2’ profile
-            under the terms of ISO 19106 since it includes extensions permitted within
-            the context of the base specifications, some of which are not part of the
-            ISO 19100 series of geomatics standards.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://portal.opengeospatial.org/files/?artifact_id=31137</uri>
-            <history>
-               <event flag="added" date="2010-12-04" version="5.0"/>
-            </history>
-         </status>
-         <uuid>5465e6cb-46d1-4b1a-9ee0-0c3ac5141e45</uuid>
-      </standard>
-
-      <standard id="ogc-09-025r1" tag="WFS 2.0">
-         <document orgid="ogc" pubnum="09-025r1" date="2009" title="Web Feature Service Implementation Specification v2.0:2009" version="2.0"/>
-         <applicability>
-            The Web Map Service allows a client to overall map images for
-            display served from multiple Web Map Services on a network. In a similar
-            fashion, a Web Feature Service allows a client to retrieve geospatial vector
-            data encoded in Geography Markup Language (GML) from multiple Web Feature
-            Services. It can:
-            <itemizedlist>
-               <listitem>
-                  <para>Distribute vector data encoded in GML</para>
-               </listitem>
-               <listitem>
-                  <para>Answer basic queries about the features</para>
-               </listitem>
-               <listitem>
-                  <para>Tell other programs what capabilities the service can perform</para>
-               </listitem>
-            </itemizedlist>
-            <para>A transactional Web Feature Service can further:</para>
-            <itemizedlist>
-               <listitem>
-                  <para>Create a new feature instance</para>
-               </listitem>
-               <listitem>
-                  <para>Delete a feature instance</para>
-               </listitem>
-               <listitem>
-                  <para>Update a feature instance</para>
-               </listitem>
-            </itemizedlist>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.opengeospatial.org/docs/02-058.pdf</uri>
-            <history>
-               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
-               <event flag="changed" date="2005-11-22" rfcp="6-16" version="0.7"/>
-               <event flag="changed" date="2010-08-09" version="5.0"/>
-               <event flag="changed" date="2011-04-27" version="5.0"/>
-            </history>
-         </status>
-         <uuid>fcf183db-b319-49dc-bcfd-dcb73d197f1d</uuid>
-      </standard>
-
-      <standard id="ogc-09-110r4" tag="WCS Core">
-         <document orgid="ogc" pubnum="09-110r4" date="2012" title="Web Coverage Service Core (WCS):2012"/>
-         <applicability>
-            A Web Coverage Service supports the networked interchange of
-            geospatial data as coverages (i.e. raster, matrix and imagery data). Unlike
-            a Web Map Service which filters and portrays geospatial data to return static
-            maps (server-rendered as pictures), the Web Coverage Service provides access
-            to intact (unrendered) geospatial information, as needed for client-side
-            rendering, multi-valued coverages, and input into scientific models and other
-            clients beyond simple viewers. It can:
-            <itemizedlist>
-               <listitem>
-                  <para>
-                     Distribute geospatial raster data in standardised formats (e.g.
-                     GeoTIFF)
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>Answer basic queries about the coverages</para>
-               </listitem>
-               <listitem>
-                  <para>Tell other programs what capabilities the service can perform</para>
-               </listitem>
-            </itemizedlist>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://portal.opengeospatial.org/files/?artifact_id=41437</uri>
-            <history>
-               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
-               <event flag="changed" date="2010-08-09" version="5.0"/>
-               <event flag="changed" date="2013-10-23" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>d7a476ca-f3cf-43b5-8edc-b758862adb63</uuid>
       </standard>
 
       <standard id="ogc-wcs-is" tag="WCS Impl.">
