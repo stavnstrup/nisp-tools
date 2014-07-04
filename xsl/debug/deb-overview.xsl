@@ -142,8 +142,20 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </xsl:apply-templates>
   </table>
 
-  <h2 id="profiles">Profiles</h2>
-    
+  <h2 id="profiles">Baseline profiles</h2>
+  
+  <p>A baseline profile list a set of standard, which fits natually
+  together and is for convenience only. In the future we will
+  implement two extra profile type: a Service InterOperability Profile
+  (SIOP) which will reference standards and baseline profiles and provide guidance to describe the
+  SIOP necessary to implement a service described in the <a
+  href="https://tide.act.nato.int/em/index.php?title=Technical_Services">Technical
+  Service Framework</a> (part of the <a
+  href="https://tide.act.nato.int/em/index.php?title=C3_Taxonomy">C3
+  taxonomy</a>).</p>
+
+  <p>A profile will consists of a set of SIOPs. An example of this is the FMN profile.</p>
+
   <table class="overview" border="1">
     <xsl:call-template name="htmlheader"/>
     <xsl:apply-templates select="//profile">
