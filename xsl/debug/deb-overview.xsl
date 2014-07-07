@@ -240,15 +240,28 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:value-of select="@tag"/></td>
     <td align="center">
-      <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F,</xsl:if>
-      
+      <xsl:apply-templates select="/standards/lists//select[@id=$myid]"/>
     </td>
     <td><xsl:apply-templates select=".//event"/></td>
     <td>N/A</td>
   </tr>
 </xsl:template>
+
+
+<xsl:template match="select">
+  <xsl:variable name="tref" select="ancestor::sp-list/@tref"/>
+  <xsl:choose>
+    <xsl:when test="@mode='mandatory'">M</xsl:when>
+    <xsl:when test="@mode='emerging'">E</xsl:when>
+    <xsl:when test="@mode='fading'">F</xsl:when>
+  </xsl:choose>
+  <xsl:text> ( </xsl:text>
+  <xsl:value-of select="/standards/taxonomy//*[@id=$tref]/@title"/>
+  <xsl:text> ) </xsl:text>
+</xsl:template>
+
+
+
 
 <xsl:template match="parts">
   <ul>
@@ -329,10 +342,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>            
       <xsl:value-of select="@tag"/></td>
     <td align="center">
-      <xsl:if test="/standards/lists//select[(@mode='mandatory') and (@id=$myid)]">M,</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='emerging') and (@id=$myid)]">E,</xsl:if>
-      <xsl:if test="/standards/lists//select[(@mode='fading') and (@id=$myid)]">F,</xsl:if>
-      
+      <xsl:apply-templates select="/standards/lists//select[@id=$myid]"/>
     </td>
     <td class="date"><xsl:apply-templates select=".//event"/></td>
     <td>
