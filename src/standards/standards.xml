@@ -2124,7 +2124,7 @@
             <rationale>RFC 6724 added in NISP v.8 through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e46861">
-            <select id="itu-g.993.2" mode="emerging">VDSL2</select>
+            <select id="itu-t-g.993.2" mode="emerging">VDSL2</select>
             <remarks>
                VDSL2 is the next generation of Super Broadband
                DSL. Ericsson has demonstrated 500-Mbits/s transmission
@@ -5452,18 +5452,18 @@
             <remarks>For CCEB interoperability this standard is not applicable</remarks>
          </sp-view>
          <sp-view idx="d0e1778">
-            <select id="itu-tgi" mode="mandatory">ISDN: ITU-T G, I Series</select>
+            <select id="itu-t-gi" mode="mandatory">ISDN: ITU-T G, I Series</select>
             <remarks>ISDN Telephony</remarks>
             <rationale>ISDN Telephony</rationale>
          </sp-view>
          <sp-view idx="d0e1779">
-            <select id="itu-tg703" mode="mandatory">Physical/electrical characteristics of
+            <select id="itu-t-g.703" mode="mandatory">Physical/electrical characteristics of
               hierarchical digital interfaces, ITU-T G.703 (11/2001)</select>
             <remarks>Used in Profile: FMN</remarks>
             <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
          </sp-view>
          <sp-view idx="d0e1780">
-            <select id="itu-tg704" mode="mandatory">Synchronous frame structures used at 1544,
+            <select id="itu-t-g.704" mode="mandatory">Synchronous frame structures used at 1544,
               6312, 2048, 8448 and 44 736 kbit/s hierarchical levels, ITU-T G.704 (10/1998)</select>
             <remarks>Used in Profile: FMN</remarks>
             <rationale>Included in NISP v.8 through RFCP 7-27.</rationale>
@@ -24001,347 +24001,6 @@
          <uuid>4a54cc02-e9aa-4d6b-b3f8-b4c01771fd3a</uuid>
       </standard>
 
-      <standard id="iso-iec-15961" tag="RFID Application Interface">
-         <document orgid="iso-iec" pubnum="15961" date="2004" title="RFID Data protocol: application interface">
-            <comment>revised by: ISO/IEC 15961-1:2013</comment>
-         </document>
-         <applicability>
-            The data protocol used to exchange information in a radio-frequency identification
-            (RFID) system for item management is specified in ISO/IEC 15961:2004 and
-            in ISO/IEC 15962:2004. Both are required for a complete understanding of
-            the data protocol in its entirety; but each focuses on one particular interface:
-            <itemizedlist>
-               <listitem>
-                  <para>
-                     ISO/IEC 15961:2004 addresses the information interface with the
-                     application system.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     ISO/IEC 15962:2004 deals with the processing of data and its presentation
-                     to the RF tag, and the initial processing of data captured from the
-                     RF tag.
-                  </para>
-               </listitem>
-            </itemizedlist>
-            ISO/IEC 15961:2004 focuses on the interface between the application and
-            the data protocol processor, and includes the specification of the transfer
-            syntax and definition of application commands and responses. It allows data
-            and commands to be specified in a standardized way, independent of the particular
-            air interface of ISO/IEC 18000.
-            <para>ISO/IEC 15961:2004</para>
-            <itemizedlist>
-               <listitem>
-                  <para>provides guidelines on how data shall be presented as objects;</para>
-               </listitem>
-               <listitem>
-                  <para>defines the structure of object identifiers, based on ISO/IEC 9834-1;</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     specifies the commands that are supported for transferring data
-                     between the application and the RF tag;
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     specifies the responses that are supported for transferring data
-                     between the RF tag and the application;
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     provides a formal description of all the processes using ASN.1,
-                     as specified in ISO/IEC 8824-1;
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     specifies the transfer syntax, based on the Basic Encoding Rules
-                     of ISO/IEC 8825-1, for data to be transferred from and to the application.
-                  </para>
-               </listitem>
-            </itemizedlist>
-            It is expected that ISO/IEC 15961:2004 will be used as a reference to develop
-            software appropriate for particular applications, or for particular RF equipment.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=30528</uri>
-            <history>
-               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
-               <event flag="changed" date="2013-09-01" version="8.0"/>
-            </history>
-         </status>
-         <uuid>4dbbaf34-7816-4451-94b1-7f32172d1474</uuid>
-      </standard>
-
-      <standard id="iso-iec-15962" tag="RFID Data Encoding Rules">
-         <document orgid="iso-iec" pubnum="15962" date="2004" title="RFID Data protocol: data encoding rules and logical memory functions">
-            <comment>revised by: ISO/IEC 15962:2013</comment>
-         </document>
-         <applicability>
-            The data protocol used to exchange information in a radio-frequency identification
-            (RFID) system for item management is specified in ISO/IEC 15961:2004 and
-            in ISO/IEC 15962:2004. Both are required for a complete understanding of
-            the data protocol in its entirety; but each focuses on one particular interface:
-            <itemizedlist>
-               <listitem>
-                  <para>
-                     ISO/IEC 15961:2004 addresses the information interface with the
-                     application system.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     ISO/IEC 15962:2004 deals with the processing of data and its presentation
-                     to the RF tag, and the initial processing of data captured from the
-                     RF tag.
-                  </para>
-               </listitem>
-            </itemizedlist>
-            ISO/IEC 15962:2004 focuses on encoding the transfer syntax, as defined in
-            ISO/IEC 15961:2004 according to the application commands defined in that
-            International Standard. The encodation is in a Logical Memory as a software
-            analogue of the physical memory of the RF tag being addressed by the interrogator.
-            <para>ISO/IEC 15962:2004</para>
-            <itemizedlist>
-               <listitem>
-                  <para>defines the encoded structure of object identifiers;</para>
-               </listitem>
-               <listitem>
-                  <para>specifies the data compaction rules that apply to the encoded data;</para>
-               </listitem>
-               <listitem>
-                  <para>specifies a Precursor for encoding syntax features efficiently;</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     specifies formatting rules for the data, e.g. depending on whether
-                     a directory is used or not;
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     defines how application commands, e.g. to lock data, are transferred
-                     to the Tag Driver;
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>defines other communication to the application.</para>
-               </listitem>
-            </itemizedlist>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=30529</uri>
-            <history>
-               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
-               <event flag="changed" date="2013-09-01" version="8.0"/>
-            </history>
-         </status>
-         <uuid>5b6d9d0d-47b7-43d8-bf7b-1e5ac089c38f</uuid>
-      </standard>
-
-      <standard id="iso-iec-17363" tag="RFID Freight containers">
-         <document orgid="iso-iec" pubnum="17363" date="2007" title="Supply chain applications of RFID -- Freight containers">
-            <comment>revised by: ISO/IEC 1596:2013</comment>
-         </document>
-         <applicability>
-            ISO 17363:2007 defines the usage of read/write radio-frequency identification
-            technology (RFID) cargo shipment-specific tags on freight containers for supply
-            chain management purposes (shipment tags). It defines the air-interface communications,
-            a common set of required data structures, and a commonly organized set of
-            optional data requirements (through common syntax and semantics).
-            <para>
-               It contains recommendations about a containerized cargo supply chain
-               RFID system, based on shipment tags; specific recommendations about mandatory
-               non-reprogrammable information on the shipment tag; and specific recommendations
-               about optional, re-programmable information on the shipment tag.
-            </para>
-            <para>
-               Identified within ISO 17363:2007 are the air-interface and communication
-               parameters for active radio-frequency identification communications using
-               ISO/IEC 18000-7.
-            </para>
-            <para>
-               ISO 17363:2007 is applicable to freight containers as defined in ISO
-               668 and to freight containers that are not defined by other ISO standards.
-               It complements ISO 10374 for permanent container license-plate tags.
-            </para>
-            <para>It fully describes cargo shipment-specific tags.</para>
-            <para>
-               It does not address smart container technologies affixed to, or inside,
-               freight containers (e.g. sensors) for supply chain management purposes.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38331</uri>
-            <history>
-               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
-               <event flag="changed" date="2013-09-01" version="8.0"/>
-            </history>
-         </status>
-         <uuid>561c6ad7-654f-419f-ac7f-e9c340ce9f69</uuid>
-      </standard>
-
-      <standard id="iso-iec-17364" tag="RFID  Returnable transport items ">
-         <document orgid="iso-iec" pubnum="17364" date="2009" title="Supply chain applications of RFID -- Returnable transport items (RTIs)">
-            <comment>revised by: ISO/IEC 17364:2013</comment>
-         </document>
-         <applicability>
-            ISO 17364:2009 defines the basic features of RFID for the use in the supply
-            chain when applied to returnable transport items. In particular it:
-            <itemizedlist>
-               <listitem>
-                  <para>provides specifications for the identification of the RTI,</para>
-               </listitem>
-               <listitem>
-                  <para>makes recommendations about additional information on the RF tag,</para>
-               </listitem>
-               <listitem>
-                  <para>specifies the semantics and data syntax to be used,</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     specifies the data protocol to be used to interface with business
-                     applications and the RFID system,
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>specifies the minimum performance requirements,</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     specifies the air interface standards between the RF interrogator
-                     and RF tag, and
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>specifies the reuse and recyclability of the RF tag.</para>
-               </listitem>
-            </itemizedlist>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38333</uri>
-            <history>
-               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
-               <event flag="changed" date="2013-09-01" version="8.0"/>
-            </history>
-         </status>
-         <uuid>f048114f-5c87-45dd-82b1-fe7b33da9f33</uuid>
-      </standard>
-
-      <standard id="iso-iec-17365" tag="RFID Transport units">
-         <document orgid="iso-iec" pubnum="17365" date="2009" title="Supply chain applications of RFID -- Transport units">
-            <comment>revised by: ISO/IEC 17365:2013</comment>
-         </document>
-         <applicability>
-            ISO 17365:2009 defines the basic features of RFID for the use in the supply
-            chain when applied to transport units. In particular it:
-            <itemizedlist>
-               <listitem>
-                  <para>provides specifications for the identification of the transport unit,</para>
-               </listitem>
-               <listitem>
-                  <para>makes recommendations about additional information on the RF tag,</para>
-               </listitem>
-               <listitem>
-                  <para>specifies the semantics and data syntax to be used,</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     specifies the data protocol to be used to interface with business
-                     applications and the RFID system,
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>specifies the minimum performance requirements,</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     specifies the air interface standards between the RF interrogator
-                     and RF tag, and
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>specifies the reuse and recyclability of the RF tag.</para>
-               </listitem>
-            </itemizedlist>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38335</uri>
-            <history>
-               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
-               <event flag="changed" date="2013-09-01" version="8.0"/>
-            </history>
-         </status>
-         <uuid>9ce437f6-2739-4540-8833-2d078c09790d</uuid>
-      </standard>
-
-      <standard id="iso-iec-17366" tag="RFID Product packaging">
-         <document orgid="iso-iec" pubnum="17366" date="2009" title="Supply chain applications of RFID -- Product packaging">
-            <comment>revised by: ISO/IEC 17366:2013</comment>
-         </document>
-         <applicability>
-            TBD
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38336</uri>
-            <history>
-               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
-               <event flag="changed" date="2013-09-01" version="8.0"/>
-            </history>
-         </status>
-         <uuid>258a45f5-872d-4046-b1bd-eb10fd915c13</uuid>
-      </standard>
-
-      <standard id="iso-iec-17367" tag="RFID Product tagging">
-         <document orgid="iso-iec" pubnum="17367" date="2009" title="Supply chain applications of RFID -- Product tagging">
-            <comment>revised by: ISO/IEC 17367:2013</comment>
-         </document>
-         <applicability>
-            ISO 17367:2009 defines the basic features of RFID for the use in the supply
-            chain when applied to product tagging. In particular it:
-            <itemizedlist>
-               <listitem>
-                  <para>
-                     provides specific recommendations about the encoded identification
-                     of the product,
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     makes recommendations about additional information about the product
-                     on the RF tag,
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>makes recommendations about the semantics and data syntax to be used,</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     makes recommendations about the data protocol to be used to interface
-                     with business applications and the RFID system, and
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     makes recommendations about the air interface standards between
-                     the RF interrogator and RF tag.
-                  </para>
-               </listitem>
-            </itemizedlist>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38337</uri>
-            <history>
-               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
-               <event flag="changed" date="2013-09-01" version="8.0"/>
-            </history>
-         </status>
-         <uuid>a34579c6-6320-432e-ac7c-b0480fa4aa76</uuid>
-      </standard>
-
       <standard id="iso-19005-1" tag="PDF/A-1">
          <document orgid="iso" pubnum="19005-1" date="2005" title="Electronic document file format for long-term preservation -- Part 1: Use of PDF 1.4 (PDF/A-1)"/>
          <applicability>
@@ -24724,6 +24383,27 @@
             </history>
          </status>
          <uuid>55d2116a-ac99-4e3d-a747-8fca699b568a</uuid>
+      </standard>
+
+      <standard id="iso-19128" tag="ISO 19128">
+         <document orgid="iso" pubnum="19128" date="2005" title="Geographic information - Web map server interface"/>
+         <applicability>
+            ISO 19128:2005 specifies the behaviour of a service that produces 
+            spatially referenced maps dynamically from geographic information. It 
+            specifies operations to retrieve a description of the maps offered by a 
+            server, to retrieve a map, and to query a server about features 
+            displayed on a map. ISO 19128:2005 is applicable to pictorial 
+            renderings of maps in a graphical format; it is not applicable to 
+            retrieval of actual feature data or coverage data values.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=32546</uri>
+            <history>
+               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
+               <event flag="changed" date="2012-11-29" version="7.0"/>
+            </history>
+         </status>
+         <uuid>265b3c0c-24bc-4f00-b7b5-47b1431f4ad4</uuid>
       </standard>
 
       <standard id="iso-19136" tag="GML">
@@ -25716,7 +25396,7 @@
 
       <standard id="iso-iec-10021" tag="X.400/MOTIS">
          <document orgid="iso-iec" pubnum="10021" date="1999" title="Message Handling Systems (MHS)">
-            <alsoknown orgid="itu" pubnum="X.400" date="1992">MHS; series</alsoknown>
+            <alsoknown orgid="itu-t" pubnum="X.400" date="1992">MHS; series</alsoknown>
             <comment>(MOTIS; series)</comment>
          </document>
          <applicability>
@@ -27092,7 +26772,7 @@
             <correction cpubnum="AMD1" date="1996"/>
             <correction cpubnum="AMD2" date="1998"/>
             <correction cpubnum="AMD3" date="1998"/>
-            <alsoknown orgid="itu" pubnum="X.722" date="1992"/>
+            <alsoknown orgid="itu-t" pubnum="X.722" date="1992"/>
          </document>
          <applicability>
             The specification provides developers of
@@ -32012,6 +31692,362 @@
          <uuid>5e5b2a5c-9610-4976-8e2c-cd8f5d90d904</uuid>
       </standard>
 
+      <standard id="iso-iec-15961" tag="RFID Application Interface">
+         <document orgid="iso-iec" pubnum="15961" date="2004" title="RFID Data protocol: application interface">
+            <comment>revised by: ISO/IEC 15961-1:2013</comment>
+         </document>
+         <applicability>
+            The data protocol used to exchange information in a radio-frequency identification
+            (RFID) system for item management is specified in ISO/IEC 15961:2004 and
+            in ISO/IEC 15962:2004. Both are required for a complete understanding of
+            the data protocol in its entirety; but each focuses on one particular interface:
+            <itemizedlist>
+               <listitem>
+                  <para>
+                     ISO/IEC 15961:2004 addresses the information interface with the
+                     application system.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     ISO/IEC 15962:2004 deals with the processing of data and its presentation
+                     to the RF tag, and the initial processing of data captured from the
+                     RF tag.
+                  </para>
+               </listitem>
+            </itemizedlist>
+            ISO/IEC 15961:2004 focuses on the interface between the application and
+            the data protocol processor, and includes the specification of the transfer
+            syntax and definition of application commands and responses. It allows data
+            and commands to be specified in a standardized way, independent of the particular
+            air interface of ISO/IEC 18000.
+            <para>ISO/IEC 15961:2004</para>
+            <itemizedlist>
+               <listitem>
+                  <para>provides guidelines on how data shall be presented as objects;</para>
+               </listitem>
+               <listitem>
+                  <para>defines the structure of object identifiers, based on ISO/IEC 9834-1;</para>
+               </listitem>
+               <listitem>
+                  <para>
+                     specifies the commands that are supported for transferring data
+                     between the application and the RF tag;
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     specifies the responses that are supported for transferring data
+                     between the RF tag and the application;
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     provides a formal description of all the processes using ASN.1,
+                     as specified in ISO/IEC 8824-1;
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     specifies the transfer syntax, based on the Basic Encoding Rules
+                     of ISO/IEC 8825-1, for data to be transferred from and to the application.
+                  </para>
+               </listitem>
+            </itemizedlist>
+            It is expected that ISO/IEC 15961:2004 will be used as a reference to develop
+            software appropriate for particular applications, or for particular RF equipment.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=30528</uri>
+            <history>
+               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
+               <event flag="changed" date="2013-09-01" version="8.0"/>
+            </history>
+         </status>
+         <uuid>4dbbaf34-7816-4451-94b1-7f32172d1474</uuid>
+      </standard>
+
+      <standard id="iso-iec-15962" tag="RFID Data Encoding Rules">
+         <document orgid="iso-iec" pubnum="15962" date="2004" title="RFID Data protocol: data encoding rules and logical memory functions">
+            <comment>revised by: ISO/IEC 15962:2013</comment>
+         </document>
+         <applicability>
+            The data protocol used to exchange information in a radio-frequency identification
+            (RFID) system for item management is specified in ISO/IEC 15961:2004 and
+            in ISO/IEC 15962:2004. Both are required for a complete understanding of
+            the data protocol in its entirety; but each focuses on one particular interface:
+            <itemizedlist>
+               <listitem>
+                  <para>
+                     ISO/IEC 15961:2004 addresses the information interface with the
+                     application system.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     ISO/IEC 15962:2004 deals with the processing of data and its presentation
+                     to the RF tag, and the initial processing of data captured from the
+                     RF tag.
+                  </para>
+               </listitem>
+            </itemizedlist>
+            ISO/IEC 15962:2004 focuses on encoding the transfer syntax, as defined in
+            ISO/IEC 15961:2004 according to the application commands defined in that
+            International Standard. The encodation is in a Logical Memory as a software
+            analogue of the physical memory of the RF tag being addressed by the interrogator.
+            <para>ISO/IEC 15962:2004</para>
+            <itemizedlist>
+               <listitem>
+                  <para>defines the encoded structure of object identifiers;</para>
+               </listitem>
+               <listitem>
+                  <para>specifies the data compaction rules that apply to the encoded data;</para>
+               </listitem>
+               <listitem>
+                  <para>specifies a Precursor for encoding syntax features efficiently;</para>
+               </listitem>
+               <listitem>
+                  <para>
+                     specifies formatting rules for the data, e.g. depending on whether
+                     a directory is used or not;
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     defines how application commands, e.g. to lock data, are transferred
+                     to the Tag Driver;
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>defines other communication to the application.</para>
+               </listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=30529</uri>
+            <history>
+               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
+               <event flag="changed" date="2013-09-01" version="8.0"/>
+            </history>
+         </status>
+         <uuid>5b6d9d0d-47b7-43d8-bf7b-1e5ac089c38f</uuid>
+      </standard>
+
+      <standard id="iso-iec-17203" tag="OVF 1.1">
+         <document orgid="iso-iec" pubnum="17203" date="2011-11-21" title="Open Virtualization Format (OVF) specification"/>
+         <applicability>
+           ISO/IEC 17203:2011 specifies an open, secure, portable, efficient and extensible
+           format for the packaging and distribution of software to be run in virtual machines.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/catalogue_detail.htm?csnumber=59388/</uri>
+            <history>
+               <event flag="added" date="2013-12-12" rfcp="7-44" version="8.0"/>
+            </history>
+         </status>
+         <uuid>56dfa7c6-f993-45d5-b1b4-b41c60485a5c</uuid>
+      </standard>
+
+      <standard id="iso-iec-17363" tag="RFID Freight containers">
+         <document orgid="iso-iec" pubnum="17363" date="2007" title="Supply chain applications of RFID -- Freight containers">
+            <comment>revised by: ISO/IEC 1596:2013</comment>
+         </document>
+         <applicability>
+            ISO 17363:2007 defines the usage of read/write radio-frequency identification
+            technology (RFID) cargo shipment-specific tags on freight containers for supply
+            chain management purposes (shipment tags). It defines the air-interface communications,
+            a common set of required data structures, and a commonly organized set of
+            optional data requirements (through common syntax and semantics).
+            <para>
+               It contains recommendations about a containerized cargo supply chain
+               RFID system, based on shipment tags; specific recommendations about mandatory
+               non-reprogrammable information on the shipment tag; and specific recommendations
+               about optional, re-programmable information on the shipment tag.
+            </para>
+            <para>
+               Identified within ISO 17363:2007 are the air-interface and communication
+               parameters for active radio-frequency identification communications using
+               ISO/IEC 18000-7.
+            </para>
+            <para>
+               ISO 17363:2007 is applicable to freight containers as defined in ISO
+               668 and to freight containers that are not defined by other ISO standards.
+               It complements ISO 10374 for permanent container license-plate tags.
+            </para>
+            <para>It fully describes cargo shipment-specific tags.</para>
+            <para>
+               It does not address smart container technologies affixed to, or inside,
+               freight containers (e.g. sensors) for supply chain management purposes.
+            </para>
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38331</uri>
+            <history>
+               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
+               <event flag="changed" date="2013-09-01" version="8.0"/>
+            </history>
+         </status>
+         <uuid>561c6ad7-654f-419f-ac7f-e9c340ce9f69</uuid>
+      </standard>
+
+      <standard id="iso-iec-17364" tag="RFID  Returnable transport items ">
+         <document orgid="iso-iec" pubnum="17364" date="2009" title="Supply chain applications of RFID -- Returnable transport items (RTIs)">
+            <comment>revised by: ISO/IEC 17364:2013</comment>
+         </document>
+         <applicability>
+            ISO 17364:2009 defines the basic features of RFID for the use in the supply
+            chain when applied to returnable transport items. In particular it:
+            <itemizedlist>
+               <listitem>
+                  <para>provides specifications for the identification of the RTI,</para>
+               </listitem>
+               <listitem>
+                  <para>makes recommendations about additional information on the RF tag,</para>
+               </listitem>
+               <listitem>
+                  <para>specifies the semantics and data syntax to be used,</para>
+               </listitem>
+               <listitem>
+                  <para>
+                     specifies the data protocol to be used to interface with business
+                     applications and the RFID system,
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>specifies the minimum performance requirements,</para>
+               </listitem>
+               <listitem>
+                  <para>
+                     specifies the air interface standards between the RF interrogator
+                     and RF tag, and
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>specifies the reuse and recyclability of the RF tag.</para>
+               </listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38333</uri>
+            <history>
+               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
+               <event flag="changed" date="2013-09-01" version="8.0"/>
+            </history>
+         </status>
+         <uuid>f048114f-5c87-45dd-82b1-fe7b33da9f33</uuid>
+      </standard>
+
+      <standard id="iso-iec-17365" tag="RFID Transport units">
+         <document orgid="iso-iec" pubnum="17365" date="2009" title="Supply chain applications of RFID -- Transport units">
+            <comment>revised by: ISO/IEC 17365:2013</comment>
+         </document>
+         <applicability>
+            ISO 17365:2009 defines the basic features of RFID for the use in the supply
+            chain when applied to transport units. In particular it:
+            <itemizedlist>
+               <listitem>
+                  <para>provides specifications for the identification of the transport unit,</para>
+               </listitem>
+               <listitem>
+                  <para>makes recommendations about additional information on the RF tag,</para>
+               </listitem>
+               <listitem>
+                  <para>specifies the semantics and data syntax to be used,</para>
+               </listitem>
+               <listitem>
+                  <para>
+                     specifies the data protocol to be used to interface with business
+                     applications and the RFID system,
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>specifies the minimum performance requirements,</para>
+               </listitem>
+               <listitem>
+                  <para>
+                     specifies the air interface standards between the RF interrogator
+                     and RF tag, and
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>specifies the reuse and recyclability of the RF tag.</para>
+               </listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38335</uri>
+            <history>
+               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
+               <event flag="changed" date="2013-09-01" version="8.0"/>
+            </history>
+         </status>
+         <uuid>9ce437f6-2739-4540-8833-2d078c09790d</uuid>
+      </standard>
+
+      <standard id="iso-iec-17366" tag="RFID Product packaging">
+         <document orgid="iso-iec" pubnum="17366" date="2009" title="Supply chain applications of RFID -- Product packaging">
+            <comment>revised by: ISO/IEC 17366:2013</comment>
+         </document>
+         <applicability>
+            TBD
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38336</uri>
+            <history>
+               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
+               <event flag="changed" date="2013-09-01" version="8.0"/>
+            </history>
+         </status>
+         <uuid>258a45f5-872d-4046-b1bd-eb10fd915c13</uuid>
+      </standard>
+
+      <standard id="iso-iec-17367" tag="RFID Product tagging">
+         <document orgid="iso-iec" pubnum="17367" date="2009" title="Supply chain applications of RFID -- Product tagging">
+            <comment>revised by: ISO/IEC 17367:2013</comment>
+         </document>
+         <applicability>
+            ISO 17367:2009 defines the basic features of RFID for the use in the supply
+            chain when applied to product tagging. In particular it:
+            <itemizedlist>
+               <listitem>
+                  <para>
+                     provides specific recommendations about the encoded identification
+                     of the product,
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     makes recommendations about additional information about the product
+                     on the RF tag,
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>makes recommendations about the semantics and data syntax to be used,</para>
+               </listitem>
+               <listitem>
+                  <para>
+                     makes recommendations about the data protocol to be used to interface
+                     with business applications and the RFID system, and
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     makes recommendations about the air interface standards between
+                     the RF interrogator and RF tag.
+                  </para>
+               </listitem>
+            </itemizedlist>
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=38337</uri>
+            <history>
+               <event flag="added" date="2010-08-14" rfcp="4-14" version="5.0"/>
+               <event flag="changed" date="2013-09-01" version="8.0"/>
+            </history>
+         </status>
+         <uuid>a34579c6-6320-432e-ac7c-b0480fa4aa76</uuid>
+      </standard>
+
       <standard id="iso-iec-18026" tag="SRM">
          <document orgid="iso-iec" pubnum="18026" date="2009" title="Spatial reference model (SRM)"/>
          <applicability>
@@ -32999,7 +33035,7 @@
       <standard id="iso-iec-8073" tag="Connection-oriented Transport">
          <document orgid="iso-iec" pubnum="8073" date="1997" title="Connection-oriented Transport protocol">
             <correction cpubnum="AMD1" date="1998"/>
-            <alsoknown orgid="itu" pubnum="X.224" date="1995"/>
+            <alsoknown orgid="itu-t" pubnum="X.224" date="1995"/>
          </document>
          <applicability>
             This Recommendation | International Standard specifies:
@@ -33091,7 +33127,7 @@
             <correction cpubnum="AMD1" date="1998"/>
             <correction cpubnum="AMD2" date="1998"/>
             <correction cpubnum="TC1" date="2002"/>
-            <alsoknown orgid="itu" pubnum="X.215" date="1995"/>
+            <alsoknown orgid="itu-t" pubnum="X.215" date="1995"/>
          </document>
          <applicability>
             This Recommendation | International Standard defines in an abstract way the externally visible
@@ -33134,7 +33170,7 @@
             <correction cpubnum="AMD1" date="1998"/>
             <correction cpubnum="AMD2" date="1998"/>
             <correction cpubnum="TC1" date="2002"/>
-            <alsoknown orgid="itu" pubnum="X.225" date="1995"/>
+            <alsoknown orgid="itu-t" pubnum="X.225" date="1995"/>
          </document>
          <applicability>
             This Recommendation | International Standard specifies:
@@ -33846,7 +33882,7 @@
          <document orgid="iso-iec" pubnum="8650-1" date="1996" title="ACSE CO protocol/Authentication">
             <correction cpubnum="AMD1" date="1997"/>
             <correction cpubnum="AMD2" date="1998"/>
-            <alsoknown orgid="itu" pubnum="X.227" date=""/>
+            <alsoknown orgid="itu-t" pubnum="X.227" date=""/>
          </document>
          <applicability>
             This Recommendation | International Standard provides the Protocol Implementation Conformance Statement
@@ -34068,7 +34104,7 @@
 
       <standard id="iso-iec-8823-2" tag="Presentation Service Part 2">
          <document orgid="iso-iec" pubnum="8823-2" date="1997" title=" Part 2: Connection-oriented presentation protocol: Protocol Implementation Conformance Statement (PICS) proforma">
-            <alsoknown orgid="itu" pubnum="X.226" date="1994"/>
+            <alsoknown orgid="itu-t" pubnum="X.226" date="1994"/>
          </document>
          <applicability>
             This Recommendation | International Standard provides the Protocol Implementation Conformance Statement
@@ -36119,7 +36155,7 @@
 
       <standard id="iso-iec-9594" tag="X.500">
          <document orgid="iso-iec" pubnum="9594-1" date="2008" title="OSI - Directory Services (DS):2008">
-            <alsoknown orgid="itu" pubnum="X500" date="2005"/>
+            <alsoknown orgid="itu-t" pubnum="X500" date="2005"/>
          </document>
          <applicability>
             <para>
@@ -36209,7 +36245,7 @@
 
       <standard id="iso-iec-9595" tag="CMIS">
          <document orgid="iso-iec" pubnum="9595" date="1998" title="Common Management Information Service (CMIS) Definition">
-            <alsoknown orgid="itu" pubnum="X.710" date="1997"/>
+            <alsoknown orgid="itu-t" pubnum="X.710" date="1997"/>
          </document>
          <applicability>
             This standard (CMIS) defines an application service
@@ -36262,7 +36298,7 @@
          <document orgid="iso-iec" pubnum="9596-1" date="1998" title="CMIP Specification">
             <correction cpubnum="TC1" date="1999"/>
             <correction cpubnum="TC2" date="2002"/>
-            <alsoknown orgid="itu" pubnum="X.711" date="1997"/>
+            <alsoknown orgid="itu-t" pubnum="X.711" date="1997"/>
          </document>
          <applicability>
             This Recommendation | International Standard specifies a protocol which is used by application
@@ -37606,27 +37642,6 @@
          <uuid>11464698-517b-4d9b-a867-fd6343c7843f</uuid>
       </standard>
 
-      <standard id="iso-19128" tag="ISO 19128">
-         <document orgid="iso" pubnum="19128" date="2005" title="Geographic information - Web map server interface"/>
-         <applicability>
-            ISO 19128:2005 specifies the behaviour of a service that produces 
-            spatially referenced maps dynamically from geographic information. It 
-            specifies operations to retrieve a description of the maps offered by a 
-            server, to retrieve a map, and to query a server about features 
-            displayed on a map. ISO 19128:2005 is applicable to pictorial 
-            renderings of maps in a graphical format; it is not applicable to 
-            retrieval of actual feature data or coverage data values.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=32546</uri>
-            <history>
-               <event flag="added" date="2004-05-28" rfcp="5-27" version="0.6"/>
-               <event flag="changed" date="2012-11-29" version="7.0"/>
-            </history>
-         </status>
-         <uuid>265b3c0c-24bc-4f00-b7b5-47b1431f4ad4</uuid>
-      </standard>
-
       <standard id="iso-tr10303-12" tag="STEP 12 - EXPRESS-I">
          <document orgid="iso" pubnum="TR 10303-12" date="1997" title="STEP Part 12: Description methods: The EXPRESS-I language reference manual"/>
          <applicability>
@@ -37649,48 +37664,8 @@
          <uuid>0d3d4b10-a496-4394-a2af-0c52fb5f5b4e</uuid>
       </standard>
 
-      <standard id="iso-iec-17203" tag="OVF 1.1">
-         <document orgid="iso-iec" pubnum="17203" date="2011-11-21" title="Open Virtualization Format (OVF) specification"/>
-         <applicability>
-           ISO/IEC 17203:2011 specifies an open, secure, portable, efficient and extensible
-           format for the packaging and distribution of software to be run in virtual machines.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/catalogue_detail.htm?csnumber=59388/</uri>
-            <history>
-               <event flag="added" date="2013-12-12" rfcp="7-44" version="8.0"/>
-            </history>
-         </status>
-         <uuid>56dfa7c6-f993-45d5-b1b4-b41c60485a5c</uuid>
-      </standard>
-
-      <standard id="itu-g.993.2" tag="VDSL 2">
-         <document orgid="itu" pubnum="G. 993-2" date="2011-12" title="Very high speed digital subscriber line transceivers 2 (VDSL2)"/>
-         <applicability>
-            This document is an access technology that
-            exploits the existing infrastructure of copper wires that were
-            originally deployed for POTS. It can be deployed from central
-            offices, from fibre-fed cabinets located near the customer
-            premises, or within buildings. VDSL2 is the newest and most
-            advanced standard of DSL broadband wireline
-            communications. Designed to support the wide deployment of
-            triple play services such as voice, video, data, high
-            definition television (HDTV) and interactive gaming, VDSL2 is
-            purported to enable operators and carriers to gradually,
-            flexibly, and cost-efficiently upgrade existing xDSL
-            infrastructure.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.itu.int/rec/T-REC-G.993.2-201112-I/en</uri>
-            <history>
-               <event flag="added" date="2010-11-24" version="5.0"/>
-            </history>
-         </status>
-         <uuid>37c6fdeb-8df4-4ab9-a538-3813848f1531</uuid>
-      </standard>
-
       <standard id="itu-t-e.164" tag="ITU E.164">
-         <document orgid="itu" pubnum="E.164" date="2010" title="The international public telecommunication numbering plan"/>
+         <document orgid="itu-t" pubnum="E.164" date="2010" title="The international public telecommunication numbering plan"/>
          <applicability>
             This Recommendation provides the number structure and functionality for the four categories of
             numbers used for international public telecommunication: geographic areas, global services,
@@ -37716,7 +37691,7 @@
       </standard>
 
       <standard id="itu-t-epqv" tag="ITU-T E, P, Q, V Series">
-         <document orgid="itu" pubnum="" date="" title="ITU-T E, P, Q, V Series"/>
+         <document orgid="itu-t" pubnum="EPQV" date="" title="ITU-T E, P, Q, V Series"/>
          <applicability>
             The ITU-T E, P, Q, V Series contain the standards for various analogue
             narrowband telephone systems.
@@ -37750,8 +37725,52 @@
          <uuid>b38b09f1-813d-41a1-b0b2-0377542c564f</uuid>
       </standard>
 
+      <standard id="itu-t-g.703" tag="G.703">
+         <document orgid="itu-t" pubnum="G.703" date="2001-11" title="Physical/electrical characteristics of hierarchical digital interfaces"/>
+         <applicability>
+            This Recommendation specifies the recommended physical and electrical characteristics of the
+            interfaces at hierarchical bit rates as described in ITU-T Recs. G.702 (PDH) and G.707 (SDH). The
+            interfaces are defined in terms of general characteristics, specifications at the output ports and input
+            ports and/or cross-connect points, earthing of outer conductor or screen and coding rules.
+         </applicability>
+         <status mode="accepted">
+            <uri>https://www.itu.int/rec/T-REC-G.703/en</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="8.0"/>
+            </history>
+         </status>
+         <uuid>a6d6e1b9-d61a-499e-ac67-928f34313647</uuid>
+      </standard>
+
+      <standard id="itu-t-g.704" tag="G.704">
+         <document orgid="itu-t" pubnum="G.704" date="1998-10" title="Synchronous frame structures used at 1544,            6312, 2048, 8448 and 44 736 kbit/s hierarchical levels"/>
+         <applicability>
+            This Recommendation gives functional characteristics of interfaces associated with:
+            <itemizedlist>
+               <listitem>
+                  <para>network nodes, in particular, synchronous digital multiplex equipment 
+                and digital exchanges in IDNs for telephony and ISDNs; and</para>
+               </listitem>
+               <listitem>
+                  <para>PCM multiplexing equipment.</para>
+               </listitem>
+            </itemizedlist>
+            <para>It deals with basic frame structures, including details of frame length, frame 
+              alignment signals, Cyclic Redundancy Check (CRC) procedures and other basic information.</para>
+            <para>It contains more specific information about how certain channels at 64 kbit/s
+              and at other bit rates are accommodated within the basic frame structures.</para>
+         </applicability>
+         <status mode="accepted">
+            <uri>https://www.itu.int/rec/T-REC-G.704/en</uri>
+            <history>
+               <event flag="added" date="2013-07-28" rfcp="7-27" version="8.0"/>
+            </history>
+         </status>
+         <uuid>e9cd4fac-3dd1-4ef6-8466-1e0830ff6086</uuid>
+      </standard>
+
       <standard id="itu-t-g.722" tag="G.722">
-         <document orgid="itu" pubnum="G.722" date="2012-09" title="7 kHz Audio-Coding within 64 kbit/s"/>
+         <document orgid="itu-t" pubnum="G.722" date="2012-09" title="7 kHz Audio-Coding within 64 kbit/s"/>
          <applicability>
             Rec. ITU-T G.722 describes the characteristics of an audio (50 to 7 000 Hz)
             coding system which may be used for a variety of higher quality speech
@@ -37775,7 +37794,7 @@
       </standard>
 
       <standard id="itu-t-g.722.1c" tag="14 kHz audio codec">
-         <document orgid="itu" pubnum="G.722.1c" date="2012" title="14 kHz audio codec"/>
+         <document orgid="itu-t" pubnum="G.722.1c" date="2012" title="14 kHz audio codec"/>
          <applicability>
             ITU standard G.722.1C algorithm offers breakthrough benefits compared to 
             earlier wideband audio technology. G.722.1C delivers low-latency 14 kHz 
@@ -37795,7 +37814,7 @@
       </standard>
 
       <standard id="itu-t-g.726" tag="ADPCM">
-         <document orgid="itu" pubnum="G.726" date="2012-06" title="40, 32, 24, 16 kbit/s adaptive differential pulse code modulation (ADPCM)"/>
+         <document orgid="itu-t" pubnum="G.726" date="2012-06" title="40, 32, 24, 16 kbit/s adaptive differential pulse code modulation (ADPCM)"/>
          <applicability>
             Specifies an alternative voice coding e.g. for standard narrowband
             ISDN telephone systems with 16, 24, 32, 40 kb/s bandwidth requirements.
@@ -37814,7 +37833,7 @@
       </standard>
 
       <standard id="itu-t-g.729" tag="CS-ACELP">
-         <document orgid="itu" pubnum="G.729" date="2012-06" title="Coding of speech at 8 kbit/s using conjugate-structure algebraic-code-excited linear prediction (CS-ACELP)"/>
+         <document orgid="itu-t" pubnum="G.729" date="2012-06" title="Coding of speech at 8 kbit/s using conjugate-structure algebraic-code-excited linear prediction (CS-ACELP)"/>
          <applicability>
             Rec. ITU-T G.729 contains the description of an algorithm for the coding
             of speech signals at 8 kbit/s using Conjugate-Structure Algebraic-Code-Excited
@@ -37838,8 +37857,50 @@
          <uuid>d10147a8-9ec9-4a04-ae9b-4960e97b7570</uuid>
       </standard>
 
+      <standard id="itu-t-g.993.2" tag="VDSL 2">
+         <document orgid="itu-t" pubnum="G. 993-2" date="2011-12" title="Very high speed digital subscriber line transceivers 2 (VDSL2)"/>
+         <applicability>
+            This document is an access technology that
+            exploits the existing infrastructure of copper wires that were
+            originally deployed for POTS. It can be deployed from central
+            offices, from fibre-fed cabinets located near the customer
+            premises, or within buildings. VDSL2 is the newest and most
+            advanced standard of DSL broadband wireline
+            communications. Designed to support the wide deployment of
+            triple play services such as voice, video, data, high
+            definition television (HDTV) and interactive gaming, VDSL2 is
+            purported to enable operators and carriers to gradually,
+            flexibly, and cost-efficiently upgrade existing xDSL
+            infrastructure.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.itu.int/rec/T-REC-G.993.2-201112-I/en</uri>
+            <history>
+               <event flag="added" date="2010-11-24" version="5.0"/>
+            </history>
+         </status>
+         <uuid>37c6fdeb-8df4-4ab9-a538-3813848f1531</uuid>
+      </standard>
+
+      <standard id="itu-t-gi" tag="ITU-T G,I Series">
+         <document orgid="itu-t" pubnum="GI" date="" title="ISDN: ITU-T G, I Series"/>
+         <applicability>
+            The ITU-T G and I Series contain the standards for digital narrowband
+            (ISDN) telephone systems.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.itu.int/ITU-T/recommendations/index.aspx?ser=I</uri>
+            <history>
+               <event flag="added" date="2002-10-11" version="0.4"/>
+               <event flag="changed" date="2005-09-23" version="0.7"/>
+               <event flag="changed" date="2013-07-27" version="8.0"/>
+            </history>
+         </status>
+         <uuid>5b9f8a6d-c169-4648-a2ad-cf69dd530b4c</uuid>
+      </standard>
+
       <standard id="itu-t-h.225" tag="ITU H.225">
-         <document orgid="itu" pubnum="H.225" date="2009" title="Call signalling protocols and media stream packetization for packet-based multimedia communication systems"/>
+         <document orgid="itu-t" pubnum="H.225" date="2009" title="Call signalling protocols and media stream packetization for packet-based multimedia communication systems"/>
          <applicability>
             This Recommendation describes the means by which audio, video, data, and control are associated,
             coded, and packetized for transport between H.323 equipment on a packet-based network. This
@@ -37859,7 +37920,7 @@
       </standard>
 
       <standard id="itu-t-h.245" tag="ITU H.245">
-         <document orgid="itu" pubnum="H.245" date="2011-05" title="Control protocol for multimedia communication"/>
+         <document orgid="itu-t" pubnum="H.245" date="2011-05" title="Control protocol for multimedia communication"/>
          <applicability>
             <para>
                This Recommendation specifies syntax and semantics of terminal information messages as well as
@@ -37922,7 +37983,7 @@
       </standard>
 
       <standard id="itu-t-h.248.1" tag="MGCP">
-         <document orgid="itu" pubnum="H.248.1" date="2013" title="Media Gateway Control Protocol (MGCP) v3">
+         <document orgid="itu-t" pubnum="H.248.1" date="2013" title="Media Gateway Control Protocol (MGCP) v3">
             <alsoknown orgid="ietf" pubnum="RFC 3015" date="2000"/>
          </document>
          <applicability>
@@ -37997,7 +38058,7 @@
       </standard>
 
       <standard id="itu-t-h.320" tag="H.320">
-         <document orgid="itu" pubnum="H.320" date="2004-03" title="Circuit-based Multimedia Comms. System"/>
+         <document orgid="itu-t" pubnum="H.320" date="2004-03" title="Circuit-based Multimedia Comms. System"/>
          <applicability>
             This Recommendation covers the technical requirements
             for narrow-band visual telephone services defined in
@@ -38014,7 +38075,7 @@
       </standard>
 
       <standard id="itu-t-h.323" tag="Audio/Video Teleconferencing">
-         <document orgid="itu" pubnum="H.323" date="2001-07" title="Packet-based Multimedia Communication System"/>
+         <document orgid="itu-t" pubnum="H.323" date="2001-07" title="Packet-based Multimedia Communication System"/>
          <applicability>
             The H.323 specification describes terminals and other entities
             that provide multimedia communication services over packet based networks which
@@ -38040,7 +38101,7 @@
       </standard>
 
       <standard id="itu-t-i.113" tag="ITU I.113">
-         <document orgid="itu" pubnum="I.113" date="1997" title="Vocabulary of Terms for broadband aspects of ISDN"/>
+         <document orgid="itu-t" pubnum="I.113" date="1997" title="Vocabulary of Terms for broadband aspects of ISDN"/>
          <applicability>
             This Recommendation consists primarily of those terms and definitions that are considered essential
             to the understanding and application of the principles of broadband aspects of the integrated services
@@ -38079,7 +38140,7 @@
       </standard>
 
       <standard id="itu-t-i.121" tag="ITU I.121">
-         <document orgid="itu" pubnum="I.121" date="1991" title="Broadband aspects of ISDN"/>
+         <document orgid="itu-t" pubnum="I.121" date="1991" title="Broadband aspects of ISDN"/>
          <applicability>
             This Recommendation states the basic principles of broadband aspects of integrated services digital network
             (B-ISDN) and indicates further developments of the ISDN network capabilities in order to support more advanced
@@ -38128,7 +38189,7 @@
       </standard>
 
       <standard id="itu-t-i.361" tag="ITU I.361">
-         <document orgid="itu" pubnum="I.361" date="1999" title="B-ISDN ATM Layer Specification"/>
+         <document orgid="itu-t" pubnum="I.361" date="1999" title="B-ISDN ATM Layer Specification"/>
          <applicability>
             This Recommendation specifies ATM header bit assignments including ATM cell structure and the
             associated coding for both NNI and UNI, defines service primitives to be exchanged with upper and
@@ -38149,7 +38210,7 @@
       </standard>
 
       <standard id="itu-t-i.363" tag="ITU I.363">
-         <document orgid="itu" pubnum="I.363" date="1996" title="B-ISDN Adaption Layer (AAL) Specification"/>
+         <document orgid="itu-t" pubnum="I.363" date="1996" title="B-ISDN Adaption Layer (AAL) Specification"/>
          <applicability>
             The above standards are applicable to systems requiring fast packet
             switching services. ATM is a cell relay switching technique similar to Frame Relay.
@@ -38175,7 +38236,7 @@
       </standard>
 
       <standard id="itu-t-i.430" tag="ITU I.430">
-         <document orgid="itu" pubnum="I.430" date="1995" title="ISDN basic user-network interface - Layer 1 specifications"/>
+         <document orgid="itu-t" pubnum="I.430" date="1995" title="ISDN basic user-network interface - Layer 1 specifications"/>
          <applicability>
             This Recommendation defines the layer 1 characteristics of the user-network interface at S- and T-reference points for
             basic rate ISDN as defined in Recommendation I.412.
@@ -38203,7 +38264,7 @@
       </standard>
 
       <standard id="itu-t-i.431" tag="ITU I.431">
-         <document orgid="itu" pubnum="I.431" date="1993" title="ISDN Primary rate user-network interface - Layer 1 specification">
+         <document orgid="itu-t" pubnum="I.431" date="1993" title="ISDN Primary rate user-network interface - Layer 1 specification">
             <correction cpubnum="AMD1" date="1997"/>
          </document>
          <applicability>
@@ -38273,7 +38334,7 @@
       </standard>
 
       <standard id="itu-t-q.930" tag="ITU Q.930">
-         <document orgid="itu" pubnum="Q.930" date="1993" title="ISDN user-network interface layer 3 - General aspects">
+         <document orgid="itu-t" pubnum="Q.930" date="1993" title="ISDN user-network interface layer 3 - General aspects">
             <comment>formerly ITU-T I.450</comment>
          </document>
          <applicability>
@@ -38317,7 +38378,7 @@
       </standard>
 
       <standard id="itu-t-q.931" tag="ITU Q.931">
-         <document orgid="itu" pubnum="Q.931" date="1998" title="ISDN user-network interface layer 3 specification for basic call control">
+         <document orgid="itu-t" pubnum="Q.931" date="1998" title="ISDN user-network interface layer 3 specification for basic call control">
             <comment>formerly ITU-T I.441</comment>
          </document>
          <applicability>
@@ -38346,7 +38407,7 @@
       </standard>
 
       <standard id="itu-t-t.120" tag="Application Sharing">
-         <document orgid="itu" pubnum="T.120" date="2007" title="Data Protocols for Multimedia Conferencing"/>
+         <document orgid="itu-t" pubnum="T.120" date="2007" title="Data Protocols for Multimedia Conferencing"/>
          <applicability>
             The T.120 standards cover the document conferencing and application
             sharing (sometimes called data conferencing) portion of a multimedia teleconference.
@@ -38374,7 +38435,7 @@
       </standard>
 
       <standard id="itu-t-t.30" tag="ITU T.30">
-         <document orgid="itu" pubnum="T.30" date="2005" title="Procedures for document facsimile transmission in the general switched telephone network"/>
+         <document orgid="itu-t" pubnum="T.30" date="2005" title="Procedures for document facsimile transmission in the general switched telephone network"/>
          <applicability>
             This Recommendation is concerned with the procedures which are
             necessary for document transmission between two facsimile stations in the general
@@ -38392,7 +38453,7 @@
       </standard>
 
       <standard id="itu-t-t.38" tag="ITU T.38">
-         <document orgid="itu" pubnum="T.38" date="2010" title="Procedures for real-time Group 3 facsimile communication over IP networks"/>
+         <document orgid="itu-t" pubnum="T.38" date="2010" title="Procedures for real-time Group 3 facsimile communication over IP networks"/>
          <applicability>
             This Recommendation defines the procedures to be applied to allow Group 3
             facsimile transmission between terminals where in addition to the PSTN
@@ -38414,7 +38475,7 @@
       </standard>
 
       <standard id="itu-t-t.4" tag="Group 3 Faximile">
-         <document orgid="itu" pubnum="T.4" date="2003" title="Standardization of group 3 facsimile terminals for document transmission"/>
+         <document orgid="itu-t" pubnum="T.4" date="2003" title="Standardization of group 3 facsimile terminals for document transmission"/>
          <applicability>
             This Recommendation defines the characteristics of Group 3 facsimile terminals which enable
             documents to be transmitted on the general switched telephone network, international leased
@@ -38439,7 +38500,7 @@
       </standard>
 
       <standard id="itu-t-t.6" tag="Group 4 Coding">
-         <document orgid="itu" pubnum="T.6" date="1988" title="Facsimile coding schemes and coding control functions for group 4 facsimile apparatus"/>
+         <document orgid="itu-t" pubnum="T.6" date="1988" title="Facsimile coding schemes and coding control functions for group 4 facsimile apparatus"/>
          <applicability>
             Recommendation T.6 defines the facsimile coding schemes and their control functions to be used in the
             Group 4 facsimile.
@@ -38459,7 +38520,7 @@
       </standard>
 
       <standard id="itu-t-v.42" tag="ITU v.42">
-         <document orgid="itu" pubnum="V.42" date="2002" title="Error-correcting procedures for DCEs using asynchronous-to-synchronous conversion"/>
+         <document orgid="itu-t" pubnum="V.42" date="2002" title="Error-correcting procedures for DCEs using asynchronous-to-synchronous conversion"/>
          <applicability>
             This Recommendation describes error-correcting protocols for use with V-series duplex DCEs to
             accept start-stop data from the DTE and transmit in synchronous mode. This Recommendation
@@ -38482,7 +38543,7 @@
       </standard>
 
       <standard id="itu-t-v.90" tag="ITU V.90">
-         <document orgid="itu" pubnum="V.90" date="1998" title="Modem for PSTN at 56000 bit/s (downstream) and 33600 bit/s (upstream)"/>
+         <document orgid="itu-t" pubnum="V.90" date="1998" title="Modem for PSTN at 56000 bit/s (downstream) and 33600 bit/s (upstream)"/>
          <applicability>
             This Recommendation specifies the operation between two different modems, one a digital modem and the other an
             analogue modem, both as defined in clause 3. The two modems are specified herein in terms of coding, start-up signals
@@ -38553,7 +38614,7 @@
       </standard>
 
       <standard id="itu-t-x.25" tag="Packet switched Wide Area Networking">
-         <document orgid="itu" pubnum="X.25" date="1996" title="Interface between Data Terminal Equipment (DTE) and Data Circuit-terminating Equipment (DCE) for terminals operating in the packet mode and connected to public data networks by dedicated circuit">
+         <document orgid="itu-t" pubnum="X.25" date="1996" title="Interface between Data Terminal Equipment (DTE) and Data Circuit-terminating Equipment (DCE) for terminals operating in the packet mode and connected to public data networks by dedicated circuit">
             <correction cpubnum="Corrigendum 11" date="1998"/>
          </document>
          <applicability>
@@ -38572,7 +38633,7 @@
       </standard>
 
       <standard id="itu-t-x.31" tag="ITU X.31">
-         <document orgid="itu" pubnum="X.31" date="1995" title="X.25 over ISDN B or D channels"/>
+         <document orgid="itu-t" pubnum="X.31" date="1995" title="X.25 over ISDN B or D channels"/>
          <applicability>
             This Recommendation addresses the following aspects:
             <para>
@@ -38615,7 +38676,7 @@
       </standard>
 
       <standard id="itu-t-x.411" tag="X.411">
-         <document orgid="itu" pubnum="X.411" date="1999" title="Message transfer system: Abstract service definition and procedures"/>
+         <document orgid="itu-t" pubnum="X.411" date="1999" title="Message transfer system: Abstract service definition and procedures"/>
          <applicability>
             This security service augments the Message Security Labeling
             service by allowing the originator to convey to all recipients of an interpersonal
@@ -38692,67 +38753,6 @@
             </history>
          </status>
          <uuid>4613585b-f3cd-4273-a8a6-c4243599919c</uuid>
-      </standard>
-
-      <standard id="itu-tg703" tag="G.703">
-         <document orgid="itu" pubnum="ITU-T G.703" date="2001-11" title="Physical/electrical characteristics of hierarchical digital interfaces"/>
-         <applicability>
-            This Recommendation specifies the recommended physical and electrical characteristics of the
-            interfaces at hierarchical bit rates as described in ITU-T Recs. G.702 (PDH) and G.707 (SDH). The
-            interfaces are defined in terms of general characteristics, specifications at the output ports and input
-            ports and/or cross-connect points, earthing of outer conductor or screen and coding rules.
-         </applicability>
-         <status mode="accepted">
-            <uri>https://www.itu.int/rec/T-REC-G.703/en</uri>
-            <history>
-               <event flag="added" date="2013-07-28" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>a6d6e1b9-d61a-499e-ac67-928f34313647</uuid>
-      </standard>
-
-      <standard id="itu-tg704" tag="G.704">
-         <document orgid="itu" pubnum="ITU-T G.704" date="1998-10" title="Synchronous frame structures used at 1544,            6312, 2048, 8448 and 44 736 kbit/s hierarchical levels"/>
-         <applicability>
-            This Recommendation gives functional characteristics of interfaces associated with:
-            <itemizedlist>
-               <listitem>
-                  <para>network nodes, in particular, synchronous digital multiplex equipment 
-                and digital exchanges in IDNs for telephony and ISDNs; and</para>
-               </listitem>
-               <listitem>
-                  <para>PCM multiplexing equipment.</para>
-               </listitem>
-            </itemizedlist>
-            <para>It deals with basic frame structures, including details of frame length, frame 
-              alignment signals, Cyclic Redundancy Check (CRC) procedures and other basic information.</para>
-            <para>It contains more specific information about how certain channels at 64 kbit/s
-              and at other bit rates are accommodated within the basic frame structures.</para>
-         </applicability>
-         <status mode="accepted">
-            <uri>https://www.itu.int/rec/T-REC-G.704/en</uri>
-            <history>
-               <event flag="added" date="2013-07-28" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>e9cd4fac-3dd1-4ef6-8466-1e0830ff6086</uuid>
-      </standard>
-
-      <standard id="itu-tgi" tag="ITU-T G,I Series">
-         <document orgid="itu" pubnum="" date="" title="ISDN: ITU-T G, I Series"/>
-         <applicability>
-            The ITU-T G and I Series contain the standards for digital narrowband
-            (ISDN) telephone systems.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.itu.int/ITU-T/recommendations/index.aspx?ser=I</uri>
-            <history>
-               <event flag="added" date="2002-10-11" version="0.4"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2013-07-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>5b9f8a6d-c169-4648-a2ad-cf69dd530b4c</uuid>
       </standard>
 
       <standard id="jcp-jsr168" tag="Portlet Spec 1.0">
@@ -51972,6 +51972,7 @@
       <orgkey key="iso" text="ISO"/>
       <orgkey key="iso-iec" text="ISO/IEC"/>
       <orgkey key="itu" text="ITU"/>
+      <orgkey key="itu-t" text="ITU Standard"/>
       <orgkey key="jcp" text="Java Community Process"/>
       <orgkey key="linux" text="Linux"/>
       <orgkey key="linuxbase" text="Linux-Base"/>
