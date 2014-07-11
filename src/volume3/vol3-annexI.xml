@@ -593,6 +593,9 @@ IP networking. Accommodate both IPv4 and IPv6 addressing.  To accommodate I
                   </itemizedlist>
 				</para>
 				<para>NATO Public Key Infrastructure (NPKI) Certificate Policy (CertP) Rev2, AC/322D(2004)0024REV2</para>
+<para>Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile – PKIX (IETF: RFC 5280, 2008)</para><para>
+<emphasis role="underline">Recommended</emphasis>:</para> 
+				<para>X.509 Internet Public Key Infrastructure Online Certificate Status Protocol – OCSP (IET: RFC 6960, 2013)</para>
 			  </entry>
               <entry></entry>
 			  </row>
@@ -650,9 +653,11 @@ IP networking. Accommodate both IPv4 and IPv6 addressing.  To accommodate I
 				<itemizedlist>
 				<listitem><para>ISO/IEC 15445:2000, Information technology -- Document description and processing languages -- HyperText Markup Language (HTML).</para></listitem>
 				<listitem><para>IETF RFC2854:2000, The 'text/html' Media Type.</para></listitem>
+<listitem><para>HyperText Markup Language, Version 5 (HTML 5), W3C Candidate Recommendation, Aug 2013</para></listitem><listitem><para>Scripting Media Types, IETF: RFC 4329, 2006  (Java Script)</para></listitem>
+<listitem><para>OASIS Standard, Web Services for Remote Portlets Specification v2.0, 1 April 2008</para></listitem>
 				</itemizedlist>
 				<emphasis role="underline">Emerging (2015)</emphasis>:
-				<para>HyperText Markup Language, Version 5 (HTML 5), W3C Candidate Recommendation, Aug 2013</para>
+				
 				</entry>
                 <entry></entry>
               </row>
@@ -680,6 +685,7 @@ IP networking. Accommodate both IPv4 and IPv6 addressing.  To accommodate I
 				<listitem><para>Extensible Markup Language (XML) 1.0 (Fifth Edition), W3C Recommendation, 26 November 2008.</para></listitem>
 				<listitem><para>XML Schema Part 1: Structures Second Edition, W3C Recommendation, 28 October 2004.</para></listitem>
 				<listitem><para>XML Schema Part 2: Datatypes Second Edition, W3C Recommendation, 28 October 2004.</para></listitem>
+<listitem><para>The application/json Media Type for JavaScript Object Notation (JSON), IETF: RFC 4627, July 2006</para></listitem>
 				</itemizedlist>
 				</entry>
                 <entry>XML shall be used for data exchange to satisfy those IERs within a FMN instance that are not addressed by a specific information exchange standard. XML Schemas and namespaces are required for all XML documents.</entry>
@@ -719,11 +725,22 @@ IP networking. Accommodate both IPv4 and IPv6 addressing.  To accommodate I
 				  <listitem><para>XML Signature Syntax and Processing (Second Edition), W3C Recommendation, 10 June 2008. </para></listitem>
 				  <listitem><para>OASIS WS-I Basic Security Profile Version 1.1, 24 January 2010.</para></listitem>
 				</itemizedlist>
-				</entry>
+<para><emphasis role="underline">Emerging (2015)</emphasis>:</para>
+<itemizedlist>
+<listitem><para>OAuth 2.0 [IETF RFC 6749, 2012] Internet Engineering Task Force (on-line) http://www.ietf.org Request for Comments 6749, “The OAuth 2.0 Authorization Framework”, D. Hardt, at http://tools.ietf.org/html/rfc6749, October 2012.</para></listitem>
+</itemizedlist>
+<para><emphasis role="underline">Recommended</emphasis>:</para>
+<itemizedlist>
+<listitem><para>Web Services Security - SAML Token Profile 1.1, OASIS Standard incorporating Approved Errata, 01 November 2006 (move from 8:Security token format)</para></listitem>
+<listitem><para>Web Services Security - X.509 Certificate Token Profile 1.1, OASIS Standard incorporating Approved Errata, 01 November 2006</para></listitem>
+</itemizedlist>
+</entry>
                 <entry>Specifies how integrity and confidentiality can be enforced on messages and allows the communication of various security token formats, such as SAML, Kerberos, and X.509v3. Its main focus is the use of XML Signature and XML Encryption to provide end-to-end security.
 				<para>Specifies a process for encrypting data and representing the result in XML. Referenced by WS-Security specification.</para>
 				<para>Specifies XML digital signature processing rules and syntax. Referenced by WS-Security specification.</para>
-				<para>WS-Security might not be used when services only handle unclassified data without access restrictions.</para>
+<para>For Securing RESTful Services use the OAuth standard.</para>
+<para>Easier to implement than SAML Token Profile. Suitable for service to service interactions only.
+Guidance for properly labelling and binding data objects for transport using SOAP, JSON, etc. are provided in the emerging Technical and Implementation Standard for Confidentiality Labelling of NATO Information (AC/322-(2014)xxxx)</para>
 				</entry>
               </row>
               <row>
@@ -743,6 +760,11 @@ IP networking. Accommodate both IPv4 and IPv6 addressing.  To accommodate I
 				<itemizedlist>
 				  <listitem><para>OASIS Standard, WS-Trust 1.4, incorporating Approved Errata 01, 25 April 2012.</para></listitem>
 				  <listitem><para>Web Services Federation Language (WS-Federation) Version 1.1, December 2006.<footnote><para>This specification is subject to the following copyright: (c) 2001-2006 BEA Systems, Inc., BMC Software, CA, Inc., International Business Machines Corporation, Layer 7 Technologies, Microsoft Corporation, Inc., Novell, Inc. and VeriSign, Inc. All rights reserved.</para></footnote></para></listitem>
+<listitem><para>NPKI Certificate Policy(CertP), Rev2, AC/322D(2004)0024REV2</para></listitem>
+				</itemizedlist>
+<emphasis role="underline">Recommended</emphasis>:
+				<itemizedlist>
+				  <listitem><para>SAML Protocol (from OASIS Standard, Security Assertion Markup Language (SAML) 2.0), March 2005.)</para></listitem>
 				  <listitem><para>Web Services Policy 1.5 – Framework, W3C Recommendation, 04 September 2007.</para></listitem>
 				  <listitem><para>WS-Security Policy 1.3, OASIS Standard incorporating Approved Errata 01, 25 April 2012.</para></listitem>
 				</itemizedlist>
@@ -786,24 +808,19 @@ IP networking. Accommodate both IPv4 and IPv6 addressing.  To accommodate I
 				</entry>
                 <entry>The preferred method for implementing web-services are SOAP, however, there are many use cases (mash-ups etc.) where a REST based interface is easier to implement and sufficient to meet the IERs.<para>Restful services support HTTP caching, if the data the Web service returns is not altered frequently and not dynamic in nature. REST is particularly useful for restricted-profile devices such as mobile phones and tablets for which the overhead of additional parameters like headers and other SOAP elements are less.</para></entry>
               </row>
-              <row><!--
-*****************************************************************
-                   FRA - requested removal of this entry (Rejected)
-*****************************************************************  
--->
+              <row>
                 <entry>13:Secure exchange of data objects and documents across multiple security domains</entry>
-                <entry>The Draft X-Labels syntax definition is called the "NATO Profile for the XML 
-                  Confidentiality Label Syntax" and is based on version 1.0 of the RTG-031 proposed 
-                  XML confidentiality label syntax, see "Sharing of information across communities of
-                  interest and across security domains with object level protection" below.</entry>
-                <entry>
-<!--
-*****************************************************************
-    Revised by FMN RFC 46 dated 2014-04-04
-*****************************************************************  
--->As precursor step to the formalization of a Standardization Task in line with AJP­3(J), the C3B validated a
-Standardisation Proposal for a Confidentiality Labelling Standard  (AC/322­N(2014)0031).
-				</entry>
+                <entry><emphasis role="underline">Mandatory</emphasis>:
+<itemizedlist>
+<listitem><para>NC3A TN-1456 REV1"NATO Profile for the XML Confidentiality Label Syntax, version 1.1"</para></listitem>
+<listitem><para>NC3A TN-1455 REV1 "NATO Profile for the Binding of Metadata to Data Objects, version 1.1"</para></listitem>
+</itemizedlist>
+<emphasis role="underline">Recommended (2015)</emphasis>:
+<itemizedlist>
+<listitem><para>Technical and Implementation Directive for Confidentiality Labelling of NATO Information (AC/322-D(2014)nnnn)</para></listitem>
+<listitem><para>Technical and Implementation Standard for Confidentiality Labelling of NATO Information (AC/322-(2014)xxxx)</para></listitem>
+</itemizedlist></entry>
+                <entry><para>Guidance for properly labelling and binding data objects is provided in the emerging Technical and Implementation Standard for Confidentiality Labelling of NATO Information (AC/322-(2014)xxxx)</para></entry>
               </row>
               <row>
                 <entry>14:Topic based publish / subscribe web services communication</entry>
@@ -818,14 +835,17 @@ Standardisation Proposal for a Confidentiality Labelling Standard  (AC/3
               </row>
               <row>
                 <entry>15:Providing transport-neutral mechanisms to address web services</entry>
-                <entry>Web Services Addressing 1.0 – Core, W3C Recommendation, 9 May 2006</entry>
-                <entry>Provides transport-neutral mechanisms to addressWeb services and messages
-                  which is crucial in providing end-to- message level security, reliable messaging 
-                  or publish / subscribe based web services end.</entry>
+                <entry>
+<emphasis role="underline">Mandatory</emphasis>:
+<itemizedlist>
+<listitem><para>WS-Addressing 1.0 – Core, 9 May 2006</para></listitem>
+</itemizedlist>
+<para>Web Services Addressing 1.0 – Core, W3C Recommendation, 9 May 2006</para></entry>
+                <entry>Required for WS-Security</entry>
               </row>
               <row>
                 <entry>16:Reliable messaging for web services</entry>
-                <entry><emphasis role="underline">Mandatory</emphasis>:
+                <entry><emphasis role="underline">Recommended</emphasis>:
 				<para>OASIS, Web Services Reliable Messaging (WS-Reliable Messaging) Version 1.2, OASIS Standard, February 2009.</para>
 				</entry>
                 <entry>Describes a protocol that allows messages to be transferred reliably between
@@ -955,16 +975,21 @@ Standardisation Proposal for a Confidentiality Labelling Standard  (AC/3
 				<listitem><para>IETF RFC 1870:1995, SMTP Service Extension for Message Size Declaration.</para></listitem>
 				<listitem><para>IETF RFC 2821:2001, Simple Mail Transfer Protocol (SMTP) ()</para></listitem>
 				<listitem><para>IETF RFC 2822:2001, Simple Internet Messages.</para></listitem>
+<listitem><para>IETF RFC 2821:2001, Simple Mail Transfer Protocol (SMTP).</para></listitem>IETF RFC 1870:1995, SMTP Service Extension for Message Size Declaration.</para></listitem>IETF RFC 2822:2001, Simple Internet Messages.</para></listitem>
 				</itemizedlist>
 				<para>Emerging (2016):</para>
 				<para>IETF RFC 5321: 2008, Simple Mail Transfer Protocol which obsoletes: IETF RFC 2821: 2001</para>
+<para>IETF RFC 5321: 2008, Simple Mail Transfer Protocol which obsoletes IETF RFC 2821: 2001</para>
 				<para>Emerging (2017):</para>
 				<para>IETF RFC 6477: 2012, Registration of Military Message Handling System (MMHS) Header Fields for Use in Internet Mail</para>
+<para>IETF RFC 6477: 2012, Registration of Military Message Handling System (MMHS) Header Fields for Use in Internet Mail</para>
 				</entry>
                 <entry>Conditional: Depending on the protection requirements within the particular FMN instance messages must be marked in the message header field “Keywords”(IETF RFC 2822) and first-line-of-text in the message body according to the following convention:<para>[MMM] [CLASSIFICATION], Releasable to [MISSION]</para>
 <para>Where CLASSIFICATION is the classification {SECRET, CONFIDENTIAL, RESTRICTED, UNCLASSIFIED} and MMM is the alpha-3 country code e.g. DEU, GBR, as defined in Table 8.ID2 with the exception that NATO will be identified by the four letter acronym “NATO”.  The “releasable to” list shall include the short-name of the mission and may be extended to include other entities.</para>
 <para><emphasis>Example:</emphasis></para>
 <para>Keywords: <emphasis>ITA UNCLASSIFIED, Releasable to XFOR</emphasis></para>
+<para>Conditional (if the mission network operates at classified level).
+messages must be labelled and bound to the email transport using the SMTP Binding Profile defined in Technical and Implementation Standard for Confidentiality Labelling of NATO Information (AC/322-(2014)xxxx</para>
 </entry>
               </row>
               <row>
@@ -1045,6 +1070,12 @@ Standardisation Proposal for a Confidentiality Labelling Standard  (AC/3
 				  <para>Emerging</para>
                   <itemizedlist>
                     <listitem><para>XEP-0311: MUC Fast Reconnect, January 2012.</para></listitem>
+                    <listitem><para>XEP-131 Stanza Headers and Internet Metadata (SHIM)</para></listitem>
+                    <listitem><para>XEP-198 Stream Management</para></listitem>
+                    <listitem><para>XEP-227 Portable Import/Export Format for XMPP-IM Servers</para></listitem>
+                    <listitem><para>XEP-313 Message Archive Management (MAM)</para></listitem>
+                    <listitem><para>XEP-346 Form Discovery and Publishing (FDP)</para></listitem>
+<listitem><para>XEP-350: Data Forms Geolocation Element</para></listitem>
                   </itemizedlist>
 				  </entry>
                 <entry>Developers are also advised to consult the following IETF RFCs:
@@ -1056,7 +1087,7 @@ Standardisation Proposal for a Confidentiality Labelling Standard  (AC/3
                     <listitem><para>IETF RFC 4979: 2007, IANA Registration for Enumservice 'XMPP'</para></listitem>
                     <listitem><para>IETF RFC 3761: 2004, The E.164 to Uniform Resource Identifiers (URI) Dynamic Delegation Discovery System (DDDS) Application (ENUM).</para></listitem>
                     <listitem><para>IETF RFC 5122: 2008, Internationalized Resource Identifiers (IRIs) and Uniform Resource Identifiers (URIs) for the Extensible Messaging and Presence Protocol (XMPP).</para></listitem>
-                  </itemizedlist>
+                  </itemizedlist><para>Many XMPP extensions are still in draft. Implementations should use caution i.e. XEP-0065: SOCKS5 Bytestreams, April 2011. XMPP Extension Label syntax should follow the emerging NATO standard: Technical and Implementation Standard for Confidentiality Labelling of NATO Information (AC/322 (2014)xxxx)</para>
 				</entry>
               </row>
             </tbody>
@@ -1097,47 +1128,40 @@ Standardisation Proposal for a Confidentiality Labelling Standard  (AC/3
                 <entry>1:<emphasis role="underline">Enterprise Search Services</emphasis>: Automated information resource discover, information extraction and interchange of metadata</entry>
                 <entry><emphasis role="underline">Mandatory</emphasis>:
 				<itemizedlist>
-				<listitem><para>ISO 15836:2009, Information and documentation - The Dublin Core metadata element set.</para></listitem>
-				<listitem><para>TIDE Information Discoveryv2.3.0, Allied Command Transformation Specification, 30 October 2009.</para></listitem>
-				<listitem><para>TIDE Transformational Baseline 3.0 – Annex C: Service Discovery v.2.2.0, Allied Command Transformation Specification, December 2009.</para></listitem>
+				<listitem><para>AC/322-N(2014)xxxx - NATO Core Metadata Specification</para></listitem>
 				<listitem><para>SPARQL 1.1 Query Language, W3C Recommendation, 21 March 2013.</para></listitem>
 				<listitem><para>OWL 2 Web Ontology Language Document Overview (Second Edition), W3C Recommendation, 11 December 2012.</para></listitem>
 				</itemizedlist>
 				<para><emphasis role="underline">Emerging (2014)</emphasis>:OpenSearch 1.1 Draft 5
 				</para>
 				</entry>
-                <entry>ISO 15836: 2009 does not define implementation detail.
-                  <para>This profile requires a subset of metadata with UTF8 character encoding as defined in the NATO Discovery Metadata Specification (NDMS)</para>
-                  <para>The technical implementation specifications are part of the TIDE Transformational Baseline v3.0, however, Query-by-Example (QBE), has been deprecated with the TIDE Information Discovery specs v2.3.0 and replaced by SPARQL.</para><para>The TIDE community is evaluating OpenSearch for potential inclusion into the TIDE Information Discovery specifications.</para>
+                <entry>The NATO Core Metadata Specification does not define implementation details. However, it describes the format and encoding of the values captured for each metadata element.
+                  <para>The technical implementation specifications are part of the TIDE Transformational Baseline v3.0, however, Query-by-Example (QBE), has been deprecated with the TIDE Information Discovery specs v2.3.0 and replaced by SPARQL.</para>
                 </entry>
               </row>
 			  <row>
               <entry>2:<emphasis role="underline">Enterprise Search Services</emphasis>: <para>manual information resource discovery, classification marking and file naming conventions</para></entry>
-              <entry><emphasis role="underline">Recommended</emphasis>: <para>AC322-N(2010)0025 – Guidance On File Naming</para>
-			  </entry>
-              <entry>Character codes for permissible Classification Markings will be specified for each Mission Network in the IM Annex of the OPLAN.</entry>
+              <entry><emphasis role="underline">Recommended</emphasis>:
+<itemizedlist>
+<listitem><para>AC322-N(2010)0025 – Guidance On File Naming</para></listitem>
+<listitem><para>AC/322-N(2011)0130 – Guidance on the marking of NATO information</para></listitem>
+</itemizedlist>
+</entry>
+<entry>Character codes for permissible Classification Markings will be specified for each Mission Network in the IM Annex of the OPLAN.</entry>
             </row>
-
-              <row><!--
-*****************************************************************
-                   FRA - requests removal of this entry
-*****************************************************************  
--->
+              <row>
                 <entry>3:<emphasis role="underline">Enterprise Support Guard Services</emphasis>: General definition of Security and Confidentiality metadata</entry>
                 <entry><emphasis role="underline">Mandatory</emphasis>:
                   <itemizedlist>
-                    <listitem><para>NO-FFI-rapport 00961:2010, XML Confidentiality Label Syntax - a proposal for a NATO specification.</para></listitem>
-                    <listitem><para>NO-FFI-rapport 00962: 2010, Binding of Metadata to Data Objects - a proposal for a NATO specification.</para></listitem>
-                    <listitem><para>NCIA TN-1455-REV1, NATO Profile for the Binding of Metadata to Data Objects, Vers 1.1, December 2012.</para></listitem>
-                    <listitem><para>NCIA TN-1456-REV1, NATO Profile for the XML Confidentiality Label Syntax, Vers 1.1, January 2013.</para></listitem>
-                  </itemizedlist>
+                    <listitem><para>Technical and Implementation Standard for Confidentiality Labelling of NATO Information (AC/322-(2014)xxxx), including Appendices 1 – 4.</para></listitem>
+                   </itemizedlist>
                 </entry>
-                <entry>Services and applications shall implement object level labeling in order to support cross-domain information exchange using common enterprise Support Guard Services (e.g. Cross-Domain Solutions or Information Exchange Gateways)</entry>                           
+                <entry>Services and applications shall implement object level labelling in order to support cross-COI and cross security domain information exchange using common enterprise Support Guard Services (e.g. Cross-Domain Solutions or Information Exchange Gateways)</entry>                           
               </row>
             </tbody>
           </tgroup>
           </table>
-		
+<para>Metadata shall contain the following elements. Details on the format and encoding of the values for each element are provided in the NATO Core Metadata Specification, AC/322-N(2014)xxxx.</para>		
           <table frame="all" id="v3t-id-fmn-reftable9">
           <title>Minimum Metadata Set</title>
           <tgroup cols="4">
@@ -1148,13 +1172,13 @@ Standardisation Proposal for a Confidentiality Labelling Standard  (AC/3
             <thead>
               <row>
                 <entry>
-                  <emphasis role="bold">(Dublin Core) element name</emphasis>
+                  <emphasis role="bold">NCMS element name</emphasis>
                 </entry>
                 <entry>
                   <emphasis role="bold">XML element name</emphasis>
                 </entry>
                 <entry>
-                  <emphasis role="bold">Obligation category</emphasis>
+                  <emphasis role="bold">Obligation</emphasis>
                 </entry>
                 <entry>
                   <emphasis role="bold">Definition</emphasis>
@@ -1163,65 +1187,77 @@ Standardisation Proposal for a Confidentiality Labelling Standard  (AC/3
             </thead>
             <tbody>
               <row>
-                <entry>title</entry>
-                <entry>dc:title</entry>
+                <entry>metadataConfidentialityLabel</entry>
+                <entry>ncms:metadataConfidentialityLabel</entry>
                 <entry>M</entry>
-                <entry>A name given to the resource.</entry>
+                <entry>The confidentiality label assigned to the metadata set associated with the resource.</entry>
+              </row>
+              <row>
+                <entry>originatorConfidentialityLabel</entry>
+                <entry>ncms:originatorConfidentialityLabel</entry>
+                <entry>M</entry>
+                <entry>The confidentiality label assigned to the resource by the originator.</entry>
               </row>
               <row>
                 <entry>creator</entry>
-                <entry>dc:creator</entry>
-                <entry>M</entry>             
-                <entry>An entity (organization) primarily responsible for making the content of the resource.</entry>
-              </row>
-              <row>
-                <entry>date</entry>
-                <entry>dc:date</entry>
+                <entry>ncms:creator</entry>
                 <entry>M</entry>
-                <entry>A calendar date associated with an event in the life cycle of the resource. 
-                  Typically, ‘date’ will be associated with the creation or availability of the resource. 
-                  Implementation of the W3C profile of ISO 8601:2004 (W3CDTF profile) is recommended
-                  using the YYYY-MM-DD format.
-                </entry>
+                <entry>An entity primarily responsible for creating the resource, or the originator of the resource.</entry>
               </row>
               <row>
-                <entry>subject</entry>
-                <entry>dc:subject</entry>
+                <entry>date.created</entry>
+                <entry>ncms:created</entry>
                 <entry>M</entry>
-                <entry>The topic of the content of the resource.</entry>               
-              </row>
-              <row>
-                <entry>keywords</entry>
-                <entry>dc:keywords</entry>
-                <entry>M</entry>
-                <entry>Specific words denoting the context of the resource.</entry>
-              </row>
-              <row>
-                <entry>description</entry>
-                <entry>dc:description</entry>
-                <entry>C</entry>
-                <entry>An account of the content of the resource. Description may include but is not limited 
-                  to: an abstract, table of contents, reference to a graphical representation of content or 
-                  a free-text account of the content.</entry>
+                <entry>The date on which the resource was created.</entry>
               </row>
               <row>
                 <entry>identifier</entry>
-                <entry>dc:identifier</entry>
-                <entry>C</entry>
-                <entry>An unambiguous reference (reference number) to the resource within a given context.
-                  An internal, external, and/or universal identification number for a data asset or resource.
-                </entry>
+                <entry>ncms:identifier</entry>
+                <entry>M</entry>
+                <entry>An unambiguous reference to the resource within a given context.</entry>
+              </row>
+              <row>
+                <entry>publisher</entry>
+                <entry>ncms:publisher</entry>
+                <entry>M</entry>
+                <entry>The entity responsible for making the resource officially available.</entry>
+              </row>
+              <row>
+                <entry>subject</entry>
+                <entry>ncms:subject</entry>
+                <entry>M</entry>
+                <entry>The topic of the content of the resource.</entry>
+              </row>
+              <row>
+                <entry>title</entry>
+                <entry>ncms:title</entry>
+                <entry>M</entry>
+                <entry>The title is the official name of a resource.</entry>
+              </row>
+              <row>
+                <entry>recordsDispositionDate</entry>
+                <entry>ncms:recordsDispositionDate</entry>
+                <entry>M</entry>
+                <entry>The date when the resource will be archived or destroyed.</entry>
+              </row>
+              <row>
+                <entry>status</entry>
+                <entry>ncms:status</entry>
+                <entry>M</entry>
+                <entry>The current status of a resource (active, semi-active, inactive)</entry>
               </row>
               <row>
                 <entry>coverage</entry>
-                <entry>dc:coverage, ows:BoundingBox, or ows:Position</entry>
-                <entry>C</entry>
-                <entry>The spatial or temporal topic of the resource.
-                  <para>The spatial applicability of the resource specified by its geographic coordinates (conformant with OGC Web Services specifications), or the jurisdiction (such as a named administrative entity as defined in ISO-3166-2) under which the resource is relevant.</para>
-				  <para>OGC Web Services (OWS) is an OGC Standard, the schema is located at http://schemas.opengis.net/ows/1.1.0/owsCommon.xsd.</para>
-                </entry>
+                <entry>ncms:coverage, with refinements:
+<para>ncms:countryCode</para>
+<para>ncms:geographicEncodingSchema</para>
+<para>ncms:geographicReference</para>
+<para>ncms:placeName</para>
+<para>ncms:region</para>
+<para>ncms:timePeriod</para></entry>
+                <entry>O</entry>
+                <entry>The temporal and geospatial extent or scope of the content of the resource.</entry>
               </row>
-            </tbody>
           </tgroup>
           </table>
 		</sect3>
