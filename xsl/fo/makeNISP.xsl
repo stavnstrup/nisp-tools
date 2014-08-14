@@ -25,8 +25,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
               NATO Command, Control and Consultation Organisation.(NC3O)
 
 
-$Id$
-
 -->
 
 
