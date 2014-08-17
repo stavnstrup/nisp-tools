@@ -87,6 +87,9 @@ $Id$
 
 <xsl:param name="default.table.width" select="'16cm'"/>
 
+<xsl:attribute-set name="table.table.properties">
+  <xsl:attribute name="hyphenate">true</xsl:attribute>
+</xsl:attribute-set>
 
 <!-- Bibliography (defined in ../common/common.xsl) -->
 
@@ -98,6 +101,7 @@ $Id$
   table before
 </xsl:param>
 
+<xsl:param name="hyphenate">false</xsl:param>
 <xsl:param name="show.comments" select="0"/>
 <xsl:param name="ulink.show" select="1"/>
 <xsl:param name="ulink.hyphenate" select="''"/>
