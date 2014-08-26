@@ -121,14 +121,6 @@
       <echo message="RTF 2"/>
       <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol1.fo" outfile="${build.dir}/rtf/${vol1.rtf.file}" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
-   <target name="vol1.zip" description="* Create source archive of Volume 1">
-      <tstamp/>
-      <echo message="Creating src archive of Volume 1"/>
-      <mkdir dir="${zip.dir}"/>
-      <zip zipfile="${zip.dir}/nisp-src-vol1-${DSTAMP}.zip">
-         <zipfileset dir="${src.dir}/volume1" prefix="volume1/" includes="**/*" excludes="**/*~,**/rtf/*.*, **/*/*.ced,**/*/*.fo"/>
-      </zip>
-   </target>
   
 
   
@@ -227,14 +219,6 @@
       <echo message="RTF 2"/>
       <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol2.fo" outfile="${build.dir}/rtf/${vol2.rtf.file}" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
-   <target name="vol2.zip" description="* Create source archive of Volume 2">
-      <tstamp/>
-      <echo message="Creating src archive of Volume 2"/>
-      <mkdir dir="${zip.dir}"/>
-      <zip zipfile="${zip.dir}/nisp-src-vol2-${DSTAMP}.zip">
-         <zipfileset dir="${src.dir}/volume2" prefix="volume2/" includes="**/*" excludes="**/*~,**/rtf/*.*, **/*/*.ced,**/*/*.fo"/>
-      </zip>
-   </target>
   
 
 
@@ -316,14 +300,6 @@
       <echo message="RTF 2"/>
       <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol3.fo" outfile="${build.dir}/rtf/${vol3.rtf.file}" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
-   <target name="vol3.zip" description="* Create source archive of Volume 3">
-      <tstamp/>
-      <echo message="Creating src archive of Volume 3"/>
-      <mkdir dir="${zip.dir}"/>
-      <zip zipfile="${zip.dir}/nisp-src-vol3-${DSTAMP}.zip">
-         <zipfileset dir="${src.dir}/volume3" prefix="volume3/" includes="**/*" excludes="**/*~,**/rtf/*.*, **/*/*.ced,**/*/*.fo"/>
-      </zip>
-   </target>
   
 
   
@@ -403,14 +379,6 @@
       <echo message="Make RTF version"/>
       <echo message="RTF 2"/>
       <fop basedir="${build.dir}/rtf/" fofile="${build.dir}/rtf/vol4.fo" outfile="${build.dir}/rtf/${vol4.rtf.file}" format="text/rtf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
-   </target>
-   <target name="vol4.zip" description="* Create source archive of Volume 4">
-      <tstamp/>
-      <echo message="Creating src archive of Volume 4"/>
-      <mkdir dir="${zip.dir}"/>
-      <zip zipfile="${zip.dir}/nisp-src-vol4-${DSTAMP}.zip">
-         <zipfileset dir="${src.dir}/volume4" prefix="volume4/" includes="**/*" excludes="**/*~,**/rtf/*.*, **/*/*.ced,**/*/*.fo"/>
-      </zip>
    </target>
   
 

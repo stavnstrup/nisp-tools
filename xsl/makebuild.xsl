@@ -250,8 +250,6 @@ Make dynamic targets.
   <!-- RTF target -->
   <xsl:call-template name="makeRTF"/>
 
-  <!-- ZIP target -->
-  <xsl:call-template name="makeZIP"/>
 </xsl:template>
 
 
@@ -1011,58 +1009,6 @@ Make dynamic targets.
   </target>
 </xsl:template>
 
-
-
-
-<!-- =================================================================== -->
-<!-- Create single source archive                                        -->
-<!-- =================================================================== -->
-
-<xsl:template name="makeZIP">
-  <xsl:variable name="docid" select="./@id"/>
-  <xsl:variable name="dir" select="../@dir"/>
-  <xsl:variable name="title" select="./titles/title"/>
-  <xsl:variable name="ltitle" select="./titles/longtitle"/>
-  <xsl:variable name="pdf.prefix" select="./targets/target[@type='pdf']"/>
-
-
-  <target name="{$docid}.zip"
-          description="* Create source archive of {$title}">      
-    <tstamp/>
-    <echo message="Creating src archive of {$title}"/>
-    <mkdir>
-      <xsl:attribute name="dir">
-        <xsl:text>${zip.dir}</xsl:text>
-      </xsl:attribute>
-    </mkdir>
-    <zip>
-      <xsl:attribute name="zipfile">
-        <xsl:text>${zip.dir}/nisp-src-</xsl:text>
-        <xsl:value-of select="$docid"/>
-        <xsl:text>-</xsl:text>
-        <xsl:text>${DSTAMP}</xsl:text>
-        <xsl:text>.zip</xsl:text>
-      </xsl:attribute>
-      <zipfileset>
-        <xsl:attribute name="dir">
-          <xsl:text>${src.dir}/</xsl:text>
-          <xsl:value-of select="$dir"/>
-        </xsl:attribute>
-        <xsl:attribute name="prefix">
-          <xsl:value-of select="$dir"/>
-          <xsl:text>/</xsl:text>
-        </xsl:attribute>
-        <xsl:attribute name="includes">
-           <xsl:text>**/*</xsl:text>
-        </xsl:attribute>
-        <xsl:attribute name="excludes">
-          <xsl:text>**/*~,**/rtf/*.*, **/*/*.ced,**/*/*.fo</xsl:text>
-        </xsl:attribute>
-      </zipfileset>
-    </zip>
-  </target>
-
-</xsl:template>
 
 
 <!-- =================================================================== -->
