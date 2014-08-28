@@ -31,12 +31,18 @@
 
 
 <!-- Flattens a OpenOffice Spreadsheet.
-     Assumption: No cells spans more than one column and/or row.
 
-     Flattening is necessary, since OpenOffice saves space by merging
-     identical adjacent cells into one cell using the attribute
-     table:number-columns-repeated, which is similat to the HTML
-     colspan attribute.
+     When data captured in an Open Office Spreadsheet needs to be
+     transformed to XML, we make the assumption that no cell spans
+     more than one column and row, since that make the stylesheet
+     simple to implement.
+
+     However, since OpenOffice saves space by merging identical
+     adjacent cells into one cell using the attribute
+     table:number-columns-repeated (which is similar to the HTML
+     colspan attribute), we need to "flatten" the merged cells,
+     i.e. expand them to single non-merged cells before doing any
+     processing of the spreadsheet.
 -->
 		
 <xsl:template match="table:table-cell[@table:number-columns-repeated>1]">
