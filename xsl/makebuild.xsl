@@ -54,11 +54,13 @@ Make dynamic targets.
     <xsl:with-param name="comment" select="'* Create all HTML files destined for the web'"/>
   </xsl:call-template>
 
+<!--
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'rtf'"/>
     <xsl:with-param name="othertargets" select="'init, pdf'"/>
     <xsl:with-param name="comment" select="'* Create all RTF files'"/>   
   </xsl:call-template>
+-->
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'pdf'"/>
@@ -248,7 +250,9 @@ Make dynamic targets.
   <xsl:call-template name="makePDF"/>
 
   <!-- RTF target -->
+<!--
   <xsl:call-template name="makeRTF"/>
+-->
 
 </xsl:template>
 
@@ -934,7 +938,7 @@ Make dynamic targets.
 <!-- Create RTF targets                                                  -->
 <!-- =================================================================== -->
 
-
+<!--
 <xsl:template name="makeRTF">
   <xsl:variable name="docid" select="./@id"/>
   <xsl:variable name="dir" select="../@dir"/>
@@ -1008,7 +1012,7 @@ Make dynamic targets.
     </xsl:choose>
   </target>
 </xsl:template>
-
+-->
 
 
 <!-- =================================================================== -->
