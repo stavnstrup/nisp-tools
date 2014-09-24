@@ -52,7 +52,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:template match="docinfo">
   <li xmlns="http://www.w3.org/1999/xhtml">
-    <a class="check.lifecycle.postfix">
+    <p><a class="check.lifecycle.postfix">
       <xsl:attribute name="href">
         <xsl:text>pdf/</xsl:text>
         <xsl:value-of select=".//target[@type='pdf']"/>
@@ -64,7 +64,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <xsl:value-of select="./titles/title"/>
       <xsl:text>) - </xsl:text>
       <xsl:value-of select="./titles/longtitle"/>     
-    </a>
+    </a></p>
   </li>
 </xsl:template>
 
