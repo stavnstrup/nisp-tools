@@ -90,9 +90,9 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
     
     <div class="row" id="container">
       <xsl:choose>
-        <xsl:when test="@condition='PDFcoverdoc'">
+        <xsl:when test="@id='PDFcoverdoc'">
           <div class="twelve columns pdffiles" id="docbook">
-            <xsl:apply-templates select="body"/>
+            <xsl:apply-templates select="xhtml:body"/>
           </div>
         </xsl:when>
         <xsl:otherwise>

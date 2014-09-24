@@ -17,12 +17,12 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:output method="xml" version="1.0" encoding="UTF-8"
             indent="yes"
-            doctype-public="-//OASIS//DTD DocBook XML V4.5//EN"
-            doctype-system="../src/schema/dtd/docbkx45/docbookx.dtd"/>
+            doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+            doctype-system="../src/schema/dtd/xhtml1/DTD/xhtml1-strict.dtd"/>
 
 
 <xsl:template match="/">
-
+  <html xmlns="http://www.w3.org/1999/xhtml" id='PDFcoverdoc'>
   <xsl:comment>
 
      DO NOT MODIFY THIS DOCUMENT. THIS IS A GENERATED VERSION ONLY.
@@ -34,45 +34,38 @@ NATO Command, Control and Consultation Organisation (NC3O).
      STYLESHEET.
      
   </xsl:comment>
+  <head>
+    <title>NISP in PDF</title>
+  </head>
+  <body>
+    <h2>NISP in PDF</h2>
 
-  <chapter condition="PDFcoverdoc">
-    <chapterinfo>
-      <title>NISP in PDF</title>
-      <corpauthor>C3B Interoperability Profiles Capability Team (IP CaT)</corpauthor>
-    </chapterinfo>
-  
-    <title/>
-    <section><title>NISP in PDF</title>
+    <p>The following documents are PDF versions of the NISP.</p>
 
-      <para>The following documents are PDF versions of the NISP.</para>
-
-      <itemizedlist>
-          <xsl:apply-templates select=".//docinfo"/>
-       </itemizedlist>
-    </section>
-  </chapter>  
-   
+    <ul>
+      <xsl:apply-templates select=".//docinfo"/>
+    </ul>  
+  </body>
+  </html>
 </xsl:template>
 
 
 <xsl:template match="docinfo">
-  <listitem>
-    <para>
-      <ulink condition="check.lifecycle.postfix">
-        <xsl:attribute name="url">
-          <xsl:text>pdf/</xsl:text>
-          <xsl:value-of select=".//target[@type='pdf']"/>
-          <xsl:text>-v</xsl:text>
-          <xsl:value-of select="/documents/versioninfo/package/@major"/>
-          <xsl:text>.pdf</xsl:text>
-        </xsl:attribute>
-        <xsl:text>NISP (</xsl:text>
-        <xsl:value-of select="./titles/title"/>
-        <xsl:text>) - </xsl:text>
-        <xsl:value-of select="./titles/longtitle"/>     
-      </ulink>
-    </para>
-  </listitem>
+  <li xmlns="http://www.w3.org/1999/xhtml">
+    <a class="check.lifecycle.postfix">
+      <xsl:attribute name="href">
+        <xsl:text>pdf/</xsl:text>
+        <xsl:value-of select=".//target[@type='pdf']"/>
+        <xsl:text>-v</xsl:text>
+        <xsl:value-of select="/documents/versioninfo/package/@major"/>
+        <xsl:text>.pdf</xsl:text>
+      </xsl:attribute>
+      <xsl:text>NISP (</xsl:text>
+      <xsl:value-of select="./titles/title"/>
+      <xsl:text>) - </xsl:text>
+      <xsl:value-of select="./titles/longtitle"/>     
+    </a>
+  </li>
 </xsl:template>
 
 
