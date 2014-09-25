@@ -41,6 +41,13 @@ convert-4.0-to-4.1.xsl to the database.
   elements: profile, siop and baselineprofile.
 
 
+* Add new custodian element to standards/profiles DTD. The custodian is actually what is currently mentioned as org in profile, but is not defined in profiles.
+
+
+
+
+
+
 ## TODO (fixed) - after the transformation (development in the **9.0-WIP-stylesheets** branch)
 
 * Add basleline profile to xsl/makeUUID.xsl stylesheet 
