@@ -19490,6 +19490,52 @@
          <uuid>3e177121-037f-4a90-ad42-ee4bda6fa1f8</uuid>
       </standard>
 
+      <profile id="fmn-ldap" tag="LDAP 4511-4519" type="base">
+         <profilespec orgid="ipcat" title="Lightweight Directory Access Protocol (LDAP) 4511-4519"/>
+         <parts>
+            <refstandard refid="ietf-rfc4511"/>
+            <refstandard refid="ietf-rfc4512"/>
+            <refstandard refid="ietf-rfc4513"/>
+            <refstandard refid="ietf-rfc4514"/>
+            <refstandard refid="ietf-rfc4515"/>
+            <refstandard refid="ietf-rfc4516"/>
+            <refstandard refid="ietf-rfc4517"/>
+            <refstandard refid="ietf-rfc4518"/>
+            <refstandard refid="ietf-rfc4519"/>
+         </parts>
+         <applicability>
+            The Lightweight Directory Access Protocol (LDAP),
+            developed for use over the Internet, is far more widely used than
+            its X.500 equivalent DAP. LDAP support is becoming an integral
+            component of a range of user platforms including Microsoft's
+            Windows 98 and 2000. It is commonly available for UNIX
+            environments as well as for use with X.400 and Internet based
+            E-mail systems. LDAP is a variant of the full DAP and was
+            originally intended by its creators to provide a lightweight
+            complement to full DAP. Whilst DAP is much richer in functionality
+            than LDAP, LDAP has gained considerable support in the commercial
+            world. A number of vendors have made their proprietary directories
+            LDAP-accessible and believe this to be a satisfactory approach for
+            many of their customers. However, LDAP remains a simple access
+            protocol only, and does not provide the protocols necessary for
+            the full Directory service such as will be required by large
+            military organisations, (note: this was one of the reasons why
+            ACP133 currently mandates DAP). The use of LDAP in military
+            systems is still subject to debate as there are both functional
+            and security issues to be faced, (e.g. the US Defense Messaging
+            System mandates DAP). However, LDAP performs a useful role in the
+            provision of simple directory access from end-user
+            networks
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4511.txt</uri>
+            <history>
+               <event flag="added" date="2014-10-14" version="9.0"/>
+            </history>
+         </status>
+         <uuid>5c7fe941-9353-4375-8edf-a22290fade09</uuid>
+      </profile>
+
       <profile id="ipcat-acse" tag="ACSE" type="base">
          <profilespec orgid="ipcat" title="ACSE"/>
          <parts>
@@ -53365,6 +53411,7 @@
       <orgkey key="xmpp" text="XMPP Standards Foundation"/>
       <orgkey key="3gpp" text="3rd Generation Partnership Project"/>
    </organisations>
+
    <responsibleparties>
       <rpkey key="other" short="Other" long="Other"/>
       <rpkey key="ns" short="N &amp; S CaT" long="">
@@ -53392,4 +53439,5 @@
          <pointofcontact name="Andreas Kernchen" email="kernchen.andreas@hq.nato.int" phone=""/>
       </rpkey>
    </responsibleparties>
+
 </standards>
