@@ -3,7 +3,7 @@
    <target name="resolve" depends="init, vol1.resolve, vol2.resolve, vol3.resolve, vol4.resolve"/>
    <target name="olinks" depends="init, vol1.olinks, vol2.olinks, vol3.olinks, vol4.olinks"/>
    <target name="html" depends="init, master, acronyms, vol1.html, vol2.html, vol3.html, vol4.html" description="* Create all HTML files destined for the web"/>
-   <target name="pdf" depends="init, vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf" description="* Create a PDF version of NISP"/>
+   <target name="pdf" depends="init, vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf, bigPDF" description="* Create a PDF version of NISP"/>
    <target name="copy.svg">
       <mkdir dir="${build.dir}/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/figures">
@@ -36,6 +36,13 @@
             <include name="*.${nisp.image.ext}"/>
          </fileset>
       </copy>
+   </target>
+   <target name="bigPDF">
+      <java classname="dk.stavnstrup.nisp.apps.MergePDF" fork="yes" dir="${build.fo}">
+         <arg line="${tool-version} NISP-v${src-version-major}.pdf NISP-Vol1-v${src-version-major}.pdf NISP-Vol2-v${src-version-major}.pdf NISP-Vol3-v${src-version-major}.pdf NISP-Vol4-v${src-version-major}.pdf "/>
+         <classpath refid="lib-fop-classpath"/>
+      </java>
+      <delete quiet="true" file="${build.fo}/CombinedPDFDocument.pdf"/>
    </target>
   
     

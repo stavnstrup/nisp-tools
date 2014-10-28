@@ -66,7 +66,10 @@ Make dynamic targets.
     <xsl:with-param name="ext" select="'pdf'"/>
     <xsl:with-param name="othertargets" select="'init'"/>
     <xsl:with-param name="comment" select="'* Create a PDF version of NISP'"/>
+    <xsl:with-param name="additionaltarget" select="'bigPDF'"/>
   </xsl:call-template>
+
+
 
   <target name="copy.svg">
     <mkdir>
@@ -161,6 +164,30 @@ Make dynamic targets.
         </include>
       </fileset>
     </copy>
+  </target>
+
+
+  <target name="bigPDF">
+    <java classname="dk.stavnstrup.nisp.apps.MergePDF" fork="yes">
+      <xsl:attribute name="dir">
+         <xsl:text>${build.fo}</xsl:text>
+      </xsl:attribute>
+      <arg>
+        <xsl:attribute name="line">
+          <xsl:text>${tool-version} NISP-v${src-version-major}.pdf </xsl:text>
+          <xsl:for-each select=".//docinfo">
+            <xsl:value-of select="targets/target[@type='pdf']"/>
+            <xsl:text>-v${src-version-major}.pdf </xsl:text>
+          </xsl:for-each>      
+        </xsl:attribute>
+      </arg>
+      <classpath refid="lib-fop-classpath"/>
+    </java>
+    <delete quiet="true">
+      <xsl:attribute name="file">
+        <xsl:text>${build.fo}/CombinedPDFDocument.pdf</xsl:text>
+      </xsl:attribute>
+    </delete>
   </target>
 
   <!-- Generate targets for each document -->
@@ -934,6 +961,9 @@ Make dynamic targets.
   </target>
 </xsl:template>
 
+
+
+
 <!-- =================================================================== -->
 <!-- Create RTF targets                                                  -->
 <!-- =================================================================== -->
@@ -1023,6 +1053,7 @@ Make dynamic targets.
   <xsl:param name="ext" select="''"/>
   <xsl:param name="othertargets" select="''"/>
   <xsl:param name="comment" select="''"/>
+  <xsl:param name="additionaltarget" select="''"/>
 
   <target>
     <xsl:attribute name="name"><xsl:value-of select="$ext"/></xsl:attribute>
@@ -1039,6 +1070,10 @@ Make dynamic targets.
           <xsl:text>, </xsl:text>
         </xsl:if>
       </xsl:for-each>
+      <xsl:if test="$additionaltarget != ''">
+        <xsl:text>, </xsl:text>
+        <xsl:value-of select="$additionaltarget"/>
+      </xsl:if>
     </xsl:attribute>
     <xsl:if test="$comment != ''">
       <xsl:attribute name="description">
