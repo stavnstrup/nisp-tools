@@ -44,6 +44,17 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
     <ul>
       <xsl:apply-templates select=".//docinfo"/>
+      <li>
+        <p><a class="check.lifecycle.postfix">
+        <xsl:attribute name="href">
+          <xsl:text>pdf/NISP</xsl:text>
+          <xsl:text>-v</xsl:text>
+          <xsl:value-of select="/documents/versioninfo/package/@major"/>
+          <xsl:text>.pdf</xsl:text>
+        </xsl:attribute>
+        <xsl:text>NISP - All Volumes in One</xsl:text>
+	</a></p>
+      </li>          
     </ul>  
   </body>
   </html>
