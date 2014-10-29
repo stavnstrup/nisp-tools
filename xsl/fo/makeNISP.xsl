@@ -390,8 +390,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   <l:l10n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0" 
           language="en">
     <l:context name="title-numbered">
-      <l:template name="appendix" text="%n.&#160;%t"/>
-      <l:template name="chapter" text="%n.&#160;%t"/>
+      <l:template name="appendix" text="%n. %t"/>
+      <l:template name="chapter" text="%n. %t"/>
     </l:context>
   </l:l10n>
 </l:i18n>
