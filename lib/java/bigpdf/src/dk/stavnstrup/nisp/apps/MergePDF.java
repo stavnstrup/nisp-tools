@@ -2,7 +2,9 @@ package dk.stavnstrup.nisp.apps;
 
 import java.io.*;
 import java.text.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 import dk.stavnstrup.nisp.pdf.PDFInfo;
@@ -23,22 +25,38 @@ public class MergePDF {
         String fo = args[1];  // Get name of final outputfile
        
 	try {
-            // Merge code found at http://thinktibits.blogspot.dk/2011/05/merge-two-pdf-files-java-itext-example.html
+            // Merge code found at http://itextpdf.com/examples/iia.php?id=141
 
-            Document PDFCombineUsingJava = new Document();
-            PdfCopy copy = new PdfCopy(PDFCombineUsingJava, new FileOutputStream("CombinedPDFDocument.pdf"));
-            PDFCombineUsingJava.open();
+            Document bigPDF = new Document();
+            PdfCopy copy = new PdfCopy(bigPDF, new FileOutputStream("CombinedPDFDocument.pdf"));
+            bigPDF.open();
             PdfReader ReadInputPDF;
+            int page_offset = 0;
             int number_of_pages;
+            // Create a bookmarklist
+            ArrayList<HashMap<String, Object>> bookmarks =
+               new ArrayList<HashMap<String, Object>>();
+            List<HashMap<String, Object>> tmp;
             for (int i = 2; i < numberOfArgs; i++) {
                  ReadInputPDF = new PdfReader(args[i]);
+                 // merge the bookmarks
+                 tmp = SimpleBookmark.getBookmark(ReadInputPDF);
+                 SimpleBookmark.shiftPageNumbers(tmp, page_offset, null);
+                 bookmarks.addAll(tmp);
+                 // add the pages
                  number_of_pages = ReadInputPDF.getNumberOfPages();
+                 page_offset += number_of_pages;
                  for (int page = 0; page < number_of_pages; ) {
                      copy.addPage(copy.getImportedPage(ReadInputPDF, ++page));
                  }
+                 copy.freeReader(ReadInputPDF);
+                 ReadInputPDF.close();     
             }
-            PDFCombineUsingJava.close();
-
+            // Add the merged bookmarks
+            copy.setOutlines(bookmarks);
+            bigPDF.close();
+            
+            // Stamp the document
 	    PdfReader reader = new PdfReader("CombinedPDFDocument.pdf");           
             PDFInfo info = new PDFInfo();
             info.setTitle("NATO Interoperability Standards and Profiles");
