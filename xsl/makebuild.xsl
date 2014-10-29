@@ -28,43 +28,43 @@ Make dynamic targets.
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'resolve'"/>
-    <xsl:with-param name="othertargets" select="'init'"/>
+    <xsl:with-param name="dependsOn" select="'init'"/>
   </xsl:call-template>
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'olinks'"/>
-    <xsl:with-param name="othertargets" select="'init'"/>
+    <xsl:with-param name="dependsOn" select="'init'"/>
   </xsl:call-template>
 
 <!--
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'svg'"/>
-    <xsl:with-param name="othertargets" select="'init'"/>
+    <xsl:with-param name="dependsOn" select="'init'"/>
   </xsl:call-template>
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'getfigs'"/>
-    <xsl:with-param name="othertargets" select="'init'"/>
+    <xsl:with-param name="dependsOn" select="'init'"/>
   </xsl:call-template>
 -->
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'html'"/>
-    <xsl:with-param name="othertargets" select="'init, master, acronyms'"/>
+    <xsl:with-param name="dependsOn" select="'init, master, acronyms'"/>
     <xsl:with-param name="comment" select="'* Create all HTML files destined for the web'"/>
   </xsl:call-template>
 
 <!--
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'rtf'"/>
-    <xsl:with-param name="othertargets" select="'init, pdf'"/>
+    <xsl:with-param name="dependsOn" select="'init, pdf'"/>
     <xsl:with-param name="comment" select="'* Create all RTF files'"/>   
   </xsl:call-template>
 -->
 
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'pdf'"/>
-    <xsl:with-param name="othertargets" select="'init'"/>
+    <xsl:with-param name="dependsOn" select="'init'"/>
     <xsl:with-param name="comment" select="'* Create a PDF version of NISP'"/>
     <xsl:with-param name="additionaltarget" select="'bigPDF'"/>
   </xsl:call-template>
@@ -166,8 +166,27 @@ Make dynamic targets.
     </copy>
   </target>
 
+  <target name="bigPDF.required">
+    <uptodate property="bigPDF.notRequired">
+      <xsl:attribute name="targetfile">
+        <xsl:text>${build.dir}/pdf/NISP-v${src-version-major}.pdf</xsl:text>
+      </xsl:attribute>
+      <srcfiles includes="NISP-Vol*.pdf">
+         <xsl:attribute name="dir">
+           <xsl:text>${build.dir}/pdf</xsl:text>
+         </xsl:attribute>
+      </srcfiles>
+    </uptodate>
+  </target>
 
-  <target name="bigPDF">
+  <target name="bigPDF" unless="bigPDF.notRequired">
+    <xsl:attribute name="depends">
+      <xsl:for-each select=".//docinfo">
+        <xsl:value-of select="@id"/>
+        <xsl:text>.pdf, </xsl:text>
+      </xsl:for-each>
+      <xsl:text>bigPDF.required</xsl:text>
+    </xsl:attribute>
     <java classname="dk.stavnstrup.nisp.apps.MergePDF" fork="yes">
       <xsl:attribute name="dir">
          <xsl:text>${build.fo}</xsl:text>
@@ -1051,15 +1070,15 @@ Make dynamic targets.
 
 <xsl:template name="alldocs">
   <xsl:param name="ext" select="''"/>
-  <xsl:param name="othertargets" select="''"/>
+  <xsl:param name="dependsOn" select="''"/>
   <xsl:param name="comment" select="''"/>
   <xsl:param name="additionaltarget" select="''"/>
 
   <target>
     <xsl:attribute name="name"><xsl:value-of select="$ext"/></xsl:attribute>
     <xsl:attribute name="depends">
-      <xsl:if test="$othertargets!=''">
-        <xsl:value-of select="$othertargets"/>
+      <xsl:if test="$dependsOn!=''">
+        <xsl:value-of select="$dependsOn"/>
         <xsl:text>, </xsl:text>
       </xsl:if>
       <xsl:for-each select=".//docinfo">

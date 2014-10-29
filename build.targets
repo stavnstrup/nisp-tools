@@ -37,7 +37,12 @@
          </fileset>
       </copy>
    </target>
-   <target name="bigPDF">
+   <target name="bigPDF.required">
+      <uptodate property="bigPDF.notRequired" targetfile="${build.dir}/pdf/NISP-v${src-version-major}.pdf">
+         <srcfiles includes="NISP-Vol*.pdf" dir="${build.dir}/pdf"/>
+      </uptodate>
+   </target>
+   <target name="bigPDF" unless="bigPDF.notRequired" depends="vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf, bigPDF.required">
       <java classname="dk.stavnstrup.nisp.apps.MergePDF" fork="yes" dir="${build.fo}">
          <arg line="${tool-version} NISP-v${src-version-major}.pdf NISP-Vol1-v${src-version-major}.pdf NISP-Vol2-v${src-version-major}.pdf NISP-Vol3-v${src-version-major}.pdf NISP-Vol4-v${src-version-major}.pdf "/>
          <classpath refid="lib-fop-classpath"/>
