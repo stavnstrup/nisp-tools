@@ -169,7 +169,7 @@ Make dynamic targets.
   <target name="bigPDF.required">
     <uptodate property="bigPDF.notRequired">
       <xsl:attribute name="targetfile">
-        <xsl:text>${build.dir}/pdf/NISP-v${src-version-major}.pdf</xsl:text>
+        <xsl:text>${build.dir}/pdf/NISP-v${src-version-major}${nisp.lifecycle.postfix}.pdf</xsl:text>
       </xsl:attribute>
       <srcfiles includes="NISP-Vol*.pdf">
          <xsl:attribute name="dir">
@@ -193,10 +193,10 @@ Make dynamic targets.
       </xsl:attribute>
       <arg>
         <xsl:attribute name="line">
-          <xsl:text>${tool-version} NISP-v${src-version-major}.pdf </xsl:text>
+          <xsl:text>${tool-version} NISP-v${src-version-major}${nisp.lifecycle.postfix}.pdf </xsl:text>
           <xsl:for-each select=".//docinfo">
             <xsl:value-of select="targets/target[@type='pdf']"/>
-            <xsl:text>-v${src-version-major}.pdf </xsl:text>
+            <xsl:text>-v${src-version-major}${nisp.lifecycle.postfix}.pdf </xsl:text>
           </xsl:for-each>      
         </xsl:attribute>
       </arg>
