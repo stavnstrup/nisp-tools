@@ -373,7 +373,17 @@ $Id$
   <!-- Various targets to the NISP master documents                        -->
   <!-- =================================================================== -->
 
-  <target name="master-check" depends="init">
+
+  <target name="createPDFcoverdoc">
+    <java classname="${xslt.class}" fork="yes" dir="${basedir}">
+      <arg line="-o ${basedir}/src/master/PDFcoverdoc.xml ${basedir}/src/documents.xml 
+                  ${basedir}/xsl/PDFcoverdoc.xsl nisp.lifecycle.stage=${nisp.lifecycle.stage}"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+
+  <target name="master-check" depends="init, createPDFcoverdoc">
     <uptodate property="master.notRequired" 
               targetfile="${build.dir}/index.html">
        <srcfiles dir="${src.dir}/master" includes="*.xml"/>

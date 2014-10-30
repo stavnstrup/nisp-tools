@@ -21,6 +21,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
             doctype-system="../src/schema/dtd/xhtml1/DTD/xhtml1-strict.dtd"/>
 
 
+
+<xsl:param name="nisp.lifecycle.stage" select="''"/>
+
 <xsl:template match="/">
   <html xmlns="http://www.w3.org/1999/xhtml" id='PDFcoverdoc'>
   <xsl:comment>
@@ -29,7 +32,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
      IF YOU WANT TO CHANGE THE TEXT IN THIS DOCUMENT, THEN EDIT THE
      
-          XSL/PDFcoverdoc.xsl
+          xsl/PDFcoverdoc.xsl
 
      STYLESHEET.
      
@@ -50,6 +53,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
           <xsl:text>pdf/NISP</xsl:text>
           <xsl:text>-v</xsl:text>
           <xsl:value-of select="/documents/versioninfo/package/@major"/>
+          <xsl:if test="$nisp.lifecycle.stage != 'draft'">
+            <xsl:value-of select="$nisp.lifecycle.stage"/>
+          </xsl:if>
           <xsl:text>.pdf</xsl:text>
         </xsl:attribute>
         <xsl:text>NISP - All Volumes in One</xsl:text>
@@ -69,6 +75,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:value-of select=".//target[@type='pdf']"/>
         <xsl:text>-v</xsl:text>
         <xsl:value-of select="/documents/versioninfo/package/@major"/>
+        <xsl:if test="$nisp.lifecycle.stage != 'draft'">
+          <xsl:value-of select="$nisp.lifecycle.stage"/>
+        </xsl:if>
         <xsl:text>.pdf</xsl:text>
       </xsl:attribute>
       <xsl:text>NISP (</xsl:text>
