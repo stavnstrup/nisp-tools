@@ -2511,7 +2511,7 @@
       <sp-list tref="ts-ces-is-ss-directory"><!--Directory Storage Services-->
          <sp-view idx="d0e6734">
             <select id="cceb-acp133edD" mode="mandatory">Common Directory Services and Procedures (ACP 133D:2009)</select>
-            <select id="cceb-acp133edC" mode="fading">ACP 133B</select>
+            <select id="cceb-acp133edC" mode="fading">ACP 133C</select>
             <remarks>
                Contains a common directoryschema.
             </remarks>
@@ -2521,7 +2521,7 @@
             </rationale>
          </sp-view>
          <sp-view idx="d0e6738">
-            <select id="cceb-acp133supp1" mode="mandatory">Common Directory Services and Procedures Supplement (ACP 133 Suppl.1:2009)</select>
+            <select id="cceb-acp133supp1ed.A" mode="mandatory">Common Directory Services and Procedures Supplement (ACP 133 Suppl.1ed.A:2009)</select>
             <rationale>ACP 133 Suppl.1 included in NISP v.4 through RFCP 4-39</rationale>
          </sp-view>
          <sp-view idx="d0e6745">
@@ -6704,7 +6704,7 @@
       </standard>
 
       <standard id="cceb-acp133edC" tag="ACP 133 ed.C">
-         <document orgid="cceb" pubnum="ACP 133 ed.C" date="2008-06-19" title="Common Directory Services and Procedures, ACP 133 ed. C:2008"/>
+         <document orgid="cceb" pubnum="ACP 133 ed.C" date="2008-06-19" title="Common Directory Services and Procedures, ACP 133 ed. C:2008" version="C"/>
          <applicability>
             The function of this document, Allied Communication Publication (ACP) 133, is to
             define the Directory services, architecture(s), protocols, schema, policies, and procedures to
@@ -6757,6 +6757,7 @@
                used in earlier versions of this document.
             </para>
          </applicability>
+         <responsibleparty rpref="acp"/>
          <status mode="accepted">
             <uri>http://jcs.dtic.mil/j6/cceb/acps/acp133/ACP133C1.pdf</uri>
             <history>
@@ -6772,7 +6773,9 @@
       </standard>
 
       <standard id="cceb-acp133edD" tag="ACP 133 ed.D">
-         <document orgid="cceb" pubnum="ACP 133" date="2009" title="Common Directory Services and Procedures, ACP 133 ed. D:2009"/>
+         <document orgid="cceb" pubnum="ACP 133" date="2009" title="Common Directory Services and Procedures, ACP 133 ed. D:2009" version="D">
+            <correction cpubnum="JAFPUB20" date="2010"/>
+         </document>
          <applicability>
             The function of this document, Allied Communication Publication (ACP) 133, is
             to define the Directory services, architecture(s), protocols, schema, policies,
@@ -6819,6 +6822,7 @@
                for operation of tactical, mobile and deployed directories.
             </para>
          </applicability>
+         <responsibleparty rpref="acp"/>
          <status mode="accepted">
             <uri>http://jcs.dtic.mil/j6/cceb/acps/acp133/ACP133D.pdf</uri>
             <history>
@@ -6829,8 +6833,10 @@
          <uuid>0349b01f-b9a1-45c5-afeb-7d38e3107452</uuid>
       </standard>
 
-      <standard id="cceb-acp133supp1" tag="ACP 133 Suppl.1">
-         <document orgid="cceb" pubnum="ACP 133 Suppl.1" date="2009" title="Common Directory Services and Procedures Supplement, ACP 133 Suppl.-1:2009"/>
+      <standard id="cceb-acp133supp1ed.A" tag="ACP 133 Suppl.1">
+         <document orgid="cceb" pubnum="ACP 133 Suppl.1edA" date="2009" title="Common Directory Services and Procedures Supplement, ACP 133 Suppl.-1edA:2009" version="A">
+            <correction cpubnum="JAFPUB 21" date="2010"/>
+         </document>
          <applicability>
             The function of this document, Allied Communication Publication (ACP) 133
             (SUPP-1(A)), is to provide the Directory schema definition for ACP 133. In
@@ -6855,6 +6861,7 @@
                the schema are approved.
             </para>
          </applicability>
+         <responsibleparty rpref="acp"/>
          <status mode="accepted">
             <uri>http://jcs.dtic.mil/j6/cceb/acps/acp133/ACP133SUPP1A.pdf</uri>
             <history>
@@ -6864,8 +6871,10 @@
          <uuid>2075b454-8b4c-48b7-866e-f6ab46eda3bf</uuid>
       </standard>
 
-      <standard id="cceb-acp145" tag="ACP 145">
-         <document orgid="cceb" pubnum="ACP 145(A)" date="2008" title="Interim Implementation Guide for ACP 123/STANAG 4406 Messaging Services between Nations"/>
+      <standard id="cceb-acp145" tag="ACP 145A">
+         <document orgid="cceb" pubnum="ACP 145(A)" date="2008" title="Interim Implementation Guide for ACP 123/STANAG 4406 Messaging Services between Nations" version="A">
+            <correction cpubnum="JAFPUB 53" date="2008"/>
+         </document>
          <applicability>
             <para>
                ACP 123/STANAG 4406, ACP 133 and this Implementation Guide
@@ -6891,6 +6900,7 @@
                be included.
             </para>
          </applicability>
+         <responsibleparty rpref="acp"/>
          <status mode="accepted">
             <uri>http://jcs.dtic.mil/j6/cceb/acps/acp145/ACP145A.pdf</uri>
             <history>
@@ -6909,6 +6919,7 @@
           ACP 176 NATO SUPP 1 (NC) provides configuration settings necessary to ensure interoperability
           when different cryptographic devices (e.g. KIV-7/KG84/BID1650) are employed together.
         </applicability>
+        <responsibleparty/>        
          <status mode="accepted">
             <uri>http://jcs.dtic.mil/j6/cceb/acps/acp176/ACP176.pdf</uri>
             <history>
@@ -6918,8 +6929,26 @@
          <uuid>c99f2160-8736-4676-acac-cbd52b865aab</uuid>
       </standard>
 
+      <standard id="cceb-acp176H" tag="Naval Comms Instructions">
+         <document date="2005" orgid="cceb" pubnum="ACP 176(H)" title="Allied Naval and Maritime Air Communication Instructions"/>
+         <applicability>
+          ACP 176 NATO ed. H provides configuration settings necessary to ensure interoperability
+          when different cryptographic devices (e.g. KIV-7/KG84/BID1650) are employed together.
+        </applicability>
+        <responsibleparty/>
+         <status mode="accepted">
+            <uri>http://jcs.dtic.mil/j6/cceb/acps/acp176/</uri>
+            <history>
+               <event flag="added" date="2014-11-02" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>ff91a700-b56a-434d-9e9b-33fea03f4124</uuid>
+      </standard>
+
       <standard id="cceb-acp190d" tag="ACP 190 (D)">
-         <document orgid="cceb" pubnum="ACP 190(D)" date="2013-02" title="Guide to electromagnetic Spectrum Management in military Operations"/>
+         <document orgid="cceb" pubnum="ACP 190(D)" date="2013-02" title="Guide to electromagnetic Spectrum Management in military Operations" version="D">
+            <correction cpubnum="JAFPUB 18" date="2013"/>
+         </document>
          <applicability>
             This publication provides guidance to Military Planners and spectrum managers
             supporting Combined Task Forces, on the organization required and the 
@@ -6930,8 +6959,9 @@
             all military operations, including command and control, intelligence,
             surveillance and weapon systems.
          </applicability>
+         <responsibleparty rpref="acp"/>
          <status mode="accepted">
-            <uri>http://jcs.dtic.mil/j6/cceb/acps/acp190/ACP190D%20Feb%2013.pdf</uri>
+            <uri>http://jcs.dtic.mil/j6/cceb/acps/acp190/</uri>
             <history>
                <event flag="added" date="2003-09-28" version="0.5"/>
                <event flag="changed" date="2013-07-26" version="8.0"/>
@@ -6941,7 +6971,9 @@
       </standard>
 
       <standard id="cceb-acp200" tag="ACP 200(C)">
-         <document orgid="cceb" pubnum="ACP 200" date="2010-03" title="Maritime Tactical Wide Area Networking"/>
+        <document orgid="cceb" pubnum="ACP 200" date="2010-03-02" title="Maritime Tactical Wide Area Networking (Volume 2)">
+	  <correction date="2011" cpubnum="JAFPUB 04-2011"/>
+	</document>
          <applicability>
             The aim of this publication is to provide guidance for the design,
             implementation, and operation of a MTWAN.
@@ -6964,8 +6996,9 @@
                common being CENTRIXS.
             </para>
          </applicability>
+         <responsibleparty rpref="acp"/>
          <status mode="accepted">
-            <uri>http://www.citmo.net/library/MTWAN.pdf</uri>
+            <uri>http://jcs.dtic.mil/j6/cceb/acps/acp200/ACP200CVol2Mar10.pdf</uri>
             <history>
                <event flag="added" date="2003-09-28" rfcp="4-39" version="0.5"/>
                <event flag="changed" date="2005-09-15" version="0.7"/>
@@ -6976,8 +7009,44 @@
          <uuid>10bb5522-4da7-418f-87ec-2f877afe4a63</uuid>
       </standard>
 
-      <standard id="cceb-acp220" tag="ACP 220">
-         <document orgid="cceb" pubnum="ACP 220(A)" date="2008-07-00" title="Multinational Videoconferencing Services"/>
+      <standard id="cceb-acp200d" tag="ACP 200(D)">
+        <document orgid="cceb" pubnum="ACP 200" date="2013-07-13" title="Maritime Tactical Wide Area Networking (Volume 1)">
+	  <correction date="2013" cpubnum="JAFPUB 49/2013"/>
+	</document>
+         <applicability>
+            The aim of this publication is to provide guidance for the design,
+            implementation, and operation of a MTWAN.
+            <para>
+               A Maritime Tactical Wide Area Network (MTWAN) is an affordable, effective
+               and efficient means to share information in a tactical environment.
+               This publication provides guidance as to the procedures, applications, 
+               infrastructure and data attributes required for tactical mobile IP networking.
+               To enable widest distribution, the information contained within the main
+               part of this document is unclassified. Classified information will be 
+               incorporated in separate supplements.
+            </para>
+            <para>
+               An MTWAN is a maritime Internet Protocol (IP) based network developed to
+               promote the effective and efficient sharing of information within the
+               maritime tactical environment. The term ―MTWAN used in the context of 
+               this document describes generic ―networking at sea capabilities and not
+               a specific network. There are currently a number of tactical operational
+               networks fielded within the allied and coalition communities, the most
+               common being CENTRIXS.
+            </para>
+         </applicability>
+         <responsibleparty rpref="acp"/>
+         <status mode="accepted">
+            <uri>http://jcs.dtic.mil/j6/cceb/acps/acp200/ACP200DVol1Jul13.pdf</uri>
+            <history>
+               <event flag="added" date="2013-11-14" rfcp="" version="9.0"/>
+            </history>
+         </status>
+      </standard>
+      
+      
+      <standard id="cceb-acp220" tag="ACP 220 A">
+         <document orgid="cceb" pubnum="ACP 220(A)" date="2008-07" title="Multinational Videoconferencing Services"/>
          <applicability>
             The purpose of this ACP is to establish a secure and
             non-secure videoteleconferencing (VTC) capability. This capability
@@ -7012,14 +7081,63 @@
                </listitem>
             </itemizedlist>
          </applicability>
+         <responsibleparty rpref="acp"/>
          <status mode="accepted">
-            <uri>http://jcs.dtic.mil/j6/cceb/acps/acp220/ACP220A.pdf</uri>
+            <uri>http://jcs.dtic.mil/j6/cceb/acps/acp220/</uri>
             <history>
                <event flag="added" date="2003-09-28" rfcp="4-39" version="0.5"/>
                <event flag="changed" date="2005-09-15" version="0.7"/>
             </history>
          </status>
          <uuid>76a0979d-0818-4486-be71-5127c78be444</uuid>
+      </standard>
+
+      <standard id="cceb-acp220b" tag="ACP 220 B">
+         <document orgid="cceb" pubnum="ACP 220(B)" date="2013-03" version="B" title="Multinational Videoconferencing Services">
+            <correction cpubnum="JAFPUB 56" date="2013"/>
+         </document>
+         <applicability>
+            The purpose of this ACP is to establish a secure and
+            non-secure videoteleconferencing (VTC) capability. This capability
+            enables the exchange of military information among the participating
+            nations to enhance military readiness, capability and interoperability.
+            <para>
+               The Multinational Videoconferencing Services described herein are
+               available to the military communities of each participating nation. These
+               services can be either secure or non-secure, point-to-point or multi-point.
+            </para>
+            <itemizedlist>
+               <listitem>
+                  <para>
+                     A nation?s Videoconferencing Network is composed of a number of
+                     secure and non-secure videoconferencing facilities and/or one or more
+                     bridging sites.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     ISDN and PSTN are used to conduct point-to-point and multi-point
+                     conferences for both secure and non-secure videoconference users. Using
+                     commercial standards, the bridging site provides videoconferencing users
+                     with a wide variety of multi-point services.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     A secure site uses encryption equipment to encrypt information for
+                     a classified conference.
+                  </para>
+               </listitem>
+            </itemizedlist>
+         </applicability>
+         <responsibleparty rpref="acp"/>
+        <status mode="accepted">
+            <uri>http://jcs.dtic.mil/j6/cceb/acps/acp220/</uri>
+            <history>
+               <event flag="added" date="2014-12-02" rfcp="" version="9.0"/>
+            </history>
+         </status>
+         <uuid>5bb010e2-2e30-4526-9445-9c069105263e</uuid>
       </standard>
 
       <standard id="checkpoint-cvpopenspecification" tag="CVP">
@@ -39553,6 +39671,7 @@
          <applicability>
             This publication addresses expanding procedures for equipment certification
          </applicability>
+         <responsibleparty rpref="acp"/>
          <status mode="accepted">
             <history>
                <event flag="added" date="2003-10-03" version="0.5"/>
@@ -39561,11 +39680,27 @@
          <uuid>1987886e-72e9-4683-a51e-e54cce24c31a</uuid>
       </standard>
 
+      <standard id="nato-acp190b-nato-supp-1b" tag="ACP 190 (B) NATO Supplement 1B">
+         <document orgid="nato" pubnum="ACP 190(B) NATO Supp 1B" date="2009" title="NATO guide to Spectrum Management in Military Operations"/>
+         <applicability>
+            This publication addresses expanding procedures for equipment certification
+         </applicability>
+         <responsibleparty rpref="acp"/>
+         <status mode="accepted">
+            <uri>https://nhqc3s.hq.nato.int/Pages/Browse.aspx</uri>
+            <history>
+               <event flag="added" date="2014-11-02" version="9.0"/>
+            </history>
+         </status>
+         <uuid>5266afde-9a78-461b-a725-ec6f293274fe</uuid>
+      </standard>
+
       <standard id="nato-acp190b-nato-supp2" tag="ACP 190 (B) NATO Supplement 2">
          <document orgid="nato" pubnum="ACP 190(B) NATO Supp 2" date="2003" title="ACP 190 (B) Classified Frequencies"/>
          <applicability>
             This publication addresses classified frequencies for use by NATO and coalition forces
          </applicability>
+         <responsibleparty rpref="acp"/>
          <status mode="accepted">
             <uri>http://www.jcs.mil/j6/cceb/acps/acp190b.pdf</uri>
             <history>
@@ -39574,6 +39709,21 @@
             </history>
          </status>
          <uuid>acbd1b76-802f-47e9-a20c-5c15aa5a2448</uuid>
+      </standard>
+
+      <standard id="nato-acp190b-nato-supp2c" tag="ACP 190 (B) NATO Supplement 2C">
+         <document orgid="nato" pubnum="ACP 190(B) NATO Supp 2C" date="2011" title="NATO guide to Spectrum Management in Military Operations (Classified Supplement)"/>
+         <applicability>
+            This publication addresses classified frequencies for use by NATO and coalition forces
+         </applicability>
+         <responsibleparty rpref="acp"/>
+         <status mode="accepted">
+            <uri>http://nt07i1.hq.nato.int/pages/browse.aspx</uri>
+            <history>
+               <event flag="added" date="2014-11-02" version="9.0"/>
+            </history>
+         </status>
+         <uuid>66dfa0bc-9739-495e-83de-f867a553492c</uuid>
       </standard>
 
       <standard id="nato-adatp-35" tag="ADatP-35">
