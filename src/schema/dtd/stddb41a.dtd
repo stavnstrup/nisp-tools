@@ -1,0 +1,328 @@
+<!-- ...................................................................... -->
+<!-- Standards XML DTD V4.0 ............................................... -->
+<!-- File stddb.dtd ....................................................... -->
+
+<!-- Copyright 2001, 2010, Danish Defence Acquisition and Logistic
+     Organisation (DALO), Danish Defence Research Establishment (DDRE) and NATO 
+     Command, Control and Consultation Organisation (NC3O).
+
+     Permission to use, copy, modify and distribute the Standards XML
+     DTD and its accompanying documentation for any purpose and
+     without fee is hereby granted in perpetuity, provided that the
+     above copyright notice and this paragraph appear in all copies.
+     The copyright holders make no representation about the
+     suitability of the DTD for any purpose.  It is provided "as is"
+     without expressed or implied warranty.
+
+     If you modify the Standards XML DTD in any way, except for
+     declaring and referencing additional sets of general entities and
+     declaring additional notations, label your DTD as a variant of
+     Standards DTD. -->
+
+<!-- ...................................................................... -->
+
+<!-- This is the driver file for V4.0 of the Standards DTD.
+     Please use the following formal public identifier to identify it:
+
+     "-//DDRE//DTD Standards XML V4.0//EN"
+
+     Example, use the FPI in the DOCTYPE declaration:
+
+     <!DOCTYPE standards PUBLIC "-//DDRE//DTD Standards XML V4.0//EN"
+                                "stddb.dtd"
+               [...]>
+
+     Or, if you have a higher-level driver file that customizes Standards,
+     use the FPI in the parameter entity declaration:
+
+     <!ENTITY % StandardDTD PUBLIC "-//DDRE//DTD Standards XML V4.0//EN"
+                "stddb.dtd">
+     %StandardsDTD;
+
+     NOTE: This DTD is an extension to the DocBook XML 4.5 DTD
+
+     Copyright 1992-2003 HaL Computer Systems, Inc.,
+     O'Reilly & Associates, Inc., ArborText, Inc., Fujitsu Software
+     Corporation, Norman Walsh, and the Organization for the Advancement
+     of Structured Information Standards (OASIS).
+      
+-->
+
+
+<!ENTITY % DocBookDTD PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+                             "docbkx45/docbookx.dtd">
+%DocBookDTD;
+
+
+<!-- ...................................................................... -->
+
+
+<!ELEMENT standards (revhistory?, taxonomy, lists, records, community-of-interest, organisations)>
+<!ATTLIST standards
+          revision CDATA #REQUIRED>
+
+<!-- .......................... TAXONOMY .................................. -->
+
+<!ELEMENT taxonomy (servicearea+)>
+
+<!ELEMENT servicearea ((subarea | servicecategory)*)>
+<!ATTLIST servicearea
+          id ID #REQUIRED
+          title CDATA #REQUIRED
+          emUUID CDATA #REQUIRED>
+
+<!ELEMENT subarea ((servicecategory)*)>
+<!ATTLIST subarea
+          id ID #REQUIRED
+          title CDATA #REQUIRED
+          emUUID CDATA #REQUIRED>
+
+<!ELEMENT servicecategory ((category)*)>
+<!ATTLIST servicecategory
+          id ID #REQUIRED
+          title CDATA #REQUIRED
+          emUUID CDATA #REQUIRED>
+
+<!ELEMENT category ((subcategory)*)>
+<!ATTLIST category
+          id ID #REQUIRED
+          title CDATA #REQUIRED
+          emUUID CDATA #REQUIRED>
+
+<!ELEMENT subcategory EMPTY>
+<!ATTLIST subcategory
+          id ID #REQUIRED
+          title CDATA #REQUIRED
+          emUUID CDATA #REQUIRED>
+
+
+<!-- .......................... LISTS .................................. -->
+
+
+<!ELEMENT lists (sp-list*)>
+
+
+<!ELEMENT sp-list (sp-view*)>
+<!ATTLIST sp-list
+          tref IDREF #IMPLIED>
+
+<!ELEMENT sp-view (select*, remarks?, rationale?)>
+<!ATTLIST sp-view
+          idx ID #IMPLIED>
+
+
+
+<!ELEMENT select (#PCDATA)>
+<!ATTLIST select
+          id IDREF #REQUIRED
+          mode (unknown|mandatory|emerging|fading) #REQUIRED>
+
+<!ELEMENT remarks (#PCDATA|para|indexterm)*>
+
+<!ELEMENT rationale (#PCDATA | para | indexterm)*>
+
+
+<!-- .......................... RECORDS .................................. -->
+
+
+<!ELEMENT records ((standard | profile )*)>
+
+<!ELEMENT standard (document, applicability, status, uuid?)>
+<!ATTLIST standard
+          tag CDATA #REQUIRED
+          id ID #REQUIRED>
+
+<!-- document -->
+          
+<!ELEMENT document (substandards?, correction*, alsoknown?, comment?)>
+<!ATTLIST document
+          orgid   CDATA #REQUIRED
+          pubnum  CDATA #REQUIRED
+          date    CDATA #REQUIRED
+          title   CDATA #REQUIRED
+          version CDATA #IMPLIED>
+
+<!ELEMENT substandards (refstandard+)>
+
+<!ELEMENT refstandard EMPTY>
+<!ATTLIST refstandard
+          refid IDREF #REQUIRED>
+
+
+<!ELEMENT correction (#PCDATA)>
+<!ATTLIST correction
+          cpubnum  CDATA #REQUIRED
+          date     CDATA #REQUIRED>
+
+<!ELEMENT alsoknown (#PCDATA)>
+<!ATTLIST alsoknown
+          orgid   CDATA #REQUIRED
+          pubnum  CDATA #REQUIRED
+          date    CDATA #REQUIRED>
+
+<!ELEMENT comment (#PCDATA | ulink)*>
+
+
+<!-- applicability -->
+
+<!ELEMENT applicability %ho; (%tbl.entry.mdl;)*>
+
+<!-- status -->
+
+<!ELEMENT status (info?, uri?, history)>
+<!ATTLIST status
+          mode   (accepted|rejected) "accepted">
+
+<!ELEMENT info (#PCDATA | ulink)*>
+
+<!ELEMENT history (event)+>
+
+<!ELEMENT event (#PCDATA)>
+<!ATTLIST event
+          flag    (added|changed|deleted)   #REQUIRED
+          date    CDATA   #REQUIRED
+          rfcp    CDATA   #IMPLIED
+          version CDATA   #REQUIRED>
+
+
+<!ELEMENT uuid (#PCDATA)>
+
+<!-- profile -->          
+
+<!ELEMENT profile (profilespec, profilenote?, parts, configuration?,  applicability, status, uuid?)>
+<!ATTLIST profile
+          type (base | coi-minor | coi) "base"
+          tag CDATA #REQUIRED
+          id ID #REQUIRED>
+
+
+<!ELEMENT profilespec EMPTY>
+<!ATTLIST profilespec
+          orgid   CDATA #IMPLIED
+          pubnum  CDATA #IMPLIED
+          date    CDATA #IMPLIED
+          title   CDATA #REQUIRED
+          version CDATA #IMPLIED>
+
+
+<!ELEMENT configuration (#PCDATA)>
+
+
+
+<!ELEMENT parts (refstandard|refprofile)+>
+
+
+<!ELEMENT refprofile EMPTY>
+<!ATTLIST refprofile
+          refid IDREF #REQUIRED>
+
+
+<!ELEMENT profilenote (#PCDATA)>
+
+
+<!-- applicability content model identical to DocBook entry -->
+
+
+
+<!-- ................. COMMUNITY OF INTERESTS ............................ -->
+
+<!ELEMENT community-of-interest (community*)>
+
+<!ELEMENT community (profile*)>
+<!ATTLIST community
+          coi     CDATA      #REQUIRED
+          text    CDATA      #REQUIRED>
+
+
+<!-- ....................... ORGANISATION ................................ -->
+
+
+<!ELEMENT organisations (orgkey*)>
+
+<!ELEMENT orgkey EMPTY>
+<!ATTLIST orgkey
+          key    CDATA   #REQUIRED
+          text   CDATA   #REQUIRED>
+
+
+<!ELEMENT header EMPTY>
+
+
+<!-- ...................................................................... -->
+
+
+<!ENTITY % set.content.module "IGNORE">
+<!ENTITY % set.element "IGNORE">
+<!ENTITY % set.attlist "IGNORE">
+
+<!ENTITY % setinfo.module "IGNORE">
+<!ENTITY % setinfo.element "IGNORE">
+<!ENTITY % setinfo.attlist "IGNORE">
+
+<!ENTITY % book.content.module "IGNORE">
+<!ENTITY % book.element "IGNORE">
+<!ENTITY % book.attrlist "IGNORE">
+
+<!ENTITY % bookinfo.content.module "IGNORE">
+<!ENTITY % bookinfo.element "IGNORE">
+<!ENTITY % bookinfo.attrlist "IGNORE">
+
+<!ENTITY % dedication.content.module "IGNORE">
+<!ENTITY % dedication.element "IGNORE">
+<!ENTITY % dedication.attrlist "IGNORE">
+
+<!ENTITY % colophon.content.module "IGNORE">
+<!ENTITY % colophon.element "IGNORE">
+<!ENTITY % colophon.attrlist "IGNORE">
+
+<!ENTITY % book.content.module "IGNORE">
+<!ENTITY % book.element "IGNORE">
+<!ENTITY % book.attrlist "IGNORE">
+
+<!ENTITY % toc.content.module "IGNORE">
+<!ENTITY % toc.element "IGNORE">
+<!ENTITY % toc.attrlist "IGNORE">
+
+<!ENTITY % tocfront.content.module "IGNORE">
+<!ENTITY % tocfront.element "IGNORE">
+<!ENTITY % tocfront.attrlist "IGNORE">
+
+<!ENTITY % tocentry.content.module "IGNORE">
+<!ENTITY % tocentry.element "IGNORE">
+<!ENTITY % tocentry.attrlist "IGNORE">
+
+<!ENTITY % tocpart.content.module "IGNORE">
+<!ENTITY % tocpart.element "IGNORE">
+<!ENTITY % tocpart.attrlist "IGNORE">
+
+<!ENTITY % tocchap.content.module "IGNORE">
+<!ENTITY % tocchap.element "IGNORE">
+<!ENTITY % tocchap.attrlist "IGNORE">
+
+<!ENTITY % appendix.content.module "IGNORE">
+<!ENTITY % appendix.element "IGNORE">
+<!ENTITY % appendix.attrlist "IGNORE">
+
+<!ENTITY % chapter.content.module "IGNORE">
+<!ENTITY % chapter.element "IGNORE">
+<!ENTITY % chapter.attrlist "IGNORE">
+
+<!ENTITY % part.content.module "IGNORE">
+<!ENTITY % part.element "IGNORE">
+<!ENTITY % part.attrlist "IGNORE">
+
+<!ENTITY % preface.content.module "IGNORE">
+<!ENTITY % preface.element "IGNORE">
+<!ENTITY % preface.attrlist "IGNORE">
+
+<!ENTITY % reference.content.module "IGNORE">
+<!ENTITY % reference.element "IGNORE">
+<!ENTITY % reference.attrlist "IGNORE">
+
+<!ENTITY % partintro.content.module "IGNORE">
+<!ENTITY % partintro.element "IGNORE">
+<!ENTITY % partintro.attrlist "IGNORE">
+
+
+
+
