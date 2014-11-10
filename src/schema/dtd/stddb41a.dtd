@@ -1,8 +1,8 @@
 <!-- ...................................................................... -->
-<!-- Standards XML DTD V4.0 ............................................... -->
+<!-- Standards XML DTD V4.1 ............................................... -->
 <!-- File stddb.dtd ....................................................... -->
 
-<!-- Copyright 2001, 2010, Danish Defence Acquisition and Logistic
+<!-- Copyright 2001, 2014, Danish Defence Acquisition and Logistic
      Organisation (DALO), Danish Defence Research Establishment (DDRE) and NATO 
      Command, Control and Consultation Organisation (NC3O).
 
@@ -21,22 +21,22 @@
 
 <!-- ...................................................................... -->
 
-<!-- This is the driver file for V4.0 of the Standards DTD.
+<!-- This is the driver file for V4.1 of the Standards DTD.
      Please use the following formal public identifier to identify it:
 
-     "-//DDRE//DTD Standards XML V4.0//EN"
+     "-//DDRE//DTD Standards XML V4.1//EN"
 
      Example, use the FPI in the DOCTYPE declaration:
 
-     <!DOCTYPE standards PUBLIC "-//DDRE//DTD Standards XML V4.0//EN"
+     <!DOCTYPE standards PUBLIC "-//DDRE//DTD Standards XML V4.1//EN"
                                 "stddb.dtd"
                [...]>
 
      Or, if you have a higher-level driver file that customizes Standards,
      use the FPI in the parameter entity declaration:
 
-     <!ENTITY % StandardDTD PUBLIC "-//DDRE//DTD Standards XML V4.0//EN"
-                "stddb.dtd">
+     <!ENTITY % StandardDTD PUBLIC "-//DDRE//DTD Standards XML V4.1//EN"
+                "stddb41.dtd">
      %StandardsDTD;
 
      NOTE: This DTD is an extension to the DocBook XML 4.5 DTD
@@ -258,6 +258,24 @@
 
 
 <!ELEMENT header EMPTY>
+
+
+<!-- .........................RESPONSIBLE PARTIES.......................... -->
+
+<!ELEMENT responsibleparties (rpkey*)>
+
+<!ELEMENT rpkey (pointofcontact*)>
+
+<!ATTLIST rpkey
+	  key    CDATA #REQUIRED
+	  short  CDATA #REQUIRED
+	  long   CDATA #REQUIRED>
+   
+<!ELEMENT pointofcontact EMPTY>
+<!ATTLIST pointofcontact
+	  name   CDATA   #REQUIRED
+	  email  CDATA   #REQUIRED
+	  phone  CDATA   #IMPLIED>
 
 
 <!-- ...................................................................... -->
