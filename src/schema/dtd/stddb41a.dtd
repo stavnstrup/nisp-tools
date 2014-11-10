@@ -127,7 +127,7 @@
 
 <!ELEMENT records ((standard | profile )*)>
 
-<!ELEMENT standard (document, applicability, status, uuid?)>
+<!ELEMENT standard (document, applicability, responsibleparty, status, uuid?)>
 <!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED>
@@ -166,6 +166,18 @@
 <!-- applicability -->
 
 <!ELEMENT applicability %ho; (%tbl.entry.mdl;)*>
+
+<!-- responsibleparty -->
+
+<!ELEMENT responsibleparty (reevaluation?)>
+<!ATTLIST resposibleparty
+	  rpref   CDATA  #REQUIRED
+	  comment CDATA  #IMPLIED>
+
+<!ELEMENT reevaluation EMPTY>
+<!ATTLIST reevaluation
+	  date    CDATA  #REQUIRED
+	  comment CDATA  #IMPLIED>
 
 <!-- status -->
 
