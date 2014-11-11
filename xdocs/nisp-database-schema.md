@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% May 6, 2014
+% Nov 11, 2014
 
 
 
@@ -197,7 +197,7 @@ the standard.
           date     CDATA #REQUIRED>
 ~~~
 
-Sometime a standard is republished by another standard organisation. An 
+Sometimes a standard is republished by another standard organisation. An 
 `<alsoknown>` element contains a description which might be
 empty. A `<alsoknown>` element must also contain a 
 `orgid`, `pubnum` and `date`
@@ -229,6 +229,33 @@ A `<comment>` element contain data in the form of text or DocBook
 The `<applicability>` element uses the same content model as the
 DocBook `<element>` entry and contains a textual description of
 the standard.
+
+#### Responsible Party
+
+~~~{.dtd}
+<!ELEMENT responsibleparty (reevaluation?)>
+<!ATTLIST responsibleparty
+	  rpref   CDATA  #REQUIRED
+	  comment CDATA  #IMPLIED>
+~~~
+
+The `<responsibleparty>` element references the organisational element
+in NATO, which takes responsibility for guiding the IP CaT on
+standards within a specific technical domain. The `rpref` attribute
+contains a reference to a `<rp>` element, which contains information
+about the responsible organisation. This construct is similar to the
+`<organisations>` element construct and can be used to ensure `rpref`
+is selected from a predefined set.
+
+~~~{.dtd}
+<!ELEMENT reevaluation EMPTY>
+<!ATTLIST reevaluation
+	  date    CDATA  #REQUIRED
+	  comment CDATA  #IMPLIED>
+~~~
+
+The `<revaluation>` element advises on when a standard shoul be revaluated.
+
 
 #### Status
 
@@ -468,6 +495,34 @@ the `<indexterm>` element.
 ~~~{.dtd}
 <!ELEMENT rationale (#PCDATA | para | indexterm)*>
 ~~~
+
+
+### Mixed
+
+The `<responsibleparties>` element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpket element might contaion one or more `<pointofcontact>` elements. 
+
+~~~{.dtd}
+<!ELEMENT responsibleparties (rpkey*)>
+
+<!ELEMENT rpkey (pointofcontact*)>
+<!ATTLIST rpkey
+	  key    CDATA #REQUIRED
+	  short  CDATA #REQUIRED
+	  long   CDATA #REQUIRED>
+~~~
+
+
+
+~~~{.dtd}
+<!ELEMENT pointofcontact EMPTY>
+<!ATTLIST pointofcontact
+	  name   CDATA   #REQUIRED
+	  email  CDATA   #REQUIRED
+	  phone  CDATA   #IMPLIED>
+~~~
+
+
+
 
 
 

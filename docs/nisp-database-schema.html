@@ -107,7 +107,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">correction</span>
           <span class="fu">cpubnum</span>  <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
           <span class="fu">date</span>     <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
-<p>Sometime a standard is republished by another standard organisation. An <code>&lt;alsoknown&gt;</code> element contains a description which might be empty. A <code>&lt;alsoknown&gt;</code> element must also contain a <code>orgid</code>, <code>pubnum</code> and <code>date</code> attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation Data (DTED) is also know as ISO/IEC 8211.</p>
+<p>Sometimes a standard is republished by another standard organisation. An <code>&lt;alsoknown&gt;</code> element contains a description which might be empty. A <code>&lt;alsoknown&gt;</code> element must also contain a <code>orgid</code>, <code>pubnum</code> and <code>date</code> attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation Data (DTED) is also know as ISO/IEC 8211.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">alsoknown</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">alsoknown</span>
@@ -119,6 +119,17 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h4 id="applicability">Applicability</h4>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">applicability</span> <span class="dv">%ho;</span> <span class="dv">(%tbl.entry.mdl;)</span><span class="fl">*</span><span class="dt">&gt;</span></code></pre>
 <p>The <code>&lt;applicability&gt;</code> element uses the same content model as the DocBook <code>&lt;element&gt;</code> entry and contains a textual description of the standard.</p>
+<h4 id="responsible-party">Responsible Party</h4>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">responsibleparty</span> <span class="dv">(</span><span class="fu">reevaluation</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">responsibleparty</span>
+      <span class="fu">rpref</span>   <span class="kw">CDATA</span>  <span class="kw">#REQUIRED</span>
+      <span class="fu">comment</span> <span class="kw">CDATA</span>  <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre>
+<p>The <code>&lt;responsibleparty&gt;</code> element references the organisational element in NATO, which takes responsibility for guiding the IP CaT on standards within a specific technical domain. The <code>rpref</code> attribute contains a reference to a <code>&lt;rp&gt;</code> element, which contains information about the responsible organisation. This construct is similar to the <code>&lt;organisations&gt;</code> element construct and can be used to ensure <code>rpref</code> is selected from a predefined set.</p>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">reevaluation</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">reevaluation</span>
+      <span class="fu">date</span>    <span class="kw">CDATA</span>  <span class="kw">#REQUIRED</span>
+      <span class="fu">comment</span> <span class="kw">CDATA</span>  <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre>
+<p>The <code>&lt;revaluation&gt;</code> element advises on when a standard shoul be revaluated.</p>
 <h4 id="status">Status</h4>
 <p>The <code>&lt;status&gt;</code> element can contain in the following order an <code>&lt;info&gt;</code>, <code>&lt;uri&gt;</code> and <code>&lt;history&gt;</code> element. The <code>&lt;history&gt;</code> element is mandatory, the <code>&lt;info&gt;</code> and <code>&lt;uri&gt;</code> elements are not. The <code>&lt;uri&gt;</code> element is defined in the DocBook DTD.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">status</span> <span class="dv">(</span><span class="fu">info</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">uri</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">history</span><span class="dv">)</span><span class="dt">&gt;</span>
@@ -205,6 +216,20 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">remarks</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">|</span><span class="fu">para</span><span class="dv">|</span><span class="fu">indexterm</span><span class="dv">)</span><span class="fl">*</span><span class="dt">&gt;</span></code></pre>
 <p>Rationale are just text eventually embedded in paragraphs. Rationale describes the reason a standards was selected. There might be information which is suitable for the index, therefore inclusion of the <code>&lt;indexterm&gt;</code> element.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">rationale</span> <span class="dv">(</span><span class="kw">#PCDATA</span> <span class="dv">|</span> <span class="fu">para</span> <span class="dv">|</span> <span class="fu">indexterm</span><span class="dv">)</span><span class="fl">*</span><span class="dt">&gt;</span></code></pre>
+<h3 id="mixed">Mixed</h3>
+<p>The <code>&lt;responsibleparties&gt;</code> element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpket element might contaion one or more <code>&lt;pointofcontact&gt;</code> elements.</p>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">responsibleparties</span> <span class="dv">(</span><span class="fu">rpkey</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
+
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">rpkey</span> <span class="dv">(</span><span class="fu">pointofcontact</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">rpkey</span>
+      <span class="fu">key</span>    <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
+      <span class="fu">short</span>  <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
+      <span class="fu">long</span>   <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">pointofcontact</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">pointofcontact</span>
+      <span class="fu">name</span>   <span class="kw">CDATA</span>   <span class="kw">#REQUIRED</span>
+      <span class="fu">email</span>  <span class="kw">CDATA</span>   <span class="kw">#REQUIRED</span>
+      <span class="fu">phone</span>  <span class="kw">CDATA</span>   <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre>
 <h2 id="community-of-interest-profiles-coi">Community of interest profiles (COI)</h2>
 <p>The <code>&lt;community-of-interest&gt;</code> element contains all the community-of-interest defined profiles defined by NATO communities.</p>
 <p>Each co profile is embedded in a <code>&lt;community&gt;</code> element, which can contain multiple sub profiles represented by <code>&lt;profile&gt;</code>. The <code>&lt;community&gt;</code> element have two mandatory attributes <code>coi</code> and <code>text</code>. The <code>coi</code> attribute is usually an abbreviation or shorthand form of the description of the community contained in the <code>text</code> attribute.</p>
@@ -239,6 +264,6 @@ The teminology used
 -->
 <h1>Author</h1>
 <p class="author">Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;</p>
-<p class="date">Last updated on May 6, 2014</p>
+<p class="date">Last updated on Nov 11, 2014</p>
 </body>
 </html>
