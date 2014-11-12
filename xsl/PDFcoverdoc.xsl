@@ -54,6 +54,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
           <xsl:text>-v</xsl:text>
           <xsl:value-of select="/documents/versioninfo/package/@major"/>
           <xsl:if test="$nisp.lifecycle.stage != 'draft'">
+            <xsl:text>-</xsl:text>
             <xsl:value-of select="$nisp.lifecycle.stage"/>
           </xsl:if>
           <xsl:text>.pdf</xsl:text>
@@ -76,6 +77,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:text>-v</xsl:text>
         <xsl:value-of select="/documents/versioninfo/package/@major"/>
         <xsl:if test="$nisp.lifecycle.stage != 'draft'">
+	  <xsl:text>-</xsl:text>
           <xsl:value-of select="$nisp.lifecycle.stage"/>
         </xsl:if>
         <xsl:text>.pdf</xsl:text>
