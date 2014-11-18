@@ -15,7 +15,7 @@
 <xsl:template match="standards">
   <html>
     <meta charset="utf-8" />
-    <head><title>List responsible parties</title></head>
+    <head><title>Responsible parties</title></head>
     <style type="text/css">
       table {
          border-collapse: collapse;
@@ -25,7 +25,7 @@
       }
     </style>
   <body>
-    <h1>List responsible parties</h1>
+    <h1>Responsible parties</h1>
 
     <p>Created on 
     <xsl:variable name="date">
@@ -94,12 +94,18 @@
 	<th>Org</th>
 	<th>Pubnum</th>
 	<th>Title</th>
+	<th>RP comment</th>
+	<th>Re-evaluate</th>
+	<th>Re-evaluate comment</th>
       </tr>
       <xsl:for-each select="key('key1', responsibleparty/@rpref)">
 	<tr>
 	  <td><xsl:value-of select="document/@orgid"/></td>
 	  <td><xsl:value-of select="document/@pubnum"/></td>
 	  <td><xsl:value-of select="document/@title"/></td>
+	  <td><xsl:value-of select="responsibleparty/@comment"/></td>
+	  <td><xsl:value-of select="responsibleparty/reevaluation/@date"/></td>
+	  <td><xsl:value-of select="responsibleparty/reevaluation/@comment"/></td>
 	</tr>
       </xsl:for-each>
     </table>
