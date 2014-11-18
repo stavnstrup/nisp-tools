@@ -13,7 +13,6 @@
 
 
 <xsl:template match="standards">
-
   <html>
     <meta charset="utf-8" />
     <head><title>List responsible parties</title></head>
@@ -64,7 +63,7 @@
     <xsl:variable name="rp" select="responsibleparty/@rpref"/>
 
     
-    <h2 name="{$rp}">
+    <h2 id="{$rp}">
       <xsl:value-of select="../../responsibleparties/rpkey[@key=$rp]/@long"/>
     </h2>
 
