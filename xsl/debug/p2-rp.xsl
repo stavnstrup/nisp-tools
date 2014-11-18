@@ -16,6 +16,14 @@
   <html>
     <meta charset="utf-8" />
     <head><title>List responsible parties</title></head>
+    <style type="text/css">
+      table {
+         border-collapse: collapse;
+      }
+      td, th {
+        padding: 1px 4px;
+      }
+    </style>
   <body>
     <h1>List responsible parties</h1>
 
@@ -67,7 +75,26 @@
       <xsl:value-of select="../../responsibleparties/rpkey[@key=$rp]/@long"/>
     </h2>
 
-    <table>
+    <xsl:if test="$rp != 'undefined'">
+      <xsl:variable name="poc" select="../../responsibleparties/rpkey[@key=$rp]/pointofcontact"/>
+      <p><strong>POC: </strong> <xsl:value-of select="$poc/@name"/>
+      <xsl:if test="$poc/@email != ''">
+	<xsl:text>, email: </xsl:text>
+	<xsl:value-of select="$poc/@email"/>
+      </xsl:if>
+      <xsl:if test="$poc/@phone != ''">
+	<xsl:text>, phone: </xsl:text>
+	<xsl:value-of select="$poc/@phone"/>
+      </xsl:if>
+      </p>
+    </xsl:if>
+    
+    <table border='1'>
+      <tr>
+	<th>Org</th>
+	<th>Pubnum</th>
+	<th>Title</th>
+      </tr>
       <xsl:for-each select="key('key1', responsibleparty/@rpref)">
 	<tr>
 	  <td><xsl:value-of select="document/@orgid"/></td>
