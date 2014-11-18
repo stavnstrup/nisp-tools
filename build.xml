@@ -583,7 +583,7 @@ $Id$
 
 
   <target name="debug" description="* [DEBUG] Create misc. debugging reports"
-          depends="init, deb-overview, deb-family, deb-dates, deb-select, deb-upcoming">
+          depends="init, deb-overview, deb-family, deb-dates, deb-select, deb-upcoming, deb-rp">
   </target>
 
   <target name="debug-figs" description="* [DEBUG] Create misc. debugging reports and figure reports"
@@ -647,6 +647,18 @@ $Id$
       <arg line="${xslt.opts} -o upcoming.html
                  ${basedir}/src/standards/standards.xml
                  ${xsl-debug.dir}/deb-upcoming.xsl
+                 describe=${describe}"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+  <target name="deb-rp" description="* [DEBUG] Create list of responsible parties"
+          depends="-get-describe">
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/debug/">
+      <arg line="${xslt.opts} -o responsibleparties.html
+                 ${basedir}/src/standards/standards.xml
+                 ${xsl-debug.dir}/deb-rp.xsl
                  describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
