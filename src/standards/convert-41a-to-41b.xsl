@@ -7,7 +7,7 @@
 
 <!--
 
-This stylesheet is under continously development and will eventually be used to convert the standards database from version 4.0 to version 4.1.
+This stylesheet is under continously development and will eventually be used to convert the standards database from version 4.1a to version 4.1b.
 
 The following issues will be resolved:
 
@@ -15,9 +15,9 @@ The following issues will be resolved:
 Implemented in this stylesheet
 ==============================
 
-* All "baseline" profiles currently marked-up with
+* All "interoperability" profiles currently marked-up with
 
-  <profile type="base" > will be renamed to   <baselineprofile> 
+  <profile type="base" > will be renamed to   <interoperabilityprofile> 
 
 TODO
 ====
@@ -32,14 +32,14 @@ TODO
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
             doctype-public="-//DDRE//DTDStandardDB XML V4.1//EN"
-            doctype-system="../schema/dtd/stddb41.dtd"/>
+            doctype-system="../schema/dtd/stddb41b.dtd"/>
 
 
 
 <xsl:template match="profile[@type='base']">
-  <baselineprofile id="{@id}" tag="{@tag}">
+  <interoperabilityprofile id="{@id}" tag="{@tag}">
     <xsl:apply-templates/>
-  </baselineprofile>
+  </interoperabilityprofile>
 </xsl:template>
 
 
