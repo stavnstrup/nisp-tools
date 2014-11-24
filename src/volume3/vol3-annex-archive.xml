@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*****************************************************************
+        Vol 3 -   A N N E X  - Archive Profile
+
+*****************************************************************  
+-->
+
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd" [
+<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+]>
+
+<appendix id="v3-archive">
+  <title>Profile for the Long Term Preservation of NATO Digital Information of Permanent value</title>
+
+<para>
+  This profile outlines the file formats (Section 1) and package structures
+  (Section 2) approved by the Archives Committee for the long-term
+  preservation of NATO digital information of permanent value.
+</para>
+<para>
+  NATO information custodians shall provide information in these formats
+  and structures to the NATO Archivist.
+</para>
+<para>
+  Further guidance on best practice will be issued in the near future.
+  The contents of this profile shall become part of Volume 3 of the NATO
+  Interoperability Standards and Profiles [AC/322-N(2013)0197, 2013].
+</para>
+<sect1 id="part-i-file-formats-for-long-term-preservation">
+  <title>File Formats for Long Term Preservation</title>
+  <para>
+    The following sustainable file formats are approved by the Archives
+    Committee for the long term preservation of NATO digital information
+    of permanent value. The formats are ordered by content type. A brief
+    characterization of the generic requirements for the preservation of
+    content is included.
+  </para>
+  <sect2 id="data-sets">
+    <title>Data sets**</title>
+    <para>
+      Data sets are typically collections of individual values or larger
+      coherent structures such as messages. The data set might be an
+      export from a database or the results of an information exchange
+      between systems.
+    </para>
+    <para>
+      There is typically a structure associated with the data set,
+      either implicitly contained within the data set (e.g. a table
+      structure of an Excel document or a database), or explicitly
+      defined (e.g. as a schema definition)
+    </para>
+    <para>
+      DATA SETS STANDARDS TABLE HERE
+    </para>
+  </sect2>
+  <sect2 id="text">
+    <title>Text</title>
+    <para>
+      Documents consisting primarily of textual descriptions are the
+      most prevalent and important category of information of permanent
+      value in the NATO context. Text documents might also include
+      embedded diagrams, pictures, or other non- text material. These
+      items shall not be separated from the text and kept as part of the
+      document.
+    </para>
+    <para>
+      TEXT STANDARDS TABLE HERE
+    </para>
+  </sect2>
+  <sect2 id="still-images">
+    <title>Still Images</title>
+    <para>
+      Still images are visual representations, including photographs,
+      graphs, and diagrams. Still images can be divided into two main
+      types, bitmap (or raster) images and vector images. Bitmap images
+      are typically photographs produced by scanners and cameras at a
+      fixed resolution, while vector images consist of scalable objects.
+      Both types can be combined, e.g. in course of action diagrams
+      where a bitmap image of an area can have symbology vector
+      overlays.
+    </para>
+    <para>
+      STILL IMAGE STANDARDS TABLE
+    </para>
+  </sect2>
+  <sect2 id="moving-images">
+    <title>Moving Images</title>
+    <para>
+      Moving images are digital recordings of still images at a
+      particular frame rate and resolution. A compression is often
+      applied by only capturing the difference between adjacent frames.
+      Moving images are typically combined with audio data and packaged
+      into a common container.
+    </para>
+    <para>
+      MOVING IMAGE STANDARDS TABLE
+    </para>
+  </sect2>
+  <sect2 id="sound">
+    <title>Sound</title>
+    <para>
+      Sound files contain recordings of voice or other audio. This
+      includes audio recordings from meetings if they contain
+      information of permanent value.
+    </para>
+    <para>
+      SOUND STANDARDS TABLE
+    </para>
+  </sect2>
+  <sect2 id="geospatial">
+    <title>Geospatial</title>
+    <para>
+      Geospatial information is typically produced, used, and contained
+      in geographic information systems (GIS). The information is
+      related to the still image category, as geospatial information
+      consists of bitmap or vector images plus additional attributes
+      associated with particular locations depicted in the image data.
+    </para>
+    <para>
+      GEOSPATIAL STANDARDS TABLE
+    </para>
+  </sect2>
+  <sect2 id="web-archive">
+    <title>Web Archive</title>
+    <para>
+      The web archive type concern the archival of entire web sites,
+      portals, or parts of them. While some information might be
+      contained in static web pages and is therefore easy to capture,
+      other parts might be dynamically rendered.
+    </para>
+    <para>
+      Web archives typically contain structured textual descriptions as
+      well as still and moving images.
+    </para>
+    <para>
+      WEB ARCHIVE STANDARDS
+    </para>
+  </sect2>
+</sect1>
+<sect1 id="package-structures-for-long-term-preservation">
+  <title>Package Structures for Long Term Preservation</title>
+  <para>
+    NATO digital information of permanent value shall be processed by
+    their Information Custodians into single digital information items
+    with associated metadata and packaged into submission and archival
+    information package structures
+    <ulink url="ISO,%20Space%20data%20and%20information%20transfer%20systems%20–%20Open%20archival">ISO
+    14721, 2003</ulink>.
+  </para>
+  <sect2 id="submission-information-package">
+    <title>Submission Information Package</title>
+    <para>
+      NATO digital information of permanent value selected by
+      Information Custodians for long term preservation should be
+      delivered to the NATO Archivist as a Submission Information
+      Package (SIP).
+    </para>
+    <para>
+      The SIP consists of two parts: the actual information packaged as
+      a single digital information item and a set of metadata associated
+      with this item (see Figure 1)Figure 1
+    </para>
+    <para>
+      The single digital information item has the following structure:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <emphasis role="strong">Content</emphasis>: Information of one
+          of the seven types listed under 4a-g). For certain types of
+          content, primarily data sets (4a), several pieces of
+          information might be grouped. A schema provided as part of the
+          Data Definition can be used to describe the structure of these
+          groupings. For other types such as documents, images, or
+          recordings, information items shall be included individually.
+          Items might contain other objects that should also be
+          preserved in a sustainable format. For example, an archived
+          email message could have text documents as attachments that
+          should be stored in the sustainable formats listed in 4b).
+          Guidance on granularity and grouping will be provided by the
+          Archives Committee.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis>Data Definition:</emphasis> If the Content consists
+          of structured data, a separate Data Definition shall be
+          included that describes the logical structure of the Content.
+          This is primarily applicable to Content of the types Data Set
+          (4a), Geospatial (4f), and Web Archive (4g). The format of the
+          Data Definition shall be XML Schema 1.1.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Visualization: A visualization and human readable
+          representation of contextual information is optional. The
+          format used for the context information shall be one of those
+          listed under 4a–g).
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      The individual parts (Content, Data Definition and Visualization)
+      shall be packaged as a single digital information item by using
+      the Open Packaging Conventions [ISO 29500-2:2012, 2012] format.
+    </para>
+    <para>
+      The file name of the packaged single digital information item
+      shall follow the NATO Guidance on File Naming [AC/322-N(2010)0025,
+      2010]. OPC does not define an extension; the .zip extension shall
+      be used for packages for long term preservation.
+    </para>
+    <para>
+      The packaged single digital information item shall contain a basic
+      set of metadata for the container. OPC supports a subset of six
+      Dublin Core metadata elements (creator, description, identifier,
+      language, subject, and title) and two Dublin Core terms (created,
+      modified). The elements shall be filled by the Information
+      Custodian when the OPC container for the single digital
+      information item is created. Note that this metadata refers to the
+      container itself, not to its contents. For example, the creation
+      date is the date the container was created, not the creation date
+      of the content.
+    </para>
+    <para>
+      In addition to the OPC container metadata, the Information
+      Custodian will generate a full metadata description for the
+      content of the SIP, including the classification of the single
+      digital information item.
+    </para>
+    <para>
+      The SIP metadata follows the NATO Core Metadata Specification
+      (NCMS) <ulink url="">AC/322-D(2014)xxxx, 2014</ulink> and the NATO
+      Labelling Specification [AC/322- D(2014)yyyy/zzzz, 2014], 2014.
+      Values for all mandatory elements shall be assigned by the
+      Information Custodian. The NATO Archivist shall reject all
+      submissions with incomplete metadata.
+    </para>
+    <para>
+      No information of permanent value packaged in a SIP and submitted
+      by the Information Custodian shall be destroyed unless the SIP has
+      been explicitly acknowledged and accepted by the NATO Archivist.
+    </para>
+  </sect2>
+  <sect2 id="archival-information-package">
+    <title>Archival Information Package</title>
+    <para>
+      If the content of the SIP submitted by an Information Custodian
+      for long-term preservation are accepted by the NATO Archivist, the
+      SIP will be processed into an Archival Information Package (AIP).
+    </para>
+    <para>
+      The AIP consists of the same structure as the SIP, i.e. the single
+      digital information item for long-term preservation packaged as an
+      OPC container, and the NCMS-compliant metadata information bound
+      to the container.
+    </para>
+    <para>
+      As part of the Ingest process, the metadata supplied with the SIP
+      will be augmented by preservation metadata approved by the NATO
+      Archivist. In addition, NATO Archivist shall become the custodian
+      for the AIP.
+    </para>
+    <para>
+      The preservation metadata will be an extension to the NCMS
+      metadata. The extension shall be based on the PREMIS metadata set
+      <ulink url="PREMIS%20Editorial%20Committee,%20PREMIS%20Data%20Dictionary%20for%20Preservation">PREMIS
+      Metadata, 2008</ulink>.
+    </para>
+  </sect2>
+</sect1>
+<sect1 id="references">
+  <title>References</title>
+  <para>
+    <ulink url="">AC/322-D(2014)xxxx, 2014</ulink>4:
+  </para>
+  <para>
+    Consultation, Command and Control Board (2014, in prep), NATO Core
+    Metadata
+  </para>
+  <para>
+    Specification, AC/322-D(2014)xxxx, NATO Unclassified.
+  </para>
+  <para>
+    Consultation, Command and Control Board (2014, in prep), Information
+    Management Directive for Confidentiality Labelling of NATO
+    Information, AC/322-D(2014)xxxx, NATO Unclassified.
+  </para>
+  <para>
+    The 2014 AC/322 documents are in the process of being established.
+    Once the documents are approved the applicable document reference
+    number will be inserted under references.
+  </para>
+  <para>
+    [AC/322(2014)xxxx, 2014]: Consultation, Command and Control Board
+    (2014, in prep), Information Management Guidance for Confidentiality
+    Labelling of NATO Information, AC/322(2014)xxxx, NATO Unclassified.
+  </para>
+  <para>
+    [AC/322-N(2013)0197, 2013]: Consultation, Command and Control Board
+    (2013), NATO Interoperability Standards and Profiles, Version 8
+    (NISP V8), AC/322-N(2013)0197, NATO Unclassified, Releasable to
+    Australia/New Zealand/Singapore.
+  </para>
+  <para>
+    [AC/322-N(2010)0025, 2010]: Consultation, Command and Control Board
+    (2010), Guidance on File Naming, AC/3222-N(2010)0025, NATO
+    Unclassified, Releasable to PfP.
+  </para>
+  <para>
+    information system – Reference model, First Edition, ISO 14721:2003.
+  </para>
+  <para>
+    languages -- Office Open XML File Formats -- Part 2: Open Packaging
+    Conventions, ISO/IEC29500-2:2012.
+  </para>
+  <para>
+    Metadata, Version 2.0, March 2008.
+  </para>
+</sect1>
+
+
+</appendix>
