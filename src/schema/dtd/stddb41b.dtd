@@ -198,7 +198,7 @@
 
 <!ELEMENT uuid (#PCDATA)>
 
-<!-- profile -->          
+<!-- profiles -->
 
 
 <!ELEMENT capabilityprofile (profilespec, (capabilitygroup+ | services), status, uuid?)>
@@ -218,7 +218,9 @@
           id ID #REQUIRED>
 
 <!ELEMENT servicegroup (guidance, parts)>
-
+<!ATTLIST servicegroup
+	  title CDATA #REQUIRED>
+   
 <!ELEMENT interoperabilityprofile (profilespec, profilenote?, parts, configuration?,  applicability, status, uuid?)>
 <!ATTLIST interoperabilityprofile
           tag CDATA #REQUIRED
