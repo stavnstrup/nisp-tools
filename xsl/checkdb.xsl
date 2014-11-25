@@ -55,17 +55,19 @@
   </xsl:if>
 
   <xsl:variable name="standards.wo.uuid" select="count(//standard[not(uuid) or uuid = ''])"/>
-  <xsl:variable name="interoperabilityprofiles.wo.uuid" select="count(//interoperabilityprofile[not(uuid) or uuid = ''])"/>
+  <xsl:variable name="profiles.wo.uuid" select="count(//capabilityprofile[not(uuid) or uuid = '']) +
+	                                        count(//serviceprofile[not(uuid) or uuid = '']) +
+						count(//interoperabilityprofile[not(uuid) or uuid = ''])"/>
   <xsl:if test="$standards.wo.uuid + $profiles.wo.uuid >0">
     <xsl:message terminate="no">
       <xsl:value-of select="$standards.wo.uuid"/>
       <xsl:text> standards and </xsl:text>
       <xsl:value-of select="$interoperabilityprofiles.wo.uuid"/>
-      <xsl:text> interoperabilityprofiles do not have an UUID element.</xsl:text>
+      <xsl:text> profiles do not have an UUID element.</xsl:text>
     </xsl:message>
   </xsl:if>
   <xsl:text>missing.uuids=</xsl:text>
-  <xsl:value-of select="$standards.wo.uuid + $interoperabilityprofiles.wo.uuid"/>
+  <xsl:value-of select="$standards.wo.uuid + $profiles.wo.uuid"/>
 </xsl:template>
 
 
