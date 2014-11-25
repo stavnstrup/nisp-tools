@@ -22497,7 +22497,7 @@
          </status>
       </profile>
 
-      <profile id="fmn-xmpp-enhanced" tag="FMN Enhances XMPP Profile" type="base">
+      <profile id="fmn-xmpp-enhanced" tag="FMN Enhanced XMPP Profile" type="base">
          <profilespec orgid="fmn" title="FMN Enhanced Profile"/>
          <parts>
 	   <refprofile refid="fmn-xmpp-basic"/>
@@ -53276,6 +53276,35 @@ An X.509 certificate specifies a binding between a public key and a set of attri
          </history>
       </status>
    </standard>
+   
+   <!-- Fix missing data in missing c3b-132 and c3b-133 -->
+   
+   <standard id="c3b-132" tag="">
+   <document orgid="ncia" pubnum="132" title="Technical and Implementation Directive for Confidentiality Labelling of NATO Information"
+   date="2014"/>
+   <applicability/>
+       <status mode="accepted">
+         <uri/>
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </standard>
+   
+
+   <standard id="c3b-133" tag="">   
+   <document orgid="ncia" pubnum="133" title="Technical and Implementation Standard for Confidentiality Labelling of NATO Information" date="2014"/>
+   <applicability/>
+       <status mode="accepted">
+         <uri/>
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </standard>
+   
+   
+   
 
    <standard id="mil-prf-89020b" tag="PERF. DTED">
       <document orgid="mil" pubnum="PRF-89020B"
@@ -53655,7 +53684,1114 @@ Grids</applicability>
       </status>
    </standard>
 
-      
+  <standard id="itu-t-x.509" tag="X.509">
+    <document orgid="itu-t" pubnum="x.509" date="2008-11" title="Information technology - Open Systems Interconnection - The Directory: Public-key and attribute certificate frameworks"/>
+
+            <applicability>TU-T Recommendation X.509 | ISO/IEC 9594-8 defines a framework for public-key certificates and attribute certificates. These frameworks may be used by other standards bodies to profile their application to Public Key Infrastructures (PKI) and Privilege Management Infrastructures (PMI). Also, this Recommendation | International Standard defines a framework for the provision of authentication services by Directory to its users. It describes two levels of authentication: simple authentication, using a password as a verification of claimed identity; and strong authentication, involving credentials formed using cryptographic techniques. While simple authentication offers some limited protection against unauthorized access, only strong authentication should be used as the basis for providing secure services.</applicability>
+     <status mode="accepted">
+         <uri>http://www.itu.int/rec/T-REC-X.509/en</uri>
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </standard>  
+
+   <capabilityprofile id="fmn-fmn" tag="">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Future Mission Networking"/>
+      <services>
+         <refprofile refid="fmm-tempEdge"/>
+         <refprofile refid="fmn-ts-cs-ca-ia"/>
+         <refprofile refid="fmn-ts-cs-ca-pba"/>
+         <refprofile refid="fmn-ts-ces-is"/>
+         <refprofile refid="fmn-ts-ces-soa"/>
+         <refprofile refid="fmn-ts-ces-es-cc"/>
+         <refprofile refid="fmn-ts-ces-es-im"/>
+         <refprofile refid="fmn-ts-ces-es"/>
+         <refprofile refid="fmn-tempGeneral"/>
+         <refprofile refid="fmn-tempBattle"/>
+         <refprofile refid="fmn-tempJISR"/>
+         <refprofile refid="fmn-tempUserApp"/>
+         <refprofile refid="fmn-tempSMC"/>
+         <refprofile refid="fmn-tempHuman"/>
+      </services>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </capabilityprofile>
+   <serviceprofile id="fmm-tempEdge" tag="FMN Edge Transport">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Edge Transport Services and Communications Equipment Standards"/>
+      <servicegroup title="1.1:Edge Transport Services between autonomous systems.&#xA;(IP over point-to-point Ethernet links on optical fibre)">
+         <guidance>Use 1Gb/s Ethernet over Single-mode optical fibre (SMF).</guidance>
+         <parts>
+            <refstandard refid="iso-iec-11801"/>
+            <refstandard refid="itu-t-g.652"/>
+            <refstandard refid="iso-iec-61754-20"/>
+            <refstandard refid="ieee-802.3-2013"/>
+            <refstandard refid="ietf-rfc826" condition="IPv4"/>
+            <refstandard obligation="optional" refid="ietf-rfc4861" condition="IPv6"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="1.2:Edge Transport Services between autonomous systems ­ (time-division multiplexing wide area network)">
+         <guidance>This interconnection is based on STANAG 5067, Standard for interconnection of IPv4 networks at Mission Secret and Unclassified Security Levels. STANAG 5067 provides additional implementation, security and management guidance. Combined with TRANSEC crypto or other forms of link protection, CHAP (IETF RFC 1994) is not required. Otherwise, CHAP is recommended.</guidance>
+         <parts>
+            <refstandard refid="itu-t-g.703"/>
+            <refstandard refid="itu-t-g.704"/>
+            <refstandard refid="ietf-rfc1661"/>
+            <refstandard obligation="recommended" refid="itu-t-g.703"/>
+            <refstandard obligation="recommended" refid="ietf-rfc1994"/>
+            <refstandard obligation="optional" refid="ietf-rfc3544" condition="IPv4"/>
+            <refstandard refid="ietf-rfc5072" condition="IPv6"/>
+            <refstandard refid="ietf-rfc4861" condition="IPv6"/>
+            <refstandard obligation="optional" refid="ietf-rfc5172" condition="IPv6"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Inter-Autonomous System (AS) routing">
+         <guidance>BGP deployment guidance in IETF RFC 1772: 1995, Application of the Border Gateway Protocol in the Internet. 
+
+BGP sessions must be authenticated, through a TCP message authentication code (MAC) using a one-way hash function (MD5), as described in IETF RFC 4271.</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc4271"/>
+            <refstandard refid="ietf-rfc1997"/>
+            <refstandard refid="ietf-rfc4760"/>
+            <refstandard refid="ietf-rfc5492"/>
+            <refstandard obligation="recommended" refid="ietf-rfc6793"/>
+            <refstandard obligation="recommended" refid="ietf-rfc4360"/>
+            <refstandard obligation="recommended" refid="ietf-rfc5668"/>
+            <refstandard obligation="recommended" refid="ietf-rfc1772"/>
+            <refstandard obligation="optional" refid="ietf-rfc2545" condition="IPv6"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Inter-Autonomous System (AS) multicast routing">
+         <guidance>Note on IPv6: No standard solution for IPv6
+multicast routing has yet been widely accepted.
+More research and experimentation is required
+in this area.</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc3618" condition="IPv4"/>
+            <refstandard refid="ietf-rfc3376" condition="IPv4"/>
+            <refstandard refid="ietf-rfc4601" condition="IPv4"/>
+            <refstandard refid="ietf-rfc4760" condition="IPv4"/>
+            <refstandard obligation="optional" refid="ietf-rfc4604"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:unicast routing">
+         <guidance/>
+         <parts>
+            <refstandard refid="ietf-rfc4632"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:multicast routing">
+         <guidance/>
+         <parts>
+            <refstandard refid="ietf-rfc1112"/>
+            <refstandard refid="ietf-rfc2908"/>
+            <refstandard refid="ietf-rfc3171"/>
+            <refstandard refid="ietf-rfc2365"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-ts-cs-ca-ia" tag="FMN COM ACC IA">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2013)0197-REV3-AS1" date="2014-08-22"
+                   title="Communications Access IA Services Standards"/>
+      <servicegroup title="1:Information Assurance during Transmission">
+         <guidance>ACP 176 NATO SUPP 1 (NC) provides configuration settings necessary to ensure interoperability when different cryptographic devices (e.g. KIV-7/KG84/BID1650) are employed together.</guidance>
+         <parts>
+            <refstandard refid="cceb-acp176"
+                         condition="If different cryptographic devices are employed together"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Provide communications security over the network above the Transport Layer">
+         <guidance/>
+         <parts>
+            <refstandard refid="ietf-rfc5246"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-ts-cs-ca-pba" tag="FMN Packet Access Service">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Packet-based Communications Access Services Standard"/>
+      <servicegroup title="1:Host-to-host transport services">
+         <guidance>Despite IETF RFC 793 is updated by IETF RFC 3168, ECN cannot be used in the FMN in parallel to the deployment of IP encryption.</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc3168" condition="Not to be used with IP encryption"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:host-to-host datagram services">
+         <guidance>IP networking. Accommodate both IPv4 and IPv6 addressing. To accommodate IP crypto tunnelling within autonomous systems and avoid packet fragmentation maximum transmission unit (MTU) and maximum segment size (MSS) settings have to be harmonised between MNEs</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc791"/>
+            <refstandard refid="ietf-rfc792"/>
+            <refstandard refid="ietf-rfc919"/>
+            <refstandard refid="ietf-rfc922"/>
+            <refstandard refid="ietf-rfc950"/>
+            <refstandard refid="ietf-rfc1112"/>
+            <refstandard refid="ietf-rfc1812"/>
+            <refstandard refid="ietf-rfc2644"/>
+            <refstandard obligation="recommended" refid="ietf-rfc2460" condition="IPv6"/>
+            <refstandard obligation="recommended" refid="ietf-rfc3810" condition="IPv6"/>
+            <refstandard obligation="recommended" refid="ietf-rfc4291" condition="IPv6"/>
+            <refstandard obligation="recommended" refid="ietf-rfc4443" condition="IPv6"/>
+            <refstandard obligation="recommended" refid="ietf-rfc4861" condition="IPv6"/>
+            <refstandard obligation="recommended" refid="ietf-rfc5095" condition="IPv6"/>
+            <refstandard obligation="recommended" refid="ietf-rfc6724" condition="IPv6"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Differentiated host-to-host datagram services. (IP Quality of Service)">
+         <guidance>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP)</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc2474"/>
+            <refstandard refid="ietf-rfc3260"/>
+            <refstandard refid="ietf-rfc3168"/>
+            <refstandard refid="ietf-rfc4594"/>
+            <refstandard refid="itu-t-y.1540"/>
+            <refstandard refid="itu-t-y.1541"/>
+            <refstandard refid="itu-t-y.1542"/>
+            <refstandard refid="itu-t-m.2301"/>
+            <refstandard refid="itu-t-j.241"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-ts-ces-is" tag="FMN ISS">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Infrastructure Services Standards"/>
+      <servicegroup title="1:Infrastructure Processing Services: Virtualized Processing Services">
+         <guidance>Using Open Virtualization Format, Option B Mission Participant can create single, pre-packaged appliances and Service providers can export and import virtual machines that can run across different virtualization platforms.</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="iso-iec-17203"/>
+            <refstandard refid="dmtf-dsp0243" lcstage="emerging"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="X: Time Scale">
+         <guidance/>
+         <parts>
+            <refstandard refid="itu-r-tf460-6"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Distributed Time Services: Time synchronization">
+         <guidance>A stratum-1 time server is directly linked (not over a network path) to a reliable source of UTC time (Universal Time Coordinate) such as GPS, WWV, or CDMA transmissions through a modem connection, satellite, or radio.
+
+Stratum-1 devices must implement IPv4 and IPv6 so that they can be used as timeservers for IPv4 and IPv6 Mission Network Elements.
+
+The W32Time service on all Windows Domain Controllers is synchronizing time through the Domain hierarchy (NT5DS type).</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc5905"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Domain Name Services: Naming and Addressing on a FMN instance">
+         <guidance/>
+         <parts>
+            <refstandard refid="ietf-rfc1034"/>
+            <refstandard refid="ietf-rfc1035"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:Identification and addressing of objects on the network.">
+         <guidance>Namespaces within XML documents shall use unique URLs or URIs for the namespace designation.</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc1738"/>
+            <refstandard refid="ietf-rfc3986"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:Infrastructure Storage Services: storing and accessing information about the time of events and transactions">
+         <guidance>Missions might conduct transactions across different time zones. Timestamps are essential for auditing purposes. It is important that the integrity of timestamps is maintained across all Mission Network Elements. From Oracle 9i, PostgreSQL 7.3 and MS SQL Server 2008 onwards, the time zone can be stored with the time directly by using the TIMESTAMP WITH TIME ZONE (Oracle, PostgreSQL) or datetimeoffset (MS-SQL) data types.</guidance>
+         <parts>
+            <refstandard refid="iso-iec-9075-sql3"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="6:Infrastructure IA Services: Directory access and management service. Facilitate the access and authorization between FMN users and services.">
+         <guidance>Options available to FMN members when joining their network element to a FMN instance:
+
+1) Establish a separate forest.
+2) Join Forest of another Mission Network Contributing Participant
+
+For cross application/service authentication between separate forests claims based authentication mechanisms (SAML 2.0 or WS-trust/WS-Authentication) shall be used.
+
+Whilst LDAP is a vendor independent standard, in practice Microsoft Active Directory (AD) is a common product providing directory services on national and NATO owned Mission Network elements. AD provides additional services aside from LDAP like functionality.</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc4510"/>
+            <refprofile refid="fmn-ldap"/>
+            <refstandard refid="ietf-rfc2849"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="7:Infrastructure IA Services: Digital Certificate Services">
+         <guidance>The version of the encoded public-key certificate
+shall be v3. The version of the encoded certificate revocation
+list (CRL) shall be v2.</guidance>
+         <parts>
+            <refprofile refid="itu-t-x.509"/>
+            <refstandard refid="nato-npki-certp"/>
+            <refstandard refid="ietf-rfc5280"/>
+            <refstandard obligation="recommended" refid="ietf-rfc6960"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="8:Infrastructure IA Services: Authentication Services">
+         <guidance/>
+         <parts>
+            <refstandard refid="ietf-rfc1510"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-ts-ces-soa" tag="FMN SOA Platform">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="SOA Platform Services and Data Standards"/>
+      <servicegroup title="1. Web Platform Services">
+         <guidance>HTTP shall be used as the transport protocol for information without 'need-to-know' caveats between all service providers and consumers (unsecured HTTP traffic).
+
+HTTPS shall be used as the transport protocol between all service providers and consumers to ensure confidentiality requirements (secured HTTP traffic).
+
+Unsecured and secured HTTP traffic shall share the same port.</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc2616"/>
+            <refstandard refid="ietf-rfc2817"/>
+            <refstandard refid="ietf-rfc3986"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Publishing information including text, multimedia, hyperlink features, scripting languages and style sheets on the network">
+         <guidance/>
+         <parts>
+            <refstandard refid="w3c-rec-html401-19991224"/>
+            <refstandard refid="w3c-w3c-wd-html5-20140916" lcstage="emerging" lctime="2015"/>
+            <refstandard refid="ietf-rfc4329"/>
+            <refstandard refid="oasis-wsrp2.0"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Providing a common style sheet language for describing presentation semantics (that is, the look and formatting) of documents written in markup languages like HTML.">
+         <guidance/>
+         <parts>
+            <refstandard refid="w3c-rec-css2-2011067"/>
+            <refstandard refid="w3c-rec-css2-2011067" lcstage="emerging" lctime="2014"/>
+            <refstandard refid="w3c-cr-css-style-attr-20101012" lcstage="emerging" lctime="2014"/>
+            <refstandard refid="w3c-rec-css3-mediaqueries-20120619" lcstage="emerging" lctime="2014"/>
+            <refstandard refid="w3c-rec-css-namespaces-3-20140320" lcstage="emerging" lctime="2014"/>
+            <refstandard refid="w3c-rec-css3-selectors-20110929" lcstage="emerging" lctime="2014"/>
+            <refstandard refid="w3c-rec-css3-color-20110607" lcstage="emerging" lctime="2014"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:General formatting of information for sharing or exchange.">
+         <guidance>XML shall be used for data exchange to satisfy those IERs within a FMN instance that are not addressed by a specific information exchange standard. XML Schemas and namespaces are required for all XML documents.</guidance>
+         <parts>
+            <refstandard refid="w3c-rec-xml10-20081126"/>
+            <refstandard refid="w3c-rec-xmlschema-1-20041028"/>
+            <refstandard refid="w3c-rec-xmlschema-2-20041028"/>
+            <refstandard refid="ietf-rfc4627"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:Providing web content or web feeds for syndication to web sites as well as directly to user agents.">
+         <guidance>For backwards compatibility it is recommended to also implement RSS 2.0.</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc4287"/>
+            <refstandard refid="ietf-rfc5023"/>
+            <refstandard obligation="recommended" refid="rss-2.0"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="6:Encoding of location as part of web feeds">
+         <guidance>GML allows you to specify a coordinate reference system (CRS) other than WGS84 decimal degrees (think lat/long). If there is a need to express geography in a CRS other than WGS84, it is recommended to specify the geographic object multiple times, one in WGS84 and the others in your other desired CRSes.
+
+Schema location for GeoRSS GML Profile 1.0: http://georss.org/xml/1.0/gmlgeorss.xsd</guidance>
+         <parts>
+            <refstandard refid="ogc-06-050r3"/>
+            <refprofile obligation="recommended" refid="fmn-georss-gml"/>
+            <refstandard obligation="recommended" refid="ogc-03-105r1"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="7:Message Security for web services">
+         <guidance>Specifies how integrity and confidentiality can be enforced on messages and allows the communication of various security token formats, such as SAML, Kerberos, and X.509v3. Its main focus is the use of XML Signature and XML Encryption to provide end-to-end security.
+
+WS-Security might not be used when services only handle unclassified data without access restrictions.
+Specifies a process for encrypting data and representing the result in XML. Referenced by WS-Security specification.
+
+Specifies XML digital signature processing rules and syntax. Referenced by WS-Security specification.</guidance>
+         <parts>
+            <refstandard refid="oasis-wss-v1.1-spec-os-soapmessagesecurity"
+                         condition="When clasified data is processed"/>
+            <refstandard refid="w3c-rec-xmlenc-core-20021210"
+                         condition="When clasified data is processed"/>
+            <refstandard refid="w3c-rec-xmldsig-core-20080610"
+                         condition="When clasified data is processed"/>
+            <refstandard refid="ws-i-basicsecurityprofile-1.1"
+                         condition="When clasified data is processed"/>
+            <refstandard refid="ietf-rfc6749" lcstage="emerging" lctime="2015"/>
+            <refstandard obligation="recommended" refid="oasis-wss-v1.1-errata-os-samltokenprofile"/>
+            <refstandard obligation="recommended" refid="oasis-wss-v1.1-spec-errata-os-x509tokenprofile"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="8:Security token format">
+         <guidance>Provides XML-based syntax to describe users security tokens containing assertions to pass information about a principal (usually an end-user) between an identity provider and a web service.
+
+Describes how to use SAML security tokens with WS-Security specification.</guidance>
+         <parts>
+            <refstandard refid="oasis-saml-2.0"/>
+            <refstandard refid="oasis-wss-v1.1-errata-os-samltokenprofile"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="9:Security token issuing">
+         <guidance>Uses WS-Security base mechanisms and defines additional primitives and extensions for security token exchange to enable the issuance and dissemination of credentials within different trust domains. Extends WS-Trust to allow federation of different security realms.
+Used to describe what aspects of the federation framework are required/supported by federation participants and that this information is used to determine the appropriate communication options.</guidance>
+         <parts>
+            <refstandard refid="oasis-wstrust-1.4"/>
+            <refstandard refid="oasis-wsfed-1.1"/>
+            <refstandard refid="w3c-wspol-1.5"/>
+            <refstandard obligation="recommended" refid="oasis-wsspol-1.3"/>
+            <refprofile obligation="recommended" refid="oasis-saml-core-2.0-os"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="10:Transforming XML documents into other XML documents">
+         <guidance>Developer best practice for the translation of XML based documents into other formats or schemas.</guidance>
+         <parts>
+            <refstandard refid="w3c-rec-xslt20-20070123"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="11:Configuration management of structured data standards, service descriptions and other structured metadata.">
+         <guidance>Used as foundation for setup, maintenance and interaction with a (FMN) Metadata Registry and Repository for sharing and configuration management of XML metadata. Also enables federation among metadata registries/repositories.</guidance>
+         <parts>
+            <refstandard refid="oasis-regrep-rim-3.0-os"/>
+            <refstandard refid="oasis-ebrs-2.5"/>
+            <refstandard refid="oasis-uddi-v3.00-published-20020719"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="12:Exchanging structured information in a decentralized, distributed environment via web services">
+         <guidance>The preferred method for implementing web-services are SOAP, however, there are many use cases (mash-ups etc.) where a REST based interface is easier to implement and sufficient to meet the IERs.
+Restful services support HTTP caching, if the data the Web service returns is not altered frequently and not dynamic in nature. REST is particularly useful for restricted-profile devices such as mobile phones and tablets for which the overhead of additional parameters like headers and other SOAP elements are less.
+
+SOAP is mandatory for:
+* Different transport protocols; SOAP can use almost any transport to send the request.
+* Asynchronous processing and invocation; if an application needs a guaranteed level of reliability and security then SOAP offers additional standards to ensure this type of operation.
+* Formal contracts; if both sides (provider and consumer) have to agree on the exchange format then SOAP gives the rigid specifications for this type of interaction.
+* Stateful operations; if the application needs contextual information and conversational state management then SOAP has the additional specification in the WS* structure to support those things (Security, Transactions, Coordination, etc).
+
+REST is recommended for:
+* Common transfer protocol and limited bandwidth; REST calls can be executed on really any client or server that has HTTP/HTTPS support because the REST approach uses the standard GET, PUT, POST, and DELETE verbs.
+* Totally stateless operations; stateless CRUD (Create, Read, Update, and Delete) operations.
+* Flexible interfaces; the return structure is variable (developer defined).
+* Caching situations; if the information can be cached because of the totally stateless operation of the REST approach.</guidance>
+         <parts>
+            <refstandard refid="w3c-rec-soap11"/>
+            <refstandard refid="w3c-note-wsdl-20010315"/>
+            <refstandard refid="acm-2002-rest-toit"/>
+            <refstandard refid="w3c-rec-soap12-part1-20070427" lcstage="emerging" lctime="2014"/>
+            <refstandard refid="w3c-rec-soap12-part2-20070427" lcstage="emerging" lctime="2014"/>
+            <refstandard refid="w3c-note-soap12-part3-20070702" lcstage="emerging" lctime="2014"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="13:Secure exchange of data objects and documents across multiple security domains">
+         <guidance>Guidance for properly labelling and binding data objects is provided in the emerging Technical and Implementation Standard for Confidentiality Labelling of NATO Information (AC/322-(2014)xxxx)
+
+See "Sharing of information across communities of interest and across security domains with object level protection" below.</guidance>
+         <parts>
+            <refstandard refid="ncia-tn-1456-rev1"/>
+            <refstandard refid="ncia-tn-1455-rev1"/>
+            <refstandard refid="c3b-132" obligation="recommended" lcstage="emerging" lctime="2015"/>
+            <refstandard refid="c3b-133" obligation="recommended" lcstage="emerging" lctime="2015"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="14:Topic based publish / subscribe web services communication">
+         <guidance>Enable topic based subscriptions for web service notifications, with extensible filter mechanism and support for message brokers</guidance>
+         <parts>
+            <refstandard refid="oasis-ws-notif"/>
+            <refstandard refid="oasis-brokerednotif"/>
+            <refstandard refid="oasis-ws-topics"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="15:Providing transport-neutral mechanisms to address web services">
+         <guidance>Provides transport-neutral mechanisms to addressWeb services and messages which is crucial in providing end-to- message level security, reliable messaging or publish / subscribe based web services end.</guidance>
+         <parts>
+            <refstandard refid="w3c-address"/>
+            <refstandard refid="w3c-address"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="16:Reliable messaging for web services">
+         <guidance>Describes a protocol that allows messages to be transferred reliably between nodes implementing this protocol in the presence of software component, system, or network failures.</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="oasis-relmes"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-ts-ces-es-cc" tag="FMN Unified Comm.">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Unified Communication and Collaboration Services and Data Standards"/>
+      <servicegroup title="1:Video-based Collaboration Services (VTC)">
+         <guidance/>
+         <parts>
+            <refstandard refid="itu-t-h.323"/>
+            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+            <refstandard refid="itu-t-h.263"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Audio-based Collaboration Services">
+         <guidance>VoIP refers to unprotected voice communication services running on unclassified IP networks e.g. conventional IP telephony (see scenario A in Figure above)
+VoSIP refers to non-protected voice service running on a classified IP networks (see scenario B in Figure above)
+
+Voice sampling Interval 40ms</guidance>
+         <parts>
+            <refstandard refid="nato-stanag4705"/>
+            <refstandard refid="ietf-rfc3261" condition="VoIP"/>
+            <refstandard refid="ietf-rfc3550" condition="VoIP"/>
+            <refstandard refid="itu-t-g.729annexa1996-11" condition="VoIP"/>
+            <refstandard refid="itu-t-g.729" lcstage="emerging" lctime="2015"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Audio-based Collaboration Services (end-to-end protected voice)">
+         <guidance>Secure voice services (see scenario C in Figure above)
+V.150.1 support must be end-to-end supported by unclassified voice network
+
+SCIP-214 only applies to gateways
+
+Note that SCIP-216 requires universal implementation.</guidance>
+         <parts>
+            <refstandard refid="itu-t-v.150.1"/>
+            <refstandard refid="iicwg-scip-210"/>
+            <refstandard refid="iicwg-scip-214"/>
+            <refstandard refid="iicwg-scip-215"/>
+            <refstandard refid="iicwg-scip-216"/>
+            <refstandard refid="iicwg-scip-220"/>
+            <refstandard refid="iicwg-scip-221"/>
+            <refstandard refid="iicwg-scip-233"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:Informal messaging services (e-mail)">
+         <guidance>Conditional: Depending on the protection requirements within the particular FMN instance messages must be marked in the message header field “Keywords”(IETF RFC 2822) and first-line-of-text in the message body according to the following convention:
+[MMM] [CLASSIFICATION], Releasable to [MISSION]
+
+Where CLASSIFICATION is the classification {SECRET, CONFIDENTIAL, RESTRICTED, UNCLASSIFIED} and MMM is the alpha-3 country code e.g. DEU, GBR, as defined in Table 8.ID2 with the exception that NATO will be identified by the four letter acronym “NATO”. The “releasable to” list shall include the short-name of the mission and may be extended to include other entities.
+
+Example:
+
+Keywords: ITA UNCLASSIFIED, Releasable to XFOR</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc1870"/>
+            <refstandard refid="ietf-rfc1870"/>
+            <refstandard refid="ietf-rfc2821"/>
+            <refstandard refid="ietf-rfc2822"/>
+            <refstandard refid="ietf-rfc5321" lcstage="emerging" lctime="2016"/>
+            <refstandard refid="ietf-rfc6477" lcstage="emerging" lctime="2017"/>
+            <refstandard refid="c3b-133"
+                         condition="If the mission network operates at classified level"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:Content encapsulation within bodies of internet messages">
+         <guidance>10 MB max message size limit
+Minimum Content-Transfer-Encoding:
+
+7bit
+
+base64
+
+binary BINARYMIME SMTP extension [RFC 3030]
+
+Minimum set of media and content-types:
+
+text/plain [RFC1521]
+
+text/enriched [RFC1896]
+
+text/html [RFC1866]
+
+multipart/mixed [RFC 2046]
+
+multipart/signed</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc2046"/>
+            <refstandard refid="ietf-rfc2047"/>
+            <refstandard refid="ietf-rfc2049"/>
+            <refstandard refid="ietf-rfc4288"/>
+            <refstandard refid="ietf-rfc4288"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="6:text-based collaboration services">
+         <guidance>Near-real time text-based group collaboration capability for time critical reporting and decision making in military operations.</guidance>
+         <parts>
+            <refprofile refid="fmn-xmpp-basic"/>
+            <refprofile refid="fmn-xmpp-enhanced"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="6.1:text-based collaboration services (basic FMN XMPP profile)">
+         <guidance/>
+         <parts>
+            <refstandard refid="ietf-rfc6120"/>
+            <refstandard refid="ietf-rfc6121"/>
+            <refstandard refid="xmpp-xep-0004"/>
+            <refstandard refid="xmpp-xep-0030"/>
+            <refstandard refid="xmpp-xep-0045"/>
+            <refstandard refid="xmpp-xep-0049"/>
+            <refstandard refid="xmpp-xep-0050"/>
+            <refstandard refid="xmpp-xep-0054"/>
+            <refstandard refid="xmpp-xep-0065"/>
+            <refstandard refid="xmpp-xep-0092"/>
+            <refstandard refid="xmpp-xep-0096"/>
+            <refstandard refid="xmpp-xep-0114"/>
+            <refstandard refid="xmpp-xep-0115"/>
+            <refstandard refid="xmpp-xep-0203"/>
+            <refstandard refid="xmpp-xep-0220"/>
+            <refstandard refid="xmpp-xep-0288"/>
+            <refstandard refid="xmpp-xep-0078" lcstage="fading"/>
+            <refstandard refid="xmpp-xep-0091" lcstage="fading"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="6.2:text-based collaboration services (enhanced FMN XMPP profile)">
+         <guidance>Developers are also advised to consult the following IETF RFCs:
+IETF RFC 6122: 2011, Extensible Messaging and Presence Protocol (XMPP): Address Format.
+
+IETF RFC 6125: 2011, Representation and Verification of Domain-Based Application Service Identity within Internet Public Key Infrastructure Using X.509 (PKIX) Certificates in the Context of Transport Layer Security (TLS).
+
+IETF RFC 3923: 2004, End-to-End Signing and Object Encryption for the Extensible Messaging and Presence Protocol (XMPP).
+
+IETF RFC 4854: 2007, A Uniform Resource Name (URN) Namespace for Extensions to the Extensible Messaging and Presence Protocol (XMPP).
+
+IETF RFC 4979: 2007, IANA Registration for Enumservice 'XMPP'
+
+IETF RFC 3761: 2004, The E.164 to Uniform Resource Identifiers (URI) Dynamic Delegation Discovery System (DDDS) Application (ENUM).
+
+IETF RFC 5122: 2008, Internationalized Resource Identifiers (IRIs) and Uniform Resource Identifiers (URIs) for the Extensible Messaging and Presence Protocol (XMPP).
+
+Many XMPP extensions are still in draft. Implementations should use caution i.e. XEP-0065: SOCKS5 Bytestreams, April 2011. XMPP Extension Label syntax should follow the emerging NATO standard: Technical and Implementation Standard for Confidentiality Labelling of NATO Information (AC/322 (2014)xxxx)</guidance>
+         <parts>
+            <refstandard refid="xmpp-xep-0033"/>
+            <refstandard refid="xmpp-xep-0079"/>
+            <refstandard refid="xmpp-xep-0122"/>
+            <refstandard refid="xmpp-xep-0199"/>
+            <refstandard refid="xmpp-xep-0249"/>
+            <refstandard refid="xmpp-xep-0258"/>
+            <refstandard refid="xmpp-xep-0289"/>
+            <refstandard refid="xmpp-xep-0311" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0131" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0198" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0227" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0313" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0346" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0350" lcstage="emerging"/>
+            <refstandard obligation="recommended" refid="ietf-rfc6122"/>
+            <refstandard obligation="recommended" refid="ietf-rfc6125"/>
+            <refstandard obligation="recommended" refid="ietf-rfc3923"/>
+            <refstandard obligation="recommended" refid="ietf-rfc4854"/>
+            <refstandard obligation="recommended" refid="ietf-rfc4979"/>
+            <refstandard obligation="recommended" refid="ietf-rfc3761"/>
+            <refstandard obligation="recommended" refid="ietf-rfc5122"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-ts-ces-es-im" tag="FMN Inf. Mgmt.">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Information Management Services and Data Standards"/>
+      <servicegroup title="1:Enterprise Search Services: Automated information resource discover, information extraction and interchange of metadata">
+         <guidance>ISO 15836: 2009 does not define implementation detail.
+This profile requires a subset of metadata with UTF8 character encoding as defined in the NATO Discovery Metadata Specification (NDMS)
+
+The technical implementation specifications are part of the TIDE Transformational Baseline v3.0, however, Query-by-Example (QBE), has been deprecated with the TIDE Information Discovery specs v2.3.0 and replaced by SPARQL.
+
+The TIDE community is evaluating OpenSearch for potential inclusion into the TIDE Information Discovery specifications.</guidance>
+         <parts>
+            <refstandard refid="iso-15836"/>
+            <refstandard refid="c3b-ac322-n2014-core-meta"/>
+            <refstandard refid="w3c-rec-sparql11-query-20130321"/>
+            <refstandard refid="w3c-rec-owl2-2012"/>
+            <refstandard refid="opensearch-opensearch11d5" lcstage="emerging" lctime="2014"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Enterprise Search Services: manual information resource discovery, classification marking and file naming conventions">
+         <guidance>Character codes for permissible Classification Markings will be specified for each Mission Network in the IM Annex of the OPLAN.</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="c3b-ac322-n2010-0025"/>
+            <refstandard obligation="recommended" refid="c3b-ac322-n2011-0130"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Enterprise Support Guard Services: General definition of Security and Confidentiality metadata">
+         <guidance>Services and applications shall implement object level labeling in order to support cross-domain information exchange using common enterprise Support Guard Services (e.g. Cross-Domain Solutions or Information Exchange Gateways)</guidance>
+         <parts>
+            <refstandard refid="ffi-2010-00961"/>
+            <refstandard refid="ffi-2010-00962"/>
+            <refstandard refid="ncia-tn-1455-rev1"/>
+            <refstandard refid="ncia-tn-1456-rev1"/>
+            <refstandard refid="c3b-133"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-ts-ces-es" tag="FMN ESS">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Enterprise Support Services and Data Standards"/>
+      <servicegroup title="1:Geodetic and geophysical model of the Earth.">
+         <guidance/>
+         <parts>
+            <refstandard refid="nima-tr-8350.2"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Electronic format for medium resolution terrain elevation data.">
+         <guidance>Used to support line-of-sight analyses, terrain profiling, 3D terrain visualization, mission planning/rehearsal, and modeling and simulation.</guidance>
+         <parts>
+            <refstandard refid="mil-prf-89020b"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Services to publish geospatial data as maps rendered in raster image formats.">
+         <guidance>WMTS are to be provided as a complimentary service to WMS to ease access to users operating in bandwidth constraint environments. WMTS trades the flexibility of custom map rendering for the scalability possible by serving of static data (base maps) where the bounding box and scales have been constrained to discrete tiles which enables the use of standard network mechanisms for scalability such as distributed cache systems to cache images between the client and the server, reducing latency and bandwidth use.</guidance>
+         <parts>
+            <refstandard refid="iso-19128"/>
+            <refstandard refid="ogc-02-070"/>
+            <refstandard refid="ogc-05-078r4" lcstage="emerging" lctime="2018"/>
+            <refstandard refid="ogc-07-057r7" lcstage="emerging" lctime="2018"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:Services to publish vector-based geospatial feature data to applications">
+         <guidance/>
+         <parts>
+            <refstandard refid="ogc-04-094"/>
+            <refstandard refid="ogc-10-100r3"/>
+            <refstandard refid="ogc-11-044"/>
+            <refstandard refid="ogc-04-095"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:Electronic interchange of geospatial data as coverage, that is, digital geospatial information representing space varying phenomena">
+         <guidance>Web Coverage Service v.1.1.1 is limited to describing and requesting grid (or "simple") coverage.
+OGC Web Coverage Service (WCS) Standard Guidance Implementation Specification 1.0</guidance>
+         <parts>
+            <refstandard refid="ogc-07-067r2"/>
+            <refstandard refid="ogc-09-110r4" lcstage="emerging" lctime="2014"/>
+            <refstandard refid="ogc-03-065r6" lcstage="fading"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="6:Raster Image Storage Service">
+         <guidance>The JPEG 2000 image compression standard offers many of the same advantages as MrSID, plus the added benefits of being an international standard (ISO/IEC 15444).</guidance>
+         <parts>
+            <refstandard refid="lizardtech-mg3"
+                         condition="If all MN Participants confirm that they can ingest DGI/SGI in MrSID_MG3 format"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="7:File based storage and exchange of digital geospatial mapping (raster) data where services based access is not possible">
+         <guidance>This is provided for legacy systems, implementers are encouraged to upgrade their systems to consume OGC Web Services.
+In practice, the exchange of large geospatial(raster) data sets between Geo organizations of different Mission Network Contributing Participant is conducted in the proprietary Multi-resolution seamless image database (MrSid Generation 4) format. Data in MrSID format could be transformed to GeoTIFF.</guidance>
+         <parts>
+            <refstandard refid="osgeo-geotiff"/>
+            <refstandard refid="ogc-05-047r3"/>
+            <refstandard obligation="recommended" refid="nima-mil-prf-89038"/>
+            <refstandard obligation="recommended" refid="nima-rpf"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="8:File based storage and exchange of non-topological geometry and attribute information or digital geospatial feature (vector) data">
+         <guidance>ESRI Shapefiles are used by legacy systems and as file based interchange format. Implementers are encouraged to upgrade their systems based on OGC Web Services.
+File geodatabases store datasets as folders in a file system with each file capable of storing more than 1 TB of information. Each file geodatabase can hold any number of these large, individual datasets. File geodatabases can be used across all platforms and can be compressed. They support the complete geodatabase information model and are faster than using shapefiles for large datasets. Users are rapidly adopting the file geodatabase in place of using shapefiles.</guidance>
+         <parts>
+            <refstandard refid="ogc-07-147r2"/>
+            <refstandard refid="esri-shapefile" lcstage="fading"/>
+            <refstandard refid="esri-filegeodatabase" lcstage="emerging"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="9:Geospatial Coordinate Services: general positioning, coordinate systems, and coordinate transformations">
+         <guidance/>
+         <parts>
+            <refstandard obligation="recommended" refid="ogc-01-009"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="10:GeoWeb Service Interface to GIS Servers:">
+         <guidance>There are implementations of the Open Esri GeoServices REST specification from various other vendors. The REST API may be used for an easier to implement and rich interface to the server side GIS capabilities. Functional Services that support this interface may take advantage of this interface.</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="esri-rest"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="11:Geo-Analytical Functionality as a Service:">
+         <guidance>Instead of retrieving all required spatial data in order to analyse it in a fat client, clients are encouraged to invoke the analytical processes where the data resides so that only the analytic result needs to be transmitted from the server to the client.</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="esri-rest"/>
+            <refstandard obligation="recommended" refid="ogc-05-007r7"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="12:Geospatial Coordinate Services: identifying Coordinate Reference Systems (CRS):">
+         <guidance>The European Petrol Survey Group maintains the most comprehensive and accurate register of international geodetic codes and parameters for CRS. To identify the CRS for the exchange of geospatial data a standard naming convention and reference repository is required</guidance>
+         <parts>
+            <refstandard refid="dgiwg-nopubnumber" lcstage="fading"/>
+            <refstandard obligation="recommended" refid="opg-epsg-reg"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="13:3D Perspective Viewer as a GeoWeb-Service:">
+         <guidance/>
+         <parts>
+            <refstandard obligation="recommended" refid="ogc-07-147r2"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="14:Geospatial Frames of Reference:">
+         <guidance/>
+         <parts>
+            <refstandard refid="nato-stanag2211ed6"/>
+            <refstandard refid="nato-stanag2577"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-tempGeneral" tag="FMN General Data Format">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="General Data Format Standards"/>
+      <servicegroup title="1:General definition for the Representation of Dates and Times.">
+         <guidance>Implementation of the W3C profile of ISO 8601:2004 (W3CDTF profile) is recommended.</guidance>
+         <parts>
+            <refstandard refid="iso-8601"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:General definition of letter codes for Geographical Entities">
+         <guidance>Whenever possible, the ISO-3166 alpha-3 (three-letter codes) contained in STANAG 1059[b] should be used.
+Alpha-3 codes “XXA”, “XXB”, “XXC”, “XXX” shall not be used to avoid potential conflicts with ISO/IEC 7501-1.</guidance>
+         <parts>
+            <refstandard refid="nato-stanag1059ed8"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:General definition of letter codes for identifying Nationality of a person">
+         <guidance>ISO/IEC 7501-1 for special machine-readable passports</guidance>
+         <parts>
+            <refstandard refid="iso-iec-7501"
+                         condition="When STANAG 1059c 3-letter codes are being&#xA;used for identifying nationality, code extensions&#xA;such as XXA, XXB, XXC, XXX for&#xA;special machine-readable passports"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:General definition of geospatial coverage areas in discovery metadata">
+         <guidance>ISO 19139 provides encoding guidance for ISO 19115
+STANAG 2586 includes the mandatory ISO standards, but concretizes and extends it to cope with the NATO geospatial policy.</guidance>
+         <parts>
+            <refstandard refid="nima-tr-8350.2"/>
+            <refstandard refid="iso-19115"/>
+            <refstandard refid="iso-19115"/>
+            <refstandard refid="iso-19136"/>
+            <refstandard obligation="recommended" refid="nato-stanag2586"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:General definition of geospatial coverage areas in discovery metadata">
+         <guidance>ISO 19139 provides encoding guidance for ISO 19115</guidance>
+         <parts>
+            <refstandard refid="nima-tr-8350.2"/>
+            <refstandard refid="iso-19115"/>
+            <refstandard refid="iso-19136"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-tempBattle" tag="FMN Battle Mgmt.">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Battlespace Management Interoperability Protocols and Standards"/>
+      <servicegroup title="1:Expressing digital geographic annotation and visualization on, two-dimensional maps and three dimensional globes">
+         <guidance>NVG shall be used as the standard Protocol and Data Format for encoding and sharing of information layers
+NVG and KML are both XML based language schemas for expressing geographic annotations.</guidance>
+         <parts>
+            <refstandard refid="nato-tide-nvg"/>
+            <refstandard refid="ogc-07-147r2"/>
+            <refstandard refid="nato-tide-nvg20" lcstage="emerging"/>
+            <refstandard refid="ogc-05-047r3" lcstage="emerging"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Formatted military message exchange in support of:&#xA;SOA Platform Services/ Message-oriented Middleware Services&#xA;Enterprise Support Services/ Unified Communication and Collaboration Services/ Text-based Collaboration Services">
+         <guidance>This change does not have any impact on existing implementations ADatP-03(A) contains two different equivalent presentations of data: one as "classic" message or alternatively as XML-MTF instance.
+A)        Automated processing of XML-files in static facilities/systems is much easier and thus preferred for the exchange between network elements.
+
+B)        At the tactical edge of a Mission Network the "classic" message format is the preferred option as this format is "leaner" and easier to transmit via tactical radio systems.</guidance>
+         <parts>
+            <refstandard refid="nato-stanag5500ed7"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Formatted military message exchange in in low bandwidth environments">
+         <guidance>The following message that is not compliant with STANAG 7149 Ed 5. could be accepted by a NATO FMN Network Element:
+Joint Tactical Air Strike Request (JTAR) US DD Form 1972</guidance>
+         <parts>
+            <refstandard refid="nato-app-11-c"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:Exchange of digital Friendly Force Information such as positional tracking information between systems hosted on a Mission Network and mobile tactical systems.">
+         <guidance>All positional information of friendly ground forces (e.g. ground forces of Troop Contributing Nations or commercial transport companies working in support of FMN Forces) shall be as a minimum made available in a format that can be translated into the NFFI V1.3 format.</guidance>
+         <parts>
+            <refstandard refid="c3b-ac322-d2006-0066"/>
+            <refstandard refid="nato-stanag5527" lcstage="emerging" lctime="2015"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:Mediation Services: Mediate between the TDL and MN to provide weapon delivery assets with Situational Awareness on friendly forces.">
+         <guidance/>
+         <parts>
+            <refstandard refid="nato-stanag5528ed1" lcstage="emerging" lctime="2015"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="6:Real time automated data exchange such as radar tracking information between TDL networks and MN Message exchange Over Tactical Data Links">
+         <guidance>STANAG 5516, Ed.5 is under ratification.
+Link-16 data is disseminated via JREAP and ad-hoc (i.e. NACT) protocols in ISAF. The transition to a full JREAP based dissemination needs to be implemented in close coordination with FMN OPT.</guidance>
+         <parts>
+            <refstandard refid="nato-stanag5518"/>
+            <refstandard refid="nato-stanag5516ed4"/>
+            <refstandard refid="nato-stanag5511ed.5"/>
+            <refstandard refid="nato-stanag5516ed4"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="7:Exchanging information on Incident and Event information to support information exploitation.">
+         <guidance>This schema will be used to exchange rich and structured incident/ event information between C2 and Exploitation systems like JOCWatch and CIDNE. National capability developers are invited to contribute to the development of the final EVENTEXPLOITREP XML Schema.</guidance>
+         <parts>
+            <refstandard refid="nato-oir"/>
+            <refstandard refid="nato-eventexplrep" lcstage="emerging" lctime="2014"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="8:Military Symbology interoperability">
+         <guidance>Note that the different standards are not fully compatible with each other and may require mapping services.</guidance>
+         <parts>
+            <refstandard refid="nato-stanag2019"/>
+            <refstandard obligation="recommended" refid="dod-mil-std-2525c"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="9:Digital exchange of semantically rich information about Battlespace Objects">
+         <guidance>The FMN Service Strategy adopts a service based approach employing loose coupling, therefore the implementation of the ADEM Pub/Sub Exchange pattern with the following schema constructs are mandatory for the FMN:
+Unit
+
+* Organisations
+* Facilities
+* Control Features
+
+The following schema constructs are expected to be used in Milestone 2 and an early implementation is recommended:
+
+* Action Event,
+* Action Task,
+* Materiel,
+* Person</guidance>
+         <parts>
+            <refstandard refid="mip-jc3iedm"/>
+            <refstandard refid="mip-adem-1.0.1"/>
+            <refstandard refid="mip-mim2.0" lcstage="emerging" lctime="2018"/>
+            <refstandard refid="mip-bl4"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-tempJISR" tag="FMN JISR">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="JISR Interoperability Protocols and Standards"/>
+      <servicegroup title="1:Storing and exchanging of images and associated data">
+         <guidance>AEDP-4, Ed. 1, NATO Secondary Imagery Format Implementation Guide, 15 Jun 07, NU</guidance>
+         <parts>
+            <refstandard refid="nato-stanag4545ed1am1"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Providing a standard software interface for searching and retrieving for ISR products.">
+         <guidance/>
+         <parts>
+            <refstandard refid="nato-stanag4559"/>
+            <refstandard refid="nato-stanag4559ed4" lcstage="emerging" lctime="2016"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Exchange of ground moving target indicator radar data">
+         <guidance>AEDP-7, Ed. 1, NATO Ground Moving Target Indication (GMTI) Format Implementation Guide, TBS, NU</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="nato-stanag4607ed3"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:Provision of common methods for exchanging of Motion Imagery (MI)across systems">
+         <guidance>AEDP-8, Ed. 2, Implementation Guide For STANAG 4609NDMI , June 2007, NU</guidance>
+         <parts>
+            <refstandard refid="nato-stanag4609ed3"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:Exchange of unstructured data (documents, jpeg imagery)">
+         <guidance/>
+         <parts>
+            <refstandard obligation="recommended" refid="ipiwg-metadata40r3"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-tempUserApp" tag="FMN Uset App.">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="User Applications Standards"/>
+      <servicegroup title="1:Displaying content within web browsers.">
+         <guidance>Applications must support the following browsers: Microsoft Internet Explorer v9.0 and newer, and Mozilla Firefox 16.0 and newer. When a supported browser is not true to the standard, choose to support the browser that is closest to the standard[a].
+Some organizations or end-user devices do not allow the use of proprietary extensions such as Adobe Flash or Microsoft Silverlight. Those technologies shall be avoided. Implementers should use open standard based solutions (HTML5 / CSS3) instead.</guidance>
+         <parts>
+            <refstandard refid="w3c-rec-html401-19991224"/>
+            <refstandard refid="w3c-rec-xhtml1-20020801"/>
+            <refstandard refid="w3c-rec-css2-2011067"/>
+            <refstandard refid="w3c-wd-html5-20140617" lcstage="emerging" lctime="2014"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Integration of remote content and application logic into aggregating applications, such as web portals">
+         <guidance>Portlets are pluggable user interface software components that are managed and displayed in a web portal.</guidance>
+         <parts>
+            <refstandard refid="oasis-wsrp1.0"/>
+            <refstandard refid="oasis-wsrp2.0"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Visualize common operational symbology within C4ISR systems in order to convey information about objects in the battlespace.">
+         <guidance>All presentation service shall render tracks, tactical graphics, and MOOTW objects using this standard except in the case where the object being rendered is not covered in the standard. In these exceptional cases, additional symbols shall be defined as extensions of existing symbol standards and must be backwards compatible. These extensions shall be submitted as a request for change within the configuration management process to be considered for inclusion in the next version of the specification.</guidance>
+         <parts>
+            <refstandard refid="nato-stanag2019"/>
+            <refstandard refid="nato-tide-nvg"/>
+            <refstandard obligation="recommended" refid="dod-mil-std-2525c"/>
+            <refstandard refid="nato-tide-nvg20" lcstage="emerging" lctime="2015"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:Reliable messaging over XMPP">
+         <guidance>All XMPP Chat Clients used on an FMN instance shall implement these two protocol extensions.</guidance>
+         <parts>
+            <refstandard refid="xmpp-xep-0184"/>
+            <refstandard refid="xmpp-xep-0202"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:Collaborative generation of spreadsheets, charts, presentations and word processing documents">
+         <guidance>OASIS Open Document Format ODF 1.0 (ISO/IEC 26300) and Office Open XML (ISO/IEC 29500) are both open document formats for saving and exchanging word processing documents, spreadsheets and presentations. Both formats are XML based but differ in design and scope.</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="iso-iec-26300"/>
+            <refstandard obligation="recommended" refid="iso-iec-26300"/>
+            <refstandard obligation="recommended" refid="iso-iec-26300"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="6:Document exchange, storage and archiving">
+         <guidance/>
+         <parts>
+            <refstandard refid="iso-19005-1"/>
+            <refstandard refid="iso-19005-2" lcstage="emerging" lctime="2014"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="7:Representation of Date and Times">
+         <guidance>When a DTG is expressed in local time, this must use the military time zone designator. A mapping of UTC offsets to military timezone designators can be found in the next table, which is based on JC3IEDM V3.1.4/ADatP-3 BL13.1 FFIRN/FUD 1003/1.
+Note that up to 4 characters will be required to represent timezone designators (e.g. 042121M120JAN11 for time zone M120).</guidance>
+         <parts>
+            <refstandard refid="w3c-datetime"/>
+            <refstandard obligation="recommended" refid="w3c-timezone"/>
+            <refstandard refid="nato-aap-06"
+                         condition="for military command and control systems"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="8:Internationalization: Designing, developing content and (web) applications, in a way that ensures it will work well for, or can be easily adapted for, users from any culture, region, or language.">
+         <guidance>Best practices and tutorials on internationalization can be found at: http://www.w3.org/International/articlelist</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="w3c-w3c-i18n-authoring"/>
+            <refstandard obligation="recommended" refid="w3c-w3c-i18n-webarch"/>
+            <refstandard obligation="recommended" refid="w3c-w3c-i18n-xml"/>
+            <refstandard obligation="recommended" refid="w3c-w3c-i18n-webofservices"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-tempSMC" tag="FMN SMC">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Service Management and Control Interoperability Standards"/>
+      <servicegroup title="1:Provide Service Management within a FMN instance.">
+         <guidance>See also AMN Service Management Framework CONOPS</guidance>
+         <parts>
+            <refprofile refid="ipcat-itil"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:Provide the Control (Governance) required to efficiently and effectively control an FMN instance.">
+         <guidance>COBIT is based on established frameworks, such as the Software Engineering Institute’s Capability Maturity Model, ISO 9000, ITIL, and ISO 17799 (standard security framework, now ISO 27001).</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="isaca-cobit5"/>
+            <refstandard obligation="optional" refid="tm-forum-etom"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="3:Network management">
+         <guidance>Details of Simple Network Management Protocol Version 3 (SNMPv3) are defined by IETF RFC 3411 - 3418.</guidance>
+         <parts>
+            <refstandard refid="ietf-rfc3411"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="4:SOA Platform SMC Services">
+         <guidance>WS-Management provides a common way for systems to access and exchange management information across the IT infrastructure.</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="dmtf-dsp0226"
+                         condition="Web Services for Management"/>
+            <refstandard obligation="recommended" refid="dmtf-dsp0227"
+                         condition="Web Services for Management"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="5:Represent and share Configuration Items and details about the important attributes and relationships between them.">
+         <guidance/>
+         <parts>
+            <refstandard refid="dmtf-cimschema"/>
+            <refstandard refid="dmtf-dsp0252-2010"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+   <serviceprofile id="fmn-tempHuman" tag="FMN H2H">
+      <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22"
+                   title="Human-to-human interoperability Standards"/>
+      <servicegroup title="1:Mutual understanding of terminology">
+         <guidance/>
+         <parts>
+            <refstandard obligation="recommended" refid="oxfordup-coed"/>
+            <refstandard obligation="recommended" refid="nato-aap-06"/>
+         </parts>
+      </servicegroup>
+      <servicegroup title="2:General language communication ability of staff working in a federated networking environment">
+         <guidance>For effective voice communications, a proficient speakers shall:
+a.        communicate effectively in voice-only (telephone/radio) and in face-to-face situations;
+
+b.        communicate on common, concrete and work-related topics with accuracy and clarity;
+
+c.        use appropriate communicative strategies to exchange messages and to recognize and resolve misunderstandings (e.g. to check, confirm, or clarify information) in a general or work-related context;
+
+d.        handle successfully and with relative ease the linguistic challenges presented by a complication or unexpected turn of events that occurs within the context of a routine mission situation or communicative task with which they are otherwise familiar; and
+
+e.        use a dialect or accent which is intelligible to the multinational mission community.
+
+Source: International Civil Aviation Organization (ICAO) Holistic Descriptors of operational language proficiency (adapted).</guidance>
+         <parts>
+            <refstandard obligation="recommended" refid="nato-stanag6001ed4"/>
+         </parts>
+      </servicegroup>
+      <status mode="accepted">
+         <history>
+            <event date="2014-11-25" flag="added" rfcp="fmn" version="9.0"/>
+         </history>
+      </status>
+   </serviceprofile>
+
+   
    </records>
    <organisations>
       <orgkey key="acm" text="ACM"/>

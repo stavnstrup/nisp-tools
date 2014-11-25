@@ -125,7 +125,7 @@
 <!-- .......................... RECORDS .................................. -->
 
 
-<!ELEMENT records ((standard | profile )*)>
+<!ELEMENT records ((standard | profile | interoperabilityprofile | serviceprofile | capabilityprofile)*)>
 
 <!ELEMENT standard (document, applicability, responsibleparty?, status, uuid?)>
 <!ATTLIST standard
@@ -212,7 +212,7 @@
 
 <!ELEMENT services (refprofile+)>
 
-<!ELEMENT serviceprofile (profilespec, (servicegroups+ |  guidance), status, uuid?)>
+<!ELEMENT serviceprofile (profilespec, (servicegroup+ |  guidance), status, uuid?)>
 <!ATTLIST serviceprofile
           tag CDATA #REQUIRED
           id ID #REQUIRED>
