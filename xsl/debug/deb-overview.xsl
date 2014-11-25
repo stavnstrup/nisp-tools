@@ -88,10 +88,22 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td align="right"><xsl:value-of select="count(.//standard[status='rejected'])"/></td>
       </tr>
       <tr>
-        <td>profiles</td>
-        <td align="right"><xsl:value-of select="count(.//profile)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::profile])"/></td>
-        <td align="right"><xsl:value-of select="count(.//profile[status='rejected'])"/></td>
+        <td>Interoperability Profiles</td>
+        <td align="right"><xsl:value-of select="count(.//interoperabilityprofile)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::interoperabilityprofile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//interoperabilityprofile[status='rejected'])"/></td>
+       </tr>
+      <tr>
+        <td>Service Profiles</td>
+        <td align="right"><xsl:value-of select="count(.//serviceprofile)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::serviceprofile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//serviceprofile[status='rejected'])"/></td>
+       </tr>
+      <tr>
+        <td>Capability Profiles</td>
+        <td align="right"><xsl:value-of select="count(.//capabilityprofile)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::capabilityprofile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//capabilityprofile[status='rejected'])"/></td>
        </tr>
     </table>
 
@@ -142,28 +154,29 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </xsl:apply-templates>
   </table>
 
-  <h2 id="profiles">Interoperability profiles</h2>
+  <h2 id="profiles">Profiles</h2>
   
-  <p>A baseline profile list a set of standard, which fits natually
-  together and is developed for convenience only. In the future we will
-  implement two additional profile type:
-  <ul>
+  <p>This table lists all capability, service- and interoperability profiles.
 
-    <li> a Service InterOperability Profile (SIOP) which will
-    reference standards and baseline profiles and provide guidance to
+  <ul>
+    <li>Interoperability Profiles (IP) list standards and profiles which fits natually
+     together and is mainly developed for convenience only.</li>
+
+    <li>Service Profiles (SP) which will
+    reference standards and interoperability profiles and provide guidance to
     describe the SIOP necessary to implement a service described in
     the <a
     href="https://tide.act.nato.int/em/index.php?title=Technical_Services">Technical
     Service Framework</a> (part of the <a
     href="https://tide.act.nato.int/em/index.php?title=C3_Taxonomy">C3
     taxonomy</a>).</li>
-    <li>A profile will consists of a set of SIOPs. An example of this is the FMN profile.</li>
+    <li>Capability Profiles (CP) consists of a set of serviceprofiless. An example of this is the FMN profile.</li>
   </ul></p>
 
 
   <table class="overview" border="1">
     <xsl:call-template name="htmlheader"/>
-    <xsl:apply-templates select="//interoperabilityprofile">
+    <xsl:apply-templates select="//interoperabilityprofile|//capabilityprofile|//serviceprofile">
       <xsl:sort select="@id" order="ascending"/>
     </xsl:apply-templates>
   </table>
@@ -192,7 +205,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="interoperabilityprofile">
+<xsl:template match="interoperabilityprofile|serviceprofile|capabilityprofile">
   <xsl:variable name="myid" select="@id"/>
   <tr>
     <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">
@@ -201,9 +214,9 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td><xsl:value-of select="@id"/></td>
     <td align="center">
       <xsl:choose>
-        <xsl:when test="@type='base'">BP</xsl:when>
-        <xsl:when test="@type='coi'">C</xsl:when>
-        <xsl:otherwise>CM</xsl:otherwise>
+        <xsl:when test="local-name(.)='capabilityprofile'">CP</xsl:when>
+        <xsl:when test="local-name(.)='serviceprofile'">SP</xsl:when>
+        <xsl:otherwise>IP</xsl:otherwise>
       </xsl:choose>
     </td>
     <td>
