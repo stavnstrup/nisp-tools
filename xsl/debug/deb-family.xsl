@@ -54,9 +54,9 @@ Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
    
     <p>Note:
       <ul>
-        <li>Standards and profiles marked with redbackground have been deleted</li>
+        <li>Standards and interoperabilityprofiles marked with redbackground have been deleted</li>
         <li>Cells with yellow background should be filled out.</li>
-        <li>If a reference to a child/parent standard/profile is prefixed with '@ ' it has been deleted. N.B. It is ok if a parent standard/profile have been deleted, but it is NOT OK if a child standard/profile have been deleted. It does not make sence to refere to a deleted child standard/profile.</li>
+        <li>If a reference to a child/parent standard/interoperabilityprofile is prefixed with '@ ' it has been deleted. N.B. It is ok if a parent standard/interoperabilityprofile have been deleted, but it is NOT OK if a child standard/interoperabilityprofile have been deleted. It does not make sence to refere to a deleted child standard/interoperabilityprofile.</li>
       </ul>
     </p>
 
@@ -72,14 +72,14 @@ Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <td><b>Date</b></td>
       <td><b>Standard<br/>Children</b></td>
       <td><b>Standard<br/>Parent</b></td>
-      <td><b>Profile<br/>Parents</b></td>
+      <td><b>Interoperability Profile<br/>Parents</b></td>
     </tr>
     <xsl:apply-templates select="records/standard">
       <xsl:sort select="@id" order="ascending"/>
     </xsl:apply-templates>
   </table>
 
-  <h2>Profiles</h2>
+  <h2>Interoperability Profiles</h2>
     
   <table border="1">
     <tr class="head">
@@ -146,7 +146,7 @@ Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="profile">
+<xsl:template match="interoperabilityprofile">
   <xsl:variable name="myid" select="@id"/>
   <tr>
     <xsl:if test=".//event[@flag = 'deleted']">
@@ -186,12 +186,12 @@ Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </td>
     <td><xsl:apply-templates select=".//refstandard"/></td>        
     <td><xsl:apply-templates select=".//refprofile"/></td>        
-    <td><xsl:apply-templates select="//profile[parts/refprofile/@refid=$myid]" mode="parent"/></td>
+    <td><xsl:apply-templates select="/interoperability/profile[parts/refprofile/@refid=$myid]" mode="parent"/></td>
   </tr>
 </xsl:template>
 
 
-<xsl:template match="standard|profile" mode="parent">
+<xsl:template match="standard|interoperabilityprofile" mode="parent">
   <xsl:if test="position() != 1">
     <xsl:text>, </xsl:text>
   </xsl:if>
@@ -221,7 +221,7 @@ Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:if test="position() != 1">
     <xsl:text>, </xsl:text>
   </xsl:if>
-  <xsl:if test="//profile[@id=$myrefid]//event[(position()=last()) and (@flag='deleted')]">
+  <xsl:if test="//interoperabilityprofile[@id=$myrefid]//event[(position()=last()) and (@flag='deleted')]">
     <emphasis role="bold">@ </emphasis>
   </xsl:if>
   <a href="#{@refid}"><xsl:value-of select="@refid"/></a>

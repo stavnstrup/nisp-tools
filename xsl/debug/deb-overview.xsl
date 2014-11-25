@@ -142,7 +142,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </xsl:apply-templates>
   </table>
 
-  <h2 id="profiles">Baseline profiles</h2>
+  <h2 id="profiles">Interoperability profiles</h2>
   
   <p>A baseline profile list a set of standard, which fits natually
   together and is developed for convenience only. In the future we will
@@ -163,7 +163,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
   <table class="overview" border="1">
     <xsl:call-template name="htmlheader"/>
-    <xsl:apply-templates select="//profile">
+    <xsl:apply-templates select="//interoperabilityprofile">
       <xsl:sort select="@id" order="ascending"/>
     </xsl:apply-templates>
   </table>
@@ -192,7 +192,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="profile">
+<xsl:template match="interoperabilityprofile">
   <xsl:variable name="myid" select="@id"/>
   <tr>
     <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">

@@ -8,7 +8,7 @@ intended to identify duplex standards in  the standard database.
 Output from the transformation should be piped into the stylesheet
 db-date2.xsl
 
-Copyright (c) 2003,2010  Jens Stavnstrup/DDRE <js@ddre.dk>
+Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <js@mil.dk>
 
 -->
 
@@ -32,22 +32,22 @@ Copyright (c) 2003,2010  Jens Stavnstrup/DDRE <js@ddre.dk>
 </xsl:template>
 
 <xsl:template match="event">
-  <xsl:variable name="myid" select="ancestor::standard/@id|ancestor::profile/@id"/>
+  <xsl:variable name="myid" select="ancestor::standard/@id|ancestor::interoperabilityprofile/@id"/>
 
   <event>
-    <rec><xsl:number from="standards" count="standard|profile" format="1" level="any"/></rec>
+    <rec><xsl:number from="standards" count="standard|interoperabilityprofile" format="1" level="any"/></rec>
     <type>
       <xsl:choose>
-        <xsl:when test="ancestor::profile">
-          <xsl:text>P</xsl:text>
+        <xsl:when test="ancestor::interoperabilityprofile">
+          <xsl:text>IP</xsl:text>
         </xsl:when>
         <xsl:when test="ancestor::standard">
           <xsl:text>S</xsl:text>
         </xsl:when>
       </xsl:choose>
     </type>
-    <id><xsl:value-of select="ancestor::standard/@id|ancestor::profile/@id"/></id>
-    <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::profile/@tag"/></tag>
+    <id><xsl:value-of select="ancestor::standard/@id|ancestor::interoperabilityprofile/@id"/></id>
+    <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::interoperabilityprofile/@tag"/></tag>
     <date><xsl:value-of select="@date"/></date>
     <flag><xsl:value-of select="@flag"/></flag>
     <rfcp><xsl:value-of select="@rfcp"/></rfcp>
