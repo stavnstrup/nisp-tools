@@ -411,6 +411,42 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 
 
 
+~~~{.dtd}
+<!ELEMENT guidance %ho; (%tbl.entry.mdl;)*>
+~~~
+
+
+
+
+~~~{.dtd}
+<!ELEMENT parts (refstandard|refprofile)+>
+~~~
+
+
+
+~~~{.dtd}
+<!ELEMENT refstandard EMPTY>
+<!ATTLIST refstandard
+          refid IDREF #REQUIRED
+	  obligation (mandatory|recommended|optional) "mandatory"
+	  lcstage (emerging|current|fading|retired) "current"
+	  lctime CDATA #IMPLIED
+	  condition CDATA #IMPLIED>
+~~~
+
+
+~~~{.dtd}
+<!ELEMENT refprofile EMPTY>
+<!ATTLIST refprofile
+          refid IDREF #REQUIRED
+	  obligation (mandatory | recommended | optional) "mandatory"
+	  lcstage (emerging | current | fading | retired) "current"
+	  lctime CDATA #IMPLIED
+	  condition CDATA #IMPLIED>
+~~~
+
+
+
 A `<profile>` element must contain a `<profilespec>` element and may
 contain `<profilenote>`, `<configuration>`, `<parts>`,
 `<applicability>` or `<status>` elements.
