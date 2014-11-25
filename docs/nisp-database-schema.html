@@ -48,12 +48,14 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>standard and profile description</li>
 <li>community of interest profiles</li>
 <li>mapping between organisation abbreviations and full names</li>
+<li>mapping between responsible parties abbreviation and full names</li>
 </ul>
 <p>The root element of the DTD is the element <code>&lt;standards&gt;</code> and is described by:</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">standards</span> <span class="dv">(</span><span class="fu">revhistory</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">taxonomy</span><span class="dv">,</span> <span class="fu">lists</span><span class="dv">,</span> <span class="fu">records</span><span class="dv">,</span> 
-                     <span class="fu">community-of-interest</span><span class="dv">,</span> <span class="fu">organisations</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
+                     <span class="fu">organisations</span><span class="dv">,</span> <span class="fu">responsibleparties</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
 <p>The <code>&lt;revhistory&gt;</code> element describes the historic changes to the database.</p>
 <p>The <code>&lt;organisations&gt;</code> element contains a mapping between keywords and organisation names and is used to ensure, that only registered organisation are used and therefore prevents the same organisation name to be spelled in multiple ways.</p>
+<p>The <code>&lt;responsibleparties&gt;</code> element contains a mapping between keywords and responsible parties element. The construct is similar to the approach taken for the <code>&lt;organisation&gt;</code> element.</p>
 <h2 id="service-taxonomy">Service taxonomy</h2>
 <p>The services taxonomy describes how the standards and profiles are organised and is a subset of the C3 taxonomy.</p>
 <p>The service taxonomy is a hierarchical structure, consisting of <code>&lt;node&gt;</code> elements as described below. All the <code>&lt;node&gt;</code> elements must have an <code>id</code>, <code>title</code>, <code>level</code> and <code>emUUID</code> attribute. The <code>id</code> attribute is used to identify the relationship between selected standards and the service taxonomy. The <code>level</code> attribute described on what level in the taxonomy the node is located and the <code>emUUID</code> attribute is the UUID assigned in the TIDE EM-Wiki.</p>
@@ -69,7 +71,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h2 id="standard-and-profile-definition">Standard and profile definition</h2>
 <p>Both de-jure and de-facto standards from many different standard 'organizations' are labeled differently. Some standards have multiple parts each having a standard number, where for other standards only the cover standard have a number. Some standards are registered by multiple standard bodies. Some standards are updated, but the actual update are released as a separate document instead of releasing a new version of the standard. The same is true for profiles. So the following rules tries to accommodate all the different conventions used, when describing a standard or profile.</p>
 <p>All standards and profiles are contained in the <code>&lt;records&gt;</code> element.</p>
-<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">records</span> <span class="dv">((</span><span class="fu">standard</span> <span class="dv">|</span> <span class="fu">profile</span> <span class="dv">)</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">records</span> <span class="dv">((</span><span class="fu">standard</span> <span class="dv">|</span> <span class="fu">interoperabilityprofile</span> <span class="dv">|</span> <span class="fu">serviceprofile</span> <span class="dv">|</span> <span class="fu">capabilityprofile</span><span class="dv">)</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
 <h3 id="standards">Standards</h3>
 <p>All standards are implemented using a single <code>&lt;standard&gt;</code> element describing both the standard and historical aspect about the standard. A standard consists of:</p>
 <ul>
@@ -95,11 +97,11 @@ code > span.er { color: #ff0000; font-weight: bold; }
           <span class="fu">title</span>   <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
           <span class="fu">version</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre>
 <p>If a standard is a cover standard (e.g ISO-8859), it may implement the <code>&lt;substandards&gt;</code> element, which contains a list of <code>&lt;refstandard&gt;</code> element. Each <code>&lt;refstandard&gt;</code> element will trough the attribute <code>refid</code> contain a reference to the substandard.</p>
-<p>The DTD allows a <code>&lt;standard&gt;</code> element using <code>&lt;refstandard&gt;</code> elements to refer to other standards ('the substandards'), and in principle these substandards could refer to other <code>&lt;standard&gt;</code> elements. However, the later does not make any sense and is therefore not allowed.</p>
-<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">substandards</span> <span class="dv">(</span><span class="fu">refstandard</span><span class="fl">+</span><span class="dv">)</span><span class="dt">&gt;</span>
+<p>The DTD allows a <code>&lt;standard&gt;</code> element using <code>&lt;substandard&gt;</code> elements to refer to other standards ('the substandards'), and in principle these substandards could refer to other <code>&lt;standard&gt;</code> elements. However, the later does not make any sense and is therefore not allowed.</p>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">substandards</span> <span class="dv">(</span><span class="fu">substandard</span><span class="fl">+</span><span class="dv">)</span><span class="dt">&gt;</span>
 
-<span class="dt">&lt;!ELEMENT</span> <span class="fu">refstandard</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
-<span class="dt">&lt;!ATTLIST</span> <span class="fu">refstandard</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">substandard</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">substandard</span>
           <span class="fu">refid</span> <span class="kw">IDREF</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
 <p>Some standard organisations publish documents which are correction to the standard.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">correction</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
@@ -157,7 +159,46 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">uuid</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
 <p>The <code>&lt;uuid&gt;</code> element is mandatory in every standard although in the DTD it is stated the there can be zero or one <code>&lt;uuid&gt;</code> element. The reason for this inconsistency is that we do not want a DTD driven editor to complain about a missing element and we do not want the user to manually create an UUID. The UUID must always be automatically created by the NISP tool and comply with RFC 4122: &quot;A Universally Unique Identifier (UUID) URN Namespace.&quot; The UUID generated is a version 4 type, which means it is a randomly generated UUID.</p>
 <h3 id="profiles">Profiles</h3>
-<p>Profiles are described using the <code>&lt;profile&gt;</code> element and contains references to the standards and potential profiles, on which the profile is build.</p>
+<p>The are multiple profile elements, each accomodating different goals.</p>
+<ul>
+  <li>
+capabilityprofile - Example: FMN
+</li>
+  <li>
+serviceprofile - Example: Infrastructure Services
+</li>
+  <li>
+interoperabilityprofile - Example: FMN XMPP Baisic
+</li>
+</ul>
+
+<h4 id="capability-profile">Capability Profile</h4>
+<p>The <code>&lt;capabilityprofile&gt;</code> element is a container element, which list the services necessary to implement a given capability.</p>
+<p>A <code>&lt;capabilityprofile&gt;</code> consists of a <code>&lt;profilespec&gt;</code> element describing the capability, a number of references to <code>&lt;serviceprofile&gt;</code> elements encapsulated in a <code>&lt;services&gt;</code> element and a <code>&lt;status&gt;</code> element.</p>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">capabilityprofile</span> <span class="dv">(</span><span class="fu">profilespec</span><span class="dv">,</span> <span class="dv">(</span><span class="fu">capabilitygroup</span><span class="fl">+</span> <span class="dv">|</span> <span class="fu">services</span><span class="dv">),</span> <span class="fu">status</span><span class="dv">,</span> <span class="fu">uuid</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">capabilityprofile</span>
+          <span class="fu">tag</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
+          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
+<p>Normally each <code>&lt;serviceprofile</code>&gt; is presented in exactly one table, but if a <code>&lt;capabilityprofile&gt;</code> consists of a lot of services - the combined size of all the tables becomes to big. SOMETHING MISSING HERE ???</p>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">capabilitygroup</span> <span class="dv">(</span><span class="fu">services</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">capabilitygroup</span>
+          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span>
+      <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">services</span> <span class="dv">(</span><span class="fu">refprofile</span><span class="fl">+</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
+<h4 id="service-profile">Service Profile</h4>
+<p>A <code>&lt;serviceprofile&gt;</code> element represents a service, which is required by a specific capability.</p>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">serviceprofile</span> <span class="dv">(</span><span class="fu">profilespec</span><span class="dv">,</span> <span class="dv">(</span><span class="fu">servicegroup</span><span class="fl">+</span> <span class="dv">|</span>  <span class="fu">guidance</span><span class="dv">),</span> <span class="fu">status</span><span class="dv">,</span> <span class="fu">uuid</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">serviceprofile</span>
+          <span class="fu">tag</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
+          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">servicegroup</span> <span class="dv">(</span><span class="fu">guidance</span><span class="dv">,</span> <span class="fu">parts</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">servicegroup</span>
+      <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
+<h4 id="interoperability-profile">Interoperability Profile</h4>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">interoperabilityprofile</span> <span class="dv">(</span><span class="fu">profilespec</span><span class="dv">,</span> <span class="fu">profilenote</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">parts</span><span class="dv">,</span> <span class="fu">configuration</span><span class="fl">?</span><span class="dv">,</span>  <span class="fu">applicability</span><span class="dv">,</span> <span class="fu">status</span><span class="dv">,</span> <span class="fu">uuid</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">interoperabilityprofile</span>
+          <span class="fu">tag</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
+          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
 <p>A <code>&lt;profile&gt;</code> element must contain a <code>&lt;profilespec&gt;</code> element and may contain <code>&lt;profilenote&gt;</code>, <code>&lt;configuration&gt;</code>, <code>&lt;parts&gt;</code>, <code>&lt;applicability&gt;</code> or <code>&lt;status&gt;</code> elements.</p>
 <p>A <code>&lt;profile&gt;</code> element must contain a <code>tag</code> and an <code>id</code> attribute. A <code>type</code> attribute is implicit defined with one of the values <code>base</code>, <code>coi-minor</code> or <code>coi</code>. If the attribute has not explicit been defined, it will by default be initialised with the value <code>base</code>. Most <code>&lt;profile&gt;</code> elements will have an <code>type</code> attribute with the value <code>base</code>, which describes the a typical profile, i.e. a subset of a standard or a set of standards, or one of the above with a specific configuration.</p>
 <p>A <code>&lt;profile&gt;</code> element which have the type attribute set to <code>coi-minor</code> or <code>coi</code>, and typically the responsibility of a NATO community of interest, such as the Afghanistan Mission Network (AMN) profile.</p>
@@ -264,6 +305,6 @@ The teminology used
 -->
 <h1>Author</h1>
 <p class="author">Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;</p>
-<p class="date">Last updated on Nov 11, 2014</p>
+<p class="date">Last updated on Nov 25, 2014</p>
 </body>
 </html>

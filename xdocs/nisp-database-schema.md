@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% Nov 11, 2014
+% Nov 25, 2014
 
 
 
@@ -49,13 +49,14 @@ different parts:
 * standard and profile description
 * community of interest profiles
 * mapping between organisation abbreviations and full names
+* mapping between responsible parties abbreviation and full names
 
 The root element of the DTD is the element `<standards>` 
 and is described by:
 
 ~~~{.dtd}
 <!ELEMENT standards (revhistory?, taxonomy, lists, records, 
-                     community-of-interest, organisations)>
+                     organisations, responsibleparties)>
 ~~~
 
 The `<revhistory>` element describes the historic changes to the database.
@@ -65,6 +66,9 @@ keywords and organisation names and is used to ensure, that only
 registered organisation are used and therefore prevents the same
 organisation name to be spelled in multiple ways.
 
+The `<responsibleparties>` element contains a mapping between keywords
+and responsible parties element. The construct is similar to the
+approach taken for the `<organisation>` element.
 
 Service taxonomy
 ----------------
@@ -112,7 +116,7 @@ All standards and profiles are contained in the `<records>`
 element.
 
 ~~~{.dtd}
-<!ELEMENT records ((standard | profile )*)>
+<!ELEMENT records ((standard | interoperabilityprofile | serviceprofile | capabilityprofile)*)>
 ~~~
 
 ### Standards
@@ -173,16 +177,16 @@ If a standard is a cover standard (e.g ISO-8859), it may implement the
 trough the attribute `refid` contain a reference to the substandard.
 
 The DTD allows a `<standard>` element using
-`<refstandard>` elements to refer to other standards ('the
+`<substandard>` elements to refer to other standards ('the
 substandards'), and in principle these substandards could refer to
 other `<standard>` elements. However, the later does not make
 any sense and is therefore not allowed.
 
 ~~~{.dtd}
-<!ELEMENT substandards (refstandard+)>
+<!ELEMENT substandards (substandard+)>
 
-<!ELEMENT refstandard EMPTY>
-<!ATTLIST refstandard
+<!ELEMENT substandard EMPTY>
+<!ATTLIST substandard
           refid IDREF #REQUIRED>
 ~~~
 
@@ -335,9 +339,77 @@ means it is a randomly generated UUID.
 ### Profiles
 
 
-Profiles are described using the `<profile>` element and
-contains references to the standards and potential profiles, on which
-the profile is build.
+The are multiple profile elements, each accomodating different goals.
+
+<ul>
+  <li>capabilityprofile - Example: FMN</li>
+  <li>serviceprofile - Example: Infrastructure Services</li>
+  <li>interoperabilityprofile - Example: FMN XMPP Baisic</li>
+</ul>
+
+#### Capability Profile
+
+The `<capabilityprofile>` element is a container element, which list the services necessary to implement a given capability.
+
+A `<capabilityprofile>` consists of a `<profilespec>` element describing
+the capability, a number of references to `<serviceprofile>` elements encapsulated in a
+`<services>` element and a `<status>` element.
+
+
+
+
+~~~{.dtd}
+<!ELEMENT capabilityprofile (profilespec, (capabilitygroup+ | services), status, uuid?)>
+<!ATTLIST capabilityprofile
+          tag CDATA #REQUIRED
+          id ID #REQUIRED>
+~~~
+
+Normally each `<serviceprofile`> is presented in exactly one table,
+but if a `<capabilityprofile>` consists of a lot of services - the
+combined size of all the tables becomes to big.  SOMETHING MISSING HERE ???
+
+~~~{.dtd}
+<!ELEMENT capabilitygroup (services)>
+<!ATTLIST capabilitygroup
+          id ID #REQUIRED
+	  title CDATA #REQUIRED>
+~~~
+
+~~~{.dtd}
+<!ELEMENT services (refprofile+)>
+~~~
+
+
+#### Service Profile
+
+A `<serviceprofile>` element represents a service, which is required by a specific capability. 
+
+~~~{.dtd}
+<!ELEMENT serviceprofile (profilespec, (servicegroup+ |  guidance), status, uuid?)>
+<!ATTLIST serviceprofile
+          tag CDATA #REQUIRED
+          id ID #REQUIRED>
+~~~
+
+
+~~~{.dtd}
+<!ELEMENT servicegroup (guidance, parts)>
+<!ATTLIST servicegroup
+	  title CDATA #REQUIRED>
+~~~
+
+#### Interoperability Profile
+
+
+~~~{.dtd}
+<!ELEMENT interoperabilityprofile (profilespec, profilenote?, parts, configuration?,  applicability, status, uuid?)>
+<!ATTLIST interoperabilityprofile
+          tag CDATA #REQUIRED
+          id ID #REQUIRED>
+~~~
+
+
 
 A `<profile>` element must contain a `<profilespec>` element and may
 contain `<profilenote>`, `<configuration>`, `<parts>`,
