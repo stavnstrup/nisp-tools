@@ -5,7 +5,7 @@
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
             doctype-public="-//DDRE//DTDStandardDB XML V4.1//EN"
-            doctype-system="../schema/dtd/stddb41a.dtd"/>
+            doctype-system="../schema/dtd/stddb41b.dtd"/>
 
 <!--
 
@@ -18,7 +18,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="records">
   <records>
-    <xsl:apply-templates select="standard|profile">
+    <xsl:apply-templates select="standard|interoperabilityprofile|serviceprofile|capabilityprofile">
        <xsl:sort select="@id"/>
     </xsl:apply-templates>
   </records>
