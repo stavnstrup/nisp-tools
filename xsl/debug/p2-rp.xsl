@@ -46,7 +46,7 @@
 
 
 <xsl:template match="records">
-  <ul>
+  <ol>
   <xsl:for-each select="standard[generate-id() = generate-id(key('key1', responsibleparty/@rpref)[1])]">
     <xsl:sort select="responsibleparty/@rpref"/>
 
@@ -61,7 +61,7 @@
       </a>
     </li>
   </xsl:for-each>
-  </ul>
+  </ol>
 
   <hr />
   
