@@ -23,7 +23,7 @@ Description : This stylesheet creates an UUID element in all standards
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
             doctype-public="-//DDRE//DTDStandardDB XML V4.1//EN"
-            doctype-system="../schema/dtd/stddb41a.dtd"/>
+            doctype-system="../schema/dtd/stddb41b.dtd"/>
 
 
 <xsl:strip-space elements="*"/>
@@ -36,7 +36,7 @@ Description : This stylesheet creates an UUID element in all standards
   <xsl:text>&#x0a;</xsl:text>
 </xsl:template>
 
-<xsl:template match="standard|profile|baselineprofile">
+<xsl:template match="standard|profile|interoperabilityprofile|serviceprofile|capabilityprofile">
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/> 
     <xsl:apply-templates/>
