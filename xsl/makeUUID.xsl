@@ -26,6 +26,7 @@ Description : This stylesheet creates an UUID element in all standards
             doctype-system="../schema/dtd/stddb41b.dtd"/>
 
 
+
 <xsl:strip-space elements="*"/>
 
 <xsl:template match="sp-list">
@@ -36,7 +37,7 @@ Description : This stylesheet creates an UUID element in all standards
   <xsl:text>&#x0a;</xsl:text>
 </xsl:template>
 
-<xsl:template match="standard|profile|interoperabilityprofile|serviceprofile|capabilityprofile">
+<xsl:template match="standard|interoperabilityprofile|serviceprofile|capabilityprofile">
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/> 
     <xsl:apply-templates/>

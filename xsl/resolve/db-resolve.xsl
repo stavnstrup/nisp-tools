@@ -46,7 +46,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <xsl:apply-templates select="/standards/lists/sp-list[@tref=$sid]"/>
     <xsl:apply-templates select="/standards/lists/profile-list[@tref=$sid]"/>
     <xsl:apply-templates select="/standards/records/standard[@tref=$sid]|
-                                 /standards/records/profile[@tref=$sid]"/>
+                                 /standards/records/interoperabilityprofile[@tref=$sid]"/>
   </xsl:element>
 </xsl:template>
 
