@@ -221,18 +221,35 @@
    <property name="vol3.resolve.src" value="vol3-resolved.xml"/>
    <property name="vol3.pdf.file" value="NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="vol3.rtf.file" value="NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
-   <property name="xsl-resolve-vol3" value="resolve.xsl"/>
+   <property name="xsl-resolve-vol3" value="resolve3.xsl"/>
    <target name="vol3" description="* Create Volume 3 in HTML5 and PDF" depends="vol3.html, vol3.pdf"/>
+   <target name="vol3.db-resolve.check">
+      <uptodate property="vol3.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
+         <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
+         <srcfiles dir="${xsl-styles.dir}/resolve" includes="${xsl-resolve-db}"/>
+      </uptodate>
+   </target>
+   <target name="vol3.db-resolve" depends="init, vol3.db-resolve.check" unless="vol3.db-resolve.notRequired">
+      <echo message="Resolve Volume 3 DB"/>
+      <java fork="yes" classname="${xslt.class}" dir="${src.vol3}">
+         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db}"/>
+         <classpath refid="lib-saxon-classpath"/>
+         <jvmarg value="${use.sax}"/>
+         <jvmarg value="${use.dom}"/>
+         <jvmarg value="${use.xinc}"/>
+      </java>
+   </target>
    <target name="vol3.resolve.check">
       <uptodate property="vol3-resolve.notRequired" targetfile="${build.resolve}/${vol3.resolve.src}">
          <srcfiles dir="${src.vol3}" includes="*.xml"/>
+         <srcfiles includes="resolved-standards.xml" dir="${build.resolve}/"/>
          <srcfiles dir="${xsl-styles.dir}/resolve" includes="${xsl-resolve-vol3}"/>
       </uptodate>
    </target>
-   <target name="vol3.resolve" unless="vol3-resolve.notRequired" depends="init, vol3.resolve.check">
+   <target name="vol3.resolve" unless="vol3-resolve.notRequired" depends="init, vol3.db-resolve, vol3.resolve.check">
       <echo message="Resolve Volume 3"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol3}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol3.resolve.src} ${src.vol3}/${vol3.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol3} docid=vol3 documentdir=volume3 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol3.resolve.src} ${src.vol3}/${vol3.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol3} dbname=resolved-standards.xml docid=vol3 documentdir=volume3 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -242,6 +259,7 @@
    <target name="vol3-olinks.check" depends="init">
       <uptodate property="vol3-olinks.notRequired" targetfile="${src.dir}/olinks/vol3-target.db">
          <srcfiles dir="${build.resolve}" includes="${vol3.resolve.src}"/>
+         <srcfiles includes="standards.xml" dir="${src.dir}/standards/"/>
       </uptodate>
    </target>
    <target name="vol3.olinks" depends="init, vol3.resolve, vol3-olinks.check" unless="vol3-olinks.notRequired">
