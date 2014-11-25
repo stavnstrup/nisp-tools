@@ -22465,6 +22465,77 @@
          <uuid>3313d5ab-e8f1-416f-8071-0d34fe6f55fd</uuid>
       </profile>
 
+
+      <profile id="fmn-xmpp-basic" tag="FMN Basic XMPP Profile" type="base">
+         <profilespec orgid="fmn" title="FMN Basic Profile"/>
+         <parts>
+            <refstandard refid="ietf-rfc6120"/>
+            <refstandard refid="ietf-rfc6121"/>
+            <refstandard refid="xmpp-xep-0004"/>
+            <refstandard refid="xmpp-xep-0030"/>
+            <refstandard refid="xmpp-xep-0045"/>
+            <refstandard refid="xmpp-xep-0049"/>
+            <refstandard refid="xmpp-xep-0050"/>
+            <refstandard refid="xmpp-xep-0054"/>
+            <refstandard refid="xmpp-xep-0065"/>
+            <refstandard refid="xmpp-xep-0092"/>
+            <refstandard refid="xmpp-xep-0096"/>
+            <refstandard refid="xmpp-xep-0114"/>
+            <refstandard refid="xmpp-xep-0115"/>
+            <refstandard refid="xmpp-xep-0203"/>
+            <refstandard refid="xmpp-xep-0220"/>
+            <refstandard refid="xmpp-xep-0249"/>
+            <refstandard refid="xmpp-xep-0288"/>
+	    <refstandard refid="xmpp-xep-0078"/>  <!-- lcstage="fading" -->
+	    <refstandard refid="xmpp-xep-0091"/>  <!-- lcstage="fading" -->
+         </parts>
+         <applicability>
+            This profile contains the necessary stanadards to implement the Basic FMN Profile.
+         </applicability>
+         <status mode="accepted">
+            <history>
+               <event flag="added" date="2014-11-24" rfcp="fmn" version="9.0"/>
+            </history>
+         </status>
+      </profile>
+
+      <profile id="fmn-xmpp-enhanced" tag="FMN Enhances XMPP Profile" type="base">
+         <profilespec orgid="fmn" title="FMN Enhanced Profile"/>
+         <parts>
+	   <refprofile refid="fmn-xmpp-basic"/>
+           <refstandard refid="xmpp-xep-0033"/>
+           <refstandard refid="xmpp-xep-0079"/>
+           <refstandard refid="xmpp-xep-0122"/>
+           <refstandard refid="xmpp-xep-0199"/>
+           <refstandard refid="xmpp-xep-0249"/>
+           <refstandard refid="xmpp-xep-0258"/>
+           <refstandard refid="xmpp-xep-0289"/>
+           <refstandard refid="xmpp-xep-0311"/> <!-- lcstage="emerging" -->
+           <refstandard refid="xmpp-xep-0131"/> <!-- lcstage="emerging" -->
+           <refstandard refid="xmpp-xep-0198"/> <!-- lcstage="emerging" -->
+           <refstandard refid="xmpp-xep-0227"/> <!-- lcstage="emerging" -->
+           <refstandard refid="xmpp-xep-0313"/> <!-- lcstage="emerging" -->
+           <refstandard refid="xmpp-xep-0346"/> <!-- lcstage="emerging" -->
+           <refstandard refid="xmpp-xep-0350"/> <!-- lcstage="emerging" -->
+           <refstandard refid="ietf-rfc6122"/> <!-- obligation="recommended" -->
+           <refstandard refid="ietf-rfc6125"/> <!-- obligation="recommended" -->
+           <refstandard refid="ietf-rfc4854"/> <!-- obligation="recommended" -->
+           <refstandard refid="ietf-rfc4979"/> <!-- obligation="recommended" -->
+           <refstandard refid="ietf-rfc3761"/> <!-- obligation="recommended" -->
+           <refstandard refid="ietf-rfc5122"/> <!-- obligation="recommended" -->
+         </parts>
+         <applicability>
+            This profile contains the necessary stanadards to implement the Enhanced FMN Profile.
+         </applicability>
+         <status mode="accepted">
+            <history>
+               <event flag="added" date="2014-11-24" rfcp="fmn" version="9.0"/>
+            </history>
+         </status>
+      </profile>
+
+      
+      
       <profile id="ipcat-xpointer" tag="XPointer" type="base">
          <profilespec orgid="ipcat" title="XPointer"/>
          <parts>
