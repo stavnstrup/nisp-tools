@@ -57,7 +57,7 @@
 <!-- ...................................................................... -->
 
 
-<!ELEMENT standards (revhistory?, taxonomy, lists, records, community-of-interest, organisations)>
+<!ELEMENT standards (revhistory?, taxonomy, lists, records, organisations, responsibleparties)>
 <!ATTLIST standards
           revision CDATA #REQUIRED>
 
@@ -127,7 +127,7 @@
 
 <!ELEMENT records ((standard | profile )*)>
 
-<!ELEMENT standard (document, applicability, responsibleparty, status, uuid?)>
+<!ELEMENT standard (document, applicability, responsibleparty?, status, uuid?)>
 <!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED>
@@ -142,12 +142,11 @@
           title   CDATA #REQUIRED
           version CDATA #IMPLIED>
 
-<!ELEMENT substandards (refstandard+)>
+<!ELEMENT substandards (substandard+)>
 
-<!ELEMENT refstandard EMPTY>
-<!ATTLIST refstandard
+<!ELEMENT substandard EMPTY>
+<!ATTLIST substandard
           refid IDREF #REQUIRED>
-
 
 <!ELEMENT correction (#PCDATA)>
 <!ATTLIST correction
@@ -202,18 +201,23 @@
 <!-- profile -->          
 
 
-<!ELEMENT capabilityprofile (title, serviceparts, status, uuid?)>
+<!ELEMENT capabilityprofile (profilespec, (capabilitygroup+ | services), status, uuid?)>
 <!ATTLIST capabilityprofile
           tag CDATA #REQUIRED
           id ID #REQUIRED>
-	
 
+<!ELEMENT capabilitygroup (services)>
+<!ATTLIST capabilitygroup
+	  title CDATA #REQUIRED>
 
-<!ELEMENT serviceprofile (profilespec, servicegroups, guidance, status, uuid?)>
+<!ELEMENT services (refprofile+)>
+
+<!ELEMENT serviceprofile (profilespec, (servicegroups+ |  guidance), status, uuid?)>
 <!ATTLIST serviceprofile
           tag CDATA #REQUIRED
           id ID #REQUIRED>
-	  
+
+<!ELEMENT servicegroup (guidance, parts)>
 
 <!ELEMENT interoperabilityprofile (profilespec, profilenote?, parts, configuration?,  applicability, status, uuid?)>
 <!ATTLIST interoperabilityprofile
@@ -246,10 +250,21 @@
 
 <!ELEMENT parts (refstandard|refprofile)+>
 
+<!ELEMENT refstandard EMPTY>
+<!ATTLIST refstandard
+          refid IDREF #REQUIRED
+	  obligation (mandatory|recommended|optional) "mandatory"
+	  lcstage (emerging|current|fading|retired) "current"
+	  lctime CDATA #IMPLIED
+	  condition CDATA #IMPLIED>
 
 <!ELEMENT refprofile EMPTY>
 <!ATTLIST refprofile
-          refid IDREF #REQUIRED>
+          refid IDREF #REQUIRED
+	  obligation (mandatory | recommended | optional) "mandatory"
+	  lcstage (emerging | current | fading | retired) "current"
+	  lctime CDATA #IMPLIED
+	  condition CDATA #IMPLIED>
 
 
 <!ELEMENT profilenote (#PCDATA)>
@@ -258,15 +273,6 @@
 <!-- applicability content model identical to DocBook entry -->
 
 
-
-<!-- ................. COMMUNITY OF INTERESTS ............................ -->
-
-<!ELEMENT community-of-interest (community*)>
-
-<!ELEMENT community (profile*)>
-<!ATTLIST community
-          coi     CDATA      #REQUIRED
-          text    CDATA      #REQUIRED>
 
 
 <!-- ....................... ORGANISATION ................................ -->
