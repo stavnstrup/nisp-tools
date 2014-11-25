@@ -144,9 +144,9 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
   <table frame="all" pgwide="">
     <title><xsl:value-of select="profilespec/@title"/></title>
     <tgroup cols="3">
-      <colspec colwidth="33*"/>
-      <colspec colwidth="34*"/>
-      <colspec colwidth="33*"/>
+      <colspec colwidth="20*"/>
+      <colspec colwidth="50*"/>
+      <colspec colwidth="30*"/>
       <thead>
 	<row>
 	  <entry>ID:Service/Profile</entry>
