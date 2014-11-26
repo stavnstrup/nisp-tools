@@ -32,12 +32,18 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <js@mil.dk>
 </xsl:template>
 
 <xsl:template match="event">
-  <xsl:variable name="myid" select="ancestor::standard/@id|ancestor::interoperabilityprofile/@id"/>
+  <xsl:variable name="myid" select="ancestor::standard/@id|ancestor::interoperabilityprofile/@id|ancestor::serviceprofile/@id|ancestor::capabilityprofile/@id"/>
 
   <event>
-    <rec><xsl:number from="standards" count="standard|interoperabilityprofile" format="1" level="any"/></rec>
+    <rec><xsl:number from="standards" count="standard|interoperabilityprofile|serviceprofile|capabilityprofile" format="1" level="any"/></rec>
     <type>
       <xsl:choose>
+        <xsl:when test="ancestor::capabilityprofile">
+          <xsl:text>CP</xsl:text>
+        </xsl:when>
+        <xsl:when test="ancestor::serviceprofile">
+          <xsl:text>SP</xsl:text>
+        </xsl:when>
         <xsl:when test="ancestor::interoperabilityprofile">
           <xsl:text>IP</xsl:text>
         </xsl:when>
@@ -46,8 +52,8 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <js@mil.dk>
         </xsl:when>
       </xsl:choose>
     </type>
-    <id><xsl:value-of select="ancestor::standard/@id|ancestor::interoperabilityprofile/@id"/></id>
-    <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::interoperabilityprofile/@tag"/></tag>
+    <id><xsl:value-of select="ancestor::standard/@id|ancestor::interoperabilityprofile/@id|ancestor::serviceprofile/@id|ancestor::capabilityprofile/@id"/></id>
+    <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::interoperabilityprofile/@tag|ancestor::serviceprofile/@tag|ancestor::capabilityprofile/@tag"/></tag>
     <date><xsl:value-of select="@date"/></date>
     <flag><xsl:value-of select="@flag"/></flag>
     <rfcp><xsl:value-of select="@rfcp"/></rfcp>
