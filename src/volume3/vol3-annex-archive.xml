@@ -15,8 +15,8 @@
   <title>Profile for the Long Term Preservation of NATO Digital Information of Permanent value</title>
 
 <para>
-  This profile outlines the file formats (Section 1) and package structures
-  (Section 2) approved by the Archives Committee for the long-term
+  This profile outlines the file formats (<xref linkend="part-i"/>) and package structures
+  (<xref linkend="part-ii"/>) approved by the Archives Committee for the long-term
   preservation of NATO digital information of permanent value.
 </para>
 <para>
@@ -28,7 +28,7 @@
   The contents of this profile shall become part of Volume 3 of the NATO
   Interoperability Standards and Profiles [AC/322-N(2013)0197, 2013].
 </para>
-<sect1 id="part-i-file-formats-for-long-term-preservation">
+<sect1 id="part-i">
   <title>File Formats for Long Term Preservation</title>
   <para>
     The following sustainable file formats are approved by the Archives
@@ -38,7 +38,7 @@
     content is included.
   </para>
   <sect2 id="data-sets">
-    <title>Data sets**</title>
+    <title>Data sets</title>
     <para>
       Data sets are typically collections of individual values or larger
       coherent structures such as messages. The data set might be an
@@ -51,9 +51,7 @@
       structure of an Excel document or a database), or explicitly
       defined (e.g. as a schema definition)
     </para>
-    <para>
-      DATA SETS STANDARDS TABLE HERE
-    </para>
+    <?dbmerge serviceprofile="user.archive.data-sets"?>
   </sect2>
   <sect2 id="text">
     <title>Text</title>
@@ -63,11 +61,8 @@
       value in the NATO context. Text documents might also include
       embedded diagrams, pictures, or other non- text material. These
       items shall not be separated from the text and kept as part of the
-      document.
-    </para>
-    <para>
-      TEXT STANDARDS TABLE HERE
-    </para>
+      document.</para>
+      <?dbmerge serviceprofile="user.archive.text"?>
   </sect2>
   <sect2 id="still-images">
     <title>Still Images</title>
@@ -81,9 +76,8 @@
       where a bitmap image of an area can have symbology vector
       overlays.
     </para>
-    <para>
-      STILL IMAGE STANDARDS TABLE
-    </para>
+     <?dbmerge serviceprofile="user.archive.stillimage"?>
+
   </sect2>
   <sect2 id="moving-images">
     <title>Moving Images</title>
@@ -94,9 +88,7 @@
       Moving images are typically combined with audio data and packaged
       into a common container.
     </para>
-    <para>
-      MOVING IMAGE STANDARDS TABLE
-    </para>
+    <?dbmerge serviceprofile="user.archive.movingimage"?>
   </sect2>
   <sect2 id="sound">
     <title>Sound</title>
@@ -105,9 +97,7 @@
       includes audio recordings from meetings if they contain
       information of permanent value.
     </para>
-    <para>
-      SOUND STANDARDS TABLE
-    </para>
+    <?dbmerge serviceprofile="user.archive.sound"?>
   </sect2>
   <sect2 id="geospatial">
     <title>Geospatial</title>
@@ -118,9 +108,7 @@
       consists of bitmap or vector images plus additional attributes
       associated with particular locations depicted in the image data.
     </para>
-    <para>
-      GEOSPATIAL STANDARDS TABLE
-    </para>
+    <?dbmerge serviceprofile="user.archive.geospatial"?>
   </sect2>
   <sect2 id="web-archive">
     <title>Web Archive</title>
@@ -134,12 +122,10 @@
       Web archives typically contain structured textual descriptions as
       well as still and moving images.
     </para>
-    <para>
-      WEB ARCHIVE STANDARDS
-    </para>
+    <?dbmerge serviceprofile="user.archive.webarchive"?>
   </sect2>
 </sect1>
-<sect1 id="package-structures-for-long-term-preservation">
+<sect1 id="part-ii">
   <title>Package Structures for Long Term Preservation</title>
   <para>
     NATO digital information of permanent value shall be processed by
@@ -162,6 +148,11 @@
       a single digital information item and a set of metadata associated
       with this item (see Figure 1)Figure 1
     </para>
+
+<!-- Figure here -->
+
+
+    
     <para>
       The single digital information item has the following structure:
     </para>
@@ -169,8 +160,8 @@
       <listitem>
         <para>
           <emphasis role="strong">Content</emphasis>: Information of one
-          of the seven types listed under 4a-g). For certain types of
-          content, primarily data sets (4a), several pieces of
+          of the seven types listed under <xref linkend="part-i"/>). For certain types of
+          content, primarily data sets (<xref linkend="data-sets"/>), several pieces of
           information might be grouped. A schema provided as part of the
           Data Definition can be used to describe the structure of these
           groupings. For other types such as documents, images, or
@@ -178,27 +169,27 @@
           Items might contain other objects that should also be
           preserved in a sustainable format. For example, an archived
           email message could have text documents as attachments that
-          should be stored in the sustainable formats listed in 4b).
+          should be stored in the sustainable formats listed in <xref linkend="text"/>).
           Guidance on granularity and grouping will be provided by the
           Archives Committee.
         </para>
       </listitem>
       <listitem>
         <para>
-          <emphasis>Data Definition:</emphasis> If the Content consists
+          <emphasis role="strong">Data Definition:</emphasis> If the Content consists
           of structured data, a separate Data Definition shall be
           included that describes the logical structure of the Content.
           This is primarily applicable to Content of the types Data Set
-          (4a), Geospatial (4f), and Web Archive (4g). The format of the
+          (<xref linkend="data-sets"/>), Geospatial (<xref linkend="geospatial"/>), and Web Archive (<xref linkend="web-archive"/>). The format of the
           Data Definition shall be XML Schema 1.1.
         </para>
       </listitem>
       <listitem>
         <para>
-          Visualization: A visualization and human readable
+          <emphasis role="strong">Visualization:</emphasis> A visualization and human readable
           representation of contextual information is optional. The
           format used for the context information shall be one of those
-          listed under 4a–g).
+          listed under <xref linkend="part-i"/>).
         </para>
       </listitem>
     </itemizedlist>
