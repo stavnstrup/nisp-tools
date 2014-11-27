@@ -6456,6 +6456,44 @@
          <uuid>2e7c9a83-1624-4aba-9c4b-ea7dcbf92052</uuid>
       </standard>
 
+      <capabilityprofile id="archive-archive">
+         <profilespec org="archive" pubnum="AC/324-WP(2013)0005-REV2" date="2014-05-26" title="Archive"/>
+         <services>
+            <refprofile refid="user.archive.data-sets" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.text" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.stillimage" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.movingimage" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.sound" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.geospatial" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.webarchive" obligation="mandatory" lcstage="current"/>
+         </services>
+         <status mode="accepted">
+            <history>
+               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
+            </history>
+         </status>
+         <uuid>4991fbff-3ff6-4728-a179-28c9bf677f19</uuid>
+      </capabilityprofile>
+
+      <capabilityprofile id="archive-archive">
+         <profilespec org="archive" pubnum="AC/324-WP(2013)0005-REV2" date="2014-05-26" title="Archive"/>
+         <services>
+            <refprofile refid="user.archive.data-sets" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.text" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.stillimage" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.movingimage" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.sound" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.geospatial" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="user.archive.webarchive" obligation="mandatory" lcstage="current"/>
+         </services>
+         <status mode="accepted">
+            <history>
+               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
+            </history>
+         </status>
+         <uuid>f91dd83f-6745-44ad-b0e2-5ecfc5bf2125</uuid>
+      </capabilityprofile>
+
       <standard id="asd-s1000d-i9005-01000-00" tag="S1000D">
          <document orgid="asd" pubnum="S1000D-I9005-01000-00" date="2008" title="International Specification for Technical Publications:2008"/>
          <applicability>
@@ -51559,6 +51597,154 @@ applications. </applicability>
          </status>
          <uuid>3e3d56bb-3310-47af-82d3-5bd02475ec06</uuid>
       </standard>
+
+      <serviceprofile id="user.archive.data-sets" tag="Data Sets">
+         <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Data Sets Standards"/>
+         <servicegroup title="Data sets (e.g. scientific data) and any structured information not fitting other content types">
+            <guidance/>
+            <parts>
+               <refstandard refid="ietf-rfc4180" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="w3c-rec-xml11-20060816" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="w3c-rec-xmlschema11-1-20120405" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="w3c-rec-xmlschema11-2-20120405" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <servicegroup title="Database content">
+            <guidance/>
+            <parts>
+               <refstandard refid="iso-iec-9075-1" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <status mode="accepted">
+            <history>
+               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
+            </history>
+         </status>
+         <uuid>d830e799-c343-454a-963e-244c257235d9</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="user.archive.geospatial" tag="Geospatial">
+         <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Geospatial Service"/>
+         <servicegroup title="Geospatial information (e.g. GIS data)">
+            <guidance/>
+            <parts>
+               <refstandard refid="ogc-kml" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="ogc-12-128r10" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <status mode="accepted">
+            <history>
+               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
+            </history>
+         </status>
+         <uuid>a361b32c-4633-431a-8cb2-7ea6c895cf1d</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="user.archive.movingimage" tag="Moving Images">
+         <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Moving Images"/>
+         <servicegroup title="Video files">
+            <guidance/>
+            <parts>
+               <refstandard refid="iso-iec-13818-2" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="iso-iec-14496-2" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="iso-iec-14496-10" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <status mode="accepted">
+            <history>
+               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
+            </history>
+         </status>
+         <uuid>0fd5bdfe-2f31-4c58-8650-ccb8775886d1</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="user.archive.sound" tag="Moving Images">
+         <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Sound"/>
+         <servicegroup title="Audio files">
+            <guidance/>
+            <parts>
+               <refstandard refid="ebu-tech3285" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="iso-iec-11172-3" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="iso-iec-13818-3" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <status mode="accepted">
+            <history>
+               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
+            </history>
+         </status>
+         <uuid>ab5d51ed-a056-42c5-b629-4d13726beb9e</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="user.archive.stillimage" tag="Still Images">
+         <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Still Images"/>
+         <servicegroup title="Bitmap/raster images">
+            <guidance/>
+            <parts>
+               <refstandard refid="iso-iec-15444-1" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="iso-iec-10918-1" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="adobe-tiff" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <servicegroup title="Vector images">
+            <guidance/>
+            <parts>
+               <refstandard refid="w3c-rec-svg11-20110816" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <status mode="accepted">
+            <history>
+               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
+            </history>
+         </status>
+         <uuid>070c07fb-a666-4c63-8559-f472b96183a7</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="user.archive.text" tag="Text">
+         <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Text"/>
+         <servicegroup title="Text documents, including common MS Office document formats (docx, xlsx, pptx)">
+            <guidance/>
+            <parts>
+               <refstandard refid="iso-32000-1" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <servicegroup title="Email (e.g. MS Outlook PST files)">
+            <guidance/>
+            <parts>
+               <refstandard refid="ietf-rfc4155" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <servicegroup title="Chat (e.g. JChat conversations)">
+            <guidance/>
+            <parts>
+               <refstandard refid="iso-32000-1" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="ietf-rfc4155" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <status mode="accepted">
+            <history>
+               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
+            </history>
+         </status>
+         <uuid>19397cd1-d167-40ff-b731-087097754568</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="user.archive.webarchive" tag="Web Archive">
+         <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Web Archive"/>
+         <servicegroup title="Web sites and portals">
+            <guidance/>
+            <parts>
+               <refstandard refid="iso-28500" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="ietf-rfc2557" obligation="mandatory" lcstage="current"/>
+            </parts>
+         </servicegroup>
+         <status mode="accepted">
+            <history>
+               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
+            </history>
+         </status>
+         <uuid>0d5cac54-60b6-4e97-bb08-7945a3047a00</uuid>
+      </serviceprofile>
 
       <standard id="w3c-address" tag="WS-Addressing 1.0 - Core">
          <document orgid="w3c" pubnum="REC-ws-addr-core-20060509" title="Web Services Addressing 1.0 - Core" date="2006-05-09"/>
