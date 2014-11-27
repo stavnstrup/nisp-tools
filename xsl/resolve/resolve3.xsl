@@ -47,6 +47,7 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
   <xsl:variable name="pis"><xsl:value-of select="."/></xsl:variable>
 
   <xsl:choose>
+    <!-- serviceprofile (Purpose, Standards, Guidance) -->
     <xsl:when test="starts-with($pis, 'serviceprofile=')">
       <!-- Get the  the serviceprofile attribute -->
       <xsl:variable name="sp">
@@ -59,6 +60,21 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
         <xsl:apply-templates select="$db//serviceprofile[@id=$sp]"/>
       </xsl:if>
     </xsl:when>
+    
+    <!-- serviceprofilePS (Purpose, Standards) -->
+    <xsl:when test="starts-with($pis, 'serviceprofilePS=')">
+      <!-- Get the  the serviceprofile attribute -->
+      <xsl:variable name="sp">
+        <xsl:call-template name="dbmerge-attribute">
+          <xsl:with-param name="pi" select="$pis"/>
+	  <xsl:with-param name="attribute" select="'serviceprofilePS'"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:if test="not($sp='')">
+        <xsl:apply-templates select="$db//serviceprofile[@id=$sp]" mode="PS"/>
+      </xsl:if>
+    </xsl:when>
+    
     <xsl:when test="starts-with($pis, 'capabilitygroup=')">
       <!-- Get the  the capability attribute -->
       <xsl:variable name="cg">
@@ -141,7 +157,7 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 
 
 <xsl:template match="serviceprofile">
-  <table frame="all" pgwide="">
+  <table frame="all" pgwide="1">
     <title><xsl:value-of select="profilespec/@title"/></title>
     <tgroup cols="3">
       <colspec colwidth="20*"/>
@@ -155,7 +171,26 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 	</row>
       </thead>
       <tbody>
-	<xsl:apply-templates/>
+	<xsl:apply-templates select="servicegroup|serviceprofile"/>
+      </tbody>
+    </tgroup>
+  </table>
+</xsl:template>
+
+<xsl:template match="serviceprofile" mode="PS">
+  <table frame="all" pgwide="1">
+    <title><xsl:value-of select="profilespec/@title"/></title>
+    <tgroup cols="2">
+      <colspec colwidth="35*"/>
+      <colspec colwidth="65*"/>
+      <thead>
+	<row>
+	  <entry>ID:Service/Profile</entry>
+	  <entry>Standard</entry>
+	</row>
+      </thead>
+      <tbody>
+	<xsl:apply-templates select="servicegroup|interoperabilityprofile" mode="PS"/>
       </tbody>
     </tgroup>
   </table>
@@ -166,9 +201,21 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
   <row>
     <entry><xsl:value-of select="@title"/></entry>
     <entry><xsl:apply-templates select="parts"/></entry>
-    <entry><xsl:value-of select="guidance"/></entry>
+    <entry><xsl:apply-templates select="guidance"/></entry>
   </row>
 </xsl:template>
+
+<xsl:template match="servicegroup" mode="PS">
+  <row>
+    <entry><xsl:value-of select="@title"/></entry>
+    <entry><xsl:apply-templates select="parts"/></entry>
+  </row>
+</xsl:template>
+
+<xsl:template match="guidance">
+  <xsl:copy-of select="*|text()"/>
+</xsl:template>
+
 
 <xsl:template match="parts">
   <itemizedlist>
@@ -399,6 +446,7 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 
 
 <!-- ==================================================================== -->
+
 
 
 </xsl:stylesheet>

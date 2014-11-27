@@ -5437,10 +5437,12 @@
             <select id="itu-t-x.25" mode="fading">X.25 (1996, Cor.1:1998)</select>
             <rationale>X.25 (1996, Cor.1:1998) changed in NCSP v.6 </rationale>
          </sp-view>
+<!--
          <sp-view idx="d0e1763">
             <select id="ipcat-mpls" mode="mandatory">MPLS (IETF RFC 3031: 2001, 3032:2001)</select>
             <rationale>MPLS added in NISP v.6 through RFCP 5-28</rationale>
          </sp-view>
+-->
          <sp-view idx="d0e1773">
             <select id="ipcat-tp2k" mode="mandatory">
                Tactical Communications, STANAGs 4637ed1:2009, STANAG 4638ed1:2009,
@@ -6456,8 +6458,8 @@
          <uuid>2e7c9a83-1624-4aba-9c4b-ea7dcbf92052</uuid>
       </standard>
 
-      <capabilityprofile id="archive-archive">
-         <profilespec org="archive" pubnum="AC/324-WP(2013)0005-REV2" date="2014-05-26" title="Archive"/>
+      <capabilityprofile id="archive-archive" tag="Archive Capability Profile">
+         <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" date="2014-05-26" title="Archive"/>
          <services>
             <refprofile refid="user.archive.data-sets" obligation="mandatory" lcstage="current"/>
             <refprofile refid="user.archive.text" obligation="mandatory" lcstage="current"/>
@@ -6473,25 +6475,6 @@
             </history>
          </status>
          <uuid>4991fbff-3ff6-4728-a179-28c9bf677f19</uuid>
-      </capabilityprofile>
-
-      <capabilityprofile id="archive-archive">
-         <profilespec org="archive" pubnum="AC/324-WP(2013)0005-REV2" date="2014-05-26" title="Archive"/>
-         <services>
-            <refprofile refid="user.archive.data-sets" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.text" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.stillimage" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.movingimage" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.sound" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.geospatial" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.webarchive" obligation="mandatory" lcstage="current"/>
-         </services>
-         <status mode="accepted">
-            <history>
-               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
-            </history>
-         </status>
-         <uuid>f91dd83f-6745-44ad-b0e2-5ecfc5bf2125</uuid>
       </capabilityprofile>
 
       <standard id="asd-s1000d-i9005-01000-00" tag="S1000D">
@@ -9836,7 +9819,7 @@ Grids</applicability>
             </parts>
          </servicegroup>
          <servicegroup title="1.2:Edge Transport Services between autonomous systems ­ (time-division multiplexing wide area network)">
-            <guidance>This interconnection is based on STANAG 5067, Standard for interconnection of IPv4 networks at Mission Secret and Unclassified Security Levels. STANAG 5067 provides additional implementation, security and management guidance. Combined with TRANSEC crypto or other forms of link protection, CHAP (IETF RFC 1994) is not required. Otherwise, CHAP is recommended.</guidance>
+            <guidance>This interconnection is based on STANAG 5067, Standard for interconnection of IPv4 networks at Mission Secret and Unclassified Security Levels. STANAG 5067 provides additional implementation, security and management guidance.<para>Combined with TRANSEC crypto or other forms of link protection, CHAP (IETF RFC 1994) is not required. Otherwise, CHAP is recommended.</para></guidance>
             <parts>
                <refstandard refid="itu-t-g.703" obligation="mandatory" lcstage="current"/>
                <refstandard refid="itu-t-g.704" obligation="mandatory" lcstage="current"/>
@@ -9850,9 +9833,12 @@ Grids</applicability>
             </parts>
          </servicegroup>
          <servicegroup title="2:Inter-Autonomous System (AS) routing">
-            <guidance>BGP deployment guidance in IETF RFC 1772: 1995, Application of the Border Gateway Protocol in the Internet. 
-
-BGP sessions must be authenticated, through a TCP message authentication code (MAC) using a one-way hash function (MD5), as described in IETF RFC 4271.</guidance>
+            <guidance>BGP deployment guidance in IETF RFC 1772: 1995,
+            Application of the Border Gateway Protocol in the
+            Internet.  <para>BGP sessions must be authenticated,
+            through a TCP message authentication code (MAC) using a
+            one-way hash function (MD5), as described in IETF RFC
+            4271.</para></guidance>
             <parts>
                <refstandard refid="ietf-rfc4271" obligation="mandatory" lcstage="current"/>
                <refstandard refid="ietf-rfc1997" obligation="mandatory" lcstage="current"/>
@@ -10661,12 +10647,10 @@ The TIDE community is evaluating OpenSearch for potential inclusion into the TID
                <refstandard refid="itu-r-tf460-6" obligation="mandatory" lcstage="current"/>
             </parts>
          </servicegroup>
-         <servicegroup title="2:Distributed Time Services: Time synchronization">
+         <servicegroup title="2:Distributed Time Services: Time synchronization">         
             <guidance>A stratum-1 time server is directly linked (not over a network path) to a reliable source of UTC time (Universal Time Coordinate) such as GPS, WWV, or CDMA transmissions through a modem connection, satellite, or radio.
-
 Stratum-1 devices must implement IPv4 and IPv6 so that they can be used as timeservers for IPv4 and IPv6 Mission Network Elements.
-
-The W32Time service on all Windows Domain Controllers is synchronizing time through the Domain hierarchy (NT5DS type).</guidance>
+<para>The W32Time service on all Windows Domain Controllers is synchronizing time through the Domain hierarchy (NT5DS type).</para></guidance>
             <parts>
                <refstandard refid="ietf-rfc5905" obligation="mandatory" lcstage="current"/>
             </parts>
@@ -10693,13 +10677,12 @@ The W32Time service on all Windows Domain Controllers is synchronizing time thro
          </servicegroup>
          <servicegroup title="6:Infrastructure IA Services: Directory access and management service. Facilitate the access and authorization between FMN users and services.">
             <guidance>Options available to FMN members when joining their network element to a FMN instance:
-
-1) Establish a separate forest.
-2) Join Forest of another Mission Network Contributing Participant
-
-For cross application/service authentication between separate forests claims based authentication mechanisms (SAML 2.0 or WS-trust/WS-Authentication) shall be used.
-
-Whilst LDAP is a vendor independent standard, in practice Microsoft Active Directory (AD) is a common product providing directory services on national and NATO owned Mission Network elements. AD provides additional services aside from LDAP like functionality.</guidance>
+            <orderedlist>
+              <listitem><para>Establish a separate forest.</para></listitem>
+              <listitem><para>Join Forest of another Mission Network Contributing Participant</para></listitem>
+            </orderedlist>
+            <para>For cross application/service authentication between separate forests claims based authentication mechanisms (SAML 2.0 or WS-trust/WS-Authentication) shall be used.</para>
+            <para>Whilst LDAP is a vendor independent standard, in practice Microsoft Active Directory (AD) is a common product providing directory services on national and NATO owned Mission Network elements. AD provides additional services aside from LDAP like functionality.</para></guidance>
             <parts>
                <refstandard refid="ietf-rfc4510" obligation="mandatory" lcstage="current"/>
                <refprofile refid="fmn-ldap" obligation="mandatory" lcstage="current"/>
@@ -10736,9 +10719,9 @@ list (CRL) shall be v2.</guidance>
          <servicegroup title="1. Web Platform Services">
             <guidance>HTTP shall be used as the transport protocol for information without 'need-to-know' caveats between all service providers and consumers (unsecured HTTP traffic).
 
-HTTPS shall be used as the transport protocol between all service providers and consumers to ensure confidentiality requirements (secured HTTP traffic).
+<para>HTTPS shall be used as the transport protocol between all service providers and consumers to ensure confidentiality requirements (secured HTTP traffic).</para>
 
-Unsecured and secured HTTP traffic shall share the same port.</guidance>
+<para>Unsecured and secured HTTP traffic shall share the same port.</para></guidance>
             <parts>
                <refstandard refid="ietf-rfc2616" obligation="mandatory" lcstage="current"/>
                <refstandard refid="ietf-rfc2817" obligation="mandatory" lcstage="current"/>
@@ -10786,7 +10769,7 @@ Unsecured and secured HTTP traffic shall share the same port.</guidance>
          <servicegroup title="6:Encoding of location as part of web feeds">
             <guidance>GML allows you to specify a coordinate reference system (CRS) other than WGS84 decimal degrees (think lat/long). If there is a need to express geography in a CRS other than WGS84, it is recommended to specify the geographic object multiple times, one in WGS84 and the others in your other desired CRSes.
 
-Schema location for GeoRSS GML Profile 1.0: http://georss.org/xml/1.0/gmlgeorss.xsd</guidance>
+<para>Schema location for GeoRSS GML Profile 1.0: http://georss.org/xml/1.0/gmlgeorss.xsd</para></guidance>
             <parts>
                <refstandard refid="ogc-06-050r3" obligation="mandatory" lcstage="current"/>
                <refprofile obligation="recommended" refid="fmn-georss-gml" lcstage="current"/>
@@ -10796,10 +10779,10 @@ Schema location for GeoRSS GML Profile 1.0: http://georss.org/xml/1.0/gmlgeorss.
          <servicegroup title="7:Message Security for web services">
             <guidance>Specifies how integrity and confidentiality can be enforced on messages and allows the communication of various security token formats, such as SAML, Kerberos, and X.509v3. Its main focus is the use of XML Signature and XML Encryption to provide end-to-end security.
 
-WS-Security might not be used when services only handle unclassified data without access restrictions.
-Specifies a process for encrypting data and representing the result in XML. Referenced by WS-Security specification.
+<para>WS-Security might not be used when services only handle unclassified data without access restrictions.
+Specifies a process for encrypting data and representing the result in XML. Referenced by WS-Security specification.</para>
 
-Specifies XML digital signature processing rules and syntax. Referenced by WS-Security specification.</guidance>
+<para>Specifies XML digital signature processing rules and syntax. Referenced by WS-Security specification.</para></guidance>
             <parts>
                <refstandard refid="oasis-wss-v1.1-spec-os-soapmessagesecurity" condition="When clasified data is processed" obligation="mandatory" lcstage="current"/>
                <refstandard refid="w3c-rec-xmlenc-core-20021210" condition="When clasified data is processed" obligation="mandatory" lcstage="current"/>
@@ -10813,7 +10796,7 @@ Specifies XML digital signature processing rules and syntax. Referenced by WS-Se
          <servicegroup title="8:Security token format">
             <guidance>Provides XML-based syntax to describe users security tokens containing assertions to pass information about a principal (usually an end-user) between an identity provider and a web service.
 
-Describes how to use SAML security tokens with WS-Security specification.</guidance>
+<para>Describes how to use SAML security tokens with WS-Security specification.</para></guidance>
             <parts>
                <refstandard refid="oasis-saml-2.0" obligation="mandatory" lcstage="current"/>
                <refstandard refid="oasis-wss-v1.1-errata-os-samltokenprofile" obligation="mandatory" lcstage="current"/>
@@ -10821,7 +10804,7 @@ Describes how to use SAML security tokens with WS-Security specification.</guida
          </servicegroup>
          <servicegroup title="9:Security token issuing">
             <guidance>Uses WS-Security base mechanisms and defines additional primitives and extensions for security token exchange to enable the issuance and dissemination of credentials within different trust domains. Extends WS-Trust to allow federation of different security realms.
-Used to describe what aspects of the federation framework are required/supported by federation participants and that this information is used to determine the appropriate communication options.</guidance>
+<para>Used to describe what aspects of the federation framework are required/supported by federation participants and that this information is used to determine the appropriate communication options.</para></guidance>
             <parts>
                <refstandard refid="oasis-wstrust-1.4" obligation="mandatory" lcstage="current"/>
                <refstandard refid="oasis-wsfed-1.1" obligation="mandatory" lcstage="current"/>
@@ -10848,17 +10831,19 @@ Used to describe what aspects of the federation framework are required/supported
             <guidance>The preferred method for implementing web-services are SOAP, however, there are many use cases (mash-ups etc.) where a REST based interface is easier to implement and sufficient to meet the IERs.
 Restful services support HTTP caching, if the data the Web service returns is not altered frequently and not dynamic in nature. REST is particularly useful for restricted-profile devices such as mobile phones and tablets for which the overhead of additional parameters like headers and other SOAP elements are less.
 
-SOAP is mandatory for:
-* Different transport protocols; SOAP can use almost any transport to send the request.
-* Asynchronous processing and invocation; if an application needs a guaranteed level of reliability and security then SOAP offers additional standards to ensure this type of operation.
-* Formal contracts; if both sides (provider and consumer) have to agree on the exchange format then SOAP gives the rigid specifications for this type of interaction.
-* Stateful operations; if the application needs contextual information and conversational state management then SOAP has the additional specification in the WS* structure to support those things (Security, Transactions, Coordination, etc).
-
-REST is recommended for:
-* Common transfer protocol and limited bandwidth; REST calls can be executed on really any client or server that has HTTP/HTTPS support because the REST approach uses the standard GET, PUT, POST, and DELETE verbs.
-* Totally stateless operations; stateless CRUD (Create, Read, Update, and Delete) operations.
-* Flexible interfaces; the return structure is variable (developer defined).
-* Caching situations; if the information can be cached because of the totally stateless operation of the REST approach.</guidance>
+<para>SOAP is mandatory for:</para>
+<itemizedlist>
+<listitem><para>Different transport protocols; SOAP can use almost any transport to send the request.</para></listitem>
+<listitem><para>Asynchronous processing and invocation; if an application needs a guaranteed level of reliability and security then SOAP offers additional standards to ensure this type of operation.</para></listitem>
+<listitem><para>Formal contracts; if both sides (provider and consumer) have to agree on the exchange format then SOAP gives the rigid specifications for this type of interaction.</para></listitem>
+<listitem><para>Stateful operations; if the application needs contextual information and conversational state management then SOAP has the additional specification in the WS* structure to support those things (Security, Transactions, Coordination, etc).</para></listitem>
+</itemizedlist>
+<para>REST is recommended for:</para>
+<itemizedlist>
+<listitem><para>Common transfer protocol and limited bandwidth; REST calls can be executed on really any client or server that has HTTP/HTTPS support because the REST approach uses the standard GET, PUT, POST, and DELETE verbs.</para></listitem>
+<listitem><para>Totally stateless operations; stateless CRUD (Create, Read, Update, and Delete) operations.</para></listitem>
+<listitem><para>Flexible interfaces; the return structure is variable (developer defined).</para></listitem>
+<listitem><para>Caching situations; if the information can be cached because of the totally stateless operation of the REST approach.</para></listitem></itemizedlist></guidance>
             <parts>
                <refstandard refid="w3c-rec-soap11" obligation="mandatory" lcstage="current"/>
                <refstandard refid="w3c-note-wsdl-20010315" obligation="mandatory" lcstage="current"/>
@@ -10871,7 +10856,7 @@ REST is recommended for:
          <servicegroup title="13:Secure exchange of data objects and documents across multiple security domains">
             <guidance>Guidance for properly labelling and binding data objects is provided in the emerging Technical and Implementation Standard for Confidentiality Labelling of NATO Information (AC/322-(2014)xxxx)
 
-See "Sharing of information across communities of interest and across security domains with object level protection" below.</guidance>
+<para>See "Sharing of information across communities of interest and across security domains with object level protection" below.</para></guidance>
             <parts>
                <refstandard refid="ncia-tn-1456-rev1" obligation="mandatory" lcstage="current"/>
                <refstandard refid="ncia-tn-1455-rev1" obligation="mandatory" lcstage="current"/>
@@ -11000,8 +10985,8 @@ See "Sharing of information across communities of interest and across security d
             <refstandard refid="xmpp-xep-0220" obligation="mandatory" lcstage="current"/>
             <refstandard refid="xmpp-xep-0249" obligation="mandatory" lcstage="current"/>
             <refstandard refid="xmpp-xep-0288" obligation="mandatory" lcstage="current"/>
-            <refstandard refid="xmpp-xep-0078" obligation="mandatory" lcstage="current"/><!-- lcstage="fading" -->
-            <refstandard refid="xmpp-xep-0091" obligation="mandatory" lcstage="current"/><!-- lcstage="fading" -->
+            <refstandard refid="xmpp-xep-0078" obligation="mandatory" lcstage="fading"/>
+            <refstandard refid="xmpp-xep-0091" obligation="mandatory" lcstage="fading"/>
          </parts>
          <applicability>
             This profile contains the necessary stanadards to implement the Basic FMN Profile.
@@ -11025,19 +11010,19 @@ See "Sharing of information across communities of interest and across security d
             <refstandard refid="xmpp-xep-0249" obligation="mandatory" lcstage="current"/>
             <refstandard refid="xmpp-xep-0258" obligation="mandatory" lcstage="current"/>
             <refstandard refid="xmpp-xep-0289" obligation="mandatory" lcstage="current"/>
-            <refstandard refid="xmpp-xep-0311" obligation="mandatory" lcstage="current"/><!-- lcstage="emerging" -->
-            <refstandard refid="xmpp-xep-0131" obligation="mandatory" lcstage="current"/><!-- lcstage="emerging" -->
-            <refstandard refid="xmpp-xep-0198" obligation="mandatory" lcstage="current"/><!-- lcstage="emerging" -->
-            <refstandard refid="xmpp-xep-0227" obligation="mandatory" lcstage="current"/><!-- lcstage="emerging" -->
-            <refstandard refid="xmpp-xep-0313" obligation="mandatory" lcstage="current"/><!-- lcstage="emerging" -->
-            <refstandard refid="xmpp-xep-0346" obligation="mandatory" lcstage="current"/><!-- lcstage="emerging" -->
-            <refstandard refid="xmpp-xep-0350" obligation="mandatory" lcstage="current"/><!-- lcstage="emerging" -->
-            <refstandard refid="ietf-rfc6122" obligation="mandatory" lcstage="current"/><!-- obligation="recommended" -->
-            <refstandard refid="ietf-rfc6125" obligation="mandatory" lcstage="current"/><!-- obligation="recommended" -->
-            <refstandard refid="ietf-rfc4854" obligation="mandatory" lcstage="current"/><!-- obligation="recommended" -->
-            <refstandard refid="ietf-rfc4979" obligation="mandatory" lcstage="current"/><!-- obligation="recommended" -->
-            <refstandard refid="ietf-rfc3761" obligation="mandatory" lcstage="current"/><!-- obligation="recommended" -->
-            <refstandard refid="ietf-rfc5122" obligation="mandatory" lcstage="current"/><!-- obligation="recommended" -->
+            <refstandard refid="xmpp-xep-0311" obligation="mandatory" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0131" obligation="mandatory" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0198" obligation="mandatory" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0227" obligation="mandatory" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0313" obligation="mandatory" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0346" obligation="mandatory" lcstage="emerging"/>
+            <refstandard refid="xmpp-xep-0350" obligation="mandatory" lcstage="emerging"/>
+            <refstandard refid="ietf-rfc6122" obligation="recommended" lcstage="current"/>
+            <refstandard refid="ietf-rfc6125" obligation="recommended" lcstage="current"/>
+            <refstandard refid="ietf-rfc4854" obligation="recommended" lcstage="current"/>
+            <refstandard refid="ietf-rfc4979" obligation="recommended" lcstage="current"/>
+            <refstandard refid="ietf-rfc3761" obligation="recommended" lcstage="current"/>
+            <refstandard refid="ietf-rfc5122" obligation="recommended" lcstage="current"/>
          </parts>
          <applicability>
             This profile contains the necessary stanadards to implement the Enhanced FMN Profile.
@@ -18648,22 +18633,6 @@ database as a logical folder of email messages.</applicability>
             </history>
          </status>
          <uuid>4a2418b5-9edf-4d26-8720-f546f8342e40</uuid>
-      </standard>
-
-      <standard id="ietf-rfc4155" tag="RFC 4155 - mbox format">
-         <document orgid="ietf" pubnum="RFC 4155" title="The application/mbox Media Type" date="2005"/>
-         <applicability>UNIX-like operating systems have historically made widespread use of
-"mbox" database files for a variety of local email purposes.  In the
-common case, mbox files store linear sequences of one or more
-electronic mail messages, with local email clients treating the
-database as a logical folder of email messages.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4155.txt</uri>
-            <history>
-               <event date="2014-11-27" flag="added" rfcp="archive" version="9.0"/>
-            </history>
-         </status>
-         <uuid>c4976d4b-6e0d-4744-bd1d-7791f766417d</uuid>
       </standard>
 
       <standard id="ietf-rfc4180" tag="RFC 4180: CSV">
@@ -51628,7 +51597,7 @@ applications. </applicability>
          <servicegroup title="Geospatial information (e.g. GIS data)">
             <guidance/>
             <parts>
-               <refstandard refid="ogc-kml" obligation="mandatory" lcstage="current"/>
+               <refstandard refid="ogc-07-147r2" obligation="mandatory" lcstage="current"/>
                <refstandard refid="ogc-12-128r10" obligation="mandatory" lcstage="current"/>
             </parts>
          </servicegroup>
