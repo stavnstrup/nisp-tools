@@ -214,8 +214,9 @@
 
 <!ELEMENT serviceprofile (profilespec, (servicegroup+ |  guidance), status, uuid?)>
 <!ATTLIST serviceprofile
-          tag CDATA #REQUIRED
-          id ID #REQUIRED>
+          id ID #REQUIRED
+          tref IDREF #REQUIRED
+          tag CDATA #REQUIRED>
 
 <!ELEMENT servicegroup (guidance, parts)>
 <!ATTLIST servicegroup

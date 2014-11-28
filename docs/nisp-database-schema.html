@@ -189,8 +189,9 @@ interoperabilityprofile - Example: FMN XMPP Baisic
 <p>A <code>&lt;serviceprofile&gt;</code> element represents a service, which is required by a specific capability.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">serviceprofile</span> <span class="dv">(</span><span class="fu">profilespec</span><span class="dv">,</span> <span class="dv">(</span><span class="fu">servicegroup</span><span class="fl">+</span> <span class="dv">|</span>  <span class="fu">guidance</span><span class="dv">),</span> <span class="fu">status</span><span class="dv">,</span> <span class="fu">uuid</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">serviceprofile</span>
-          <span class="fu">tag</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
-          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
+          <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span>
+          <span class="fu">tref</span> <span class="kw">IDREF</span> <span class="kw">#REQUIRED</span>
+          <span class="fu">tag</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">servicegroup</span> <span class="dv">(</span><span class="fu">guidance</span><span class="dv">,</span> <span class="fu">parts</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">servicegroup</span>
       <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>

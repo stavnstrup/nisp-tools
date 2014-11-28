@@ -388,8 +388,9 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 ~~~{.dtd}
 <!ELEMENT serviceprofile (profilespec, (servicegroup+ |  guidance), status, uuid?)>
 <!ATTLIST serviceprofile
-          tag CDATA #REQUIRED
-          id ID #REQUIRED>
+          id ID #REQUIRED
+          tref IDREF #REQUIRED
+          tag CDATA #REQUIRED>
 ~~~
 
 

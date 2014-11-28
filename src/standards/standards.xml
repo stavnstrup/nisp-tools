@@ -649,7 +649,35 @@
             <servicecategory id="ts-cs-tn-dis" title="Distribution Services" emUUID="bc2d3723-4a3a-4a34-a0b4-7886760f3137"/>
          </subarea>
       </servicearea><!--   </node>-->
-   </taxonomy>
+<servicearea id="userdefined" title="" emUUID="">
+   <!-- FMN -->
+            <subarea id="tempEdge" title="" emUUID=""/>
+            <!--
+            <subarea id="ts-cs-ca-ia" title="" emUUID=""/>
+            <subarea id="ts-cs-ca-pba" title="" emUUID=""/>
+            <subarea id="ts-ces-is" title="" emUUID=""/>
+            <subarea id="ts-ces-soa" title="" emUUID=""/>
+            <subarea id="ts-ces-es-cc" title="" emUUID=""/>
+            <subarea id="ts-ces-es-im" title="" emUUID=""/>
+            <subarea id="ts-ces-es" title="" emUUID=""/>
+            -->
+            <subarea id="tempGeneral" title="" emUUID=""/>
+            <subarea id="tempBattle" title="" emUUID=""/>
+            <subarea id="tempJISR" title="" emUUID=""/>
+            <subarea id="tempUserApp" title="" emUUID=""/>
+            <subarea id="tempSMC" title="" emUUID=""/>
+            <subarea id="tempHuman" title="" emUUID=""/>
+
+   <!-- Archive -->
+   <subarea id="user.archive.data-sets" title="" emUUID=""/>
+   <subarea id="user.archive.text" title="" emUUID=""/>
+   <subarea id="user.archive.stillimage" title="" emUUID=""/>
+   <subarea id="user.archive.movingimage" title="" emUUID=""/>
+   <subarea id="user.archive.sound" title="" emUUID=""/>
+   <subarea id="user.archive.geospatial" title="" emUUID=""/>
+   <subarea id="user.archive.webarchive" title="" emUUID=""/>
+</servicearea>
+      </taxonomy>
    <lists>
       <sp-list tref="ts-ces"><!--Core Enterprise Services-->
          <sp-view idx="d0e4990">
@@ -6461,13 +6489,13 @@
       <capabilityprofile id="archive-archive" tag="Archive Capability Profile">
          <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" date="2014-05-26" title="Archive"/>
          <services>
-            <refprofile refid="user.archive.data-sets" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.text" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.stillimage" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.movingimage" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.sound" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.geospatial" obligation="mandatory" lcstage="current"/>
-            <refprofile refid="user.archive.webarchive" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="archive-user.archive.data-sets" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="archive-user.archive.text" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="archive-user.archive.stillimage" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="archive-user.archive.movingimage" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="archive-user.archive.sound" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="archive-user.archive.geospatial" obligation="mandatory" lcstage="current"/>
+            <refprofile refid="archive-user.archive.webarchive" obligation="mandatory" lcstage="current"/>
          </services>
          <status mode="accepted">
             <history>
@@ -9805,7 +9833,7 @@ Grids</applicability>
          <uuid>5c53b623-16af-4208-8018-8d8fec704c8a</uuid>
       </standard>
 
-      <serviceprofile id="fmm-tempEdge" tag="FMN Edge Transport">
+      <serviceprofile id="fmm-tempEdge" tref="tempEdge" tag="FMN Edge Transport">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="Edge Transport Services and Communications Equipment Standards"/>
          <servicegroup title="1.1:Edge Transport Services between autonomous systems.&#xA;(IP over point-to-point Ethernet links on optical fibre)">
             <guidance>Use 1Gb/s Ethernet over Single-mode optical fibre (SMF).</guidance>
@@ -9973,7 +10001,7 @@ in this area.</guidance>
          <uuid>5c7fe941-9353-4375-8edf-a22290fade09</uuid>
       </interoperabilityprofile>
 
-      <serviceprofile id="fmn-tempBattle" tag="FMN Battle Mgmt.">
+      <serviceprofile id="fmn-tempBattle" tref="tempBattle" tag="FMN Battle Mgmt.">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="Battlespace Management Interoperability Protocols and Standards"/>
          <servicegroup title="1:Expressing digital geographic annotation and visualization on, two-dimensional maps and three dimensional globes">
             <guidance>NVG shall be used as the standard Protocol and Data Format for encoding and sharing of information layers
@@ -10067,7 +10095,7 @@ The following schema constructs are expected to be used in Milestone 2 and an ea
          <uuid>4862ffa2-76d7-4b17-bad7-6094fffadfc6</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-tempGeneral" tag="FMN General Data Format">
+      <serviceprofile id="fmn-tempGeneral" tref="tempGeneral" tag="FMN General Data Format">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="General Data Format Standards"/>
          <servicegroup title="1:General definition for the Representation of Dates and Times.">
             <guidance>Implementation of the W3C profile of ISO 8601:2004 (W3CDTF profile) is recommended.</guidance>
@@ -10115,7 +10143,7 @@ STANAG 2586 includes the mandatory ISO standards, but concretizes and extends it
          <uuid>e51c5d56-edc7-4853-abf6-93e4859851e5</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-tempHuman" tag="FMN H2H">
+      <serviceprofile id="fmn-tempHuman" tref="tempHuman" tag="FMN H2H">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="Human-to-human interoperability Standards"/>
          <servicegroup title="1:Mutual understanding of terminology">
             <guidance/>
@@ -10149,7 +10177,7 @@ Source: International Civil Aviation Organization (ICAO) Holistic Descriptors of
          <uuid>efd6deb7-043e-4ecd-884e-f134a44574b8</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-tempJISR" tag="FMN JISR">
+      <serviceprofile id="fmn-tempJISR" tref="tempJISR" tag="FMN JISR">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="JISR Interoperability Protocols and Standards"/>
          <servicegroup title="1:Storing and exchanging of images and associated data">
             <guidance>AEDP-4, Ed. 1, NATO Secondary Imagery Format Implementation Guide, 15 Jun 07, NU</guidance>
@@ -10190,7 +10218,7 @@ Source: International Civil Aviation Organization (ICAO) Holistic Descriptors of
          <uuid>488d14a9-3106-4272-bda3-9fa997dff841</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-tempSMC" tag="FMN SMC">
+      <serviceprofile id="fmn-tempSMC" tref="tempSMC" tag="FMN SMC">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="Service Management and Control Interoperability Standards"/>
          <servicegroup title="1:Provide Service Management within a FMN instance.">
             <guidance>See also AMN Service Management Framework CONOPS</guidance>
@@ -10233,7 +10261,7 @@ Source: International Civil Aviation Organization (ICAO) Holistic Descriptors of
          <uuid>6f1f9a74-cdf2-48d1-b3b8-9152eeb69443</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-tempUserApp" tag="FMN Uset App.">
+      <serviceprofile id="fmn-tempUserApp" tref="tempUserApp" tag="FMN Uset App.">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="User Applications Standards"/>
          <servicegroup title="1:Displaying content within web browsers.">
             <guidance>Applications must support the following browsers: Microsoft Internet Explorer v9.0 and newer, and Mozilla Firefox 16.0 and newer. When a supported browser is not true to the standard, choose to support the browser that is closest to the standard[a].
@@ -10309,7 +10337,7 @@ Note that up to 4 characters will be required to represent timezone designators 
          <uuid>b5b44d60-9af2-443c-b309-6cec32446367</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-ts-ces-es" tag="FMN ESS">
+      <serviceprofile id="fmn-ts-ces-es" tref="ts-ces-es" tag="FMN ESS">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="Enterprise Support Services and Data Standards"/>
          <servicegroup title="1:Geodetic and geophysical model of the Earth.">
             <guidance/>
@@ -10422,7 +10450,7 @@ File geodatabases store datasets as folders in a file system with each file capa
          <uuid>464c61d7-d850-4a05-8ac2-5b0a84c06be0</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-ts-ces-es-cc" tag="FMN Unified Comm.">
+      <serviceprofile id="fmn-ts-ces-es-cc" tref="ts-ces-es-cc" tag="FMN Unified Comm.">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="Unified Communication and Collaboration Services and Data Standards"/>
          <servicegroup title="1:Video-based Collaboration Services (VTC)">
             <guidance/>
@@ -10590,7 +10618,7 @@ Many XMPP extensions are still in draft. Implementations should use caution i.e.
          <uuid>744aebba-ad99-4419-a84c-137cd8fb9b8d</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-ts-ces-es-im" tag="FMN Inf. Mgmt.">
+      <serviceprofile id="fmn-ts-ces-es-im" tref="ts-ces-es-im" tag="FMN Inf. Mgmt.">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="Information Management Services and Data Standards"/>
          <servicegroup title="1:Enterprise Search Services: Automated information resource discover, information extraction and interchange of metadata">
             <guidance>ISO 15836: 2009 does not define implementation detail.
@@ -10632,7 +10660,7 @@ The TIDE community is evaluating OpenSearch for potential inclusion into the TID
          <uuid>6caedf62-a93b-48a6-acaf-383e216ef54b</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-ts-ces-is" tag="FMN ISS">
+      <serviceprofile id="fmn-ts-ces-is" tref="ts-ces-is" tag="FMN ISS">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="Infrastructure Services Standards"/>
          <servicegroup title="1:Infrastructure Processing Services: Virtualized Processing Services">
             <guidance>Using Open Virtualization Format, Option B Mission Participant can create single, pre-packaged appliances and Service providers can export and import virtual machines that can run across different virtualization platforms.</guidance>
@@ -10714,7 +10742,7 @@ list (CRL) shall be v2.</guidance>
          <uuid>86aa1b76-aa98-46f1-bc84-a42d9b7bf570</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-ts-ces-soa" tag="FMN SOA Platform">
+      <serviceprofile id="fmn-ts-ces-soa" tref="ts-ces-soa" tag="FMN SOA Platform">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="SOA Platform Services and Data Standards"/>
          <servicegroup title="1. Web Platform Services">
             <guidance>HTTP shall be used as the transport protocol for information without 'need-to-know' caveats between all service providers and consumers (unsecured HTTP traffic).
@@ -10893,7 +10921,7 @@ Restful services support HTTP caching, if the data the Web service returns is no
          <uuid>9253f89a-8697-434a-8cb1-5de0b36cfa5c</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-ts-cs-ca-ia" tag="FMN COM ACC IA">
+      <serviceprofile id="fmn-ts-cs-ca-ia" tref="ts-cs-ca-ia" tag="FMN COM ACC IA">
          <profilespec orgid="fmn" pubnum="AC/322-N(2013)0197-REV3-AS1" date="2014-08-22" title="Communications Access IA Services Standards"/>
          <servicegroup title="1:Information Assurance during Transmission">
             <guidance>ACP 176 NATO SUPP 1 (NC) provides configuration settings necessary to ensure interoperability when different cryptographic devices (e.g. KIV-7/KG84/BID1650) are employed together.</guidance>
@@ -10915,7 +10943,7 @@ Restful services support HTTP caching, if the data the Web service returns is no
          <uuid>006d4274-23ef-41c1-930c-c5968774e1e1</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn-ts-cs-ca-pba" tag="FMN Packet Access Service">
+      <serviceprofile id="fmn-ts-cs-ca-pba" tref="ts-cs-ca-pba" tag="FMN Packet Access Service">
          <profilespec orgid="fmn" pubnum="AC/322-N(2014)0197-REV3-AS1" date="2014-08-22" title="Packet-based Communications Access Services Standard"/>
          <servicegroup title="1:Host-to-host transport services">
             <guidance>Despite IETF RFC 793 is updated by IETF RFC 3168, ECN cannot be used in the FMN in parallel to the deployment of IP encryption.</guidance>
@@ -51567,7 +51595,7 @@ applications. </applicability>
          <uuid>3e3d56bb-3310-47af-82d3-5bd02475ec06</uuid>
       </standard>
 
-      <serviceprofile id="user.archive.data-sets" tag="Data Sets">
+      <serviceprofile id="archive-user.archive.data-sets" tref="user.archive.data-sets" tag="Data Sets">
          <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Data Sets Standards"/>
          <servicegroup title="Data sets (e.g. scientific data) and any structured information not fitting other content types">
             <guidance/>
@@ -51592,7 +51620,7 @@ applications. </applicability>
          <uuid>d830e799-c343-454a-963e-244c257235d9</uuid>
       </serviceprofile>
 
-      <serviceprofile id="user.archive.geospatial" tag="Geospatial">
+      <serviceprofile id="archive-user.archive.geospatial" tref="user.archive.geospatial"  tag="Geospatial">
          <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Geospatial Service"/>
          <servicegroup title="Geospatial information (e.g. GIS data)">
             <guidance/>
@@ -51609,7 +51637,7 @@ applications. </applicability>
          <uuid>a361b32c-4633-431a-8cb2-7ea6c895cf1d</uuid>
       </serviceprofile>
 
-      <serviceprofile id="user.archive.movingimage" tag="Moving Images">
+      <serviceprofile id="archive-user.archive.movingimage" tref="user.archive.movingimage" tag="Moving Images">
          <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Moving Images"/>
          <servicegroup title="Video files">
             <guidance/>
@@ -51627,7 +51655,7 @@ applications. </applicability>
          <uuid>0fd5bdfe-2f31-4c58-8650-ccb8775886d1</uuid>
       </serviceprofile>
 
-      <serviceprofile id="user.archive.sound" tag="Moving Images">
+      <serviceprofile id="archive-user.archive.sound" tref="user.archive.sound" tag="Moving Images">
          <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Sound"/>
          <servicegroup title="Audio files">
             <guidance/>
@@ -51645,7 +51673,7 @@ applications. </applicability>
          <uuid>ab5d51ed-a056-42c5-b629-4d13726beb9e</uuid>
       </serviceprofile>
 
-      <serviceprofile id="user.archive.stillimage" tag="Still Images">
+      <serviceprofile id="archive-user.archive.stillimage" tref="user.archive.stillimage" tag="Still Images">
          <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Still Images"/>
          <servicegroup title="Bitmap/raster images">
             <guidance/>
@@ -51669,7 +51697,7 @@ applications. </applicability>
          <uuid>070c07fb-a666-4c63-8559-f472b96183a7</uuid>
       </serviceprofile>
 
-      <serviceprofile id="user.archive.text" tag="Text">
+      <serviceprofile id="archive-user.archive.text" tref="user.archive.text" tag="Text">
          <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Text"/>
          <servicegroup title="Text documents, including common MS Office document formats (docx, xlsx, pptx)">
             <guidance/>
@@ -51698,7 +51726,7 @@ applications. </applicability>
          <uuid>19397cd1-d167-40ff-b731-087097754568</uuid>
       </serviceprofile>
 
-      <serviceprofile id="user.archive.webarchive" tag="Web Archive">
+      <serviceprofile id="archive-user.archive.webarchive" tref="user.archive.webarchive" tag="Web Archive">
          <profilespec orgid="archive" pubnum="AC/324-WP(2013)0005-REV2" title="Web Archive"/>
          <servicegroup title="Web sites and portals">
             <guidance/>
