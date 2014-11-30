@@ -9842,8 +9842,12 @@ Grids</applicability>
                <refstandard refid="itu-t-g.652" obligation="mandatory" lcstage="current"/>
                <refstandard refid="iso-iec-61754-20" obligation="mandatory" lcstage="current"/>
                <refstandard refid="ieee-802.3-2013" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="ietf-rfc826" condition="IPv4" obligation="mandatory" lcstage="current"/>
-               <refstandard obligation="optional" refid="ietf-rfc4861" condition="IPv6" lcstage="current"/>
+	       <cgroup condition="IPv4">
+		 <refstandard refid="ietf-rfc826" obligation="mandatory" lcstage="current"/>
+	       </cgroup>
+	       <cgroup condition="IPv6">
+		 <refstandard obligation="optional" refid="ietf-rfc4861" lcstage="current"/>
+	       </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="1.2:Edge Transport Services between autonomous systems ­ (time-division multiplexing wide area network)">
@@ -9854,10 +9858,14 @@ Grids</applicability>
                <refstandard refid="ietf-rfc1661" obligation="mandatory" lcstage="current"/>
                <refstandard obligation="recommended" refid="itu-t-g.703" lcstage="current"/>
                <refstandard obligation="recommended" refid="ietf-rfc1994" lcstage="current"/>
-               <refstandard obligation="optional" refid="ietf-rfc3544" condition="IPv4" lcstage="current"/>
-               <refstandard refid="ietf-rfc5072" condition="IPv6" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="ietf-rfc4861" condition="IPv6" obligation="mandatory" lcstage="current"/>
-               <refstandard obligation="optional" refid="ietf-rfc5172" condition="IPv6" lcstage="current"/>
+	       <cgroup  condition="IPv4">
+		 <refstandard obligation="optional" refid="ietf-rfc3544" lcstage="current"/>
+	       </cgroup>
+	       <cgroup condition="IPv6">
+                 <refstandard refid="ietf-rfc5072" obligation="mandatory" lcstage="current"/>
+                 <refstandard refid="ietf-rfc4861" obligation="mandatory" lcstage="current"/>
+                 <refstandard obligation="optional" refid="ietf-rfc5172" lcstage="current"/>
+	       </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="2:Inter-Autonomous System (AS) routing">
@@ -9876,7 +9884,9 @@ Grids</applicability>
                <refstandard obligation="recommended" refid="ietf-rfc4360" lcstage="current"/>
                <refstandard obligation="recommended" refid="ietf-rfc5668" lcstage="current"/>
                <refstandard obligation="recommended" refid="ietf-rfc1772" lcstage="current"/>
-               <refstandard obligation="optional" refid="ietf-rfc2545" condition="IPv6" lcstage="current"/>
+               <cgroup condition="IPv6">
+                 <refstandard obligation="optional" refid="ietf-rfc2545" lcstage="current"/>
+               </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="3:Inter-Autonomous System (AS) multicast routing">
@@ -9885,10 +9895,12 @@ multicast routing has yet been widely accepted.
 More research and experimentation is required
 in this area.</guidance>
             <parts>
-               <refstandard refid="ietf-rfc3618" condition="IPv4" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="ietf-rfc3376" condition="IPv4" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="ietf-rfc4601" condition="IPv4" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="ietf-rfc4760" condition="IPv4" obligation="mandatory" lcstage="current"/>
+               <cgroup condition="IPv4">
+                 <refstandard refid="ietf-rfc3618" obligation="mandatory" lcstage="current"/>
+                 <refstandard refid="ietf-rfc3376" obligation="mandatory" lcstage="current"/>
+                 <refstandard refid="ietf-rfc4601" obligation="mandatory" lcstage="current"/>
+                 <refstandard refid="ietf-rfc4760" obligation="mandatory" lcstage="current"/>
+               </cgroup>
                <refstandard obligation="optional" refid="ietf-rfc4604" lcstage="current"/>
             </parts>
          </servicegroup>
@@ -10113,7 +10125,9 @@ Alpha-3 codes “XXA”, “XXB”, “XXC”, “XXX” shall not be used to av
          <servicegroup title="3:General definition of letter codes for identifying Nationality of a person">
             <guidance>ISO/IEC 7501-1 for special machine-readable passports</guidance>
             <parts>
-               <refstandard refid="iso-iec-7501" condition="When STANAG 1059c 3-letter codes are being&#xA;used for identifying nationality, code extensions&#xA;such as XXA, XXB, XXC, XXX for&#xA;special machine-readable passports" obligation="mandatory" lcstage="current"/>
+              <cgroup condition="When STANAG 1059c 3-letter codes are being&#xA;used for identifying nationality, code extensions&#xA;such as XXA, XXB, XXC, XXX for&#xA;special machine-readable passports">
+                <refstandard refid="iso-iec-7501"  obligation="mandatory" lcstage="current"/>
+              </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="4:General definition of geospatial coverage areas in discovery metadata">
@@ -10242,8 +10256,10 @@ Source: International Civil Aviation Organization (ICAO) Holistic Descriptors of
          <servicegroup title="4:SOA Platform SMC Services">
             <guidance>WS-Management provides a common way for systems to access and exchange management information across the IT infrastructure.</guidance>
             <parts>
-               <refstandard obligation="recommended" refid="dmtf-dsp0226" condition="Web Services for Management" lcstage="current"/>
-               <refstandard obligation="recommended" refid="dmtf-dsp0227" condition="Web Services for Management" lcstage="current"/>
+              <cgroup condition="Web Services for Management">
+                <refstandard obligation="recommended" refid="dmtf-dsp0226" lcstage="current"/>
+                <refstandard obligation="recommended" refid="dmtf-dsp0227" lcstage="current"/>
+              </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="5:Represent and share Configuration Items and details about the important attributes and relationships between them.">
@@ -10317,7 +10333,9 @@ Note that up to 4 characters will be required to represent timezone designators 
             <parts>
                <refstandard refid="w3c-datetime" obligation="mandatory" lcstage="current"/>
                <refstandard obligation="recommended" refid="w3c-timezone" lcstage="current"/>
-               <refstandard refid="nato-aap-06" condition="for military command and control systems" obligation="mandatory" lcstage="current"/>
+               <cgroup condition="for military command and control systems">
+                 <refstandard refid="nato-aap-06" obligation="mandatory" lcstage="current"/>
+               </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="8:Internationalization: Designing, developing content and (web) applications, in a way that ensures it will work well for, or can be easily adapted for, users from any culture, region, or language.">
@@ -10381,7 +10399,9 @@ OGC Web Coverage Service (WCS) Standard Guidance Implementation Specification 1.
          <servicegroup title="6:Raster Image Storage Service">
             <guidance>The JPEG 2000 image compression standard offers many of the same advantages as MrSID, plus the added benefits of being an international standard (ISO/IEC 15444).</guidance>
             <parts>
-               <refstandard refid="lizardtech-mg3" condition="If all MN Participants confirm that they can ingest DGI/SGI in MrSID_MG3 format" obligation="mandatory" lcstage="current"/>
+              <cgroup  condition="If all MN Participants confirm that they can ingest DGI/SGI in MrSID_MG3 format">
+                <refstandard refid="lizardtech-mg3" obligation="mandatory" lcstage="current"/>
+              </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="7:File based storage and exchange of digital geospatial mapping (raster) data where services based access is not possible">
@@ -10467,9 +10487,11 @@ VoSIP refers to non-protected voice service running on a classified IP networks 
 Voice sampling Interval 40ms</guidance>
             <parts>
                <refstandard refid="nato-stanag4705" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="ietf-rfc3261" condition="VoIP" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="ietf-rfc3550" condition="VoIP" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="itu-t-g.729annexa1996-11" condition="VoIP" obligation="mandatory" lcstage="current"/>
+               <cgroup condition="VoIP">
+                 <refstandard refid="ietf-rfc3261" obligation="mandatory" lcstage="current"/>
+                 <refstandard refid="ietf-rfc3550" obligation="mandatory" lcstage="current"/>
+                 <refstandard refid="itu-t-g.729annexa1996-11" obligation="mandatory" lcstage="current"/>
+               </cgroup>
                <refstandard refid="itu-t-g.729" lcstage="emerging" lctime="2015" obligation="mandatory"/>
             </parts>
          </servicegroup>
@@ -10507,7 +10529,9 @@ Keywords: ITA UNCLASSIFIED, Releasable to XFOR</guidance>
                <refstandard refid="ietf-rfc2822" obligation="mandatory" lcstage="current"/>
                <refstandard refid="ietf-rfc5321" lcstage="emerging" lctime="2016" obligation="mandatory"/>
                <refstandard refid="ietf-rfc6477" lcstage="emerging" lctime="2017" obligation="mandatory"/>
-               <refstandard refid="c3b-133" condition="If the mission network operates at classified level" obligation="mandatory" lcstage="current"/>
+               <cgroup condition="If the mission network operates at classified level">
+                 <refstandard refid="c3b-133" obligation="mandatory" lcstage="current"/>
+               </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="5:Content encapsulation within bodies of internet messages">
@@ -10812,10 +10836,12 @@ Specifies a process for encrypting data and representing the result in XML. Refe
 
 <para>Specifies XML digital signature processing rules and syntax. Referenced by WS-Security specification.</para></guidance>
             <parts>
-               <refstandard refid="oasis-wss-v1.1-spec-os-soapmessagesecurity" condition="When clasified data is processed" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="w3c-rec-xmlenc-core-20021210" condition="When clasified data is processed" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="w3c-rec-xmldsig-core-20080610" condition="When clasified data is processed" obligation="mandatory" lcstage="current"/>
-               <refstandard refid="ws-i-basicsecurityprofile-1.1" condition="When clasified data is processed" obligation="mandatory" lcstage="current"/>
+              <cgroup  condition="When clasified data is processed">
+                 <refstandard refid="oasis-wss-v1.1-spec-os-soapmessagesecurity" obligation="mandatory" lcstage="current"/>
+                 <refstandard refid="w3c-rec-xmlenc-core-20021210"  obligation="mandatory" lcstage="current"/>
+                 <refstandard refid="w3c-rec-xmldsig-core-20080610" obligation="mandatory" lcstage="current"/>
+                 <refstandard refid="ws-i-basicsecurityprofile-1.1" obligation="mandatory" lcstage="current"/>
+               </cgroup>
                <refstandard refid="ietf-rfc6749" lcstage="emerging" lctime="2015" obligation="mandatory"/>
                <refstandard obligation="recommended" refid="oasis-wss-v1.1-errata-os-samltokenprofile" lcstage="current"/>
                <refstandard obligation="recommended" refid="oasis-wss-v1.1-spec-errata-os-x509tokenprofile" lcstage="current"/>
@@ -10926,7 +10952,9 @@ Restful services support HTTP caching, if the data the Web service returns is no
          <servicegroup title="1:Information Assurance during Transmission">
             <guidance>ACP 176 NATO SUPP 1 (NC) provides configuration settings necessary to ensure interoperability when different cryptographic devices (e.g. KIV-7/KG84/BID1650) are employed together.</guidance>
             <parts>
-               <refstandard refid="cceb-acp176" condition="If different cryptographic devices are employed together" obligation="mandatory" lcstage="current"/>
+              <cgroup  condition="If different cryptographic devices are employed together">
+                <refstandard refid="cceb-acp176" obligation="mandatory" lcstage="current"/>
+              </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="2:Provide communications security over the network above the Transport Layer">
@@ -10948,7 +10976,9 @@ Restful services support HTTP caching, if the data the Web service returns is no
          <servicegroup title="1:Host-to-host transport services">
             <guidance>Despite IETF RFC 793 is updated by IETF RFC 3168, ECN cannot be used in the FMN in parallel to the deployment of IP encryption.</guidance>
             <parts>
-               <refstandard refid="ietf-rfc3168" condition="Not to be used with IP encryption" obligation="mandatory" lcstage="current"/>
+              <cgroup condition="Not to be used with IP encryption">
+                <refstandard refid="ietf-rfc3168" obligation="mandatory" lcstage="current"/>
+              </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="2:host-to-host datagram services">
@@ -10962,13 +10992,15 @@ Restful services support HTTP caching, if the data the Web service returns is no
                <refstandard refid="ietf-rfc1112" obligation="mandatory" lcstage="current"/>
                <refstandard refid="ietf-rfc1812" obligation="mandatory" lcstage="current"/>
                <refstandard refid="ietf-rfc2644" obligation="mandatory" lcstage="current"/>
-               <refstandard obligation="recommended" refid="ietf-rfc2460" condition="IPv6" lcstage="current"/>
-               <refstandard obligation="recommended" refid="ietf-rfc3810" condition="IPv6" lcstage="current"/>
-               <refstandard obligation="recommended" refid="ietf-rfc4291" condition="IPv6" lcstage="current"/>
-               <refstandard obligation="recommended" refid="ietf-rfc4443" condition="IPv6" lcstage="current"/>
-               <refstandard obligation="recommended" refid="ietf-rfc4861" condition="IPv6" lcstage="current"/>
-               <refstandard obligation="recommended" refid="ietf-rfc5095" condition="IPv6" lcstage="current"/>
-               <refstandard obligation="recommended" refid="ietf-rfc6724" condition="IPv6" lcstage="current"/>
+               <cgroup  condition="IPv6">
+                 <refstandard obligation="recommended" refid="ietf-rfc2460" lcstage="current"/>
+                 <refstandard obligation="recommended" refid="ietf-rfc3810" lcstage="current"/>
+                 <refstandard obligation="recommended" refid="ietf-rfc4291" lcstage="current"/>
+                 <refstandard obligation="recommended" refid="ietf-rfc4443" lcstage="current"/>
+                 <refstandard obligation="recommended" refid="ietf-rfc4861" lcstage="current"/>
+                 <refstandard obligation="recommended" refid="ietf-rfc5095" lcstage="current"/>
+                 <refstandard obligation="recommended" refid="ietf-rfc6724" lcstage="current"/>
+               </cgroup>
             </parts>
          </servicegroup>
          <servicegroup title="3:Differentiated host-to-host datagram services. (IP Quality of Service)">

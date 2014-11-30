@@ -243,23 +243,25 @@
 
 
 
-<!ELEMENT parts (refstandard|refprofile)+>
+<!ELEMENT parts (refstandard|refprofile|cgroup)+>
+
+<!ELEMENT cgroup (refstandard|refprofile)+>
+<!ATTLIST cgroup
+	  condition CDATA #REQUIRED>
 
 <!ELEMENT refstandard EMPTY>
 <!ATTLIST refstandard
           refid IDREF #REQUIRED
 	  obligation (mandatory|recommended|optional) "mandatory"
 	  lcstage (emerging|current|fading|retired) "current"
-	  lctime CDATA #IMPLIED
-	  condition CDATA #IMPLIED>
+	  lctime CDATA #IMPLIED>
 
 <!ELEMENT refprofile EMPTY>
 <!ATTLIST refprofile
           refid IDREF #REQUIRED
 	  obligation (mandatory | recommended | optional) "mandatory"
 	  lcstage (emerging | current | fading | retired) "current"
-	  lctime CDATA #IMPLIED
-	  condition CDATA #IMPLIED>
+	  lctime CDATA #IMPLIED>
 
 
 <!ELEMENT profilenote (#PCDATA)>
