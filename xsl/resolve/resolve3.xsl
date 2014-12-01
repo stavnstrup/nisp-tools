@@ -223,6 +223,11 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
   </itemizedlist>
 </xsl:template>
 
+<xsl:template match="cgroup">
+  <xsl:apply-templates/>
+</xsl:template>
+
+
 <xsl:template match="refstandard|refprofile">
   <listitem><para><xsl:value-of select="@refid"/></para></listitem>
 </xsl:template>
