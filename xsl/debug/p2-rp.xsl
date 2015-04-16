@@ -59,6 +59,9 @@
 	</xsl:attribute>
 	<xsl:value-of select="../../responsibleparties/rpkey[@key=$rp]/@long"/>
       </a>
+      <xsl:text> - </xsl:text>
+      <xsl:value-of select="count(//*/responsibleparty[@rpref=$rp])"/>
+      <xsl:text> standards</xsl:text>
     </li>
   </xsl:for-each>
   </ol>
