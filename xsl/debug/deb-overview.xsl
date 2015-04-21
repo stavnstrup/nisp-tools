@@ -92,7 +92,13 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td align="right"><xsl:value-of select="count(.//interoperabilityprofile)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::interoperabilityprofile])"/></td>
         <td align="right"><xsl:value-of select="count(.//interoperabilityprofile[status='rejected'])"/></td>
-       </tr>
+      </tr>
+      <tr>
+        <td>Service Groups</td>
+        <td align="right"><xsl:value-of select="count(.//servicegroup)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::serviceprofile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//servicegroup[status='rejected'])"/></td>
+       </tr>      
       <tr>
         <td>Service Profiles</td>
         <td align="right"><xsl:value-of select="count(.//serviceprofile)"/></td>
