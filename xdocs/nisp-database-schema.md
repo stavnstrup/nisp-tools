@@ -608,7 +608,7 @@ the `<indexterm>` element.
 
 ### Mixed
 
-The `<responsibleparties>` element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpket element might contaion one or more `<pointofcontact>` elements. 
+The `<responsibleparties>` element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpkey element might contain one or more `<pointofcontact>` elements. 
 
 ~~~{.dtd}
 <!ELEMENT responsibleparties (rpkey*)>
