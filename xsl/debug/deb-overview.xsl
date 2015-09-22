@@ -70,7 +70,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
     </xsl:variable>
 
-    <p><xsl:text>Created on </xsl:text><xsl:value-of select="$formatted-date"/><xsl:text> using rev. </xsl:text><xsl:value-of select="$describe"/></p>
+    <table border="0"><tr><td><xsl:text>Created on </xsl:text><xsl:value-of select="$formatted-date"/><xsl:text> using rev. </xsl:text><xsl:value-of select="$describe"/></td></tr></table>
    
     <h2>Statistics</h2>
 
