@@ -193,20 +193,20 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template name="htmlheader">
   <tr class="head">
-    <td><b>Rec</b></td>
-    <td><b>ID</b></td>
-    <td><b>Type</b></td>
-    <td><b>Org</b></td>
-    <td><b>PubNum</b></td>
-    <td><b>Title</b></td>
-    <td><b>Date</b></td>
-    <td><b>Ver</b></td>
-    <td><b>Correction</b></td>
-    <td><b>AKA</b></td>
-    <td><b>Tag</b></td>
-    <td><b>Select</b></td>
-    <td><b>History</b></td>
-    <td><b>URI</b></td>
+    <th>Rec</th>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Org</th>
+    <th>PubNum</th>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Ver</th>
+    <th>Correction</th>
+    <th>AKA</th>
+    <th>Tag</th>
+    <th>Select</th>
+    <th>History</th>
+    <th>URI</th>
    </tr>
 </xsl:template>
 
