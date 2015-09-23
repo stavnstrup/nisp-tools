@@ -27,7 +27,7 @@
   <body>
     <h1>Responsible parties</h1>
 
-    <p>Created on 
+    <table border="0"><tr><td>Created on 
     <xsl:variable name="date">
       <xsl:value-of select="date:date-time()"/>
     </xsl:variable>
@@ -39,7 +39,8 @@
     <xsl:value-of select="date:year()"/>
     <xsl:text> - </xsl:text>
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
-    <xsl:text> using rev. </xsl:text><xsl:value-of select="@describe"/></p>
+    <xsl:text> using rev. </xsl:text><xsl:value-of select="@describe"/></td></tr></table>
+    
     <xsl:apply-templates select="records"/>
   </body></html>
 </xsl:template>
