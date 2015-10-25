@@ -5,7 +5,7 @@
 <book lang="en">
   <bookinfo>
     <title>NATO Interoperability Standards and Profiles</title>
-    <subtitle>New volume 1</subtitle>
+    <subtitle>New Volume 1 (2015 Edition)</subtitle>
     <corpauthor>C3B Interoperability Profiles Capability Team</corpauthor>
     <productname class="trade">Allied Data Publication 34</productname>
     <biblioid class="pubnumber">ADatP-34</biblioid>
@@ -13,7 +13,7 @@
     <revhistory>
       <revision>
         <revnumber>8.1</revnumber>
-        <date>3 December 2014</date>
+        <date>26 October 2015</date>
         <revremark></revremark>
       </revision>
     </revhistory>
@@ -29,13 +29,211 @@
   </bookinfo>
   <!-- 
  *****************************************************************
-       C H A P T E R 1 - Introduction and EXECUTIVE SUMMARY
+       C H A P T E R 1 - Introduction and Background
  ***************************************************************** 
 -->
   <chapter id="v1c-Introduction">
     <title>Introduction</title>
 
-    <para condition="ignore"/>
+<para>The NATO Interoperability Standards and Profiles (NISP), is developed by the NATO Consultation, Command and Control (C3) Board Interoperability Profiles Capability Team (IP CaT) and the NISP will be made available to the general public as ADatP-34(I) when approved by the C3 Board.
+<footnote><para>AC/322-N(2013)0197-REV3-AS1 approved ADatP-34(H)</para></footnote>.  The included interoperability standards (Volume 2) and profiles (Volume 3) are mandatory for use in NATO common funded Communications and Information Systems (CIS).
+<!--  The NISP will be made available to the general public as ADatP-34(J) when approved by the C3 Board.
+-->
+</para>
 
-</chapter>
+  </chapter>
+
+  <chapter id="v1c-Purpose">
+    <title>Purpose</title>
+
+    <para>The NISP provides the necessary standards and profiles to support C3 interoperability and a federated environment.
+Also the Combined Communications Electronics Board (CCEB) nations use the NISP to publish the interoperability standards for the CCEB under the provisions of the NATO-CCEB List of Understandings (LoU)<footnote><para>References:NATO Letter AC/322(SC/5)L/144 of 18 October 2000, CCEB Letter D/CCEB/WS/1/16 of 9 November 2000, NATO Letter AC/322(SC/5)L/157 of 13 February 2001</para></footnote>. 
+In addition, in order to support the Lisbon and Chicago Capability Commitments, interoperability profiles for the NATO Response Force (NRF) and transition from today's legacy systems to a federated environment are provided.</para>
+    <para>The purpose of the NISP is to:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Encourage Nations to use the same standards as within the NATO CIS implementations in NATO led operations;</para>
+      </listitem>
+      <listitem>
+        <para>Identify applicable CIS standards as a baseline for optimising programmes and project selection and adherence;</para>
+      </listitem>
+      <listitem>
+        <para>Support architecture-based CIS programme development and evolution;</para>
+      </listitem>
+      <listitem>
+        <para>Promote NATO internal, Nation to NATO and Nation to Nation interoperability;</para>
+      </listitem>
+      <listitem>
+        <para>Identify applicable Profiles as a baseline for optimising CIS implementation and utilization to support cross-domain scenarios.</para>
+      </listitem>
+    </itemizedlist>
+
+  </chapter>
+
+  <chapter id="v1c-Audience">
+    <title>Intended Audience</title>
+
+    <para>The intended audience of the NISP are all stakeholders involved in development, implementation, lifecycle management, and transformation to a federated environment.</para>
+
+  </chapter>
+
+  <chapter id="v1c-InfoOrganization">
+    <title>Organization of the Information</title>
+    <sect1 id="v1s-structure">
+    <title>NISP Sructure Drivers</title>
+    <para>In general, systems development approaches suggest a clean line of reasoning from requirements capturing to architecture, to design and build via testing to implementation and utilization and finally to retirement.</para>
+    <para>The structure of the NISP is determined by several factors:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Ease of use for the users of the NISP;</para>
+      </listitem>
+      <listitem>
+        <para>Nature of standards, profiles and design rules.</para>
+      </listitem>
+    </itemizedlist>
+    <para>The NISP contains three volumes:</para>
+    <para>
+      <emphasis role="bold">Volume 1 - Introduction and Management</emphasis>: This volume provides the management framework for the development and configuration control of the NISP and includes the general management procedures for the application of the NISP in NATO C3 systems development and the process for handling Request for Change Proposals (RFCP).</para>
+    <para>
+      <emphasis role="bold">Volume 2 - Agreed Standards</emphasis>: This volume lists agreed interoperability standards. These should support NATO and National systems today and new systems actually under procurement or specification.</para>
+<para><emphasis role="bold">Volume 3 - Profiles</emphasis>: This Volume provides guidance on the development of Interoperability Profiles and references or includes published profiles.  Interoperability Profiles may aggregate references to the characteristics of other profiles categories to provide a consolidated perspective.  Interoperability Profiles identify essential profile elements including Capability Requirements and other NAF architectural views, characteristic protocols, implementation options, technical standards, Service Interoperability Points, and the relationship with other profiles such as the system profile to which an application belongs.  Interoperability profiles will be referenced in the NISP for specified NATO Common Funded Systems or Capability Packages and may include descriptions of interfaces to National Systems where appropriate.
+</para>
+<para>Technology standards will transition through a life-cycle. This
+    life-cycle is used to refine the categorization of standards within volumes 2 and 3 and is a key to providing guidance on the use of
+    standards in the development and transition of NATO CIS. The NISP has adopted the five categories of standards in the life-cycle shown below
+    in <xref linkend="v1f1-stdscat" />.</para>
+    <figure id="v1f1-stdscat" float="0">
+      <title>Standards Categories</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="../figures/stdscat1.svg" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>Proposed standards can be accepted as emerging standards in order to
+    follow their developments and decide if they can be promoted to mandatory
+    standards. In some cases proposed standards can be readily accepted as
+    mandatory standards. Containment standards have been classified as either fading or retired.</para>
+    <para>A short description of each category is described below:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <emphasis role="bold">Mandatory</emphasis>: A standard is considered <emphasis role="bold">mandatory</emphasis> if it is mature enough to be used immediately. This means that it may both be applied within existing systems and in future(mid-term) planned systems. NATO STANAG's that are promulgated shall be considered mandatory.</para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">Emerging</emphasis>: A standard is considered <emphasis role="bold">emerging</emphasis> if it is sufficiently mature to be used within the current or next planned systems. Some emerging standards may not be immediately suitable. For example, commercial companies may not support the standards or the underlying technology is not considered mature. NATO STANAG's that are not promulgated, superseded or cancelled shall be considered emerging.</para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">Fading</emphasis>: A standard is considered <emphasis role="bold">fading</emphasis> if the standard is still applicable for existing systems; however, it is becoming obsolete, or will be replaced by a newer version, or another standard is being proposed. Except for legacy systems or interoperability with legacy systems, the standard may not be used.</para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">Retired</emphasis>: A standard is considered <emphasis role="bold">retired</emphasis> if the standard has been used in the past and is not applicable to existing CIS systems. NATO STANAG's that are superseded or cancelled shall be considered retired.</para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">Rejected</emphasis>: A standard is considered <emphasis role="bold">rejected</emphasis> if, while it was still emerging, it is considered unsuitable for use within NATO.</para>
+      </listitem>
+    </itemizedlist>
+
+    </sect1>
+
+  </chapter>
+
+  <chapter id="v1c-NISPArchitecture">
+    <title>NISP and Architecture</title>
+    <sect1 id="v1s-NDPP">
+    <title>Architecture and Interoperability in the context of NATO Defence Planning</title>
+    <para>The NATO Defence Planning Process (NDPP) is operationally driven and delivers various products which could support the development and evolution of more detailed C3 architecture and interoperability requirements.  Conversely, the development of NDPP products could benefit from input by the architecture and interoperability communities, leading to a more coherent development of CIS capabilities for the Alliance.</para>
+    <para>Ideally interoperability requirements should align with the NATO Defence Planning Process to ensure coherence in the development of capabilities within the Alliance.  NDPP Mission Types and Planning Situations provide the essential foundation for the development of the Minimum Capability Requirements (MCR) and the derivation of high level information exchange and interoperability requirements.  MCRs are expressed via a common set of definitions for capabilities (including CIS) called Capability Codes and Statements (CC&amp;S), including explicit reference to STANAGs in some cases [Bi-SC Agreed Capability Codes and Capability Statements, 14 October 201
+ SHAPE/CPPCAMFCR/JM/281143 5000 TSC FRX 0030/TT-7673/Ser:NU0053 ].  Interoperability aspects are primarily captured in free text form within the Capability Statements and in the subsequent NDPP Targets [C-M(2013)0023, Capability Target Reports, 29 May 2013].  The NDPP products could be leveraged by the architecture and interoperability community, to define the operational context for required architecture building blocks and interoperability profiles.</para>
+    <para>The Defence Planning Capability Survey (DPCS) is the tool to collect information on national capabilities, the architecture and interoperability communities should provide input on questions related to C3 related capabilities.  The architecture and interoperability communities could also bring valuable insight and expertise to the formulation and tailoring of C3 capabilities-related targets to nations, groups of nations or the NATO enterprise.</para>
+    <para>In practice, there is not always an opportunity (time or money) for such a "clean" approach and compromises must be made - from requirements identification to implementation. In recognition of this fact, NATO has developed a parallel track approach, which allows some degree of freedom in the systems development approach. Although variations in sequence and speed of the different steps in the approach are possible, some elements need to be present. Architecture, including the selection of appropriate standards and technologies, is a mandatory step.</para>
+    <para>In a top-down execution of the systems development approach, architecture will provide guidance and overview to the required functionality and the solution patterns, based on longstanding and visionary operational requirements. In a bottom-up execution of the approach, which may be required when addressing urgent requirements and operational imperatives, architecture will be used to assess and validate chosen solution in order to align with the longer term vision.</para>
+    <para>The NISP is a major tool supported by architecture work and must be suitable for use in the different variations of the systems development approach. The NISP will be aligned with the Architectural efforts of the C3 Board led by the Architecture Capability Team (Architecture CaT).</para>
+
+    </sect1>
+    <sect1 id="v1s-NISPArch">
+    <title>NATO Interoperability Standards and Profiles Application to Architectures</title>
+    <para>The relationship of the NISP and the C3 Board Architecture effort is of a reciprocal nature. The architecture products provide inputs to the NISP by identifying the technology areas that in the future will require standards. The architecture products also provide guidance on the coherence of standards by indicating in which timeframe certain standards and profiles are required.</para>
+    <para>The work on RA's and TA's will benefit from the NISP by selecting coherent sets of standards for profiles.</para>
+    </sect1>
+
+  </chapter>
+
+  <chapter id="v1c-ConfigurationManagement">
+    <title>Configuration Management</title>
+   <para>The NISP is updated<footnote><para>A more detailed description of the NISP Configuration Management process is available in the IP CaT "Standard Operating Procedures (SoP)"</para></footnote> at least once a year to account for standards and profile evolution. Updates to the NISP are handled through a "Requests for Change Proposal" (RFCP) process. RFCPs are identified by stakeholders (users, C3 Board and its sub structure, SMEs, the IP CaT, and nations) and are formally submitted to the IP CaT.  The IP CaT will then review the submissions either at the next scheduled meeting or via collaboration tools.  After the RFCPs are considered, they may be passed to SMEs within the C3 Board sub structure or "owners" of the technology area for detailed technical review.  Based on that technology review, the RFCP will be formally added to the next available version of the NISP or returned to the originator for further details or rejected.  The NISP database will be immediately updated.</para>
+
+<para>RFCPs deemed urgent are handled in an expedited manner, outside the normal meeting schedule of the IP CAT.</para>
+
+<para>As technology is made available, the NISP development and submission of RFCPs will be automated.  The ultimate goal of incorporating advanced technology will be to shorten the time required for coordination of NISP updates and reduce the effort required to produce the NISP.</para>
+
+<para>The NISP with updates is submitted to the C3 Board in the first quarter of each year after internal review by the IP CaT.  The version under review is a snapshot in time of the status of standards and profiles.</para>
+
+<para>The database of standards and profiles maintained by the IP CaT is the definitive source of the currents status of standards and profiles. The database will be updated as soon as the RFCP has been approved by the C3 Board.</para>
+
+    <sect1 id="v1s1-NISP-Update">
+      <title>NISP Update Process</title>
+      <para>Updating the NISP and its associated database will be conducted by the IP CaT in a managed, rolling review process which will take into account information on standards available from a wide variety of sources.</para>
+<para>If the NISP Configuration Management (CM) process is further automated, the C3 Board will be requested to approve any changes to the procedures</para>
+    </sect1>
+    <sect1 id="v1s1-RFCP">
+      <title>Request for Change Proposal (RFCP)</title>
+      <para>Request for Changes Proposal (RFCP) to the NISP will be processed
+      by the IP CaT following the process outlined in the <xref linkend="v1f6-RFCP" /> below:</para>
+      <figure id="v1f6-RFCP" float="0">
+        <title>RFCP Handling Process</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/rfcp-proc.svg" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>The primary point of contact for RFCP submission is the IP CaT. RFCPs may be submitted to the IP CaT through a number of channels, including:</para>
+      <itemizedlist>
+        <listitem>
+          <para>IP CaT Subject Matter Experts (SME)</para>
+        </listitem>
+        <listitem>
+          <para>Strategic Command SMEs;</para>
+        </listitem>
+        <listitem>
+          <para>NATO Agencies SMEs;</para>
+        </listitem>
+        <listitem>
+          <para>Other NATO or C3 Board substructure SMEs;</para>
+        </listitem>
+        <listitem>
+          <para>C3 Board Staff SMEs;</para>
+        </listitem>
+      </itemizedlist>
+      <para>Review of RFCPs will be coordinated with the responsible C3 Board substructure organizations where appropriate.  In situations, where a timely response is requested by the RFCP submitter, the IP CaT may make its recommendation directly to the C3 Board representatives.  The IP CaT Standard Operation Procedures (SoP) contains a detailed description of the RFCP process and the form for submitting RFCPs.</para>
+    </sect1>
+    <sect1 id="v1s1-CoordinationNations">
+      <title>National Systems Interoperability Coordination</title>
+      <para>Coordination of national technical standards and NATO are critical for interoperability.  The IP CaT, as the result of the C3 Board sub structure reorganization, does not provide a forum for the statement of national technical efforts.  Rather it is up to each of the SMEs represented on the IP CaT to work with national and C3 Board representation to ensure thoughtful coordination of interoperability requirements.  As such, each of the IP CaT SMEs is responsible for:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Appropriate and timely coordination of standards, profiles and design patterns with respect to interoperability with national systems;</para>
+        </listitem>
+        <listitem>
+          <para>Coordination of the SME input including co-ordination with national SMEs of other C3 Board substructure groups;</para>
+        </listitem>
+        <listitem>
+          <para>Providing appropriate technical information and insight based on national market assessment.</para>
+        </listitem>
+      </itemizedlist>
+<para>National level coordination of interoperability technical standards and profiles is the responsibility of the C3 Board.  As a result, when the NISP is approved at the C3 Board, the NISP provides national agreement on the NATO interoperability standards and profiles.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="v1c-Applicability">
+    <title>Applicability</title>
+    <para>The mandatory standards and profiles documented in Volume 2 and 3 will be used in the implementation of NATO Common Funded Systems. Participating nations agree to use the mandatory standards and profiles included in the NISP at the Service Interoperability Points and to use Service Interface Profiles among NATO and Nations to support the exchange of information and the use of information services in the NATO realm.</para>
+
+  </chapter>
+
 </book>
