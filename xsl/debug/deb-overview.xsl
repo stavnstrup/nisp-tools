@@ -84,31 +84,31 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <tr>
         <td>standards</td>
         <td align="right"><xsl:value-of select="count(.//standard)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::standard])"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::standard])"/></td>
         <td align="right"><xsl:value-of select="count(.//standard[status='rejected'])"/></td>
       </tr>
       <tr>
         <td>Interoperability Profiles</td>
         <td align="right"><xsl:value-of select="count(.//interoperabilityprofile)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::interoperabilityprofile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::interoperabilityprofile])"/></td>
         <td align="right"><xsl:value-of select="count(.//interoperabilityprofile[status='rejected'])"/></td>
       </tr>
       <tr>
         <td>Service Groups</td>
         <td align="right"><xsl:value-of select="count(.//servicegroup)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::serviceprofile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::serviceprofile])"/></td>
         <td align="right"><xsl:value-of select="count(.//servicegroup[status='rejected'])"/></td>
        </tr>      
       <tr>
         <td>Service Profiles</td>
         <td align="right"><xsl:value-of select="count(.//serviceprofile)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::serviceprofile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::serviceprofile])"/></td>
         <td align="right"><xsl:value-of select="count(.//serviceprofile[status='rejected'])"/></td>
        </tr>
       <tr>
         <td>Capability Profiles</td>
         <td align="right"><xsl:value-of select="count(.//capabilityprofile)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and ancestor::capabilityprofile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::capabilityprofile])"/></td>
         <td align="right"><xsl:value-of select="count(.//capabilityprofile[status='rejected'])"/></td>
        </tr>
     </table>
