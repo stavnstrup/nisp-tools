@@ -58,7 +58,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:output indent="yes"/>
 
 <xsl:variable name="next.version" select="'9.0'"/>
-
+<xsl:variable name="rfcp.no" select="'8-5'"/>
 
 <xsl:variable name="col.org" select="1"/>
 <xsl:variable name="col.pubnum" select="2"/>
@@ -114,7 +114,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </xsl:attribute>
     <document>
       <xsl:attribute name="orgid">
-        <xsl:value-of select="table:table-cell[position()=$col.id]/text:p"/>
+        <xsl:value-of select="table:table-cell[position()=$col.org]/text:p"/>
       </xsl:attribute>
       <xsl:attribute name="pubnum">
         <xsl:value-of select="table:table-cell[position()=$col.pubnum]/text:p"/>
@@ -130,7 +130,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <status mode="accepted">
       <uri><xsl:value-of select="table:table-cell[position()=$col.uri]/text:p"/></uri>
       <history>
-        <event date="{substring($now, 1, 10)}" flag="added" rfcp="" version="{$next.version}"/>
+        <event date="{substring($now, 1, 10)}" flag="added" rfcp="{$rfcp.no}" version="{$next.version}"/>
       </history>
     </status>
   </standard> 
