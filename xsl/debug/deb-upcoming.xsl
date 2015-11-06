@@ -22,7 +22,7 @@ Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:template match="standards">
   <xsl:message>List all emerging, nearterm, farterm and fading standards/profiles</xsl:message>
   <allupcoming describe="{$describe}">
-    <xsl:apply-templates select="/standards//standard|/standards//interoperabilityprofile"/>
+    <xsl:apply-templates select="/standards//standard|/standards//setofstandards"/>
   </allupcoming>
 </xsl:template>
 
@@ -36,7 +36,7 @@ Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="interoperabilityprofile">
+<xsl:template match="setofstandards">
   <xsl:variable name="sid" select="@id" />
   <xsl:if test="not(.//event[@flag = 'deleted']) and  /standards/lists//select[(@mode != 'mandatory') and (@id=$sid)]">
     <element type="P" id="{@id}" orgid="{profilespec/@orgid}" pubnum="{profilespec/@pubnum}"

@@ -69,9 +69,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
           <span class="fu">level</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
           <span class="fu">emUUID</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
 <h2 id="standard-and-profile-definition">Standard and profile definition</h2>
-<p>Both de-jure and de-facto standards from many different standard 'organizations' are labeled differently. Some standards have multiple parts each having a standard number, where for other standards only the cover standard have a number. Some standards are registered by multiple standard bodies. Some standards are updated, but the actual update are released as a separate document instead of releasing a new version of the standard. The same is true for profiles. So the following rules tries to accommodate all the different conventions used, when describing a standard or profile.</p>
+<p>Both de-jure and de-facto standards from many different standard 'organizations' are labeled differently. Some standards have multiple parts each having a standard number, where for other standards only the cover standard have a number. Some standards are registered by multiple standard bodies. Some standards are updated, but the actual update are released as a separate document instead of releasing a new version of the standard. The same is true for setofstandards - formely called interoperabilityprofiles. So the following rules tries to accommodate all the different conventions used, when describing a standard or profile.</p>
 <p>All standards and profiles are contained in the <code>&lt;records&gt;</code> element.</p>
-<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">records</span> <span class="dv">((</span><span class="fu">standard</span> <span class="dv">|</span> <span class="fu">interoperabilityprofile</span> <span class="dv">|</span> <span class="fu">serviceprofile</span> <span class="dv">|</span> <span class="fu">capabilityprofile</span><span class="dv">)</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">records</span> <span class="dv">((</span><span class="fu">standard</span> <span class="dv">|</span> <span class="fu">setofstandards</span> <span class="dv">|</span> <span class="fu">serviceprofile</span> <span class="dv">|</span> <span class="fu">capabilityprofile</span><span class="dv">)</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre>
 <h3 id="standards">Standards</h3>
 <p>All standards are implemented using a single <code>&lt;standard&gt;</code> element describing both the standard and historical aspect about the standard. A standard consists of:</p>
 <ul>
@@ -161,17 +161,16 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h3 id="profiles">Profiles</h3>
 <p>The are multiple profile elements, each accomodating different goals.</p>
 <ul>
-  <li>
+<li>
 capabilityprofile - Example: FMN
 </li>
-  <li>
+<li>
 serviceprofile - Example: Infrastructure Services
 </li>
-  <li>
-interoperabilityprofile - Example: FMN XMPP Baisic
+<li>
+setofstandards - Example: FMN XMPP Baisic
 </li>
 </ul>
-
 <h4 id="capability-profile">Capability Profile</h4>
 <p>The <code>&lt;capabilityprofile&gt;</code> element is a container element, which list the services necessary to implement a given capability.</p>
 <p>A <code>&lt;capabilityprofile&gt;</code> consists of a <code>&lt;profilespec&gt;</code> element describing the capability, a number of references to <code>&lt;serviceprofile&gt;</code> elements encapsulated in a <code>&lt;services&gt;</code> element and a <code>&lt;status&gt;</code> element.</p>
@@ -195,9 +194,9 @@ interoperabilityprofile - Example: FMN XMPP Baisic
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">servicegroup</span> <span class="dv">(</span><span class="fu">guidance</span><span class="dv">,</span> <span class="fu">parts</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">servicegroup</span>
       <span class="fu">title</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
-<h4 id="interoperability-profile">Interoperability Profile</h4>
-<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">interoperabilityprofile</span> <span class="dv">(</span><span class="fu">profilespec</span><span class="dv">,</span> <span class="fu">profilenote</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">parts</span><span class="dv">,</span> <span class="fu">configuration</span><span class="fl">?</span><span class="dv">,</span>  <span class="fu">applicability</span><span class="dv">,</span> <span class="fu">status</span><span class="dv">,</span> <span class="fu">uuid</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
-<span class="dt">&lt;!ATTLIST</span> <span class="fu">interoperabilityprofile</span>
+<h4 id="setofstandards-profile">Setofstandards Profile</h4>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">setofstandards</span> <span class="dv">(</span><span class="fu">profilespec</span><span class="dv">,</span> <span class="fu">profilenote</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">parts</span><span class="dv">,</span> <span class="fu">configuration</span><span class="fl">?</span><span class="dv">,</span>  <span class="fu">applicability</span><span class="dv">,</span> <span class="fu">status</span><span class="dv">,</span> <span class="fu">uuid</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">setofstandards</span>
           <span class="fu">tag</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
           <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">guidance</span> <span class="dv">%ho;</span> <span class="dv">(%tbl.entry.mdl;)</span><span class="fl">*</span><span class="dt">&gt;</span></code></pre>
@@ -216,13 +215,13 @@ interoperabilityprofile - Example: FMN XMPP Baisic
       <span class="fu">lcstage</span> <span class="dv">(</span><span class="fu">emerging</span> <span class="dv">|</span> <span class="fu">current</span> <span class="dv">|</span> <span class="fu">fading</span> <span class="dv">|</span> <span class="fu">retired</span><span class="dv">)</span> <span class="st">&quot;current&quot;</span>
       <span class="fu">lctime</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span>
       <span class="fu">condition</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre>
-<p>A <code>&lt;profile&gt;</code> element must contain a <code>&lt;profilespec&gt;</code> element and may contain <code>&lt;profilenote&gt;</code>, <code>&lt;configuration&gt;</code>, <code>&lt;parts&gt;</code>, <code>&lt;applicability&gt;</code> or <code>&lt;status&gt;</code> elements.</p>
-<p>A <code>&lt;profile&gt;</code> element must contain a <code>tag</code> and an <code>id</code> attribute. A <code>type</code> attribute is implicit defined with one of the values <code>base</code>, <code>coi-minor</code> or <code>coi</code>. If the attribute has not explicit been defined, it will by default be initialised with the value <code>base</code>. Most <code>&lt;profile&gt;</code> elements will have an <code>type</code> attribute with the value <code>base</code>, which describes the a typical profile, i.e. a subset of a standard or a set of standards, or one of the above with a specific configuration.</p>
-<p>A <code>&lt;profile&gt;</code> element which have the type attribute set to <code>coi-minor</code> or <code>coi</code>, and typically the responsibility of a NATO community of interest, such as the Afghanistan Mission Network (AMN) profile.</p>
-<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">profile</span> <span class="dv">(</span><span class="fu">profilespec</span><span class="dv">,</span> <span class="fu">profilenote</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">parts</span><span class="dv">,</span>
+<p>A <code>&lt;setofstandards&gt;</code> element must contain a <code>&lt;profilespec&gt;</code> element and may contain <code>&lt;profilenote&gt;</code>, <code>&lt;configuration&gt;</code>, <code>&lt;parts&gt;</code>, <code>&lt;applicability&gt;</code> or <code>&lt;status&gt;</code> elements.</p>
+<p>A <code>&lt;setofstandards&gt;</code> element must contain a <code>tag</code> and an <code>id</code> attribute. A <code>type</code> attribute is implicit defined with one of the values <code>base</code>, <code>coi-minor</code> or <code>coi</code>. If the attribute has not explicit been defined, it will by default be initialised with the value <code>base</code>. Most <code>&lt;profile&gt;</code> elements will have an <code>type</code> attribute with the value <code>base</code>, which describes the a typical profile, i.e. a subset of a standard or a set of standards, or one of the above with a specific configuration.</p>
+<p>A <code>&lt;setofstandards&gt;</code> element which have the type attribute set to <code>coi-minor</code> or <code>coi</code>, and typically the responsibility of a NATO community of interest, such as the Afghanistan Mission Network (AMN) profile.</p>
+<pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">setofstandards</span> <span class="dv">(</span><span class="fu">profilespec</span><span class="dv">,</span> <span class="fu">profilenote</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">parts</span><span class="dv">,</span>
                    <span class="fu">configuration</span><span class="fl">?</span><span class="dv">,</span> <span class="fu">applicability</span><span class="dv">,</span> 
                    <span class="fu">status</span><span class="dv">,</span> <span class="fu">uuid</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
-<span class="dt">&lt;!ATTLIST</span> <span class="fu">profile</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">setofstandards</span>
           <span class="fu">type</span> <span class="dv">(</span><span class="fu">base</span> <span class="dv">|</span> <span class="fu">coi-minor</span> <span class="dv">|</span> <span class="fu">coi</span><span class="dv">)</span> <span class="st">&quot;base&quot;</span>
           <span class="fu">tag</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span>
           <span class="fu">id</span> <span class="kw">ID</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre>
@@ -275,7 +274,7 @@ interoperabilityprofile - Example: FMN XMPP Baisic
 <p>Rationale are just text eventually embedded in paragraphs. Rationale describes the reason a standards was selected. There might be information which is suitable for the index, therefore inclusion of the <code>&lt;indexterm&gt;</code> element.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">rationale</span> <span class="dv">(</span><span class="kw">#PCDATA</span> <span class="dv">|</span> <span class="fu">para</span> <span class="dv">|</span> <span class="fu">indexterm</span><span class="dv">)</span><span class="fl">*</span><span class="dt">&gt;</span></code></pre>
 <h3 id="mixed">Mixed</h3>
-<p>The <code>&lt;responsibleparties&gt;</code> element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpket element might contaion one or more <code>&lt;pointofcontact&gt;</code> elements.</p>
+<p>The <code>&lt;responsibleparties&gt;</code> element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpkey element might contain one or more <code>&lt;pointofcontact&gt;</code> elements.</p>
 <pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">responsibleparties</span> <span class="dv">(</span><span class="fu">rpkey</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">rpkey</span> <span class="dv">(</span><span class="fu">pointofcontact</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>

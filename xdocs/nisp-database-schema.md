@@ -108,7 +108,7 @@ parts each having a standard number, where for other standards only
 the cover standard have a number. Some standards are registered by
 multiple standard bodies. Some standards are updated, but the actual
 update are released as a separate document instead of releasing a new
-version of the standard. The same is true for profiles. So the
+version of the standard. The same is true for setofstandards - formely called interoperabilityprofiles. So the
 following rules tries to accommodate all the different conventions
 used, when describing a standard or profile.
 
@@ -116,7 +116,7 @@ All standards and profiles are contained in the `<records>`
 element.
 
 ~~~{.dtd}
-<!ELEMENT records ((standard | interoperabilityprofile | serviceprofile | capabilityprofile)*)>
+<!ELEMENT records ((standard | setofstandards | serviceprofile | capabilityprofile)*)>
 ~~~
 
 ### Standards
@@ -344,7 +344,7 @@ The are multiple profile elements, each accomodating different goals.
 <ul>
   <li>capabilityprofile - Example: FMN</li>
   <li>serviceprofile - Example: Infrastructure Services</li>
-  <li>interoperabilityprofile - Example: FMN XMPP Baisic</li>
+  <li>setofstandards - Example: FMN XMPP Baisic</li>
 </ul>
 
 #### Capability Profile
@@ -400,12 +400,12 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 	  title CDATA #REQUIRED>
 ~~~
 
-#### Interoperability Profile
+#### Setofstandards Profile
 
 
 ~~~{.dtd}
-<!ELEMENT interoperabilityprofile (profilespec, profilenote?, parts, configuration?,  applicability, status, uuid?)>
-<!ATTLIST interoperabilityprofile
+<!ELEMENT setofstandards (profilespec, profilenote?, parts, configuration?,  applicability, status, uuid?)>
+<!ATTLIST setofstandards
           tag CDATA #REQUIRED
           id ID #REQUIRED>
 ~~~
@@ -448,11 +448,11 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 
 
 
-A `<profile>` element must contain a `<profilespec>` element and may
+A `<setofstandards>` element must contain a `<profilespec>` element and may
 contain `<profilenote>`, `<configuration>`, `<parts>`,
 `<applicability>` or `<status>` elements.
 
-A `<profile>` element must contain a `tag` and an `id`
+A `<setofstandards>` element must contain a `tag` and an `id`
 attribute. A `type` attribute is implicit defined with one of the
 values `base`, `coi-minor` or `coi`. If the attribute has not explicit
 been defined, it will by default be initialised with the value `base`.
@@ -461,16 +461,16 @@ value `base`, which describes the a typical profile, i.e. a subset of
 a standard or a set of standards, or one of the above with a specific
 configuration.
 
-A `<profile>` element which have the type attribute set to
+A `<setofstandards>` element which have the type attribute set to
 `coi-minor` or `coi`, and typically the responsibility of a NATO
 community of interest, such as the Afghanistan Mission Network (AMN)
 profile.
 
 ~~~~~~~{.dtd}
-<!ELEMENT profile (profilespec, profilenote?, parts,
+<!ELEMENT setofstandards (profilespec, profilenote?, parts,
                    configuration?, applicability, 
                    status, uuid?)>
-<!ATTLIST profile
+<!ATTLIST setofstandards
           type (base | coi-minor | coi) "base"
           tag CDATA #REQUIRED
           id ID #REQUIRED>

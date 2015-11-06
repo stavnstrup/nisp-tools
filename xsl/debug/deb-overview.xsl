@@ -82,16 +82,16 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td><b>Rejected</b></td>
       </tr>
       <tr>
-        <td>standards</td>
+        <td>Standards</td>
         <td align="right"><xsl:value-of select="count(.//standard)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::standard])"/></td>
         <td align="right"><xsl:value-of select="count(.//standard[status='rejected'])"/></td>
       </tr>
       <tr>
-        <td>Interoperability Profiles</td>
-        <td align="right"><xsl:value-of select="count(.//interoperabilityprofile)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::interoperabilityprofile])"/></td>
-        <td align="right"><xsl:value-of select="count(.//interoperabilityprofile[status='rejected'])"/></td>
+        <td>Set of Standards</td>
+        <td align="right"><xsl:value-of select="count(.//setofstandards)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::setofstandards])"/></td>
+        <td align="right"><xsl:value-of select="count(.//setofstandards[status='rejected'])"/></td>
       </tr>
       <tr>
         <td>Service Groups</td>
@@ -162,10 +162,10 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
   <h2 id="profiles">Profiles</h2>
   
-  <p>This table lists all capability, service- and interoperability profiles.
+  <p>This table lists all capability, service- and setofstandards.
 
   <ul>
-    <li>Interoperability Profiles (IP) list standards and profiles which fits natually
+    <li>Setofstandards (SS) list standards and profiles which fits natually
      together and is mainly developed for convenience only.</li>
 
     <li>Service Profiles (SP) which will
@@ -182,7 +182,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
   <table class="overview" border="1">
     <xsl:call-template name="htmlheader"/>
-    <xsl:apply-templates select="//interoperabilityprofile|//capabilityprofile|//serviceprofile">
+    <xsl:apply-templates select="//setofstandards|//capabilityprofile|//serviceprofile">
       <xsl:sort select="@id" order="ascending"/>
     </xsl:apply-templates>
   </table>
@@ -211,7 +211,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="interoperabilityprofile|serviceprofile|capabilityprofile">
+<xsl:template match="setofstandards|serviceprofile|capabilityprofile">
   <xsl:variable name="myid" select="@id"/>
   <tr>
     <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">
@@ -222,7 +222,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:choose>
         <xsl:when test="local-name(.)='capabilityprofile'">CP</xsl:when>
         <xsl:when test="local-name(.)='serviceprofile'">SP</xsl:when>
-        <xsl:otherwise>IP</xsl:otherwise>
+        <xsl:otherwise>SS</xsl:otherwise>
       </xsl:choose>
     </td>
     <td>

@@ -190,7 +190,7 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 	</row>
       </thead>
       <tbody>
-	<xsl:apply-templates select="servicegroup|interoperabilityprofile" mode="PS"/>
+	<xsl:apply-templates select="servicegroup|setofstandards" mode="PS"/>
       </tbody>
     </tgroup>
   </table>

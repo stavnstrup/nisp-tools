@@ -25,31 +25,31 @@
 <p>Since the <code>build</code> script is just a wrapper around <a href="" title="http://ant.apache.org/">Ant</a>, it takes the same options, but only the options below are relevant.</p>
 <dl>
 <dt>-buildfile, -file, -f <file></dt>
-<dd><p>use the given buildfile instead of the default build.xml file. This is the ant equivalent of Makefile</p>
+<dd>use the given buildfile instead of the default build.xml file. This is the ant equivalent of Makefile
 </dd>
 <dt>-help, -h</dt>
-<dd><p>print help on the command line options</p>
+<dd>print help on the command line options
 </dd>
 <dt>-projecthelp, -p</dt>
-<dd><p>print project help information</p>
+<dd>print project help information
 </dd>
 <dt>-version</dt>
-<dd><p>print the version information of ant</p>
+<dd>print the version information of ant
 </dd>
 <dt>-diagnostics</dt>
-<dd><p>print information that might be helpful to diagnose or report problems</p>
+<dd>print information that might be helpful to diagnose or report problems
 </dd>
 <dt>-quiet, -q</dt>
-<dd><p>be extra quiet</p>
+<dd>be extra quiet
 </dd>
 <dt>-verbose, -v</dt>
-<dd><p>be extra verbose</p>
+<dd>be extra verbose
 </dd>
 <dt>-debug, -d</dt>
-<dd><p>print debugging information</p>
+<dd>print debugging information
 </dd>
 <dt>-logfile <file></dt>
-<dd><p>use the given file to output log to</p>
+<dd>use the given file to output log to
 </dd>
 </dl>
 <h1 id="description">Description</h1>
@@ -73,21 +73,16 @@
 <p>The dynamic targets are targets created for each volume of the NISP. E.g. for volume 1 the following targets exists.</p>
 <dl>
 <dt>vol1</dt>
-<dd>Create Volume 1 in HTML5 and PDF
+<dd>Create Volume 1 in HTML5 and PDF vol1.resolve
 </dd>
-<dt>vol1.resolve</dt>
-<dd>Resolve volume 1
+<dd>Resolve volume 1 vol1.html
 </dd>
-<dt>vol1.html</dt>
-<dd>Create Volume 1 in HTML5
+<dd>Create Volume 1 in HTML5 vol1.pdf
 </dd>
-<dt>vol1.pdf</dt>
-<dd>Create Volume 1 in PDF
+<dd>Create Volume 1 in PDF vol1.rtf
 </dd>
-<dt>vol1.rtf</dt>
-<dd>Create Volume 1 in RTF (Word exchange format)
+<dd>Create Volume 1 in RTF (Word exchange format) vol1.zip
 </dd>
-<dt>vol1.zip</dt>
 <dd>Create source archive of Volume 1
 </dd>
 </dl>
@@ -95,11 +90,10 @@
 <p>Additionaly the targets <em>html</em>, <em>pdf</em>, <em>rtf</em> and <em>all</em> are created used to specify that <em>HTML5</em>, <em>PDF</em>, <em>RTF</em> and <em>all</em> (HTML5 and PDF) versions of all the volumes should be created.</p>
 <dl>
 <dt>html</dt>
-<dd>Create all HTML files destined for the web
+<dd>Create all HTML files destined for the web pdf: Create a PDF version of NISP rtf
 </dd>
-</dl>
-<p>pdf: Create a PDF version of NISP rtf : Create all RTF files</p>
-<dl>
+<dd>Create all RTF files
+</dd>
 <dt>htmlhelp</dt>
 <dd>Create HTMLHelp version of the NISP
 </dd>
@@ -109,9 +103,8 @@
 <h4 id="additional-pages-for-the-html5-version">Additional pages for the HTML5 version</h4>
 <dl>
 <dt>master</dt>
-<dd>Create the NISP master documents as HTML5 pages
+<dd>Create the NISP master documents as HTML5 pages acronyms
 </dd>
-<dt>acronyms</dt>
 <dd>Create the acronyms as chunked HTML5 pages
 </dd>
 </dl>
@@ -119,15 +112,12 @@
 <p>Clean-up targets</p>
 <dl>
 <dt>clean</dt>
-<dd>Clean all (only build and distribution directories)
+<dd>Clean all (only build and distribution directories) clean-build
 </dd>
-<dt>clean-build</dt>
-<dd>Clean the build directories
+<dd>Clean the build directories clean-dist
 </dd>
-<dt>clean-dist</dt>
-<dd>Clean the distribution directories
+<dd>Clean the distribution directories clean-zip
 </dd>
-<dt>clean-zip</dt>
 <dd>Clean the distribution zip directories
 </dd>
 </dl>
@@ -135,24 +125,18 @@
 <p>These target are usefull to debug aspects of NISP especially to catch semanticl errors in the standards database.</p>
 <dl>
 <dt>debug</dt>
-<dd>Create misc. debugging reports
+<dd>Create misc. debugging reports deb-overview
 </dd>
-<dt>deb-overview</dt>
-<dd>Create DB Overview
+<dd>Create DB Overview deb-dates
 </dd>
-<dt>deb-dates</dt>
-<dd>Create DB Dated list
+<dd>Create DB Dated list deb-family
 </dd>
-<dt>deb-family</dt>
-<dd>Create DB parent/child relationship list
+<dd>Create DB parent/child relationship list deb-info
 </dd>
-<dt>deb-info</dt>
-<dd>Show infomation about all documents
+<dd>Show infomation about all documents deb-figures
 </dd>
-<dt>deb-figures</dt>
-<dd>Show all figures
+<dd>Show all figures deb-upcoming
 </dd>
-<dt>deb-upcoming</dt>
 <dd>Create list of upcoming/fading standards/profiles
 </dd>
 </dl>
@@ -167,24 +151,20 @@
 <p>These two targets are used to create ofline versions of the NISP</p>
 <dl>
 <dt>web</dt>
-<dd>Create the website containing the NISP
+<dd>Create the website containing the NISP pdf-only
 </dd>
-<dt>pdf-only</dt>
 <dd>Create a zip containing only PDF files
 </dd>
 </dl>
 <p>Additional archiving targets are</p>
 <dl>
 <dt>source</dt>
-<dd>Create a new source distribution
+<dd>Create a new source distribution tool
 </dd>
-<dt>tool</dt>
-<dd>Create a new tool distribution
+<dd>Create a new tool distribution zip
 </dd>
-<dt>zip</dt>
-<dd>Create source, tool, xsl, web and pdf archives
+<dd>Create source, tool, xsl, web and pdf archives resolve.zip
 </dd>
-<dt>resolve.zip</dt>
 <dd>Create a resolved version of the XML sources
 </dd>
 </dl>
@@ -192,12 +172,10 @@
 <p>NISP are released according to the IP CaT Standard Operation Procedures (SOP). The NISP tools implements these procedures in three different build files.</p>
 <dl>
 <dt>build.xml</dt>
-<dd>Version developed by the IP CaT (this version containes all the targets described above)
+<dd>Version developed by the IP CaT (this version containes all the targets described above) build-final.xml
 </dd>
-<dt>build-final.xml</dt>
-<dd>Final draft distributed among IP CaT only.
+<dd>Final draft distributed among IP CaT only. build-release.xml
 </dd>
-<dt>build-release.xml</dt>
 <dd>This is the version distributed to the NC3 Board.
 </dd>
 </dl>
