@@ -9,7 +9,7 @@ Name        : makeUUID.xsl
 
 Description : This stylesheet creates an UUID element in all standards
               and profiles, where such an element do not exists. It is
-              thefor essential, that updates such as a new version of
+              therefore essential, that updates such as a new version of
               the standard is not done manually, but by creating a new
               standard/profile record.
 
