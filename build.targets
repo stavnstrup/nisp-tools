@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-   <target name="resolve" depends="init, vol1.resolve, vol2.resolve, vol3.resolve, vol4.resolve"/>
-   <target name="olinks" depends="init, vol1.olinks, vol2.olinks, vol3.olinks, vol4.olinks"/>
-   <target name="html" depends="init, master, acronyms, vol1.html, vol2.html, vol3.html, vol4.html" description="* Create all HTML files destined for the web"/>
-   <target name="pdf" depends="init, vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf, bigPDF" description="* Create a PDF version of NISP"/>
+   <target name="resolve" depends="init, vol1.resolve, vol2.resolve, vol3.resolve"/>
+   <target name="olinks" depends="init, vol1.olinks, vol2.olinks, vol3.olinks"/>
+   <target name="html" depends="init, master, acronyms, vol1.html, vol2.html, vol3.html" description="* Create all HTML files destined for the web"/>
+   <target name="pdf" depends="init, vol1.pdf, vol2.pdf, vol3.pdf, bigPDF" description="* Create a PDF version of NISP"/>
    <target name="copy.svg">
       <mkdir dir="${build.dir}/figures"/>
       <copy preservelastmodified="true" todir="${build.dir}/figures">
@@ -42,9 +42,9 @@
          <srcfiles includes="NISP-Vol*.pdf" dir="${build.dir}/pdf"/>
       </uptodate>
    </target>
-   <target name="bigPDF" unless="bigPDF.notRequired" depends="vol1.pdf, vol2.pdf, vol3.pdf, vol4.pdf, bigPDF.required">
+   <target name="bigPDF" unless="bigPDF.notRequired" depends="vol1.pdf, vol2.pdf, vol3.pdf, bigPDF.required">
       <java classname="dk.stavnstrup.nisp.apps.MergePDF" fork="yes" dir="${build.fo}">
-         <arg line="${tool-version} NISP-v${src-version-major}${nisp.lifecycle.postfix}.pdf NISP-Vol1-v${src-version-major}${nisp.lifecycle.postfix}.pdf NISP-Vol2-v${src-version-major}${nisp.lifecycle.postfix}.pdf NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.pdf NISP-Vol4-v${src-version-major}${nisp.lifecycle.postfix}.pdf "/>
+         <arg line="${tool-version} NISP-v${src-version-major}${nisp.lifecycle.postfix}.pdf NISP-Vol1-v${src-version-major}${nisp.lifecycle.postfix}.pdf NISP-Vol2-v${src-version-major}${nisp.lifecycle.postfix}.pdf NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.pdf "/>
          <classpath refid="lib-fop-classpath"/>
       </java>
       <delete quiet="true" file="${build.fo}/CombinedPDFDocument.pdf"/>
@@ -298,76 +298,6 @@
       </java>
       <echo message="Transforming Volume 3.fo to PDF"/>
       <fop basedir="${build.fo}/" fofile="${build.fo}/vol3.fo" outfile="${build.fo}/${vol3.pdf.file}" format="application/pdf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
-   </target>
-  
-
-  
-    <!-- Directories -->
-   <property name="src.vol4" value="${src.dir}/volume4"/>
-   <property name="build.vol4" value="${build.dir}/volume4"/><!-- Source file names -->
-   <property name="vol4.main.src" value="vol4.xml"/>
-   <property name="vol4.resolve.src" value="vol4-resolved.xml"/>
-   <property name="vol4.pdf.file" value="NISP-Vol4-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
-   <property name="vol4.rtf.file" value="NISP-Vol4-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
-   <property name="xsl-resolve-vol4" value="resolve.xsl"/>
-   <target name="vol4" description="* Create Volume 4 in HTML5 and PDF" depends="vol4.html, vol4.pdf"/>
-   <target name="vol4.resolve.check">
-      <uptodate property="vol4-resolve.notRequired" targetfile="${build.resolve}/${vol4.resolve.src}">
-         <srcfiles dir="${src.vol4}" includes="*.xml"/>
-         <srcfiles dir="${xsl-styles.dir}/resolve" includes="${xsl-resolve-vol4}"/>
-      </uptodate>
-   </target>
-   <target name="vol4.resolve" unless="vol4-resolve.notRequired" depends="init, vol4.resolve.check">
-      <echo message="Resolve Volume 4"/>
-      <java fork="yes" classname="${xslt.class}" dir="${src.vol4}">
-         <arg line="${xslt.opts} -o ${build.resolve}/${vol4.resolve.src} ${src.vol4}/${vol4.main.src} ${xsl-styles.dir}/resolve/${xsl-resolve-vol4} docid=vol4 documentdir=volume4 use.show.indexterms=${use.show.indexterms} nisp.image.ext=${nisp.image.ext}"/>
-         <classpath refid="lib-saxon-classpath"/>
-         <jvmarg value="${use.sax}"/>
-         <jvmarg value="${use.dom}"/>
-         <jvmarg value="${use.xinc}"/>
-      </java>
-   </target>
-   <target name="vol4-olinks.check" depends="init">
-      <uptodate property="vol4-olinks.notRequired" targetfile="${src.dir}/olinks/vol4-target.db">
-         <srcfiles dir="${build.resolve}" includes="${vol4.resolve.src}"/>
-      </uptodate>
-   </target>
-   <target name="vol4.olinks" depends="init, vol4.resolve, vol4-olinks.check" unless="vol4-olinks.notRequired">
-      <mkdir dir="${build.dir}/volume4"/>
-      <java fork="yes" classname="${xslt.class}" dir="${build.vol4}">
-         <arg line="${build.resolve}/${vol4.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} target.database.document=${src.dir}/olinks/olinksdb.xml current.docid=vol4 collect.xref.targets=only"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </java>
-      <move file="${build.vol4}/target.db" tofile="${src.dir}/olinks/vol4-target.db"/>
-   </target>
-   <target name="vol4.html.check" depends="init">
-      <mkdir dir="${build.dir}/volume4"/>
-      <uptodate property="vol4-html.notRequired" targetfile="${build.vol4}/index.html">
-         <srcfiles dir="${build.resolve}" includes="${vol4.resolve.src}"/>
-         <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-xhtml}"/>
-      </uptodate>
-   </target>
-   <target name="vol4.html" description="* Create Volume 4 in HTML5" depends="svg, vol4.resolve, vol4.html.check" unless="vol4-html.notRequired">
-      <echo message="Create Volume 4 as chunked HTML5 pages"/>
-      <java fork="yes" classname="${xslt.class}" dir="${build.vol4}">
-         <arg line="${xslt.opts} ${build.resolve}/${vol4.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol4 pdf.prefix=NISP-Vol4 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </java>
-   </target>
-   <target name="vol4.pdf.check" depends="init">
-      <uptodate property="vol4-pdf.notRequired" targetfile="${build.fo}/${vol4.pdf.file}">
-         <srcfiles dir="${build.resolve}" includes="${vol4.resolve.src}"/>
-         <srcfiles dir="${xsl-styles.dir}" includes="${xsl-all-fo}"/>
-      </uptodate>
-   </target>
-   <target name="vol4.pdf" description="* Create Volume 4 in PDF" depends="layout-fo, copy.svg, vol4.resolve, vol4.pdf.check" unless="vol4-pdf.notRequired">
-      <echo message="Create Volume 4 print version"/>
-      <java fork="yes" classname="${xslt.class}" dir="${build.fo}">
-         <arg line="${xslt.opts} -o vol4.fo ${build.resolve}/${vol4.resolve.src} ${xsl-fo.dir}/${xsl-fo} ${nisp.lifecycle.opts} pdf.prefix=NISP-Vol4 use.para.numbering=${use.para.numbering} describe=${describe}"/>
-         <classpath refid="lib-saxon-classpath"/>
-      </java>
-      <echo message="Transforming Volume 4.fo to PDF"/>
-      <fop basedir="${build.fo}/" fofile="${build.fo}/vol4.fo" outfile="${build.fo}/${vol4.pdf.file}" format="application/pdf" messagelevel="${fop.message}" userconfig="${basedir}/lib/fop.xconf"/>
    </target>
   
 
