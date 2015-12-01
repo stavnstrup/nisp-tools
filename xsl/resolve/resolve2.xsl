@@ -138,9 +138,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
   <tgroup cols="3">
-    <colspec colwidth="33*" colname="c1" />
-    <colspec colwidth="33*"/>
-    <colspec colwidth="33*" colname="c3"/>
+    <colspec colwidth="16*" colname="c1" />
+    <colspec colwidth="42*"/>
+    <colspec colwidth="43*" colname="c3"/>
     <thead>
       <row>
         <entry>Service</entry>
