@@ -177,26 +177,36 @@
 <!-- profiles -->
 
 
-<!ELEMENT capabilityprofile (profilespec, (capabilitygroup+ | services), status, uuid?)>
+
+<!ELEMENT capabilityprofile (profile*,  uuid?)>
 <!ATTLIST capabilityprofile
-          tag CDATA #REQUIRED
-          id ID #REQUIRED>
-
-<!ELEMENT capabilitygroup (services)>
-<!ATTLIST capabilitygroup
-	  title CDATA #REQUIRED>
-
-<!ELEMENT services (refprofile+)>
-
-<!ELEMENT serviceprofile (profilespec, (servicegroup+ | (guidance, parts)), status, uuid?)>
-<!ATTLIST serviceprofile
           id ID #REQUIRED
-          tref IDREF #REQUIRED
-          tag CDATA #REQUIRED>
+          title CDATA #REQUIRED>
 
-<!ELEMENT servicegroup (guidance, parts)>
-<!ATTLIST servicegroup
-	  title CDATA #REQUIRED>
+
+<!ELEMENT profile ((serviceprofile|profile),  uuid?)*>
+
+
+<!ELEMENT serviceprofile (description*, reftaxonomy+, obgroup+, guide*,  uuid?)>
+<!ATTLIST serviceprofile
+          title CDATA #REQUIRED>
+
+<!ELEMENT description (#PCDATA)>
+
+<!ELEMENT reftaxonomy EMPTY>
+<!ATTLIST reftaxonomy
+          refid IDREF #REQUIRED>
+
+<!ELEMENT obgroup (refstandard*)>
+<!ATTLIST obgroup
+          obligation (mandatory|required|optional|conditional) #REQUIRED>
+
+<!ELEMENT refstandard EMPTY>
+<!ATTLIST refstandard
+          refid IDREF #REQUIRED>
+
+<!ELEMENT guide (#PCDATA)>
+
    
 <!ELEMENT setofstandards (profilespec, profilenote?, parts, configuration?,  applicability, status, uuid?)>
 <!ATTLIST setofstandards
@@ -218,12 +228,14 @@
 <!ELEMENT guidance %ho; (%tbl.entry.mdl;)*>
 
 
-
 <!ELEMENT parts (refstandard|refprofile|cgroup)+>
+
 
 <!ELEMENT cgroup (refstandard|refprofile)+>
 <!ATTLIST cgroup
 	  condition CDATA #REQUIRED>
+
+
 
 <!ELEMENT refstandard EMPTY>
 <!ATTLIST refstandard
