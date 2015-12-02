@@ -54,15 +54,20 @@
     <xsl:message>Run the command "build debug" for additional information</xsl:message>
   </xsl:if>
 
+
+  
+    <!--
+	count(//serviceprofile[not(uuid) or uuid = '']) +
+    -->    
+
   <xsl:variable name="standards.wo.uuid" select="count(//standard[not(uuid) or uuid = ''])"/>
   <xsl:variable name="profiles.wo.uuid" select="count(//capabilityprofile[not(uuid) or uuid = '']) +
-	                                        count(//serviceprofile[not(uuid) or uuid = '']) +
-						count(//interoperabilityprofile[not(uuid) or uuid = ''])"/>
+						count(//setofstandards[not(uuid) or uuid = ''])"/>
   <xsl:if test="$standards.wo.uuid + $profiles.wo.uuid >0">
     <xsl:message terminate="no">
       <xsl:value-of select="$standards.wo.uuid"/>
       <xsl:text> standards and </xsl:text>
-      <xsl:value-of select="$interoperabilityprofiles.wo.uuid"/>
+      <xsl:value-of select="$profiles.wo.uuid"/>
       <xsl:text> profiles do not have an UUID element.</xsl:text>
     </xsl:message>
   </xsl:if>
