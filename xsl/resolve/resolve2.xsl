@@ -179,9 +179,11 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <xsl:if test="count(sp-list/select[@mode='mandatory'])>0">
         <para><emphasis role="bold">Mandatory</emphasis></para>
       </xsl:if>
-      <itemizedlist>
+      <!--
+          <itemizedlist>
+          -->
         <xsl:apply-templates mode="lowlevel"/>
-      </itemizedlist>
+<!--      </itemizedlist>  -->
     </entry>
     <entry></entry>
   </row>
@@ -190,10 +192,12 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="sp-view" mode="lowlevel">
-  <listitem>
-    <para><xsl:value-of select="select"/><xsl:apply-templates 
-             select="select/@id" mode="addindexentry"/></para>
-  </listitem>
+  <xsl:if test="./select">
+    
+      <para><xsl:value-of select="select"/><xsl:apply-templates 
+               select="select/@id" mode="addindexentry"/></para>
+    
+  </xsl:if>
 </xsl:template>
 
 
