@@ -4,8 +4,8 @@
 
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
-            doctype-public="-//DDRE//DTDStandardDB XML V4.1//EN"
-            doctype-system="../schema/dtd/stddb41c.dtd"/>
+            doctype-public="-//DDRE//DTDStandardDB XML V4.2//EN"
+            doctype-system="../schema/dtd/stddb42.dtd"/>
 
 <!--
 

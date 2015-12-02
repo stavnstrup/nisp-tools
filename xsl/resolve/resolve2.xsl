@@ -5,7 +5,7 @@
 This stylesheet is created for the NATO Interoperability Standard and
 profiles (NISP), and is intended for resolving volume 2.
 
-Copyright (c) 2002-2010, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2002-2015, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and 
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -51,28 +51,16 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="pis"><xsl:value-of select="."/></xsl:variable>
 
   <xsl:choose>
-    <xsl:when test="starts-with($pis, 'area=')">
-      <!-- Get the  the area attribute -->
-      <xsl:variable name="area">
+    <xsl:when test="starts-with($pis, 'node=')">
+      <!-- Get the  the node attribute -->
+      <xsl:variable name="node">
         <xsl:call-template name="dbmerge-attribute">
           <xsl:with-param name="pi" select="$pis"/>
-	  <xsl:with-param name="attribute" select="'area'"/>
+	  <xsl:with-param name="attribute" select="'node'"/>
         </xsl:call-template>
       </xsl:variable>
-      <xsl:if test="not($area='')">
-        <xsl:apply-templates select="$db//servicearea[@id=$area]"/>
-      </xsl:if>
-    </xsl:when>
-    <xsl:when test="starts-with($pis, 'subarea=')">
-      <!-- Get the  the subarea attribute -->
-      <xsl:variable name="subarea">
-        <xsl:call-template name="dbmerge-attribute">
-          <xsl:with-param name="pi" select="$pis"/>
-	  <xsl:with-param name="attribute" select="'subarea'"/>
-        </xsl:call-template>
-      </xsl:variable>
-      <xsl:if test="not($subarea='')">
-        <xsl:apply-templates select="$db//subarea[@id=$subarea]"/>
+      <xsl:if test="not($node='')">
+        <xsl:apply-templates select="$db//node[@id=$node]" mode="highlevel"/>
       </xsl:if>
     </xsl:when>
   </xsl:choose>  
@@ -140,45 +128,80 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <!-- ==================================================================== -->
 
+<!-- This template can properly be merged into the procesing
+     instruction template, but assumes that the node seleted is at a
+     sufficiently high level and do not "have" any standards.
 
-<xsl:template match="servicearea">
+-->
+
+<xsl:template match="node" mode="highlevel">
   <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
-  <tgroup cols="6">
-    <colspec colwidth="18*" colname="c1" />
-    <colspec colwidth="17*"/>
-    <colspec colwidth="17*"/>
-    <colspec colwidth="17*"/>
-    <colspec colwidth="13*" />
-    <colspec colwidth="18*" colname="c6"/>
+  <tgroup cols="3">
+    <colspec colwidth="16*" colname="c1" />
+    <colspec colwidth="42*"/>
+    <colspec colwidth="43*" colname="c3"/>
     <thead>
       <row>
-        <entry>SUBAREA / SERVICE CATEGORY</entry>
-	<entry>CATEGORY / SUBCATEGORY</entry>
-        <entry>MANDATORY STANDARDS</entry>
-        <entry>EMERGING</entry>
-        <entry>FADING</entry>
+        <entry>Service</entry>
+	<entry>Standards</entry>
         <entry>Remarks</entry>
       </row>
-<!--
-      <row>
-        <entry namest="c1" nameend="c6" align="left"><emphasis  role="bold"><xsl:text>Service Area : </xsl:text><xsl:call-template name="capitalize">
-          <xsl:with-param name="string" 
-               select="@title"/></xsl:call-template></emphasis></entry>
-      </row>
--->
     </thead>
     <tbody>
+<!--
+      Let us for now ASSUME, no standards are associated with this node
+           
       <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
-      <xsl:apply-templates select="servicecategory" mode="sa-children"/>
-      <xsl:apply-templates select="subarea" mode="sa-children"/>
+-->     
+      <xsl:apply-templates mode="lowlevel"/>
     </tbody>
   </tgroup>
   </informaltable>
 </xsl:template>
 
 
-<xsl:template match="subarea" mode="sa-children">
+<xsl:template match="node" mode="lowlevel">
+  <xsl:variable name="id" select="@id"/>
+  <xsl:apply-templates select="//sp-list[@tref=$id]"  mode="lowlevel"/>
+  <xsl:apply-templates mode="lowlevel"/>
+</xsl:template>
+
+
+<xsl:template match="sp-list" mode="lowlevel">
+  <xsl:variable name="tref" select="@tref"/>
+  <xsl:if test="count(./sp-view)>0">
+  <row>
+    <entry>
+      <xsl:value-of select="//node[@id=$tref]/@title"/>
+    </entry>
+    <entry>
+      <xsl:if test="count(sp-list/select[@mode='mandatory'])>0">
+        <para><emphasis role="bold">Mandatory</emphasis></para>
+      </xsl:if>
+      <!--
+          <itemizedlist>
+          -->
+        <xsl:apply-templates mode="lowlevel"/>
+<!--      </itemizedlist>  -->
+    </entry>
+    <entry></entry>
+  </row>
+  </xsl:if>
+</xsl:template>
+
+
+<xsl:template match="sp-view" mode="lowlevel">
+  <xsl:if test="./select">
+    
+      <para><xsl:value-of select="select"/><xsl:apply-templates 
+               select="select/@id" mode="addindexentry"/></para>
+    
+  </xsl:if>
+</xsl:template>
+
+
+<xsl:template match="node1">
   <xsl:variable name="id" select="@id"/>
   <row>
     <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
@@ -252,101 +275,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
 </xsl:template>
 
 
-<!-- ==================================================================== -->
-
-
-
-<xsl:template match="subarea">
-  <xsl:variable name="id" select="@id"/>
-  <informaltable frame="all" pgwide="1">
-  <tgroup cols="5">
-    <colspec colwidth="20*" colname="c1" />
-    <colspec colwidth="20*"/>
-    <colspec colwidth="20*"/>
-    <colspec colwidth="20*"/>
-    <colspec colwidth="20*" colname="c5"/>
-    <thead>
-      <row>
-        <entry>SERVICECATEGORY / CATEGORY / SUBCATEGORY</entry>
-        <entry>MANDATORY STANDARDS</entry>
-        <entry>EMERGING NEAR TERM</entry>
-        <entry>FADING</entry>
-        <entry>Remarks</entry>
-      </row>
-<!--
-      <row>
-        <entry namest="c1" nameend="c5" align="left"><emphasis  role="bold"><xsl:text>Subarea : </xsl:text><xsl:call-template name="capitalize">
-          <xsl:with-param name="string" 
-               select="@title"/></xsl:call-template></emphasis></entry>
-      </row>
--->
-    </thead>
-    <tbody>
-      <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
-      <xsl:apply-templates select="servicecategory" mode="subarea-children"/>
-    </tbody>
-  </tgroup>
-  </informaltable>
-</xsl:template>
-
-
-<xsl:template match="servicecategory" mode="subarea-children">
-  <xsl:variable name="id" select="@id"/>
-  <row>
-    <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
-    <entry/><entry/><entry/><entry/>
-  </row>
-  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
-  <xsl:apply-templates select="category" mode="subarea-children"/>
-</xsl:template>
-
-
-<xsl:template match="category" mode="subarea-children">
-  <xsl:variable name="id" select="@id"/>
-  <row>
-    <entry><xsl:value-of select="@title"/></entry>
-    <entry/><entry/><entry/><entry/>
-  </row>
-  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
-  <xsl:apply-templates select="subcategory" mode="subarea-children"/>
-</xsl:template>
-
-
-<xsl:template match="subcategory" mode="subarea-children">
-  <xsl:variable name="id" select="@id"/>
-  <row>
-    <entry><emphasis><xsl:value-of select="@title"/></emphasis></entry>
-    <entry/><entry/><entry/><entry/>
-  </row>
-  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="subarea-children"/>
-</xsl:template>
-
-
-<xsl:template match="sp-list" mode="subarea-children">
-  <xsl:apply-templates  mode="subarea-children"/>
-</xsl:template>
-
-<!--
-
-  Print a SP view: class/subclass, mandatory/emerging standards, applicability and remarks
-
--->
-
-<xsl:template match="sp-view" mode="subarea-children">
-  <xsl:if test="./header or ./subclass or ./select[@mode='mandatory'] or
-                ./select[@mode='emerging'] or ./select[@mode='fading']">
-    <row>
-      <entry/>
-      <entry><xsl:apply-templates select="./select[@mode='mandatory']"/><xsl:apply-templates 
-             select="select[@mode='mandatory']/@id" mode="addindexentry"/></entry>
-      <entry><xsl:apply-templates 
-           select="./select[@mode='emerging']"/><xsl:apply-templates
-           select="./select[@mode='emerging']/@id" mode="addindexentry"/></entry>
-      <entry><xsl:apply-templates select="./select[@mode='fading']"/></entry>
-      <entry><xsl:apply-templates select="./remarks"/></entry>
-    </row>
-  </xsl:if>
-</xsl:template>
 
 
 <!-- ==================================================================== -->
