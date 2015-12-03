@@ -269,7 +269,9 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 
 
 <xsl:template match="standard">
-    <xsl:value-of select="@id"/>
+  <xsl:value-of select="document/@pubnum"/>
+  <xsl:text> - </xsl:text>
+  <xsl:value-of select="document/@title"/>
 </xsl:template>
 
   
