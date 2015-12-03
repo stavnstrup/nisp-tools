@@ -47,6 +47,7 @@
 
 
 <xsl:template match="records">
+  <xsl:variable name="all" select="count(standard)"/>
   <ol>
   <xsl:for-each select="standard[generate-id() = generate-id(key('key1', responsibleparty/@rpref)[1])]">
     <xsl:sort select="responsibleparty/@rpref"/>
@@ -61,8 +62,11 @@
 	<xsl:value-of select="../../responsibleparties/rpkey[@key=$rp]/@long"/>
       </a>
       <xsl:text> - </xsl:text>
-      <xsl:value-of select="count(//*/responsibleparty[@rpref=$rp])"/>
-      <xsl:text> standards</xsl:text>
+      <xsl:variable name="rpnum" select="count(//*/responsibleparty[@rpref=$rp])"/> 
+      <xsl:value-of select="$rpnum"/>
+      <xsl:text> standards &#x2248; </xsl:text>
+      <xsl:value-of select="format-number($rpnum div $all, '#.##%')"/>
+      <xsl:text></xsl:text>
     </li>
   </xsl:for-each>
   </ol>
