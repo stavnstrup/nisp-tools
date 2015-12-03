@@ -18,7 +18,7 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="records">
   <records>
-    <xsl:apply-templates select="standard|setofstandards|serviceprofile|capabilityprofile">
+    <xsl:apply-templates select="standard|setofstandards|serviceprofile|profile|capabilityprofile">
        <xsl:sort select="@id"/>
     </xsl:apply-templates>
   </records>

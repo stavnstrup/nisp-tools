@@ -6243,600 +6243,6 @@
 
    </lists>
    <records>
-      <capabilityprofile id="fmn1" title="FMN Spiral 1 Profile">
-         <profile id="fmn-fed-com-net" title="Federated Communication and Networking Profile">
-            <profile id="fmn-fed-com" title="Federated Communication Profile">
-               <serviceprofile title="Inter-Autonomous Systems IP Transport Profile">
-                  <description>The Inter-Autonomous Systems IP Transport Profile provides standards and guidance for Edge Transport Services between autonomous systems, using Internet Protocol (IP) over point-to-point Ethernet links on optical fibre.</description>
-                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc826"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="iso-iec-11801"/>
-                     <refstandard refid="itu-t-g.652"/>
-                     <refstandard refid="iec-61754-20"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ieee-802.3-2013"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="IP Routing Information Profile">
-                  <description>The IP Routing Information Profile provides standards and guidance for support of the Routing Information Protocol (RIP) to expand the amount of useful information carried in RIP messages and to add a measure of security.</description>
-                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
-                  <obgroup obligation="optional">
-                     <refstandard refid="ietf-rfc2453"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Inter-Autonomous Systems Multicast Routing Profile">
-                  <description>The Inter-Autonomous Systems Multicast Routing Profile provides standards and guidance for multicast routing between inter-autonomous systems.</description>
-                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
-                  <reftaxonomy refid="ts-cs-ca-pba-ipv4"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc3618"/>
-                     <refstandard refid="ietf-rfc4760"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc4601"/>
-                     <refstandard refid="ietf-rfc1112"/>
-                     <refstandard refid="ietf-rfc3376"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc2908"/>
-                     <refstandard refid="ietf-rfc3171"/>
-                     <refstandard refid="ietf-rfc2365"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="IP Quality of Service Profile">
-                  <description>The IP Quality of Service Profile provides standards and guidance to establish and control an agreed level of performance for IP services in federated networks.</description>
-                  <reftaxonomy refid="ts-cs-tn-core-packetroute"/>
-                  <reftaxonomy refid="ts-cs-ca-pba-ipv4"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc2474"/>
-                     <refstandard refid="ietf-rfc4594"/>
-                     <refstandard refid="itu-t-y.1540"/>
-                     <refstandard refid="itu-t-y.1541"/>
-                     <refstandard refid="itu-t-y.1542"/>
-                     <refstandard refid="itu-t-m.2301"/>
-                     <refstandard refid="itu-t-j.241"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="nato-stanag4711"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Inter-Autonomous Systems Routing Profile">
-                  <description>The Inter-Autonomous Systems Routing Profile provides standards and guidance for routing between inter-autonomous systems</description>
-                  <reftaxonomy refid="ts-cs-tn-core-packetroute"/>
-                  <reftaxonomy refid="ts-cs-ca-pba-ipv4"/>
-                  <obgroup obligation="required">
-                     <refstandard refid="ietf-rfc5668"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc4632"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc1997"/>
-                     <refstandard refid="ietf-rfc4360"/>
-                     <refstandard refid="ietf-rfc3392"/>
-                     <refstandard refid="ietf-rfc4271"/>
-                     <refstandard refid="ietf-rfc4760"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Inter-Autonomous Systems TDM Transport Profile">
-                  <description>The Inter-Autonomous Systems TDM Transport
-            Profile provides standards and guidance for Edge Transport
-            Services between autonomous systems, using Time Division
-            Multiplex (TDM) over a Wide Area Network
-            (WAN).</description>
-                  <reftaxonomy refid="ts-cs-tn-edge-timediv"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="itu-t-g.703"/>
-                     <refstandard refid="itu-t-g.704"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc3544"/>
-                     <refstandard refid="ietf-rfc1994"/>
-                     <refstandard refid="ietf-rfc1661"/>
-                  </obgroup>
-                  <guide>This interconnection is based on STANAG 5067,
-Standard for interconnection of IPv4 networks at
-Mission Secret and unclassified security Levels.
-STANAG 5067 provides additional
-implementation, security and management
-guidance.</guide>
-                  <guide>Combined with TRANSEC crypto or other forms
-of link protection, CHAP (IETF RFC 1994) is not
-required. Otherwise, CHAP is recommended.</guide>
-               </serviceprofile>
-               <serviceprofile title="Routing Encapsulation Profile">
-                  <description>The Routing Encapsulation Profile provides
-           standards and guidance for generic routing encapsulation
-           functions between network interconnection points
-           (NIPs)</description>
-                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc2890"/>
-                     <refstandard refid="ietf-rfc2409"/>
-                     <refstandard refid="ietf-rfc4303"/>
-                  </obgroup>
-               </serviceprofile>
-            </profile>
-            <profile id="fmn-fed-net" title="Federated Networking Profile">
-               <serviceprofile title="Directory Data Structure Profile">
-                  <description>The Directory Data Structure Profile provides standards and guidance in support of the definition of the namespace of a federated mission network on the basis of the Lightweight Directory Access Protocol (LDAP)</description>
-                  <reftaxonomy refid="ts-ces-is-ss-directory"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc2798"/>
-                     <refstandard refid="ietf-rfc4519"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Digital Certificate Profile">
-                  <description>The Digital Certificate Profile provides standards and guidance in support of a Public Key Infrastructure (PKI) on federated mission networks.</description>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="itu-t-x.509"/>
-                     <refstandard refid="ietf-rfc5280"/>
-                     <refstandard refid="ietf-rfc6960"/>
-                  </obgroup>
-                  <guide>The version of the encoded public key certificate shall be version 3. The version of the encoded certificate revocation list (CRL) shall be version 2.</guide>
-                  <guide>Additional Implementation Guidance:
-            <itemizedlist>
-                        <listitem>
-                           <para>AC/322-D(2004)0024-REV2-ADD2 - "NATO
-Public Key Infrastructure (NPKI) Certificate
-Policy"</para>
-                        </listitem>
-                        <listitem>
-                           <para>AC/322-D(2010)0036 - "NATO Cryptographic
-  Interoperability Strategy"</para>
-                        </listitem>
-                     </itemizedlist>
-                  </guide>
-               </serviceprofile>
-               <serviceprofile title="Directory Data Exchange Profile">
-                  <description>The Directory Data Exchange Profile provides standards and guidance in support of a mechanism used to connect to, search, and modify Internet directories on the basis of the Lightweight Directory Access Protocol (LDAP).</description>
-                  <reftaxonomy refid="ts-ces-is-ss-directory"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc4510"/>
-                     <refstandard refid="ietf-rfc4511"/>
-                     <refstandard refid="ietf-rfc4512"/>
-                     <refstandard refid="ietf-rfc4513"/>
-                     <refstandard refid="ietf-rfc4514"/>
-                     <refstandard refid="ietf-rfc4515"/>
-                     <refstandard refid="ietf-rfc4516"/>
-                     <refstandard refid="ietf-rfc4517"/>
-                     <refstandard refid="ietf-rfc4518"/>
-                     <refstandard refid="ietf-rfc4519"/>
-                     <refstandard refid="ietf-rfc2849"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Network Authentication Profile">
-                  <description>The Network Authentication Profile provides standards and guidance for to provide strong authentication for client/server applications by using secret-key cryptography on the basis of the Kerberos authentication protocol</description>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc4121"/>
-                     <refstandard refid="ietf-rfc4422"/>
-                     <refstandard refid="ietf-rfc4505"/>
-                     <refstandard refid="ietf-rfc4616"/>
-                     <refstandard refid="ietf-rfc4752"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc4120"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Time Synchronization Profile">
-                  <description>The Time Synchronization Profile provides standards and guidance to support the synchronization of clocks across a network or a federation of networks and the safeguard of the accurate use of time stamps.</description>
-                  <reftaxonomy refid="ts-ces-is-net-disttime"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc5905"/>
-                     <refstandard refid="itu-r-tf.460-6"/>
-                  </obgroup>
-                  <guide>A stratum-1 time server is directly linked (not
-over a network path) to a reliable source of UTC
-time (Universal Time Coordinate) such as GPS,
-WWV, or CDMA transmissions through a modem
-connection, satellite, or radio.</guide>
-                  <guide>Stratum-1 devices must implement IPv4 so that
-they can be used as timeservers for IPv4 Mission
-      Network Elements.</guide>
-               </serviceprofile>
-               <serviceprofile title="Domain Naming Profile">
-                  <description>The Domain Naming Profile provides standards and guidance to support the hierarchical distributed naming system for computers, services, or any resource connected to a federated mission network.</description>
-                  <reftaxonomy refid="ts-ces-is-net-dns"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc1034"/>
-                     <refstandard refid="ietf-rfc1035"/>
-                     <refstandard refid="ietf-rfc1032"/>
-                     <refstandard refid="ietf-rfc2181"/>
-                     <refstandard refid="ietf-rfc2782"/>
-                  </obgroup>
-               </serviceprofile>
-            </profile>
-         </profile>
-         <profile id="fmn-fed-hum-comm" title="Federated Human-to-Human Communications Profile">
-            <profile id="fmn-uni-collab" title="Federated Unified Collaboration Profile">
-               <serviceprofile title="Content Encapsulation Profile">
-                  <description>The Content Encapsulation Profile provides standards and guidance for content encapsulation within bodies of interne messages, following the Multipurpose Internet Mail Extensions (MIME) specification.</description>
-                  <reftaxonomy refid="ts-ces-es-cc-im"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc2045"/>
-                     <refstandard refid="ietf-rfc2046"/>
-                     <refstandard refid="ietf-rfc2047"/>
-                     <refstandard refid="ietf-rfc2049"/>
-                     <refstandard refid="ietf-rfc4288"/>
-                  </obgroup>
-                  <guide>10 MB max message size limit</guide>
-                  <guide>Minimum Content-Transfer-Encoding:
-        <itemizedlist>
-                        <listitem>
-                           <para>7bit</para>
-                        </listitem>
-                        <listitem>
-                           <para>base64</para>
-                        </listitem>
-                        <listitem>
-                           <para>binary BINARYMIME SMTP extension (RFC 3030)</para>
-                        </listitem>
-                     </itemizedlist>
-                  </guide>
-                  <guide>Minimum set of media and content-types:
-        <itemizedlist>
-                        <listitem>
-                           <para>text/plain (RFC 1521)</para>
-                        </listitem>
-                        <listitem>
-                           <para>text/enriched (RFC 1896)</para>
-                        </listitem>
-                        <listitem>
-                           <para>text/html (RFC 1866)</para>
-                        </listitem>
-                        <listitem>
-                           <para>multipart/mixed (RFC 2046)</para>
-                        </listitem>
-                        <listitem>
-                           <para>multipart/signed</para>
-                        </listitem>
-                     </itemizedlist>
-                  </guide>
-               </serviceprofile>
-               <serviceprofile title="Informal Messaging Profile">
-                  <description>The Informal Messaging Profile provides standards and guidance for SMTP settings and the marking and classification of informal messages.</description>
-                  <reftaxonomy refid="ts-ces-es-cc-im"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc5321"/>
-                     <refstandard refid="ietf-rfc1870"/>
-                     <refstandard refid="ietf-rfc1985"/>
-                     <refstandard refid="ietf-rfc2034"/>
-                     <refstandard refid="ietf-rfc2920"/>
-                     <refstandard refid="ietf-rfc3207"/>
-                     <refstandard refid="ietf-rfc3461"/>
-                     <refstandard refid="ietf-rfc3798"/>
-                     <refstandard refid="ietf-rfc3885"/>
-                     <refstandard refid="ietf-rfc4954"/>
-                  </obgroup>
-                  <guide>Depending on the protection requirements within the particular FMN instance messages must be marked in the message header field "Keywords"(IETF RFC 2822) and firstline-of-text in the message body according to the following convention: [MMM] [CLASSIFICATION], Releasable to [MISSION] Where CLASSIFICATION is the classification {SECRET, CONFIDENTIAL, RESTRICTED} or UNCLASSIFIED, and MMM is the ISO 3166-1 alpha-3 country code with the exception that NATO will be identified by the four letter acronym "NATO". The "releasable to" list shall include the short-name of the mission and may be extended to include other entities.</guide>
-                  <guide>Example: Keywords: ITA UNCLASSIFIED,
-Releasable to XFOR Conditional (if the mission
-network operates at classified level).</guide>
-               </serviceprofile>
-               <serviceprofile title="Numbering Plans Profile">
-                  <description>The Numbering Plans Profile provides standards and guidance for the facilitation of numbering plans of                                         telecommunications, audio and video networks.</description>
-                  <reftaxonomy refid="ts-ces-es-cc-ac"/>
-                  <reftaxonomy refid="ts-ces-es-cc-vc"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="nato-stanag4705"/>
-                     <refstandard refid="nato-stanag5046"/>
-                     <refstandard refid="itu-t-e.164"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Audio-based Collaboration Profile">
-                  <description>The Audio-based Collaboration Profile provides standards and guidance for the implementation of an interoperable voice system (telephony) on federated mission networks.</description>
-                  <reftaxonomy refid="ts-ces-es-cc-ac"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc3261"/>
-                     <refstandard refid="ietf-rfc3262"/>
-                     <refstandard refid="ietf-rfc3264"/>
-                     <refstandard refid="ietf-rfc3311"/>
-                     <refstandard refid="ietf-rfc3428"/>
-                     <refstandard refid="ietf-rfc4028"/>
-                     <refstandard refid="ietf-rfc4412"/>
-                     <refstandard refid="ietf-rfc4566"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc3550"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="itu-t-g.729"/>
-                  </obgroup>
-                  <guide>Voice over IP (VoIP) refers to unprotected voice
-communication services running on unclassified
-IP networks e.g. conventional IP telephony.
-Voice over Secure IP (VoSIP) refers to
-non-protected voice service running on a
-classified IP networks. Depending on the security
-classification of a FMN instance, VoIP or VoSIP
-is mandatory. If a member choses to use
-network agnostic Secure Voice services in
-addition to VoSIP, then SCIP specifications as
-defined for audio-based collaboration services
-(end-to-end protected voice) should be used.</guide>
-                  <guide>The voice sampling interval is 40ms.</guide>
-               </serviceprofile>
-               <serviceprofile title="Secure Voice Profile">
-                  <description>The Secure Voice Profile provides standards and guidance for the facilitation of secure telephony and other protected                                      audio-based collaboration on federated mission networks.</description>
-                  <reftaxonomy refid="ts-ces-es-cc-ac"/>
-                  <obgroup obligation="conditional">
-                     <refstandard refid="itu-t-v.150.1"/>
-                     <refstandard refid="iicwg-scip-210"/>
-                     <refstandard refid="iicwg-scip-214"/>
-                     <refstandard refid="iicwg-scip-215"/>
-                     <refstandard refid="iicwg-scip-216"/>
-                     <refstandard refid="iicwg-scip-220"/>
-                     <refstandard refid="iicwg-scip-221"/>
-                     <refstandard refid="iicwg-scip-233"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Basic Text-based Collaboration Profile">
-                  <description>The Basic Text-based Collaboration Profile provides standards and guidance to establish a basic near-real time text-based group collaboration capability (chat) for time critical reporting and decision making in military operations.</description>
-                  <reftaxonomy refid="ts-ces-es-cc-tc"/>
-                  <reftaxonomy refid="ts-ces-es-cc-presence"/>
-                  <obgroup obligation="optional">
-                     <refstandard refid="xmpp-xep-0288"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="xmpp-xep-0004"/>
-                     <refstandard refid="xmpp-xep-0030"/>
-                     <refstandard refid="xmpp-xep-0045"/>
-                     <refstandard refid="xmpp-xep-0049"/>
-                     <refstandard refid="xmpp-xep-0050"/>
-                     <refstandard refid="xmpp-xep-0054"/>
-                     <refstandard refid="xmpp-xep-0092"/>
-                     <refstandard refid="xmpp-xep-0096"/>
-                     <refstandard refid="xmpp-xep-0114"/>
-                     <refstandard refid="xmpp-xep-0115"/>
-                     <refstandard refid="xmpp-xep-0203"/>
-                     <refstandard refid="xmpp-xep-0220"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc6120"/>
-                     <refstandard refid="ietf-rfc6121"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Video-based Collaboration Profile">
-                  <description>The Video-based Collaboration Profile provides standards and guidance for the implementation and configuration of Video Tele Conferencing (VTC) systems and services in a federated mission network.</description>
-                  <reftaxonomy refid="ts-ces-es-cc-vc"/>
-                  <obgroup obligation="conditional">
-                     <refstandard refid="ietf-rfc4582"/>
-                     <refstandard refid="itu-t-h.239"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <description/>
-                     <refstandard refid="itu-t-g.722"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="itu-t-h.323"/>
-                     <refstandard refid="itu-t-h.225"/>
-                     <refstandard refid="itu-t-h.245"/>
-                     <refstandard refid="itu-t-h.264"/>
-                     <refstandard refid="itu-t-h.263"/>
-                     <refstandard refid="itu-t-6.722"/>
-                     <refstandard refid="ietf-rfc3550"/>
-                  </obgroup>
-                  <guide>It Is recommended that dynamic port ranges are
-constrained to a limited and agreed number. This
-is an activity that needs to be performed at the
-mission planning stage. Different vendors have
-different limitations on fixed ports. However
-common ground can always be found.</guide>
-                  <guide>As a Minimum G.722.1 is to be used. Others are
-exceptions and need to be agreed by the MN
-administrative authority for video calls.</guide>
-               </serviceprofile>
-            </profile>
-            <profile id="fmn-fed-inf-mgnt" title="Federated Information Management Profile">
-               <serviceprofile title="File Format Profile">
-                  <description>The File Format Profile provides standards and guidance for the collaborative generation of spreadsheets, charts, presentations and word processing documents.</description>
-                  <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <reftaxonomy refid="ts-ces-es-cc-im"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="iso-iec-10918-1"/>
-                     <refstandard refid="iso-iec-10918-3"/>
-                  </obgroup>
-                  <obgroup obligation="required">
-                     <refstandard refid="iso-iec-26300"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="iso-iec-29500"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <description/>
-                     <refstandard refid="iso-19005-1"/>
-                     <refstandard refid="iso-19005-2"/>
-                     <refstandard refid="iso-32000-1"/>
-                  </obgroup>
-                  <guide>ISO/IEC 29500 and ISO/IEC 26300 are both
-open document formats for XML-based saving
-and exchanging word processing documents,
-spreadsheets and presentations. They differ in
-design and scope.</guide>
-               </serviceprofile>
-               <serviceprofile title="Internationalization Profile">
-                  <description>The Internationalization Profile provides standards and guidance for the design and development of content and (web) applications, in a way that ensures it will work well for, or can be easily adapted for, users from any culture, region, or language.</description>
-                  <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <obgroup obligation="required">
-                     <refstandard refid="w3c-rec-charmod-20050215"/>
-                     <refstandard refid="w3c-rec-its-20070403"/>
-                     <refstandard refid="w3c-rec-its20-20131029"/>
-                     <refstandard refid="w3c-rec-ruby-20010531"/>
-                  </obgroup>
-                  <guide>Best practices and tutorials on
-internationalization can be found at:
-http://www.w3.org/International/articlelist.</guide>
-               </serviceprofile>
-               <serviceprofile title="Character Encoding Profile">
-                  <description>The Character Encoding Profile provides standards and guidance for the encoding of character sets.</description>
-                  <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <obgroup obligation="mandatory">
-                     <description/>
-                     <refstandard refid="ietf-rfc3629"/>
-                  </obgroup>
-               </serviceprofile>
-            </profile>
-            <profile id="fmn-fed-web-host" title="Federated Web Hosting Profile">
-               <serviceprofile title="Web Platform Profile">
-                  <description>The Web Platform Profile provides standards and guidance to enable web technology on federated mission networks.</description>
-                  <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc2616"/>
-                     <refstandard refid="ietf-rfc2817"/>
-                     <refstandard refid="ietf-rfc3986"/>
-                     <refstandard refid="ietf-rfc1738"/>
-                  </obgroup>
-                  <guide>HTTP shall be used as the transport protocol for
-information without 'need-to-know' caveats
-between all service providers and consumers
-(unsecured HTTP traffic). HTTPS shall be used
-as the transport protocol between all service
-providers and consumers to ensure
-confidentiality requirements (secured HTTP
-traffic). Unsecured and secured HTTP traffic
-shall share the same port.</guide>
-               </serviceprofile>
-               <serviceprofile title="Web Content Profile">
-                  <description>The Web Content Profile provides standards and guidance for the processing, sharing and presentation of web content on federated mission networks. Web presentation services must be based on a fundamental set of basic and widely understood protocols, such as those listed below. Proprietary or compiled components shall be avoided (e.g. Microsoft Web Parts, Microsoft Silverlight or Adobe Flash).</description>
-                  <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="iso-iec-15445"/>
-                     <refstandard refid="ietf-rfc2854"/>
-                     <refstandard refid="ietf-rfc4329"/>
-                     <refstandard refid="w3c-rec-html5-20141028"/>
-                     <refstandard refid="w3c-rec-css3-mediaqueries-20120619"/>
-                     <refstandard refid="w3c-rec-css3-selectors-20110929"/>
-                     <refstandard refid="ietf-rfc2616"/>
-                     <refstandard refid="ietf-rfc2817"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="w3c-rec-css2-2011067"/>
-                     <refstandard refid="w3c-cr-css-style-attr-20101012"/>
-                     <refstandard refid="w3c-rec-css-namespaces-3-20140320"/>
-                     <refstandard refid="w3c-rec-css3-color-20110607"/>
-                  </obgroup>
-                  <guide>Applications must support the following
-browsers: Microsoft Internet Explorer v9.0 and
-newer, and Mozilla Firefox 16.0 and newer.
-When a supported browser is not true to the
-standard, choose to support the browser that is
-closest to the standard.</guide>
-                  <guide>Some organizations or end user devices do not
-allow the use of proprietary extensions such as
-Microsoft Web Parts, Microsoft Silverlight or
-Adobe Flash. Those technologies shall be
-avoided. Implementers shall use open standard
-based solutions (HTML5 / CSS3) instead.</guide>
-               </serviceprofile>
-               <serviceprofile title="Geospatial Web Feeds Profile">
-                  <description>The Geospatial Web Feeds Profile provides standards and guidance for the delivery of geospatial content to web sites and to user agents, including the encoding of location as part of web feeds. Feed processing software is required to either read or ignore these extensions and shall not fail if these extensions are present, so there is no danger of breaking someone's feed reader (or publisher) by including this element in a feed.</description>
-                  <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <obgroup obligation="required">
-                     <refstandard refid="ogc-06-050r3"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ogc-11-044"/>
-                  </obgroup>
-               </serviceprofile>
-               <serviceprofile title="Web Services Profile">
-                  <description>The Web Services Profile provides standards and guidance for transport-neutral mechanisms to address structured exchange of information in a decentralized, distributed environment via web services.</description>
-                  <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="w3c-rec-soap11"/>
-                     <refstandard refid="w3c-note-wsdl-20010315"/>
-                     <refstandard refid="w3c-note-wsdl20-soap11-binding-20070626"/>
-                     <refstandard refid="w3c-address"/>
-                  </obgroup>
-                  <obgroup obligation="conditional">
-                     <refstandard refid="acm-2002-rest-toit"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="w3c-cr-cors-20130129"/>
-                  </obgroup>
-                  <guide>The preferred method for implementing
-web-services are SOAP, however, there are
-many use cases (mashups etc.) where a REST
-based interface is easier to implement and
-sufficient to meet the IERs.</guide>
-                  <guide>Restful services support HTTP caching, if the
-data the Web service returns is not altered
-frequently and not dynamic in nature. REST is
-particularly useful for restricted-profile devices
-such as mobile phones and tablets for which the
-overhead of additional parameters like headers
-and other SOAP elements are less.
-Web</guide>
-               </serviceprofile>
-               <serviceprofile title="Web Feeds Profile">
-                  <description>The Web Feeds Profile provides standards and guidance for the delivery of content to web sites as well as directly to user agents.</description>
-                  <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc4287"/>
-                     <refstandard refid="ietf-rfc5023"/>
-                     <refstandard refid="rss-2.0"/>
-                  </obgroup>
-                  <guide>RSS and Atom documents may reference related
-OpenSearch description documents via the Atom
-1.0 "link" element, as specified in Section 4.2.7
-of RFC 4287.</guide>
-                  <guide>The "rel" attribute of the link element should
-contain the value "search" when referring to
-OpenSearch description documents. This
-relationship value is pending IANA registration.
-The reuse of the Atom link element is
-recommended in the context of other syndication
-formats that do natively support comparable
-functionality.</guide>
-                  <guide>The following restrictions apply:
-<itemizedlist>
-                        <listitem>
-                           <para>The "type" attribute must contain the value
-"application/opensearchdescription+xml".</para>
-                        </listitem>
-                        <listitem>
-                           <para>The "rel" attribute must contain the value
-"search".</para>
-                        </listitem>
-                        <listitem>
-                           <para>The "href" attribute must contain a URI that
-resolves to an OpenSearch description
-document.</para>
-                        </listitem>
-                        <listitem>
-                           <para>The "title" attribute may contain a
-human-readable plain text string describing
-the search engine.</para>
-                        </listitem>
-                     </itemizedlist>
-                  </guide>
-               </serviceprofile>
-               <serviceprofile title="Structured Data Profile">
-                  <description>The Structured Data Profile provides standards and guidance for the structuring of web content on federated mission networks. Web Hosting</description>
-                  <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <reftaxonomy refid="XXX"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="w3c-rec-xml10-20081126"/>
-                     <refstandard refid="ietf-rfc4627"/>
-                     <refstandard refid="w3c-rec-xmlschema-1-20041028"/>
-                     <refstandard refid="w3c-rec-xmlschema-2-20041028"/>
-                     <refstandard refid="w3c-NOTE-xhtml1-schema-20020902"/>
-                  </obgroup>
-                  <guide>XML shall be used for data exchange to satisfy
-those Information Exchange Requirements within
-a FMN instance that are not addressed by a
-specific information exchange standard. XML
-Schemas and namespaces are required for all
-XML documents.</guide>
-               </serviceprofile>
-            </profile>
-         </profile>
-         <uuid>37b9a98c-ba75-4e26-a8e6-d18ccf7c6a5b</uuid>
-      </capabilityprofile>
-
       <standard id="acm-2002-rest-toit" tag="REST">
          <document orgid="acm" pubnum="2002-REST-TOIT" date="2000" title="Representational State Transfer (REST)"/>
          <applicability>
@@ -10385,6 +9791,663 @@ Grids</applicability>
          <uuid>5c53b623-16af-4208-8018-8d8fec704c8a</uuid>
       </standard>
 
+      <capabilityprofile id="fmn1" title="FMN Spiral 1 Profile">
+         <profile id="fmn-fed-com-net" title="Federated Communication and Networking Profile">
+            <profile id="fmn-fed-com" title="Federated Communication Profile">
+               <serviceprofile title="Inter-Autonomous Systems IP Transport Profile">
+                  <description>The Inter-Autonomous Systems IP Transport Profile provides standards and guidance for Edge Transport Services between autonomous systems, using Internet Protocol (IP) over point-to-point Ethernet links on optical fibre.</description>
+                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
+                  <obgroup obligation="mandatory">
+                     <description>Standards for IP version 4 (IPv4) over Ethernet</description>
+                     <refstandard refid="ietf-rfc826"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="iso-iec-11801"/>
+                     <refstandard refid="itu-t-g.652"/>
+                     <refstandard refid="iec-61754-20"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>Section 5 - Clause 58 - 1000BASE-LX10, nominal transmit wavelength 1310nm</description>
+                     <refstandard refid="ieee-802.3-2013"/>
+                  </obgroup>
+                  <guide>Use 1Gb/s Ethernet over single-mode optical fibre (SMF).</guide>
+               </serviceprofile>
+               <serviceprofile title="IP Routing Information Profile">
+                  <description>The IP Routing Information Profile provides standards and guidance for support of the Routing Information Protocol (RIP) to expand the amount of useful information carried in RIP messages and to add a measure of security.</description>
+                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
+                  <obgroup obligation="optional">
+                     <description>For the optional capability supporting automatic configuration, the following standards apply</description>
+                     <refstandard refid="ietf-rfc2453"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Inter-Autonomous Systems Multicast Routing Profile">
+                  <description>The Inter-Autonomous Systems Multicast Routing Profile provides standards and guidance for multicast routing between inter-autonomous systems.</description>
+                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
+                  <reftaxonomy refid="ts-cs-ca-pba-ipv4"/>
+                  <obgroup obligation="mandatory">
+                     <description>MNEs, as well as MNXs with their own multicast capability, shall provide a Rendezvous Point (RP) supporting the following IP multicast protocol standards</description>
+                     <refstandard refid="ietf-rfc3618"/>
+                     <refstandard refid="ietf-rfc4760"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards shall apply for all IP interconnections</description>
+                     <refstandard refid="ietf-rfc4601"/>
+                     <refstandard refid="ietf-rfc1112"/>
+                     <refstandard refid="ietf-rfc3376"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards shall apply to multicast routing</description>
+                     <refstandard refid="ietf-rfc2908"/>
+                     <refstandard refid="ietf-rfc3171"/>
+                     <refstandard refid="ietf-rfc2365"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="IP Quality of Service Profile">
+                  <description>The IP Quality of Service Profile provides standards and guidance to establish and control an agreed level of performance for IP services in federated networks.</description>
+                  <reftaxonomy refid="ts-cs-tn-core-packetroute"/>
+                  <reftaxonomy refid="ts-cs-ca-pba-ipv4"/>
+                  <obgroup obligation="mandatory">
+                     <description>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP)</description>
+                     <refstandard refid="ietf-rfc2474"/>
+                     <refstandard refid="ietf-rfc4594"/>
+                     <refstandard refid="itu-t-y.1540"/>
+                     <refstandard refid="itu-t-y.1541"/>
+                     <refstandard refid="itu-t-y.1542"/>
+                     <refstandard refid="itu-t-m.2301"/>
+                     <refstandard refid="itu-t-j.241"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following normative standards shall apply for             IP Quality of Service (QoS)</description>
+                     <refstandard refid="nato-stanag4711"/>
+                  </obgroup>
+                  <guide>For NATO-led Mission Network deployments, the
+            following governing policies apply:
+            <itemizedlist>
+                        <listitem>
+                           <para>AC/322(SC/6)WP(2009)0002-REV2 - "NC3B
+Policy on the Federation of Networks and
+Provision of Communications Services within
+the Networking Information Infrastructure"</para>
+                        </listitem>
+                        <listitem>
+                           <para>NATO Policy for Standardization</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+               <serviceprofile title="Inter-Autonomous Systems Routing Profile">
+                  <description>The Inter-Autonomous Systems Routing Profile provides standards and guidance for routing between inter-autonomous systems</description>
+                  <reftaxonomy refid="ts-cs-tn-core-packetroute"/>
+                  <reftaxonomy refid="ts-cs-ca-pba-ipv4"/>
+                  <obgroup obligation="recommended">
+                     <description>Additionally, the following standard applies for                   32-bit autonomous system numbers (ASN)</description>
+                     <refstandard refid="ietf-rfc5668"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standard applies for unicast                   routing</description>
+                     <refstandard refid="ietf-rfc4632"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards apply for all IP                   interconnections</description>
+                     <refstandard refid="ietf-rfc1997"/>
+                     <refstandard refid="ietf-rfc4360"/>
+                     <refstandard refid="ietf-rfc3392"/>
+                     <refstandard refid="ietf-rfc4271"/>
+                     <refstandard refid="ietf-rfc4760"/>
+                  </obgroup>
+                  <guide>Border Gateway Protocol (BGP) deployment
+guidance in IETF RFC 1772:1995, Application of
+the Border Gateway Protocol in the Internet.</guide>
+                  <guide>BGP sessions must be authenticated, through a
+TCP message authentication code (MAC) using
+a one-way hash function (MD5), as described in
+IETF RFC 4271.</guide>
+               </serviceprofile>
+               <serviceprofile title="Inter-Autonomous Systems TDM Transport Profile">
+                  <description>The Inter-Autonomous Systems TDM Transport Profile provides standards and guidance for Edge Transport Services                                                               between autonomous systems, using Time Division Multiplex (TDM) over a Wide Area Network (WAN).</description>
+                  <reftaxonomy refid="ts-cs-tn-edge-timediv"/>
+                  <obgroup obligation="mandatory">
+                     <description>Fractional E1 (Nx64kbit/s) conformant with the                   following standards</description>
+                     <refstandard refid="itu-t-g.703"/>
+                     <refstandard refid="itu-t-g.704"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>IP version 4 (IPv4) conformant with the following                   standards</description>
+                     <refstandard refid="ietf-rfc3544"/>
+                     <refstandard refid="ietf-rfc1994"/>
+                     <refstandard refid="ietf-rfc1661"/>
+                  </obgroup>
+                  <guide>This interconnection is based on STANAG 5067,
+Standard for interconnection of IPv4 networks at
+Mission Secret and unclassified security Levels.
+STANAG 5067 provides additional
+implementation, security and management
+guidance.</guide>
+                  <guide>Combined with TRANSEC crypto or other forms
+of link protection, CHAP (IETF RFC 1994) is not
+required. Otherwise, CHAP is recommended.</guide>
+               </serviceprofile>
+               <serviceprofile title="Routing Encapsulation Profile">
+                  <description>The Routing Encapsulation Profile provides standards and guidance for generic routing encapsulation functions between                                              network interconnection points (NIPs)</description>
+                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc2890"/>
+                     <refstandard refid="ietf-rfc2409"/>
+                     <refstandard refid="ietf-rfc4303"/>
+                  </obgroup>
+               </serviceprofile>
+            </profile>
+            <profile id="fmn-fed-net" title="Federated Networking Profile">
+               <serviceprofile title="Directory Data Structure Profile">
+                  <description>The Directory Data Structure Profile provides standards and guidance in support of the definition of the namespace of a                                                 federated mission network on the basis of the Lightweight Directory Access Protocol (LDAP)</description>
+                  <reftaxonomy refid="ts-ces-is-ss-directory"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc2798"/>
+                     <refstandard refid="ietf-rfc4519"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Digital Certificate Profile">
+                  <description>The Digital Certificate Profile provides standards and guidance in support of a Public Key Infrastructure (PKI) on                                            federated mission networks.</description>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="itu-t-x.509"/>
+                     <refstandard refid="ietf-rfc5280"/>
+                     <refstandard refid="ietf-rfc6960"/>
+                  </obgroup>
+                  <guide>The version of the encoded public key certificate
+shall be version 3. The version of the encoded
+certificate revocation list (CRL) shall be version
+      2.</guide>
+                  <guide>Additional Implementation Guidance:
+<itemizedlist>
+                        <listitem>
+                           <para>AC/322-D(2004)0024-REV2-ADD2 - "NATO
+Public Key Infrastructure (NPKI) Certificate
+Policy"</para>
+                        </listitem>
+                        <listitem>
+                           <para>AC/322-D(2010)0036 - "NATO Cryptographic
+  Interoperability Strategy"</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+               <serviceprofile title="Directory Data Exchange Profile">
+                  <description>The Directory Data Exchange Profile provides standards and guidance in support of a mechanism used to connect to,                                                search, and modify Internet directories on the basis of the Lightweight Directory Access Protocol (LDAP).</description>
+                  <reftaxonomy refid="ts-ces-is-ss-directory"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc4510"/>
+                     <refstandard refid="ietf-rfc4511"/>
+                     <refstandard refid="ietf-rfc4512"/>
+                     <refstandard refid="ietf-rfc4513"/>
+                     <refstandard refid="ietf-rfc4514"/>
+                     <refstandard refid="ietf-rfc4515"/>
+                     <refstandard refid="ietf-rfc4516"/>
+                     <refstandard refid="ietf-rfc4517"/>
+                     <refstandard refid="ietf-rfc4518"/>
+                     <refstandard refid="ietf-rfc4519"/>
+                     <refstandard refid="ietf-rfc2849"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Network Authentication Profile">
+                  <description>The Network Authentication Profile provides standards and guidance for to provide strong authentication for client/server                                               applications by using secret-key cryptography on the basis of the Kerberos authentication protocol</description>
+                  <obgroup obligation="mandatory">
+                     <description>Strong authentication using Simple Authentication and Security Layer (SASL).</description>
+                     <refstandard refid="ietf-rfc4121"/>
+                     <refstandard refid="ietf-rfc4422"/>
+                     <refstandard refid="ietf-rfc4505"/>
+                     <refstandard refid="ietf-rfc4616"/>
+                     <refstandard refid="ietf-rfc4752"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc4120"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Time Synchronization Profile">
+                  <description>The Time Synchronization Profile provides standards and guidance to support the synchronization of clocks across a                                             network or a federation of networks and the safeguard of the accurate use of time stamps.</description>
+                  <reftaxonomy refid="ts-ces-is-net-disttime"/>
+                  <obgroup obligation="mandatory">
+                     <description>Mission Network Elements must provide a time server either directly connected to a stratum-0 device or over a network path to a stratum-1 time server of another Mission Network Element. All other entities in the federation must use the time service of their host.</description>
+                     <refstandard refid="ietf-rfc5905"/>
+                     <refstandard refid="itu-r-tf.460-6"/>
+                  </obgroup>
+                  <guide>A stratum-1 time server is directly linked (not
+over a network path) to a reliable source of UTC
+time (Universal Time Coordinate) such as GPS,
+WWV, or CDMA transmissions through a modem
+connection, satellite, or radio.</guide>
+                  <guide>Stratum-1 devices must implement IPv4 so that
+they can be used as timeservers for IPv4 Mission
+      Network Elements.</guide>
+               </serviceprofile>
+               <serviceprofile title="Domain Naming Profile">
+                  <description>The Domain Naming Profile provides standards and guidance to support the hierarchical distributed naming system for                                      computers, services, or any resource connected to a federated mission network.</description>
+                  <reftaxonomy refid="ts-ces-is-net-dns"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc1034"/>
+                     <refstandard refid="ietf-rfc1035"/>
+                     <refstandard refid="ietf-rfc1032"/>
+                     <refstandard refid="ietf-rfc2181"/>
+                     <refstandard refid="ietf-rfc2782"/>
+                  </obgroup>
+               </serviceprofile>
+            </profile>
+         </profile>
+         <profile id="fmn-fed-hum-comm" title="Federated Human-to-Human Communications Profile">
+            <profile id="fmn-uni-collab" title="Federated Unified Collaboration Profile">
+               <serviceprofile title="Content Encapsulation Profile">
+                  <description>The Content Encapsulation Profile provides standards and guidance for content encapsulation within bodies of internet                                                messages, following the Multipurpose Internet Mail Extensions (MIME) specification.</description>
+                  <reftaxonomy refid="ts-ces-es-cc-im"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc2045"/>
+                     <refstandard refid="ietf-rfc2046"/>
+                     <refstandard refid="ietf-rfc2047"/>
+                     <refstandard refid="ietf-rfc2049"/>
+                     <refstandard refid="ietf-rfc4288"/>
+                  </obgroup>
+                  <guide>10 MB max message size limit</guide>
+                  <guide>Minimum Content-Transfer-Encoding:
+        <itemizedlist>
+                        <listitem>
+                           <para>7bit</para>
+                        </listitem>
+                        <listitem>
+                           <para>base64</para>
+                        </listitem>
+                        <listitem>
+                           <para>binary BINARYMIME SMTP extension (RFC
+3030)</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+                  <guide>Minimum set of media and content-types:
+        <itemizedlist>
+                        <listitem>
+                           <para>text/plain (RFC 1521)</para>
+                        </listitem>
+                        <listitem>
+                           <para>text/enriched (RFC 1896)</para>
+                        </listitem>
+                        <listitem>
+                           <para>text/html (RFC 1866)</para>
+                        </listitem>
+                        <listitem>
+                           <para>multipart/mixed (RFC 2046)</para>
+                        </listitem>
+                        <listitem>
+                           <para>multipart/signed</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+               <serviceprofile title="Informal Messaging Profile">
+                  <description>The Informal Messaging Profile provides standards and guidance for SMTP settings and the marking and classification of                                             informal messages.</description>
+                  <reftaxonomy refid="ts-ces-es-cc-im"/>
+                  <obgroup obligation="mandatory">
+                     <description>Regarding Simple Mail Transfer Protocol (SMTP), the following standards are mandated for interoperability of e-mail services within the Mission Network.</description>
+                     <refstandard refid="ietf-rfc5321"/>
+                     <refstandard refid="ietf-rfc1870"/>
+                     <refstandard refid="ietf-rfc1985"/>
+                     <refstandard refid="ietf-rfc2034"/>
+                     <refstandard refid="ietf-rfc2920"/>
+                     <refstandard refid="ietf-rfc3207"/>
+                     <refstandard refid="ietf-rfc3461"/>
+                     <refstandard refid="ietf-rfc3798"/>
+                     <refstandard refid="ietf-rfc3885"/>
+                     <refstandard refid="ietf-rfc4954"/>
+                  </obgroup>
+                  <guide>Depending on the protection requirements within
+the particular FMN instance messages must be
+marked in the message header field
+"Keywords"(IETF RFC 2822) and firstline-of-text
+in the message body according to the following
+convention: [MMM] [CLASSIFICATION],
+Releasable to [MISSION] Where
+CLASSIFICATION is the classification {SECRET,
+CONFIDENTIAL, RESTRICTED} or
+UNCLASSIFIED, and MMM is the ISO 3166-1
+alpha-3 country code with the exception that
+NATO will be identified by the four letter acronym
+"NATO". The "releasable to" list shall include the
+short-name of the mission and may be extended
+        to include other entities.</guide>
+                  <guide>Example: Keywords: ITA UNCLASSIFIED,
+Releasable to XFOR Conditional (if the mission
+network operates at classified level).</guide>
+               </serviceprofile>
+               <serviceprofile title="Numbering Plans Profile">
+                  <description>The Numbering Plans Profile provides standards and guidance for the facilitation of numbering plans of                                         telecommunications, audio and video networks.</description>
+                  <reftaxonomy refid="ts-ces-es-cc-ac"/>
+                  <reftaxonomy refid="ts-ces-es-cc-vc"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="nato-stanag4705"/>
+                     <refstandard refid="nato-stanag5046ed4"/>
+                     <refstandard refid="itu-t-e.164"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Audio-based Collaboration Profile">
+                  <description>The Audio-based Collaboration Profile provides standards and guidance for the implementation of an interoperable voice                                                   system (telephony) on federated mission networks.</description>
+                  <reftaxonomy refid="ts-ces-es-cc-ac"/>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards are used for VoIP and                    VoSIP signaling.</description>
+                     <refstandard refid="ietf-rfc3261"/>
+                     <refstandard refid="ietf-rfc3262"/>
+                     <refstandard refid="ietf-rfc3264"/>
+                     <refstandard refid="ietf-rfc3311"/>
+                     <refstandard refid="ietf-rfc3428"/>
+                     <refstandard refid="ietf-rfc4028"/>
+                     <refstandard refid="ietf-rfc4412"/>
+                     <refstandard refid="ietf-rfc4566"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards are used for voice media streaming.</description>
+                     <refstandard refid="ietf-rfc3550"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards are used for audio                    protocols.</description>
+                     <refstandard refid="itu-t-g.729"/>
+                  </obgroup>
+                  <guide>Voice over IP (VoIP) refers to unprotected voice
+communication services running on unclassified
+IP networks e.g. conventional IP telephony.
+Voice over Secure IP (VoSIP) refers to
+non-protected voice service running on a
+classified IP networks. Depending on the security
+classification of a FMN instance, VoIP or VoSIP
+is mandatory. If a member choses to use
+network agnostic Secure Voice services in
+addition to VoSIP, then SCIP specifications as
+defined for audio-based collaboration services
+(end-to-end protected voice) should be used.</guide>
+                  <guide>The voice sampling interval is 40ms.</guide>
+               </serviceprofile>
+               <serviceprofile title="Secure Voice Profile">
+                  <description>The Secure Voice Profile provides standards and guidance for the facilitation of secure telephony and other protected                                      audio-based collaboration on federated mission networks.</description>
+                  <reftaxonomy refid="ts-ces-es-cc-ac"/>
+                  <obgroup obligation="conditional">
+                     <description>Secure voice services (end-to-end protected voice). V.150.1 support must be end-to-end supported by unclassified voice network. SCIP-214 only applies to gateways. SCIP-216 requires universal implementation.</description>
+                     <refstandard refid="itu-t-v.150.1"/>
+                     <refstandard refid="iicwg-scip-210"/>
+                     <refstandard refid="iicwg-scip-214"/>
+                     <refstandard refid="iicwg-scip-215"/>
+                     <refstandard refid="iicwg-scip-216"/>
+                     <refstandard refid="iicwg-scip-220"/>
+                     <refstandard refid="iicwg-scip-221"/>
+                     <refstandard refid="iicwg-scip-233"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Basic Text-based Collaboration Profile">
+                  <description>The Basic Text-based Collaboration Profile provides standards and guidance to establish a basic near-real time                                                        text-based group collaboration capability (chat) for time critical reporting and decision making in military operations.</description>
+                  <reftaxonomy refid="ts-ces-es-cc-tc"/>
+                  <reftaxonomy refid="ts-ces-es-cc-presence"/>
+                  <obgroup obligation="optional">
+                     <description>Bidirectional Server-to-Server Connections may be supported, i.e. stanzas are sent and received on the same TCP connection.</description>
+                     <refstandard refid="xmpp-xep-0288"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards are required to achieve compliance for an XMPP Server and an XMPP Client dependent upon the categorisation of presenting a core or advanced instant messaging service interface.</description>
+                     <refstandard refid="xmpp-xep-0004"/>
+                     <refstandard refid="xmpp-xep-0030"/>
+                     <refstandard refid="xmpp-xep-0045"/>
+                     <refstandard refid="xmpp-xep-0049"/>
+                     <refstandard refid="xmpp-xep-0050"/>
+                     <refstandard refid="xmpp-xep-0054"/>
+                     <refstandard refid="xmpp-xep-0092"/>
+                     <refstandard refid="xmpp-xep-0096"/>
+                     <refstandard refid="xmpp-xep-0114"/>
+                     <refstandard refid="xmpp-xep-0115"/>
+                     <refstandard refid="xmpp-xep-0203"/>
+                     <refstandard refid="xmpp-xep-0220"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards are the base IETF             protocols for interoperability of chat services.</description>
+                     <refstandard refid="ietf-rfc6120"/>
+                     <refstandard refid="ietf-rfc6121"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Video-based Collaboration Profile">
+                  <description>The Video-based Collaboration Profile provides standards and guidance for the implementation and configuration of                                                   Video Tele Conferencing (VTC) systems and services in a federated mission network.</description>
+                  <reftaxonomy refid="ts-ces-es-cc-vc"/>
+                  <obgroup obligation="conditional">
+                     <description>Not required at this time, but when available it can be implemented between MNE’s after approval from the MN administrative authority.</description>
+                     <refstandard refid="ietf-rfc4582"/>
+                     <refstandard refid="itu-t-h.239"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="itu-t-g.722"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards are required for VTC                  over Internet Protocol (VTCoIP) networking.</description>
+                     <refstandard refid="itu-t-h.323"/>
+                     <refstandard refid="itu-t-h.225"/>
+                     <refstandard refid="itu-t-h.245"/>
+                     <refstandard refid="itu-t-h.264"/>
+                     <refstandard refid="itu-t-h.263"/>
+                     <refstandard refid="itu-t-g.722"/>
+                     <refstandard refid="ietf-rfc3550"/>
+                  </obgroup>
+                  <guide>It Is recommended that dynamic port ranges are
+constrained to a limited and agreed number. This
+is an activity that needs to be performed at the
+mission planning stage. Different vendors have
+different limitations on fixed ports. However
+common ground can always be found.</guide>
+                  <guide>As a Minimum G.722.1 is to be used. Others are
+exceptions and need to be agreed by the MN
+administrative authority for video calls.</guide>
+               </serviceprofile>
+            </profile>
+            <profile id="fmn-fed-inf-mgnt" title="Federated Information Management Profile">
+               <serviceprofile title="File Format Profile">
+                  <description>The File Format Profile provides standards and guidance for the collaborative generation of spreadsheets, charts,                                      presentations and word processing documents.</description>
+                  <reftaxonomy refid="ts-ces-soa-web-host"/>
+                  <reftaxonomy refid="ts-ces-es-cc-im"/>
+                  <obgroup obligation="mandatory">
+                     <description>For still image coding.</description>
+                     <refstandard refid="iso-iec-10918-1"/>
+                     <refstandard refid="iso-iec-10918-3"/>
+                  </obgroup>
+                  <obgroup obligation="recommended">
+                     <description>For word processing documents, spreadsheets and presentations</description>
+                     <refstandard refid="iso-iec-26300"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>For word processing documents, spreadsheets                      and presentations.</description>
+                     <refstandard refid="iso-iec-29500-1"/><!-- JJJJJ -->
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="iso-19005-1"/>
+                     <refstandard refid="iso-19005-2"/>
+                     <refstandard refid="iso-32000-1"/>
+                  </obgroup>
+                  <guide>ISO/IEC 29500 and ISO/IEC 26300 are both
+open document formats for XML-based saving
+and exchanging word processing documents,
+spreadsheets and presentations. They differ in
+design and scope.</guide>
+               </serviceprofile>
+               <serviceprofile title="Internationalization Profile">
+                  <description>The Internationalization Profile provides standards and guidance for the design and development of content and (web) applications, in a way that ensures it will work well for, or can be easily adapted for, users from any culture, region, or language.</description>
+                  <reftaxonomy refid="ts-ces-soa-web-host"/>
+                  <obgroup obligation="recommended">
+                     <refstandard refid="w3c-rec-charmod-20050215"/>
+                     <refstandard refid="w3c-rec-its-20070403"/>
+                     <refstandard refid="w3c-rec-its20-20131029"/>
+                     <refstandard refid="w3c-rec-ruby-20010531"/>
+                  </obgroup>
+                  <guide>Best practices and tutorials on
+internationalization can be found at:
+http://www.w3.org/International/articlelist.</guide>
+               </serviceprofile>
+               <serviceprofile title="Character Encoding Profile">
+                  <description>The Character Encoding Profile provides standards and guidance for the encoding of character sets.</description>
+                  <reftaxonomy refid="ts-ces-soa-web-host"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc3629"/>
+                  </obgroup>
+               </serviceprofile>
+            </profile>
+            <profile id="fmn-fed-web-host" title="Federated Web Hosting Profile">
+               <serviceprofile title="Web Platform Profile">
+                  <description>The Web Platform Profile provides standards and guidance to enable web technology on federated mission networks.</description>
+                  <reftaxonomy refid="ts-ces-soa-web-host"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc2616"/>
+                     <refstandard refid="ietf-rfc2817"/>
+                     <refstandard refid="ietf-rfc3986"/>
+                     <refstandard refid="ietf-rfc1738"/>
+                  </obgroup>
+                  <guide>HTTP shall be used as the transport protocol for
+information without 'need-to-know' caveats
+between all service providers and consumers
+(unsecured HTTP traffic). HTTPS shall be used
+as the transport protocol between all service
+providers and consumers to ensure
+confidentiality requirements (secured HTTP
+traffic). Unsecured and secured HTTP traffic
+shall share the same port.</guide>
+               </serviceprofile>
+               <serviceprofile title="Web Content Profile">
+                  <description>The Web Content Profile provides standards and guidance for the processing, sharing and presentation of web content on federated mission networks. Web presentation services must be based on a fundamental set of basic and widely understood protocols, such as those listed below. Proprietary or compiled components shall be avoided (e.g. Microsoft Web Parts, Microsoft Silverlight or Adobe Flash).</description>
+                  <reftaxonomy refid="ts-ces-soa-web-host"/>
+                  <obgroup obligation="mandatory">
+                     <description>Publishing information including text, multi-media, hyperlink features, scripting languages and style sheets on the network.</description>
+                     <refstandard refid="iso-iec-15445"/>
+                     <refstandard refid="ietf-rfc2854"/>
+                     <refstandard refid="ietf-rfc4329"/>
+                     <refstandard refid="w3c-rec-html5-20141028"/>
+                     <refstandard refid="w3c-rec-css3-mediaqueries-20120619"/>
+                     <refstandard refid="w3c-rec-css3-selectors-20110929"/>
+                     <refstandard refid="ietf-rfc2616"/>
+                     <refstandard refid="ietf-rfc2817"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>Providing a common style sheet language for describing presentation semantics (that is, the look and formatting) of documen</description>
+                     <refstandard refid="w3c-rec-css2-2011067"/>
+                     <refstandard refid="w3c-cr-css-style-attr-20101012"/>
+                     <refstandard refid="w3c-rec-css-namespaces-3-20140320"/>
+                     <refstandard refid="w3c-rec-css3-color-20110607"/>
+                  </obgroup>
+                  <guide>Applications must support the following
+browsers: Microsoft Internet Explorer v9.0 and
+newer, and Mozilla Firefox 16.0 and newer.
+When a supported browser is not true to the
+standard, choose to support the browser that is
+closest to the standard.</guide>
+                  <guide>Some organizations or end user devices do not
+allow the use of proprietary extensions such as
+Microsoft Web Parts, Microsoft Silverlight or
+Adobe Flash. Those technologies shall be
+avoided. Implementers shall use open standard
+based solutions (HTML5 / CSS3) instead.</guide>
+               </serviceprofile>
+               <serviceprofile title="Geospatial Web Feeds Profile">
+                  <description>The Geospatial Web Feeds Profile provides standards and guidance for the delivery of geospatial content to web sites and to user agents, including the encoding of location as part of web feeds. Feed processing software is required to either read or ignore these extensions and shall not fail if these extensions are present, so there is no danger of breaking someone's feed reader (or publisher) by including this element in a feed.</description>
+                  <reftaxonomy refid="ts-ces-soa-web-host"/>
+                  <obgroup obligation="required">
+                     <description>GeoRSS GML Profile 1.0 a GML subset for point 'gml:Point', line 'gml:LineString', polygon 'gml:Polygon', and box 'gml:Envelope'. In Atom feeds, location shall be specified using Atom 1.0's official extension mechanism in combination with the GeoRSS GML Profile 1.0 whereby a 'georss:where' element is added as a child of the element.</description>
+                     <refstandard refid="ogc-06-050r3"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ogc-11-044"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Web Services Profile">
+                  <description>The Web Services Profile provides standards and guidance for transport-neutral mechanisms to address structured exchange of information in a decentralized, distributed environment via web services.</description>
+                  <reftaxonomy refid="ts-ces-soa-web-host"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="w3c-rec-soap11"/>
+                     <refstandard refid="w3c-note-wsdl-20010315"/>
+                     <refstandard refid="w3c-note-wsdl20-soap11-binding-20070626"/>
+                     <refstandard refid="w3c-address"/>
+                  </obgroup>
+                  <obgroup obligation="conditional">
+                     <refstandard refid="acm-2002-rest-toit"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>Provide the elements a web service needs to deliver a suitable UI service, such as remote portlet functionality.</description>
+                     <refstandard refid="w3c-cr-cors-20130129"/>
+                  </obgroup>
+                  <guide>The preferred method for implementing
+web-services are SOAP, however, there are
+many use cases (mashups etc.) where a REST
+based interface is easier to implement and
+sufficient to meet the IERs.</guide>
+                  <guide>Restful services support HTTP caching, if the
+data the Web service returns is not altered
+frequently and not dynamic in nature. REST is
+particularly useful for restricted-profile devices
+such as mobile phones and tablets for which the
+overhead of additional parameters like headers
+and other SOAP elements are less.
+Web</guide>
+               </serviceprofile>
+               <serviceprofile title="Web Feeds Profile">
+                  <description>The Web Feeds Profile provides standards and guidance for the delivery of content to web sites as well as directly to user                                    agents.</description>
+                  <reftaxonomy refid="ts-ces-soa-web-host"/>
+                  <obgroup obligation="mandatory">
+                     <description>Providing web content.</description>
+                     <refstandard refid="ietf-rfc4287"/>
+                     <refstandard refid="ietf-rfc5023"/>
+                     <refstandard refid="rss-2.0"/>
+                  </obgroup>
+                  <guide>RSS and Atom documents may reference related
+OpenSearch description documents via the Atom
+1.0 "link" element, as specified in Section 4.2.7
+of RFC 4287.</guide>
+                  <guide>The "rel" attribute of the link element should
+contain the value "search" when referring to
+OpenSearch description documents. This
+relationship value is pending IANA registration.
+The reuse of the Atom link element is
+recommended in the context of other syndication
+formats that do natively support comparable
+functionality.</guide>
+                  <guide>The following restrictions apply:
+<itemizedlist>
+                        <listitem>
+                           <para>The "type" attribute must contain the value
+"application/opensearchdescription+xml".</para>
+                        </listitem>
+                        <listitem>
+                           <para>The "rel" attribute must contain the value
+"search".</para>
+                        </listitem>
+                        <listitem>
+                           <para>The "href" attribute must contain a URI that
+resolves to an OpenSearch description
+document.</para>
+                        </listitem>
+                        <listitem>
+                           <para>The "title" attribute may contain a
+human-readable plain text string describing
+the search engine.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+               <serviceprofile title="Structured Data Profile">
+                  <description>The Structured Data Profile provides standards and guidance for the structuring of web content on federated mission networks. Web Hosting</description>
+                  <reftaxonomy refid="ts-ces-soa-web-host"/>
+                  <obgroup obligation="mandatory">
+                     <description>General formatting of information for sharing or exchange.</description>
+                     <refstandard refid="w3c-rec-xml10-20081126"/>
+                     <refstandard refid="ietf-rfc4627"/>
+                     <refstandard refid="w3c-rec-xmlschema-1-20041028"/>
+                     <refstandard refid="w3c-rec-xmlschema-2-20041028"/>
+                     <refstandard refid="w3c-NOTE-xhtml1-schema-20020902"/>
+                  </obgroup>
+                  <guide>XML shall be used for data exchange to satisfy
+those Information Exchange Requirements within
+a FMN instance that are not addressed by a
+specific information exchange standard. XML
+Schemas and namespaces are required for all
+XML documents.</guide>
+               </serviceprofile>
+            </profile>
+         </profile>
+         <uuid>37b9a98c-ba75-4e26-a8e6-d18ccf7c6a5b</uuid>
+      </capabilityprofile>
+
       <standard id="gdal-gdal" tag="GDAL">
          <document orgid="gdal" pubnum="gdal" date="2013-08" title=" Geospatial Data Abstraction Library (GDAL)"/>
          <applicability>
@@ -11446,234 +11509,6 @@ Grids</applicability>
          <uuid>711c1ad5-907b-4b09-9816-8c7003cef85d</uuid>
       </standard>
 
-      <standard id="ietf-rfc 1032" tag="Domain Admin Guide">
-         <document orgid="ietf" pubnum="RFC 1032" title="Domain administrators guide" date="1987-01-11"/>
-         <applicability>This memo describes procedures for registering a domain with the Network Information Center (NIC) of Defense Data Network (DDN), and offers guidelines on the establishment and administration of a domain in accordance with the requirements specified in RFC-920.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc1032.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>0d582658-c8a3-4d23-a727-983f6ef21da5</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 2181" tag="DNS Clarification">
-         <document orgid="ietf" pubnum="RFC 2181" title="Clarifications to the DNS Specification" date="1997-01-07"/>
-         <applicability>This document considers some areas that have been identified as problems with the specification of the Domain Name System, and proposes remedies for the defects identified. Eight separate issues are considered.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2181.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>b4104258-2404-4d1f-ad98-c464410c64df</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 2782" tag="DNS SRV">
-         <document orgid="ietf" pubnum="RFC 2782" title="A DNS RR for specifying the location of services (DNS SRV)" date="2000-01-02"/>
-         <applicability>This document describes a DNS RR which specifies the location of the server(s) for a specific protocol and domain.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2782.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>662f851e-2f09-4719-958c-6ebb8b62b0bd</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 2854" tag="HTML media type">
-         <document orgid="ietf" pubnum="RFC 2854" title="The 'text/html' Media Type" date="2000-01-06"/>
-         <applicability>This document summarizes the history of HTML development, and defines the "text/html" MIME type by pointing to the relevant W3C recommendations.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2854.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>4eeb4faa-6ad6-4c90-9aac-1483adedf18d</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 2890" tag="GRE Spec.">
-         <document orgid="ietf" pubnum="RFC 2890" title="Key and Sequence Number Extensions to GRE" date="2000-01-09"/>
-         <applicability>GRE (Generic Routing Encapsulation) specifies a protocol for encapsulation of an arbitrary protocol over another arbitrary network layer protocol.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2890.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>3cf5336e-1076-4eac-b11b-f53e3f6a7007</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 3264" tag="SDP O/A model">
-         <document orgid="ietf" pubnum="RFC 3264" title="An Offer/Answer Model with the Session Description Protocol (SDP)" date="2002-01-06"/>
-         <applicability>Th document defines a simple offer/answer model based on SDP. In this model, one participant in the session generates an SDP message that constitutes the offer - the set of media streams and codecs the offerer wishes to use, along with the IP addresses and ports the offerer would like to use to receive the media.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3264.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>bf6ae486-1a7e-472e-a881-9ae1ca1e2698</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 3311" tag="SDP Update method">
-         <document orgid="ietf" pubnum="RFC 3311" title="The Session Initiation Protocol (SIP) UPDATE Method" date="2002-01-09"/>
-         <applicability>UPDATE allows a client to update parameters of a session (such as the set of media streams and their codecs) but has no impact on the state of a dialog. In that sense, it is like a re-INVITE, but unlike re-INVITE, it can be sent before the initial INVITE has been completed. This makes it very useful for updating session parameters within early dialogs.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3311.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>a26d8ff0-ebfd-4d41-9459-f97183f2fd09</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 3392" tag="BGP-4 Capability Adverticement">
-         <document orgid="ietf" pubnum="RFC 3392" title="Capabilities Advertisement with BGP-4" date="2002-01-11"/>
-         <applicability>Currently BGP-4 requires that when a BGP speaker receives an OPEN message with one or more unrecognized Optional Parameters, the speaker must terminate BGP peering. This complicates introduction of new capabilities in BGP.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3392.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>86b2b8db-ea31-44d1-870d-1f171234c773</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 3428" tag="SIP Instant Messaging Ext.">
-         <document orgid="ietf" pubnum="RFC 3428" title="Session Initiation Protocol (SIP) Extension for Instant Messaging" date="2002-01-12"/>
-         <applicability>This document proposes the MESSAGE method, an extension to the Session Initiation Protocol (SIP) that allows the transfer of Instant Messages. Since the MESSAGE request is an extension to SIP, it inherits all the request routing and security features of that protocol.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3428.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>486d8a1d-2291-402c-8ccc-8a8fe072c1c6</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 3798" tag="Message Disposition Notification (MDN)">
-         <document orgid="ietf" pubnum="RFC 3798" title="Message Disposition Notification" date="2004-01-05"/>
-         <applicability>This memo defines a MIME content-type that may be used by a mail user agent (MUA) or electronic mail gateway to report the disposition of a message after it has been successfully delivered to a recipient. This content- type is intended to be machine-processable. Additional message headers are also defined to permit Message Disposition Notifications (MDNs) to be requested by the sender of a message. The purpose is to extend Internet Mail to support functionality often found in other messaging systems, such as X.400 and the proprietary "LAN-based" systems, and often referred to as "read receipts," "acknowledgements", or "receipt notifications." The intention is to do this while respecting privacy concerns, which have often been expressed when such functions have been discussed in the past.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3798.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>e81f6945-b030-4be5-bf3b-0f598d3d88eb</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 3885" tag="SMTP Msg. Track.">
-         <document orgid="ietf" pubnum="RFC 3885" title="SMTP Service Extension for Message Tracking" date="2004-01-09"/>
-         <applicability>This memo defines an extension to the SMTP service whereby a client may mark a message for future tracking.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3885.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>c346560b-a1f0-4c0f-8a2a-ee8164bc8194</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 4120" tag="Keberos NAS">
-         <document orgid="ietf" pubnum="RFC 4120" title="The Kerberos Network Authentication Service (V5)" date="2005-01-07"/>
-         <applicability>This document provides an overview and specification of Version 5 of the Kerberos protocol, and it obsoletes RFC 1510 to clarify aspects of the protocol and its intended use that require more detailed or clearer explanation than was provided in RFC 1510. This document is intended to provide a detailed description of the protocol, suitable for implementation, together with descriptions of the appropriate use of protocol messages and fields within those messages.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4120.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>3d5fb568-0961-48a9-b70c-d5480d459ddb</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 4121" tag="Keberos GSS-API">
-         <document orgid="ietf" pubnum="RFC 4121" title="The Kerberos Version 5 Generic Security Service Application Program Interface (GSS-API) Mechanism: Version 2" date="2005-01-07"/>
-         <applicability>This document defines protocols, procedures, and conventions to be employed by peers implementing the Generic Security Service Application Program Interface (GSS-API) when using the Kerberos Version 5 mechanism. RFC 1964 is updated and incremental changes are proposed in response to recent developments such as the introduction of Kerberos cryptosystem framework. These changes support the inclusion of new cryptosystems, by defining new per-message tokens along with their encryption and checksum algorithms based on the cryptosystem profiles.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4121.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>28b83750-bb51-47f0-afc0-e9a732b203da</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 4412" tag="SIP priority headers">
-         <document orgid="ietf" pubnum="RFC 4412" title="Communications Resource Priority for the Session Initiation Protocol (SIP)" date="2006-01-02"/>
-         <applicability>This document defines two new Session Initiation Protocol (SIP) header fields for communicating resource priority, namely, "Resource-Priority" and "Accept-Resource-Priority". The "Resource-Priority" header field can influence the behavior of SIP user agents (such as telephone gateways and IP telephones) and SIP proxies. It does not directly influence the forwarding behavior of IP routers.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4412.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>68003f5a-239d-4f96-b204-bda57c737169</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 4422" tag="SASL">
-         <document orgid="ietf" pubnum="RFC 4422" title="Simple Authentication and Security Layer (SASL)" date="2006-01-06"/>
-         <applicability>The Simple Authentication and Security Layer (SASL) is a framework for providing authentication and data security services in connection-oriented protocols via replaceable mechanisms. It provides a structured interface between protocols and mechanisms. The resulting framework allows new protocols to reuse existing mechanisms and allows old protocols to make use of new mechanisms. The framework also provides a protocol for securing subsequent protocol exchanges within a data security layer. This document describes how a SASL mechanism is structured, describes how protocols include support for SASL, and defines the protocol for carrying a data security layer over a connection. In addition, this document defines one SASL mechanism, the EXTERNAL mechanism.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4422.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>ae6678f5-c1a5-4424-a759-0b33ebd8eda3</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 4505" tag="Anonymous SASL">
-         <document orgid="ietf" pubnum="RFC 4505" title="Anonymous Simple Authentication and Security Layer (SASL) Mechanism" date="2006-01-06"/>
-         <applicability>On the Internet, it is common practice to permit anonymous access to various services. Traditionally, this has been done with a plain- text password mechanism using "anonymous" as the user name and using optional trace information, such as an email address, as the password. As plain-text login commands are not permitted in new IETF protocols, a new way to provide anonymous login is needed within the context of the Simple Authentication and Security Layer (SASL) framework.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4505.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>60b68dc3-de0d-41ab-ad9c-dd78191e9097</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 4582" tag="BFCP">
-         <document orgid="ietf" pubnum="RFC 4582" title="The Binary Floor Control Protocol (BFCP)" date="2006-01-11"/>
-         <applicability>Floor control is a means to manage joint or exclusive access to shared resources in a (multiparty) conferencing environment. Thereby, floor control complements other functions -- such as conference and media session setup, conference policy manipulation, and media control -- that are realized by other protocols. This document specifies the Binary Floor Control Protocol (BFCP). BFCP is used between floor participants and floor control servers, and between floor chairs (i.e., moderators) and floor control servers.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4582.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>09ea264f-f48b-4e94-83e2-fc026fdcf173</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 4616" tag="PLAIN SASL">
-         <document orgid="ietf" pubnum="RFC 4616" title="The PLAIN Simple Authentication and Security Layer (SASL) Mechanism" date="2006-01-08"/>
-         <applicability>This document defines a simple clear-text user/password Simple Authentication and Security Layer (SASL) mechanism called the PLAIN mechanism. The PLAIN mechanism is intended to be used, in combination with data confidentiality services provided by a lower layer, in protocols that lack a simple password authentication command.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4616.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>81703c9a-9967-4d3e-9f83-4ce4b74b36f1</uuid>
-      </standard>
-
-      <standard id="ietf-rfc 4752" tag="Keberos SASL">
-         <document orgid="ietf" pubnum="RFC 4752" title="The Kerberos V5 GSSAPI Simple Authentication and Security Layer (SASL) Mechanism" date="2006-01-11"/>
-         <applicability>The Simple Authentication and Security Layer (SASL) is a framework for adding authentication support to connection-based protocols. This document describes the method for using the Generic Security Service Application Program Interface (GSS-API) Kerberos V5 in the SASL.</applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4752.txt</uri>
-            <history>
-               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>3ae42e6a-4d22-4fa2-b002-6c1e7d2bfd63</uuid>
-      </standard>
-
       <standard id="ietf-rfc1014" tag="RFC 1014: XDR">
          <document orgid="ietf" pubnum="RFC 1014" date="1987" title="External Data Representation Standard (XDR)"/>
          <applicability>
@@ -11703,6 +11538,18 @@ Grids</applicability>
             </history>
          </status>
          <uuid>6d49aeaa-daf1-4309-92df-7f6727ebe890</uuid>
+      </standard>
+
+      <standard id="ietf-rfc1032" tag="Domain Admin Guide">
+         <document orgid="ietf" pubnum="RFC 1032" title="Domain administrators guide" date="1987-01-11"/>
+         <applicability>This memo describes procedures for registering a domain with the Network Information Center (NIC) of Defense Data Network (DDN), and offers guidelines on the establishment and administration of a domain in accordance with the requirements specified in RFC-920.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc1032.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>0d582658-c8a3-4d23-a727-983f6ef21da5</uuid>
       </standard>
 
       <standard id="ietf-rfc1034" tag="RFC 1034">
@@ -13152,6 +12999,18 @@ Grids</applicability>
             </history>
          </status>
          <uuid>fd24cba0-a451-4203-aa87-49348da6f143</uuid>
+      </standard>
+
+      <standard id="ietf-rfc2181" tag="DNS Clarification">
+         <document orgid="ietf" pubnum="RFC 2181" title="Clarifications to the DNS Specification" date="1997-01-07"/>
+         <applicability>This document considers some areas that have been identified as problems with the specification of the Domain Name System, and proposes remedies for the defects identified. Eight separate issues are considered.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc2181.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>b4104258-2404-4d1f-ad98-c464410c64df</uuid>
       </standard>
 
       <standard id="ietf-rfc2205" tag="RFC 2205: RSVP">
@@ -15177,6 +15036,18 @@ Grids</applicability>
          <uuid>9e504bba-5c16-4baf-99ea-872f13ef9d08</uuid>
       </standard>
 
+      <standard id="ietf-rfc2782" tag="DNS SRV">
+         <document orgid="ietf" pubnum="RFC 2782" title="A DNS RR for specifying the location of services (DNS SRV)" date="2000-01-02"/>
+         <applicability>This document describes a DNS RR which specifies the location of the server(s) for a specific protocol and domain.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc2782.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>662f851e-2f09-4719-958c-6ebb8b62b0bd</uuid>
+      </standard>
+
       <standard id="ietf-rfc2790" tag="RFC 2790: Host Resources MIB">
          <document orgid="ietf" pubnum="RFC 2790" date="2000" title="Host Resources Management Information Base (MIB)"/>
          <applicability>
@@ -15373,6 +15244,18 @@ Grids</applicability>
          <uuid>fe4e77aa-5952-454f-9ef0-14f3b4c92d90</uuid>
       </standard>
 
+      <standard id="ietf-rfc2854" tag="HTML media type">
+         <document orgid="ietf" pubnum="RFC 2854" title="The 'text/html' Media Type" date="2000-01-06"/>
+         <applicability>This document summarizes the history of HTML development, and defines the "text/html" MIME type by pointing to the relevant W3C recommendations.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc2854.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>4eeb4faa-6ad6-4c90-9aac-1483adedf18d</uuid>
+      </standard>
+
       <standard id="ietf-rfc2858" tag="RFC 2858: BGP-4 Multiprotocol Extensions">
          <document orgid="ietf" pubnum="RFC 2858" date="2000" title="Multiprotocol Extensions for BGP-4"/>
          <applicability>
@@ -15411,6 +15294,18 @@ Grids</applicability>
             </history>
          </status>
          <uuid>155a04a9-609c-45b2-b548-6db719bbadd0</uuid>
+      </standard>
+
+      <standard id="ietf-rfc2890" tag="GRE Spec.">
+         <document orgid="ietf" pubnum="RFC 2890" title="Key and Sequence Number Extensions to GRE" date="2000-01-09"/>
+         <applicability>GRE (Generic Routing Encapsulation) specifies a protocol for encapsulation of an arbitrary protocol over another arbitrary network layer protocol.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc2890.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>3cf5336e-1076-4eac-b11b-f53e3f6a7007</uuid>
       </standard>
 
       <standard id="ietf-rfc2891" tag="RFC 2891">
@@ -16328,6 +16223,30 @@ Grids</applicability>
          <uuid>8fbc16c9-4ffa-4ac3-87e7-5146ffcc9253</uuid>
       </standard>
 
+      <standard id="ietf-rfc3262" tag="RFC 3262: Reliability SIP">
+         <document orgid="ietf" pubnum="RFC 3262" date="2002" title="Reliability of Provisional Responses                in the Session Initiation Protocol (SIP)"/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3262.txt</uri>
+            <history>
+               <event flag="added" date="2015-12-03" version="8.5"/>
+            </history>
+         </status>
+         <uuid>e58bdb12-2e69-4ac8-a844-7b95dba88e81</uuid>
+      </standard>
+
+      <standard id="ietf-rfc3264" tag="SDP O/A model">
+         <document orgid="ietf" pubnum="RFC 3264" title="An Offer/Answer Model with the Session Description Protocol (SDP)" date="2002-01-06"/>
+         <applicability>Th document defines a simple offer/answer model based on SDP. In this model, one participant in the session generates an SDP message that constitutes the offer - the set of media streams and codecs the offerer wishes to use, along with the IP addresses and ports the offerer would like to use to receive the media.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3264.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>bf6ae486-1a7e-472e-a881-9ae1ca1e2698</uuid>
+      </standard>
+
       <standard id="ietf-rfc3286" tag="RFC 3286">
          <document date="2002-05-01" orgid="ietf" pubnum="RFC 3286" title="Stream Control Transmission Protocol - Introduction"/>
          <applicability>
@@ -16498,6 +16417,18 @@ Grids</applicability>
          <uuid>ec862363-93f9-46fa-a76d-92367e024639</uuid>
       </standard>
 
+      <standard id="ietf-rfc3311" tag="SDP Update method">
+         <document orgid="ietf" pubnum="RFC 3311" title="The Session Initiation Protocol (SIP) UPDATE Method" date="2002-01-09"/>
+         <applicability>UPDATE allows a client to update parameters of a session (such as the set of media streams and their codecs) but has no impact on the state of a dialog. In that sense, it is like a re-INVITE, but unlike re-INVITE, it can be sent before the initial INVITE has been completed. This makes it very useful for updating session parameters within early dialogs.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3311.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>a26d8ff0-ebfd-4d41-9459-f97183f2fd09</uuid>
+      </standard>
+
       <standard id="ietf-rfc3315" tag="RFC 3315: DHCPv6">
          <document orgid="ietf" pubnum="RFC 3315" date="2003" title="Dynamic Host Configuration Protocol for IPv6 (DHCPv6)"/>
          <applicability>
@@ -16594,6 +16525,18 @@ Grids</applicability>
             </history>
          </status>
          <uuid>81198b81-d251-4dde-99c0-95a6755cc542</uuid>
+      </standard>
+
+      <standard id="ietf-rfc3392" tag="BGP-4 Capability Adverticement">
+         <document orgid="ietf" pubnum="RFC 3392" title="Capabilities Advertisement with BGP-4" date="2002-01-11"/>
+         <applicability>Currently BGP-4 requires that when a BGP speaker receives an OPEN message with one or more unrecognized Optional Parameters, the speaker must terminate BGP peering. This complicates introduction of new capabilities in BGP.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3392.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>86b2b8db-ea31-44d1-870d-1f171234c773</uuid>
       </standard>
 
       <standard id="ietf-rfc3411" tag="RFC 3411: SNMPv3 Arch.">
@@ -16803,6 +16746,18 @@ Grids</applicability>
             </history>
          </status>
          <uuid>7b2ea3c2-8019-488d-86cf-52a9fe0bab84</uuid>
+      </standard>
+
+      <standard id="ietf-rfc3428" tag="SIP Instant Messaging Ext.">
+         <document orgid="ietf" pubnum="RFC 3428" title="Session Initiation Protocol (SIP) Extension for Instant Messaging" date="2002-01-12"/>
+         <applicability>This document proposes the MESSAGE method, an extension to the Session Initiation Protocol (SIP) that allows the transfer of Instant Messages. Since the MESSAGE request is an extension to SIP, it inherits all the request routing and security features of that protocol.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3428.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>486d8a1d-2291-402c-8ccc-8a8fe072c1c6</uuid>
       </standard>
 
       <standard id="ietf-rfc3436" tag="RFC 3436">
@@ -17572,6 +17527,18 @@ Grids</applicability>
          <uuid>fb2a88fc-60db-47c0-bf8a-315bc5c609f3</uuid>
       </standard>
 
+      <standard id="ietf-rfc3798" tag="Message Disposition Notification (MDN)">
+         <document orgid="ietf" pubnum="RFC 3798" title="Message Disposition Notification" date="2004-01-05"/>
+         <applicability>This memo defines a MIME content-type that may be used by a mail user agent (MUA) or electronic mail gateway to report the disposition of a message after it has been successfully delivered to a recipient. This content- type is intended to be machine-processable. Additional message headers are also defined to permit Message Disposition Notifications (MDNs) to be requested by the sender of a message. The purpose is to extend Internet Mail to support functionality often found in other messaging systems, such as X.400 and the proprietary "LAN-based" systems, and often referred to as "read receipts," "acknowledgements", or "receipt notifications." The intention is to do this while respecting privacy concerns, which have often been expressed when such functions have been discussed in the past.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3798.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>e81f6945-b030-4be5-bf3b-0f598d3d88eb</uuid>
+      </standard>
+
       <standard id="ietf-rfc3810" tag="RFC 3810: MLDv2 for IPv6">
          <document orgid="ietf" pubnum="RFC 3810" date="2004" title="Multicast Listener Discovery Version 2 (MLDv2) for IPv6" version="2"/>
          <applicability>
@@ -17729,6 +17696,18 @@ Grids</applicability>
             </history>
          </status>
          <uuid>e2781718-5a67-4f40-b6b2-4f171f6b7888</uuid>
+      </standard>
+
+      <standard id="ietf-rfc3885" tag="SMTP Msg. Track.">
+         <document orgid="ietf" pubnum="RFC 3885" title="SMTP Service Extension for Message Tracking" date="2004-01-09"/>
+         <applicability>This memo defines an extension to the SMTP service whereby a client may mark a message for future tracking.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3885.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>c346560b-a1f0-4c0f-8a2a-ee8164bc8194</uuid>
       </standard>
 
       <standard id="ietf-rfc3898" tag="RFC 3898: NIS options for DHCPv6">
@@ -18221,6 +18200,30 @@ Grids</applicability>
          <uuid>03be9e56-583c-4acf-a4ad-8c4fe4b25548</uuid>
       </standard>
 
+      <standard id="ietf-rfc4120" tag="Keberos NAS">
+         <document orgid="ietf" pubnum="RFC 4120" title="The Kerberos Network Authentication Service (V5)" date="2005-01-07"/>
+         <applicability>This document provides an overview and specification of Version 5 of the Kerberos protocol, and it obsoletes RFC 1510 to clarify aspects of the protocol and its intended use that require more detailed or clearer explanation than was provided in RFC 1510. This document is intended to provide a detailed description of the protocol, suitable for implementation, together with descriptions of the appropriate use of protocol messages and fields within those messages.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4120.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>3d5fb568-0961-48a9-b70c-d5480d459ddb</uuid>
+      </standard>
+
+      <standard id="ietf-rfc4121" tag="Keberos GSS-API">
+         <document orgid="ietf" pubnum="RFC 4121" title="The Kerberos Version 5 Generic Security Service Application Program Interface (GSS-API) Mechanism: Version 2" date="2005-01-07"/>
+         <applicability>This document defines protocols, procedures, and conventions to be employed by peers implementing the Generic Security Service Application Program Interface (GSS-API) when using the Kerberos Version 5 mechanism. RFC 1964 is updated and incremental changes are proposed in response to recent developments such as the introduction of Kerberos cryptosystem framework. These changes support the inclusion of new cryptosystems, by defining new per-message tokens along with their encryption and checksum algorithms based on the cryptosystem profiles.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4121.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>28b83750-bb51-47f0-afc0-e9a732b203da</uuid>
+      </standard>
+
       <standard id="ietf-rfc4155" tag="RFC 4155 - mbox format">
          <document orgid="ietf" pubnum="RFC 4155" title="The application/mbox Media Type" date="2005"/>
          <applicability>UNIX-like operating systems have historically made widespread use of
@@ -18548,6 +18551,18 @@ database as a logical folder of email messages.</applicability>
          <uuid>cb12e1e1-faee-4065-a781-2ca97cc29c61</uuid>
       </standard>
 
+      <standard id="ietf-rfc4412" tag="SIP priority headers">
+         <document orgid="ietf" pubnum="RFC 4412" title="Communications Resource Priority for the Session Initiation Protocol (SIP)" date="2006-01-02"/>
+         <applicability>This document defines two new Session Initiation Protocol (SIP) header fields for communicating resource priority, namely, "Resource-Priority" and "Accept-Resource-Priority". The "Resource-Priority" header field can influence the behavior of SIP user agents (such as telephone gateways and IP telephones) and SIP proxies. It does not directly influence the forwarding behavior of IP routers.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4412.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>68003f5a-239d-4f96-b204-bda57c737169</uuid>
+      </standard>
+
       <standard id="ietf-rfc4422" tag="RFC 4422: SASL">
          <document orgid="ietf" pubnum="RFC 4422" date="2006" title="Simple Authentication and Security Layer (SASL)"/>
          <applicability>
@@ -18609,6 +18624,18 @@ database as a logical folder of email messages.</applicability>
             </history>
          </status>
          <uuid>9b44b439-86ef-4f7c-a818-0c805e1d5ce6</uuid>
+      </standard>
+
+      <standard id="ietf-rfc4505" tag="Anonymous SASL">
+         <document orgid="ietf" pubnum="RFC 4505" title="Anonymous Simple Authentication and Security Layer (SASL) Mechanism" date="2006-01-06"/>
+         <applicability>On the Internet, it is common practice to permit anonymous access to various services. Traditionally, this has been done with a plain- text password mechanism using "anonymous" as the user name and using optional trace information, such as an email address, as the password. As plain-text login commands are not permitted in new IETF protocols, a new way to provide anonymous login is needed within the context of the Simple Authentication and Security Layer (SASL) framework.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4505.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>60b68dc3-de0d-41ab-ad9c-dd78191e9097</uuid>
       </standard>
 
       <standard id="ietf-rfc4510" tag="RFC 4510">
@@ -19057,6 +19084,30 @@ database as a logical folder of email messages.</applicability>
          <uuid>edb1f3c9-7044-4a19-bc68-956bb43c2daf</uuid>
       </standard>
 
+      <standard id="ietf-rfc4566" tag="RFC 4566: SDP">
+         <document orgid="ietf" pubnum="RFC 4566" date="200607" title="SDP: Session Description Protocol"/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4566.txt</uri>
+            <history>
+               <event flag="added" date="2015-12-03" version="8.5"/>
+            </history>
+         </status>
+         <uuid>dc84b02e-668f-4b9a-aa27-ad6982ee2122</uuid>
+      </standard>
+
+      <standard id="ietf-rfc4582" tag="BFCP">
+         <document orgid="ietf" pubnum="RFC 4582" title="The Binary Floor Control Protocol (BFCP)" date="2006-01-11"/>
+         <applicability>Floor control is a means to manage joint or exclusive access to shared resources in a (multiparty) conferencing environment. Thereby, floor control complements other functions -- such as conference and media session setup, conference policy manipulation, and media control -- that are realized by other protocols. This document specifies the Binary Floor Control Protocol (BFCP). BFCP is used between floor participants and floor control servers, and between floor chairs (i.e., moderators) and floor control servers.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4582.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>09ea264f-f48b-4e94-83e2-fc026fdcf173</uuid>
+      </standard>
+
       <standard id="ietf-rfc4594" tag="RFC 4594: DiffServ Config.">
          <document date="2006" orgid="ietf" pubnum="RFC 4594" title="Configuration Guidelines for DiffServ Service Classes"/>
          <applicability>
@@ -19111,6 +19162,18 @@ database as a logical folder of email messages.</applicability>
             </history>
          </status>
          <uuid>5ed258f2-b4b5-4d68-bad6-c8510db7a761</uuid>
+      </standard>
+
+      <standard id="ietf-rfc4616" tag="PLAIN SASL">
+         <document orgid="ietf" pubnum="RFC 4616" title="The PLAIN Simple Authentication and Security Layer (SASL) Mechanism" date="2006-01-08"/>
+         <applicability>This document defines a simple clear-text user/password Simple Authentication and Security Layer (SASL) mechanism called the PLAIN mechanism. The PLAIN mechanism is intended to be used, in combination with data confidentiality services provided by a lower layer, in protocols that lack a simple password authentication command.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4616.txt</uri>
+            <history>
+               <event date="2015-11-02" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>81703c9a-9967-4d3e-9f83-4ce4b74b36f1</uuid>
       </standard>
 
       <standard id="ietf-rfc4627" tag="JSON">
@@ -51161,6 +51224,18 @@ applications. </applicability>
          <uuid>3e3d56bb-3310-47af-82d3-5bd02475ec06</uuid>
       </standard>
 
+      <standard id="w3c-NOTE-xhtml1-schema-20020902" tag="XHTML 1.0 Schema">
+         <document orgid="w3c" pubnum="NOTE-xhtml1-schema-20020902" title="XHTML™ 1.0 in XML Schema" date="20020902"/>
+         <applicability>his document provides XML Schemas corresponding to those DTDs - Strict, Transitional and Frameset, giving users an opportunity to use XHTML 1.0 where XML Schema processing is desired. In most part, these XML Schemas are written to imitate the structure of the XHTML 1.0 DTDs as much as possible. </applicability>
+         <status mode="accepted">
+            <uri>www.w3.org/TR/2002/NOTE-xhtml1-schema-20020902</uri>
+            <history>
+               <event date="2015-12-01" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>0d417d48-6884-4e94-83d6-c16b69801178</uuid>
+      </standard>
+
       <standard id="w3c-address" tag="WS-Addressing 1.0 - Core">
          <document orgid="w3c" pubnum="REC-ws-addr-core-20060509" title="Web Services Addressing 1.0 - Core" date="2006-05-09"/>
          <applicability>
@@ -51701,6 +51776,18 @@ applications. </applicability>
             </history>
          </status>
          <uuid>99a10ce9-1296-411a-bfe7-ae5def7df496</uuid>
+      </standard>
+
+      <standard id="w3c-rec-html5-20141028" tag="HTML5">
+         <document orgid="w3c" pubnum="REC-html5-20141028" title="Hypertext Markup Language revision 5 (HTML5)" date="20141028"/>
+         <applicability>HTML5 is the fifth revision of the HTML standard. Its core aims have been to improve the language with support for the latest multimedia while keeping it easily readable by humans and consistently understood by computers and devices (web browsers, parsers, etc.).</applicability>
+         <status mode="accepted">
+            <uri>www.w3.org/TR/2014/REC-html5-20141028/</uri>
+            <history>
+               <event date="2015-12-01" flag="added" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+         <uuid>c6a998c6-149a-4ab4-adf4-c290b15c9a4b</uuid>
       </standard>
 
       <standard id="w3c-rec-its-20070403" tag="ITS 1.0">
@@ -54508,30 +54595,6 @@ to help Web application authors, new elements are introduced based on research i
             </history>
          </status>
          <uuid>5a3a9e60-0817-42b0-b0b3-ac701f7371e6</uuid>
-      </standard>
-
-      <standard id="w3c-rec-html5-20141028" tag="HTML5">
-         <document orgid="w3c" pubnum="REC-html5-20141028" title="Hypertext Markup Language revision 5 (HTML5)" date="20141028"/>
-         <applicability>HTML5 is the fifth revision of the HTML standard. Its core aims have been to improve the language with support for the latest multimedia while keeping it easily readable by humans and consistently understood by computers and devices (web browsers, parsers, etc.).</applicability>
-         <status mode="accepted">
-            <uri>www.w3.org/TR/2014/REC-html5-20141028/</uri>
-            <history>
-               <event date="2015-12-01" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>c6a998c6-149a-4ab4-adf4-c290b15c9a4b</uuid>
-      </standard>
-
-      <standard id="" tag="XHTML 1.0 Schema">
-         <document orgid="w3c" pubnum="NOTE-xhtml1-schema-20020902" title="" date="20020902"/>
-         <applicability>his document provides XML Schemas corresponding to those DTDs - Strict, Transitional and Frameset, giving users an opportunity to use XHTML 1.0 where XML Schema processing is desired. In most part, these XML Schemas are written to imitate the structure of the XHTML 1.0 DTDs as much as possible. </applicability>
-         <status mode="accepted">
-            <uri>www.w3.org/TR/2002/NOTE-xhtml1-schema-20020902</uri>
-            <history>
-               <event date="2015-12-01" flag="added" rfcp="8-5" version="9.0"/>
-            </history>
-         </status>
-         <uuid>0d417d48-6884-4e94-83d6-c16b69801178</uuid>
       </standard>
 
    </records>
