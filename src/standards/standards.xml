@@ -648,8 +648,9 @@
             <node id="ts-cs-tn-smc" title="Transport SMC Services" emUUID="787edb93-3e18-4c31-9044-5f2f1f1f01b9" level="3"/>
             <node id="ts-cs-tn-dis" title="Distribution Services" emUUID="bc2d3723-4a3a-4a34-a0b4-7886760f3137" level="3"/>
          </node>
-      </node>
-      <node id="userdefined" title="" emUUID="" level="1"><!-- FMN -->
+       </node>
+       
+      <node id="userdefined" title="" emUUID="" level="1"/><!-- FMN -->
          <node id="tempEdge" title="" emUUID="" level="2"/>
          <node id="tempGeneral" title="" emUUID="" level="2"/>
          <node id="tempBattle" title="" emUUID="" level="2"/>
@@ -664,7 +665,7 @@
          <node id="user.archive.sound" title="" emUUID="" level="2"/>
          <node id="user.archive.geospatial" title="" emUUID="" level="2"/>
          <node id="user.archive.webarchive" title="" emUUID="" level="2"/>
-      </node>
+
    </taxonomy>
    <lists>
       <sp-list tref="ts-ces"><!--Core Enterprise Services-->
@@ -9822,7 +9823,7 @@ Grids</applicability>
                </serviceprofile>
                <serviceprofile title="Inter-Autonomous Systems Multicast Routing Profile">
                   <description>The Inter-Autonomous Systems Multicast Routing Profile provides standards and guidance for multicast routing between inter-autonomous systems.</description>
-                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
+                  <reftaxonomy refid="ts-cs-tn-core-packetroute"/>
                   <reftaxonomy refid="ts-cs-ca-pba-ipv4"/>
                   <obgroup obligation="mandatory">
                      <description>MNEs, as well as MNXs with their own multicast capability, shall provide a Rendezvous Point (RP) supporting the following IP multicast protocol standards</description>
@@ -9844,7 +9845,7 @@ Grids</applicability>
                </serviceprofile>
                <serviceprofile title="IP Quality of Service Profile">
                   <description>The IP Quality of Service Profile provides standards and guidance to establish and control an agreed level of performance for IP services in federated networks.</description>
-                  <reftaxonomy refid="ts-cs-tn-core-packetroute"/>
+                  <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
                   <reftaxonomy refid="ts-cs-ca-pba-ipv4"/>
                   <obgroup obligation="mandatory">
                      <description>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP)</description>
@@ -10213,6 +10214,7 @@ defined for audio-based collaboration services
                      <refstandard refid="itu-t-h.239"/>
                   </obgroup>
                   <obgroup obligation="mandatory">
+                      <description>The following standards are required for VTC services.</description>
                      <refstandard refid="itu-t-g.722"/>
                   </obgroup>
                   <obgroup obligation="mandatory">
@@ -10247,12 +10249,12 @@ administrative authority for video calls.</guide>
                      <refstandard refid="iso-iec-10918-3"/>
                   </obgroup>
                   <obgroup obligation="recommended">
-                     <description>For word processing documents, spreadsheets and presentations</description>
+                     <description>For word processing documents, spreadsheets and presentations.</description>
                      <refstandard refid="iso-iec-26300"/>
                   </obgroup>
                   <obgroup obligation="mandatory">
-                     <description>For word processing documents, spreadsheets                      and presentations.</description>
-                     <refstandard refid="iso-iec-29500-1"/><!-- JJJJJ -->
+                     <description>For word processing documents, spreadsheets and presentations.</description>
+                     <refstandard refid="iso-iec-29500-1"/>
                   </obgroup>
                   <obgroup obligation="mandatory">
                      <refstandard refid="iso-19005-1"/>
@@ -10282,6 +10284,9 @@ http://www.w3.org/International/articlelist.</guide>
                   <description>The Character Encoding Profile provides standards and guidance for the encoding of character sets.</description>
                   <reftaxonomy refid="ts-ces-soa-web-host"/>
                   <obgroup obligation="mandatory">
+                      <description>Use of UTF-8 for complete Unicode support,
+including fully internationalized addresses is
+mandatory.</description>
                      <refstandard refid="ietf-rfc3629"/>
                   </obgroup>
                </serviceprofile>
@@ -10343,13 +10348,25 @@ based solutions (HTML5 / CSS3) instead.</guide>
                <serviceprofile title="Geospatial Web Feeds Profile">
                   <description>The Geospatial Web Feeds Profile provides standards and guidance for the delivery of geospatial content to web sites and to user agents, including the encoding of location as part of web feeds. Feed processing software is required to either read or ignore these extensions and shall not fail if these extensions are present, so there is no danger of breaking someone's feed reader (or publisher) by including this element in a feed.</description>
                   <reftaxonomy refid="ts-ces-soa-web-host"/>
-                  <obgroup obligation="required">
+                  <obgroup obligation="recommended">
                      <description>GeoRSS GML Profile 1.0 a GML subset for point 'gml:Point', line 'gml:LineString', polygon 'gml:Polygon', and box 'gml:Envelope'. In Atom feeds, location shall be specified using Atom 1.0's official extension mechanism in combination with the GeoRSS GML Profile 1.0 whereby a 'georss:where' element is added as a child of the element.</description>
                      <refstandard refid="ogc-06-050r3"/>
                   </obgroup>
                   <obgroup obligation="mandatory">
+                    <description>GeoRSS Simple encoding for "georss:point",
+"georss:line", "georss:polygon", "georss:box".</description>
                      <refstandard refid="ogc-11-044"/>
                   </obgroup>
+                  <guide>Geography Markup Language (GML) allows to
+specify a coordinate reference system (CRS)
+other than WGS84 decimal degrees (lat/long). If
+there is a need to express geography in a CRS
+other than WGS84, it is recommended to specify
+the geographic object multiple times, one in
+WGS84 and the others in your other desired
+CRSs.</guide>
+                  <guide>For backwards compatibility it is recommended
+to also implement RSS 2.0.</guide>
                </serviceprofile>
                <serviceprofile title="Web Services Profile">
                   <description>The Web Services Profile provides standards and guidance for transport-neutral mechanisms to address structured exchange of information in a decentralized, distributed environment via web services.</description>

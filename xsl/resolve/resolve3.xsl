@@ -214,7 +214,11 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
     </entry>
   </row>
   <row>
-    <entry><xsl:apply-templates select="reftaxonomy"/></entry>
+    <entry>
+      <xsl:if test="not(count(reftaxonomy))">
+        <xsl:text>UNKNOWN SERVICE</xsl:text>
+      </xsl:if>
+      <xsl:apply-templates select="reftaxonomy"/></entry>
     <entry><xsl:apply-templates select="obgroup"/></entry>
     <entry><xsl:apply-templates select="guide"/></entry>
   </row>
@@ -223,10 +227,12 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 
 <xsl:template match="reftaxonomy">
   <xsl:variable name="myrefid" select="@refid"/>
-  <xsl:value-of select="$db//node[@id=$myrefid]/@title"/>
-  <xsl:if test="following-sibling::reftaxonomy">
-    <xsl:text>, </xsl:text>
-  </xsl:if>
+  <para>
+    <xsl:value-of select="$db//node[@id=$myrefid]/@title"/>
+    <xsl:if test="following-sibling::reftaxonomy">
+      <xsl:text>, </xsl:text>
+    </xsl:if>
+  </para>
 </xsl:template>
 
 
@@ -268,8 +274,9 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 
   
 <xsl:template match="guide">
-  <para><xsl:value-of select="."/></para>
+  <para><xsl:apply-templates/></para>
 </xsl:template>
+
 
 
 
