@@ -98,14 +98,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <!-- ==================================================================== -->
 
-<xsl:template match="select|remarks">
-  <xsl:apply-templates/>
-</xsl:template>
-
-<!-- ==================================================================== -->
-
-
-
 <xsl:template match="@*" mode="addindexentry">
   <xsl:variable name="id" select="."/>
 
@@ -128,6 +120,13 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <!-- ==================================================================== -->
 
+<xsl:template match="select|remarks">
+  <xsl:apply-templates/>
+</xsl:template>
+
+<!-- ==================================================================== -->
+
+
 <!-- This template can properly be merged into the procesing
      instruction template, but assumes that the node seleted is at a
      sufficiently high level and do not "have" any standards.
@@ -138,9 +137,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
   <tgroup cols="3">
-    <colspec colwidth="16*" colname="c1" />
-    <colspec colwidth="42*"/>
-    <colspec colwidth="43*" colname="c3"/>
+    <colspec colwidth="18*" colname="c1" />
+    <colspec colwidth="44*"/>
+    <colspec colwidth="38*" colname="c3"/>
     <thead>
       <row>
         <entry>Service</entry>
@@ -176,14 +175,24 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <xsl:value-of select="//node[@id=$tref]/@title"/>
     </entry>
     <entry>
-      <xsl:if test="count(sp-list/select[@mode='mandatory'])>0">
-        <para><emphasis role="bold">Mandatory</emphasis></para>
+      <xsl:if test="count(sp-view/select[@mode='mandatory'])>0">
+        <para><emphasis>Mandatory</emphasis></para>
+        <itemizedlist spacing="compact">
+          <xsl:apply-templates select="sp-view[select/@mode='mandatory']" mode="lowlevel"/>
+        </itemizedlist>
       </xsl:if>
-      <!--
-          <itemizedlist>
-          -->
-        <xsl:apply-templates mode="lowlevel"/>
-<!--      </itemizedlist>  -->
+      <xsl:if test="count(sp-view/select[@mode='emerging'])>0">
+        <para><emphasis>Emerging</emphasis></para>
+        <itemizedlist spacing="compact">
+          <xsl:apply-templates select="sp-view[select/@mode='emerging']" mode="lowlevel"/>
+        </itemizedlist>
+      </xsl:if>
+      <xsl:if test="count(sp-view/select[@mode='fading'])>0">
+        <para><emphasis>Fading</emphasis></para>
+        <itemizedlist spacing="compact">
+          <xsl:apply-templates select="sp-view[select/@mode='fading']" mode="lowlevel"/>
+        </itemizedlist>
+      </xsl:if>
     </entry>
     <entry></entry>
   </row>
@@ -193,84 +202,11 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:template match="sp-view" mode="lowlevel">
   <xsl:if test="./select">
-    
-      <para><xsl:value-of select="select"/><xsl:apply-templates 
+    <listitem>
+      <para>
+         <xsl:value-of select="select"/><xsl:apply-templates 
                select="select/@id" mode="addindexentry"/></para>
-    
-  </xsl:if>
-</xsl:template>
-
-
-<xsl:template match="node1">
-  <xsl:variable name="id" select="@id"/>
-  <row>
-    <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
-    <entry/><entry/><entry/><entry/><entry/>
-  </row>
-  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
-  <xsl:apply-templates select="servicecategory" mode="sa-children"/>
-</xsl:template>
-
-
-<xsl:template match="servicecategory" mode="sa-children">
-  <xsl:variable name="id" select="@id"/>
-  <row>
-    <entry><xsl:value-of select="@title"/></entry>
-    <entry/><entry/><entry/><entry/><entry/>
-  </row>
-  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
-  <xsl:apply-templates select="category" mode="sa-children"/>
-</xsl:template>
-
-
-<xsl:template match="category" mode="sa-children">
-  <xsl:variable name="id" select="@id"/>
-  <row>
-    <entry/>
-    <entry><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
-    <entry/><entry/><entry/><entry/>
-  </row>
-  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
-  <xsl:apply-templates select="subcategory" mode="sa-children"/>
-</xsl:template>
-
-
-<xsl:template match="subcategory" mode="sa-children">
-  <xsl:variable name="id" select="@id"/>
-  <row>
-    <entry/>
-    <entry><xsl:value-of select="@title"/></entry>
-    <entry/><entry/><entry/><entry/>
-  </row>
-  <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
-</xsl:template>
-
-
-<xsl:template match="sp-list" mode="sa-children">
-   <xsl:apply-templates  mode="sa-children"/>
-</xsl:template>
-
-
-
-<!--
-
-  Print a SP view: class/subclass, mandatory/emerging standards, applicability and remarks
-
--->
-
-<xsl:template match="sp-view" mode="sa-children">
-  <xsl:if test="./header or ./subclass or ./select[@mode='mandatory'] or
-                ./select[@mode='emerging'] or ./select[@mode='fading']">
-    <row>
-      <entry/><entry/>
-      <entry><xsl:apply-templates select="./select[@mode='mandatory']"/><xsl:apply-templates 
-             select="select[@mode='mandatory']/@id" mode="addindexentry"/></entry>
-      <entry><xsl:apply-templates 
-           select="./select[@mode='emerging']"/><xsl:apply-templates
-           select="./select[@mode='emerging']/@id" mode="addindexentry"/></entry>
-      <entry><xsl:apply-templates select="./select[@mode='fading']"/></entry>
-      <entry><xsl:apply-templates select="./remarks"/></entry>
-    </row>
+    </listitem>
   </xsl:if>
 </xsl:template>
 
