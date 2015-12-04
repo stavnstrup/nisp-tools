@@ -269,6 +269,12 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 
 
 <xsl:template match="standard">
+  <xsl:variable name="myorg" select="document/@orgid"/>
+  <xsl:variable name="orgname" select="ancestor::standards/organisations/orgkey[@key=$myorg]/@short"/>
+  <xsl:if test="$orgname">
+    <xsl:value-of select="$orgname"/>
+    <xsl:text> </xsl:text>
+  </xsl:if>
   <xsl:value-of select="document/@pubnum"/>
   <xsl:text> - </xsl:text>
   <xsl:value-of select="document/@title"/>
@@ -278,14 +284,6 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 <xsl:template match="guide">
   <para><xsl:apply-templates/></para>
 </xsl:template>
-
-
-
-
-
-
-
-
 
 
 
