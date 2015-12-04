@@ -10,7 +10,7 @@ Description : This stylesheet is a customization of Norman Walsh
               specification: "Extensible Stylesheet Language" version
               1.0.  (see: http://www.w3c.org/REC/2001/XSL.html).
 
-              Copyright (C) 2001,2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
+              Copyright (C) 2001,2015 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
               Danish Defence Research Establishment (DDRE) and 
               NATO Command, Control and Consultation Organisation.(NC3O)
@@ -39,7 +39,7 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <!-- ToC/LoT/Index Generation -->
 
-<xsl:variable name="toc.section.depth">3</xsl:variable>
+<xsl:variable name="toc.section.depth">1</xsl:variable>
 
 <xsl:param name="generate.toc">
   book toc
