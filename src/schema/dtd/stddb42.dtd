@@ -187,7 +187,7 @@
 <!ELEMENT profile ((serviceprofile|profile),  uuid?)*>
 
 
-<!ELEMENT serviceprofile (description*, reftaxonomy+, obgroup+, guide*,  uuid?)>
+<!ELEMENT serviceprofile (description?, reftaxonomy+, obgroup+, guide*,  uuid?)>
 <!ATTLIST serviceprofile
           title CDATA #REQUIRED>
 
@@ -197,7 +197,7 @@
 <!ATTLIST reftaxonomy
           refid IDREF #REQUIRED>
 
-<!ELEMENT obgroup (refstandard*)>
+<!ELEMENT obgroup (description?, refstandard*)>
 <!ATTLIST obgroup
           obligation (mandatory|required|optional|conditional) #REQUIRED>
 
