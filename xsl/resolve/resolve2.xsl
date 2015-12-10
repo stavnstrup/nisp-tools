@@ -136,15 +136,13 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="node" mode="highlevel">
   <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
-  <tgroup cols="3">
-    <colspec colwidth="18*" colname="c1" />
-    <colspec colwidth="44*"/>
-    <colspec colwidth="38*" colname="c3"/>
+  <tgroup cols="2">
+    <colspec colwidth="24*" colname="c1" />
+    <colspec colwidth="76*" colname="c2"/>
     <thead>
       <row>
         <entry>Service</entry>
 	<entry>Standards</entry>
-        <entry>Remarks</entry>
       </row>
     </thead>
     <tbody>
@@ -194,7 +192,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
         </itemizedlist>
       </xsl:if>
     </entry>
-    <entry></entry>
   </row>
   </xsl:if>
 </xsl:template>
