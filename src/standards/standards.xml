@@ -265,7 +265,16 @@
                <node id="ts-ces-is-ss-nosql" title="Non-relational Structured Storage Services" emUUID="80e56cf6-ed2a-474f-ae28-06029ccf224b" level="4"/>
                <node id="ts-ces-is-ss-directory" title="Directory Storage Services" emUUID="3898a275-2231-4656-96aa-b9b37e5cbc78" level="4"/>
             </node>
-         </node>
+         </node>         <sp-view idx="d0e632">
+            <select id="nso-stanag1317ed3" mode="fading">NATO Oceanographic Data Exchange Format (STANAG 1317 ed.3:2008)</select>
+            <remarks>For CCEB interoperability this standard is only applicable for NATO lead operations</remarks>
+            <rationale>
+               STANAG 1317 ed.3, added in NISP v.5 through RFCP 4-12. For CCEB
+               interoperability this standard is only applicable for NATO lead operations
+               STANAG 1317 ed.3 cancelled by NSA, no valid other edition available.
+            </rationale>
+         </sp-view>
+
          <node id="ts-ces-soa" title="SOA Platform Services" emUUID="d6f1a264-9503-4723-9cb5-04aa2a57e3a5" level="2">
             <node id="ts-ces-soa-med" title="Mediation Services" emUUID="13aba303-3b24-4b90-9d48-ad9ac4313c37" level="3">
                <node id="ts-ces-soa-med-dtrans" title="Data Format Transformation Services" emUUID="b08fa4bc-9038-4303-9f09-5e312a7738e5" level="4"/>
@@ -3372,7 +3381,6 @@
       <sp-list tref="ts-ces-soa-ia-guard"><!--SOA Platform Guard Services-->
          <sp-view idx="d0e5049">
             <select id="ietf-rfc5246" mode="mandatory">TLS v1.2 (IETF RFC 5246:2008)</select>
-            <select id="netscape-draft302" mode="fading">SSL excluded in NCSP v.6</select>
             <remarks>
                Used as a transport layer security protocol.
                <para>Used in Profiles: AMN (v1.1), CES, FMN, tactESB</para>
