@@ -178,19 +178,19 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <xsl:if test="count(sp-view/select[@mode='mandatory'])>0">
         <para><emphasis>Mandatory</emphasis></para>
         <itemizedlist spacing="compact">
-          <xsl:apply-templates select="sp-view[select/@mode='mandatory']" mode="lowlevel"/>
+          <xsl:apply-templates select=".//select[@mode='mandatory']" mode="lowlevel"/>
         </itemizedlist>
       </xsl:if>
       <xsl:if test="count(sp-view/select[@mode='emerging'])>0">
         <para><emphasis>Emerging</emphasis></para>
         <itemizedlist spacing="compact">
-          <xsl:apply-templates select="sp-view[select/@mode='emerging']" mode="lowlevel"/>
+          <xsl:apply-templates select=".//select[@mode='emerging']" mode="lowlevel"/>
         </itemizedlist>
       </xsl:if>
       <xsl:if test="count(sp-view/select[@mode='fading'])>0">
         <para><emphasis>Fading</emphasis></para>
         <itemizedlist spacing="compact">
-          <xsl:apply-templates select="sp-view[select/@mode='fading']" mode="lowlevel"/>
+          <xsl:apply-templates select=".//select[@mode='fading']" mode="lowlevel"/>
         </itemizedlist>
       </xsl:if>
     </entry>
@@ -200,14 +200,12 @@ NATO Command, Control and Consultation Organisation (NC3O).
 </xsl:template>
 
 
-<xsl:template match="sp-view" mode="lowlevel">
-  <xsl:if test="./select">
-    <listitem>
-      <para>
-         <xsl:value-of select="select"/><xsl:apply-templates 
-               select="select/@id" mode="addindexentry"/></para>
-    </listitem>
-  </xsl:if>
+<xsl:template match="select" mode="lowlevel">
+  <listitem>
+    <para>
+       <xsl:value-of select="."/><xsl:apply-templates 
+               select="@id" mode="addindexentry"/></para>
+  </listitem>
 </xsl:template>
 
 
