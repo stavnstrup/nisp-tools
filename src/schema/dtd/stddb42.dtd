@@ -69,6 +69,7 @@
 <!ATTLIST node
           id ID #REQUIRED
           title CDATA #REQUIRED
+          level CDATA #REQUIRED
           emUUID CDATA #REQUIRED>
 
 
@@ -185,6 +186,9 @@
 
 
 <!ELEMENT profile ((serviceprofile|profile),  uuid?)*>
+<!ATTLIST profile
+          id ID #REQUIRED
+          title CDATA #REQUIRED>
 
 
 <!ELEMENT serviceprofile (description?, reftaxonomy+, obgroup+, guide*,  uuid?)>
@@ -199,13 +203,13 @@
 
 <!ELEMENT obgroup (description?, refstandard*)>
 <!ATTLIST obgroup
-          obligation (mandatory|required|optional|conditional) #REQUIRED>
+          obligation (mandatory|recommended|optional|conditional) #REQUIRED>
 
 <!ELEMENT refstandard EMPTY>
 <!ATTLIST refstandard
           refid IDREF #REQUIRED>
 
-<!ELEMENT guide (#PCDATA)>
+<!ELEMENT guide %ho; (%tbl.entry.mdl;)*>
 
    
 <!ELEMENT setofstandards (profilespec, profilenote?, parts, configuration?,  applicability, status, uuid?)>
@@ -237,8 +241,8 @@
 
 
 
-<!ELEMENT refstandard EMPTY>
-<!ATTLIST refstandard
+<!ELEMENT refstandard1 EMPTY>
+<!ATTLIST refstandard1
           refid IDREF #REQUIRED
 	  lctime CDATA #IMPLIED>
 

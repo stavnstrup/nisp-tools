@@ -648,7 +648,8 @@
             <node id="ts-cs-tn-smc" title="Transport SMC Services" emUUID="787edb93-3e18-4c31-9044-5f2f1f1f01b9" level="3"/>
             <node id="ts-cs-tn-dis" title="Distribution Services" emUUID="bc2d3723-4a3a-4a34-a0b4-7886760f3137" level="3"/>
          </node>
-      </node>
+       </node>
+       
       <node id="userdefined" title="" emUUID="" level="1"/><!-- FMN -->
       <node id="tempEdge" title="" emUUID="" level="2"/>
       <node id="tempGeneral" title="" emUUID="" level="2"/>
@@ -790,23 +791,6 @@
             <select id="nso-stanag2591" mode="mandatory">Advanced Distributed Learning (ADL) (STANAG 2591:2013)</select>
             <rationale>Included ion NISP v.8 through RFCP 7-39.</rationale>
          </sp-view>
-      </sp-list>
-
-      <sp-list tref="ts-ces-es-cc-ac"><!--Audio-based Collaboration Services-->
-         <sp-view idx="d0e5961">
-            <select id="itu-t-h.323" mode="mandatory">
-               Packet-based Multimedia Comms System (ITU-T H.323:2009)
-            </select>
-            <remarks>Used in Profiles: AMN, FMN</remarks>
-            <rationale>Updated by RFCP 7-8.</rationale>
-         </sp-view>
-         <sp-view idx="d0e9991">
-            <select id="itu-t-g.722.1c" mode="mandatory">
-               G.722.1C 14kHz audio codec  (ITU-T G.722.1 Annex C:2012)
-            </select>
-            <remarks>Used in Profiles: AMN, FMN</remarks>
-            <rationale>G.722.1c added in NISP v.7 through RFCP 6-97, updated by RFCP 7-8.</rationale>
-         </sp-view>
          <sp-view idx="d0e7724">
             <select id="microsoft-application-note-gc0165" mode="mandatory">Rich Text Format (RTF) v.1.9.1:2007 (MS)</select>
             <remarks>Basic document interchange format</remarks>
@@ -877,6 +861,27 @@
             <select id="w3c-rec-html401-19991224" mode="mandatory">HTML 4.01 (RFC 2854:2000)</select>
             <remarks>Used in Profiles: AMN, FMN, tactESB</remarks>
          </sp-view>
+         
+      </sp-list>
+
+      <sp-list tref="ts-ces-es-cc-ac"><!--Audio-based Collaboration Services-->
+         <sp-view idx="d0e5961">
+            <select id="itu-t-h.323" mode="mandatory">
+               Packet-based Multimedia Comms System (ITU-T H.323:2009)
+            </select>
+            <remarks>Used in Profiles: AMN, FMN</remarks>
+            <rationale>Updated by RFCP 7-8.</rationale>
+         </sp-view>
+         <sp-view idx="d0e9991">
+            <select id="itu-t-g.722.1c" mode="mandatory">
+               G.722.1C 14kHz audio codec  (ITU-T G.722.1 Annex C:2012)
+            </select>
+            <remarks>Used in Profiles: AMN, FMN</remarks>
+            <rationale>G.722.1c added in NISP v.7 through RFCP 6-97, updated by RFCP 7-8.</rationale>
+         </sp-view>
+
+
+         
       </sp-list>
 
       <sp-list tref="ts-ces-es-cc-tc"><!--Text-based Collaboration Services-->
@@ -1389,7 +1394,12 @@
          </sp-view>
       </sp-list>
 
-      <sp-list tref="ts-ces-es-ia"><!--Enterprise Support IA Services--></sp-list>
+      <sp-list tref="ts-ces-es-ia"><!--Enterprise Support IA Services-->
+
+
+
+
+      </sp-list>
 
       <sp-list tref="ts-ces-es-ia-esg"><!--Enterprise Support Guard Services-->
          <sp-view idx="d0e5261">
@@ -9885,7 +9895,7 @@ required. Otherwise, CHAP is recommended.</guide>
             </profile>
             <profile id="fmn-fed-net" title="Federated Networking Profile">
                <serviceprofile title="Directory Data Structure Profile">
-                  <description>The Directory Data Structure Profile provides standards and guidance in support of the definition of the namespace of a                                                 federated mission network on the basis of the Lightweight Directory Access Protocol (LDAP)</description>
+                  <description>The Directory Data Structure Profile provides standards and guidance in support of the definition of the namespace of a federated mission network on the basis of the Lightweight Directory Access Protocol (LDAP)</description>
                   <reftaxonomy refid="ts-ces-is-ss-directory"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="ietf-rfc2798"/>
@@ -9893,7 +9903,7 @@ required. Otherwise, CHAP is recommended.</guide>
                   </obgroup>
                </serviceprofile>
                <serviceprofile title="Digital Certificate Profile">
-                  <description>The Digital Certificate Profile provides standards and guidance in support of a Public Key Infrastructure (PKI) on                                            federated mission networks.</description>
+                  <description>The Digital Certificate Profile provides standards and guidance in support of a Public Key Infrastructure (PKI) on federated mission networks.</description>
                   <obgroup obligation="mandatory">
                      <refstandard refid="itu-t-x.509"/>
                      <refstandard refid="ietf-rfc5280"/>
