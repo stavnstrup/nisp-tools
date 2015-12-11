@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*****************************************************************
+                   Annex -   Minimum Interoperability Profile
+*****************************************************************  
+-->
+
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"../schema/dtd/docbkx45/docbookx.dtd" [
+<!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
+]>
+
+<appendix id="v3-MinInterop">
+ <sect1>
+      <title>Minimum Interoperability Profile</title>
+      <para>NATO, through its interoperability directive, has recognized that
+      widespread interoperability is a key component in achieving effective
+      and efficient operations. In many of the operations world-wide in which
+      NATO nations are engaged, they participate together with a wide variety
+      of other organizations on the ground. Such organizations include
+      coalition partners from non-NATO nations, Non-Governmental Organization
+      (NGOs - e.g. Aid Agencies) and industrial partners. It is clear that the
+      overall military and humanitarian objectives of an operation could
+      usefully be supported if a basic level of system interoperability
+      existed to enhance the exchange of information.</para>
+      <para>To support the goal of widespread interoperability this section
+      defines a minimum profile of services and standards that are sufficient
+      to provide a useful level of interoperability. This profile uses only
+      those services and standards that are already part of the NISP, however
+      it presents them as a simple and easy to follow, yet comprehensive
+      protocol and service stack.</para>
+      <sect2>
+        <title>Architectural Assumptions</title>
+        <para>This document assumes that all participants are using IP v4 or IP v6
+        packet-switched, routed networks (at least at the boundaries to their
+        networks) and that interoperability will be supported through tightly
+        controlled boundaries between component networks and systems; these
+        may be connected directly or via a third-party WAN
+	(see <xref linkend="v2f-ar-as" /> below). A limited set of services will
+	be supported at the boundary, these requiring server-to-server
+	interactions only. Each nation/organization will be responsible for the
+	security of information exchanged.</para>
+        <figure id="v2f-ar-as" float="0">
+          <title>NATO to National Connectivity</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="../figures/ar-as.svg" />
+            </imageobject>
+          </mediaobject>
+        </figure>
+        <para>Users will attach and authenticate to their local system/network. Information will only be shared using the limited set of services provided. It is also assumed that the National information to be exchanged is releasable to NATO.</para>
+      </sect2>
+      <sect2>
+        <title>Shared Services</title>
+        <para>The complete set of shared services will be a combination of the
+        user-level services supported across the boundary and the
+        infrastructure services necessary to deliver them. The user-level
+        services that realistically can be shared are:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Voice</para>
+          </listitem>
+          <listitem>
+            <para>Mail</para>
+          </listitem>
+          <listitem>
+            <para>FAX</para>
+          </listitem>
+          <listitem>
+            <para>C2 information</para>
+          </listitem>
+          <listitem>
+            <para>E-mail with attachments</para>
+          </listitem>
+          <listitem>
+            <para>Web publishing/access</para>
+          </listitem>
+          <listitem>
+            <para>News (Usenet)</para>
+          </listitem>
+          <listitem>
+            <para>File transfer</para>
+          </listitem>
+          <listitem>
+            <para>VTC</para>
+          </listitem>
+          <listitem>
+            <para>Instant Messaging</para>
+          </listitem>
+        </itemizedlist>
+        <para>To implement these services in a network enabled environment,
+        the following must also be defined:</para>
+        <itemizedlist>
+          <listitem>
+            <para>NNEC Application Services</para>
+          </listitem>
+          <listitem>
+            <para>COI Services</para>
+          </listitem>
+          <listitem>
+            <para>NNEC Core Enterprise Services</para>
+          </listitem>
+          <listitem>
+            <para>Network and Information Infrastructure Services</para>
+          </listitem>
+        </itemizedlist>
+      </sect2>
+      <sect2>
+        <title>Minimum Architecture</title>
+        <para>The following table defines the service areas, classes and
+        standards that make up the minimum architecture. They represent a
+        subset of the NISP.</para>
+        <table frame="all" id="v2t-nisp-lite">
+          <title>NISP Lite</title>
+          <tgroup cols="4">
+            <colspec colwidth="15*" />
+            <colspec colwidth="20*" />
+            <colspec colwidth="35*" />
+            <colspec colwidth="30*" />
+            <thead>
+              <row>
+                <entry>
+                  <emphasis role="bold">Service Area</emphasis>
+                </entry>
+                <entry>
+                  <emphasis role="bold">Class</emphasis>
+                </entry>
+                <entry>
+                  <emphasis role="bold">Mandatory
+                Standard</emphasis>
+                </entry>
+                <entry>
+                  <emphasis role="bold">Comments</emphasis>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis role="bold">NNEC Application
+                Services</emphasis>
+                </entry>
+                <entry></entry>
+                <entry></entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">COI Services</emphasis>
+                </entry>
+                <entry></entry>
+                <entry></entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">NNEC Core Enterprise
+                Services</emphasis>
+                </entry>
+                <entry></entry>
+                <entry></entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry>
+                  <emphasis role="bold">Messaging</emphasis>
+                </entry>
+                <entry>SMTP (RFC 1870:1995, 2821:2001, 5321:2008)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry>Application</entry>
+                <entry>FTP (IETF STD 9, RFC 959:1985 updated by 2228:1997,
+                2640:1999, 2773:2000, 3659:2007)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>HTTP v1.1 (RFC 2616:1999 updated by 2817:2000), URL
+                (RFC 4248:2005, 4266:2005), URI (RFC 3938:2005)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>Network News Transfer Protocol NNTP (RFC 3977:2006)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>MPEG-1 (ISO 11172:1993)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>MPEG-2 (ISO 13818:2000)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>MP3 (MPEG1 - Layer 3)</entry>
+                <entry>The audio compression format used in MPEG1</entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry>Translator</entry>
+                <entry>7-bit Coded Character-set for Info Exchange (ASCII)
+                (ISO 646:1991)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>8-bit Single-Byte Coded Graphic Char Sets (ISO/IEC
+                8859-1-4-9:98/98/99)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>Universal Multiple Octet Coded Char Set (UCS) - Part 1
+                (ISO 10646-1:2003)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>Representation of Dates and Times (ISO 8601:2004)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry>Data encoding</entry>
+                <entry>UUENCODE (UNIX 98), MIME (RFC 2045:1996 updated by 2231:1997, 5335:2008:
+		2046:1996, updated by 3676:2004, 3798:2004, 5147:2008, 5337:2008;
+		2047:1996, updated by 2231:1997; 2049:1996, 4288:2005, 4289:2005)</entry>
+                <entry>Base64 is used by some email products to encode
+                attachments. It is part of the MIME std.</entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry>Mediation</entry>
+                <entry>Scalable Vector Graphics (SVG) 1.1 20030114,
+                W3C</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>JPEG (ISO 10918:1994)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>PNG vers. 1.0 (RFC 2083:1997)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>XML 1.0 3rd ed:2004, W3C</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>HTML 4.01 (RFC 2854:2000)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>PDF (Adobe Specification 5.1)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>Rich Text Format (RTF)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>Comma Separated Variable (CSV)</entry>
+                <entry>For spreadsheets</entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>Zip</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">Network and Information
+                Infrastructure Services</emphasis>
+                </entry>
+                <entry></entry>
+                <entry></entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry>Directory</entry>
+                <entry>DNS (IETF STD 13, RFC 1034:1987+1035:1987 updated by
+                1101:1989, 1183:1990, 1706:1994, 1876:1996, 1982:1996,
+                1995:1996, 1996:1996, 2136:1997, 2181:1997, 2308:1998, 
+		2845:2000, 2931:2000, 3007:2000, 3425:2002, 3597:2003, 
+		3645:2003, 4033:2005, 4034:2005, updated by 4470:2006;
+		4035:2005, updated by 4470:2006; 4566:2006, 4592:2006,
+		5395:2008, 5452:2009)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry>
+                  <emphasis role="bold">Transport</emphasis>
+                </entry>
+                <entry>TCP (IETF STD 7, RFC 793:1981 updated by
+                1122: 1989, 3168:2001)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>UDP (IETF STD 6, RFC 768:1980)</entry>
+                <entry></entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry>
+                  <emphasis role="bold">Network</emphasis>
+                </entry>
+                <entry>IPv4 (STD 5, RFC 791:1981, 792:1981, 894:1984,
+                919:1984, 922:1984, 1112:1989 updated by RFC 950:1985,
+                2474:1998, 3168:2001, 3260:2002, 3376:2002, 4604:2006,
+		4884:2007)</entry>
+                <entry>Boundary/advertised addresses must be valid public
+                addresses (i.e. no private addresses to be routed across
+                boundary)</entry>
+              </row>
+              <row>
+                <entry></entry>
+                <entry></entry>
+                <entry>Border Gateway Protocol (BGP4) (RFC 4271:2006)</entry>
+                <entry></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </sect2>
+    </sect1>
+</appendix>
