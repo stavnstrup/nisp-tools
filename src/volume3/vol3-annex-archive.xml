@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 *****************************************************************
-        Vol 3 -   A N N E X  - Archive Profile
+        Vol 3 - A N N E X  - Archive Profile
 
 *****************************************************************  
 -->
@@ -14,6 +14,23 @@
 <appendix id="v3-archive">
   <title>Profile for the Long Term Preservation of NATO Digital Information of Permanent value</title>
 
+
+  
+<para>Information of permanent value shall be submitted by the NATO Information
+Managers in their role as Information Custodians to the NATO Archivist in one of the
+approved sustainable archival formats and packaged in this appendix.</para>
+
+<para>The submission process for information of permanent value for long-term
+preservation is shown in figure 1.   FIGURE REF HERE</para>
+
+
+<!--
+
+Publication process figure here.
+
+-->
+
+  
 <para>
   This profile outlines the file formats (<xref linkend="part-i"/>) and package structures
   (<xref linkend="part-ii"/>) approved by the Archives Committee for the long-term
@@ -51,7 +68,7 @@
       structure of an Excel document or a database), or explicitly
       defined (e.g. as a schema definition)
     </para>
-    <?dbmerge serviceprofilePS="user.archive.data-sets"?>
+    <?dbmerge profile="user.archive.data-sets"?>
   </sect2>
   <sect2 id="text">
     <title>Text</title>
@@ -62,7 +79,7 @@
       embedded diagrams, pictures, or other non- text material. These
       items shall not be separated from the text and kept as part of the
       document.</para>
-      <?dbmerge serviceprofilePS="user.archive.text"?>
+      <?dbmerge profile="user.archive.text"?>
   </sect2>
   <sect2 id="still-images">
     <title>Still Images</title>
@@ -76,7 +93,7 @@
       where a bitmap image of an area can have symbology vector
       overlays.
     </para>
-     <?dbmerge serviceprofilePS="user.archive.stillimage"?>
+     <?dbmerge profile="user.archive.stillimage"?>
 
   </sect2>
   <sect2 id="moving-images">
@@ -88,7 +105,7 @@
       Moving images are typically combined with audio data and packaged
       into a common container.
     </para>
-    <?dbmerge serviceprofilePS="user.archive.movingimage"?>
+    <?dbmerge profile="user.archive.movingimage"?>
   </sect2>
   <sect2 id="sound">
     <title>Sound</title>
@@ -97,7 +114,7 @@
       includes audio recordings from meetings if they contain
       information of permanent value.
     </para>
-    <?dbmerge serviceprofilePS="user.archive.sound"?>
+    <?dbmerge profile="user.archive.sound"?>
   </sect2>
   <sect2 id="geospatial">
     <title>Geospatial</title>
@@ -108,7 +125,7 @@
       consists of bitmap or vector images plus additional attributes
       associated with particular locations depicted in the image data.
     </para>
-    <?dbmerge serviceprofilePS="user.archive.geospatial"?>
+    <?dbmerge profile="user.archive.geospatial"?>
   </sect2>
   <sect2 id="web-archive">
     <title>Web Archive</title>
@@ -122,7 +139,7 @@
       Web archives typically contain structured textual descriptions as
       well as still and moving images.
     </para>
-    <?dbmerge serviceprofilePS="user.archive.webarchive"?>
+    <?dbmerge profile="user.archive.webarchive"?>
   </sect2>
 </sect1>
 <sect1 id="part-ii">
@@ -144,12 +161,12 @@
     <para>
       The SIP consists of two parts: the actual information packaged as
       a single digital information item and a set of metadata associated
-      with this item (see Figure 1)Figure 1
+      with this item (see <xref linkend="f3-sip-structure"/>)
     </para>
 
 
 
-      <figure id="f3-fmn-profiles">
+      <figure id="f3-sip-structure">
         <title>Submission Information Package structure</title>
         <mediaobject>
           <imageobject>
@@ -211,16 +228,15 @@
       be used for packages for long term preservation.
     </para>
     <para>
-      The packaged single digital information item shall contain a basic
-      set of metadata for the container. OPC supports a subset of six
-      Dublin Core metadata elements (creator, description, identifier,
-      language, subject, and title) and two Dublin Core terms (created,
-      modified). The elements shall be filled by the Information
-      Custodian when the OPC container for the single digital
-      information item is created. Note that this metadata refers to the
-      container itself, not to its contents. For example, the creation
-      date is the date the container was created, not the creation date
-      of the content.
+     The SIP or AIP shall contain a basic set of metadata for the
+     container. OPC supports a subset of six Dublin Core metadata
+     elements (creator, description, identifier, language, subject,
+     and title) and two Dublin Core terms (created, modified). The
+     elements shall be filled by the Information Custodian when the
+     OPC container for the single digital information item is created.
+     Note that this metadata refers to the container itself, not to
+     its contents. For example, the creation date is the date the
+     container was created, not the creation date of the content.
     </para>
     <para>
       In addition to the OPC container metadata, the Information
