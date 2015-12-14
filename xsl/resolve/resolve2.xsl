@@ -101,7 +101,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="@*" mode="addindexentry">
   <xsl:variable name="id" select="."/>
 
-  <xsl:variable name="record" select="$db//standard[@id=$id]|$db//profile[@id=$id]"/>
+  <xsl:variable name="record" select="$db//standard[@id=$id]|$db//setofstandards[@id=$id]"/>
   <xsl:for-each select="$record//document">
      <xsl:variable name="org" select="@orgid"/>
      <indexterm>
@@ -146,11 +146,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
       </row>
     </thead>
     <tbody>
-<!--
-      Let us for now ASSUME, no standards are associated with this node
-           
-      <xsl:apply-templates select="//sp-list[@tref=$id]" mode="sa-children"/>
--->     
       <xsl:apply-templates mode="lowlevel"/>
     </tbody>
   </tgroup>
@@ -160,44 +155,43 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:template match="node" mode="lowlevel">
   <xsl:variable name="id" select="@id"/>
-  <xsl:apply-templates select="//sp-list[@tref=$id]"  mode="lowlevel"/>
+  <xsl:apply-templates select="//bpserviceprofile[@tref=$id]"  mode="lowlevel"/>
   <xsl:apply-templates mode="lowlevel"/>
 </xsl:template>
 
 
-<xsl:template match="sp-list" mode="lowlevel">
+<xsl:template match="bpserviceprofile" mode="lowlevel">
   <xsl:variable name="tref" select="@tref"/>
-  <xsl:if test="count(./sp-view)>0">
   <row>
     <entry>
       <xsl:value-of select="//node[@id=$tref]/@title"/>
     </entry>
     <entry>
-      <xsl:if test="count(sp-view/select[@mode='mandatory'])>0">
-        <para><emphasis>Mandatory</emphasis></para>
-        <itemizedlist spacing="compact">
-          <xsl:apply-templates select=".//select[@mode='mandatory']" mode="lowlevel"/>
-        </itemizedlist>
-      </xsl:if>
-      <xsl:if test="count(sp-view/select[@mode='emerging'])>0">
-        <para><emphasis>Emerging</emphasis></para>
-        <itemizedlist spacing="compact">
-          <xsl:apply-templates select=".//select[@mode='emerging']" mode="lowlevel"/>
-        </itemizedlist>
-      </xsl:if>
-      <xsl:if test="count(sp-view/select[@mode='fading'])>0">
-        <para><emphasis>Fading</emphasis></para>
-        <itemizedlist spacing="compact">
-          <xsl:apply-templates select=".//select[@mode='fading']" mode="lowlevel"/>
-        </itemizedlist>
-      </xsl:if>
+      <xsl:apply-templates select="bpgroup"/>
     </entry>
   </row>
-  </xsl:if>
 </xsl:template>
 
 
-<xsl:template match="select" mode="lowlevel">
+<xsl:template match="bpgroup">
+  <xsl:choose>
+    <xsl:when test="@mode='mandatory'">
+      <para><emphasis>Mandatory</emphasis></para>
+    </xsl:when>
+    <xsl:when test="@mode='emerging'">
+      <para><emphasis>Emerging</emphasis></para>
+    </xsl:when>
+    <xsl:when test="@mode='fading'">
+      <para><emphasis>Fading</emphasis></para>
+    </xsl:when>
+  </xsl:choose>
+  <itemizedlist spacing="compact">
+    <xsl:apply-templates mode="lowlevel"/>
+  </itemizedlist>
+</xsl:template>
+      
+
+<xsl:template match="bprefstandard" mode="lowlevel">
   <listitem>
     <para>
        <xsl:value-of select="."/><xsl:apply-templates 

@@ -57,7 +57,7 @@
 <!-- ...................................................................... -->
 
 
-<!ELEMENT standards (revhistory?, taxonomy, lists, records, organisations, responsibleparties)>
+<!ELEMENT standards (revhistory?, taxonomy, bestpracticeprofile, records, organisations, responsibleparties)>
 <!ATTLIST standards
           revision CDATA #REQUIRED>
 
@@ -76,28 +76,21 @@
 <!-- .......................... LISTS .................................. -->
 
 
-<!ELEMENT lists (sp-list*)>
+<!ELEMENT bestpracticeprofile (bpserviceprofile*)>
 
+<!ELEMENT bpserviceprofile (bpgroup*)>
+<!ATTLIST bpserviceprofile
+          tref IDREF #REQUIRED>
 
-<!ELEMENT sp-list (sp-view*)>
-<!ATTLIST sp-list
-          tref IDREF #IMPLIED>
-
-<!ELEMENT sp-view (select*, remarks?, rationale?)>
-<!ATTLIST sp-view
-          idx ID #IMPLIED>
-
-
-
-<!ELEMENT select (#PCDATA)>
-<!ATTLIST select
-          id IDREF #REQUIRED
+<!ELEMENT bpgroup (bprefstandard+)>
+<!ATTLIST bpgroup
           mode (unknown|mandatory|emerging|fading) #REQUIRED>
 
-<!ELEMENT remarks (#PCDATA|para|indexterm)*>
 
-<!ELEMENT rationale (#PCDATA | para | indexterm)*>
 
+<!ELEMENT bprefstandard (#PCDATA)>
+<!ATTLIST bprefstandard
+          refid IDREF #REQUIRED>
 
 <!-- .......................... RECORDS .................................. -->
 
