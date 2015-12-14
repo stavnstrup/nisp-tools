@@ -265,16 +265,7 @@
                <node id="ts-ces-is-ss-nosql" title="Non-relational Structured Storage Services" emUUID="80e56cf6-ed2a-474f-ae28-06029ccf224b" level="4"/>
                <node id="ts-ces-is-ss-directory" title="Directory Storage Services" emUUID="3898a275-2231-4656-96aa-b9b37e5cbc78" level="4"/>
             </node>
-         </node>
-         <sp-view idx="d0e632">
-            <select id="nso-stanag1317ed3" mode="fading">NATO Oceanographic Data Exchange Format (STANAG 1317 ed.3:2008)</select>
-            <remarks>For CCEB interoperability this standard is only applicable for NATO lead operations</remarks>
-            <rationale>
-               STANAG 1317 ed.3, added in NISP v.5 through RFCP 4-12. For CCEB
-               interoperability this standard is only applicable for NATO lead operations
-               STANAG 1317 ed.3 cancelled by NSA, no valid other edition available.
-            </rationale>
-         </sp-view>
+         </node> 
          <node id="ts-ces-soa" title="SOA Platform Services" emUUID="d6f1a264-9503-4723-9cb5-04aa2a57e3a5" level="2">
             <node id="ts-ces-soa-med" title="Mediation Services" emUUID="13aba303-3b24-4b90-9d48-ad9ac4313c37" level="3">
                <node id="ts-ces-soa-med-dtrans" title="Data Format Transformation Services" emUUID="b08fa4bc-9038-4303-9f09-5e312a7738e5" level="4"/>
@@ -2498,7 +2489,7 @@
          </sp-view>
          <sp-view idx="d0e8783">
             <select id="mip-jc3iedm" mode="mandatory">Joint C3 Information Exchange Data Model (MIP BL 3.1.4: 2012; MIP JC3IEDM 3.1.4:2012)</select>
-            <select id="mip-mip2.0" mode="emerging"> MIP Information Model</select>
+            <select id="mip-mim2.0" mode="emerging"> MIP Information Model</select>
             <remarks>
                <para>Used in Profiles: AMN, FMN</para>
                <para>MIM is used in MIP 3  Information Exchange Specification and in NATO Core Data Framework (NCDF) as semantic reference model</para>
@@ -6423,8 +6414,8 @@
 
       <capabilityprofile id="archive-archive" title="Archive Capability Profile">
          <profile id="user.archive-not-used" title="not used">
-            <profile id="user.archive.data-sets" title="Data Sets">
-               <serviceprofile>
+            <profile id="profile.user.archive.data-sets" title="Data Sets">
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.data-sets-ds"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="ietf-rfc4180"/>
@@ -6449,15 +6440,15 @@
                      </itemizedlist>
                   </guide>
                </serviceprofile>
-               <serviceprofile>
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.data-sets-db"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="iso-iec-9075-1"/>
                   </obgroup>
                </serviceprofile>
             </profile>
-            <profile id="user.archive.geospatial" title="Geospatial">
-               <serviceprofile>
+            <profile id="profile.user.archive.geospatial" title="Geospatial">
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.geospatial"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="ogc-07-147r2"/>
@@ -6480,8 +6471,8 @@ metadata</para>
                   </guide>
                </serviceprofile>
             </profile>
-            <profile id="user.archive.movingimage" title="Moving Images">
-               <serviceprofile>
+            <profile id="profile.user.archive.movingimage" title="Moving Images">
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.movingimage"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="iso-iec-13818-2"/>
@@ -6516,8 +6507,8 @@ resolution and higher audio
                   </guide>
                </serviceprofile>
             </profile>
-            <profile id="user.archive.sound" title="Moving Images">
-               <serviceprofile>
+            <profile id="profile.user.archive.sound" title="Moving Images">
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.sound"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="ebu-tech3285"/>
@@ -6541,8 +6532,8 @@ depth</para>
                   </guide>
                </serviceprofile>
             </profile>
-            <profile id="user.archive.stillimage" title="Still Images">
-               <serviceprofile>
+            <profile id="profile.user.archive.stillimage" title="Still Images">
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.stillimage.raster"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="iso-iec-15444-1"/>
@@ -6573,15 +6564,15 @@ for lossless compression</para>
                      </itemizedlist>
                   </guide>
                </serviceprofile>
-               <serviceprofile>
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.stillimage.vector"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="w3c-rec-svg11-20110816"/>
                   </obgroup>
                </serviceprofile>
             </profile>
-            <profile id="user.archive.text" title="Text">
-               <serviceprofile>
+            <profile id="profile.user.archive.text" title="Text">
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.text.text"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="iso-32000-1"/>
@@ -6607,7 +6598,7 @@ information, and indices</para>
                      </itemizedlist>
                   </guide>
                </serviceprofile>
-               <serviceprofile>
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.text.email"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="ietf-rfc4155"/>
@@ -6629,7 +6620,7 @@ individual text documents.</para>
                      </itemizedlist>
                   </guide>
                </serviceprofile>
-               <serviceprofile>
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.text.chat"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="iso-32000-1"/>
@@ -6657,8 +6648,8 @@ users and user groups</para>
                   </guide>
                </serviceprofile>
             </profile>
-            <profile id="user.archive.webarchive" title="Web Archive">
-               <serviceprofile>
+            <profile id="profile.user.archive.webarchive" title="Web Archive">
+               <serviceprofile title="">
                   <reftaxonomy refid="user.archive.webarchive"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="iso-28500"/>
