@@ -667,13 +667,31 @@
       <node id="tempUserApp" title="" emUUID="" level="2"/>
       <node id="tempSMC" title="" emUUID="" level="2"/>
       <node id="tempHuman" title="" emUUID="" level="2"/><!-- Archive -->
-      <node id="user.archive.data-sets" title="" emUUID="" level="2"/>
-      <node id="user.archive.text" title="" emUUID="" level="2"/>
-      <node id="user.archive.stillimage" title="" emUUID="" level="2"/>
-      <node id="user.archive.movingimage" title="" emUUID="" level="2"/>
-      <node id="user.archive.sound" title="" emUUID="" level="2"/>
-      <node id="user.archive.geospatial" title="" emUUID="" level="2"/>
-      <node id="user.archive.webarchive" title="" emUUID="" level="2"/>
+      
+   <node id="user.archive.data-sets-ds"
+         title="Data sets (e.g. scientific data) and any structured information not fitting other content types"
+         emUUID=""
+         level="2"/>
+   <node id="user.archive.data-sets-db" title="Database content" emUUID="" level="2"/>
+   <node id="user.archive.geospatial" title="Geospatial information (e.g. GIS data)"
+         emUUID=""
+         level="2"/>
+   <node id="user.archive.movingimage" title="Video files" emUUID="" level="2"/>
+   <node id="user.archive.sound" title="Audio files" emUUID="" level="2"/>
+   <node id="user.archive.stillimage.raster" title="Bitmap/raster images" emUUID=""
+         level="2"/>
+   <node id="user.archive.stillimage.vector" title="Vector images" emUUID="" level="2"/>
+   <node id="user.archive.text.text"
+         title="Text documents, including common MS Office document formats (docx, xlsx, pptx)"
+         emUUID=""
+         level="2"/>
+   <node id="user.archive.text.email" title="Email (e.g. MS Outlook PST files)"
+         emUUID=""
+         level="2"/>
+   <node id="user.archive.text.chat" title="Chat (e.g. JChat conversations)" emUUID=""
+         level="2"/>
+   <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="2"/>
+
    </taxonomy>
    <lists>
       <sp-list tref="ts-ces"><!--Core Enterprise Services-->
@@ -6427,6 +6445,216 @@
          <uuid>2e7c9a83-1624-4aba-9c4b-ea7dcbf92052</uuid>
       </standard>
 
+
+      <capabilityprofile id="archive-archive" title="Archive Capability Profile">
+        <profile id="user.archive-not-used" title="not used">
+      <profile id="user.archive.data-sets" title="Data Sets">
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.data-sets-ds"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="ietf-rfc4180"/>
+               <refstandard refid="w3c-rec-xml11-20060816"/>
+               <refstandard refid="w3c-rec-xmlschema11-1-20120405"/>
+               <refstandard refid="w3c-rec-xmlschema11-2-20120405"/>
+            </obgroup>
+            <guide>
+              <para><emphasis role="bold">Requirements</emphasis></para>
+              <itemizedlist>
+                <listitem><para>Preserve structured and unstructured data for future analysis</para></listitem>
+                <listitem><para>Preserve logical structure of dataset as well as syntax and semantics of elements within the dataset</para></listitem>
+                <listitem><para>Preserve data types and data structures</para></listitem>
+              </itemizedlist>
+            </guide>
+         </serviceprofile>
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.data-sets-db"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="iso-iec-9075-1"/>
+            </obgroup>
+         </serviceprofile>
+      </profile>
+      <profile id="user.archive.geospatial" title="Geospatial">
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.geospatial"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="ogc-07-147r2"/>
+               <refstandard refid="ogc-12-128r10"/>
+            </obgroup>
+            <guide>
+              <para><emphasis role="bold">Requirements</emphasis></para>
+
+              <itemizedlist>
+<listitem><para>Preserve resolution and
+scalability</para></listitem>
+<listitem><para>Preserve geospatial
+metadata</para></listitem>
+              </itemizedlist>
+            </guide>
+         </serviceprofile>
+      </profile>
+      <profile id="user.archive.movingimage" title="Moving Images">
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.movingimage"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="iso-iec-13818-2"/>
+               <refstandard refid="iso-iec-14496-2"/>
+               <refstandard refid="iso-iec-14496-10"/>
+            </obgroup>
+            <guide>
+              <para><emphasis role="bold">Requirements</emphasis></para>
+
+              <itemizedlist>
+                <listitem><para>Preserve resolution (clarity,
+colors), scalability, and
+ability of video</para></listitem>
+                <listitem><para>Preserve video metadata,
+including timecodes and
+other tagging</para></listitem>
+                <listitem><para>Compressibility, preference
+for lossless compression</para></listitem>
+                <listitem><para>Preference for larger
+resolution and higher audio
+                bitrates</para></listitem>
+              </itemizedlist>
+            </guide>
+         </serviceprofile>
+      </profile>
+      <profile id="user.archive.sound" title="Moving Images">
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.sound"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="ebu-tech3285"/>
+               <refstandard refid="iso-iec-11172-3"/>
+               <refstandard refid="iso-iec-13818-3"/>
+            </obgroup>
+            <guide>
+              <para><emphasis role="bold">Requirements</emphasis></para>
+              <itemizedlist>
+                <listitem><para>Preserve resolution
+(sampling frequency) and
+depth</para></listitem>
+<listitem><para>Preserve audio metadata</para></listitem>
+              </itemizedlist>
+            </guide>
+         </serviceprofile>
+      </profile>
+      <profile id="user.archive.stillimage" title="Still Images">
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.stillimage.raster"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="iso-iec-15444-1"/>
+               <refstandard refid="iso-iec-10918-1"/>
+               <refstandard refid="adobe-tiff"/>
+            </obgroup>
+            <guide>
+              <para><emphasis role="bold">Requirements</emphasis></para>
+
+              <itemizedlist>
+              <listitem><para>Preserve resolution (clarity,
+colors), scalability, and
+ability of render the image</para></listitem>
+              <listitem><para>Preserve image metadata</para></listitem>
+              <listitem><para>Compressibility, preference
+for lossless compression</para></listitem>
+              <listitem><para>Preference for larger
+              resolution</para></listitem>
+              </itemizedlist>
+            </guide>
+         </serviceprofile>
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.stillimage.vector"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="w3c-rec-svg11-20110816"/>
+            </obgroup>
+         </serviceprofile>
+      </profile>
+      <profile id="user.archive.text" title="Text">
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.text.text"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="iso-32000-1"/>
+            </obgroup>
+            <guide>Use conformance level : PDF/A-2a
+                          <para><emphasis role="bold">Requirements</emphasis></para>
+
+<itemizedlist>
+<listitem><para>Preserve integrity of text,
+diagram and figures,
+pagination and navigation
+(formatting)</para></listitem>
+<listitem><para>Preserve document metadata</para></listitem>
+<listitem><para>Inclusion of fonts, layout
+information, and indices</para></listitem>
+</itemizedlist>
+            </guide>
+         </serviceprofile>
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.text.email"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="ietf-rfc4155"/>
+            </obgroup>
+<guide>
+              <para><emphasis role="bold">Requirements</emphasis></para>
+<itemizedlist>
+<listitem><para>Preserve email content including attachments</para></listitem>
+<listitem><para>Preserve complete mailboxes.
+Important messages might be
+exported and preserved as
+individual text documents.</para></listitem>
+</itemizedlist>
+</guide>
+         </serviceprofile>
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.text.chat"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="iso-32000-1"/>
+               <refstandard refid="ietf-rfc4155"/>
+            </obgroup>
+            <guide>Use conformance level : PDF/A-2a
+              <para><emphasis role="bold">Requirements</emphasis></para>
+<itemizedlist>
+<listitem><para>Preserve message content,
+including attachments</para></listitem>
+<listitem><para>Preserve complete dialogs per
+user or multi-user chat room
+with time-stamps.</para></listitem>
+<listitem><para>Preserve information about
+users and user groups</para></listitem>
+</itemizedlist>
+            </guide>
+         </serviceprofile>
+      </profile>
+      <profile id="user.archive.webarchive" title="Web Archive">
+         <serviceprofile>
+            <reftaxonomy refid="user.archive.webarchive"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="iso-28500"/>
+               <refstandard refid="ietf-rfc2557"/>
+            </obgroup>
+            <guide>
+              <para><emphasis role="bold">Requirements</emphasis></para>
+              <itemizedlist>
+                
+<listitem><para>Preserve structure and
+content of web, including
+scripts</para></listitem>
+<listitem><para>Inclusion of external content
+might be necessary</para></listitem>
+<listitem><para>Preserve metadata
+associated with content</para></listitem>
+<listitem><para>Dynamic/interactive or userspecific
+content is
+problematic</para></listitem>
+</itemizedlist>
+              
+            </guide>
+         </serviceprofile>
+      </profile>
+        </profile>
+      <uuid>4991fbff-3ff6-4728-a179-28c9bf677f19</uuid>
+   </capabilityprofile>
+
+      
       <standard id="asd-s1000d-i9005-01000-00" tag="S1000D">
          <document orgid="asd" pubnum="S1000D-I9005-01000-00" date="2008" title="International Specification for Technical Publications:2008"/>
          <applicability>
