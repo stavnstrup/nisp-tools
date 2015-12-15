@@ -5,8 +5,8 @@ import java.text.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import com.lowagie.text.*;
-import com.lowagie.text.pdf.*;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 import dk.stavnstrup.nisp.pdf.PDFInfo;
 
 public class MergePDF {
