@@ -93,6 +93,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::setofstandards])"/></td>
         <td align="right"><xsl:value-of select="count(.//setofstandards[status='rejected'])"/></td>
       </tr>
+<!--      
       <tr>
         <td>Service Groups</td>
         <td align="right"><xsl:value-of select="count(.//servicegroup)"/></td>
@@ -104,7 +105,8 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td align="right"><xsl:value-of select="count(.//serviceprofile)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::serviceprofile])"/></td>
         <td align="right"><xsl:value-of select="count(.//serviceprofile[status='rejected'])"/></td>
-       </tr>
+        </tr>
+-->        
       <tr>
         <td>Capability Profiles</td>
         <td align="right"><xsl:value-of select="count(.//capabilityprofile)"/></td>
@@ -259,7 +261,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:value-of select="@tag"/></td>
     <td align="center">
-      <xsl:apply-templates select="/standards/lists//select[@id=$myid]"/>
+      <xsl:apply-templates select="/standards/bestpracticeprofile//refstandard[@refid=$myid]"/>
     </td>
     <td><xsl:apply-templates select=".//event"/></td>
     <td>N/A</td>
@@ -267,12 +269,12 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="select">
-  <xsl:variable name="tref" select="ancestor::sp-list/@tref"/>
+<xsl:template match="bprefstandard">
+  <xsl:variable name="tref" select="ancestor::bpserviceprofile/@tref"/>
   <xsl:choose>
-    <xsl:when test="@mode='mandatory'">M</xsl:when>
-    <xsl:when test="@mode='emerging'">E</xsl:when>
-    <xsl:when test="@mode='fading'">F</xsl:when>
+    <xsl:when test="parent::bpgroup[@mode='mandatory']">M</xsl:when>
+    <xsl:when test="parent::bpgroup[@mode='emerging']">E</xsl:when>
+    <xsl:when test="parent::bpgroup[@mode='fading']">F</xsl:when>
   </xsl:choose>
   <xsl:text> ( </xsl:text>
   <xsl:value-of select="/standards/taxonomy//*[@id=$tref]/@title"/>
@@ -288,7 +290,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   </ul>
 </xsl:template>
 
-
+<!--  do we need this?
 <xsl:template match="refstandard">
   <xsl:variable name="refid" select="@refid"/>
   <li>
@@ -298,6 +300,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:apply-templates select="/standards/records/standard[@id=$refid]/document/@title"/>
   </li>
 </xsl:template>
+-->
 
 <xsl:template match="refprofile">
   <xsl:variable name="refid" select="@refid"/>
@@ -361,7 +364,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>            
       <xsl:value-of select="@tag"/></td>
     <td align="center">
-      <xsl:apply-templates select="/standards/lists//select[@id=$myid]"/>
+      <xsl:apply-templates select="/standards/bestpracticeprofile//bprefstandard[@refid=$myid]"/>
     </td>
     <td class="date"><xsl:apply-templates select=".//event"/></td>
     <td>
