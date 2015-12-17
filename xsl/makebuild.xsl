@@ -514,6 +514,7 @@ Make dynamic targets.
           <xsl:text>${use.show.indexterms}</xsl:text>
           <xsl:text> nisp.image.ext=</xsl:text>
           <xsl:text>${nisp.image.ext}</xsl:text>
+          <xsl:text> describe=${describe}</xsl:text>          
         </xsl:attribute>
       </arg>
 

@@ -1306,4 +1306,11 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 
 
+<xsl:template match="subject">
+  <xsl:text>Generated using Git rev. </xsl:text>
+  <xsl:value-of select="$describe"/>
+</xsl:template>
+
+
+
 </xsl:stylesheet>

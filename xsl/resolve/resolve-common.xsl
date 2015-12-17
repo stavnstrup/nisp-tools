@@ -27,6 +27,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:param name="svgpdfdebug" select="0"/> 
 
+<xsl:param name="describe" select="''"/> 
+
 
 <!-- ==================================================================== -->
 
@@ -39,6 +41,21 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <xsl:apply-templates/>
   </xsl:copy>
 </xsl:template>
+
+
+<!-- This is a BAD BAD hack and is used add Git Revision number to the a subject field in PDF mete data -->
+
+<xsl:template match="subjectset">
+  <subjectset>
+    <subject>
+      <subjectterm>
+        <xsl:text>Git revision </xsl:text>
+        <xsl:value-of select="$describe"/>
+      </subjectterm>
+    </subject>
+  </subjectset>
+</xsl:template>
+
 
 
 <!-- ==================================================================== -->

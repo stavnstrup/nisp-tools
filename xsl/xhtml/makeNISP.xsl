@@ -392,7 +392,12 @@ Description : This stylesheet is a customization of Norman Walsh
 </xsl:template>
 
 <xsl:template name="user.head.content">
-  <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
+  <meta name="author" content="Interoperability Capability Team (IP CaT)" />
+  <meta name="pubsnummer">
+    <xsl:attribute name="content">
+      <xsl:value-of select="$describe"/>
+    </xsl:attribute>
+  </meta>
   <meta http-equiv="Expires" content="0" />
   <script src="../javascripts/modernizr.foundation.js" />
 </xsl:template>
