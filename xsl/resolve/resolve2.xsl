@@ -146,6 +146,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
       </row>
     </thead>
     <tbody>
+      <xsl:apply-templates select="//bpserviceprofile[@tref=$id]"  mode="lowlevel"/>
       <xsl:apply-templates mode="lowlevel"/>
     </tbody>
   </tgroup>
