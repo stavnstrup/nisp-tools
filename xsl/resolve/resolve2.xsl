@@ -195,7 +195,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <listitem>
     <para>
        <xsl:value-of select="."/><xsl:apply-templates 
-               select="@id" mode="addindexentry"/></para>
+               select="@refid" mode="addindexentry"/></para>
   </listitem>
 </xsl:template>
 
