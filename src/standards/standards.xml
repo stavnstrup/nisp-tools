@@ -648,7 +648,12 @@
             <node id="ts-cs-tn-smc" title="Transport SMC Services" emUUID="787edb93-3e18-4c31-9044-5f2f1f1f01b9" level="3"/>
             <node id="ts-cs-tn-dis" title="Distribution Services" emUUID="bc2d3723-4a3a-4a34-a0b4-7886760f3137" level="3"/>
          </node>
-      </node>
+       </node>
+       <node id="user.cloud" title="Cloud Computing" emUUID="" level="2">
+         <node id="user.cloud.virtualisation" title="Virtualisation" emUUID="" level="3"/>
+          <node id="user.cloud.cloud-computing" title="Cloud Computing" emUUID="" level="3"/>
+          <node id="user.cloud.it-infrastructure-management" title="IT Infrastructure Management" emUUID="" level="3"/>       
+       </node>
       <node id="userdefined" title="" emUUID="" level="1"/><!-- FMN -->
       <node id="tempEdge" title="" emUUID="" level="2"/>
       <node id="tempGeneral" title="" emUUID="" level="2"/>
@@ -669,7 +674,7 @@
       <node id="user.archive.text.text" title="Text documents, including common MS Office document formats (docx, xlsx, pptx)" emUUID="" level="2"/>
       <node id="user.archive.text.email" title="Email (e.g. MS Outlook PST files)" emUUID="" level="2"/>
       <node id="user.archive.text.chat" title="Chat (e.g. JChat conversations)" emUUID="" level="2"/>
-      <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="2"/>
+      <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="2"/><!-- Cloud -->
    </taxonomy>
    <bestpracticeprofile>
       <bpserviceprofile tref="ts-ces">
@@ -1783,7 +1788,7 @@
                Standards for Data Forwarding between
                Tactical Data Systems employing Link-11/11B and Link-16 (STANAG 5616 ed.6 (RD))
             </bprefstandard>
-            <bprefstandard refid="nso-stanag5511">Link 11 STANAG 5511 ed.7:2008</bprefstandard>
+            <bprefstandard refid="nso-stanag5511ed7">Link 11 STANAG 5511 ed.7:2008</bprefstandard>
             <bprefstandard refid="nso-stanag4586ed4">STANAG 4586 ed.4</bprefstandard>
          </bpgroup>
          <bpgroup mode="fading">
@@ -2134,6 +2139,30 @@
                Overall Super High Frequency (SHF) Military Satellite COMmunications
                (MILSATCOM) interoperability standards (STANAG 4484 ed.2:2003)
             </bprefstandard>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile tref="user.cloud.virtualisation">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="iso-iec-17203">ISO/IEC  17203:Information technology - Open Virtualization Format (OVF) specification</bprefstandard>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile tref="user.cloud.cloud-computing">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="iso-iec-17788">ISO/IEC 17788: Information technology - Cloud computing - Overview and vocabulary</bprefstandard>
+            <bprefstandard refid="iso-iec-17789">ISO/IEC 17789: Information technology - Cloud computing - Reference architecture</bprefstandard>
+            <bprefstandard refid="iso-iec-17826">ISO/IEC 17826: Information technology - Cloud Data Management Interface (CDMI)</bprefstandard>
+            <bprefstandard refid="iso-iec-cd17826">ISO/IEC CD 17826: Information technology - Cloud Data Management Interface (CDMI)</bprefstandard>
+            <bprefstandard refid="iso-iec-dis19086‐1">ISO/IEC DID 10086-1: Information technology - Cloud computing - Service level agreement (SLA) framework - Part 1: Overview and concepts</bprefstandard>
+            <bprefstandard refid="iso-iec-np19086-2">ISO/IEC NP 19086-2: Information technology - Cloud computing - Service level agreement (SLA) framework and Technology - Part 2: Metrics</bprefstandard>
+            <bprefstandard refid="iso-iec-np19086-3">ISO/IEC NP 19086-3: Information technology - Cloud computing - Service level agreement (SLA) framework and Technology - Part 3: Core requirements</bprefstandard>
+            <bprefstandard refid="iso-iec-awi19941">ISO/IEC AWI 19941: Information Technology - Cloud Computing - Interoperability and Portability</bprefstandard>
+            <bprefstandard refid="iso-iec-wd19944">ISO/IEC WD 19944: Information Technology - Cloud Computing - Data and their Flow across Devices and Cloud Services</bprefstandard>
+            <bprefstandard refid="iso-iec-tr30102">ISO/IEC TR 30102: Information technology - Distributed Application Platforms and Services (DAPS) - General technical principles of Service Oriented Architecture</bprefstandard>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile tref="user.cloud.it-infrastructure-management">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="iso-iec-17963">ISO/IEC 17963: Web Services for Management (WS-Management) Specification</bprefstandard>
          </bpgroup>
       </bpserviceprofile>
    </bestpracticeprofile>
@@ -50903,6 +50932,150 @@ to help Web application authors, new elements are introduced based on research i
             </history>
          </status>
          <uuid>5a3a9e60-0817-42b0-b0b3-ac701f7371e6</uuid>
+      </standard>
+
+      <standard id="iso-iec-17203" tag="OVF Spec.">
+         <document orgid="iso-iec" pubnum="17203" title="Information technology - Open Virtualization Format (OVF) specification" date="2011"/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=59388</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>df4c32a2-d088-4995-a9db-e31e9d30b6f5</uuid>
+      </standard>
+
+      <standard id="iso-iec-17788" tag="Cloud Overview">
+         <document orgid="iso-iec" pubnum="17788" title="Information technology - Cloud computing - Overview and vocabulary" date="2014"/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=60544</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>c40eea36-9f83-4113-9056-de180a01193d</uuid>
+      </standard>
+
+      <standard id="iso-iec-17789" tag="Cloud Ref. Arch.">
+         <document orgid="iso-iec" pubnum="17789" title="Information technology - Cloud computing - Reference architecture" date="2014"/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=60545</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>98416fe1-7243-40a4-be82-09935662f248</uuid>
+      </standard>
+
+      <standard id="iso-iec-17826" tag="">
+         <document orgid="iso-iec" pubnum="17826" title="Information technology - Cloud Data Management Interface (CDMI)" date="2012"/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=60617</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>01f18dd4-9f55-430b-beb4-541c57a8d6ba</uuid>
+      </standard>
+
+      <standard id="iso-iec-cd17826" tag="">
+         <document orgid="iso-iec" pubnum="CD 17826" title="Information technology - Cloud Data Management Interface (CDMI)" date=""/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=70226</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>958c3f37-5c2e-4676-b449-5aba2a4ef8a6</uuid>
+      </standard>
+
+      <standard id="iso-iec-17963" tag="">
+         <document orgid="iso-iec" pubnum="17963" title="Web Services for Management (WS-Management) Specification" date="2013"/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61138</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>33f52482-dd35-475f-9154-0f301f40f293</uuid>
+      </standard>
+
+      <standard id="iso-iec-dis19086‐1" tag="">
+         <document orgid="iso-iec" pubnum="DIS 19086‐1" title="Information technology - Cloud computing - Service level agreement (SLA) framework - Part 1: Overview and concepts" date=""/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=67545</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>c7c21792-0cae-4f77-966b-72182cb77704</uuid>
+      </standard>
+
+      <standard id="iso-iec-np19086‐2" tag="">
+         <document orgid="iso-iec" pubnum="NP 19086‐2" title="Information technology - Cloud computing - Service level agreement (SLA) framework and Technology - Part 2: Metrics" date=""/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=67546</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>c7d8b2ef-9a47-428b-9746-4de692b45b5e</uuid>
+      </standard>
+
+      <standard id="iso-iec-np19086‐3" tag="">
+         <document orgid="iso-iec" pubnum="NP 19086‐3" title="Information technology - Cloud computing - Service level agreement (SLA) framework and Technology - Part 3: Core requirements" date=""/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=67547</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>ea040894-4ace-4353-b719-785b5e698232</uuid>
+      </standard>
+
+      <standard id="iso-iec-awi19941" tag="">
+         <document orgid="iso-iec" pubnum="AWI 19941" title="Information Technology - Cloud Computing - Interoperability and Portability" date=""/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=66639</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>ddb45031-c783-42b2-b242-89a36f758853</uuid>
+      </standard>
+
+      <standard id="iso-iec-wd19944" tag="">
+         <document orgid="iso-iec" pubnum="WD 19944" title="Information Technology ‐ Cloud Computing ‐ Data and their Flow across Devices and Cloud Services" date=""/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=66674</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>30e1a6fe-bc16-4034-a042-61ea31facc6c</uuid>
+      </standard>
+
+      <standard id="iso-iec-tr30102" tag="">
+         <document orgid="iso-iec" pubnum="TR 30102" title="Information technology - Distributed Application Platforms and Services (DAPS) - General technical principles of Service Oriented Architecture" date="2012"/>
+         <applicability/>
+         <status mode="accepted">
+            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=53222</uri>
+            <history>
+               <event date="2015-12-17" flag="added" rfcp="8-26" version="9.0"/>
+            </history>
+         </status>
+         <uuid>639ce756-ed93-419e-a78d-4e841b748756</uuid>
       </standard>
 
    </records>
