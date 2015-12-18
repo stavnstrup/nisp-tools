@@ -65,6 +65,7 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <table border="1">
       <tr>
         <th>Service</th>
+        <th>ID</th>
         <th>Used text</th>
         <th>Mode</th>
         <th>S/P</th>
@@ -92,7 +93,8 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:variable name="ref" select="@refid"/>
   <tr>
     <td/>
-    <td>(<strong><xsl:value-of select="$ref"/></strong>)<xsl:text> </xsl:text><xsl:value-of select="."/></td>
+    <td><xsl:value-of select="@refid"/></td>
+    <td><xsl:value-of select="."/></td>
     <td>
       <xsl:choose>
         <xsl:when test="ancestor::bpgroup[@mode='mandatory']">M</xsl:when>
@@ -109,7 +111,6 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="standard">
   <td>S</td><td>
-  (<strong><xsl:value-of select="@id"/></strong>)<xsl:text> </xsl:text>
   <xsl:value-of select="document/@title"/>
   <xsl:text>, </xsl:text>
   <xsl:value-of select="document/@orgid"/>
@@ -123,7 +124,6 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="setofstandards">
   <td>SS</td><td>
-  (<strong><xsl:value-of select="@id"/></strong>)<xsl:text> </xsl:text>
   <xsl:value-of select="@tag"/>
   </td>
 </xsl:template>
