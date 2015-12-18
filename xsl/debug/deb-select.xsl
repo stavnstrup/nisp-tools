@@ -82,7 +82,7 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:if test="count(.//bprefstandard) != 0">
     <tr>
       <td><strong><xsl:value-of select="/standards/taxonomy//*[@id=$tref]/@title"/></strong></td>
-      <td/><td/><td/><td/>
+      <td/><td/><td/><td/><td/>
     </tr>
     <xsl:apply-templates select=".//bprefstandard"/>
   </xsl:if>

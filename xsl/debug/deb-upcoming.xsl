@@ -3,10 +3,10 @@
 <!--
 
 This stylesheet is created for the NISP, and is
-intended to identify upcoming emerging, midterm, longterm and fading
-standards and profiles.
+intended to identify upcoming emerging, fading
+standards and setofstandards.
 
-Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2010, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -14,33 +14,48 @@ Copyright (c) 2010, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
                 xmlns:saxon="http://icl.com/saxon"
                 version='1.1'
                 exclude-result-prefixes="saxon">
-  
+
 <xsl:output method="xml" indent="no" saxon:next-in-chain="p2-upcoming.xsl"/>
+
 
 <xsl:param name="describe" select="''"/>
 
+
 <xsl:template match="standards">
-  <xsl:message>List all emerging, nearterm, farterm and fading standards/profiles</xsl:message>
+  <xsl:message>List all emerging and fading standards/setofstandards</xsl:message>
   <allupcoming describe="{$describe}">
-    <xsl:apply-templates select="/standards//standard|/standards//setofstandards"/>
+    <xsl:apply-templates select="//bpgroup[@mode != 'mandatory']/bprefstandard"/>
   </allupcoming>
 </xsl:template>
 
+
+<xsl:template match="bprefstandard">
+  <xsl:variable name="ref" select="@refid" />
+
+  <xsl:apply-templates select="//standard[@id=$ref]">
+    <xsl:with-param name="mode" select="parent::bpgroup/@mode"/>
+  </xsl:apply-templates>
+  <xsl:apply-templates select="//setofstandard[@id=$ref]">
+    <xsl:with-param name="mode" select="ancestor::bpgroup/@mode"/>
+  </xsl:apply-templates>
+</xsl:template>
+
+
 <xsl:template match="standard">
-  <xsl:variable name="sid" select="@id" />
-  <xsl:if test="not(.//event[@flag = 'deleted']) and /standards/lists//select[(@mode != 'mandatory') and (@id=$sid)]">
+  <xsl:param name="mode" select="''"/>
+  <xsl:if test="not(.//event[@flag = 'deleted'])">
     <element type="S" id="{@id}" orgid="{document/@orgid}" pubnum="{document/@pubnum}"
-             title="{document/@title}" mode="{/standards/lists//select[@id=$sid]/@mode}"
+             title="{document/@title}" mode="{$mode}"
              lastchange="{.//history/child::event[position()=last()]/@date}"/>
   </xsl:if>
 </xsl:template>
 
 
 <xsl:template match="setofstandards">
-  <xsl:variable name="sid" select="@id" />
+  <xsl:param name="mode" select="''"/>
   <xsl:if test="not(.//event[@flag = 'deleted']) and  /standards/lists//select[(@mode != 'mandatory') and (@id=$sid)]">
     <element type="P" id="{@id}" orgid="{profilespec/@orgid}" pubnum="{profilespec/@pubnum}"
-             title="{profilespec/@title}" mode="{/standards/lists//select[@id=$sid]/@mode}"
+             title="{profilespec/@title}" mode="{$mode}"
              lastchange="{.//history/child::event[position()=last()]/@date}"/>
   </xsl:if>
 </xsl:template>
