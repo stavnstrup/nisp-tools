@@ -15,14 +15,15 @@ public class MergePDF {
 
         int numberOfArgs = args.length;
 
-        if (numberOfArgs < 3) {
-	    System.out.println("Usage: Main toolversion fileout filein+");
+        if (numberOfArgs < 4) {
+	    System.out.println("Usage: Main toolversion gitcommit fileout filein+");
 	    System.out.println(numberOfArgs);
 	    System.exit(2);
         }
 
         String ver = args[0]; // Get NISP tool version
-        String fo = args[1];  // Get name of final outputfile
+        String commit = args[1]; // Get commit using the Git describe format
+        String fo = args[2];  // Get name of final outputfile
        
 	try {
             // Merge code found at http://itextpdf.com/examples/iia.php?id=141
@@ -37,7 +38,7 @@ public class MergePDF {
             ArrayList<HashMap<String, Object>> bookmarks =
                new ArrayList<HashMap<String, Object>>();
             List<HashMap<String, Object>> tmp;
-            for (int i = 2; i < numberOfArgs; i++) {
+            for (int i = 3; i < numberOfArgs; i++) {
                  ReadInputPDF = new PdfReader(args[i]);
                  // merge the bookmarks
                  tmp = SimpleBookmark.getBookmark(ReadInputPDF);
@@ -60,9 +61,9 @@ public class MergePDF {
 	    PdfReader reader = new PdfReader("CombinedPDFDocument.pdf");           
             PDFInfo info = new PDFInfo();
             info.setTitle("NATO Interoperability Standards and Profiles");
-
 	    info.setCreator("NISP Tools " + ver);
-            info.setAuthor("Interoperability Profiles Capability Team"); 
+            info.setAuthor("Interoperability Profiles Capability Team");
+            info.setSubject(commit);
 
             PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(fo));
             stamp.setMoreInfo(info.toMap());
