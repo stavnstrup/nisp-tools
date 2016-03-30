@@ -2,8 +2,23 @@
 
 <!DOCTYPE standards
   PUBLIC "-//DDRE//DTDStandardDB XML V4.2//EN" "../schema/dtd/stddb42.dtd">
-<standards revision="ADatP-34(H) - DRAFT">
+<standards revision="ADatP-34(I) - DRAFT">
    <revhistory>
+      <revision>
+         <revnumber>9.01</revnumber>
+         <date>2016-03-30</date>
+         <revdescription>
+            <para>Includes corrections from AC/322-N(2015)0193-COR1</para>
+            <para>Includes updates from AC/322-N(2015)0193-ADD1</para>
+         </revdescription>
+      </revision>
+      <revision>
+         <revnumber>9.0</revnumber>
+         <date>2015-12-18</date>
+         <revdescription>
+            <para>Used in Initial release of ADatP-34 Edition I, AC/322-N(2015)0193</para>
+         </revdescription>
+      </revision>
       <revision>
          <revnumber>8.0</revnumber>
          <date>2014-08-13</date>
@@ -648,12 +663,12 @@
             <node id="ts-cs-tn-smc" title="Transport SMC Services" emUUID="787edb93-3e18-4c31-9044-5f2f1f1f01b9" level="3"/>
             <node id="ts-cs-tn-dis" title="Distribution Services" emUUID="bc2d3723-4a3a-4a34-a0b4-7886760f3137" level="3"/>
          </node>
-       </node>
-       <node id="user.cloud" title="Cloud Computing" emUUID="" level="2">
+      </node>
+      <node id="user.cloud" title="Cloud Computing" emUUID="" level="2">
          <node id="user.cloud.virtualisation" title="Virtualisation" emUUID="" level="3"/>
-          <node id="user.cloud.cloud-computing" title="Cloud Computing" emUUID="" level="3"/>
-          <node id="user.cloud.it-infrastructure-management" title="IT Infrastructure Management" emUUID="" level="3"/>       
-       </node>
+         <node id="user.cloud.cloud-computing" title="Cloud Computing" emUUID="" level="3"/>
+         <node id="user.cloud.it-infrastructure-management" title="IT Infrastructure Management" emUUID="" level="3"/>
+      </node>
       <node id="userdefined" title="" emUUID="" level="1"/><!-- FMN -->
       <node id="tempEdge" title="" emUUID="" level="2"/>
       <node id="tempGeneral" title="" emUUID="" level="2"/>
@@ -1614,11 +1629,11 @@
             <bprefstandard refid="nato-ac322-sc3-d2007-0003-rev5">SMADEF XML Rel.3.0.0</bprefstandard>
             <bprefstandard refid="nso-stanag5516ed4">Link-16 (STANAG 5516 ed.4:2008, J-Series)</bprefstandard>
             <bprefstandard refid="nso-stanag5522ed2">Link-22 (STANAG 5522 ed.2:2008, J-Series)</bprefstandard>
-            <bprefstandard refid="nso-stanag5511ed7">Link-11 (STANAG 5511 ed.7:2008, M-Series)</bprefstandard>
+            <bprefstandard refid="nso-stanag5511ed6">Link-11 (STANAG 5511 ed.6:2008, M-Series)</bprefstandard>
             <bprefstandard refid="nso-stanag5602ed.4">SIMPLE (STANAG 5602 ed.4:2015)</bprefstandard>
          </bpgroup>
          <bpgroup mode="emerging">
-            <bprefstandard refid="nso-stanag5511ed8">Link-11 (STANAG 5511 ed.8:?, M-Series)</bprefstandard>
+            <bprefstandard refid="nso-stanag5511ed7">Link-11 (STANAG 5511 ed.8:2008, M-Series)</bprefstandard>
             <bprefstandard refid="nso-stanag5516ed5">Link-16 (STANAG 5516 ed.5:2009 RD, J-Series)</bprefstandard>
             <bprefstandard refid="nso-stanag5522ed3">Link-22 (STANAG 5522 ed.3:2009 RD, J-Series)</bprefstandard>
             <bprefstandard refid="nso-stanag4610ed1">Technical characteristics of the Link 22 TDL system (STANAG 4610 ed.1 (Draft))</bprefstandard>
@@ -1777,7 +1792,7 @@
             </bprefstandard>
             <bprefstandard refid="cjcsm-sss-m-10001"> MIDS SSS-M-10001</bprefstandard>
             <bprefstandard refid="nso-stanag7085ed3">STANAG 7085 ed.3:2009 (IDL for Imaging Systems)</bprefstandard>
-            <bprefstandard refid="nso-stanag5511ed7">Link 11 STANAG 5511 ed.7:2008</bprefstandard>
+            <bprefstandard refid="nso-stanag5511ed6">Link 11 STANAG 5511 ed.6:2008</bprefstandard>
             <bprefstandard refid="nso-stanag4586ed3">STANAG 4586 ed.3:2012</bprefstandard>
             <bprefstandard refid="nso-stanag4175ed5">STANAG 4175 ed.5</bprefstandard>
             <bprefstandard refid="nso-stanag5501ed7">Link 1 STANAG 5501 ed.7 (ATDLP-5.01 ed.A)</bprefstandard>
@@ -1789,7 +1804,7 @@
                Standards for Data Forwarding between
                Tactical Data Systems employing Link-11/11B and Link-16 (STANAG 5616 ed.6 (RD))
             </bprefstandard>
-            <bprefstandard refid="nso-stanag5511ed8">Link-11 (STANAG 5511 ed.8:?)</bprefstandard>
+            <bprefstandard refid="nso-stanag5511ed7">Link-11 (STANAG 5511 ed.7:2008)</bprefstandard>
             <bprefstandard refid="nso-stanag4586ed4">STANAG 4586 ed.4</bprefstandard>
          </bpgroup>
          <bpgroup mode="fading">
@@ -41896,7 +41911,6 @@ The purpose of this specification is to assure uniformity of treatment among all
          </applicability>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
-            <uri>https://nso.nato.int/protected/nsdd/stanagdetails.html?idCover=7448&amp;LA=EN</uri>
             <history>
                <event flag="added" date="2015-12-15" rfcp="8-21" version="9.0"/>
             </history>
@@ -41905,7 +41919,41 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5511ed7" tag="Link 11 ed.7">
-         <document orgid="nso" pubnum="STANAG 5511 Ed.7" date="2008-05-13" title="Tactical Data Exchange - Link 11/11B"/>
+         <document orgid="nso" pubnum="STANAG 5511 Ed.7" date="2008-02-13" title="Tactical Data Exchange - Link 11/11B"/>
+         <applicability>
+            Link-11 employs netted communications techniques and a standard
+            message format for exchanging digital information among airborne, land-based
+            and shipboard tactical data systems. Link-11 data communications must be capable
+            of operation in either the high frequency (HF) or ultrahigh frequency (UHF)
+            bands. When operating in the HF band, Link-11 provides gapless omnidirectional
+            coverage of up to 300 nautical miles (NM) from the transmitting site. When
+            operating in the UHF band, the link provides omnidirectional gapless coverage
+            to approximately 25 NM ship-to-ship, or 150 NM ship-to-air. The messages used
+            to exchange information over Link-11 are known as the M-series messages.
+            <para>
+               Link-11B employs a dedicated, point-to-point, full duplex digital data
+               link using serial transmission frame characteristics and standard message
+               format for exchanging digital information. Link-11B data is exchanged over
+               a fully automatic, phase-continuous, full duplex, frequency modulated data
+               link operating at a rate of 1200 bps with an alternate capability of 600 bps.
+               Link-11B data communications must be capable of operation in either the UHF
+               or VHF bands.
+            </para>
+         </applicability>
+         <responsibleparty rpref="tdl"/>
+         <status mode="accepted">
+            <uri>https://nso.nato.int/protected/nsdd/stanagdetails.html?idCover=7733&amp;LA=EN</uri>
+            <history>
+               <event flag="added" date="1998-11-06" version="0.1"/>
+               <event flag="changed" date="2005-09-15" version="0.7"/>
+               <event flag="changed" date="2007-08-02" version="2.0"/>
+            </history>
+         </status>
+         <uuid>d91a00b0-f07c-4036-b121-17b55c4d4b03</uuid>
+      </standard>
+
+      <standard id="nso-stanag5511ed6" tag="Link 11 ed.6">
+         <document orgid="nso" pubnum="STANAG 5511 Ed.6" date="2008-09-29" title="Tactical Data Exchange - Link 11/11B"/>
          <applicability>
             Link-11 employs netted communications techniques and a standard
             message format for exchanging digital information among airborne, land-based
@@ -41930,19 +41978,17 @@ The purpose of this specification is to assure uniformity of treatment among all
          <status mode="accepted">
             <uri>https://nso.nato.int/protected/nsdd/stanagdetails.html?idCover=7448&amp;LA=EN</uri>
             <history>
-               <event flag="added" date="1998-11-06" version="0.1"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2007-08-02" version="2.0"/>
+               <event flag="added" date="2016-03-30" version="9.0"/>
             </history>
          </status>
-         <uuid>d91a00b0-f07c-4036-b121-17b55c4d4b03</uuid>
+         <uuid>b96b4c4d-4717-4756-90da-9561693fddae</uuid>
       </standard>
 
       <standard id="nso-stanag5511ed.5" tag="Link 11 ed. 5">
          <document orgid="nso" pubnum="STANAG 5511 ed.5" title="Tactical Data Exchange (Link 11/11B)" date="2006-02-28"/>
          <applicability/>
          <status mode="accepted">
-            <uri/>
+            <uri>https://nso.nato.int/protected/nsdd/stanagdetails.html?idCover=7353&amp;LA=EN</uri>
             <history>
                <event date="2014-11-25" flag="added" rfcp="8-5" version="9.0"/>
             </history>
