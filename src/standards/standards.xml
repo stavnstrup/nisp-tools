@@ -6160,12 +6160,30 @@ done via certificates, then IKEv2 is used.</description>
                      <refstandard refid="ietf-rfc4519"/>
                   </obgroup>
                </serviceprofile>
+               <serviceprofile title="Network Authentication Profile">
+                  <description>The Network Authentication Profile provides standards and guidance for to provide strong authentication for client/server                                               applications by using secret-key cryptography on the basis of the Kerberos authentication protocol</description>
+                  <reftaxonomy refid="temp-Authentication"/>
+                  <obgroup obligation="mandatory">
+                     <description>Strong authentication using Simple Authentication and Security Layer (SASL).</description>
+                     <refstandard refid="ietf-rfc4121"/>
+                     <refstandard refid="ietf-rfc4422"/>
+                     <refstandard refid="ietf-rfc4505"/>
+                     <refstandard refid="ietf-rfc4616"/>
+                     <refstandard refid="ietf-rfc4752"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc4120"/>
+                  </obgroup>
+               </serviceprofile>
                <serviceprofile title="Digital Certificate Profile">
                   <description>The Digital Certificate Profile provides standards and guidance in support of a Public Key Infrastructure (PKI) on federated mission networks.</description>
                   <reftaxonomy refid="temp-DigitalCertificate"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="itu-t-x.509"/>
                      <refstandard refid="ietf-rfc5280"/>
+                     <refstandard refid="ietf-rfc4523"/>
+                  </obgroup>
+                  <obgroup obligation="optional">
                      <refstandard refid="ietf-rfc6960"/>
                   </obgroup>
                   <guide>The version of the encoded public key certificate
@@ -6203,19 +6221,14 @@ Policy"</para>
                      <refstandard refid="ietf-rfc2849"/>
                   </obgroup>
                </serviceprofile>
-               <serviceprofile title="Network Authentication Profile">
-                  <description>The Network Authentication Profile provides standards and guidance for to provide strong authentication for client/server                                               applications by using secret-key cryptography on the basis of the Kerberos authentication protocol</description>
-                  <reftaxonomy refid="temp-Authentication"/>
+               <serviceprofile title="Domain Naming Profile">
+                  <description>The Domain Naming Profile provides standards and guidance to support the hierarchical distributed naming system for                                      computers, services, or any resource connected to a federated mission network.</description>
+                  <reftaxonomy refid="ts-ces-is-net-dns"/>
                   <obgroup obligation="mandatory">
-                     <description>Strong authentication using Simple Authentication and Security Layer (SASL).</description>
-                     <refstandard refid="ietf-rfc4121"/>
-                     <refstandard refid="ietf-rfc4422"/>
-                     <refstandard refid="ietf-rfc4505"/>
-                     <refstandard refid="ietf-rfc4616"/>
-                     <refstandard refid="ietf-rfc4752"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc4120"/>
+                     <refstandard refid="ietf-rfc1034"/>
+                     <refstandard refid="ietf-rfc1035"/>
+                     <refstandard refid="ietf-rfc2181"/>
+                     <refstandard refid="ietf-rfc2782"/>
                   </obgroup>
                </serviceprofile>
                <serviceprofile title="Time Synchronization Profile">
@@ -6234,17 +6247,6 @@ connection, satellite, or radio.</guide>
                   <guide>Stratum-1 devices must implement IPv4 so that
 they can be used as timeservers for IPv4 Mission
       Network Elements.</guide>
-               </serviceprofile>
-               <serviceprofile title="Domain Naming Profile">
-                  <description>The Domain Naming Profile provides standards and guidance to support the hierarchical distributed naming system for                                      computers, services, or any resource connected to a federated mission network.</description>
-                  <reftaxonomy refid="ts-ces-is-net-dns"/>
-                  <obgroup obligation="mandatory">
-                     <refstandard refid="ietf-rfc1034"/>
-                     <refstandard refid="ietf-rfc1035"/>
-                     <refstandard refid="ietf-rfc1032"/>
-                     <refstandard refid="ietf-rfc2181"/>
-                     <refstandard refid="ietf-rfc2782"/>
-                  </obgroup>
                </serviceprofile>
             </profile>
          </profile>
