@@ -6010,25 +6010,41 @@ Grids</applicability>
                   <description>The Inter-Autonomous Systems IP Transport Profile provides standards and guidance for Edge Transport Services between autonomous systems, using Internet Protocol (IP) over point-to-point Ethernet links on optical fibre.</description>
                   <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
                   <obgroup obligation="mandatory">
+                     <description>Section 3 - Clause 58 - 1000BASE-LX10, nominal transmit wavelength 1310nm</description>
+                     <refstandard refid="ieee-802.3-2013"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                    <refstandard refid="iso-iec-11801"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
                      <description>Standards for IP version 4 (IPv4) over Ethernet</description>
                      <refstandard refid="ietf-rfc826"/>
                   </obgroup>
                   <obgroup obligation="mandatory">
-                     <refstandard refid="iso-iec-11801"/>
+                     <description>The use of LC-connectors is required
+                     for network interconnections inside shelters (or
+                     inside other conditioned infrastructure). If the
+                     interconnection point is outside a shelter in a
+                     harsh environment, the interconnection shall
+                     follow STANAG 4290 connector
+                     specification.</description>
                      <refstandard refid="itu-t-g.652"/>
                      <refstandard refid="iec-61754-20"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <description>Section 5 - Clause 58 - 1000BASE-LX10, nominal transmit wavelength 1310nm</description>
-                     <refstandard refid="ieee-802.3-2013"/>
+                     <refstandard refid="nso-stanag4290"/>
                   </obgroup>
                   <guide>Use 1Gb/s Ethernet over single-mode optical fibre (SMF).</guide>
                </serviceprofile>
                <serviceprofile title="IP Routing Information Profile">
                   <description>The IP Routing Information Profile provides standards and guidance for support of the Routing Information Protocol (RIP) to expand the amount of useful information carried in RIP messages and to add a measure of security.</description>
                   <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
-                  <obgroup obligation="optional">
-                     <description>For the optional capability supporting automatic configuration, the following standards apply</description>
+                  <obgroup obligation="optional">                    
+                    <description>Under the condition that
+                    interconnecting partners support
+                    auto-configuration, this standard applies as an
+                    optional capability to support automatic
+                    configuration. Otherwise, partners by default will
+                    following the manual configuration
+                    process.</description>
                      <refstandard refid="ietf-rfc2453"/>
                   </obgroup>
                </serviceprofile>
@@ -6037,15 +6053,15 @@ Grids</applicability>
                   <reftaxonomy refid="ts-cs-tn-core-packetroute"/>
                   <reftaxonomy refid="ts-cs-ca-pba-ipv4"/>
                   <obgroup obligation="mandatory">
-                     <description>MNEs, as well as MNXs with their own multicast capability, shall provide a Rendezvous Point (RP) supporting the following IP multicast protocol standards</description>
-                     <refstandard refid="ietf-rfc3618"/>
-                     <refstandard refid="ietf-rfc4760"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
                      <description>The following standards shall apply for all IP interconnections</description>
                      <refstandard refid="ietf-rfc4601"/>
                      <refstandard refid="ietf-rfc1112"/>
                      <refstandard refid="ietf-rfc3376"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>MNEs, as well as MNXs with their own multicast capability, shall provide a Rendezvous Point (RP) supporting the following IP multicast protocol standards</description>
+                     <refstandard refid="ietf-rfc3618"/>
+                     <refstandard refid="ietf-rfc4760"/>
                   </obgroup>
                   <obgroup obligation="mandatory">
                      <description>The following standards shall apply to multicast routing</description>
@@ -6068,7 +6084,7 @@ Grids</applicability>
                      <refstandard refid="itu-t-m.2301"/>
                      <refstandard refid="itu-t-j.241"/>
                   </obgroup>
-                  <obgroup obligation="mandatory">
+                  <obgroup obligation="conditional">
                      <description>The following normative standards shall apply for             IP Quality of Service (QoS)</description>
                      <refstandard refid="nso-stanag4711"/>
                   </obgroup>
@@ -6115,37 +6131,23 @@ TCP message authentication code (MAC) using
 a one-way hash function (MD5), as described in
 IETF RFC 4271.</guide>
                </serviceprofile>
-               <serviceprofile title="Inter-Autonomous Systems TDM Transport Profile">
-                  <description>The Inter-Autonomous Systems TDM Transport Profile provides standards and guidance for Edge Transport Services                                                               between autonomous systems, using Time Division Multiplex (TDM) over a Wide Area Network (WAN).</description>
-                  <reftaxonomy refid="ts-cs-tn-edge-timediv"/>
-                  <obgroup obligation="mandatory">
-                     <description>Fractional E1 (Nx64kbit/s) conformant with the                   following standards</description>
-                     <refstandard refid="itu-t-g.703"/>
-                     <refstandard refid="itu-t-g.704"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <description>IP version 4 (IPv4) conformant with the following                   standards</description>
-                     <refstandard refid="ietf-rfc3544"/>
-                     <refstandard refid="ietf-rfc1994"/>
-                     <refstandard refid="ietf-rfc1661"/>
-                  </obgroup>
-                  <guide>This interconnection is based on STANAG 5067,
-Standard for interconnection of IPv4 networks at
-Mission Secret and unclassified security Levels.
-STANAG 5067 provides additional
-implementation, security and management
-guidance.</guide>
-                  <guide>Combined with TRANSEC crypto or other forms
-of link protection, CHAP (IETF RFC 1994) is not
-required. Otherwise, CHAP is recommended.</guide>
-               </serviceprofile>
                <serviceprofile title="Routing Encapsulation Profile">
                   <description>The Routing Encapsulation Profile provides standards and guidance for generic routing encapsulation functions between                                              network interconnection points (NIPs)</description>
                   <reftaxonomy refid="ts-cs-tn-edge-iptrans"/>
                   <obgroup obligation="mandatory">
                      <refstandard refid="ietf-rfc2890"/>
-                     <refstandard refid="ietf-rfc2409"/>
                      <refstandard refid="ietf-rfc4303"/>
+                     <refstandard refid="ietf-rfc2784"/>
+                  </obgroup>
+                  <obgroup obligation="conditional">
+                     <description>Depending on whether authentication of IPSec
+sessions is based on pre-shared keys or
+certificates is used. If pre-shared keys are used,
+standard for IKE is the IKEv1, If authentication is
+done via certificates, then IKEv2 is used.</description>
+                     <refstandard refid="ietf-rfc2409"/>
+                     <refstandard refid="ietf-rfc7296"/>
+                     <refstandard refid="ietf-rfc7427"/>
                   </obgroup>
                </serviceprofile>
             </profile>
@@ -15418,8 +15420,9 @@ database as a logical folder of email messages.</applicability>
          <uuid>b5251be8-a0f5-4222-a5e9-675a5c357040</uuid>
       </standard>
 
-      <standard id="ietf-rfc4632" tag="MLDv2 Guidance">
-         <document orgid="ietf" pubnum="RFC 4632" title="Multicast Listener Discovery Protocol Version 2 (MLDv2) for Source-Specific Multicast Classless Inter Domain Routing" date="2006-08"/>
+      <standard id="ietf-rfc4632" tag="CIDR Plan">
+         <document orgid="ietf" pubnum="RFC 4632" title="Classless Inter-domain Routing (CIDR):
+          The Internet Address Assignment and Aggregation Plan" date="2006-08"/>
          <applicability>This memo discusses the strategy for address assignment of the    existing 32-bit IPv4 address space with a view toward conserving the address space and limiting the growth rate of global routing state.</applicability>
          <status mode="accepted">
             <uri>http://www.ietf.org/rfc/rfc4632.txt</uri>
