@@ -6314,23 +6314,31 @@ they can be used as timeservers for IPv4 Mission
                      <refstandard refid="ietf-rfc4954"/>
                   </obgroup>
                   <guide>Depending on the protection requirements within
-the particular FMN instance messages must be
-marked in the message header field
-"Keywords"(IETF RFC 2822) and firstline-of-text
-in the message body according to the following
-convention: [MMM] [CLASSIFICATION],
-Releasable to [MISSION] Where
-CLASSIFICATION is the classification {SECRET,
-CONFIDENTIAL, RESTRICTED} or
-UNCLASSIFIED, and MMM is the agreed
-alpha-3 country code with the exception that
-NATO will be identified by the four letter acronym
-"NATO". The "releasable to" list shall include the
-short-name of the mission and may be extended
-        to include other entities.</guide>
+the particular FMN instance, messages must be
+marked in the message header field "Keywords"
+(IETF RFC 2822) and firstline-of-text in the
+message body according to the following
+convention: [PPP] [CLASSIFICATION],
+Releasable to [MISSION].</guide>
+<guide>
+  <itemizedlist>
+    <listitem><para>"PPP" is a short-name/code for identification
+of a security policy.</para></listitem>
+    <listitem><para>"CLASSIFICATION" is the classification
+{SECRET, CONFIDENTIAL, RESTRICTED}
+or UNCLASSIFIED</para></listitem>
+    <listitem><para>"MISSION" is a name/acronym for identifying
+the mission.</para></listitem>
+    <listitem><para>"Releasable to" list shall include the
+name/acronym of the mission and may be
+extended to include other entities.</para></listitem>
+  </itemizedlist>
+                  </guide>
+                  <guide>The use of a short-name/code does not imply
+that NATO or one or more member Nations
+recognize those entities.</guide>
                   <guide>Example: Keywords: ITA UNCLASSIFIED,
-Releasable to XFOR Conditional (if the mission
-network operates at classified level).</guide>
+Releasable to XFOR.</guide>                  
                </serviceprofile>
                <serviceprofile title="Numbering Plans Profile">
                   <description>The Numbering Plans Profile provides standards and guidance for the facilitation of numbering plans of                                         telecommunications, audio and video networks.</description>
@@ -6393,35 +6401,6 @@ defined for audio-based collaboration services
                      <refstandard refid="iicwg-scip-233"/>
                   </obgroup>
                </serviceprofile>
-               <serviceprofile title="Basic Text-based Collaboration Profile">
-                  <description>The Basic Text-based Collaboration Profile provides standards and guidance to establish a basic near-real time                                                        text-based group collaboration capability (chat) for time critical reporting and decision making in military operations.</description>
-                  <reftaxonomy refid="ts-ces-es-cc-tc"/>
-                  <reftaxonomy refid="ts-ces-es-cc-presence"/>
-                  <obgroup obligation="optional">
-                     <description>Bidirectional Server-to-Server Connections may be supported, i.e. stanzas are sent and received on the same TCP connection.</description>
-                     <refstandard refid="xmpp-xep-0288"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <description>The following standards are required to achieve compliance for an XMPP Server and an XMPP Client dependent upon the categorisation of presenting a core or advanced instant messaging service interface.</description>
-                     <refstandard refid="xmpp-xep-0004"/>
-                     <refstandard refid="xmpp-xep-0030"/>
-                     <refstandard refid="xmpp-xep-0045"/>
-                     <refstandard refid="xmpp-xep-0049"/>
-                     <refstandard refid="xmpp-xep-0050"/>
-                     <refstandard refid="xmpp-xep-0054"/>
-                     <refstandard refid="xmpp-xep-0092"/>
-                     <refstandard refid="xmpp-xep-0096"/>
-                     <refstandard refid="xmpp-xep-0114"/>
-                     <refstandard refid="xmpp-xep-0115"/>
-                     <refstandard refid="xmpp-xep-0203"/>
-                     <refstandard refid="xmpp-xep-0220"/>
-                  </obgroup>
-                  <obgroup obligation="mandatory">
-                     <description>The following standards are the base IETF             protocols for interoperability of chat services.</description>
-                     <refstandard refid="ietf-rfc6120"/>
-                     <refstandard refid="ietf-rfc6121"/>
-                  </obgroup>
-               </serviceprofile>
                <serviceprofile title="Video-based Collaboration Profile">
                   <description>The Video-based Collaboration Profile provides standards and guidance for the implementation and configuration of                                                   Video Tele Conferencing (VTC) systems and services in a federated mission network.</description>
                   <reftaxonomy refid="ts-ces-es-cc-vc"/>
@@ -6453,6 +6432,35 @@ common ground can always be found.</guide>
                   <guide>As a Minimum G.722.1 is to be used. Others are
 exceptions and need to be agreed by the MN
 administrative authority for video calls.</guide>
+               </serviceprofile>
+               <serviceprofile title="Basic Text-based Collaboration Profile">
+                  <description>The Basic Text-based Collaboration Profile provides standards and guidance to establish a basic near-real time                                                        text-based group collaboration capability (chat) for time critical reporting and decision making in military operations.</description>
+                  <reftaxonomy refid="ts-ces-es-cc-tc"/>
+                  <reftaxonomy refid="ts-ces-es-cc-presence"/>
+                  <obgroup obligation="optional">
+                     <description>Bidirectional Server-to-Server Connections may be supported, i.e. stanzas are sent and received on the same TCP connection.</description>
+                     <refstandard refid="xmpp-xep-0288"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards are required to achieve compliance for an XMPP Server and an XMPP Client dependent upon the categorisation of presenting a core or advanced instant messaging service interface.</description>
+                     <refstandard refid="xmpp-xep-0004"/>
+                     <refstandard refid="xmpp-xep-0030"/>
+                     <refstandard refid="xmpp-xep-0045"/>
+                     <refstandard refid="xmpp-xep-0049"/>
+                     <refstandard refid="xmpp-xep-0050"/>
+                     <refstandard refid="xmpp-xep-0054"/>
+                     <refstandard refid="xmpp-xep-0092"/>
+                     <refstandard refid="xmpp-xep-0096"/>
+                     <refstandard refid="xmpp-xep-0114"/>
+                     <refstandard refid="xmpp-xep-0115"/>
+                     <refstandard refid="xmpp-xep-0203"/>
+                     <refstandard refid="xmpp-xep-0220"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following standards are the base IETF             protocols for interoperability of chat services.</description>
+                     <refstandard refid="ietf-rfc3920"/>
+                     <refstandard refid="ietf-rfc3921"/>
+                  </obgroup>
                </serviceprofile>
             </profile>
             <profile id="fmn-fed-inf-mgnt" title="Federated Information Management Profile">
@@ -14009,6 +14017,41 @@ XML documents.</guide>
          <uuid>248c6ad2-4f54-4a4f-aebc-aa59a98ea035</uuid>
       </standard>
 
+
+
+
+      
+      <standard id="ietf-rfc3920" tag="RFC 3920">
+         <document orgid="ietf" pubnum="RFC 3920" date="2004-10" title="Extensible Messaging and Presence Protocol (XMPP): Core"/>
+         <applicability>This standard defines the core features of the Extensible Messaging and
+   Presence Protocol (XMPP), a protocol for streaming Extensible Markup
+   Language (XML) elements in order to exchange structured information
+   in close to real time between any two network endpoints.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3920.txt</uri>
+            <history>
+               <event flag="added" date="2016-04-13" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+      </standard>
+
+      <standard id="ietf-rfc3921" tag="RFC 3921">
+         <document orgid="ietf" pubnum="RFC 3921" date="2004-10" title="Extensible Messaging and Presence Protocol (XMPP): Instant Messaging and Presence"/>
+         <applicability>This memo describes extensions to and applications of the core
+   features of the Extensible Messaging and Presence Protocol (XMPP)
+   that provide the basic instant messaging (IM) and presence
+   functionality defined in RFC 2779.
+         </applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3921.txt</uri>
+            <history>
+               <event flag="added" date="2016-04-13" rfcp="8-5" version="9.0"/>
+            </history>
+         </status>
+      </standard>
+
+      
       <standard id="ietf-rfc3922" tag="RFC 3922">
          <document orgid="ietf" pubnum="RFC 3922" date="2004" title="Mapping XMPP to CPIM"/>
          <applicability>
