@@ -247,13 +247,16 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
     </xsl:choose>
   </emphasis></para>
   <xsl:if test="./description">
-    <para><xsl:value-of select="./description"/></para>
+    <para><xsl:apply-templates select="./description"/></para>
   </xsl:if>
   <itemizedlist spacing="compact">
     <xsl:apply-templates select="refstandard"/>
   </itemizedlist>
 </xsl:template>
 
+<xsl:template match="description">
+  <xsl:apply-templates/>
+</xsl:template>
 
 <xsl:template match="refstandard">
   <xsl:variable name="myrefid" select="@refid"/>
@@ -293,6 +296,18 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
   
 <xsl:template match="guide">
   <para><xsl:apply-templates/></para>
+</xsl:template>
+
+<xsl:template match="footnote">
+  <footnote><xsl:apply-templates/></footnote>
+</xsl:template>
+
+<xsl:template match="para">
+  <para><xsl:apply-templates/></para>
+</xsl:template>
+
+<xsl:template match="text()">
+  <xsl:value-of select="."/>
 </xsl:template>
 
 
