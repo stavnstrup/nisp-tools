@@ -271,13 +271,23 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 <xsl:template match="standard">
   <xsl:variable name="myorg" select="document/@orgid"/>
   <xsl:variable name="orgname" select="ancestor::standards/organisations/orgkey[@key=$myorg]/@short"/>
+  <xsl:variable name="myurl" select="status/uri"/>
   <xsl:if test="$orgname">
     <xsl:value-of select="$orgname"/>
     <xsl:text> </xsl:text>
   </xsl:if>
   <xsl:value-of select="document/@pubnum"/>
   <xsl:text> - </xsl:text>
-  <xsl:value-of select="document/@title"/>
+  <xsl:choose>
+    <xsl:when test="$myurl != ''">
+      <ulink url="{$myurl}">
+        <xsl:value-of select="document/@title"/>
+      </ulink>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="document/@title"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
   
