@@ -101,7 +101,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <xsl:param name="hyphenate">false</xsl:param>
 <xsl:param name="show.comments" select="0"/>
-<xsl:param name="ulink.show" select="1"/>
+<xsl:param name="ulink.show" select="0"/>
 <xsl:param name="ulink.hyphenate" select="''"/>
 <xsl:param name="xref.with.number.and.title" select="0"/>
 
