@@ -101,7 +101,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <xsl:param name="hyphenate">false</xsl:param>
 <xsl:param name="show.comments" select="0"/>
-<xsl:param name="ulink.show" select="1"/>
+<xsl:param name="ulink.show" select="0"/>
 <xsl:param name="ulink.hyphenate" select="''"/>
 <xsl:param name="xref.with.number.and.title" select="0"/>
 
@@ -1311,6 +1311,64 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   <xsl:value-of select="$describe"/>
 </xsl:template>
 
+<!-- Add for each Volume in the PDF file a bookmark showing titleabbrev and subtitle. -->
+<!-- Add possibility to collapse this bookmark. -->
+<!-- Template is cusomization of docbook-xsl/fo/fop1.xsl -->
+<xsl:template match="set|book|part|reference|
+                     preface|chapter|appendix|article|topic
+                     |glossary|bibliography|index|setindex
+                     |refentry
+                     |sect1|sect2|sect3|sect4|sect5|section"
+              mode="fop1.outline">
+ 
+  <xsl:variable name="id">
+    <xsl:call-template name="object.id"/>
+  </xsl:variable>
+  <xsl:variable name="bookmark-label">
+    <xsl:apply-templates select="." mode="object.title.markup"/>
+  </xsl:variable>
+ 
+  <!-- Put the root element bookmark at the same level as its children -->
+  <!-- If the object is a set or book, generate a bookmark for the toc -->
+ 
+  <xsl:choose>
+    <xsl:when test="self::index and $generate.index = 0"/>        
+    <xsl:when test="parent::*">
+      <fo:bookmark internal-destination="{$id}">
+        <xsl:attribute name="starting-state">
+          <xsl:value-of select="$bookmarks.state"/>
+        </xsl:attribute>
+        <fo:bookmark-title>
+          <xsl:value-of select="normalize-space($bookmark-label)"/>
+        </fo:bookmark-title>
+        <xsl:apply-templates select="*" mode="fop1.outline"/>
+      </fo:bookmark>
+    </xsl:when>
+    <xsl:otherwise>
+      <fo:bookmark internal-destination="{$id}" starting-state="'show'">
+        <fo:bookmark-title>
+          <xsl:value-of select="concat(normalize-space(bookinfo/titleabbrev), ' - ', normalize-space(bookinfo/subtitle))"/>
+        </fo:bookmark-title>
+        <xsl:variable name="toc.params">
+          <xsl:call-template name="find.path.params">
+            <xsl:with-param name="table" select="normalize-space($generate.toc)"/>
+          </xsl:call-template>
+        </xsl:variable>
+ 
+        <xsl:if test="contains($toc.params, 'toc')">
+          <fo:bookmark internal-destination="toc...{$id}">
+            <fo:bookmark-title>
+              <xsl:call-template name="gentext">
+                <xsl:with-param name="key" select="'TableofContents'"/>
+              </xsl:call-template>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:if>
+        <xsl:apply-templates select="*" mode="fop1.outline"/>
+      </fo:bookmark>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
 
 
 </xsl:stylesheet>

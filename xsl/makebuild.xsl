@@ -193,7 +193,7 @@ Make dynamic targets.
       </xsl:attribute>
       <arg>
         <xsl:attribute name="line">
-          <xsl:text>${tool-version} NISP-v${src-version-major}${nisp.lifecycle.postfix}.pdf </xsl:text>
+          <xsl:text>${tool-version} ${describe} NISP-v${src-version-major}${nisp.lifecycle.postfix}.pdf </xsl:text>
           <xsl:for-each select=".//docinfo">
             <xsl:value-of select="targets/target[@type='pdf']"/>
             <xsl:text>-v${src-version-major}${nisp.lifecycle.postfix}.pdf </xsl:text>

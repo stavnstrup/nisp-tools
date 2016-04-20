@@ -247,13 +247,16 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
     </xsl:choose>
   </emphasis></para>
   <xsl:if test="./description">
-    <para><xsl:value-of select="./description"/></para>
+    <para><xsl:apply-templates select="./description"/></para>
   </xsl:if>
   <itemizedlist spacing="compact">
     <xsl:apply-templates select="refstandard"/>
   </itemizedlist>
 </xsl:template>
 
+<xsl:template match="description">
+  <xsl:apply-templates/>
+</xsl:template>
 
 <xsl:template match="refstandard">
   <xsl:variable name="myrefid" select="@refid"/>
@@ -271,18 +274,40 @@ Danish Defence Acquisition and Logistic Organisation (DALO).
 <xsl:template match="standard">
   <xsl:variable name="myorg" select="document/@orgid"/>
   <xsl:variable name="orgname" select="ancestor::standards/organisations/orgkey[@key=$myorg]/@short"/>
+  <xsl:variable name="myurl" select="status/uri"/>
   <xsl:if test="$orgname">
     <xsl:value-of select="$orgname"/>
     <xsl:text> </xsl:text>
   </xsl:if>
   <xsl:value-of select="document/@pubnum"/>
   <xsl:text> - </xsl:text>
-  <xsl:value-of select="document/@title"/>
+  <xsl:choose>
+    <xsl:when test="$myurl != ''">
+      <ulink url="{$myurl}">
+        <xsl:value-of select="document/@title"/>
+      </ulink>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="document/@title"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
   
 <xsl:template match="guide">
   <para><xsl:apply-templates/></para>
+</xsl:template>
+
+<xsl:template match="footnote">
+  <footnote><xsl:apply-templates/></footnote>
+</xsl:template>
+
+<xsl:template match="para">
+  <para><xsl:apply-templates/></para>
+</xsl:template>
+
+<xsl:template match="text()">
+  <xsl:value-of select="."/>
 </xsl:template>
 
 

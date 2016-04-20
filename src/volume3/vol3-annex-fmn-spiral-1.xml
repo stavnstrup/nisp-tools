@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 *****************************************************************
-                   Vol 3 - FMN AUTO
+                   Vol 3 - FMN SPIRAL 1.1 PROFILE
 *****************************************************************  
 -->
 
@@ -10,7 +10,14 @@
 <!ENTITY nisp-web-mainpage "http://nisp.nc3a.nato.int/">
 ]>
 <appendix id="v3-fmn-spiral-1">
-  <title>FMN Spiral 1 Profiles</title>
+  <title>Federated Mission Networking Spiral 1.1 Standards Profile</title>
+     <figure id="f3-fmn-logo">
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/FMN_Logo_Color_With_Text_Side.svg"/>
+          </imageobject>
+        </mediaobject>
+        </figure>
 
   <sect1>
     <title>Introduction</title>
@@ -32,79 +39,52 @@
     <para>FMN is founded on a service-oriented approach. The
     interoperability standards applicable to these services are
     identified and specified in line with the NATO C3 Taxonomy.</para>
+<sect2>
+<title>Disclaimer</title>
+<para>The information in this document is derived from the Enterprise Mapping (EM) Wiki, a data analysis and enterprise architecture tool based on Semantic MediaWiki technology and hosted by the Technology and Human Factors (THF) Branch at Headquarters Supreme Allied Commander Transformation (HQ SACT).</para>
+<para>This document is generated overnight in an automated process and stamped with a date on the cover page. Hence, a baselined version is not exclusively identified by a version marking and the date on the cover must be used for version control.</para>
+</sect2>
     
   </sect1>
   
   <sect1>
     <title>Overview</title>
 
-    <para>The diagram below presents an overview of the profile
-    structure.</para>
+    <para>The diagram below presents an overview of the profile structure.</para>
 
       <figure id="f3-fmn-profiles">
-        <title>FMN Profiles</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="../figures/fmn-spiral1-profile.svg"/>
+            <imagedata fileref="../figures/fmn-profile-structure.svg"/>
           </imageobject>
         </mediaobject>
         </figure>
   </sect1>
   
   <sect1>
-    <title>Scope</title>
+<title>FMN Spiral 1 Profile</title>  
+<sect2>
+  <title>Scope</title>
 
-    <para>The Federated Mission Networking (FMN) Spiral 1 standards
-    profile defines interface standards for the services that are
-    required to deploy a Mission Network Elements (FMN capability
-    option A). Mission Network Extensions (option B) and Hosted Users
-    (option C) may not meet these minimum service and service
-    interoperability requirements. Connectivity and service provision
-    throughout the federation is regulated by hosting agreements
-    between participants.</para>
+    <para>The Federated Mission Networking (FMN) Spiral 1 standards profile defines interface standards for the services that are required to deploy a Mission Network Elements (FMN capability option A). Mission Network Extensions (option B) and Hosted Users (option C) may not meet these minimum service and service interoperability requirements. Connectivity and service provision throughout the federation is regulated by hosting agreements between participants.</para>
     
-   <para>FMN Spiral 1 refers to an FMN maturity level in which
-   separate physical infrastructures exist per mission and per
-   security classification level. This spiral is an evolution of the
-   fielded baseline of the Afghanistan Mission Network (AMN). Notably,
-   biometrics interoperability standards were removed and the network
-   architecture has changed from a hub-and-spoke to a meshed
-   concept.</para>
+   <para>FMN Spiral 1 refers to an FMN maturity level in which separate physical infrastructures exist per mission and per security classification level. This spiral is an evolution of the fielded baseline of the Afghanistan Mission Network (AMN). Notably, biometrics interoperability standards were removed and the network architecture has changed from a hub-and-spoke to a
+meshed concept.</para>
 
-   <para>Mission Network Extensions must be provided with their local
-   area networks (including IP management) within the physical and
-   cyber security boundaries of the hosting Mission Network
-   Element. The services must function in a network environment that
-   contains firewalls and various routing and filtering schemes;
-   therefore, developers must use standards and well-known port
-   specifications wherever possible, and document non-standard
-   configurations as part of their service interface.</para>
+   <para>Mission Network Extensions must be provided with their local area networks (including IP management) within the physical and cyber security boundaries of the hosting Mission Network Element. The services must function in a network environment that contains firewalls and various routing and filtering schemes; therefore, developers must use standards and well-known port specifications wherever possible, and document non-standard configurations as part of their service interface.</para>
 
-  </sect1> 
+  </sect2> 
 
-  <sect1>
+  <sect2>
     <title>Interoperability</title>
 
-    <para>In the context of Federated Mission Networking, the purpose
-    of standardization is to enable interoperability in a
-    multi-vendor, multi-network, multi-service environment. Technical
-    interoperability must be an irrefutable and inseparable element in
-    capability development and system implementation - without it, it
-    is not possible to realize connections and service deliveries
-    across the federation and hence, information sharing will not be
-    achieved.</para>
+    <para>In the context of Federated Mission Networking, the purpose of standardization is to enable interoperability in a multi-vendor, multi-network, multi-service environment. Technical interoperability must be an irrefutable and inseparable element in capability development and system implementation - without it, it is not possible to realize connections and service deliveries across the federation and hence, information sharing will not be achieved.</para>
 
-    <para>Within NATO, interoperability is defined as "the ability to
-    act together coherently, effectively and efficiently to achieve
-    allied tactical, operational and strategic objectives". In the
-    context of information exchange, interoperability means that a
-    system, unit or forces of any service, nation can transmit data to
-    and receive data from any other system, unit or forces of any
-    service or nation, and use the exchanged data to operate
-    effectively together.</para>
-  </sect1>
+    <para>Within NATO, interoperability is defined as "the ability to act together coherently, effectively and efficiently to achieve allied tactical, operational and strategic objectives". In the context of information exchange, interoperability means that a system, unit or forces of any service, nation can transmit data to and receive data from any other system, unit or forces of any service
+or nation, and use the exchanged data to operate effectively together.</para>
+  </sect2>
   
-  <sect1>
+  <sect2>
     <title>Standards and Profiles</title>
     
     <para>For successful Federated Mission Networking, technical
@@ -139,14 +119,13 @@
     <itemizedlist>
       <listitem><para>Mandatory - Mandatory interoperability standards must be met to enable Federated Mission Networking</para></listitem>
       <listitem><para>Conditional - Conditional interoperability standards must be present under certain specific circumstances</para></listitem>
-      <listitem><para>Recommended - Recommended interoperability standards may be excluded for valid reasons in particular circumstances,
-but the full implications must be understood and carefully weighed</para></listitem>
+      <listitem><para>Recommended - Recommended interoperability standards may be excluded for valid reasons in particular circumstances, but the full implications must be understood and carefully weighed</para></listitem>
       <listitem><para>Optional - Optional interoperability standards are truly optional</para></listitem>
     </itemizedlist>
    
-  </sect1>
+  </sect2>
 
-  <sect1>
+  <sect2>
     <title>Sources</title>
     
     <para>The interoperability standards profile in this document is derived from standards that are maintained by a selection of
@@ -166,9 +145,9 @@ Interoperability Standards and Profiles. Furthermore, standards are used from:</
       <listitem><para>Extensible Messaging and Presence Protocol (XMPP) Extension Protocols (XEP)</para></listitem>
     </itemizedlist>
 
-  </sect1>
+  </sect2>
 
-  <sect1>
+  <sect2>
     <title>Federated Communications and Networking Profile</title>
 
     <para>The Federated Communications and Networking Profile arranges
@@ -176,7 +155,7 @@ Interoperability Standards and Profiles. Furthermore, standards are used from:</
     communications infrastructure of federated mission
     networks.</para>
 
-    <sect2>
+    <sect3>
        <title>Federated Communications Profile</title>
 
        <para>The Federated Communications Profile arranges standards profiles for the addressing, routing, forwarding, quality and
@@ -184,10 +163,10 @@ Interoperability Standards and Profiles. Furthermore, standards are used from:</
        
       <?dbmerge profile="fmn-fed-com"?>
 
-    </sect2>
+    </sect3>
 
 
-    <sect2>
+    <sect3>
       <title>Federated Networking Profile</title>
 
       <para>The Federated Networking Profile arranges standards
@@ -195,17 +174,17 @@ Interoperability Standards and Profiles. Furthermore, standards are used from:</
       communications layer of federated mission networks.</para>
 
       <?dbmerge profile="fmn-fed-net"?>
-    </sect2>
-  </sect1>
+    </sect3>
+  </sect2>
 
-  <sect1>
+  <sect2>
     <title>Federated Human-to-Human Communications Profile</title>
 
     <para>The Federated Human-to-Human Communications Profile arranges
     standards profiles for the facilitation of information sharing and
     exchange on user platforms.</para>
 
-    <sect2>
+    <sect3>
       <title>Federated Unified Collaboration Profile</title>
 
       <para>The Federated Unified Collaboration Profile arranges
@@ -217,9 +196,9 @@ Interoperability Standards and Profiles. Furthermore, standards are used from:</
       coordination and joint product development.</para>
 
       <?dbmerge profile="fmn-uni-collab"?>
-    </sect2>
+    </sect3>
 
-    <sect2>
+    <sect3>
       <title>Federated Information Management Profile</title>
 
       <para>The Federated Information Management Profile arranges standards profiles for the handling of information throughout its
@@ -227,16 +206,23 @@ life-cycle and the support of capabilities to organize, store and retrieve infor
 governed by policies, directives, standards, profiles and guidelines.</para>
 
       <?dbmerge profile="fmn-fed-inf-mgnt"?>
-    </sect2>
+    </sect3>
 
-    <sect2>
+    <sect3>
       <title>Federated Web Hosting Profile</title>
       <para>The Federated Web Hosting Profile arranges standards profiles for the facilitation of web-based services in a loosely coupled
 environment, where flexible and agile service orchestration is a requirement on the basis of a Service Oriented Architecture
 (SOA).</para>
       <?dbmerge profile="fmn-fed-web-host"?>
-    </sect2>
-  
+    </sect3>
+  </sect2>
   </sect1>
+<sect1>
+<title>Related Information</title>
+<sect2>
+<title>Standards</title>
+<para>See https://tide.act.nato.int/tidepedia/index.php/FMN_Spiral_Specification_1.1</para>
+</sect2>
+</sect1>
   
 </appendix>
