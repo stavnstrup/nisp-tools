@@ -169,7 +169,8 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
           <a href="{$prefix}userinfo.html">User Information</a> | 
           <a href="{$prefix}introduction.html">Introduction</a> |
           <a href="{$prefix}acronyms/index.html">Acronyms</a> |
-          <a href="{$prefix}PDFcoverdoc.html">Get NISP in PDF</a>
+          <a href="{$prefix}PDFcoverdoc.html">Get NISP in PDF</a> |
+          <a href="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP2/">Search NISP DB</a>
         </div>
       </div>
     </div>  
