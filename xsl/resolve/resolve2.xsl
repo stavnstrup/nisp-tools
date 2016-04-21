@@ -196,8 +196,17 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="record" select="$db//standard[@id=$curid]|$db//setofstandards[@id=$curid]"/>
   <listitem>
     <para>
-	  <ulink url="{$record/status/uri}"><xsl:value-of select="."/></ulink>
-	  <xsl:apply-templates select="@refid" mode="addindexentry"/>
+      <xsl:choose>
+        <xsl:when test="$record/status/uri != ''">
+	  <ulink url="{$record/status/uri}">
+            <xsl:value-of select="."/>
+          </ulink>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="."/>          
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@refid" mode="addindexentry"/>
     </para>
   </listitem>
 </xsl:template>
