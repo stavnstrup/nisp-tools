@@ -163,18 +163,18 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template name="htmlheader">
   <tr class="head">
-    <th>ID</th>
-    <th>Org</th>
+    <th>Organisation</th>
     <th>PubNum</th>
     <th>Title</th>
+    <th>Responsible Party today</th>
     <th>Category today</th>
-    <th>RP today</th>
     <th>Comment</th>
+    <th>Responsible Party</th>
     <th>Category</th>
-    <th>Sub Category</th>
-    <th>RP</th>
+    <th>Sub Category (optional)</th>
     <th>URI</th>
-   </tr>
+    <th>ID</th>
+  </tr>
 </xsl:template>
 
 
@@ -276,6 +276,9 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="standard">
   <xsl:variable name="myid" select="@id"/>
+  <xsl:variable name="myorgid" select="document/@orgid"/>
+  <xsl:variable name="myrp" select="responsibleparty/@rpref"/>
+  
   <tr>
 <!--    
     <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">
@@ -285,12 +288,11 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <!--
     <td align="right"><xsl:number from="records" count="standard" format="1" level="any"/></td>
 -->
-    <td><xsl:value-of select="@id"/></td>
     <td>
       <xsl:if test="document/@orgid =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="document/@orgid"/>
+      <xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/>
     </td>
     <td>
       <xsl:if test="document/@pubnum =''">
@@ -304,10 +306,13 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:value-of select="document/@title"/>
     </td>
+<!--    
+     <td><xsl:value-of select="responsibleparty/@rpref"/></td>
+-->
+    <td><xsl:value-of select="/standards/responsibleparties/rpkey[@key=$myrp]/@short"/></td>
     <td align="center">
       <xsl:apply-templates select="/standards/bestpracticeprofile//bprefstandard[@refid=$myid]"/>
     </td>
-    <td><xsl:value-of select="responsibleparty/@rpref"/></td>
     <td></td>
     <td></td>
     <td></td>
@@ -318,6 +323,7 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:apply-templates select="status/uri"/>
     </td>
+    <td><xsl:value-of select="@id"/></td>
   </tr>
 </xsl:template>
 
