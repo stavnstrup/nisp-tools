@@ -584,7 +584,7 @@ $Id$
 
 
   <target name="debug" description="* [DEBUG] Create misc. debugging reports"
-          depends="init, deb-overview, deb-family, deb-dates, deb-select, deb-upcoming, deb-rp">
+          depends="init, deb-overview, deb-ownership, deb-family, deb-dates, deb-select, deb-upcoming, deb-rp">
   </target>
 
   <target name="debug-figs" description="* [DEBUG] Create misc. debugging reports and figure reports"
@@ -603,6 +603,17 @@ $Id$
     </java>
   </target>
 
+  <target name="deb-ownership" description="* [DEBUG] Create DB Ownership"
+          depends="-get-describe">
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/debug/">
+      <arg line="${xslt.opts} -o ownership.html
+                 ${basedir}/src/standards/standards.xml
+                 ${xsl-debug.dir}/deb-ownership.xsl
+                 describe=${describe}"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
 
   <target name="deb-family" description="* [DEBUG] Create DB parent/child relationship list"
           depends="-get-describe">
