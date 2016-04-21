@@ -278,6 +278,15 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:variable name="myid" select="@id"/>
   <xsl:variable name="myorgid" select="document/@orgid"/>
   <xsl:variable name="myrp" select="responsibleparty/@rpref"/>
+
+  
+<!--
+  document/@orgid='nso'
+  /standards//bprefstandard[@refid = $myid]
+  exists(responsibleparty)
+  does refstandard have es 
+-->
+
   
   <tr>
 <!--    
@@ -306,9 +315,6 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:value-of select="document/@title"/>
     </td>
-<!--    
-     <td><xsl:value-of select="responsibleparty/@rpref"/></td>
--->
     <td><xsl:value-of select="/standards/responsibleparties/rpkey[@key=$myrp]/@short"/></td>
     <td align="center">
       <xsl:apply-templates select="/standards/bestpracticeprofile//bprefstandard[@refid=$myid]"/>
