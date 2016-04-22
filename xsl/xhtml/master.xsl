@@ -104,6 +104,10 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
               <h5>NISP in PDF</h5>
               <p>Get all NISP volumes as PDF files.</p>
               <div class="btn"><a class="small button" href="PDFcoverdoc.html">Get PDF</a></div>
+              <hr />
+              <h5>NISP Database</h5>
+              <p>Search the database.</p>
+              <div class="btn"><a class="small button" href="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP2/">Search</a></div>
             </div>
           </div>
         </xsl:otherwise>

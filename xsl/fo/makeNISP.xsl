@@ -107,7 +107,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:attribute-set name="xref.properties">
   <xsl:attribute name="color">
     <xsl:choose>
-      <xsl:when test="self::ulink">blue</xsl:when>
+      <xsl:when test="self::ulink">#2ba6cb</xsl:when>
       <xsl:otherwise>inherit</xsl:otherwise>
     </xsl:choose>
   </xsl:attribute>
