@@ -166,12 +166,14 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <th>Organisation</th>
     <th>PubNum</th>
     <th>Title</th>
-    <th>Responsible Party today</th>
-    <th>Category today</th>
-    <th>Comment</th>
+    <th>Responsible Party (Previously Identified)</th>
     <th>Responsible Party</th>
-    <th>Category</th>
+    <th>Lifecycle</th>
+    <th>Obligation</th>
+    <th>Taxonomy Category (Previously Identified)</th>
+    <th>Taxonomy Category</th>
     <th>Sub Category (optional)</th>
+    <th>Comment (optional)</th>
     <th>URI</th>
     <th>ID</th>
   </tr>
@@ -298,7 +300,7 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <!--
     <td align="right"><xsl:number from="records" count="standard" format="1" level="any"/></td>
 -->
-    <td>
+   <td>
       <xsl:if test="document/@orgid =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
@@ -317,10 +319,12 @@ Copyright (c) 2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:value-of select="document/@title"/>
     </td>
     <td><xsl:value-of select="/standards/responsibleparties/rpkey[@key=$myrp]/@short"/></td>
-    <td align="center">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="center"> <!-- Taxonomy Category (previously identified) --> 
       <xsl:apply-templates select="/standards/bestpracticeprofile//bprefstandard[@refid=$myid]"/>
     </td>
-    <td></td>
     <td></td>
     <td></td>
     <td></td>
