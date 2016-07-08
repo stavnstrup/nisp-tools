@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE standards
   PUBLIC "-//DDRE//DTDStandardDB XML V4.2//EN" "../schema/dtd/stddb42.dtd">
-<standards revision="ADatP-34(I) - DRAFT">
+<standards revision="ADatP-34(I) - Version Approved for release by the C3B">
    <revhistory>
+     <revision>
+       <revnumber>9.2</revnumber>
+         <date>2016-06-06</date>
+         <revdescription>
+            <para>Version approved by C3 Board (AC/322-N(2015)0193-REV2-AS1 (INV) 5 July 2016</para>
+            <para>Commented out reference to VMF MIL-STD-1059B</para>
+         </revdescription>
+      </revision>
      <revision>
        <revnumber>9.1</revnumber>
          <date>2016-04-25</date>
@@ -1507,6 +1515,7 @@
                   level="3"/>
          </node>
       </node>
+      <node id="userdefined" title="User defined" emUUID="" level="1">
       <node id="user.cloud" title="Cloud Computing" emUUID="" level="2">
          <node id="user.cloud.virtualisation" title="Virtualisation" emUUID="" level="3"/>
          <node id="user.cloud.cloud-computing" title="Cloud Computing" emUUID="" level="3"/>
@@ -1515,46 +1524,43 @@
                emUUID=""
                level="3"/>
       </node>
-      <node id="userdefined" title="" emUUID="" level="1"/>
-      <!-- FMN --><node id="tempEdge" title="" emUUID="" level="2"/>
-      <node id="tempGeneral" title="" emUUID="" level="2"/>
-      <node id="tempBattle" title="" emUUID="" level="2"/>
-      <node id="tempJISR" title="" emUUID="" level="2"/>
-      <node id="tempUserApp" title="" emUUID="" level="2"/>
-      <node id="tempSMC" title="" emUUID="" level="2"/>
-      <node id="tempHuman" title="" emUUID="" level="2"/>
+      <node id="temp-FMN" title="FMN profile related" emUUID="" level="2">
       <node id="temp-DigitalCertificate"
             title="Infrastructure IA Services (In v2 of the taxonomy this service is listed as Digital Certificate Services)"
             emUUID=""
-            level="2"/>
+            level="3"/>
       <node id="temp-Authentication"
             title="Infrastructure IA Services (In v2 of the taxonomy this service is listed as Authentication Services)"
             emUUID=""
-            level="2"/>
-      <!-- Archive --><node id="user.archive.data-sets-ds"
+            level="3"/>
+      </node>
+      <node id="temp-Archive" title="Archive profile related" emUUID="" level="2">
+      <node id="user.archive.data-sets-ds"
             title="Data sets (e.g. scientific data) and any structured information not fitting other content types"
             emUUID=""
-            level="2"/>
-      <node id="user.archive.data-sets-db" title="Database content" emUUID="" level="2"/>
+            level="3"/>
+      <node id="user.archive.data-sets-db" title="Database content" emUUID="" level="3"/>
       <node id="user.archive.geospatial" title="Geospatial information (e.g. GIS data)"
             emUUID=""
-            level="2"/>
-      <node id="user.archive.movingimage" title="Video files" emUUID="" level="2"/>
-      <node id="user.archive.sound" title="Audio files" emUUID="" level="2"/>
+            level="3"/>
+      <node id="user.archive.movingimage" title="Video files" emUUID="" level="3"/>
+      <node id="user.archive.sound" title="Audio files" emUUID="" level="3"/>
       <node id="user.archive.stillimage.raster" title="Bitmap/raster images" emUUID=""
-            level="2"/>
-      <node id="user.archive.stillimage.vector" title="Vector images" emUUID="" level="2"/>
+            level="3"/>
+      <node id="user.archive.stillimage.vector" title="Vector images" emUUID="" level="3"/>
       <node id="user.archive.text.text"
             title="Text documents, including common MS Office document formats (docx, xlsx, pptx)"
             emUUID=""
-            level="2"/>
+            level="3"/>
       <node id="user.archive.text.email" title="Email (e.g. MS Outlook PST files)"
             emUUID=""
-            level="2"/>
+            level="3"/>
       <node id="user.archive.text.chat" title="Chat (e.g. JChat conversations)" emUUID=""
-            level="2"/>
-      <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="2"/>
-      <!-- Cloud --></taxonomy>
+            level="3"/>
+      <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="3"/>
+      </node>
+      </node>
+     </taxonomy>
    <bestpracticeprofile>
       <bpserviceprofile tref="ts-ces">
          <bpgroup mode="mandatory">
@@ -1687,7 +1693,7 @@
          </bpgroup>
          <bpgroup mode="emerging">
             <bprefstandard refid="nato-app-11-d">APP-11(D)</bprefstandard>
-            <bprefstandard refid="dod-mil-std6017b">Variable Message Format (DoD Mil-Std 6017B:2009)</bprefstandard>
+           <!-- <bprefstandard refid="dod-mil-std6017b">Variable Message Format (DoD Mil-Std 6017B:2009)</bprefstandard> -->
             <bprefstandard refid="itu-t-x.411">ITU-T X.411:1999</bprefstandard>
             <bprefstandard refid="oasis-wss-v1.1-spec-os-swaprofile">SOAP Messages with Attachments (SwA) Profile 1.1:2006 (OASIS)</bprefstandard>
             <bprefstandard refid="ietf-rfc6477">MMHS Header Fields for use in SMTP (IETF RFC 6477:2012)</bprefstandard>
@@ -20845,7 +20851,8 @@ database as a logical folder of email messages.</applicability>
             <refstandard refid="oasis-xacml-2.0-mult-profile-spec-os"/>
             <refstandard refid="oasis-xacml-2.0-privacy-profile-spec-os"/>
             <refstandard refid="oasis-xacml-2.0-saml-profile-spec-os"/>
-            <refstandard refid="oasis-xacml-2.0-dsig-profile-spec-os"/>         </parts>
+            <refstandard refid="oasis-xacml-2.0-dsig-profile-spec-os"/>
+         </parts>
          <applicability>
             The security policy of a large enterprise has many elements and many
             points of enforcement. Elements of policy may be managed by the Information Systems
