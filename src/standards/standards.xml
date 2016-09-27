@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE standards
-  PUBLIC "-//DDRE//DTDStandardDB XML V4.2//EN" "../schema/dtd/stddb42.dtd">
+  PUBLIC "-//DDRE//DTDStandardDB XML V4.3//EN" "../schema/dtd/stddb43-draft.dtd">
 <standards revision="ADatP-34(I) - Version Approved for release by the C3B">
    <revhistory>
-     <revision>
-       <revnumber>9.2</revnumber>
+      <revision>
+         <revnumber>9.2</revnumber>
          <date>2016-06-06</date>
          <revdescription>
             <para>Version approved by C3 Board (AC/322-N(2015)0193-REV2-AS1 (INV) 5 July 2016</para>
             <para>Commented out reference to VMF MIL-STD-1059B</para>
          </revdescription>
       </revision>
-     <revision>
-       <revnumber>9.1</revnumber>
+      <revision>
+         <revnumber>9.1</revnumber>
          <date>2016-04-25</date>
          <revdescription>
             <para>Several hyperlinks updated</para>
@@ -1516,51 +1516,51 @@
          </node>
       </node>
       <node id="userdefined" title="User defined" emUUID="" level="1">
-      <node id="user.cloud" title="Cloud Computing" emUUID="" level="2">
-         <node id="user.cloud.virtualisation" title="Virtualisation" emUUID="" level="3"/>
-         <node id="user.cloud.cloud-computing" title="Cloud Computing" emUUID="" level="3"/>
-         <node id="user.cloud.it-infrastructure-management"
-               title="IT Infrastructure Management"
-               emUUID=""
-               level="3"/>
+         <node id="user.cloud" title="Cloud Computing" emUUID="" level="2">
+            <node id="user.cloud.virtualisation" title="Virtualisation" emUUID="" level="3"/>
+            <node id="user.cloud.cloud-computing" title="Cloud Computing" emUUID="" level="3"/>
+            <node id="user.cloud.it-infrastructure-management"
+                  title="IT Infrastructure Management"
+                  emUUID=""
+                  level="3"/>
+         </node>
+         <node id="temp-FMN" title="FMN profile related" emUUID="" level="2">
+            <node id="temp-DigitalCertificate"
+                  title="Infrastructure IA Services (In v2 of the taxonomy this service is listed as Digital Certificate Services)"
+                  emUUID=""
+                  level="3"/>
+            <node id="temp-Authentication"
+                  title="Infrastructure IA Services (In v2 of the taxonomy this service is listed as Authentication Services)"
+                  emUUID=""
+                  level="3"/>
+         </node>
+         <node id="temp-Archive" title="Archive profile related" emUUID="" level="2">
+            <node id="user.archive.data-sets-ds"
+                  title="Data sets (e.g. scientific data) and any structured information not fitting other content types"
+                  emUUID=""
+                  level="3"/>
+            <node id="user.archive.data-sets-db" title="Database content" emUUID="" level="3"/>
+            <node id="user.archive.geospatial" title="Geospatial information (e.g. GIS data)"
+                  emUUID=""
+                  level="3"/>
+            <node id="user.archive.movingimage" title="Video files" emUUID="" level="3"/>
+            <node id="user.archive.sound" title="Audio files" emUUID="" level="3"/>
+            <node id="user.archive.stillimage.raster" title="Bitmap/raster images" emUUID=""
+                  level="3"/>
+            <node id="user.archive.stillimage.vector" title="Vector images" emUUID="" level="3"/>
+            <node id="user.archive.text.text"
+                  title="Text documents, including common MS Office document formats (docx, xlsx, pptx)"
+                  emUUID=""
+                  level="3"/>
+            <node id="user.archive.text.email" title="Email (e.g. MS Outlook PST files)"
+                  emUUID=""
+                  level="3"/>
+            <node id="user.archive.text.chat" title="Chat (e.g. JChat conversations)" emUUID=""
+                  level="3"/>
+            <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="3"/>
+         </node>
       </node>
-      <node id="temp-FMN" title="FMN profile related" emUUID="" level="2">
-      <node id="temp-DigitalCertificate"
-            title="Infrastructure IA Services (In v2 of the taxonomy this service is listed as Digital Certificate Services)"
-            emUUID=""
-            level="3"/>
-      <node id="temp-Authentication"
-            title="Infrastructure IA Services (In v2 of the taxonomy this service is listed as Authentication Services)"
-            emUUID=""
-            level="3"/>
-      </node>
-      <node id="temp-Archive" title="Archive profile related" emUUID="" level="2">
-      <node id="user.archive.data-sets-ds"
-            title="Data sets (e.g. scientific data) and any structured information not fitting other content types"
-            emUUID=""
-            level="3"/>
-      <node id="user.archive.data-sets-db" title="Database content" emUUID="" level="3"/>
-      <node id="user.archive.geospatial" title="Geospatial information (e.g. GIS data)"
-            emUUID=""
-            level="3"/>
-      <node id="user.archive.movingimage" title="Video files" emUUID="" level="3"/>
-      <node id="user.archive.sound" title="Audio files" emUUID="" level="3"/>
-      <node id="user.archive.stillimage.raster" title="Bitmap/raster images" emUUID=""
-            level="3"/>
-      <node id="user.archive.stillimage.vector" title="Vector images" emUUID="" level="3"/>
-      <node id="user.archive.text.text"
-            title="Text documents, including common MS Office document formats (docx, xlsx, pptx)"
-            emUUID=""
-            level="3"/>
-      <node id="user.archive.text.email" title="Email (e.g. MS Outlook PST files)"
-            emUUID=""
-            level="3"/>
-      <node id="user.archive.text.chat" title="Chat (e.g. JChat conversations)" emUUID=""
-            level="3"/>
-      <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="3"/>
-      </node>
-      </node>
-     </taxonomy>
+   </taxonomy>
    <bestpracticeprofile>
       <bpserviceprofile tref="ts-ces">
          <bpgroup mode="mandatory">
@@ -1607,16 +1607,12 @@
             <bprefstandard refid="iso-32000-1">PDF 1.7/A (ISO 32000-1:2008)</bprefstandard>
             <bprefstandard refid="microsoft-application-note-gc0165">Rich Text Format (RTF) v.1.9.1:2007 (MS)</bprefstandard>
             <bprefstandard refid="iso-iec-646">ASCII Text, ISO 646:1991</bprefstandard>
-            <bprefstandard refid="ipcat-utf8">UTF-8 (IETF RFC 3629:2003)</bprefstandard>
-            <bprefstandard refid="ipcat-dom3">Document Object Model (DOM) Level 3:2004 (MS)</bprefstandard>
             <bprefstandard refid="microsoft-officeXP">Office XP formats:2003 (MS)</bprefstandard>
             <bprefstandard refid="iso-iec-26300">OpenDocument (ODF) ISO/IEC 26300:2006</bprefstandard>
-            <bprefstandard refid="ipcat-ooxml">Office Open XML, ISO/IEC 29500:2012</bprefstandard>
             <bprefstandard refid="iso-iec-15445">HTML 4.01 (ISO/IEC 15445:2000)</bprefstandard>
             <bprefstandard refid="w3c-rec-html401-19991224">HTML 4.01 (RFC 2854:2000)</bprefstandard>
             <bprefstandard refid="xmpp-xep-0004">Data Form (XMPP Standards Foundation, XEP-0004:2007)</bprefstandard>
             <bprefstandard refid="xmpp-xep-0030">Data Form (Service Discovery, XEP-0030:2007)</bprefstandard>
-            <bprefstandard refid="ipcat-xmpp-fmn">XMPP (IETF RFC 6120:2011 - 6121:2011)</bprefstandard>
             <bprefstandard refid="cceb-acp220">
                Multinational Videoconferencing Services
                (ACP 220:2008)
@@ -1634,7 +1630,6 @@
             <bprefstandard refid="w3c-wd-html5-20121025">HTML 5.0 (W3C ED html5:2012)</bprefstandard>
          </bpgroup>
          <bpgroup mode="fading">
-            <bprefstandard refid="ipcat-dom2">Document Object Model (DOM) Level 2 (MS)</bprefstandard>
             <bprefstandard refid="microsoft-office2000">Office 2000 formats: Office XP</bprefstandard>
          </bpgroup>
       </bpserviceprofile>
@@ -1668,7 +1663,6 @@
       </bpserviceprofile>
       <bpserviceprofile tref="ts-ces-es-cc-fax">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="ipcat-t4t6">Fax G.3, ITU-T T.4:2003</bprefstandard>
             <bprefstandard refid="itu-t-t.30">Fax Transmission, ITU-T T.30:2005</bprefstandard>
             <bprefstandard refid="nso-stanag5000ed3">TDF (STANAG 5000 ed.3:2006)</bprefstandard>
          </bpgroup>
@@ -1682,10 +1676,6 @@
             <bprefstandard refid="nso-stanag5500ed7">ADatP-3(A), CONFORMETS (STANAG 5500, ed. 7:2010)</bprefstandard>
             <bprefstandard refid="nato-app-11-c">APP-11(C) Change 1, NATO Message Catalogue (STANAG 7149 ed.5:2010)</bprefstandard>
             <bprefstandard refid="nso-stanag4312ed2">Interoperability of Low-Level Ground-based Air Defence Surveillance, Command and Control Systems (STANAG 4312 Part I, ed.2:2009)</bprefstandard>
-            <bprefstandard refid="ipcat-smime31">
-               S/MIME with Encrypted Security Service (ESS)
-               (IETF RFCs 3850:2004, 3851:2004)
-            </bprefstandard>
             <bprefstandard refid="nso-stanag4406ed2">Military Messaging (STANAG 4406 Ed.2:2006)</bprefstandard>
             <bprefstandard refid="nso-stanag4545ed2">
                Nato Secondary Imagery Format (NSIF), STANAG 4545 ed.2:2013
@@ -1693,8 +1683,7 @@
          </bpgroup>
          <bpgroup mode="emerging">
             <bprefstandard refid="nato-app-11-d">APP-11(D)</bprefstandard>
-           <!-- <bprefstandard refid="dod-mil-std6017b">Variable Message Format (DoD Mil-Std 6017B:2009)</bprefstandard> -->
-            <bprefstandard refid="itu-t-x.411">ITU-T X.411:1999</bprefstandard>
+            <!-- <bprefstandard refid="dod-mil-std6017b">Variable Message Format (DoD Mil-Std 6017B:2009)</bprefstandard> --><bprefstandard refid="itu-t-x.411">ITU-T X.411:1999</bprefstandard>
             <bprefstandard refid="oasis-wss-v1.1-spec-os-swaprofile">SOAP Messages with Attachments (SwA) Profile 1.1:2006 (OASIS)</bprefstandard>
             <bprefstandard refid="ietf-rfc6477">MMHS Header Fields for use in SMTP (IETF RFC 6477:2012)</bprefstandard>
          </bpgroup>
@@ -1706,10 +1695,6 @@
       </bpserviceprofile>
       <bpserviceprofile tref="ts-ces-es-cc-im">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="ipcat-smtp">
-               SMTP (IETF RFCs 1870:1995, 1985:1996, 2034:1996, 2821:2001,
-               2920:2000, 3207:2002, 3461:2003 updated by 3798:2004, 3885:2004, 4954:2007, 5321:2008, 5322:2008)
-            </bprefstandard>
             <bprefstandard refid="ietf-rfc1939">POP3 (IETF RFC 1939:1996 updated by 1957:1996, 2449:1998)</bprefstandard>
             <bprefstandard refid="ietf-rfc3501">IMAP4 (IETF RFC 3501:2003 updated by 4466:2006, 4469:2006, 4551:2006, 5032:2007, 5182:2008, 5738:2010)</bprefstandard>
          </bpgroup>
@@ -1727,7 +1712,6 @@
             <bprefstandard refid="iso-19107">Spatial Schema ISO 19107:2003, DGIWG/TSMAD profiles of ISO 19107</bprefstandard>
             <bprefstandard refid="iso-19110">Methodology for feature cataloguing ISO 19110:2005</bprefstandard>
             <bprefstandard refid="iso-19112">Spatial Referencing by geographic identifiers ISO 19112:2003</bprefstandard>
-            <bprefstandard refid="ipcat-simple-feature-access">Simple Feature Access, ISO 19125-1:2004 and ISO 19125-2:2004</bprefstandard>
             <bprefstandard refid="osgeo-geotiff">Geographical Tagged Image Format (GeoTIFF) v.1.8.2 (OSGEO:2000)</bprefstandard>
             <bprefstandard refid="nso-stanag7098">Compressed ARC Digitized Raster Graphics (CADRG), STANAG 7098 ed.2:2004)</bprefstandard>
             <bprefstandard refid="ogc-07-036">GML 3.2.1 (OGC:2007)</bprefstandard>
@@ -1813,16 +1797,11 @@
                RFC 2228:1997, 2640:1999, 2773:2000, 3659:2007)
             </bprefstandard>
             <bprefstandard refid="ietf-rfc3550">RTP (IETF RFC 3550:2003)</bprefstandard>
-            <bprefstandard refid="ipcat-telnet">
-               Telnet (IETF STD 8:1983, IETF RFC 0854:1983 updated by RFC 5198:2008,
-               0855:1983)
-            </bprefstandard>
             <bprefstandard refid="ietf-rfc3977">Network News Transfer Protocol NNTP (IETF RFC 3977:2006)</bprefstandard>
             <bprefstandard refid="ietf-rfc5905">Network Time Protocol (NTP)(RFC 5905:2010)</bprefstandard>
             <bprefstandard refid="ietf-rfc2030">Simple Network Time Protocol (SNTP)(RFC 2030:1996)</bprefstandard>
             <bprefstandard refid="iso-iec-13818">MPEG-2 (ISO/IEC 13818:2000)</bprefstandard>
             <bprefstandard refid="iso-iec-14496">MPEG-4 (ISO/IEC 14496:2004)</bprefstandard>
-            <bprefstandard refid="ipcat-udf">UDF 1.0.1 (ISO/IEC 13346:1995)</bprefstandard>
             <bprefstandard refid="iso-iec-11172-3">
                Pulse Code Modulation (PCM) (ISO/IEC 11172-3:1993,
                ITU-T G.711:1988)
@@ -1830,10 +1809,8 @@
             <bprefstandard refid="itu-t-g.722">7 kbit audio-coding in 64 kbit/s (ITU-T G.722:1993)</bprefstandard>
             <bprefstandard refid="itu-t-g.726">Differential PCM (ITU-T G.726:1990)</bprefstandard>
             <bprefstandard refid="itu-t-g.729">CS-ACELP (ITU-T G.729:2012)</bprefstandard>
-            <bprefstandard refid="ipcat-iLBC">Internet Low Bitrate Coding (iLBC) (IETF RFC 3951:2004)</bprefstandard>
             <bprefstandard refid="itu-t-h.263">H.263 (ITU-T H.263:2005) </bprefstandard>
             <bprefstandard refid="itu-t-h.264">H.264 (ITU-T H.264:2012)</bprefstandard>
-            <bprefstandard refid="ipcat-gsm">GSM-Modulation (GSM 06.10, GSM 06.20 v.8.1.1:1999)</bprefstandard>
             <bprefstandard refid="nist-fs1016">
                Code Excited Linear Prediction coding
                (CELP) (FS 1016:1991)
@@ -1864,12 +1841,10 @@
             <bprefstandard refid="sun-rmi-over-iiop">RMI-IIOP 1.5.0:2005 (SUN)</bprefstandard>
             <bprefstandard refid="ietf-rfc3711">SRTP (IETF RFC 3711:2004)</bprefstandard>
             <bprefstandard refid="ietf-rfc3605">RTCP Attributes in SDP(IETF RFC 3605:2003)</bprefstandard>
-            <bprefstandard refid="ipcat-udf">UDF 2.0.1</bprefstandard>
             <bprefstandard refid="nso-stanag7194ed2">NIIRS - AIntP-7 (STANAG 7194 ed.2 (Draft))</bprefstandard>
             <bprefstandard refid="nso-stanag4575ed4">NADSI (STANAG 4575 ed.4 (RD))</bprefstandard>
          </bpgroup>
          <bpgroup mode="fading">
-            <bprefstandard refid="ipcat-win32">MS-DCOM v.12.0:2010 (MS)</bprefstandard>
             <bprefstandard refid="iso-iec-11172">MPEG-1 (ISO/IEC 11172:1996)</bprefstandard>
             <bprefstandard refid="eurocom-d0">Delta-Modulation DM, EUROCOM D/0</bprefstandard>
          </bpgroup>
@@ -1877,7 +1852,6 @@
       <bpserviceprofile tref="ts-ces-is-ia">
          <bpgroup mode="emerging">
             <bprefstandard refid="cceb-acp176">Allied Naval and Maritime Air Communication Instructions (ACP 176 NATO Supp 1:1967)</bprefstandard>
-            <bprefstandard refid="ipcat-smime32">S/MIME (IETF RFC 5751:2010)</bprefstandard>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile tref="ts-ces-is-ia-isguard"/>
@@ -1886,7 +1860,6 @@
             <bprefstandard refid="osf-f201">Distributed Computing Environment (DCE) v1.1:1997 (OSF)</bprefstandard>
             <bprefstandard refid="ietf-rfc1831">ONC RPC v.2 (IETF RFC 1831:1995)</bprefstandard>
             <bprefstandard refid="opengroup-">DCE RPC v1.1:1997 (The Open Group)</bprefstandard>
-            <bprefstandard refid="ipcat-win32"> Remote Procedure Call (MS-RPC:2003) (MS)</bprefstandard>
             <bprefstandard refid="opengroup-c702">X/Open Network File System (XNFS) v.3W:1998 (The Open Group)</bprefstandard>
             <bprefstandard refid="microsoft-smb">Server Message Block (MS-SMB) v20100711:2010 (MS)</bprefstandard>
             <bprefstandard refid="ietf-rfc6724">Default Address Selection for Internet Protocol Version 6 (IPv6) (RFC 6724:2012)</bprefstandard>
@@ -1909,23 +1882,11 @@
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile tref="ts-ces-is-net-dns">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="ipcat-dns">
-               DNS (IETF STD 13:1987, RFC 1034:1987 and RFC 1035:1987 updated
-               by RFC 1101:1989, 1183:1990, updated by 5395:2008; 1706:1994, 1876:1996, 1982:1996, 1995:1996, 1996:1996,
-               2136:1997, 2181:1997, updated by 5452:2009; 2308:1998, 2845:2000, 2931:2000, 3007:2000, 3226:2004, 3425:2002,
-               3597:2004, 3645:2003, 4033:2005, 4034:2005, 4035:2005, 4343:2006, 4470:2006, 4592:2006)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-dhcp">
-               Dynamic Host Configuration Protocol, DHCP
-               (RFC 2131:1997 updated by RFC 3396:2002, 4361:2006, 5494:2009)
-            </bprefstandard>
-         </bpgroup>
+         <bpgroup mode="mandatory"/>
          <bpgroup mode="emerging">
             <bprefstandard refid="nso-stanag4731">
                End-to-End Network – Internet Protocol Framework (NETIP), STANAG 4731 (Draft)
             </bprefstandard>
-            <bprefstandard refid="ipcat-dnssec">DNSSEC (IETF RFC 4025 - 4033:2005)</bprefstandard>
             <bprefstandard refid="ietf-rfc6762">mDNS (IETF RFC 6762)</bprefstandard>
             <bprefstandard refid="ietf-rfc4025">IPSec Material in DNS (RFC 4025:2005)</bprefstandard>
             <bprefstandard refid="ietf-rfc3646">DNS Configuration Options for DHCPv6 (RFC 3646:2003)</bprefstandard>
@@ -1937,12 +1898,7 @@
             <bprefstandard refid="ietf-rfc3315">DHCP for IPv6 (RFC 3315:2003 updated by 4361:2006, 5494:2009)</bprefstandard>
             <bprefstandard refid="ietf-rfc3633">IPv6 Prefix Options for DHCPv6 (RFC 3633:2003)</bprefstandard>
          </bpgroup>
-         <bpgroup mode="fading">
-            <bprefstandard refid="ipcat-dhcp">
-               DHCP Options and BOOTP Vendor Extensions
-               not to be used in new systems
-            </bprefstandard>
-         </bpgroup>
+         <bpgroup mode="fading"/>
       </bpserviceprofile>
       <bpserviceprofile tref="ts-ces-is-proc">
          <bpgroup mode="mandatory">
@@ -1965,7 +1921,6 @@
          <bpgroup mode="mandatory">
             <bprefstandard refid="cceb-acp133edD">Common Directory Services and Procedures (ACP 133D:2009)</bprefstandard>
             <bprefstandard refid="cceb-acp133supp1ed.A">Common Directory Services and Procedures Supplement (ACP 133 Suppl.1ed.A:2009)</bprefstandard>
-            <bprefstandard refid="ipcat-ldap">LDAP v3 (NATO LDAP Profile)</bprefstandard>
             <bprefstandard refid="ietf-rfc2849">LDIF (IETF RFC 2849:2000)</bprefstandard>
          </bpgroup>
          <bpgroup mode="emerging">
@@ -2005,7 +1960,6 @@
             <bprefstandard refid="mip-bl4">
                Exchange Mechanism from MIP 4
             </bprefstandard>
-            <bprefstandard refid="ipcat-asterix">ASTERIX, ed.1 (ADatP-35:2010)</bprefstandard>
             <bprefstandard refid="mip-mim2.0"> MIP Information Model</bprefstandard>
          </bpgroup>
          <bpgroup mode="fading">
@@ -2039,7 +1993,6 @@
             <bprefstandard refid="omg-dtc2010-06-05">Business Process Model and Notation (BPMN) v.2.0:2010</bprefstandard>
             <bprefstandard refid="ws-i-bp12">WS-I Web Service Basic Profile, v1.2:3rd ed. 2007</bprefstandard>
             <bprefstandard refid="ws-i-bp20">WS-I Web Service Basic Profile, v2.0 2010</bprefstandard>
-            <bprefstandard refid="ipcat-soap12">Simple Object Access Protocol v1.2 (SOAP), W3C</bprefstandard>
             <bprefstandard refid="ws-i-soapbind">WS-I Simple SOAP Binding Profile v1.0:2004</bprefstandard>
             <bprefstandard refid="ws-i-attprof">WS-I Attachments Profile v1.0:2nd ed. 2006</bprefstandard>
             <bprefstandard refid="w3c-address">WS-Addressing v1.0 - Core:2010</bprefstandard>
@@ -2061,39 +2014,14 @@
       </bpserviceprofile>
       <bpserviceprofile tref="ts-ces-soa-ia">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="ipcat-fips197-aes128">
-               Key Wrap Advanced Encryption Standard 128 (AES 128, NIST FIPS 197)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-ip-security">IP ESP (RFC 4303:2005)</bprefstandard>
-            <bprefstandard refid="ipcat-fips-186-2-change1-dsa1024">
-               Digital Signature Algorithm 1024 (DSA-1024,
-               NIST FIPS 186-2 with Change Notice 1, Oct 2001)
-            </bprefstandard>
             <bprefstandard refid="rsa-pkcs-1-v2.1">
                RSA 2048 (PKCS#1 v2.1 RSA Cryptography
                Standard, RSA Laboratories, June 2002)
             </bprefstandard>
-            <bprefstandard refid="ipcat-fips-180-2-c1-256">
-               Secure Hash Algorithm 256 (SHA-256, NIST FIPS
-               180-2 with Change Notice 1, Feb 2004)
-            </bprefstandard>
             <bprefstandard refid="w3c-xmlenc-core">XML Encryption Syntax and Processing, W3C:2002</bprefstandard>
             <bprefstandard refid="w3c-xmldsig-core">XML Signature (W3C):2008</bprefstandard>
          </bpgroup>
-         <bpgroup mode="emerging">
-            <bprefstandard refid="ipcat-fips197-aes256">
-               Key Wrap Advanced Encryption Standard 256 (AES 256, NIST FIPS 197)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-nine-security">NINE ISpec v1.0.3 (NATO)</bprefstandard>
-            <bprefstandard refid="ipcat-fips-186-2-change1-ecdsa384">
-               Elliptic Curve Digital Signature Algorithm
-               (ECDSA 384, NIST FIPS 186-2 with Change Notice 1, Oct 2001)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-fips-180-2-c1-384">
-               Secure Hash Algorithm 384 (SHA-384, NIST FIPS
-               180-2 with Change Notice 1, Feb 2004)
-            </bprefstandard>
-         </bpgroup>
+         <bpgroup mode="emerging"/>
          <bpgroup mode="fading">
             <bprefstandard refid="nist-fips-186-2">Digital Signature Algorithm (original version) not for new systems</bprefstandard>
             <bprefstandard refid="nist-fips-180-1">
@@ -2110,7 +2038,6 @@
       </bpserviceprofile>
       <bpserviceprofile tref="ts-ces-soa-ia-privmgt-pdp">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="ipcat-xacml2.0">XACML v2.0:2008 (OASIS)</bprefstandard>
             <bprefstandard refid="nso-stanag4715">
                Biometrics Data, Interchange, Watchlistung and Reporting (STANAG 4715 ed.1:2013)
             </bprefstandard>
@@ -2154,20 +2081,14 @@
       </bpserviceprofile>
       <bpserviceprofile tref="ts-ces-soa-inf-access">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="ipcat-rdf">Resource Description Framework (RDF):2004 (W3C)</bprefstandard>
             <bprefstandard refid="ietf-rfc4287">Atom Syndication Format (IETF RFC 4287)</bprefstandard>
             <bprefstandard refid="w3c-rec-xhtml1-20020801">XHTML 1.0:2002 (W3C)</bprefstandard>
             <bprefstandard refid="iso-8879">SGML (ISO 8879:1986)</bprefstandard>
-            <bprefstandard refid="ipcat-mime">
-               MIME (IETF RFC 2045:1996 updated by 2184:1997, 2231:1997, 5335:2008; 2046:1996 updated by 3676:2004, 3798:2004, 5147:2008; 2047:1996 updated by 2184:1997, 2231:1997, 5338:2008;
-               2049:1996; 4288:2005; 4289:2005)
-            </bprefstandard>
          </bpgroup>
          <bpgroup mode="emerging">
             <bprefstandard refid="rss-2.0">Real Simple Syndication (RSS 2.0) (WS-I:2010)</bprefstandard>
             <bprefstandard refid="ogc-06-050r3">GeoRSS (GeoRSS 1.0):2007 (OGC)</bprefstandard>
             <bprefstandard refid="w3c-rec-xforms-20031014">XForms 1.0:2003 (W3C)</bprefstandard>
-            <bprefstandard refid="ipcat-smime31">S/MIME ESS (IETF RFC 3850:2004, 3851:2004)</bprefstandard>
             <bprefstandard refid="ietf-rfc2557">
                MIME Encapsulation of Aggregate Documents, such as HTML (MHTML):1999 (IETF)
             </bprefstandard>
@@ -2176,7 +2097,6 @@
       <bpserviceprofile tref="ts-ces-soa-inf-discover">
          <bpgroup mode="mandatory">
             <bprefstandard refid="w3c-rec-rdf-sparql11-query-20121108">SPARQL 1.1 Query Language:2012 (W3C)</bprefstandard>
-            <bprefstandard refid="ipcat-owl">Web Ontology Language (OWL):2009, W3C</bprefstandard>
          </bpgroup>
          <bpgroup mode="emerging">
             <bprefstandard refid="opensearch11">OpenSearch 1.1, OpenSearch</bprefstandard>
@@ -2223,28 +2143,10 @@
          <bpgroup mode="mandatory">
             <bprefstandard refid="dmtf-cimschema">CIM Schema v2.30.0 (DMTF)</bprefstandard>
             <bprefstandard refid="dmtf-dsp0252-2010">CMDB Federation Specification v1.0.1 (DMTF)</bprefstandard>
-            <bprefstandard refid="ipcat-itil">ITIL (ISO/IEC 20000:2012)</bprefstandard>
             <bprefstandard refid="isaca-cobit5">COBIT 5: A Business Framework for the Governance and Management of Enterprise IT (ISACA: 2012)</bprefstandard>
-            <bprefstandard refid="ipcat-snmpv3">SNMPv3 Applications (IETF RFC 3413:2002)</bprefstandard>
-            <bprefstandard refid="ipcat-snmpv3">
-               Message Processing and Dispatching for the
-               SNMP (RFC 3412:2002 updated by 5590:2009)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-snmpv3">
-               User-based Security Model (USM) for SNMPv3
-               (RFC 3414:2002 updated by 5590:2009)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-snmpv3">
-               View-based Access Control Model (VACM) for the
-               SNMP (RFC 3415:2002)
-            </bprefstandard>
             <bprefstandard refid="ietf-rfc1212">
                Structure of Mgt Info (IETF Std 16:1990, IETF RFC
                1155:1990 and 1212:1991)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-snmpv3">
-               Architecture for SNMP Mgt Frameworks (RFC
-               3411:2002 updated by 5343:2008, 5590:2009)
             </bprefstandard>
             <bprefstandard refid="ietf-rfc1213">
                MIB II (IETF Std 17:1991, RFC 1213:1991
@@ -2278,7 +2180,6 @@
             <bprefstandard refid="dmtf-dsp0004">Common Information Model (CIM) (DMTF:1999)</bprefstandard>
          </bpgroup>
          <bpgroup mode="fading">
-            <bprefstandard refid="ipcat-snmpv1">SNMPv1 (IETF Std 15) not for new systems</bprefstandard>
             <bprefstandard refid="iso-iec-9595">CMIS (ISO 9595:1998) deleted in NISP v.1</bprefstandard>
             <bprefstandard refid="iso-iec-9596">CMIP (ISO/IEC 9596-1:1998) deleted in NISP v.1</bprefstandard>
             <bprefstandard refid="iso-iec-9596">CMIP PICS (ISO/IEC 9596-2:1993) deleted in NISP v.1</bprefstandard>
@@ -2316,7 +2217,6 @@
             <bprefstandard refid="wapforum-wap-238-wml-20010911-a">Wireless Markup Language (WML) 2.0:2001</bprefstandard>
             <bprefstandard refid="w3c-rec-xml10-20081126">XML 1.0 5th ed:2008, W3C</bprefstandard>
             <bprefstandard refid="w3c-rec-xlink-20010627">XLink 1.0:2001, W3C</bprefstandard>
-            <bprefstandard refid="ipcat-xpointer">XPointer 1.0:2001, W3C</bprefstandard>
             <bprefstandard refid="w3c-rec-xmlbase-20010627">XML Base:2001, W3C</bprefstandard>
             <bprefstandard refid="iso-19503">XMI ed.1:2001 (ISO/IEC 19503:2005)</bprefstandard>
             <bprefstandard refid="w3c-rec-xml-infoset-20011024">XML Infoset:2001, W3C</bprefstandard>
@@ -2324,28 +2224,21 @@
             <bprefstandard refid="w3c-rec-xml-names-19990114">Namespaces in XML (xml-names-19990114:1999) W3C</bprefstandard>
             <bprefstandard refid="w3c-rec-xslt20-20070123">Extensible Stylesheet Language Transformation (XSLT) Version 2.0 (W3C:2007)</bprefstandard>
             <bprefstandard refid="w3c-rec-xsl-20011015">Extensible Stylesheet Language (XSL) 1.0:2001</bprefstandard>
-            <bprefstandard refid="ipcat-xsd">XML Schema, Part 1-2:2004</bprefstandard>
          </bpgroup>
          <bpgroup mode="emerging">
             <bprefstandard refid="ietf-rfc2392">
                Content-ID and Message-ID URLs (IETF RFC 2392:1998)
             </bprefstandard>
             <bprefstandard refid="ietf-rfc2965">HTTP State Change Mgmt. (IETF RFC 2965:2000)</bprefstandard>
-            <bprefstandard refid="ipcat-css-lev3">Cascading Style Sheets (CSS) level 3</bprefstandard>
             <bprefstandard refid="w3c-rec-xml11-20060816">XML 1.1 2nd ed:2006, W3C</bprefstandard>
             <bprefstandard refid="w3c-rec-xlink11-20100506">XLink 1.1:2012, W3C</bprefstandard>
-            <bprefstandard refid="ipcat-relaxng">Relax NG (ISO/IEC 19757-2:2008)</bprefstandard>
             <bprefstandard refid="w3c-rec-xsl11-20061205">Extensible Stylesheet Language (XSL) 1.1:2006</bprefstandard>
             <bprefstandard refid="w3c-wd-exi-20070716">Efficient XML Interchange Format (EXI) v1.0 </bprefstandard>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile tref="ts-ces-soa-web-host">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="ipcat-wss">Web-Services Security Profile (WSS), v1.0 (OASIS)</bprefstandard>
             <bprefstandard refid="oasis-wsspol-1.3">WS-Security Policy, v1.3:2009 (OASIS)</bprefstandard>
-            <bprefstandard refid="ipcat-saml2.0">
-               Security Assertion Markup Language, SAML v2.0 (OASIS)
-            </bprefstandard>
             <bprefstandard refid="w3c-xkms">XKMS 2.0 (W3C):2005</bprefstandard>
             <bprefstandard refid="iso-iec-9594-8">Public-key and attribute certificate frameworks, X.509 v3:2008 (ITU-T)</bprefstandard>
          </bpgroup>
@@ -2372,18 +2265,12 @@
                262) ed.3:2009
             </bprefstandard>
             <bprefstandard refid="ecma-ecma-357">ECMA Script XML Specification (ECMA 357) ed.3:2009</bprefstandard>
-            <bprefstandard refid="ipcat-compression">Zip</bprefstandard>
             <bprefstandard refid="iso-iec-10646">
                Universal Multiple Octet Coded Char Set
                (UCS) - Part 1 (ISO/IEC 10646:2003)
             </bprefstandard>
             <bprefstandard refid="nso-stanag4329ed4">
                NATO Standard Bar Code Symbology (STANAG 4329 ed.4:2010)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-barcode">
-               Bar code symbology specification - Code
-               128 (ISO/IEC 15417:2007), Bar code print quality test specification -Linear symbols
-               (ISO/IEC 15416:2000)
             </bprefstandard>
             <bprefstandard refid="iso-8601">
                Representation of Dates and Times (ISO 8601:2004)
@@ -2574,7 +2461,6 @@
             <bprefstandard refid="iso-iec-11801">Generic cabling for customer premises (ISO/IEC 11801:2002)</bprefstandard>
             <bprefstandard refid="itu-t-g.652">Optical Fibre Cables (ITU--T G.652:2009)</bprefstandard>
             <bprefstandard refid="iec-61754-20">LC connectors with protective housings (IEC 61754-20:2012)</bprefstandard>
-            <bprefstandard refid="ipcat-fddi">FDDI, ISO 9314:1989</bprefstandard>
             <bprefstandard refid="nso-stanag4285ed1">
                Characteristics of 1200/2400/ 3600 bps
                single tone modulators/demodulators for HF Radio links (STANAG 4285 ed.1:1989)
@@ -2628,8 +2514,6 @@
             <bprefstandard refid="ietf-draft-ietf-manet-dsr-09">The Dynamic Source Routing Protocol (DSR)for Mobile Ad Hoc Networks for IPv4, February 2007</bprefstandard>
             <bprefstandard refid="ecma-368">ECMA-368: High Rate Ultra Wideband PHY and MAC Standard, 3rd Edition, December 2008</bprefstandard>
             <bprefstandard refid="ggf-draft-ggf-ogsa-spec-1.5-011">Open Grid Services Architecture (OGSA)</bprefstandard>
-            <bprefstandard refid="ipcat-osgi-r4">Open Services Gateway Initiative (OSGi)</bprefstandard>
-            <bprefstandard refid="ipcat-sctp">RFC 4460: Stream Control Transmission Protocol (SCTP) Specification Errata and Issues</bprefstandard>
             <bprefstandard refid="oasis-cap-v1.1">OASIS: Common Alerting Protocol, v. 1.1, October 2005</bprefstandard>
             <bprefstandard refid="ieee-802.1s">Multiple Spanning Trees (IEEE 802.1S:2004)</bprefstandard>
             <bprefstandard refid="nso-stanag4538ed2">
@@ -2642,16 +2526,11 @@
       </bpserviceprofile>
       <bpserviceprofile tref="ts-cs-ca">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="ipcat-tp2k">
-               Tactical Communications, STANAGs 4637ed1:2009, STANAG 4638ed1:2009,
-               4639ed1:2009, 4640ed1:2009, 4643ed1:2009 4644ed1:2009, 4646ed1:2009, 4647ed1:2009
-            </bprefstandard>
             <bprefstandard refid="itu-t-gi">ISDN: ITU-T G, I Series</bprefstandard>
             <bprefstandard refid="itu-t-g.703">Physical/electrical characteristics of
               hierarchical digital interfaces, ITU-T G.703 (11/2001)</bprefstandard>
             <bprefstandard refid="itu-t-g.704">Synchronous frame structures used at 1544,
               6312, 2048, 8448 and 44 736 kbit/s hierarchical levels, ITU-T G.704 (10/1998)</bprefstandard>
-            <bprefstandard refid="ipcat-dvb">Digital Video Broadcasting (DVB) (ETSI:2009)</bprefstandard>
             <bprefstandard refid="nso-stanag5616ed5">
                Standards for Data Forwarding between
                Tactical Data Systems employing Link-11/11B and Link-16 (STANAG 5616 ed.5:2011)
@@ -2676,8 +2555,6 @@
          <bpgroup mode="fading">
             <bprefstandard refid="itu-t-x.25">X.25 (1996, Cor.1:1998)</bprefstandard>
             <bprefstandard refid="itu-t-epqv">ITU-T E, P, Q, V Series</bprefstandard>
-            <bprefstandard refid="ipcat-cswan">ITU-T V.90:1998</bprefstandard>
-            <bprefstandard refid="ipcat-cswan">ITU-T V.42:2002 Corrigendum 1:2003</bprefstandard>
             <bprefstandard refid="atmforum-af-sig-0061.000">
                User Network Interface - UNI v4.0
                (af-sig-0061.000)
@@ -2809,10 +2686,6 @@
             </bprefstandard>
             <bprefstandard refid="ietf-rfc3768">Virtual Router Redundancy Protocol (VRRP), IETF RFC 3768:2004</bprefstandard>
             <bprefstandard refid="microsoft-winsock2">Winsock 2 (Revision 2.2)</bprefstandard>
-            <bprefstandard refid="ipcat-tcpip">
-               TCP (IETF STD 7:1981, RFC 793:1981 updated
-               by RFC 1122:1989, 3168:2001)
-            </bprefstandard>
             <bprefstandard refid="ietf-rfc768">UDP (IETF STD 6:1980, RFC 0768:1980)</bprefstandard>
             <bprefstandard refid="ietf-rfc2126">OSI transport svc over TCP/IP (RFC 2126:1997)</bprefstandard>
             <bprefstandard refid="iso-15893">
@@ -2849,27 +2722,9 @@
             <bprefstandard refid="ietf-rfc3775">Mobile IPv6 (RFC 3775:2004)</bprefstandard>
             <bprefstandard refid="ietf-rfc5568">Mobile IPv6 Fast Handovers (RFC 5568:2009)</bprefstandard>
             <bprefstandard refid="ietf-rfc3776">IPSec and Mobile IPv6 (RFC 3776:2004 updated by 4877:2007)</bprefstandard>
-            <bprefstandard refid="ipcat-pbnm-general">
-               Policy-based Network Management - General
-               (RFC 1104:1989, 2753:2000, 3198:2001, 3334:2002)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-pbnm-diffserv">
-               Policy-based Network Management - DiffServ
-               (RFC 2963:2000, 2998:2000, 3086:2001, 3260:2002, 3287:2002, 3289:2002, 3290:2002, 3308:2002, 3496:2003)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-pbnm-intserv">
-               Policy-based Network Management - IntServ (RFC 2205:1997
-               updated by 2750:2000, 3936:2004, 4495:2006, 2206 - 2210:1997,
-               2380:1998, 2382:1998, 2430:1998, 2490:1999, 2745 - 2746:2000, 2747:2000 updated by 3097:2001, 2749:2000,
-               2750:2000, 2755:2000, 2814:2000, 2872:2000, 2961:2001, updated by 5063:2007; 2996:2000, 3097:2001, 3175:2001, updated by 5350:2008; 3181:2001, 3182:2001,
-               3209:2001 updated by 3936:2004, 4874:2007; 3210:2001, 3468:2003, 3473:2003 updated by 4003:2005; 3474:2003, 3476:2003, 3477:2003
-               4201:2005, 4783:2006, 4873:2007, 4874:2007, 5250:2008, 5420:2009
-            </bprefstandard>
             <bprefstandard refid="ietf-rfc2472">IPv6 over PPP (RFC 5072:2007)</bprefstandard>
          </bpgroup>
-         <bpgroup mode="fading">
-            <bprefstandard refid="ipcat-transport">Transport Service (ISO 8072:1996)deleted in NCSP v.6</bprefstandard>
-         </bpgroup>
+         <bpgroup mode="fading"/>
       </bpserviceprofile>
       <bpserviceprofile tref="ts-cs-tn-core-packetroute">
          <bpgroup mode="mandatory">
@@ -2908,16 +2763,7 @@
          <bpgroup mode="emerging">
             <bprefstandard refid="ietf-rfc5555">Dual Stack IPv6 mobility support (RFC 5555:2009)</bprefstandard>
          </bpgroup>
-         <bpgroup mode="fading">
-            <bprefstandard refid="ipcat-bootp">
-               Bootstrap Protocol, BOOTP (RFC 951:1985 updated by
-               RFC 1542:1993, 2132:1997, 3442:2002, 3942:2004, 4361:2006, 4833:2007, 5494:2009)
-            </bprefstandard>
-            <bprefstandard refid="ipcat-bootp">
-               Clarifications and Extensions for the
-               Bootstrap Protocol (RFC 1542:1993)
-            </bprefstandard>
-         </bpgroup>
+         <bpgroup mode="fading"/>
       </bpserviceprofile>
       <bpserviceprofile tref="ts-cs-tr">
          <bpgroup mode="mandatory">
@@ -7665,7 +7511,7 @@ XML documents.</guide>
               free connectors.</para>
          </applicability>
          <status mode="accepted">
-		    <uri>https://webstore.iec.ch/publication/5827</uri>
+            <uri>https://webstore.iec.ch/publication/5827</uri>
             <history>
                <event date="2013-10-10" flag="added" rfcp="7-27" version="8.0"/>
             </history>
@@ -18130,2902 +17976,6 @@ database as a logical folder of email messages.</applicability>
          </status>
          <uuid>3e177121-037f-4a90-ad42-ee4bda6fa1f8</uuid>
       </standard>
-      <setofstandards id="ipcat-acse" tag="ACSE">
-         <profilespec orgid="ipcat" title="ACSE"/>
-         <parts>
-            <refstandard refid="iso-iec-8649itu-tx.217"/>
-            <refstandard refid="iso-iec-8650-1"/>
-            <refstandard refid="iso-iec-10035"/>
-         </parts>
-         <applicability>
-            ACSE provides for connection-oriented and connection-less services
-            and protocols to support establishment, maintenance and termination of application
-            to application associations. A standard for an ACSE API has been developed by
-            IEEE (see emerging standard OSI API Common Connection Management and Supporting Functions).
-         </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="1996-08-22" version="0.1"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2010-10-31" version="5.0"/>
-            </history>
-         </status>
-         <uuid>39a68913-9bbd-4afd-b6d7-9717b909fd89</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-asn1" tag="ASN.1 profile">
-         <profilespec orgid="ipcat" title="ASN.1"/>
-         <parts>
-            <refstandard refid="iso-iec-8824"/>
-            <refstandard refid="iso-iec-8825"/>
-         </parts>
-         <applicability>
-            Abstract Syntax Notation One (ASN.1) describes data
-            types in a machine-independent manner, thus freeing data
-            representation from machine restrictions and inner
-            representation. By applying the Basic Encoding Rules (BER)
-            mechanism to the abstract representation of the data, the data is
-            translated either for machine storage or transmission; this is the
-            so-called transfer syntax.
-         </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2010-11-01" version="5.0"/>
-            </history>
-         </status>
-         <uuid>84751a81-4f53-41ec-8e29-5477178bef69</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-asterix" tag="ASTERIX">
-         <profilespec orgid="ipcat" title="ASTERIX"/>
-         <parts>
-            <refstandard refid="nato-adatp-35"/>
-            <refstandard refid="eurocontrol-asterix-cat001"/>
-            <refstandard refid="eurocontrol-asterix-cat002"/>
-            <refstandard refid="eurocontrol-asterix-cat004"/>
-            <refstandard refid="eurocontrol-asterix-cat007"/>
-            <refstandard refid="eurocontrol-asterix-cat008"/>
-            <refstandard refid="eurocontrol-asterix-cat010"/>
-            <refstandard refid="eurocontrol-asterix-cat011"/>
-            <refstandard refid="eurocontrol-asterix-cat017"/>
-            <refstandard refid="eurocontrol-asterix-cat018"/>
-            <refstandard refid="eurocontrol-asterix-cat019"/>
-            <refstandard refid="eurocontrol-asterix-cat020"/>
-            <refstandard refid="eurocontrol-asterix-cat021"/>
-            <refstandard refid="eurocontrol-asterix-cat022"/>
-            <refstandard refid="eurocontrol-asterix-cat023"/>
-            <refstandard refid="eurocontrol-asterix-cat034"/>
-            <refstandard refid="eurocontrol-asterix-cat048"/>
-            <refstandard refid="eurocontrol-asterix-cat061"/>
-            <refstandard refid="eurocontrol-asterix-cat062"/>
-            <refstandard refid="eurocontrol-asterix-cat063"/>
-            <refstandard refid="eurocontrol-asterix-cat065"/>
-            <refstandard refid="eurocontrol-asterix-cat128"/>
-            <refstandard refid="eurocontrol-asterix-cat240"/>
-            <refstandard refid="eurocontrol-asterix-cat244"/>
-            <refstandard refid="eurocontrol-asterix-cat247"/>
-            <refstandard refid="eurocontrol-asterix-cat253"/>
-            <refstandard refid="eurocontrol-asterix-madap"/>
-         </parts>
-         <applicability>
-            ASTERIX is the EUROCONTROL Standard for the exchange of Surveillance related data.
-            The acronym stands for All Purpose STructured Eurocontrol SuRveillance Information EXchange.
-            <para>
-               ASTERIX provides a structured approach to a message format to be applied
-               in the exchange of surveillance related information for various applications.
-               Developed by the SuRveillance Data Exchange Task Force (RDE-TF) with its
-               multinational participation, it ensures a common data representation,
-               thereby facilitating the exchange of surveillance data in an international context.
-            </para>
-            <para>
-               ASTERIX defines a structured approach to the encoding of surveillance data.
-               Categories group the information related to a specific application. They consist
-               of a number of data items which are defined in the ASTERIX documents down to
-               the bit-level.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.eurocontrol.int/services/specifications-documents</uri>
-            <history>
-               <event flag="added" date="2010-11-14" rfcp="4-18" version="5.0"/>
-            </history>
-         </status>
-         <uuid>f79156c6-b263-48e7-b001-0c1f88dd4c49</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-b-isdn" tag="B-ISDN Standards">
-         <profilespec orgid="ipcat" title="B-ISDN"/>
-         <parts>
-            <refstandard refid="itu-t-i.113"/>
-            <refstandard refid="itu-t-i.121"/>
-         </parts>
-         <applicability>
-            The above standards are applicable to systems requiring high capacity,
-            digital, circuit-switched services. Broadband ISDN extends the narrow band ISDN
-            concept of end-to-end user data transfer into the very high capacities offered
-            by fibre optics. Asynchronous Transfer Mode (ATM), with its concept of fast
-            switching of small cells, has become the choice of implementation of B-ISDN.
-         </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2001-11-20" version="0.3"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2010-11-02" version="5.0"/>
-            </history>
-         </status>
-         <uuid>bdc37f5e-b76d-4eed-bc42-58c1cc0975f9</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-barcode" tag="Barcode Symbology">
-         <profilespec orgid="ipcat" title="Barcode Symbology"/>
-         <parts>
-            <refstandard refid="iso-iec-15417"/>
-            <refstandard refid="iso-iec-15416"/>
-         </parts>
-         <applicability>
-            Code 128 is one of the most recently adopted barcode
-            symbologies and it's certainly the most complex at present. Code128
-            uses three separate character sets; Code128-A, Code128-B and Code128-C.
-            <para>
-               Code128-A - contains numberic characters, punctuation, upper-case
-               letters and computer related codes.
-            </para>
-            <para>
-               Code128-B - is similar to Code128-A but doesn't include the special
-               computer codes but includes lower-case.
-            </para>
-            <para>Code128-C - is purely numberic. It may encosde numbers in pairs.</para>
-            <para>
-               ISO 15416 describes a method for assessing the print quality of
-               linear bar code symbols, based on the analysis of a scan reflectance
-               profile, i.e. the plot of reflectance versus distance as a sampling
-               aperture is passed over the symbol from one end to another.  It defines
-               a reference optical arrangement for making measurements, the parameters
-               to be assessed, the method of assigning quality grades to the measured
-               parameter values and the means of deriving an overall symbol grade.
-               It provides guidance on possible causes of low grades.  It is intended
-               for use either to predict the likely performance of a bar code symbol
-               when scanned or as a tool for process control in the printing of bar
-               code symbols.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=27659</uri>
-            <history>
-               <event flag="added" date="2002-10-11" version="0.4"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2007-08-03" version="2.0"/>
-               <event flag="changed" date="2010-11-01" version="5.0"/>
-            </history>
-         </status>
-         <uuid>2f68fec2-9729-4dad-9d53-89f313b93250</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-bootp" tag="BOOTP">
-         <profilespec orgid="ipcat" title="BOOTP"/>
-         <parts>
-            <refstandard refid="ietf-rfc951"/>
-            <refstandard refid="ietf-rfc1542"/>
-         </parts>
-         <applicability>
-            BOOTP describes an IP/UDP bootstrap protocol (BOOTP) which allows
-            a diskless client machine to discover its own IP address, the address of a
-            server host, and the name of a file to be loaded into memory and executed.
-            The bootstrap operation can be thought of as consisting of TWO PHASES. This
-            RFC describes the first phase, which could be labeled 'address determination
-            and bootfile selection'. After this address and filename information is obtained,
-            control passes to the second phase of the bootstrap where a file transfer occurs.
-            The file transfer will typically use the TFTP protocol, since it is intended
-            that both phases reside in PROM on the client. However BOOTP could also work
-            with other protocols such as SFTP or FTP.
-            <para>
-               BOOTP can be used for bootstrapping diskless clients. It can provide
-               a client with much more information than just its IP-address, and it can
-               be used across routers, obviating the requirement to have a BOOTP server
-               on every network. BOOTP runs on top of UDP, and works in conjunction with
-               the Trivial File Transfer Protocol (TFTP) - a much simplified version of
-               FTP - that uses UDP. BOOTP will be overtaken by DHCP.
-            </para>
-            <para>
-               Some aspects of the BOOTP protocol were rather loosely defined in its
-               original specification. In particular, only a general description was provided
-               for the behavior of "BOOTP relay agents" (originally called BOOTP forwarding
-               agents"). The client behavior description also suffered in certain ways.
-               This memo attempts to clarify and strengthen the specification in these areas.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc951.txt</uri>
-            <history>
-               <event flag="added" date="1999-02-02" version="0.1"/>
-               <event flag="changed" date="2000-07-14" version="0.2"/>
-               <event flag="changed" date="2003-09-19" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-            </history>
-         </status>
-         <uuid>6f3cffeb-3a59-425d-8b91-f6bf7156532b</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-ccr" tag="CCR">
-         <profilespec orgid="ipcat" title="CCR"/>
-         <parts>
-            <refstandard refid="iso-iec-9804"/>
-            <refstandard refid="iso-iec-9805-1"/>
-            <refstandard refid="iso-iec-9805-2"/>
-         </parts>
-         <applicability>
-            CCR supplies applications with more fault tolerant
-            association services than ACSE. CCR 'adds' to the ACSE services
-            (ACSE does leave a system with ambiguous results when a system
-            crashes and lack of co-ordination could produce inconsistent
-            results) the concept of commitment. The master CCR party asks the
-            subordinate CCR party for a commitment to perform a task before the
-            call for executing the task is made. This allows for both master and
-            subordinates to keep record of the task.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=27617</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2000-03-21" version="0.2"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2010-11-02" version="5.0"/>
-            </history>
-         </status>
-         <uuid>e9c88fd3-e161-431b-af89-7c7a0d70e616</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-cdif" tag="CDIF">
-         <profilespec orgid="ipcat" title="CDIF"/>
-         <parts>
-            <refstandard refid="eia-is-106"/>
-            <refstandard refid="eia-is-107"/>
-            <refstandard refid="eia-is-108"/>
-            <refstandard refid="eia-is-109"/>
-            <refstandard refid="eia-is-110"/>
-            <refstandard refid="eia-is-draft"/>
-            <refstandard refid="eia-is-734"/>
-            <refstandard refid="eia-is-111"/>
-            <refstandard refid="eia-is-112"/>
-            <refstandard refid="eia-is-114"/>
-            <refstandard refid="eia-is-115"/>
-            <refstandard refid="eia-is-118"/>
-         </parts>
-         <applicability>
-            The CDIF family of standards is primarily designed as a data interchange
-            format to serve as a standard for the exchange of information between CASE tools.
-            It assumes that two or more tools may interface asynchronously with each other
-            and will transfer information from one to another via “CDIF files.”
-            The type of information that may be contained in these files is defined by
-            the CDIF conceptual models.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://tia.nufu.eu/comm/CDIF</uri>
-            <history>
-               <event flag="added" date="1998-11-06" version="0.1"/>
-               <event flag="changed" date="2000-02-25" version="0.2">Removed IDL bindings</event>
-               <event flag="changed" date="2001-11-09" version="0.3">Added IDL bindings again</event>
-               <event flag="changed" date="2005-09-09" version="0.7"/>
-            </history>
-         </status>
-         <uuid>03430c52-a9b2-4d3f-b83e-50b6aa5a41e4</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-compression" tag="Deflate 1.3, GZIP 4.3">
-         <profilespec orgid="ipcat" title="Deflate and GZIP"/>
-         <parts>
-            <refstandard refid="ietf-rfc1951"/>
-            <refstandard refid="ietf-rfc1952"/>
-         </parts>
-         <applicability>
-            An open standard for compression and decompression used widely
-            for PC download archives, ZIP was developed by Phil Katz for his DOS-based
-            program PKZip, and it is is now widely used on Windows-based programs such
-            as WinZip and Drag and Zip. The file extension given to ZIP files is .zip.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc1951.txt</uri>
-            <history>
-               <event flag="added" date="2001-11-20" version="0.3"/>
-               <event flag="changed" date="2005-09-07" version="0.7"/>
-            </history>
-         </status>
-         <uuid>ed7eed7c-b08b-4742-8925-855229661baf</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-css-lev3" tag="CSS Level 3">
-         <profilespec orgid="ipcat" title="Cascading Style Sheets, level 3"/>
-         <parts>
-            <refstandard refid="w3c-rec-css-namespaces-3-20140320"/>
-            <refstandard refid="w3c-rec-css3-mediaqueries-20120619"/>
-            <refstandard refid="w3c-rec-css3-selectors-20110929"/>
-            <refstandard refid="w3c-rec-css3-color-20110607"/>
-         </parts>
-         <applicability>
-            Unlike CSS 2, which is a large single specification defining various features, 
-            CSS 3 is divided into several separate documents called "modules". Each module 
-            adds new capabilities or extends features defined in CSS 2, over preserving 
-            backward compatibility. Work on CSS level 3 started around the time of publication
-            of the original CSS 2 recommendation. The earliest CSS 3 drafts were published 
-            in June 1999.
-            <para>Due to the modularization, different modules have different stability and 
-              statuses. As of June 2012, there are over fifty CSS modules published from the
-              CSS Working Group., and four of these have been published as formal recommendations:</para>
-            <itemizedlist>
-               <listitem>
-                  <para>Media Queries</para>
-               </listitem>
-               <listitem>
-                  <para>Namespaces</para>
-               </listitem>
-               <listitem>
-                  <para>Selectors Level 3</para>
-               </listitem>
-               <listitem>
-                  <para>Color</para>
-               </listitem>
-            </itemizedlist>
-            <para>Some modules (including Backgrounds and Borders and Multi-column Layout among
-              others) have Candidate Recommendation (CR) status and are considered moderately stable. 
-              At CR stage, implementations are advised to drop vendor prefixes.</para>
-         </applicability>
-         <status mode="accepted">
-            <uri>https://www.w3.org/Style/CSS/</uri>
-            <history>
-               <event flag="added" date="2013-07-28" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>ecabe02c-ae18-40a6-8dcc-c2d4bdf17b2a</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-cswan" tag="Circuit switched Wide Area Networking">
-         <profilespec orgid="ipcat" title="Circuit switched Wide Area Networking"/>
-         <parts>
-            <refstandard refid="itu-t-v.42"/>
-            <refstandard refid="itu-t-v.90"/>
-         </parts>
-         <applicability>
-            The above standards are applicable to systems
-            requiring connection-oriented network services.
-         </applicability>
-         <status mode="accepted">
-		    <uri>http://www.itu.int/en/ITU-T/publications/</uri>
-            <history>
-               <event flag="added" date="2001-11-20" version="0.3"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2010-10-31" version="5.0"/>
-            </history>
-         </status>
-         <uuid>e0f67737-4ad8-4ba7-aee5-0c31b25e10ff</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-dhcp" tag="DHCP Protokol">
-         <profilespec orgid="ipcat" title="DHCP"/>
-         <parts>
-            <refstandard refid="ietf-rfc2131"/>
-            <refstandard refid="ietf-rfc2132"/>
-         </parts>
-         <applicability>
-            The DHCP provides configuration information to Internet hosts.
-            There are several Internet protocols that address some parts of dynamic address
-            allocation, such as BOOTP, and RARP. However, none of these is as flexible
-            as DHCP, and although BOOTP is very similar, it does not address full dynamic
-            address allocation. Dynamic address allocation is particularly important now
-            that IPv4 addresses are relatively scarce. It facilitates renumbering when a
-            site/organisation changes IP provider.
-            <para>
-               Configuration parameters and other control information are carried in tagged
-               data items that are stored in the 'options' field of the DHCP message. The
-               data items themselves are also called "options." This document specifies the
-               current set of DHCP options. Future options will be specified in separate RFCs.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2131.txt</uri>
-            <history>
-               <event flag="added" date="2000-07-14" version="0.2"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-            </history>
-         </status>
-         <uuid>3115b94e-b9ae-462b-aa40-c19010db9ce3</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-dns" tag="DNS">
-         <profilespec orgid="ipcat" title="Domain Name System (DNS)"/>
-         <parts>
-            <refstandard refid="ietf-rfc1034"/>
-            <refstandard refid="ietf-rfc1035"/>
-         </parts>
-         <applicability>
-            The primary goal of the directory service DNS is to provide a
-            consistent name space used for referring to system resources in such a manner
-            that the name does not require network identifiers, addresses, routes or similar
-            information. DNS can be considered as a large, distributed mailing list which
-            has 3 major components consisting of the name space, name servers and name
-            resolvers.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc1034.txt</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-            </history>
-         </status>
-         <uuid>8188e74b-2fa5-40a5-bd1f-6ecf7d7bb9ab</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-dnssec" tag="DNSSEC">
-         <profilespec orgid="ipcat" title="IPsec Keying Material in DNS"/>
-         <parts>
-            <refstandard refid="ietf-rfc4025"/>
-            <refstandard refid="ietf-rfc4026"/>
-            <refstandard refid="ietf-rfc4027"/>
-            <refstandard refid="ietf-rfc4028"/>
-            <refstandard refid="ietf-rfc4029"/>
-            <refstandard refid="ietf-rfc4030"/>
-            <refstandard refid="ietf-rfc4031"/>
-            <refstandard refid="ietf-rfc4032"/>
-            <refstandard refid="ietf-rfc4033"/>
-         </parts>
-         <applicability>
-            This profile describes a new resource record for the Domain Name
-            System (DNS). This record may be used to store public keys for use
-            in IP security (IPsec) systems.  The record also includes provisions
-            for indicating what system should be contacted when an IPsec tunnel
-            is established with the entity in question.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4025.txt</uri>
-            <history>
-               <event flag="added" date="2012-09-02" rfcp="6-23" version="7.0"/>
-            </history>
-         </status>
-         <uuid>4171aebd-37dc-432d-b64d-921c5445587c</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-dom2" tag="DOM 2">
-         <profilespec orgid="ipcat" title="DOM 2"/>
-         <parts>
-            <refstandard refid="w3c-rec-dom-level-2-core-20001113"/>
-            <refstandard refid="w3c-rec-dom-level-2-events-20001113"/>
-            <refstandard refid="w3c-rec-dom-level-2-style-20001113"/>
-            <refstandard refid="w3c-rec-dom-level-2-traversal-range-20001113"/>
-            <refstandard refid="w3c-rec-dom-level-2-views-20001113"/>
-         </parts>
-         <applicability>
-            The specification defines the Document Object Model Level 2 HTML,
-            a platform- and language-neutral interface that allows programs and scripts
-            to dynamically access and update the content and structure of HTML 4.01 and
-            XHTML 1.0 documents. The Document Object Model Level 2 HTML builds on the
-            Document Object Model Level 2 Core and is not backward compatible with DOM
-            Level 1 HTML. The goals of the HTML-specific DOM API are:
-            <itemizedlist>
-               <listitem>
-                  <para>
-                     (1) to specialize and add functionality that relates specifically
-                     to HTML documents and elements.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     (2) to address issues of backwards compatibility with the DOM
-                     Level 0.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     (3) to provide convenience mechanisms, where appropriate, for
-                     common and frequent operations on HTML documents.
-                  </para>
-               </listitem>
-            </itemizedlist>
-            The key differences between the core DOM and the HTML application of DOM is
-            that the HTML Document Object Model exposes a number of convenience methods
-            and properties that are consistent with the existing models and are more
-            appropriate to script writers. In many cases, these enhancements are not
-            applicable to a general DOM because they rely on the presence of a predefined
-            DTD. The transitional or frameset DTD for HTML 4.01, or the XHTML 1.0 DTDs
-            are assumed. Interoperability between implementations is only guaranteed for
-            elements and attributes that are specified in the HTML 4.01 and XHTML 1.0
-            DTDs.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.w3.org/TR/DOM-Level-2-Core/</uri>
-            <history>
-               <event flag="added" date="2004-05-25" version="0.6"/>
-               <event flag="changed" date="2005-09-07" version="0.7"/>
-            </history>
-         </status>
-         <uuid>8519b328-5d9b-4da0-8274-e01608f50668</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-dom3" tag="DOM 3">
-         <profilespec orgid="ipcat" title="DOM 3"/>
-         <parts>
-            <refstandard refid="w3c-rec-dom-level-3-core-20040407"/>
-            <refstandard refid="w3c-rec-dom-level-3-ls-20040407"/>
-            <refstandard refid="w3c-rec-dom-level-3-val-20040127"/>
-         </parts>
-         <applicability>
-            This specification defines the Document Object Model Core Level
-            3, a platform- and language-neutral interface that allows programs and scripts
-            to dynamically access and update the content, structure and style of documents.
-            The Document Object Model Core Level 3 builds on the Document Object Model Core
-            Level 2 [DOM Level 2 Core].
-            <para>
-               This version enhances DOM Level 2 Core by completing the mapping between
-               DOM and the XML Information Set [XML Information Set], including the support
-               for XML Base [XML Base], adding the ability to attach user information to
-               DOM Nodes or to bootstrap a DOM implementation, providing mechanisms to
-               resolve namespace prefixes or to manipulate "ID" attributes, giving to
-               type information, etc.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407</uri>
-            <history>
-               <event flag="added" date="2004-05-25" version="0.6"/>
-               <event flag="changed" date="2005-09-07" version="0.7"/>
-               <event flag="changed" date="2010-11-04" version="5.0"/>
-            </history>
-         </status>
-         <uuid>5d30a131-c2e9-4ee7-b0dd-2bba7a88204e</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-dvb" tag="Digital Video Broadcasting">
-         <profilespec orgid="ipcat" title="Digital Video Broadcasting"/>
-         <parts>
-            <refstandard refid="etsi-en300421"/>
-            <refstandard refid="etsi-en300468"/>
-            <refstandard refid="etsi-en301790"/>
-            <refstandard refid="etsi-en302307"/>
-         </parts>
-         <applicability>
-            The Digital Video Broadcasting (DVB) specifications cover digital services
-            delivered via cable, satellite and terrestrial transmitters, as well as
-            by the internet and mobile communication systems. Related topics such as
-            Electronic Programme Guides and interactive television are also included.
-            Services using DVB standards are available on every continent.
-            <para>
-               The satellite member of the DVB family, DVB-S, is defined in European
-               Standard EN 300 421. In particular it describes the modulation and channel
-               coding system for satellite digital multi programme Television (TV)/High
-               Definition Television (HDTV) services to be used for primary and secondary
-               distribution in Fixed Satellite Service (FSS) and Broadcast Satellite Service
-               (BSS) bands.
-            </para>
-            <para>
-               DVB-S is intended to provide Direct-To-Home (DTH) services for consumer
-               Integrated Receiver Decoders (IRD), as well as collective antenna systems
-               and cable television head-end stations. DVB-S is suitable for use on
-               different satellite transponder bandwidths and is compatible with Moving
-               Pictures Experts Group 2 (MPEG 2) coded TV services. Flexibility defined
-               within the specification enables the transmission capacity to be used
-               for a variety of TV service configurations, including sound and data
-               services.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.etsi.org/WebSite/Technologies/DVBS.aspx</uri>
-            <history>
-               <event flag="added" date="2011-10-17" rfcp="5-60" version="6.0"/>
-            </history>
-         </status>
-         <uuid>8e3a5fa0-4e0f-42c3-af46-9a9e061bd79e</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-esmtp" tag="eSMTP">
-         <profilespec orgid="ipcat" title="SMTP service extensions"/>
-         <parts>
-            <refstandard refid="ietf-rfc1985"/>
-            <refstandard refid="ietf-rfc2034"/>
-            <refstandard refid="ietf-rfc2920"/>
-            <refstandard refid="ietf-rfc3207"/>
-            <refstandard refid="ietf-rfc3461"/>
-            <refstandard refid="ietf-rfc4954"/>
-         </parts>
-         <applicability>
-            eSMTP defines an extension to the SMTP service,
-            which allows an SMTP client to specify
-            <orderedlist numeration="loweralpha" inheritnum="ignore" continuation="restarts">
-               <listitem>
-                  <para>
-                     that delivery status notifications (DSNs) should
-                     be generated under certain conditions,
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     whether such notifications should return the
-                     contents of the message, and
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     additional information, to be returned with a
-                     DSN, that allows the sender to identify both the recipient(s)
-                     for which the DSN was issued, and the transaction in which the
-                     original message was sent.
-                  </para>
-               </listitem>
-            </orderedlist>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://tools.ietf.org/html/rfc5321</uri>
-            <history>
-               <event flag="added" date="2001-11-20" version="0.3"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2010-10-30" version="5.0"/>
-            </history>
-         </status>
-         <uuid>2d2af690-755d-43ba-8c02-fa0a73eb44d7</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-fddi" tag="FDDI">
-         <profilespec orgid="ipcat" title="FDDI"/>
-         <parts>
-            <refstandard refid="iso-9314-1"/>
-            <refstandard refid="iso-9314-2"/>
-            <refstandard refid="iso-iec-9314-3"/>
-            <refstandard refid="iso-iec-9314-4"/>
-            <refstandard refid="iso-iec-9314-5"/>
-            <refstandard refid="iso-iec-9314-6"/>
-            <refstandard refid="iso-iec-9314-7"/>
-            <refstandard refid="iso-iec-9314-8"/>
-            <refstandard refid="iso-iec-9314-9"/>
-            <refstandard refid="iso-iec-9314-13"/>
-            <refstandard refid="iso-iec-9314-20"/>
-            <refstandard refid="iso-iec-9314-21"/>
-            <refstandard refid="iso-iec-9314-25"/>
-            <refstandard refid="iso-iec-9314-26"/>
-         </parts>
-         <applicability>
-            The above standard is applicable to systems requiring high-speed
-            LAN services. FDDI provides a high bandwidth (100 Mbps) general-purpose interconnection
-            among computers and peripheral equipment using optical fibre as the transmission
-            medium in a dual-ring configuration. FDDI establishes the connection among many
-            stations distributed over distances of several km in extent. FDDI is used for
-            high capacity trunk links and is now increasingly being used to connect small systems on LANs.
-         </applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/Fiber_Distributed_Data_Interface</uri>
-            <history>
-               <event flag="added" date="1996-07-01" version="0.1"/>
-               <event flag="changed" date="2000-07-17" version="0.2"/>
-               <event flag="changed" date="2001-11-20" version="0.3"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2010-10-31" version="5.0"/>
-            </history>
-         </status>
-         <uuid>b86023b1-8ec6-4b4a-bce8-a0beb55dd0aa</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-fips-180-2-c1-256" tag="SHS 256">
-         <profilespec orgid="ipcat" title="FIPS 180-2 with Change Notice 1 (SHS 256)"/>
-         <parts>
-            <refstandard refid="nist-fips-180-2-change-notice1"/>
-         </parts>
-         <applicability>The SHS 256 profile mandates usage of the secure hash algorithm SHA-256.</applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/SHA-2</uri>
-            <history>
-               <event flag="added" date="2014-05-08" version="9.0"/>
-            </history>
-         </status>
-         <uuid>cb647b82-cb2b-49c6-9c30-8a6fd7f358d5</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-fips-180-2-c1-384" tag="SHS 384">
-         <profilespec orgid="ipcat" title="FIPS 180-2 with Change Notice 1 (SHS 384)"/>
-         <parts>
-            <refstandard refid="nist-fips-180-2-change-notice1"/>
-         </parts>
-         <applicability>The SHS 384 profile mandates usage of the secure hash algorithm SHA-384.</applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/SHA-2</uri>
-            <history>
-               <event flag="added" date="2014-05-08" version="9.0"/>
-            </history>
-         </status>
-         <uuid>e8ccb017-c2e4-45f7-965a-b803ff8982bf</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-fips-186-2-change1-dsa1024" tag="FIPS 186-2 CN1 (DSA 1024)">
-         <profilespec orgid="ipcat" title="FIPS PUB 186-2 Change Notice 1 (DSA 1024)"/>
-         <parts>
-            <refstandard refid="nist-fips-186-2-change1"/>
-         </parts>
-         <applicability>
-            This profile mandates the usage of the DSA-1024 algorithm for generation and verification of digital signatures.
-         </applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/Digital_Signature_Algorithm</uri>
-            <history>
-               <event flag="added" date="2014-05-08" version="9.0"/>
-            </history>
-         </status>
-         <uuid>91e5454d-1476-41eb-9c08-7af026a9ff78</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-fips-186-2-change1-ecdsa384" tag="FIPS 186-2 CN1 (ECDSA-384)">
-         <profilespec orgid="ipcat" title="FIPS PUB 186-2 Change Notice 1 (ECDSA-384)"/>
-         <parts>
-            <refstandard refid="nist-fips-186-2-change1"/>
-         </parts>
-         <applicability>
-            This profile mandates the usage of the ECDSA-384 algorithm for generation and verification of digital signatures.
-         </applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm</uri>
-            <history>
-               <event flag="added" date="2014-05-08" version="9.0"/>
-            </history>
-         </status>
-         <uuid>17e3d584-6a7b-474a-949f-93bac418b4c9</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-fips197-aes128" tag="AES 128">
-         <profilespec orgid="ipcat" title="FIPS PUB 197 (AES 128)"/>
-         <parts>
-            <refstandard refid="nist-fips197"/>
-         </parts>
-         <applicability>
-            The AES 128 profile mandated usage of FIPS 197 with a cryptographic keys of 128 bits to encrypt
-            and decrypt data in blocks of 128 bits.
-         </applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/Advanced_Encryption_Standard</uri>
-            <history>
-               <event flag="added" date="2014-05-07" version="9.0"/>
-            </history>
-         </status>
-         <uuid>72314b45-c3fc-475e-b81c-81b0e2516a31</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-fips197-aes256" tag="AES 256">
-         <profilespec orgid="ipcat" title="FIPS PUB 197 (AES 256)"/>
-         <parts>
-            <refstandard refid="nist-fips197"/>
-         </parts>
-         <applicability>
-            The AES 128 profile mandated usage of FIPS 197 with a cryptographic key of 256 bits to encrypt
-            and decrypt data in blocks of 128 bits.
-         </applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/Advanced_Encryption_Standard</uri>
-            <history>
-               <event flag="added" date="2014-05-07" version="9.0"/>
-            </history>
-         </status>
-         <uuid>5f45ca00-9333-46f0-87c1-3671ae62c2d4</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-gsm" tag="GSM">
-         <profilespec orgid="ipcat" title="GSM"/>
-         <parts>
-            <refstandard refid="etsi-en300961"/>
-            <refstandard refid="etsi-en300969"/>
-         </parts>
-         <applicability>
-            GSM 06.10 specifies the detailed mapping between input blocks
-            of 160 speech samples in 13 bit uniform PCM format to encoded blocks of 260
-            bits and from encoded blocks of 260 bits to output blocks of 160 reconstructed
-            speech samples. The sampling rate is 8000 samples/s leading to an average bit
-            rate for the encoded bit stream of 13 kbit/s. The encoding scheme is the
-            so-called Regular Pulse Excitation Long Term prediction Linear Predictive Coder,
-            here-after referred as RPE-LTP. The document also specifies the conversion
-            between A- and u-law (PCS 1900) PCM and 13 bit uniform PCM.  The second document
-            specifies the speech codec to be used for the GSM half rate channel.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.etsi.org/standards-search#search=en 300 96</uri>
-            <history>
-               <event flag="added" date="2001-11-09" version="0.3"/>
-               <event flag="changed" date="2003-07-31" version="0.5">GSM has changed to 3GPP</event>
-               <event flag="changed" date="2005-09-12" version="0.7"/>
-               <event flag="changed" date="2010-08-09" version="5.0"/>
-            </history>
-         </status>
-         <uuid>6848bd03-9cc2-4a6b-b337-f3d53ce6dca0</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-iLBC" tag="iLBC">
-         <profilespec orgid="ipcat" title="iLBC"/>
-         <parts>
-            <refstandard refid="ietf-rfc3951"/>
-            <refstandard refid="ietf-rfc3952"/>
-         </parts>
-         <applicability>
-            This profile specifies a speech codec suitable for robust voice
-            communication over IP.  The codec is developed by Global IP Sound
-            (GIPS).  It is designed for narrow band speech and results in a
-            payload bit rate of 13.33 kbit/s for 30 ms frames and 15.20 kbit/s
-            for 20 ms frames.  The codec enables graceful speech quality
-            degradation in the case of lost frames, which occurs in connection
-            with lost or delayed IP packets and the necessary RTP support.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3951.txt</uri>
-            <history>
-               <event flag="added" date="2012-09-02" rfcp="6-27" version="7.0"/>
-            </history>
-         </status>
-         <uuid>912d887b-05a8-45b9-adb2-fa99168581a9</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-ip-security" tag="IP Security">
-         <profilespec orgid="ipcat" title="IP Security"/>
-         <parts>
-            <refstandard refid="ietf-rfc2403"/>
-            <refstandard refid="ietf-rfc2404"/>
-            <refstandard refid="ietf-rfc2405"/>
-            <refstandard refid="ietf-rfc2408"/>
-            <refstandard refid="ietf-rfc2410"/>
-            <refstandard refid="ietf-rfc2412"/>
-            <refstandard refid="ietf-rfc4301"/>
-            <refstandard refid="ietf-rfc4302"/>
-            <refstandard refid="ietf-rfc4303"/>
-            <refstandard refid="ietf-rfc4835"/>
-            <refstandard refid="ietf-rfc5996"/>
-         </parts>
-         <applicability>
-            IPsec is designed to provide interoperable, high quality,
-            cryptographically-based security for IPv4 and IPv6. The set of security services
-            offered includes access control, connectionless integrity, data origin authentication,
-            protection against replays (a form of partial sequence integrity), confidentiality
-            (encryption), and limited traffic flow confidentiality. These services are provided
-            at the IP layer, offering protection for IP and/or upper layer protocols.
-            These objectives are met through the use of two traffic security protocols,
-            the Authentication Header (AH) and the Encapsulating Security Payload (ESP),
-            and through the use of cryptographic key management procedures and protocols.
-            The set of IPsec protocols employed in any context, and the ways in which they
-            are employed, will be determined by the security and system requirements of users,
-            applications, and/or sites/organizations.
-            <para>
-               IPsec provides security services at the IP layer by enabling a system
-               to select required security protocols, determine the algorithm(s) to use
-               for the service(s), and put in place any cryptographic keys required to provide
-               the requested services. IPsec can be used to protect one or more "paths"
-               between a pair of hosts, between a pair of security gateways, or between a
-               security gateway and a host.
-            </para>
-            <para>
-               A basic and mandatory element of IPSec is the usage of Security Associations.
-               A Security Association (SA) is a simplex "connection" that affords security
-               services to the traffic carried by it. Security services are afforded to an
-               SA by the use of AH, or ESP, but not both. If both AH and ESP protection
-               is applied to a traffic stream, then two (or more) SAs are created to afford
-               protection to the traffic stream. To secure typical, bi-directional communication
-               between two hosts, or between two security gateways, two Security Associations
-               (one in each direction) are required.
-            </para>
-            <para>
-               The key management protocol must be robust in order to handle public key
-               generation for the Internet community at large and private key requirements
-               for those private networks with that requirement. The Internet Security Association
-               and Key Management Protocol (ISAKMP) defines the procedures for authenticating
-               a communicating peer, creation and management of Security Associations, key
-               generation techniques, and threat mitigation (e.g. denial of service and replay
-               attacks). All of these are necessary to establish and maintain secure communications
-               (via IP Security Service or any other security protocol) in an Internet environment.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>https://tools.ietf.org/html/rfc4303</uri>
-            <history>
-               <event flag="added" date="1999-01-15" version="0.1"/>
-               <event flag="changed" date="2000-07-17" version="0.2"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2010-10-30" version="5.0"/>
-            </history>
-         </status>
-         <uuid>5e8ebc3e-7c54-4529-97c9-517c81e2ee4c</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-ipv4" tag="IPv4">
-         <profilespec orgid="ipcat" title="??"/>
-         <parts>
-            <refstandard refid="ietf-rfc791"/>
-         </parts>
-         <applicability/>
-         <status mode="accepted">
-            <history>
-               <event date="2010-10-22" flag="added" version="5.0"/>
-            </history>
-         </status>
-         <uuid>b155750b-8a5a-4ac7-aad1-a6dfdba27eed</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-iso-quality-mgmtt" tag="ISO Quality Management">
-         <profilespec orgid="ipcat" title="ISO Quality Management"/>
-         <parts>
-            <refstandard refid="iso-9004"/>
-            <refstandard refid="iso-10005"/>
-            <refstandard refid="iso-10006"/>
-            <refstandard refid="iso-10007"/>
-         </parts>
-         <applicability>
-            This norm specifies requirements in final inspection and testing
-            for a quality system when the ability of a supplier to deliver a product in
-            conformance needs to be demonstrated
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=41014</uri>
-            <history>
-               <event flag="added" date="1998-11-06" version="0.1"/>
-               <event flag="changed" date="2001-11-09" version="0.3"/>
-               <event flag="changed" date="2003-08-01" version="0.5"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-            </history>
-         </status>
-         <uuid>28346ddc-885f-4337-adc7-c5d5cf58fd25</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-itil" tag="ITIL">
-         <profilespec orgid="ipcat" title="ITIL"/>
-         <parts>
-            <refstandard refid="iso-20000-1"/>
-            <refstandard refid="iso-20000-2"/>
-            <refstandard refid="iso-20000-3"/>
-            <refstandard refid="iso-20000-4"/>
-            <refstandard refid="iso-20000-5"/>
-         </parts>
-         <applicability>
-            The Information Technology Infrastructure Library (ITIL), is a set of 
-            practices for IT service management (ITSM) that focuses on aligning IT 
-            services with the needs of business. In its current form (known as ITILv3 
-            and ITIL 2011 edition), ITIL is published in a series of five core publications, 
-            each of which covers an ITSM lifecycle stage. ITILv3 underpins ISO/IEC 20000,
-            the International Service Management Standard for IT service management,
-            although differences between the two frameworks do exist.
-            <para>ITIL describes procedures, tasks and checklists that are not 
-              organization-specific, used by an organization for establishing a minimum 
-              level of competency. It allows the organization to establish a baseline
-              from which it can plan, implement, and measure. It is used to demonstrate
-              compliance and to measure improvement.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=51986</uri>
-            <history>
-               <event flag="added" date="2012-12-02" rfcp="6-87" version="7.0"/>
-            </history>
-         </status>
-         <uuid>38260384-9aab-481e-b182-af7fa51211ec</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-ldap" tag="LDAP">
-         <profilespec orgid="ipcat" title="Lightweight Directory Access Protocol (LDAP)"/>
-         <parts>
-            <refstandard refid="ietf-rfc1823"/>
-            <refstandard refid="ietf-rfc2247"/>
-            <refstandard refid="ietf-rfc2251"/>
-            <refstandard refid="ietf-rfc2252"/>
-            <refstandard refid="ietf-rfc2253"/>
-            <refstandard refid="ietf-rfc2254"/>
-            <refstandard refid="ietf-rfc2255"/>
-            <refstandard refid="ietf-rfc2256"/>
-            <refstandard refid="ietf-rfc2307"/>
-            <refstandard refid="ietf-rfc2589"/>
-            <refstandard refid="ietf-rfc2649"/>
-            <refstandard refid="ietf-rfc2696"/>
-            <refstandard refid="ietf-rfc2798"/>
-            <refstandard refid="ietf-rfc2849"/>
-            <refstandard refid="ietf-rfc2891"/>
-            <refstandard refid="ietf-rfc3045"/>
-            <refstandard refid="ietf-rfc3062"/>
-            <refstandard refid="ietf-rfc3296"/>
-            <refstandard refid="ietf-rfc3671"/>
-            <refstandard refid="ietf-rfc3672"/>
-            <refstandard refid="ietf-rfc3673"/>
-            <refstandard refid="ietf-rfc3687"/>
-            <refstandard refid="ietf-rfc3698"/>
-            <refstandard refid="ietf-rfc3829"/>
-            <refstandard refid="ietf-rfc3866"/>
-            <refstandard refid="ietf-rfc3909"/>
-            <refstandard refid="ietf-rfc3928"/>
-            <refstandard refid="ietf-rfc4370"/>
-            <refstandard refid="ietf-rfc4373"/>
-            <refstandard refid="ietf-rfc4403"/>
-            <refstandard refid="ietf-rfc4510"/>
-            <refstandard refid="ietf-rfc4511"/>
-            <refstandard refid="ietf-rfc4512"/>
-            <refstandard refid="ietf-rfc4513"/>
-            <refstandard refid="ietf-rfc4514"/>
-            <refstandard refid="ietf-rfc4515"/>
-            <refstandard refid="ietf-rfc4516"/>
-            <refstandard refid="ietf-rfc4517"/>
-            <refstandard refid="ietf-rfc4518"/>
-            <refstandard refid="ietf-rfc4519"/>
-            <refstandard refid="ietf-rfc4522"/>
-            <refstandard refid="ietf-rfc4523"/>
-            <refstandard refid="ietf-rfc4524"/>
-            <refstandard refid="ietf-rfc4525"/>
-            <refstandard refid="ietf-rfc4526"/>
-            <refstandard refid="ietf-rfc4527"/>
-            <refstandard refid="ietf-rfc4528"/>
-            <refstandard refid="ietf-rfc4529"/>
-            <refstandard refid="ietf-rfc4530"/>
-            <refstandard refid="ietf-rfc4531"/>
-            <refstandard refid="ietf-rfc4532"/>
-            <refstandard refid="ietf-rfc4533"/>
-         </parts>
-         <applicability>
-            The Lightweight Directory Access Protocol (LDAP),
-            developed for use over the Internet, is far more widely used than
-            its X.500 equivalent DAP. LDAP support is becoming an integral
-            component of a range of user platforms including Microsoft's
-            Windows 98 and 2000. It is commonly available for UNIX
-            environments as well as for use with X.400 and Internet based
-            E-mail systems. LDAP is a variant of the full DAP and was
-            originally intended by its creators to provide a lightweight
-            complement to full DAP. Whilst DAP is much richer in functionality
-            than LDAP, LDAP has gained considerable support in the commercial
-            world. A number of vendors have made their proprietary directories
-            LDAP-accessible and believe this to be a satisfactory approach for
-            many of their customers. However, LDAP remains a simple access
-            protocol only, and does not provide the protocols necessary for
-            the full Directory service such as will be required by large
-            military organisations, (note: this was one of the reasons why
-            ACP133 currently mandates DAP). The use of LDAP in military
-            systems is still subject to debate as there are both functional
-            and security issues to be faced, (e.g. the US Defense Messaging
-            System mandates DAP). However, LDAP performs a useful role in the
-            provision of simple directory access from end-user
-            networks
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4511.txt</uri>
-            <history>
-               <event flag="added" date="1996-07-01" version="0.1"/>
-               <event flag="changed" date="2000-03-17" version="0.2"/>
-               <event flag="changed" date="2001-11-20" version="0.3"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-            </history>
-         </status>
-         <uuid>90afda23-9c1a-4dd1-8857-732be7b248e2</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-mime" tag="MIME">
-         <profilespec orgid="ipcat" title="MIME"/>
-         <parts>
-            <refstandard refid="ietf-rfc2045"/>
-            <refstandard refid="ietf-rfc2046"/>
-            <refstandard refid="ietf-rfc2047"/>
-            <refstandard refid="ietf-rfc2048"/>
-            <refstandard refid="ietf-rfc2049"/>
-         </parts>
-         <applicability>
-            RFC 822:1982 defines a message representation protocol specifying
-            considerable detail about US-ASCII message headers, and leaves the message
-            content, or message body, as flat US-ASCII text. This set of documents, collectively
-            called the Multipurpose Internet Mail Extensions, or MIME, redefines the format
-            of messages to allow for (1) textual message bodies in character sets other
-            than US-ASCII, (2) an extensible set of different formats for non-textual message
-            bodies, (3) multi-part message bodies, and (4) textual header information in
-            character sets other than US-ASCII. Because RFC 822:1982 said so little about
-            message bodies, these documents are largely orthogonal to (rather than a revision
-            of) RFC 822:1982. The initial document (RFC 2045:1996) specifies the various
-            headers used to describe the structure of MIME messages. The second document,
-            RFC 2046:1996, defines the general structure of the MIME media typing system
-            and defines an initial set of media types. The third document, RFC 2047:1996,
-            describes extensions to RFC 822:1982 to allow non-US-ASCII text data in Internet
-            mail header fields. The fourth document, RFC 2048:1996, specifies various IANA
-            registration procedures for MIME-related facilities. The fifth and final document,
-            RFC 2049:1996, describes MIME conformance criteria as well as providing some
-            illustrative examples of MIME message formats, acknowledgements, and the bibliography.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2045.txt</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2000-03-13" version="0.2"/>
-               <event flag="changed" date="2001-11-21" version="0.3"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-            </history>
-         </status>
-         <uuid>25874a69-c2f3-4488-8c53-f062e9ccb607</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-narrowband" tag="Narrowband ISDN Standards">
-         <profilespec orgid="ipcat" title="Narrowband ISDN"/>
-         <parts>
-            <refstandard refid="itu-t-i.430"/>
-            <refstandard refid="itu-t-i.431"/>
-            <refstandard refid="etsi-ets300011"/>
-            <refstandard refid="etsi-ets300012"/>
-            <refstandard refid="itu-t-q.930"/>
-            <refstandard refid="itu-t-q.931"/>
-            <refstandard refid="itu-t-e.164"/>
-            <refstandard refid="capi-capiv2"/>
-         </parts>
-         <applicability>
-            The above standards are applicable to systems requiring digital,
-            circuit switched services. The ISDN standards cover a telecommunications area
-            analogous to the existing voice telephony network but operating digital signalling
-            and capable of much higher data rates. ISDN circuits offer the user the ability to
-            dial another ISDN user (using ITU-T E.164 ISDN numbering standard) and to use
-            the enhanced data capacity in very flexible ways. ISDN is best viewed as a data
-            pipeline which, once a connection has been established between two users, may
-            operate a variety of protocols and carry all types of data, including voice
-            and image. Although ISDN was originally implemented in different ways in Europe
-            there is now a standard, Euro-ISDN, created by the European Telecommunications
-            Standards Institute (ETSI), to which all European nations have subscribed and
-            which now covers most of the population of Europe. The Basic user-network interface
-            offers the user two 64kbps 'B' or Bearer channels. These may be used individually
-            for conventional data communications or may be grouped together to give an aggregate
-            data capacity of 128kbps for applications like restricted video. There is also
-            a 16kbps 'D' channel which the ISDN network uses to control the operation of the
-            'B' channels. Euro-ISDN specifies the use of 64kbps circuit switching or 3.1kHz
-            speech over 'B' channels but will progress to cover X.31 (X.25 over ISDN) over
-            'B' and 'D' channels, along with 7 KHz speech. In fact, some European PTTs are
-            already offering an X.25 packet switching service to ISDN subscribers based on
-            the 'D' channel. The Primary rate user-interface offers the subscriber thirty
-            64kbps 'B' channels and, as with the Basic interface, these may be operated
-            singly or grouped together to service users at the termination point. The Primary
-            rate also features a 64kbps 'D' control channel. Corporate subscribers with more
-            than just a small number of users will be more likely to use a Primary rate interface.
-            The thirty 'B' channels can aggregate up to a 2.048Mbps connection.
-         </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="1996-07-01" version="0.1"/>
-               <event flag="changed" date="2001-11-20" version="0.3"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2010-11-02" version="5.0"/>
-            </history>
-         </status>
-         <uuid>a32ca204-6a60-4e8d-a2e0-a0a8cc6ef745</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-nine-security" tag="NINE">
-         <profilespec orgid="ipcat" title="NINE"/>
-         <profilenote>Network and Information Infrastructure (NII) IP Network Encryption Interoperability Specification</profilenote>
-         <parts>
-            <refstandard refid="nato-nine-core"/>
-            <refstandard refid="nato-nine-asa-ike2"/>
-            <refstandard refid="nato-nine-bw-mgmt"/>
-            <refstandard refid="nato-nine-discovery"/>
-            <refstandard refid="nato-nine-gateway"/>
-            <refstandard refid="nato-nine-discovery-client"/>
-            <refstandard refid="nato-nine-header-compression"/>
-            <refstandard refid="nato-nine-reachability"/>
-            <refstandard refid="nato-nine-monitoring"/>
-            <refstandard refid="nato-nine-provisioning-auth"/>
-            <refstandard refid="nato-nine-provisioning"/>
-            <refstandard refid="nato-nine-traffic-protection"/>
-         </parts>
-         <applicability/>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="2012-11-26" rfcp="6-83" version="7.0"/>
-            </history>
-         </status>
-         <uuid>b1d7b473-bc2c-4958-a797-ab9400a3daf5</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-oda" tag="ODA">
-         <profilespec orgid="ipcat" title="ODA"/>
-         <profilenote>
-            Information Processing - Text and Office Systems, Office Document
-            Architecture (ODA) and Interchange Format (ISO/IEC 8613)
-         </profilenote>
-         <parts>
-            <refstandard refid="iso-iec-8613-1"/>
-            <refstandard refid="iso-iec-8613-2"/>
-            <refstandard refid="iso-iec-8613-3"/>
-            <refstandard refid="iso-iec-8613-4"/>
-            <refstandard refid="iso-iec-8613-5"/>
-            <refstandard refid="iso-iec-8613-6"/>
-            <refstandard refid="iso-iec-8613-7"/>
-            <refstandard refid="iso-iec-8613-8"/>
-            <refstandard refid="iso-iec-8613-9"/>
-            <refstandard refid="iso-iec-8613-10"/>
-            <refstandard refid="iso-iec-8613-11"/>
-            <refstandard refid="iso-iec-8613-12"/>
-            <refstandard refid="iso-iec-8613-14"/>
-         </parts>
-         <applicability>
-            This standard permits the interchange of documents between co-operating
-            tools in office systems by providing a common understanding of the structure of
-            documents. For the ODA standard, a document is a structured amount of text,
-            graphics, and scanned images, is characterised by its content (logical structure)
-            and its internal organisation (layout structure), and can be grouped into a
-            document class getting together similar documents such as report, letter, memo.
-            <para>
-               Part 5 (ODIF) is an ASN.1 based presentation, which specifies the interchange
-               format for ODA documents.
-            </para>
-            <para>
-               Office Document Language (ODL) is the Standard Generalised Mark-up Language
-               (SGML) encoding for ODA documents to enter an SGML database or publishing environment
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=15928</uri>
-            <history>
-               <event flag="added" date="1998-11-06" version="0.1"/>
-               <event flag="changed" date="2000-03-15" version="0.2"/>
-               <event flag="changed" date="2001-11-19" version="0.3"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2010-11-01" version="5.0"/>
-            </history>
-         </status>
-         <uuid>1b1171fd-4786-4ffb-a27f-1c2a4790799d</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-ooxml" tag="OOXML">
-         <profilespec orgid="ipcat" title="OOXML"/>
-         <parts>
-            <refstandard refid="iso-iec-29500-1"/>
-            <refstandard refid="iso-iec-29500-2"/>
-            <refstandard refid="iso-iec-29500-3"/>
-            <refstandard refid="iso-iec-29500-4"/>
-         </parts>
-         <applicability>
-          This profile contains all relevant parts of the Office Open XML specification.
-        </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="2013-10-24" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>4abae929-8bd0-4fcb-9f05-f763cab05a04</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-osgi-r4" tag="OSGi R4">
-         <profilespec orgid="ipcat" title="OSGi R4"/>
-         <parts>
-            <refstandard refid="osgi-r4core"/>
-            <refstandard refid="osgi-r4mobile"/>
-         </parts>
-         <applicability>
-            OSGi is a standard for a framework for remotely manageable networked
-            devices. Applications can be securely provisioned to a network node running an
-            OSGi framework during runtime and thus provides the possibility to dynamically
-            manage the services and functionality of the network node.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.osgi.org/</uri>
-            <history>
-               <event date="2007-02-23" flag="added" version="1.0"/>
-            </history>
-         </status>
-         <uuid>1bc18aed-a678-44a7-95fa-bfedf0222cec</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-osi-datalink" tag="OSI Data Link Layer Standards">
-         <profilespec orgid="ipcat" title="OSI Data Link Layer"/>
-         <parts>
-            <refstandard refid="iso-iec-7478"/>
-            <refstandard refid="iso-iec-7776"/>
-            <refstandard refid="iso-iec-13239"/>
-            <refstandard refid="iso-iec-10742"/>
-         </parts>
-         <applicability>
-            The above standards are applicable to systems requiring data link
-            services. Note that the X.21 (synchronous digital interface) and X.21 bis (synchronous
-            V-Series modem interface) Physical layer standards typically would be used to
-            support ISO/IEC 7776 (X.25 LAP B).
-         </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2000-07-17" version="0.2"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2010-11-01" version="5.0"/>
-            </history>
-         </status>
-         <uuid>85e88e66-e636-420d-9d6a-47ce0a090988</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-osi-fault-mgmt" tag="OSI Fault Management">
-         <profilespec orgid="ipcat" title="OSI Fault Management"/>
-         <parts>
-            <refstandard refid="iso-iec-10164-4"/>
-            <refstandard refid="iso-iec-10164-5"/>
-            <refstandard refid="iso-iec-10164-6"/>
-         </parts>
-         <applicability>
-            Part 4 defines a set of generic alarms that managed objects may
-            send to a managing system. The alarms are used to notify of failures or abnormal
-            situations. Part 5 defines the support managed objects and the services required
-            to control the event reports exchanged among management systems. Part 6 defines
-            a model for maintaining an ongoing record of activity of the operational and
-            administrative state of the system.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=18161</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2001-11-21" version="0.3"/>
-               <event flag="changed" date="2003-08-01" version="0.5"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2013-08-21" version="8.0"/>
-            </history>
-         </status>
-         <uuid>989461d6-3368-4735-b488-14ef1007a26d</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-osi-performance-mgmt" tag="OSI Performance Management">
-         <profilespec orgid="ipcat" title="OSI Performance Management"/>
-         <parts>
-            <refstandard refid="iso-iec-10164-11"/>
-            <refstandard refid="iso-iec-10164-12"/>
-            <refstandard refid="iso-iec-10164-13"/>
-            <refstandard refid="iso-iec-10164-14"/>
-            <refstandard refid="iso-iec-10164-15"/>
-         </parts>
-         <applicability>
-            Part 11 specifies the model objects and algorithms required to
-            monitor and control the workload of the management system. Part 12 specifies
-            the model for establishing compliance requirements for testing the systems
-            management function. Part 13 provides the ability to aggregate observed attribute
-            values and provides statistical information about those values. Part 14 provides
-            the ability to proactively test the health and operation of the management system.
-            Part 15 provides for the scheduling of managed objects.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=18168</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2001-11-21" version="0.3"/>
-               <event flag="changed" date="2003-08-01" version="0.5"/>
-               <event flag="changed" date="2005-09-08" version="0.7"/>
-               <event flag="changed" date="2013-08-21" version="8.0"/>
-            </history>
-         </status>
-         <uuid>76306118-42ff-4f07-862d-c06ce3c0317d</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-osi-security-mgmt" tag="OSI Security Management">
-         <profilespec orgid="ipcat" title="OSI Security Management"/>
-         <parts>
-            <refstandard refid="iso-iec-10164-7"/>
-            <refstandard refid="iso-iec-10164-8"/>
-            <refstandard refid="iso-iec-10164-9"/>
-         </parts>
-         <applicability>
-            Part 7 defines a set of generic security alarms that managed
-            objects may send to a managing system. The alarms are used to notify of breaches
-            in security. Part 8 defines the systems management functions of tracking and
-            logging security events that occur in the management domain. Part 9 specifies
-            the requirements for protecting management information from unauthorised creation,
-            deletion, modification, or disclosure by means of OSI management operations.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=18164</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2003-08-01" version="0.5"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-            </history>
-         </status>
-         <uuid>39de4899-883c-45fd-9afe-966bc361b067</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-owl" tag="OWL">
-         <profilespec orgid="ipcat" title="OWL"/>
-         <parts>
-            <refstandard refid="w3c-rec-owl-features-20040210"/>
-            <refstandard refid="w3c-rec-owl-guide-20040210"/>
-            <refstandard refid="w3c-rec-owl-ref-20040210"/>
-            <refstandard refid="w3c-rec-owl-semantics-20040210"/>
-            <refstandard refid="w3c-rec-owl-test-20040210"/>
-            <refstandard refid="w3c-rec-webont-req-20040210"/>
-            <refstandard refid="w3c-note-owl-xmlsyntax-20030611"/>
-         </parts>
-         <applicability>
-            The Web Ontology Language (OWL), is a mark-up language
-            for publishing and sharing data using ontology on the Internet.  OWL
-            is a vocabulary extension to RDF and is derived from the DAML+OIL
-            Web Ontology Language.  The purpose of the language is to facilitate
-            greater machine interpretability of Web content which is achieved by
-            providing additional vocabulary along with a formal semantics.
-         </applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/Web_Ontology_Language</uri>
-            <history>
-               <event date="2007-02-23" flag="added" version="1.0"/>
-            </history>
-         </status>
-         <uuid>f858de2f-c0cc-4311-a347-fa1d39122656</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-pbnm-diffserv" tag="PBNM-DiffServ">
-         <profilespec orgid="ipcat"
-                      title="Policy Based Network Management for Differentiated Services"/>
-         <parts>
-            <refstandard refid="ietf-rfc2963"/>
-            <refstandard refid="ietf-rfc2998"/>
-            <refstandard refid="ietf-rfc3086"/>
-            <refstandard refid="ietf-rfc3260"/>
-            <refstandard refid="ietf-rfc3287"/>
-            <refstandard refid="ietf-rfc3289"/>
-            <refstandard refid="ietf-rfc3290"/>
-            <refstandard refid="ietf-rfc3308"/>
-            <refstandard refid="ietf-rfc3496"/>
-         </parts>
-         <applicability>
-            The purpose of these RFCs is,
-            <para>
-               to describe several Rate Adaptive Shapers (RAS) that can be used in
-               combination with the single rate Three Colour Markers (srTCM) and the two rate
-               Three Colour Marker (trTCM);
-            </para>
-            <para>
-               to provide a means for the delivery of end-to-end Quality of Service
-               (QoS) to applications over heterogeneous networks. This document describes a
-               framework by which Integrated Services may be supported over Diffserv networks;
-            </para>
-            <para>
-               to enable quality-of-service provisioning within a network domain by
-               applying rules at the edges to create traffic aggregates and coupling each
-               of these with a specific forwarding path treatment in the domain through use
-               of a code-point in the IP header;
-            </para>
-            <para>
-               to capture Diffserv working group agreements concerning new and improved
-               terminology, and provides minor technical clarifications.  It is intended to
-               update RFC 2474, RFC 2475 and RFC 2597. When RFCs 2474 and 2597 advance on the
-               standards track, and RFC 2475 is updated, it is intended that the revisions in
-               this memo will be incorporated, and that this memo will be obsoleted by the new
-               RFCs;
-            </para>
-            <para>
-               to define a portion of the Management Information Base (MIB) for use with
-               network management protocols in the Internet community;
-            </para>
-            <para>
-               to describe a SMIv2 (Structure of Management Information version 2) MIB
-               for a device implementing the Differentiated Services Architecture;
-            </para>
-            <para>
-               to propose an informal management model of Differentiated Services (Diffserv)
-               routers for use in their management and configuration;
-            </para>
-            <para>
-               to describe mechanisms which enable the Layer Two Tunnelling Protocol (L2TP)
-               to negotiate desired Per Hop Behaviour (PHB) code for the L2TP control connection,
-               as well as individual sessions within an L2TP tunnel;
-            </para>
-            <para>
-               to specifies a Resource ReSerVation Protocol-Traffic Engineering (RSVP-TE)
-               signalling extension for support of Asynchronous Transfer Mode (ATM) Service
-               Class-aware Multiprotocol Label Switching (MPLS) Traffic Engineering.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="2004-07-24" rfcp="5-33" version="0.6"/>
-            </history>
-         </status>
-         <uuid>cad64158-f706-4bce-8c79-0f6411a28066</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-pbnm-general" tag="PBNM-General">
-         <profilespec orgid="ipcat" title="Policy Based Network Management - General (PBNM)"/>
-         <parts>
-            <refstandard refid="ietf-rfc1104"/>
-            <refstandard refid="ietf-rfc2753"/>
-            <refstandard refid="ietf-rfc3198"/>
-            <refstandard refid="ietf-rfc3334"/>
-         </parts>
-         <applicability>
-            The purpose of these RFCs is,
-            <para>
-               to outline a variety of models for policy based routing. The relative
-               benefits of the different approaches are reviewed;
-            </para>
-            <para>
-               to have developed extensions to the IP architecture and the best-effort
-               service model so that applications or end users can request specific quality
-               (or levels) of service from an internetwork in addition to the current IP
-               best-effort service;
-            </para>
-            <para>
-               to have a glossary of policy-related terms. It provides abbreviations,
-               explanations, and recommendations for use of these terms;
-            </para>
-            <para>
-               to describe policy-based accounting which is an approach to provide
-               flexibility to accounting architectures.  Accounting policies describe the
-               configuration of an accounting architecture in a standardised way. They are
-               used to instrument the accounting architecture and can be exchanged between
-               Authentication, Authorisation and Accounting (AAA) entities in order to share
-               configuration information.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="2004-07-24" rfcp="5-33" version="0.6"/>
-            </history>
-         </status>
-         <uuid>191ae271-dd0e-41d6-8928-d07c4f1424a4</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-pbnm-intserv" tag="PBNM-IntServ">
-         <profilespec orgid="ipcat" title="Policy Based Network Management for Integrated Services"/>
-         <parts>
-            <refstandard refid="ietf-rfc2205"/>
-            <refstandard refid="ietf-rfc2206"/>
-            <refstandard refid="ietf-rfc2207"/>
-            <refstandard refid="ietf-rfc2208"/>
-            <refstandard refid="ietf-rfc2209"/>
-            <refstandard refid="ietf-rfc2210"/>
-            <refstandard refid="ietf-rfc2380"/>
-            <refstandard refid="ietf-rfc2382"/>
-            <refstandard refid="ietf-rfc2430"/>
-            <refstandard refid="ietf-rfc2490"/>
-            <refstandard refid="ietf-rfc2745"/>
-            <refstandard refid="ietf-rfc2746"/>
-            <refstandard refid="ietf-rfc2747"/>
-            <refstandard refid="ietf-rfc2749"/>
-            <refstandard refid="ietf-rfc2750"/>
-            <refstandard refid="ietf-rfc2755"/>
-            <refstandard refid="ietf-rfc2814"/>
-            <refstandard refid="ietf-rfc2872"/>
-            <refstandard refid="ietf-rfc2961"/>
-            <refstandard refid="ietf-rfc2996"/>
-            <refstandard refid="ietf-rfc3097"/>
-            <refstandard refid="ietf-rfc3175"/>
-            <refstandard refid="ietf-rfc3181"/>
-            <refstandard refid="ietf-rfc3182"/>
-            <refstandard refid="ietf-rfc3209"/>
-            <refstandard refid="ietf-rfc3210"/>
-            <refstandard refid="ietf-rfc3468"/>
-            <refstandard refid="ietf-rfc3473"/>
-            <refstandard refid="ietf-rfc3474"/>
-            <refstandard refid="ietf-rfc3476"/>
-            <refstandard refid="ietf-rfc3477"/>
-         </parts>
-         <applicability>
-            The purpose of these RFCs is,
-            <para>
-               to describe version 1 of RSVP, a resource reservation setup protocol designed
-               for an integrated services Internet. RSVP provides receiver-initiated setup of
-               resource reservations for multicast or unicast data flows, with good scaling and
-               robustness properties;
-            </para>
-            <para>
-               to define a portion of the Management Information Base (MIB) for use with
-               management protocols in TCP/IP-based internets. In particular, it defines objects
-               for managing the Resource Reservation Protocol (RSVP) within the interface attributes
-               defined in the Integrated Services Model;
-            </para>
-            <para>
-               to present extensions to Version 1 of RSVP. These extensions permit support
-               of individual data flows using RFC 1826, IP Authentication Header (AH) or RFC 1827,
-               IP Encapsulating Security Payload (ESP);
-            </para>
-            <para>
-               to describe the applicability of RSVP along with the Integrated Services
-               protocols and other components of resource reservation and offers guidelines for
-               deployment of resource reservation at this time;
-            </para>
-            <para>
-               to provide an algorithmic description of the rules used by an RSVP
-               implementation for processing messages. It is intended to clarify the version 1
-               RSVP protocol specification;
-            </para>
-            <para>
-               to describe the use of the RSVP resource reservation protocol with the
-               Controlled-Load and Guaranteed QoS control services. The RSVP protocol defines
-               several data objects which carry resource reservation information but are opaque
-               to RSVP itself.  The usage and data format of those objects is given here;
-            </para>
-            <para>
-               to  present specific implementation guidelines for running RSVP over ATM
-               switched virtual circuits (SVCs);
-            </para>
-            <para>
-               to present specific implementation requirements for running RSVP over
-               ATM switched virtual circuits (SVCs). It presents requirements that ensure
-               interoperability between multiple implementations and conformance to the RSVP
-               and Integrated Services specifications;
-            </para>
-            <para>
-               to outline the issues and framework related to providing IP Integrated
-               Services with RSVP over ATM;
-            </para>
-            <para>
-               to describe the Provider Architecture for Differentiated Services and
-               Traffic Engineering (PASTE) for Internet Service Providers (ISPs);
-            </para>
-            <para>
-               to describe a detailed model of IPv4 multicast with RSVP that has been
-               developed using the NET simulation package, with protocol procedures defined in
-               the C language;
-            </para>
-            <para>
-               to specifiy the RSVP diagnostic facility, which allows a user to collect
-               information about the RSVP state along a path. This specification describes the
-               functionality, diagnostic message formats, and processing rules;
-            </para>
-            <para>
-               to describe an approach for providing RSVP protocol services over IP tunnels.
-               We briefly describe the problem, the characteristics of possible solutions, and
-               the design goals of our approach. We then present the details of an implementation
-               which meets our design goals;
-            </para>
-            <para>
-               to describe the format and use of RSVP's INTEGRITY object to provide
-               hop-by-hop integrity and authentication of RSVP messages;
-            </para>
-            <para>
-               to describe usage directives for supporting COPS policy services in RSVP
-               environments;
-            </para>
-            <para>
-               to present a set of extensions for supporting generic policy based admission
-               control in RSVP. It should be perceived as an extension to the RSVP functional
-               specifications [RSVP];
-            </para>
-            <para>
-               to describe a protocol for a WebNFS client [RFC2054] to negotiate the
-               desired security mechanism with a WebNFS server [RFC2055] before the WebNFS
-               client falls back to the MOUNT v3 protocol [RFC1813]. This document is provided
-               so that people can write compatible implementations;
-            </para>
-            <para>
-               to describe a signalling method and protocol for RSVP-based admission
-               control over IEEE 02-style LANs.  The protocol is designed to work both with
-               the current generation of IEEE 802 LANs as well as with the recent work completed
-               by the IEEE 802.1 committee;
-            </para>
-            <para>
-               to describe user and/or application information, which may be used by RSVP
-               aware network elements to apply appropriate policy decisions to a traffic flow.
-               This memo details the usage of policy elements that provide application information;
-            </para>
-            <para>
-               to describe a number of mechanisms that can be used to reduce processing
-               overhead requirements of refresh messages, eliminate the state synchronisation
-               latency incurred when an RSVP (Resource ReserVation Protocol) message is lost and,
-               when desired, refreshing state without the transmission of whole refresh messages;
-            </para>
-            <para>
-               to use Resource Reservation Protocol (RSVP) signalling to request Quality
-               of Service (QoS) services and enhance the manageability of application traffic's
-               QoS in a differentiated service (diff-serv or DS) network. When using RSVP with
-               DS networks it is useful to be able to carry Differentiated Services Code Points
-               (DSCPs) in RSVP message objects;
-            </para>
-            <para>
-               to resolve a duplication in the assignment of RSVP Message Types, by changing
-               the Message Types assigned by RFC 2747 to Challenge and Integrity Response messages;
-            </para>
-            <para>
-               to describe the use of a single RSVP (Resource ReSerVation Protocol)
-               reservation to aggregate other RSVP reservations across a transit routing region,
-               in a manner conceptually similar to the use of Virtual Paths in an ATM (Asynchronous
-               Transfer Mode) network;
-            </para>
-            <para>
-               to describe a pre-emption priority policy element for use by signalled policy
-               based admission protocols (such as the Resource ReSerVation Protocol (RSVP) and Common
-               Open Policy Service (COPS);
-            </para>
-            <para>
-               to describe the representation of identity information in POLICY_DATA object
-               for supporting policy based admission control in the Resource ReSerVation Protocol
-               (RSVP).  The goal of identity representation is to allow a process on a system to
-               securely identify the owner and the application of the communicating process (e.g.,
-               user id) and convey this information in RSVP messages (PATH or RESV) in a secure
-               manner;
-            </para>
-            <para>
-               to describe the use of RSVP (Resource Reservation Protocol), including all
-               the necessary extensions, to establish label-switched paths (LSPs) in MPLS
-               (Multi-Protocol Label Switching). Since the flow along an LSP is completely
-               identified by the label applied at the ingress node of the path, these paths may
-               be treated as tunnels;
-            </para>
-            <para>
-               to discuss the applicability of "Extensions to RSVP (Resource ReSerVation
-               Protocol) for LSP Tunnels".  It highlights the protocol's principles of operation
-               and describes the network context for which it was designed. Guidelines for
-               deployment are offered and known protocol limitations are indicated;
-            </para>
-            <para>
-               to document the consensus reached by the Multiprotocol Label Switching
-               (MPLS) Working Group within the IETF to focus its efforts on "Resource Reservation
-               Protocol (RSVP)-TE: Extensions to RSVP for Label-Switched Paths (LSP) Tunnels"
-               (RFC 3209) as the MPLS signalling protocol for traffic engineering applications
-               and to undertake no new efforts relating to "Constraint-Based LSP Setup using
-               Label Distribution Protocol (LDP)" (RFC 3212);
-            </para>
-            <para>
-               to describe extensions to Multi-Protocol Label Switching (MPLS) Resource
-               ReserVation Protocol - Traffic Engineering (RSVP-TE) signalling required to
-               support Generalised MPLS.  Generalised MPLS extends the MPLS control plane to
-               encompass time-division (e.g., Synchronous Optical Network and Synchronous
-               Digital Hierarchy, SONET/SDH), wavelength (optical lambdas) and spatial switching
-               (e.g., incoming port or fibre to outgoing port or fibre);
-            </para>
-            <para>
-               to provide support for different technologies as well as different
-               applications.  These include support for requesting TDM connections based on
-               Synchronous Optical NETwork/Synchronous Digital Hierarchy (SONET/SDH) as well
-               as Optical Transport Networks (OTNs);
-            </para>
-            <para>
-               to describe extensions to the Label Distribution Protocol (LDP) and the
-               Resource ReSerVation Protocol (RSVP) for optical User Network Interface (UNI)
-               signalling. These extensions consist of a set of new data objects and error
-               codes;
-            </para>
-            <para>
-               to define procedures and extensions to Resource ReSerVation Protocol (RSVP)
-               for Label Switched Path (LSP) Tunnels (RSVP-TE), one of the MPLS TE signalling
-               protocols that are needed in order to support unnumbered links.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="2004-07-24" rfcp="5-33" version="0.6"/>
-            </history>
-         </status>
-         <uuid>aa3edf62-20f6-41c6-b707-9c553409aa32</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-presentation-services" tag="Presentation Services and Protocols">
-         <profilespec orgid="ipcat" title="Presentation Services and Protocols"/>
-         <profilenote>
-            Presentation Service Definition; ISO/IEC 8822:1994 /
-            ITU-T X.216, Protocol presentation and implementation, ISO/IEC 8823:1994:
-         </profilenote>
-         <parts>
-            <refstandard refid="iso-iec-8822"/>
-            <refstandard refid="iso-iec-8823-1"/>
-            <refstandard refid="iso-iec-8823-2"/>
-         </parts>
-         <applicability>
-            Presentation layer connection oriented and
-            connection-less services and protocols provide for the proper
-            means of transferring information between applications in such a
-            way that the semantics are preserved during transfer.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=24364</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2009-07-28" version="4.0"/>
-               <event flag="changed" date="2010-11-01" version="5.0"/>
-            </history>
-         </status>
-         <uuid>cc717211-f5af-45da-9c93-219b0ff35f59</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-pwsipro2" tag="PWSI">
-         <profilespec orgid="ipcat" title="??"/>
-         <parts>
-            <refstandard refid="unknown-dummy"/>
-         </parts>
-         <applicability/>
-         <status mode="accepted">
-            <history>
-               <event date="2010-10-22" flag="added" version="5.0"/>
-            </history>
-         </status>
-         <uuid>98810a77-4dd8-4b83-b840-d3434f533828</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-rdf" tag="RDF">
-         <profilespec orgid="ipcat" title="RDF"/>
-         <parts>
-            <refstandard refid="w3c-rec-rdf-concepts-20040210"/>
-            <refstandard refid="w3c-rec-rdf-syntax-grammar-20040210"/>
-            <refstandard refid="w3c-rec-rdf-mt-20040210"/>
-            <refstandard refid="w3c-rec-rdf-schema-20040210"/>
-            <refstandard refid="w3c-rec-rdf-testcases-20040210"/>
-            <refstandard refid="w3c-rec-rdf-primer-20040210"/>
-         </parts>
-         <applicability>
-            The Resource Description Framework (RDF) is a framework for representing information in the Web.
-         </applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/Resource_Description_Framework</uri>
-            <history>
-               <event date="2008-12-10" flag="added" rfcp="2-18" version="3.0"/>
-            </history>
-         </status>
-         <uuid>b9b1c64c-aa0d-441c-84e0-2df38ebee451</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-relaxng" tag="Relax NG">
-         <profilespec orgid="ipcat" title="Relax NG"/>
-         <parts>
-            <refstandard refid="iso-iec-19757-2"/>
-            <refstandard refid="oasis-relaxng-tutorial-20011203"/>
-            <refstandard refid="oasis-relaxng-compact-20021121"/>
-            <refstandard refid="oasis-relaxng-xsd-20010907"/>
-            <refstandard refid="oasis-relaxng-compatibility-20011203"/>
-         </parts>
-         <applicability>
-            RELAX NG is a simple schema language for XML, based on [RELAX]
-            and [TREX]. A RELAX NG schema specifies a pattern for the structure and content
-            of an XML document. A RELAX NG schema is itself an XML document.
-            <para>
-               RELAX NG deals with XML documents representing both schemas and instances
-               through an abstract data model. XML documents representing schemas and instances
-               must be well-formed in conformance with [XML 1.0] and must conform to the
-               constraints of [XML Namespaces].
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://relaxng.org/</uri>
-            <history>
-               <event flag="added" date="2004-05-26" rfcp="5-22" version="0.6"/>
-               <event flag="changed" date="2005-09-07" version="0.7"/>
-            </history>
-         </status>
-         <uuid>9d13c675-3fe0-40a6-955f-aef3f3857c49</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-saml2.0" tag="SAML 2.0">
-         <profilespec orgid="ipcat" title="Security Assertion Markup Language (SAML) v2.0"/>
-         <parts>
-            <refstandard refid="oasis-saml-core-2.0-os"/>
-            <refstandard refid="oasis-saml-bindings-2.0-os"/>
-            <refstandard refid="oasis-saml-sec-consider-2.0-os"/>
-            <refstandard refid="oasis-saml-conformance-2.0-os"/>
-            <refstandard refid="oasis-saml-glossary-2.0-os"/>
-            <refstandard refid="oasis-saml-authn-context-2.0-os"/>
-            <refstandard refid="oasis-saml-metadata-2.0-os"/>
-            <refstandard refid="oasis-saml-profiles-2.0-os"/>
-         </parts>
-         <applicability>
-            The Security Assertion Markup Language (SAML) standard defines
-            a framework for exchanging security information between online business partners
-         </applicability>
-         <status mode="accepted">
-            <uri>http://docs.oasis-open.org/security/saml/v2.0</uri>
-            <history>
-               <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
-               <event flag="added" date="2004-05-26" rfcp="5-20" version="0.6"/>
-               <event flag="changed" date="2010-08-09" version="5.0"/>
-               <event flag="changed" date="2012-09-03" rfcp="6-58" version="7.0"/>
-            </history>
-         </status>
-         <uuid>233e1bb5-72d2-4a9b-8b9e-d84a148915e1</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-sctp" tag="SCTP">
-         <profilespec orgid="ipcat" title="Stream Control Transmission Protocol (SCTP)"/>
-         <parts>
-            <refstandard refid="ietf-rfc4960"/>
-            <refstandard refid="ietf-rfc4460"/>
-            <refstandard refid="ietf-rfc3873"/>
-            <refstandard refid="ietf-rfc3758"/>
-            <refstandard refid="ietf-rfc3554"/>
-            <refstandard refid="ietf-rfc3436"/>
-            <refstandard refid="ietf-rfc3286"/>
-            <refstandard refid="ietf-rfc3257"/>
-         </parts>
-         <applicability>
-            SCTP is designed to transport Public Switched Telephone Network
-            (PSTN) signaling messages over IP networks, but is capable of broader applications.
-            SCTP is a reliable transport protocol operating on top of a connectionless
-            packet network such as IP. It offers the following services to its users:
-            <itemizedlist>
-               <listitem>
-                  <para>acknowledged error-free non-duplicated transfer of user data,</para>
-               </listitem>
-               <listitem>
-                  <para>data fragmentation to conform to discovered path MTU size,</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     sequenced delivery of user messages within multiple streams, with
-                     an option for order-of-arrival delivery of individual user messages,
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     optional bundling of multiple user messages into a single SCTP
-                     packet, and
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     network-level fault tolerance through supporting of multi-homing
-                     at either or both ends of an association.
-                  </para>
-               </listitem>
-            </itemizedlist>
-            <para>
-               The design of SCTP includes appropriate congestion avoidance behavior
-               and resistance to flooding and masquerade attacks.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc4460.txt</uri>
-            <history>
-               <event date="2007-02-21" flag="added" version="1.0"/>
-            </history>
-         </status>
-         <uuid>7ddade10-cb1f-4597-b024-dbcf3c9495fe</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-session-services" tag="Session Services and Protocols">
-         <profilespec orgid="ipcat" title="Session Services and Protocols"/>
-         <parts>
-            <refstandard refid="iso-iec-8326"/>
-            <refstandard refid="iso-iec-8327-1"/>
-            <refstandard refid="iso-iec-9548-1"/>
-            <refstandard refid="wapforum-wap-203-wsp-2000"/>
-         </parts>
-         <applicability>
-            Session Services and Protocols provide the means for
-            organised and synchronised exchange of data between co-operating
-            Session Services users.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=36779</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2000-03-17" version="0.2"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2010-11-01" version="5.0"/>
-            </history>
-         </status>
-         <uuid>1f2e0007-8b5f-46fa-8ec3-250f8f2fa414</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-simple-feature-access" tag="Simple feature access">
-         <profilespec orgid="ipcat" title="Simple feature access"/>
-         <parts>
-            <refstandard refid="iso-19125-1"/>
-            <refstandard refid="iso-19125-2"/>
-         </parts>
-         <applicability>
-            This specification describes the common architecture for simple feature geometry.
-            The simple feature geometry object model is Distributed Computing Platform neutral
-            and uses UML notation. The base Geometry class has subclasses for Point, Curve,
-            Surface and Geometry Collection. Each geometric object is associated with a Spatial
-            Reference System, which describes the coordinate space in which the geometric object
-            is defined.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=40114</uri>
-            <history>
-               <event flag="added" date="2005-11-22" rfcp="6-16" version="0.7"/>
-               <event flag="changed" date="2010-10-31" version="5.0"/>
-            </history>
-         </status>
-         <uuid>4a6500af-c306-4c36-9a40-9c0348fb127e</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-smime31" tag="S/MIME 3.1">
-         <profilespec orgid="ipcat" title="S/MIME"/>
-         <parts>
-            <refstandard refid="ietf-rfc3850"/>
-            <refstandard refid="ietf-rfc3851"/>
-         </parts>
-         <applicability>
-            S/MIME (Secure/Multipurpose Internet Mail Extensions), provides
-            a method to send and receive secure MIME messages. Before using a public key
-            to provide security services, the S/MIME agent must certify that the public
-            key is valid. S/MIME agentsmust use PKIX certificates to validate public keys
-            as described in the Internet X.509 Public Key Infrastructure (PKIX) Certificate
-            and CRL Profile. S/MIME agents must meet the certificate processing requirements
-            documented in this document in addition to those stated in X.509.
-         </applicability>
-         <status mode="accepted">
-		    <uri>https://en.wikipedia.org/wiki/S/MIME</uri>
-            <history>
-               <event flag="added" date="2014-05-08" version="9.0"/>
-            </history>
-         </status>
-         <uuid>f06a851b-6b66-4412-849f-cf3ff32b7fb6</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-smime32" tag="S/MIME 3.2">
-         <profilespec orgid="ipcat" title="S/MIME"/>
-         <parts>
-            <refstandard refid="ietf-rfc5750"/>
-            <refstandard refid="ietf-rfc5751"/>
-         </parts>
-         <applicability>
-            S/MIME (Secure/Multipurpose Internet Mail Extensions), provides
-            a method to send and receive secure MIME messages. Before using a public key
-            to provide security services, the S/MIME agent must certify that the public
-            key is valid. S/MIME agentsmust use PKIX certificates to validate public keys
-            as described in the Internet X.509 Public Key Infrastructure (PKIX) Certificate
-            and CRL Profile. S/MIME agents must meet the certificate processing requirements
-            documented in this document in addition to those stated in X.509.
-         </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="2001-11-21" version="0.3"/>
-               <event flag="changed" date="2005-09-08" version="0.7"/>
-               <event flag="changed" date="2010-10-30" version="5.0"/>
-            </history>
-         </status>
-         <uuid>2710c235-28ce-4a77-95bd-c527af9edfe1</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-smtp" tag="SMTP">
-         <profilespec orgid="ipcat" title="SMTP"/>
-         <parts>
-            <refstandard refid="ietf-rfc2821"/>
-            <!-- JS/2010-10-19 Removed as duplicate exists  
-      <standard orgid="ietf" pubnum="RFC 2821" date="2001" title="Simple Mail Transfer Protocol (SMTP)"/>--><refstandard refid="ietf-rfc1869"/>
-            <refstandard refid="ietf-rfc1870"/>
-            <!-- JS/2010-10-19 Removed as duplicate exists  
-      <standard orgid="ietf" pubnum="RFC 1870" date="1995" title="SMTP Service Extension for Message Size Declaration"/>
---></parts>
-         <applicability>
-            In ARPANET, SMTP has been designed for sending
-            messages containing ASCII text only. SMTP is part of the Internet
-            protocol suite (TCP/IP). Although SMTP is text based, used in
-            conjunction with the Multipurpose Internet Mail Extensions (MIME)
-            as defined in RFC's 2045:1996-2049:1996 and BCP0013, transfer of multipart,
-            multimedia and binary data can be achieved. SMTP should only be
-            considered where X.400 solutions are not consistent with the
-            system requirements.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2821.txt</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2000-07-14" version="0.2"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-            </history>
-         </status>
-         <uuid>191e6b61-af12-466b-8b6b-716544980b5d</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-snmpv1" tag="SNMP Version 1">
-         <profilespec orgid="ipcat" title="SNMP Version 1"/>
-         <parts>
-            <refstandard refid="ietf-rfc1157"/>
-            <refstandard refid="ietf-rfc1155"/>
-         </parts>
-         <applicability>
-            SNMP is a protocol used to exchange management information between
-            a Management-manager and Management-agents. An agent manages an object (system,
-            device, etc.) on behalf of the Manager. The basic responsibility of an agent
-            is to keep information about the objects. The agent stores the information
-            and then responds to a manager request or can generate unsolicited responses.
-            By placing the brunt of the processing on the Manager side, able to limit the
-            agent to a few easily deployed functions. As with CMIP, ASN.1 is used to define
-            object classes, which are documented in the appropriate TCP/IP MIB (RFC 1213:1991),
-            and in other more specialised MIBs that address such network components as
-            Token Ring, FDDI and particular routers.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc1157.txt</uri>
-            <history>
-               <event flag="added" date="1999-01-15" version="0.1"/>
-               <event flag="changed" date="2000-03-20" version="0.2"/>
-               <event flag="changed" date="2005-09-08" version="0.7"/>
-            </history>
-         </status>
-         <uuid>1d2f771d-8c2c-40b5-a637-efebd47ce7b7</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-snmpv2" tag="SNMPv2">
-         <profilespec orgid="ipcat" title="SNMPv2"/>
-         <parts>
-            <refstandard refid="ietf-rfc3416"/>
-            <refstandard refid="ietf-rfc2578"/>
-            <refstandard refid="ietf-rfc3418"/>
-            <refstandard refid="ietf-rfc3417"/>
-            <refstandard refid="ietf-rfc3584"/>
-         </parts>
-         <applicability>
-            SNMPv2 is a protocol used to exchange management information
-            between a Management-manager and Management-agents or another Management-manager.
-            An agent manages an object (system, device, etc.) on behalf of the Manager.
-            The basic responsibility of an agent is to keep information about the objects.
-            The agent stores the information and then responds to a manager request or can
-            generate unsolicited responses. By placing the brunt of the processing on the
-            Manager side, able to limit the agent to a few easily deployed functions.
-            As with CMIP, ASN.1 is used to define object classes, which are documented
-            in the appropriate TCP/IP MIB (RFC 2011:1996 - 2013:1996), and in other more
-            specialised MIBs that address such network components as Token Ring, FDDI and
-            particular routers.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3416.txt</uri>
-            <history>
-               <event flag="added" date="1999-01-15" version="0.1"/>
-               <event flag="changed" date="2000-03-20" version="0.2"/>
-               <event flag="changed" date="2003-08-01" version="0.5"/>
-               <event flag="changed" date="2005-09-08" version="0.7"/>
-            </history>
-         </status>
-         <uuid>9e0da092-2aa2-464d-a457-3dd585483303</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-snmpv3" tag="SNMPv3">
-         <profilespec orgid="ipcat" title="SNMPv3"/>
-         <parts>
-            <refstandard refid="ietf-rfc3411"/>
-            <refstandard refid="ietf-rfc3412"/>
-            <refstandard refid="ietf-rfc3413"/>
-            <refstandard refid="ietf-rfc3414"/>
-            <refstandard refid="ietf-rfc3415"/>
-         </parts>
-         <applicability>
-            SNMPv3 is an extensible SNMP Framework which supplements the
-            SNMPv2 Framework, by supporting the following:
-            <itemizedlist>
-               <listitem>
-                  <para>A new SNMP message format, </para>
-               </listitem>
-               <listitem>
-                  <para>Security for Messages, and </para>
-               </listitem>
-               <listitem>
-                  <para>Access Control.</para>
-               </listitem>
-            </itemizedlist>
-            <para>
-               It contains a message-processing model, which is responsible for processing
-               a SNMP version-specific message and for coordinating the interaction with
-               the Security Subsystem to ensure proper security is applied to the SNMP
-               message being handled. The Access Control Subsystem is responsible for checking
-               whether a specific type of access to a particular managed object is allowed,
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3411.txt</uri>
-            <history>
-               <event flag="added" date="1999-01-15" version="0.1"/>
-               <event flag="changed" date="2000-03-20" version="0.2"/>
-               <event flag="changed" date="2001-11-21" version="0.3"/>
-               <event flag="changed" date="2003-08-01" version="0.5"/>
-               <event flag="changed" date="2005-09-08" version="0.7"/>
-            </history>
-         </status>
-         <uuid>689d2685-1b16-4264-a76d-3e045ea9737b</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-sntp-ntp" tag="SNTP/NTP">
-         <profilespec orgid="ipcat" title="SNTP/NTP"/>
-         <parts>
-            <refstandard refid="ietf-rfc2030"/>
-            <refstandard refid="ietf-rfc5905"/>
-            <!-- JS/2010-10-19 Deleted as duplicate exists        
-      <standard orgid="ietf" pubnum="RFC 1305" date="1992" title="Network Time Protocol (Version 3) Specification, Implementation"/>--></parts>
-         <applicability>
-            RFC 2030:1996, SNTP (Simple Network Time Protocol),
-            uses NTP (Network Time Protocol) to provide distributed time
-            services but is less accurate than NTP. It is recommended for use
-            in all cases except where high precision is required. RFC
-            1305:1992, NTP, version 3, defines a standard format for accessing
-            time services. It has a precision of 50 microseconds or better. NTP
-            also provides several optional security services (e.g. et uses
-            encryption to provide integrity and
-            authentication). Confidentiality and non-repudiation are not
-            supported. These IETF standards are applicable to systems requiring
-            interoperability of time related information over a network
-            (e.g. for enabling the time-stamping of files held on a file-server
-            to be co-ordinated between networked clients accessing the files).
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2030.txt</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2000-03-21" version="0.2"/>
-               <event flag="changed" date="2005-09-08" version="0.7"/>
-            </history>
-         </status>
-         <uuid>d63ae7c5-13a7-4326-b49b-dbf399f77741</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-soap12" tag="SOAP 1.2">
-         <profilespec orgid="ipcat" title="SOAP"/>
-         <parts>
-            <refstandard refid="w3c-rec-soap12-part0-20030624"/>
-            <refstandard refid="w3c-rec-soap12-part1-20030624"/>
-            <refstandard refid="w3c-rec-soap12-part2-20030624"/>
-            <refstandard refid="w3c-rec-soap12-testcollection-20030624"/>
-         </parts>
-         <applicability>
-            SOAP is a lightweight protocol for exchange of
-            information in a decentralized, distributed environment. It is an
-            XML based protocol that consists of three parts: an envelope that
-            defines a framework for describing what is in a message and how to
-            process it, a set of encoding rules for expressing instances of
-            application-defined datatypes, and a convention for representing
-            remote procedure calls and responses. SOAP can potentially be used
-            in combination with a variety of other protocols; however, the
-            only bindings defined in this document describe how to use SOAP in
-            combination with HTTP and HTTP Extension Framework.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.w3.org/TR/SOAP/</uri>
-            <history>
-               <event flag="added" date="2002-10-11" version="0.4"/>
-               <event flag="changed" date="2003-08-01" version="0.5"/>
-               <event flag="changed" date="2004-05-25" rfcp="5-4" version="0.6"/>
-            </history>
-         </status>
-         <uuid>b9a82854-cb8d-4d8c-8850-956c90cf89eb</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-systemmanagement" tag="System Management">
-         <profilespec orgid="ipcat" title="System Management"/>
-         <parts>
-            <refstandard refid="iso-iec-10164-1"/>
-            <refstandard refid="iso-iec-10164-2"/>
-            <refstandard refid="iso-iec-10164-3"/>
-            <refstandard refid="iso-iec-10164-10"/>
-            <refstandard refid="iso-iec-10164-16"/>
-            <refstandard refid="iso-iec-10164-17"/>
-            <refstandard refid="iso-iec-10164-18"/>
-            <refstandard refid="iso-iec-10164-19"/>
-            <refstandard refid="iso-iec-10164-20"/>
-            <refstandard refid="iso-iec-10164-21"/>
-            <refstandard refid="iso-iec-10164-22"/>
-         </parts>
-         <applicability>
-            Part 1 applies to an environment where two end-systems act in complementary roles, one
-            end-system acting in the manager role while another end-system acts in the agent role.
-            It establishes the requirements for the support of notification services for reporting
-            the managed object creation, managed object deletion and changes in the values of attributes
-            of managed objects. Part 2 establishes the models that relate the service and generic
-            definitions required by the systems management and notification functions. Part 3 defines
-            a set of generic relationships that may exist between managed objects and the services
-            required for reading or modifying them or to notify the changes in a managed object's
-            relationship. Part 16 identifies the set of requirements satisfied by the function, and
-            provides a model for the behaviour of the management knowledge objects. Part 17 establishes
-            user requirements for the service definition needed to support the change over function,
-            and defines the services provided by the function. Part 18 includes software transfer,
-            activation, de-activation, reversion, validation, and enquiry. Part 19 specifies management
-            domain and policy functions. Part 20 specifies requirements for the time management function.
-            Part 21 defines the Command Sequencer, which consists of generic definitions, services and
-            functional units. Part 22 addresses response time monitoring.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=18158</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2000-07-17" version="0.2"/>
-               <event flag="changed" date="2001-11-21" version="0.3"/>
-               <event flag="changed" date="2003-08-01" version="0.5"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="changed" date="2010-10-31" version="5.0"/>
-            </history>
-         </status>
-         <uuid>d6593b64-da8a-45c3-a6db-aa3e007eb83b</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-t4t6" tag="T4 and T6">
-         <profilespec orgid="ipcat" title="Facsimile T4 and T6"/>
-         <parts>
-            <refstandard refid="itu-t-t.4"/>
-            <refstandard refid="itu-t-t.6"/>
-         </parts>
-         <applicability>
-            These are formal standards for Facsimile Coding Schemes and Coding
-            Control Functions for Group 3 and Group 4 Facsimile Apparatus published by ITU.
-            These recommendations specify interchange of optically scanned engineering
-            drawings and pages of technical publications, and define directives to compress
-            raster graphics in order to reduce file size and transmission time. The compression
-            method is bit-preserving, which means it is distortion-less and that the final
-            decoded image is identical to the original.
-            <para>
-               The T4 recommendation is applicable to group 3 telecopy machines while
-               the T6 recommendation is applicable to group 4. Technically, the biggest
-               difference is that T6 has better compression capabilities than T4. Most fax
-               products are based on these standards.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <info>T6 is contained in ITU-T 7.3:1988.</info>
-            <uri>http://www.itu.int/rec/T-REC-T.4-200307-I</uri>
-            <history>
-               <event flag="added" date="1998-11-06" version="0.1"/>
-               <event flag="changed" date="2001-11-09" version="0.3"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-06" version="0.7"/>
-               <event flag="changed" date="2010-11-02" version="5.0"/>
-            </history>
-         </status>
-         <uuid>3f1b94e0-6a5c-4759-8c37-8c4e639bcd54</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-tcpip" tag="TCP/IP">
-         <profilespec orgid="ipcat" title="TCP/IP"/>
-         <parts>
-            <refstandard refid="ietf-rfc791"/>
-            <refstandard refid="ietf-rfc1883"/>
-         </parts>
-         <applicability>
-            TCP/IP provides for a reliable, connection-oriented, end-to-end
-            transport service on top of an unreliable network that can lose, garble, store
-            and duplicate packets (in OSI terms a type 'C' network). In this, TCP resembles
-            the OSI Transport Protocol class 4 (TP4) but major differences exist in features
-            like the handling of collisions, addressing format, quality of service, the
-            use of user data during set-up of a connection, the handling of 'important data',
-            the absence of piggybacking in TP4, kind of message streams, flow control handling,
-            window numbering scheme and connection release. TCP also offers some services
-            that in OSI are positioned as 'session-layer' services. Associated with TCP is
-            a network layer protocol called 'Internet Protocol' or 'IP'. TCP/IP can support
-            OSI upper layer applications by employing RFC 2126:1997.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc791.txt</uri>
-            <history>
-               <event flag="added" date="1998-08-07" version="0.1"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-            </history>
-         </status>
-         <uuid>f72c54f7-46b4-4253-bfb6-6d49a1abad04</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-telnet" tag="TELNET">
-         <profilespec orgid="ipcat" title="TELNET"/>
-         <profilenote>
-            IETF RFC 854:1983 and RFC 855:1983 describe the Virtual Terminal
-            Protocol TELNET as a presentation / application layer protocol that runs on
-            top of TCP.
-         </profilenote>
-         <parts>
-            <refstandard refid="ietf-rfc854"/>
-            <refstandard refid="ietf-rfc855"/>
-         </parts>
-         <applicability>
-            TELNET provides remote log in to remote hosts by
-            setting up and manipulating two simple data streams, one in each
-            direction. TELNET was designed with scroll mode rather than page
-            or foerm mode terminal in mind, although some page mode terminal
-            properties can be negotiated. TELNET provides for full user
-            authentication. TELNET is part of the Internet protocol suite
-            (TCP/IP).
-            <para>
-               RFC 854 provides a fairly general, bi-directional, eight-bit
-               byte oriented communications facility. Its primary goal is to allow
-               a standard method of interfacing terminal devices and terminal-oriented
-               processes to each other. It is envisioned that the protocol may
-               also be used for terminal-terminal communication ("linking") and
-               process-process communication (distributed computation).
-            </para>
-            <para>
-               RFC 855 specifies a method of option code assignment and
-               standards for documentation of options. The individual responsible
-               for assignment of option codes may waive the requirement for
-               complete documentation for some cases of experimentation, but in
-               general documentation will be required prior to code assignment.
-               Options will be publicized by publishing their documentation as
-               RFCs; inventors of options may, of course, publicize them in other
-               ways as well.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc855.txt</uri>
-            <history>
-               <event flag="added" date="1996-07-01" version="0.1"/>
-               <event flag="changed" date="2000-03-17" version="0.2"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-            </history>
-         </status>
-         <uuid>17394b0c-f274-4a2a-a00b-2f9787adee80</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-tp2k" tag="Tactical Communications Post 2000">
-         <profilespec orgid="ipcat" title="TACOMP Post 2000"/>
-         <profilenote>
-            Tactical Communications Post 2000 (TACOMS), (STANAGs 4637 -
-            Ale4647):2010. It consists as a series of the following documents:
-         </profilenote>
-         <parts>
-            <refstandard refid="nso-stanag4637"/>
-            <refstandard refid="nso-stanag4638draft"/>
-            <refstandard refid="nso-stanag4639"/>
-            <refstandard refid="nso-stanag4640"/>
-            <refstandard refid="nso-stanag4641draft"/>
-            <refstandard refid="nso-stanag4642draft"/>
-            <refstandard refid="nso-stanag4643"/>
-            <refstandard refid="nso-stanag4644"/>
-            <refstandard refid="nso-stanag4645draft"/>
-            <refstandard refid="nso-stanag4646"/>
-            <refstandard refid="nso-stanag4647"/>
-         </parts>
-         <applicability>
-            The aim of these NATO standardisation agreements (STANAGs) is to provide the
-            standards for communications interoperability in the Land Combat Zone Post 2000.
-            <para>
-               The TACOMS standards have been designed to meet the TACOMS tactical
-               communication system operational requirements in compliance with MC-337:
-               NATO Post 2000 Military Operational Requirements for the Land Combat Zone.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>https://nso.nato.int/</uri>
-            <history>
-               <event flag="added" date="2005-07-31" rfcp="6-11" version="0.7"/>
-               <event flag="changed" date="2009-07-28" version="4.0"/>
-               <event flag="changed" date="2010-11-02" version="5.0"/>
-            </history>
-         </status>
-         <uuid>1e268cf0-6c00-4de0-9666-c4ddb7909ae7</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-transport" tag="Transport Services and Protocols">
-         <profilespec orgid="ipcat" title="Transport Services and Protocols"/>
-         <parts>
-            <refstandard refid="iso-iec-8072"/>
-            <refstandard refid="iso-iec-8073"/>
-            <refstandard refid="iso-iec-8602"/>
-         </parts>
-         <applicability>
-            The Transport Services offer the following features to a
-            Transport Service User:
-            <itemizedlist>
-               <listitem>
-                  <para>
-                     the means to establish one or more end-to-end transport
-                     connections to another transport-user.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     request and negotiate and agree a quality of
-                     service for the Transport Connection.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     transferring (expedited) data over a Transport
-                     Connection.
-                  </para>
-               </listitem>
-            </itemizedlist>
-         </applicability>
-         <status mode="accepted">
-		    <uri>http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=27497</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2000-07-17" version="0.2"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2010-11-01" version="5.0"/>
-            </history>
-         </status>
-         <uuid>bc1ad25c-ae1d-4f16-aeda-272bfe56ec79</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-uddi2.0" tag="UDDI 2.0">
-         <profilespec orgid="ipcat" title="UDDI 2.0 profile"/>
-         <parts>
-            <refstandard refid="oasis-programmersapi-v2"/>
-            <refstandard refid="oasis-datastructure-v2"/>
-            <refstandard refid="oasis-uddi-v2.xsd"/>
-            <refstandard refid="oasis-replication-v2"/>
-            <refstandard refid="oasis-uddi-v2replication.xsd"/>
-            <refstandard refid="oasis-uddi-v2custody.xsd"/>
-            <refstandard refid="oasis-operators-v2"/>
-         </parts>
-         <applicability>
-            These documents
-            <itemizedlist>
-               <listitem>
-                  <para>
-                     describe the programming interface that is exposed by all instances
-                     of the Universal Description, Discovery and Integration (UDDI)
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     outline the details of each of the XML structures associated with
-                     these messages. The UDDI Programmers API Specification defines approximately
-                     30 SOAP messages that are used to perform inquiry and publishing functions
-                     against any UDDI compliant service registry.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>describe the UDDI Data Structure Reference (preceding)</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     describe the data replication process and programmatic interface
-                     required to achieve complete data replication between UDDI Operators
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     describe the behavior and operational parameters required of the
-                     UDDI Node Operators.
-                  </para>
-               </listitem>
-            </itemizedlist>
-            registry.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.oasis-open.org/committees/uddi-spec/doc/tcspecs.htm#uddiv2</uri>
-            <history>
-               <event flag="added" date="2004-05-27" rfcp="5-26" version="0.6"/>
-               <event flag="changed" date="2010-11-03" version="5.0"/>
-            </history>
-         </status>
-         <uuid>7d8fe2af-a2f6-470d-9703-d59f39b32f9f</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-udf" tag="UDF">
-         <profilespec orgid="ipcat" title="UDF"/>
-         <parts>
-            <refstandard refid="iso-iec-13346-1"/>
-            <refstandard refid="iso-iec-13346-2"/>
-            <refstandard refid="iso-iec-13346-3"/>
-            <refstandard refid="iso-iec-13346-4"/>
-            <refstandard refid="iso-iec-13346-5"/>
-         </parts>
-         <applicability>
-            Universal Disk Format - (UDF) A CD-ROM file system standard that is required
-            for DVD ROMs. UDF is the OSTA's replacement for the ISO 9660 file system used
-            on CD-ROMs, but will be mostly used on DVD. DVD multimedia disks use UDF to
-            contain MPEG audio and video streams.
-            <para>
-               To read DVDs you need a DVD drive, the kernel driver for the drive,
-               MPEG video support, and a UDF driver. DVDs containing both UDF filesystems
-               and ISO 9660 filesystems can be read without UDF support.
-            </para>
-            <para>
-               UDF can also be used by CD-R and CD-RW recorders in packet writing mode.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.iso.org/iso/catalogue_detail.htm?csnumber=26783</uri>
-            <history>
-               <event flag="added" date="2012-09-02" rfcp="6-37" version="7.0"/>
-            </history>
-         </status>
-         <uuid>8f8caa0e-73a8-4ecf-a283-31b65dba9013</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-url" tag="URL">
-         <profilespec orgid="ipcat" title="URL"/>
-         <parts>
-            <refstandard refid="ietf-rfc1738"/>
-            <refstandard refid="ietf-rfc1808"/>
-            <refstandard refid="ietf-rfc2368"/>
-            <refstandard refid="ietf-rfc3986"/>
-         </parts>
-         <applicability>
-            The Uniform Resource Locators (URLs) of the
-            form “HTTP://[ ... ]”, relative resource pointers or
-            “MAILTO:[Email address]” the syntax and semantics of
-            formalized information for location and access of resources via
-            the Internet. The URL is used by e.g. web-browsers and the HTTP
-            protocol.
-            <para>
-               The syntax of 'mailto' URLs is extended to allow creation
-               of more RFC 2822 messages by allowing the URL to express additional
-               header and body fields.
-            </para>
-            <para>
-               RFC 3986 describes a "superset" of operations that
-               can be applied to URI. It consists of both a grammar and a
-               description of basic functionality for URI. To understand what is
-               a valid URI, both the grammar and the associated description have
-               to be studied. Some of the functionality described is not
-               applicable to all URI schemes, and some operations are only
-               possible when certain media types are retrieved using the URI,
-               regardless of the scheme used.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3986.txt</uri>
-            <history>
-               <event flag="added" date="2010-10-30" version="5.0"/>
-            </history>
-         </status>
-         <uuid>914e72eb-a3d7-4839-9f20-33f6262bc161</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-utf8" tag="UTF-8">
-         <profilespec orgid="ipcat" title="UTF-8"/>
-         <parts>
-            <refstandard refid="ietf-rfc3629"/>
-            <refstandard refid="ietf-rfc2277"/>
-         </parts>
-         <applicability>
-            RFC 2277:1998 mandates support of RFC 2279:1998 on the Internet.
-            <para>
-               UTF-8 uses all 8 bits of an octet, but has the quality of preserving the
-               full US-ASCII backward compatibility.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc3629.txt</uri>
-            <history>
-               <event flag="added" date="1998-11-06" version="0.1"/>
-               <event flag="changed" date="2001-11-21" version="0.3"/>
-               <event flag="changed" date="2003-07-31" version="0.5"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-            </history>
-         </status>
-         <uuid>ab26f943-1698-411f-b3a5-767fc1d50f9c</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-vlsm" tag="VLSM">
-         <profilespec orgid="ipcat" title="Variable Length Subnet Masking (VLSM)"/>
-         <profilenote>
-            Variable Length Subnet Masking (VLSM) (RFC 1812:1995, 2644:1999)
-         </profilenote>
-         <parts>
-            <refstandard refid="ietf-rfc1812"/>
-            <refstandard refid="ietf-rfc2644"/>
-         </parts>
-         <applicability>
-            VLSM is, in concept, a simple extension of standard subnet masking.
-            With VLSM, a number of subnet masks are defined for a single networkand used as
-            needed to create different-size subnets. A class C network might, for example,
-            be broken into subnets containing 16, 32 or 64 host addresses. To do this, the
-            creation of individual subnet masks (with different lengths) is necessary.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc2644.txt</uri>
-            <history>
-               <event flag="added" date="2002-12-03" version="0.4"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="deleted" date="2009-07-29" rfcp="3-5" version="4.0"/>
-            </history>
-         </status>
-         <uuid>4ca8ab86-1907-4edf-8c30-5e450c8a84e0</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-win32" tag="WIN32">
-         <profilespec orgid="ipcat" title="WIN32"/>
-         <profilenote>
-            WIN32. There is no other official specification Title
-            available other then WIN32. But there are two Documents available
-            for the basic description of WIN32.
-         </profilenote>
-         <parts>
-            <refstandard refid="microsoft-isbn-1-55615-804-1"/>
-            <refstandard refid="microsoft-isbn-1-55615-802-5"/>
-         </parts>
-         <applicability>
-            In contrast to standards like POSIX.1 or POSIX.2
-            WIN32 is more a complete set of API's to cover the needs of the
-            whole system and not only part of the system, like in this case
-            the Operating System. It deals with API's and KPI's for a wide
-            spectrum of functions like Object Linking and Embedding, Remote
-            Procedure Calls, Multi Media, Presentation (GUI), System Calls,
-            specialised Graphic Operations (OpenGL), System Messaging (MAPI),
-            Telephone and PEN interface API's. Also included in the full WIN32
-            functionality is a set of functions to deal with
-            Multiprocessing. If WIN32 is used natively, without the subsets,
-            it also includes parts of the POSIX.1 functionality; the part of
-            WIN32 that deals with POSIX.1 functions is ruled to be POSIX.1
-            compliant. That means that a product like Windows 2000, that is
-            built with this function, 'can' be ruled POSIX.1 compliant. This
-            'does not' mean that WIN32 is POSIX.1 compliant, but allows the
-            build up of a POSIX subsystem. To clarify this special aspect of
-            WIN32, a product, in this case Windows 2000 will be used as an
-            example. Among the requirements, met by Windows 2000, are next to
-            portability, multiple processor capability, distributability and
-            security compliance with the POSIX.1 standard, Windows 2000
-            provides only a POSIX-subsystem. Subsystems are the basic
-            architecture elements of Windows 2000. They are servers for the
-            system-calls of the application of the specific subsystem. When
-            the user starts a POSIX application, WIN32 based Windows 2000
-            initiates a new process and passes it to the POSIX-subsystem. The
-            program calls a subsystem with a 'Local Procedure Call' by means
-            of the POSIX-library - a server 'Demon' that is started up
-            together with Windows 2000. The latter translates the calls to
-            operating system access. After all an application stays caught in
-            its own world, because POSIX-applications cannot place calls to
-            the WIN32 subsystems. WIN32 offers over 1500 API's to cover all
-            the needs of application developers.
-         </applicability>
-         <status mode="accepted">
-            <info>
-               Microsoft Documents WIN32 Language Reference and WIN32
-               Programming Reference.
-            </info>
-            <history>
-               <event flag="added" date="1997-03-24" version="0.1"/>
-               <event flag="changed" date="2001-11-21" version="0.3"/>
-               <event flag="changed" date="2010-08-10" version="5.0"/>
-            </history>
-         </status>
-         <uuid>8470a33d-6bef-4c6e-b2ef-33a6854a0ba4</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-wsdm" tag="WSDM">
-         <profilespec orgid="ipcat" title="WSDM"/>
-         <parts>
-            <refstandard refid="oasis-wsdm-muws1-1.1-spec-os-01"/>
-            <refstandard refid="oasis-wsdm-muws2-1.1-spec-os-01"/>
-            <refstandard refid="oasis-wsdm-mows-1.1-spec-os-01"/>
-         </parts>
-         <applicability>
-            Web Services Distributed Management (WSDM) is an OASIS standard
-            that specifies infrastructure support for the integration of web service management
-            aspects across heterogeneous systems. This is done through management specific
-            messaging via web services.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://docs.oasis-open.org/wsdm/wsdm-muws1-1.1-spec-os-01.pdf</uri>
-            <history>
-               <event date="2007-02-23" flag="added" version="1.0"/>
-               <event flag="changed" date="2010-11-03" version="5.0"/>
-            </history>
-         </status>
-         <uuid>a45d3bc8-0702-405e-869a-1fb805696683</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-wss" tag="OASIS WSS 1.1">
-         <profilespec orgid="ipcat" title="Web Services Security 1.1"/>
-         <parts>
-            <refstandard refid="oasis-wss-v1.1-spec-os-soapmessagesecurity"/>
-            <refstandard refid="oasis-wss-username-token-profile-1.0"/>
-            <refstandard refid="oasis-wss-x.509-certificate-token-profile-1.0"/>
-         </parts>
-         <applicability>
-            The following documents make up the WS-Security 1.1 OASIS standard.
-            <itemizedlist>
-               <listitem>
-                  <para>WS-Security Core Specification 1.1</para>
-               </listitem>
-               <listitem>
-                  <para>Username Token Profile 1.1</para>
-               </listitem>
-               <listitem>
-                  <para>X.509 Token Profile 1.1</para>
-               </listitem>
-               <listitem>
-                  <para>SAML Token profile 1.1</para>
-               </listitem>
-               <listitem>
-                  <para>Kerberos Token Profile 1.1</para>
-               </listitem>
-               <listitem>
-                  <para>Rights Expression Language (REL) Token Profile 1.1</para>
-               </listitem>
-               <listitem>
-                  <para>SOAP with Attachments (SWA) Profile 1.1</para>
-               </listitem>
-            </itemizedlist>
-            <para>
-               The last four ones are out of scope for NATO purposes.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wss</uri>
-            <history>
-               <event flag="added" date="2004-05-25" rfcp="5-19" version="0.6"/>
-               <event flag="changed" date="2010-11-04" version="5.0"/>
-               <event flag="changed" date="2011-10-16" rfcp="5-63" version="6.0"/>
-               <event flag="changed" date="2012-09-04" rfcp="6-60" version="7.0"/>
-            </history>
-         </status>
-         <uuid>09a00322-cf3c-4094-95ae-f0fe425315f8</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-xacml2.0" tag="XACML 2.0">
-         <profilespec orgid="ipcat"
-                      title="eXtensible Access Control Markup Language (XACML) Version 2.0"/>
-         <parts>
-            <refstandard refid="oasis-xacml-2.0-core-spec-os"/>
-            <refstandard refid="oasis-xacml-2.0-rbac-profile1-spec-os"/>
-            <refstandard refid="oasis-xacml-2.0-hier-profile-spec-os"/>
-            <refstandard refid="oasis-xacml-2.0-mult-profile-spec-os"/>
-            <refstandard refid="oasis-xacml-2.0-privacy-profile-spec-os"/>
-            <refstandard refid="oasis-xacml-2.0-saml-profile-spec-os"/>
-            <refstandard refid="oasis-xacml-2.0-dsig-profile-spec-os"/>
-         </parts>
-         <applicability>
-            The security policy of a large enterprise has many elements and many
-            points of enforcement. Elements of policy may be managed by the Information Systems
-            department, by Human Resources, by the Legal department and by the Finance department.
-            And the policy may be enforced by the extranet, mail, WAN and remote-access systems;
-            platforms which inherently implement a permissive security policy. The current
-            practice is to manage the configuration of each point of enforcement independently
-            in order to implement the security policy as accurately as possible. Consequently,
-            it is an expensive and unreliable proposition to modify the security policy.
-            And, it is virtually impossible to obtain a consolidated view of the safeguards
-            in effect throughout the enterprise to enforce the policy. At the same time,
-            there is increasing pressure on corporate and government executives from consumers,
-            shareholders and regulators to demonstrate "best practice" in the protection of
-            the information assets of the enterprise and its customers. For these reasons,
-            there is a pressing need for a common language for expressing security policy.
-            If implemented throughout an enterprise, a common policy language allows the
-            enterprise to manage the enforcement of all the elements of its security policy
-            in all the components of its information systems. Managing security policy may
-            include some or all of the following steps: writing, reviewing, testing, approving,
-            issuing, combining, analyzing, modifying, withdrawing, retrieving and enforcing
-            policy. XML is a natural choice as the basis for the common security-policy language,
-            due to the ease with which its syntax and semantics can be extended to accommodate
-            the unique requirements of this application, and the widespread support that it
-            enjoys from all the main platform and tool vendors.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://docs.oasis-open.org/xacml/2.0/</uri>
-            <history>
-               <event flag="added" date="2008-10-14" rfcp="2-7" version="3.0"/>
-            </history>
-         </status>
-         <uuid>f4310b40-19a8-4b8a-9389-de54a16622ed</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-xmpp-amn" tag="XMPP-AMN">
-         <profilespec orgid="ipcat" title="XMPP-AMN"/>
-         <parts>
-            <refstandard refid="ietf-rfc6120"/>
-            <refstandard refid="ietf-rfc6121"/>
-            <refstandard refid="xmpp-xep-0004"/>
-            <refstandard refid="xmpp-xep-0012"/>
-            <refstandard refid="xmpp-xep-0013"/>
-            <refstandard refid="xmpp-xep-0030"/>
-            <refstandard refid="xmpp-xep-0045"/>
-            <refstandard refid="xmpp-xep-0060"/>
-            <refstandard refid="xmpp-xep-0079"/>
-            <refstandard refid="xmpp-xep-0082"/>
-            <refstandard refid="xmpp-xep-0128"/>
-            <refstandard refid="xmpp-xep-0198"/>
-            <refstandard refid="xmpp-xep-0202"/>
-         </parts>
-         <applicability>
-            This standard defines the features of the Extensible Messaging and
-            Presence Protocol (XMPP), a protocol for streaming Extensible Markup Language (XML)
-            elements in order to exchange structured information in close to real time
-            between any two network endpoints. While XMPP provides a generalized, extensible
-            framework for exchanging XML data, it is used mainly for the purpose of building
-            instant messaging and presence applications that meet the requirements of RFC 2779.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc6120.txt</uri>
-            <history>
-               <event flag="added" date="2007-02-14" rfcp="7-5" version="1.0"/>
-               <event flag="added" date="2007-07-27" version="2.0"/>
-               <event flag="changed" date="2013-10-22" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>5ac9f8c1-1e45-4542-826b-20e1cc26228b</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-xmpp-fmn" tag="XMPP_FMN">
-         <profilespec orgid="ipcat" title="XMPP_FMN"/>
-         <parts>
-            <refstandard refid="ietf-rfc6120"/>
-            <refstandard refid="ietf-rfc6121"/>
-            <refstandard refid="xmpp-xep-0004"/>
-            <refstandard refid="xmpp-xep-0030"/>
-            <refstandard refid="xmpp-xep-0033"/>
-            <refstandard refid="xmpp-xep-0045"/>
-            <refstandard refid="xmpp-xep-0049"/>
-            <refstandard refid="xmpp-xep-0050"/>
-            <refstandard refid="xmpp-xep-0054"/>
-            <refstandard refid="xmpp-xep-0065"/>
-            <refstandard refid="xmpp-xep-0079"/>
-            <refstandard refid="xmpp-xep-0092"/>
-            <refstandard refid="xmpp-xep-0096"/>
-            <refstandard refid="xmpp-xep-0114"/>
-            <refstandard refid="xmpp-xep-0115"/>
-            <refstandard refid="xmpp-xep-0199"/>
-            <refstandard refid="xmpp-xep-0202"/>
-            <refstandard refid="xmpp-xep-0203"/>
-            <refstandard refid="xmpp-xep-0249"/>
-            <refstandard refid="xmpp-xep-0289"/>
-         </parts>
-         <applicability>
-            This standard defines the features of the Extensible Messaging and
-            Presence Protocol (XMPP), a protocol for streaming Extensible Markup Language (XML)
-            elements in order to exchange structured information in close to real time
-            between any two network endpoints. While XMPP provides a generalized, extensible
-            framework for exchanging XML data, it is used mainly for the purpose of building
-            instant messaging and presence applications that meet the requirements of RFC 2779.
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.ietf.org/rfc/rfc6120.txt</uri>
-            <history>
-               <event flag="added" date="2007-02-14" rfcp="7-5" version="1.0"/>
-               <event flag="added" date="2007-07-27" version="2.0"/>
-               <event flag="changed" date="2013-10-22" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>3313d5ab-e8f1-416f-8071-0d34fe6f55fd</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-xpointer" tag="XPointer">
-         <profilespec orgid="ipcat" title="XPointer"/>
-         <parts>
-            <refstandard refid="w3c-rec-xptr-framework-20030325"/>
-            <refstandard refid="w3c-rec-xptr-element-20030325"/>
-            <refstandard refid="w3c-rec-xptr-xmlns-20030325"/>
-         </parts>
-         <applicability>
-            This specification defines the XML Pointer Language (XPointer),
-            the language to be used as the basis for a fragment identifier for any URI
-            reference that locates a resource whose Internet media type is one of text/xml,
-            application/xml, text/xml-external-parsed-entity, or
-            application/xml-external-parsed-entity.
-            <para>
-               XPointer, which is based on the XML Path Language (XPath), supports
-               addressing into the internal structures of XML documents. It allows for
-               examination of a hierarchical document structure and choice of its internal
-               parts based on various properties, such as element types, attribute values,
-               character content, and relative position.
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.w3.org/TR/xptr-framework/</uri>
-            <history>
-               <event flag="added" date="2004-05-27" rfcp="5-24" version="0.6"/>
-            </history>
-         </status>
-         <uuid>509d6574-4956-49d5-ac0d-fd5c7c1d6639</uuid>
-      </setofstandards>
-      <setofstandards id="ipcat-xsd" tag="XSD">
-         <profilespec orgid="ipcat" title="XSD"/>
-         <profilenote>XML Schema Definition, W3C 2004</profilenote>
-         <parts>
-            <refstandard refid="w3c-rec-xmlschema-1-20041028"/>
-            <refstandard refid="w3c-rec-xmlschema-2-20041028"/>
-         </parts>
-         <applicability>
-            XSD (XML Schema Definition) specifies how to formally describe
-            the elements in an Extensible Markup Language (XML) document. This description
-            can be used to verify that each item of content in a document adheres to the
-            description of the element in which the content is to be placed.
-            <para>
-               In general, a schema is an abstract representation of an object's
-               characteristics and relationship to other objects. An XML schema represents
-               the interrelationship between the attributes and elements of an XML object
-               (for example, a document or a portion of a document). To create a schema
-               for a document, you analyze its structure, defining each structural element
-               as you encounter it. For example, within a schema for a document describing
-               a Web site, you would define a Web site element, a Web page element, and
-               other elements that describe possible content divisions within any page on
-               that site. Just as in XML and HTML, elements are defined within a set of tags
-            </para>
-         </applicability>
-         <status mode="accepted">
-            <uri>http://www.w3.org/TR/2001/REC-xmlschema-0-20010502/</uri>
-            <history>
-               <event flag="added" date="2002-10-11" version="0.4"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2011-11-25" rfcp="5-16" version="6.0"/>
-            </history>
-         </status>
-         <uuid>99d52a89-1bd2-4c6c-9e3d-76c7e313f940</uuid>
-      </setofstandards>
       <standard id="ipiwg-metadata40r3" tag="IPIWG Metasata 4.0 R3">
          <document orgid="ipiwg" pubnum="Metadata 40r3" title="Metadata Set" date="2010-11-12"/>
          <applicability>Definition of metadata for unstructured Intelligence.</applicability>
@@ -39450,7 +36400,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             its characteristics and behaviour from the user point of view.
          </applicability>
          <status mode="accepted">
-		    <uri>http://www.smadef.net/</uri>
+            <uri>http://www.smadef.net/</uri>
             <history>
                <event flag="added" date="2008-12-11" rfcp="2-23" version="3.0"/>
                <event flag="changed" date="2012-09-04" rfcp="6-59" version="7.0"/>
@@ -40220,25 +37170,6 @@ The purpose of this specification is to assure uniformity of treatment among all
          </status>
          <uuid>2cfd6856-e5e6-435e-9d4f-40f60ae65419</uuid>
       </standard>
-      <setofstandards id="nato-xml-label" tag="XML Labeling">
-         <profilespec orgid="ipcat" title="XML Labeling"/>
-         <parts>
-            <refstandard refid="ffi-2010-00961"/>
-            <refstandard refid="ffi-2010-00962"/>
-            <refstandard refid="nato-rto-mp-ist-091"/>
-            <refstandard refid="nc3a-tn-1455"/>
-            <refstandard refid="nc3a-tn-1456"/>
-         </parts>
-         <applicability>
-          Collection of standards, which forms together the NATO XML Label.
-        </applicability>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="2013-10-24" rfcp="7-27" version="8.0"/>
-            </history>
-         </status>
-         <uuid>1ca7e22e-d405-4f07-9ba5-623529794c30</uuid>
-      </setofstandards>
       <standard tag="TN-1455" id="nc3a-tn-1455">
          <document orgid="nc3a" pubnum="tn-1455" date="2011-05-01"
                    title="TN-1455 - NATO Profile for the Binding of Metadata to Data Objects, Version 1.0"
@@ -41866,7 +38797,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             <reevaluation date="3 Years"/>
          </responsibleparty>
          <status mode="accepted">
-		    <uri>https://nso.nato.int/nso/</uri>
+            <uri>https://nso.nato.int/nso/</uri>
             <history>
                <event flag="added" date="2014-05-05" version="9.0"/>
                <event flag="changed" date="2015-03-03" version="9.0"/>

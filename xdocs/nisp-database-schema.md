@@ -51,11 +51,11 @@ different parts:
 * mapping between organisation abbreviations and full names
 * mapping between responsible parties abbreviation and full names
 
-The root element of the DTD is the element `<standards>` 
+The root element of the DTD is the element `<standards>`
 and is described by:
 
 ~~~{.dtd}
-<!ELEMENT standards (revhistory?, taxonomy, lists, records, 
+<!ELEMENT standards (revhistory?, taxonomy, lists, records,
                      organisations, responsibleparties)>
 ~~~
 
@@ -108,15 +108,15 @@ parts each having a standard number, where for other standards only
 the cover standard have a number. Some standards are registered by
 multiple standard bodies. Some standards are updated, but the actual
 update are released as a separate document instead of releasing a new
-version of the standard. The same is true for setofstandards - formely called interoperabilityprofiles. So the
+version of the standard. So the
 following rules tries to accommodate all the different conventions
 used, when describing a standard or profile.
 
-All standards and profiles are contained in the `<records>` 
+All standards and profiles are contained in the `<records>`
 element.
 
 ~~~{.dtd}
-<!ELEMENT records ((standard | setofstandards | serviceprofile | capabilityprofile)*)>
+<!ELEMENT records ((standard | serviceprofile | capabilityprofile)*)>
 ~~~
 
 ### Standards
@@ -190,7 +190,7 @@ any sense and is therefore not allowed.
           refid IDREF #REQUIRED>
 ~~~
 
-Some standard organisations publish documents which are correction to 
+Some standard organisations publish documents which are correction to
 the standard.
 
 ~~~{.dtd}
@@ -201,9 +201,9 @@ the standard.
           date     CDATA #REQUIRED>
 ~~~
 
-Sometimes a standard is republished by another standard organisation. An 
+Sometimes a standard is republished by another standard organisation. An
 `<alsoknown>` element contains a description which might be
-empty. A `<alsoknown>` element must also contain a 
+empty. A `<alsoknown>` element must also contain a
 `orgid`, `pubnum` and `date`
 attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation
  Data (DTED) is also know as  ISO/IEC 8211.
@@ -339,12 +339,11 @@ means it is a randomly generated UUID.
 ### Profiles
 
 
-The are multiple profile elements, each accomodating different goals.
+The are multiple profile elements, each accommodating different goals.
 
 <ul>
   <li>capabilityprofile - Example: FMN</li>
   <li>serviceprofile - Example: Infrastructure Services</li>
-  <li>setofstandards - Example: FMN XMPP Baisic</li>
 </ul>
 
 #### Capability Profile
@@ -383,7 +382,7 @@ combined size of all the tables becomes to big.  SOMETHING MISSING HERE ???
 
 #### Service Profile
 
-A `<serviceprofile>` element represents a service, which is required by a specific capability. 
+A `<serviceprofile>` element represents a service, which is required by a specific capability.
 
 ~~~{.dtd}
 <!ELEMENT serviceprofile (profilespec, (servicegroup+ |  guidance), status, uuid?)>
@@ -400,15 +399,10 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 	  title CDATA #REQUIRED>
 ~~~
 
-#### Setofstandards Profile
+#### References
 
 
-~~~{.dtd}
-<!ELEMENT setofstandards (profilespec, profilenote?, parts, configuration?,  applicability, status, uuid?)>
-<!ATTLIST setofstandards
-          tag CDATA #REQUIRED
-          id ID #REQUIRED>
-~~~
+
 
 
 
@@ -418,10 +412,6 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 
 
 
-
-~~~{.dtd}
-<!ELEMENT parts (refstandard|refprofile)+>
-~~~
 
 
 
@@ -448,61 +438,7 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 
 
 
-A `<setofstandards>` element must contain a `<profilespec>` element and may
-contain `<profilenote>`, `<configuration>`, `<parts>`,
-`<applicability>` or `<status>` elements.
 
-A `<setofstandards>` element must contain a `tag` and an `id`
-attribute. A `type` attribute is implicit defined with one of the
-values `base`, `coi-minor` or `coi`. If the attribute has not explicit
-been defined, it will by default be initialised with the value `base`.
-Most `<profile>` elements will have an `type` attribute with the
-value `base`, which describes the a typical profile, i.e. a subset of
-a standard or a set of standards, or one of the above with a specific
-configuration.
-
-A `<setofstandards>` element which have the type attribute set to
-`coi-minor` or `coi`, and typically the responsibility of a NATO
-community of interest, such as the Afghanistan Mission Network (AMN)
-profile.
-
-~~~~~~~{.dtd}
-<!ELEMENT setofstandards (profilespec, profilenote?, parts,
-                   configuration?, applicability, 
-                   status, uuid?)>
-<!ATTLIST setofstandards
-          type (base | coi-minor | coi) "base"
-          tag CDATA #REQUIRED
-          id ID #REQUIRED>
-~~~~~~~
-
-The `<profilespec>` element describes the organisation, publication
-number, publication data and title. In profiles which not has an
-official owner the `orgid` attribute is set to *ipcat*.
-
-~~~{.dtd}
-<!ELEMENT profilespec EMPTY>
-
-<!ATTLIST profilespec
-          orgid   CDATA #IMPLIED
-          pubnum  CDATA #IMPLIED
-          date    CDATA #IMPLIED
-          title   CDATA #REQUIRED
-          version CDATA #IMPLIED>
-~~~
-
-The `<configuration>` element describes - how the 
-standards and sub-profiles should be configured. For now, it is just a text element,
-as we do not have any experience with this element yet.
-
-~~~{.dtd}
-<!ELEMENT configuration (#PCDATA)>
-~~~
-
-A `<profile>` element consists of one or more references to
-standards or other profiles. Contrary to the `<standard>`
-element, profiles can in principle use recursion  
-indefinitely.
 
 ~~~{.dtd}
 <!ELEMENT parts (refstandard|refprofile)`>
@@ -513,14 +449,7 @@ indefinitely.
           refid IDREF #REQUIRED>
 ~~~
 
-The `<profile>` element may contain text describing the profile
-in the form of a `<profilenote>` element. This element is
-similar to the comment element used by a standard, and those elements
-might therefore be combined in the near future.
 
-~~~{.dtd}
-<!ELEMENT profilenote (#PCDATA)>
-~~~
 
 Standard Selection
 ------------------
@@ -608,7 +537,7 @@ the `<indexterm>` element.
 
 ### Mixed
 
-The `<responsibleparties>` element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpkey element might contain one or more `<pointofcontact>` elements. 
+The `<responsibleparties>` element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpkey element might contain one or more `<pointofcontact>` elements.
 
 ~~~{.dtd}
 <!ELEMENT responsibleparties (rpkey*)>
@@ -686,7 +615,3 @@ The NISP database is not 100% NAF3 compliant.
 The teminology used
 
 -->
-
-
-
-

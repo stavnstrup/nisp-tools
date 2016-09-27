@@ -20,8 +20,8 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
-            doctype-public="-//DDRE//DTDStandardDB XML V4.2//EN"
-            doctype-system="../src/schema/dtd/stddb42.dtd"/>
+            doctype-public="-//DDRE//DTDStandardDB XML V4.3//EN"
+            doctype-system="../src/schema/dtd/stddb43-draft.dtd"/>
 
 
 <xsl:strip-space elements="*"/>
@@ -33,7 +33,7 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <event>
     <xsl:apply-templates select="@*"/>
     <xsl:choose>
-<!-- 
+<!--
       <xsl:when test="@date > '2009-02-09' and @date &lt; '2010-03-27'">
         <xsl:attribute name="version">4.0</xsl:attribute>
       </xsl:when>
@@ -62,7 +62,7 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="@*|node()">
   <xsl:copy>
-    <xsl:apply-templates select="@*"/> 
+    <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
   </xsl:copy>
 </xsl:template>

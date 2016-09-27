@@ -10,23 +10,41 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
+div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
 table.sourceCode { width: 100%; line-height: 100%; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
   <link rel="stylesheet" href="../xsl/css/man.css">
 </head>
@@ -67,7 +85,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre><code>build -f uuid-build.xml</code></pre>
 <h2 id="usage-of-organisation-abbreaviations">Usage of organisation abbreaviations</h2>
 <p>Each <code>&lt;standard&gt;</code> element contains a <code>&lt;document&gt;</code> element, which describes the standard the element represents. Among the attributes is <code>orgid</code>, which should only use values from a pre-defined set of maps. This set is described in the element <code>&lt;organisations&gt;</code> and should be extended if the relevant standard organisation is not already defined. An example of such a map, is</p>
-<pre class="sourceCode dtd"><code class="sourceCode dtd">&lt;orgkey key=&quot;opengroup&quot; text=&quot;The Open Group&quot; /&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd">&lt;orgkey key=&quot;opengroup&quot; text=&quot;The Open Group&quot; /&gt;</code></pre></div>
 <h1 id="see-also">See Also</h1>
 <p><a href="" title="nisp-database-schema.html">nisp-database-schema</a></p>
 <p>The NISP sources and tools are availible in a subversion repository on TIDE at <a href="http://tide.acr.nato.int/svn/nisp/trunk" class="uri">http://tide.acr.nato.int/svn/nisp/trunk</a>.</p>
