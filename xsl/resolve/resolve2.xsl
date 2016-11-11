@@ -7,7 +7,7 @@ profiles (NISP), and is intended for resolving volume 2.
 
 Copyright (c) 2002-2015, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
-Danish Defence Research Establishment (DDRE) and 
+Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
 
 
@@ -38,11 +38,11 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:comment>
 
      DO NOT MODIFY THIS DOCUMENT. THIS IS A RESOLVED VERSION ONLY.
-     
+
   </xsl:comment>
 
   <xsl:apply-templates/>
-</xsl:template>  
+</xsl:template>
 
 <!-- ==================================================================== -->
 
@@ -63,7 +63,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:apply-templates select="$db//node[@id=$node]" mode="highlevel"/>
       </xsl:if>
     </xsl:when>
-  </xsl:choose>  
+  </xsl:choose>
 </xsl:template>
 
 <!-- ==================================================================== -->
@@ -174,22 +174,24 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="bpgroup">
-  <xsl:choose>
-    <xsl:when test="@mode='mandatory'">
-      <para><emphasis>Mandatory</emphasis></para>
-    </xsl:when>
-    <xsl:when test="@mode='emerging'">
-      <para><emphasis>Emerging</emphasis></para>
-    </xsl:when>
-    <xsl:when test="@mode='fading'">
-      <para><emphasis>Fading</emphasis></para>
-    </xsl:when>
-  </xsl:choose>
-  <itemizedlist spacing="compact">
-    <xsl:apply-templates mode="lowlevel"/>
-  </itemizedlist>
+  <xsl:if test="count(./bprefstandard)>0">
+    <xsl:choose>
+      <xsl:when test="@mode='mandatory'">
+        <para><emphasis>Mandatory</emphasis></para>
+      </xsl:when>
+      <xsl:when test="@mode='emerging'">
+        <para><emphasis>Emerging</emphasis></para>
+      </xsl:when>
+      <xsl:when test="@mode='fading'">
+        <para><emphasis>Fading</emphasis></para>
+      </xsl:when>
+    </xsl:choose>
+    <itemizedlist spacing="compact">
+      <xsl:apply-templates mode="lowlevel"/>
+    </itemizedlist>
+  </xsl:if>
 </xsl:template>
-      
+
 
 <xsl:template match="bprefstandard" mode="lowlevel">
   <xsl:variable name="curid" select="@refid"/>
@@ -203,7 +205,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
           </ulink>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="."/>          
+          <xsl:value-of select="."/>
         </xsl:otherwise>
       </xsl:choose>
       <xsl:apply-templates select="@refid" mode="addindexentry"/>
