@@ -12,7 +12,7 @@ Description : This stylesheet is a customization of Norman Walsh
 
               Copyright (C) 2001,2015 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
-              Danish Defence Research Establishment (DDRE) and 
+              Danish Defence Research Establishment (DDRE) and
               NATO Command, Control and Consultation Organisation.(NC3O)
 
 -->
@@ -74,14 +74,14 @@ Description : This stylesheet is a customization of Norman Walsh
 <xsl:param name="html.stylesheet">../css/nisp.css</xsl:param>
 
 <xsl:param name="css.decoration" select="0"/>
-	
+
 <xsl:param name="spacing.paras" select="'1'"/>
 
 <xsl:param name="generate.id.attributes" select="1"></xsl:param>
 
 <!-- Linking -->
 
-<xsl:param name="target.database.document" select="'../../src/olinks/olinksdb.xml'"/> 
+<xsl:param name="target.database.document" select="'../../src/olinks/olinksdb.xml'"/>
 
 
 <!-- Miscellaneous -->
@@ -89,7 +89,7 @@ Description : This stylesheet is a customization of Norman Walsh
 <xsl:param name="formal.title.placement">
   figure after
   table  before
-</xsl:param> 
+</xsl:param>
 
 <xsl:param name="show.comments" select="0"/>
 
@@ -179,16 +179,16 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <!-- Add text arrows to the prev and next links. Note, that we can actually
      add real graphical arrow using the navig.graphics parameters.
-     
-     This may look very weird, but what we actually do is modifying the 
-     in-memory copy of the file: "xsl/docbook-xsl/common/l10n.xml", and more 
-     precisely the subtree represented by the file: 
+
+     This may look very weird, but what we actually do is modifying the
+     in-memory copy of the file: "xsl/docbook-xsl/common/l10n.xml", and more
+     precisely the subtree represented by the file:
      xsl/docbook-xsl/common/en.xml -->
 
 <xsl:param name="local.l10n.xml" select="document('')"/>
 
 <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
-  <l:l10n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0" 
+  <l:l10n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0"
           language="en">
     <l:gentext key="nav-next" text="Next >"/>
     <l:gentext key="nav-prev" text="&lt; Prev"/>
@@ -205,10 +205,10 @@ Description : This stylesheet is a customization of Norman Walsh
 <xsl:template match="corpauthor" mode="titlepage.mode">
   <div class="{name(.)}">
     <div>AdatP-34(<xsl:value-of select="$adatp34edition"/>)</div>
-    <div><xsl:apply-templates select="..//revision[1]/revnumber" 
+    <div><xsl:apply-templates select="..//revision[1]/revnumber"
        mode="titlepage.mode"/></div>
-    <div><xsl:apply-templates 
-       select="..//revision[1]/date" 
+    <div><xsl:apply-templates
+       select="..//revision[1]/date"
        mode="titlepage.mode"/></div>
     <div><xsl:value-of select="."/></div>
   </div>
@@ -223,9 +223,9 @@ Description : This stylesheet is a customization of Norman Walsh
     <xsl:apply-templates select="../volumenum" mode="titlepage.mode"/>
   </xsl:variable>
   <div class="book-subtitle">
-     <div><xsl:if test="$volume &lt; 6">VOLUME <xsl:number 
+     <div><xsl:if test="$volume &lt; 6">VOLUME <xsl:number
        format="I" value="$volume"/></xsl:if></div>
-     <div><xsl:apply-templates 
+     <div><xsl:apply-templates
        mode="titlepage.mode"/></div>
   </div>
 </xsl:template>
@@ -249,7 +249,7 @@ Description : This stylesheet is a customization of Norman Walsh
   <p>
     <xsl:if test="$use.para.numbering != 0">
       <xsl:text></xsl:text>
-      <xsl:number from="book" 
+      <xsl:number from="book"
                  count="para[parent::chapter or
                              parent::appendix or
                              parent::sect1 or
@@ -291,7 +291,7 @@ Description : This stylesheet is a customization of Norman Walsh
           </xsl:if>
           <xsl:text>.pdf</xsl:text>
         </xsl:attribute>
-        <xsl:text>PDF of </xsl:text><xsl:value-of 
+        <xsl:text>PDF of </xsl:text><xsl:value-of
            select="$db//docinfo[@id=$docid]/titles/short"/>
       </a>
     </li>
@@ -339,7 +339,7 @@ Description : This stylesheet is a customization of Norman Walsh
 </xsl:template>
 
 
-<xsl:template match="preface|chapter|appendix" mode="navElement">     
+<xsl:template match="preface|chapter|appendix" mode="navElement">
   <!-- write index for components (chapter/appendix) -->
   <xsl:variable name="uid">
     <xsl:value-of select="generate-id(.)"/>
@@ -356,22 +356,22 @@ Description : This stylesheet is a customization of Norman Walsh
     <xsl:apply-templates select="." mode="navElementRef"/>
   </li>
 </xsl:template>
-	
+
 
 <xsl:template match="preface|chapter|appendix|sect1" mode="navElementRef">
-  <!-- Create link to component/section chunk --> 
+  <!-- Create link to component/section chunk -->
   <xsl:variable name="chunk-name">
-    <xsl:apply-templates select="." mode="chunk-filename"/> 
+    <xsl:apply-templates select="." mode="chunk-filename"/>
   </xsl:variable>
-  <a href="{$chunk-name}"><xsl:apply-templates 
+  <a href="{$chunk-name}"><xsl:apply-templates
      select="." mode="capitalize.title"/></a>
 </xsl:template>
 
 
 <xsl:template match="*" mode="capitalize.title">
     <!-- Capitalize a title -->
-    <xsl:value-of 
-       select="translate(./title[1], 
+    <xsl:value-of
+       select="translate(./title[1],
                          'abcdefghijklmnopqrstuvwxyz',
                          'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
 </xsl:template>
@@ -400,7 +400,6 @@ Description : This stylesheet is a customization of Norman Walsh
     </xsl:attribute>
   </meta>
   <meta http-equiv="Expires" content="0" />
-  <script src="../javascripts/modernizr.foundation.js" />
 </xsl:template>
 
 
@@ -434,8 +433,8 @@ Description : This stylesheet is a customization of Norman Walsh
 <!-- ....................................................................
 
      Source: xhtml/chunk-common.xsl, v 1.xx - DocBook XSL 1.66.1
-     
-     Descr.: 
+
+     Descr.:
 
      .................................................................... -->
 
@@ -485,9 +484,6 @@ Description : This stylesheet is a customization of Norman Walsh
         </div>
       </div>
       <xsl:call-template name="nisp.footer"/>
-      <script src="../javascripts/jquery.js"/>
-      <script src="../javascripts/foundation.min.js"/>
-      <script src="../javascripts/app.js"/>
     </body>
   </html>
 </xsl:template>
@@ -524,10 +520,10 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <!-- =================================================================== -->
 
-<!-- Simpliefied template originally taken from 
+<!-- Simpliefied template originally taken from
      xhtml/chunker.xsl (1.77.1) Id 9147 2011-11-12 00:05:44Z bobstayton
 
-     We have extracted the part of the template, which generates saxon output and with empty 
+     We have extracted the part of the template, which generates saxon output and with empty
      doctype declaration and empty media-type and finaly extended the saxon:output element with
      a saxon:next-in-chain attribute.
 -->

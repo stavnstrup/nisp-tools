@@ -4,7 +4,7 @@
                 extension-element-prefixes="saxon"
                 version='1.1'>
 
-<!-- 
+<!--
 
 Name        : acronyms.xsl
 
@@ -61,8 +61,8 @@ Description : This stylesheet is created for the NATO Interoperability
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
-          <xsl:value-of select="$navletter"/>        
-        </a>        
+          <xsl:value-of select="$navletter"/>
+        </a>
       </xsl:otherwise>
     </xsl:choose>
   </dd>
@@ -91,7 +91,6 @@ Description : This stylesheet is created for the NATO Interoperability
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       <title>NC3 Acronyms</title>
       <link rel="stylesheet" href="../css/nisp.css" type="text/css" media="all" />
-      <script src="../javascripts/modernizr.foundation.js" />
       <meta name="author" content="Interoperability Capability Team (IP CaT)" />
     </head>
     <body>
@@ -105,7 +104,7 @@ Description : This stylesheet is created for the NATO Interoperability
               <xsl:with-param name="letter" select="$letter"/>
             </xsl:apply-templates>
           </dl>
-  
+
           <table id="acrotable" border="0">
             <tr>
               <td width="23%"><b>Acronyms</b></td>
@@ -117,13 +116,10 @@ Description : This stylesheet is created for the NATO Interoperability
             </xsl:if>
           </table>
           <div id="acrofoot">Last Updated on <xsl:value-of select="//lastupdated"/>
-             by <xsl:value-of select="//authority"/></div>      
+             by <xsl:value-of select="//authority"/></div>
         </div>
       </div>
       <xsl:call-template name="nisp.footer"/>
-      <script src="../javascripts/jquery.js"/>
-      <script src="../javascripts/foundation.min.js"/>
-      <script src="../javascripts/app.js"/>
     </body>
     </html>
   </xsl:document>
@@ -168,7 +164,7 @@ Description : This stylesheet is created for the NATO Interoperability
       </div>
     </div>
   </body>
-  </html>  
+  </html>
 </xsl:template>
 
 </xsl:stylesheet>

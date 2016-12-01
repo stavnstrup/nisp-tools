@@ -10,7 +10,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
 
               Copyright (C) 2001, 2014 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO),
-              Danish Defence Research Establishment (DDRE) and 
+              Danish Defence Research Establishment (DDRE) and
               NATO Command, Control and Consultation Organisation.(NC3O)
 
 -->
@@ -42,7 +42,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
 </xsl:template>
- 
+
 
 
 
@@ -66,12 +66,11 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Language" content="en-uk" />
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title><xsl:value-of select="title"/></title>
     <link rel="stylesheet" href="css/nisp.css" type="text/css" media="all" />
-    <script type="text/javascript" src="javascripts/modernizr.foundation.js"></script>
-    <meta name="author" content="Interoperability Capability Team (IP CaT)" /> 
+    <meta name="author" content="Interoperability Capability Team (IP CaT)" />
   </head>
 </xsl:template>
 
@@ -87,7 +86,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
     <xsl:call-template name="create-menubar">
       <xsl:with-param name="prefix" select="''"/>
     </xsl:call-template>
-    
+
     <div class="row" id="container">
       <xsl:choose>
         <xsl:when test="@id='PDFcoverdoc'">
@@ -116,9 +115,6 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
     <xsl:call-template name="nisp.footer">
       <xsl:with-param name="prefix" select="''"/>
     </xsl:call-template>
-    <script type="text/javascript" src="javascripts/jquery.js"></script>
-    <script type="text/javascript" src="javascripts/foundation.min.js"></script>
-    <script type="text/javascript" src="javascripts/app.js"></script>
   </body>
   </html>
 </xsl:template>
@@ -146,7 +142,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
 
 <xsl:template match="@*|node()">
   <xsl:copy>
-    <xsl:apply-templates select="@*"/> 
+    <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
   </xsl:copy>
 </xsl:template>
@@ -155,4 +151,3 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
 
 
 </xsl:stylesheet>
-

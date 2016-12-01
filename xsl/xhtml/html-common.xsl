@@ -3,7 +3,7 @@
 This stylesheet is created for the NATO Interoperability Standards and
 Profiles (NISP), and contains intended for the one-page HTML version.
 
-Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2001, 2016 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -28,7 +28,7 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
   We cheat a little by overriding corpauthor and subtitle.
 
-  A standard titlepage also prints, pubdate and revisionhistory - get rid 
+  A standard titlepage also prints, pubdate and revisionhistory - get rid
   of those.
 
 -->
@@ -39,10 +39,10 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:template match="corpauthor" mode="titlepage.mode">
-  <div class="{name(.)}">Version <xsl:apply-templates select="..//revision[1]/revnumber" 
-             mode="titlepage.mode"/> [<xsl:apply-templates 
-             select="..//revision[1]/date" 
-             mode="titlepage.mode"/>] - <xsl:apply-templates 
+  <div class="{name(.)}">Version <xsl:apply-templates select="..//revision[1]/revnumber"
+             mode="titlepage.mode"/> [<xsl:apply-templates
+             select="..//revision[1]/date"
+             mode="titlepage.mode"/>] - <xsl:apply-templates
              mode="titlepage.mode"/>
   </div>
 </xsl:template>
@@ -54,8 +54,8 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:variable name="volume">
     <xsl:apply-templates select="../volumenum" mode="titlepage.mode"/>
   </xsl:variable>
-  <div class="book-subtitle"><xsl:if test="$volume &lt; 5">VOLUME <xsl:number 
-       format="I" value="$volume"/> - </xsl:if><xsl:apply-templates 
+  <div class="book-subtitle"><xsl:if test="$volume &lt; 5">VOLUME <xsl:number
+       format="I" value="$volume"/> - </xsl:if><xsl:apply-templates
        mode="titlepage.mode"/>
   </div>
 </xsl:template>
@@ -73,7 +73,7 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
                      |sect5/para">
   <p>
     <xsl:if test="$use.para.numbering != 0">
-      <xsl:number from="book" 
+      <xsl:number from="book"
                  count="para[parent::chapter or
                              parent::appendix or
                              parent::sect1 or
@@ -155,25 +155,25 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </div>
     </div>
   </div>
-</xsl:template>  
+</xsl:template>
 
 
 <xsl:template name="nisp.footer">
   <xsl:param name="prefix" select="'../'"/>
 
-  <footer xmlns="http://www.w3.org/1999/xhtml"> 
+  <footer xmlns="http://www.w3.org/1999/xhtml">
     <div class="row">
       <div class="twelve columns centered">
         <div class="footernav">
-          <a href="{$prefix}index.html">Home</a> | 
-          <a href="{$prefix}userinfo.html">User Information</a> | 
+          <a href="{$prefix}index.html">Home</a> |
+          <a href="{$prefix}userinfo.html">User Information</a> |
           <a href="{$prefix}introduction.html">Introduction</a> |
           <a href="{$prefix}acronyms/index.html">Acronyms</a> |
           <a href="{$prefix}PDFcoverdoc.html">Get NISP in PDF</a> |
           <a href="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP2/">Search NISP DB</a>
         </div>
       </div>
-    </div>  
+    </div>
     <div class="row">
       <div class="twelve columns">
         <div class="copyright">
@@ -190,11 +190,11 @@ Copyright (c) 2001, 2013 Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <xsl:choose>
           <xsl:when test="$nisp.lifecycle.stage='draft'">DRAFT - rev. <xsl:value-of select="$describe"/></xsl:when>
           <xsl:when test="$nisp.lifecycle.stage='final'">FINAL DRAFT - rev. <xsl:value-of select="$describe"/></xsl:when>
-	</xsl:choose>
+	      </xsl:choose>
       </div>
     </xsl:if>
   </footer>
 </xsl:template>
 
- 
+
 </xsl:stylesheet>
