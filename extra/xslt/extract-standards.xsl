@@ -30,7 +30,7 @@
                                          xsd xsi xdt xs"
                 version="2.0">
 
-<!-- 
+<!--
 
 Generate standard elements from data taken from an content.xml file in
 an Open Office document, with the follwing rows:
@@ -57,8 +57,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:output indent="yes"/>
 
-<xsl:variable name="next.version" select="'9.0'"/>
-<xsl:variable name="rfcp.no" select="'8-5'"/>
+<xsl:variable name="next.version" select="'10.0'"/>
 
 <xsl:variable name="col.org" select="1"/>
 <xsl:variable name="col.pubnum" select="2"/>
@@ -67,6 +66,8 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:variable name="col.applicability" select="5"/>
 <xsl:variable name="col.uri" select="6"/>
 <xsl:variable name="col.tag" select="7"/>
+<xsl:variable name="col.rfcp" select="8"/>
+<xsl:variable name="col.responsible-party" select="9"/>
 
 <!-- Get current date & time adjusted to UTC -->
 
@@ -98,9 +99,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="table:table-row[position()=1]"/>
 
-
 <xsl:template match="table:table-row[table:table-cell[position()=1]='']"/>
-
 
 <xsl:template match="table:table-row">
   <standard>
@@ -110,7 +109,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:value-of select="lower-case(table:table-cell[position()=$col.pubnum])"/>
     </xsl:attribute>
     <xsl:attribute name="tag">
-      <xsl:value-of select="table:table-cell[position()=$col.tag]"/>      
+      <xsl:value-of select="table:table-cell[position()=$col.tag]"/>
     </xsl:attribute>
     <document>
       <xsl:attribute name="orgid">
@@ -127,13 +126,22 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:attribute>
     </document>
     <applicability><xsl:value-of select="table:table-cell[position()=$col.applicability]/text:p"/></applicability>
+    <responsibleparty>
+      <xsl:attribute name="rpref">
+        <xsl:value-of select="table:table-cell[position()=$col.responsible-party]/text:p"/>
+      </xsl:attribute>
+    </responsibleparty>
     <status mode="accepted">
       <uri><xsl:value-of select="table:table-cell[position()=$col.uri]/text:p"/></uri>
       <history>
-        <event date="{substring($now, 1, 10)}" flag="added" rfcp="{$rfcp.no}" version="{$next.version}"/>
+        <event date="{substring($now, 1, 10)}" flag="added"  version="{$next.version}">
+          <xsl:attribute name="rfcp">
+            <xsl:value-of select="table:table-cell[position()=$col.rfcp]/text:p"/>
+          </xsl:attribute>
+        </event>
       </history>
     </status>
-  </standard> 
+  </standard>
 <xsl:text>
 
 </xsl:text>
