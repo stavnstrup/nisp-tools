@@ -13,8 +13,8 @@
     <volumenum>1</volumenum>
     <revhistory>
       <revision>
-        <revnumber>9.7</revnumber>
-        <date>10 December 2016</date>
+        <revnumber>9.8</revnumber>
+        <date>12 December 2016</date>
       </revision>
     </revhistory>
     <keywordset>
@@ -170,8 +170,9 @@ Note: A service interoperability point serves as the focal point for service int
 <title>Creating relationships to other concepts and planning objects within NATO</title>
 <para>Different initiatives and organisations have developed new concepts to govern developments in the interoperability domain. These concepts have logical relationship to the NISP.</para>
 <sect2 id="v1s-ABB">
-<title>Architecture Building Blocks</title>
-<para>TBD</para>
+<title>Architecture Building Block</title>
+<para>A constituent of the architecture model that describes a single aspect of the overall model
+<footnote><para>TOGAF 9.1 Specification</para></footnote>.</para>
 </sect2>
 <sect2 id="v1s-FMNspirals">
 <title>FMN Spiral Specifications</title>
@@ -242,18 +243,47 @@ The Mandatory and Candidate FMN Spiral Profiles are listed in the NISP Volumes 2
 </row>
 <row>
 <entry><para>NATO Defence Planning Process (NDPP)</para></entry>
-<entry><para>TBD</para></entry>
+<entry><para> </para></entry>
 <entry><para>https://tide.act.nato.int/tidepedia/index.php/NATO_Defence_Planning_Process_(NDPP)</para></entry>
 </row>
 </tbody>
 </tgroup>
 </table>
 </para>
-    <para>The NATO Defence Planning Process (NDPP) is the primary means to identify the required capabilities and promote their timely and coherent development and acquisition by Allies and Partners. It is operationally driven and delivers various products which could support the development and evolution of more detailed C3 architecture and interoperability requirements. The development of NDPP products also benefits from input by the architecture and interoperability communities, especially the NISP, leading to a more coherent development of CIS capabilities for the Alliance.
-More specific information is in an annex.</para>
-<para>Architecture Building Blocks  (TBD) see annex</para>
+    <para>The NATO Defence Planning Process (NDPP) is the primary means to identify the required capabilities and promote their timely and coherent development and acquisition by Allies and Partners. It is operationally driven and delivers various products which could support the development and evolution of more detailed C3 architecture and interoperability requirements. The development of NDPP products also benefits from input by the architecture and interoperability communities, especially the NISP, leading to a more coherent development of CIS capabilities for the Alliance.</para>
 <para>The work on Enterprise, Capability, and programme level architecture will benefit from the NISP by selecting coherent sets of standards for profiles. </para>
 </chapter>
+
+  <chapter id="v1c-ABB">
+    <title>Architecture Building Blocks</title>
+    <sect1 id="v1c-abbc"><title>Characteristics</title>
+<para>ABBs:
+<itemizedlist>
+<listitem><para>Capture architecture requirements; e.g., business, data, application, and technology requirements</para>
+</listitem>
+<listitem><para>Direct and guide the development of Solution Building Blocks</para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+<sect1 id="v1c-abbsc"><title>Specification Content</title>
+<para>ABB specifications include the following as a minimum:
+<itemizedlist>
+<listitem><para>Fundamental functionality and attributes: semantic, unambiguous, including security capability and manageability</para>
+</listitem>
+<listitem><para>Interfaces: chosen set, supplied</para>
+</listitem>
+<listitem><para>Interoperability and relationship with other building blocks</para>
+</listitem>
+<listitem><para>Dependent building blocks with required functionality and named user interfaces</para>
+</listitem>
+<listitem><para>Map to business/organizational entities and policies</para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+</chapter>
+
 <chapter id="v1c-ConfigurationManagement">
     <title>Configuration Management</title>
    <para>The NISP is updated once a year to account for the evolution of standards and profiles. Updates to the NISP are handled through a "Requests for Change Proposal" (RFCP) process, initiated by any stakeholder or 
@@ -265,12 +295,47 @@ by specific processes for review purposes, initiated by the IP CaT. </para>
         <title>RFCP Handling Process</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="../figures/TBD.svg" />
+            <imagedata fileref="../figures/rfcp-proc.svg" />
           </imageobject>
         </mediaobject>
       </figure>
-      <para>The RFCP contains all information required for the NISP management by IP CaT; The detailed information about standard or profile is handed over as attachments to this form. The RFCP form with two examples is presented below:</para>
-<para> Include the two example here (TBD)</para>
+      <para>The RFCP contains all information required for the NISP management by IP CaT; The detailed information about standard or profile is handed over as attachments to this form. A notional RFCP form with examples is presented below:</para>
+<para><figure id="v1f6-RFCP1" float="0">
+        <title>RFCP Notional Form</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/RFCPex1.png" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+</para>
+<para><figure id="v1f6-RFCP2" float="0">
+        <title>RFCP Example 1</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/RFCPex2.png" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+</para>
+<para><figure id="v1f6-RFCP3" float="0">
+        <title>RFCP Example 2</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/RFCPex3.png" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+</para>
+<para><figure id="v1f6-RFCP4" float="0">
+        <title>RFCP Example 3</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../figures/RFCPex4.png" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+</para>
 <para>The primary point of contact for RFCP submission is the IP CaT. RFCPs may be submitted to the IP CaT via the web site or via mail to the indicated mail adress with attached standard form.</para>
 <para>Review of RFCPs will be coordinated with the responsible C3 Board substructure organizations where appropriate.</para>
 <para>The IP CaT reviews the submissions in dialog with national and international bodies. Based on that review, the RFCP will be formally processed into the next version of the NISP; or returned to the originator for further details; or rejected.</para>
