@@ -2803,21 +2803,9 @@
       </bpserviceprofile>
       <bpserviceprofile tref="ts-cs-tr-wblosst-widetrans">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="nso-stanag4606ed3">
-               Super High Frequency (SHF) Medium Data
-               Rate (MDR) Military Satellite COMmunications (MILSATCOM) jam-resistant
-               modem interoperability standards (STANAG 4606 ed.3)
-            </bprefstandard>
             <bprefstandard refid="nso-stanag4622">
                Interoperability standard for Satellite
                Broadcast Services (SBS) (Draft) (STANAG 4622 ed.1)
-            </bprefstandard>
-         </bpgroup>
-         <bpgroup mode="fading">
-            <bprefstandard refid="nso-stanag4606ed1">
-               Super High Frequency (SHF) Medium Data
-               Rate (MDR) Military Satellite COMmunications (MILSATCOM) jam-resistant
-               modem interoperability standards (STANAG 4606 ed.1:2009)
             </bprefstandard>
          </bpgroup>
       </bpserviceprofile>
@@ -2834,10 +2822,6 @@
             <bprefstandard refid="nso-stanag4205ed3">
                Technical standards for single channel
                UHF radio equipment STANAG 4205 ed.3:2005
-            </bprefstandard>
-            <bprefstandard refid="nso-stanag4231">
-               Interoperability Standard for 25 kHz UHF/
-               TDMA/DAMA terminal Waveform STANAG 4231 ed.5:2011
             </bprefstandard>
             <bprefstandard refid="nso-stanag4444ed2">STANAG 4444 ed:2:2015 (Slow hop ECCM)</bprefstandard>
             <bprefstandard refid="nso-stanag4484ed3">
@@ -38425,6 +38409,7 @@ The purpose of this specification is to assure uniformity of treatment among all
                <event flag="added" date="2002-12-03" version="0.4"/>
                <event flag="changed" date="2005-09-23" version="0.7"/>
                <event flag="changed" date="2007-08-03" version="2.0"/>
+               <event flag="deleted" date="2016-12-16" rfcp="9-16" version="10.0"/>
             </history>
          </status>
          <uuid>42a20882-6a3d-4f7b-8682-16c6dfae1fd8</uuid>
@@ -39609,6 +39594,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             <history>
                <event flag="added" date="2003-09-10" rfcp="4-9" version="0.5"/>
                <event flag="changed" date="2005-09-23" version="0.7"/>
+               <event flag="deleted" date="2016-12-16" rfcp="9-16" version="10"/>
             </history>
          </status>
          <uuid>9b53bbbc-2fdd-4f6f-9a68-db162e906e29</uuid>
@@ -39630,6 +39616,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             <history>
                <event flag="added" date="2014-05-05" version="9.0"/>
                <event flag="changed" date="2015-12-16" rfcp="8-28" version="9.0"/>
+               <event flag="deleted" date="2016-12-16" rfcp="9-16" version="10"/>
             </history>
          </status>
          <uuid>4ec0ef7f-7b56-40d1-82a1-12f384ac2eb9</uuid>
@@ -49466,8 +49453,8 @@ to help Web application authors, new elements are introduced based on research i
          </status>
       </standard>
 
-      <standard id="IETF-rfc 7208" tag="RFC 7208: SPF">
-         <document orgid="IETF" pubnum="RFC 7208"
+      <standard id="ietf-rfc7208" tag="RFC 7208: SPF">
+         <document orgid="ietf" pubnum="RFC 7208"
                    title="Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1"
                    date="2014-04-01"/>
          <applicability>Email on the Internet can be forged in a number of ways. In particular, existing protocols place no restriction on what a sending host can use as the "MAIL FROM" of a message or the domain given on the SMTP HELO/EHLO commands. This document describes version 1 of the Sender Policy Framework (SPF) protocol, whereby Administrative Management Domains (ADMDs) can explicitly authorize the hosts that are allowed to use their domain names, and a receiving host can check such authorization.</applicability>
@@ -49480,8 +49467,8 @@ to help Web application authors, new elements are introduced based on research i
          </status>
       </standard>
 
-      <standard id="IETF-rfc 7321" tag="RFC 7321: ESP/AH">
-         <document orgid="IETF" pubnum="RFC 7321"
+      <standard id="ietf-rfc7321" tag="RFC 7321: ESP/AH">
+         <document orgid="ietf" pubnum="RFC 7321"
                    title="Cryptographic Algorithm Implementation Requirements and Usage Guidance for Encapsulating Security Payload (ESP) and Authentication Header (AH)"
                    date="2014-08-01"/>
          <applicability>ESP and AH protocols make use of various cryptographic algorithms to provide confidentiality and/or data origin authentication to protected data communications in the IP Security (IPsec) architecture.  To ensure interoperability between disparate implementations, the IPsec standard specifies a set of mandatory-to-implement algorithms.</applicability>
@@ -49494,8 +49481,8 @@ to help Web application authors, new elements are introduced based on research i
          </status>
       </standard>
 
-      <standard id="IETF-rfc 7619" tag="RFC 7619: IKEv2">
-         <document orgid="IETF" pubnum="RFC 7619"
+      <standard id="ietf-rfc7619" tag="RFC 7619: IKEv2">
+         <document orgid="ietf" pubnum="RFC 7619"
                    title="The NULL Authentication Method in the Internet Key Exchange Protocol Version 2 (IKEv2)"
                    date="2015-08-01"/>
          <applicability>This document specifies the NULL Authentication method and the ID_NULL Identification Payload ID Type for Internet Key Exchange Protocol version 2 (IKEv2). This allows two IKE peers to establish single-side authenticated or mutual unauthenticated IKE sessions for those use cases where a peer is unwilling or unable to authenticate or identify itself. This ensures IKEv2 can be used for Opportunistic Security (also known as Opportunistic Encryption) to defend against Pervasive Monitoring attacks without the need to sacrifice anonymity.</applicability>
@@ -49508,8 +49495,8 @@ to help Web application authors, new elements are introduced based on research i
          </status>
       </standard>
 
-      <standard id="IETF-rfc 4253" tag="RFC 4253: SSH">
-         <document orgid="IETF" pubnum="RFC 4253"
+      <standard id="ietf-rfc4253" tag="RFC 4253: SSH">
+         <document orgid="ietf" pubnum="RFC 4253"
                    title="The Secure Shell (SSH) Transport Layer Protocol"
                    date="2006-01-01"/>
          <applicability>This document specifies an Internet standards track protocol for the Internet community, and requests discussion and suggestions for improvements. Please refer to the current edition of the "Internet Official Protocol Standards" (STD 1) for the standardization state and status of this protocol. Distribution of this memo is unlimited.</applicability>
@@ -49522,8 +49509,8 @@ to help Web application authors, new elements are introduced based on research i
          </status>
       </standard>
 
-      <standard id="IETF-rfc 2484" tag="RFC 2484: PPP LCP">
-         <document orgid="IETF" pubnum="RFC 2484"
+      <standard id="ietf-rfc2484" tag="RFC 2484: PPP LCP">
+         <document orgid="ietf" pubnum="RFC 2484"
                    title="PPP LCP Internationalization Configuration Option"
                    date="1999-01-01"/>
          <applicability> The Point-to-Point Protocol (PPP) provides a standard method for transporting multi-protocol datagrams over point-to-point links.  PPP also defines an extensible Link Control Protocol (LCP), which allows negotiation of an Authentication Protocol for authenticating its peer before allowing Network Layer protocols to transmit over the link.  Both LCP and Authentication Protocol packets may contain text which is intended to be human-readable.  This document defines an LCP configuration option for the negotiation of character set and language usage, as required by RFC 2277.</applicability>
@@ -49553,7 +49540,7 @@ to help Web application authors, new elements are introduced based on research i
       <orgkey key="bluetooth" short="Bluetooth SIG" text="Bluetooth SIG"/>
       <orgkey key="bpmi" short="BPMI" text="BPMI"/>
 
-      <orgkey key="c3b-cp1" short="C3B CaP/1" text"C3B Capability Panel 1" />
+      <orgkey key="c3b-cp1" short="C3B CaP/1" text="C3B Capability Panel 1" />
       <orgkey key="c3b-archcat" short="C3B Arch iCaT" text="C3B Architecture iCaT"/>
 
       <orgkey key="capi" short="CAPI" text="CAPI"/>
@@ -49638,6 +49625,7 @@ to help Web application authors, new elements are introduced based on research i
       <orgkey key="rational" short="RATIONAL" text="Rational"/>
       <orgkey key="rss" short="RSS" text="RSS Advisory Board"/>
       <orgkey key="rsa" short="RSA" text="RSA"/>
+      <orgkey key="sip" short="SIP Forum" text="SIP Forum"/>
       <orgkey key="sun" short="SUN" text="SUN Microsystems"/>
       <orgkey key="teletrust" short="TELETRUST" text="Teletrust"/>
       <orgkey key="tm-forum" short="TM-FORUM" text="tm-forum"/>
@@ -49688,7 +49676,7 @@ to help Web application authors, new elements are introduced based on research i
       <rpkey key="fmn" short="FMN" long="Federated Mission Networking"/>
       <rpkey key="ncia" short="NCIA" long="NCI Agency"/>
       <rpkey key="c3b-archcat" short="Arch CaT" long="C3B Architecture CaT"/>
-      <rpkey key="c3b-cap4" short="CaP/4" long?"C3B CaP/4"/>
+      <rpkey key="c3b-cap4" short="CaP/4" long="C3B CaP/4"/>
 
       <rpkey key="undefined" short="Unknown"
              long="Responsible parties have not been assigned"/>
