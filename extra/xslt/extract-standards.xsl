@@ -35,7 +35,11 @@
 Generate standard elements from data taken from an content.xml file in
 an Open Office document, with the follwing rows:
 
-          org, pubnum, title, date, applicability, uri & tag
+          org, pubnum, title, date, applicability, uri, tag,
+          rfcp, responsible party, obligation and taxonomy entry
+
+The later two attributes is used to identify entries (i.e. mandatory
+and candidate standards).
 
 The spreadsheet can be created with Excell and then saved as an open
 office document.
@@ -50,7 +54,7 @@ After the standards have been imported in the database, remember to run
 
 to generate uuids.
 
-Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2014-2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -68,6 +72,8 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:variable name="col.tag" select="7"/>
 <xsl:variable name="col.rfcp" select="8"/>
 <xsl:variable name="col.responsible-party" select="9"/>
+<xsl:variable name="col.obligation" select="10"/>
+<xsl:variable name="col.taxonomy-entry" select="11"/>
 
 <!-- Get current date & time adjusted to UTC -->
 
@@ -80,6 +86,7 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:template match="office:document-content">
   <new-standards>
     <xsl:apply-templates/>
+    <xsl:apply-templates mode="obligation"/>
   </new-standards>
 </xsl:template>
 
@@ -104,9 +111,9 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:template match="table:table-row">
   <standard>
     <xsl:attribute name="id">
-      <xsl:value-of select="table:table-cell[position()=$col.org]"/>
+      <xsl:value-of select="lower-case(table:table-cell[position()=$col.org])"/>
       <xsl:text>-</xsl:text>
-      <xsl:value-of select="lower-case(table:table-cell[position()=$col.pubnum])"/>
+      <xsl:value-of select="translate(lower-case(table:table-cell[position()=$col.pubnum]),'() ','')"/>
     </xsl:attribute>
     <xsl:attribute name="tag">
       <xsl:value-of select="table:table-cell[position()=$col.tag]"/>
@@ -146,5 +153,25 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 </xsl:text>
 </xsl:template>
+
+
+<xsl:template match="table:table-row" mode="obligation">
+  <xsl:if test="not(table:table-cell[position()=$col.taxonomy-entry]/text:p='')">
+    <taxonomy-entry>
+      <xsl:attribute name="std-id">
+        <xsl:value-of select="lower-case(table:table-cell[position()=$col.org])"/>
+        <xsl:text>-</xsl:text>
+        <xsl:value-of select="translate(lower-case(table:table-cell[position()=$col.pubnum]),'() ','')"/>
+      </xsl:attribute>
+      <xsl:attribute name="entry">
+        <xsl:value-of select="table:table-cell[position()=$col.taxonomy-entry]/text:p"/>
+      </xsl:attribute>
+      <xsl:attribute name="obligation">
+        <xsl:value-of select="table:table-cell[position()=$col.obligation]/text:p"/>
+      </xsl:attribute>
+    </taxonomy-entry>
+  </xsl:if>
+</xsl:template>
+
 
 </xsl:stylesheet>
