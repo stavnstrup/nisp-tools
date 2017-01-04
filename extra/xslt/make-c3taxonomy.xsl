@@ -27,10 +27,12 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:apply-templates select="swivt:Subject[@rdf:about=concat($c3root,'Operational_Context')]">
       <xsl:with-param name="level" select="1"/>
       <xsl:with-param name="maxlevel" select="4"/>
+      <xsl:sort select="property:Order" order="ascending" data-type="number"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="swivt:Subject[@rdf:about=concat($c3root,'CIS_Capabilities')]">
       <xsl:with-param name="level" select="1"/>
       <xsl:with-param name="maxlevel" select="4"/>
+      <xsl:sort select="property:Order" order="ascending" data-type="number"/>
     </xsl:apply-templates>
   </taxonomy>
 </xsl:template>
@@ -46,6 +48,7 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:apply-templates select="/rdf:RDF/swivt:Subject[property:Is_child_of/@rdf:resource=$myname]">
         <xsl:with-param name="level" select="$level + 1"/>
         <xsl:with-param name="maxlevel" select="$maxlevel"/>
+        <xsl:sort select="property:Order" order="ascending" data-type="number"/>
       </xsl:apply-templates>
     </xsl:if>
   </node>
@@ -63,6 +66,7 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:apply-templates select="/rdf:RDF/swivt:Subject[property:Is_child_of/@rdf:resource=$myname]">
       <xsl:with-param name="level" select="$level + 1"/>
       <xsl:with-param name="maxlevel" select="7"/>
+      <xsl:sort select="property:Order" order="ascending" data-type="number"/>
     </xsl:apply-templates>
   </node>
 </xsl:template>
