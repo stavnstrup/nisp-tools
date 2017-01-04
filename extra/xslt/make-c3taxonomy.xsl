@@ -24,8 +24,13 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="rdf:RDF">
   <taxonomy>
-    <xsl:apply-templates select="swivt:Subject[property:Is_child_of/@rdf:resource=concat($c3root,'C3_Taxonomy')]">
+    <xsl:apply-templates select="swivt:Subject[@rdf:about=concat($c3root,'Operational_Context')]">
       <xsl:with-param name="level" select="1"/>
+      <xsl:with-param name="maxlevel" select="4"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="swivt:Subject[@rdf:about=concat($c3root,'CIS_Capabilities')]">
+      <xsl:with-param name="level" select="1"/>
+      <xsl:with-param name="maxlevel" select="4"/>
     </xsl:apply-templates>
   </taxonomy>
 </xsl:template>
@@ -33,18 +38,38 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="swivt:Subject">
   <xsl:param name="level"/>
+  <xsl:param name="maxlevel" select="0"/>
 
+  <xsl:variable name="myname" select="@rdf:about"/>
+  <node title="{rdfs:label}" level="{$level}" emUUID="{property:UUID}">
+    <xsl:if test="($maxlevel = 0) or ($level &lt; $maxlevel)">
+      <xsl:apply-templates select="/rdf:RDF/swivt:Subject[property:Is_child_of/@rdf:resource=$myname]">
+        <xsl:with-param name="level" select="$level + 1"/>
+        <xsl:with-param name="maxlevel" select="$maxlevel"/>
+      </xsl:apply-templates>
+    </xsl:if>
+  </node>
+</xsl:template>
+
+
+<!-- Change maxlevel for these subtrees i.e. main nodes in the Technical Service Framework -->
+<xsl:template match="swivt:Subject[rdfs:label = 'Community Of Interest (COI) Services' or
+                                   rdfs:label = 'Core Services' or
+                                   rdfs:label = 'Communications Services']">
+  <xsl:param name="level"/>
   <xsl:variable name="myname" select="@rdf:about"/>
 
   <node title="{rdfs:label}" level="{$level}" emUUID="{property:UUID}">
     <xsl:apply-templates select="/rdf:RDF/swivt:Subject[property:Is_child_of/@rdf:resource=$myname]">
       <xsl:with-param name="level" select="$level + 1"/>
+      <xsl:with-param name="maxlevel" select="7"/>
     </xsl:apply-templates>
   </node>
 </xsl:template>
 
-<!-- As of January 2, 2017 - 62 nodes in the Operational Context do not have an UUID, so for the time being,
-     we will exclude that part of the taxonomy. We btw- only need the Information Products sub tree -->
-<xsl:template match="swivt:Subject[rdfs:label = 'Operational Context']"/>
+
+<xsl:template match="swivt:Subject[rdfs:label = 'Missions and Operations'  or
+                                   rdfs:label = 'Capability Hierarchy, Codes and Statements' or
+                                   rdfs:label = 'Business Processes']"/>
 
 </xsl:stylesheet>
