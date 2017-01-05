@@ -13,6 +13,10 @@
 <!--
 
 Apply this stylesheet to the RDF dump of the C3 taxonomy to generate a NISP version of the taxonomy.
+This stylesheet will only create "level 1" nodes (i.e. nodes which are visible to the Taxonomy and
+Technical Services Taxonomy Posters.
+
+The EM-Wiki term level is not identical to the term level used in this stylesheet.
 
 Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
@@ -56,6 +60,7 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <!-- Change maxlevel for these subtrees i.e. main nodes in the Technical Service Framework -->
+
 <xsl:template match="swivt:Subject[rdfs:label = 'Community Of Interest (COI) Services' or
                                    rdfs:label = 'Core Services' or
                                    rdfs:label = 'Communications Services']">
