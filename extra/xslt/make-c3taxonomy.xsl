@@ -23,6 +23,8 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 -->
 
 <xsl:output indent="yes"/>
+<xsl:key name="parent.name" match="/rdf:RDF/swivt:Subject"
+         use="substring-after(property:Is_child_of/@rdf:resource,'http://localhost/em/index.php/Special:URIResolver/')"/>
 
 <xsl:variable name="c3root" select="'http://localhost/em/index.php/Special:URIResolver/'"/>
 
@@ -46,10 +48,10 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:param name="level"/>
   <xsl:param name="maxlevel" select="0"/>
 
-  <xsl:variable name="myname" select="@rdf:about"/>
+  <xsl:variable name="myname" select="substring-after(@rdf:about,$c3root)"/>
   <node title="{rdfs:label}" level="{$level}" emUUID="{property:UUID}">
     <xsl:if test="($maxlevel = 0) or ($level &lt; $maxlevel)">
-      <xsl:apply-templates select="/rdf:RDF/swivt:Subject[property:Is_child_of/@rdf:resource=$myname]">
+      <xsl:apply-templates select="key('parent.name',$myname)">
         <xsl:with-param name="level" select="$level + 1"/>
         <xsl:with-param name="maxlevel" select="$maxlevel"/>
         <xsl:sort select="property:Order" order="ascending" data-type="number"/>
@@ -65,10 +67,10 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
                                    rdfs:label = 'Core Services' or
                                    rdfs:label = 'Communications Services']">
   <xsl:param name="level"/>
-  <xsl:variable name="myname" select="@rdf:about"/>
 
+  <xsl:variable name="myname" select="substring-after(@rdf:about,$c3root)"/>
   <node title="{rdfs:label}" level="{$level}" emUUID="{property:UUID}">
-    <xsl:apply-templates select="/rdf:RDF/swivt:Subject[property:Is_child_of/@rdf:resource=$myname]">
+    <xsl:apply-templates select="key('parent.name',$myname)">
       <xsl:with-param name="level" select="$level + 1"/>
       <xsl:with-param name="maxlevel" select="7"/>
       <xsl:sort select="property:Order" order="ascending" data-type="number"/>
