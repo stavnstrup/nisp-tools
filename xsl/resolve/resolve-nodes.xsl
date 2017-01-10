@@ -182,6 +182,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:param name="obligation" select="''"/>
 
   <xsl:variable name="tref" select="@tref"/>
+
+  <xsl:if test="count(bpgroup[@mode=$obligation]/bprefstandard)>0">
   <row>
     <entry>
       <xsl:value-of select="//node[@id=$tref]/@title"/>
@@ -190,6 +192,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <xsl:apply-templates select="bpgroup[@mode=$obligation]"/>
     </entry>
   </row>
+  </xsl:if>
 </xsl:template>
 
 
