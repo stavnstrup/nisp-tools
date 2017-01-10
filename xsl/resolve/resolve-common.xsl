@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 <!--
 
 This stylesheet contains templates used by all resolver stylesheets.
 
-Copyright (c) 2003-2013, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2003-2017, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
-Danish Defence Research Establishment (DDRE) and 
+Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
 
 -->
@@ -25,9 +25,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:param name="use.show.indexterms" select="0"/>
 
-<xsl:param name="svgpdfdebug" select="0"/> 
+<xsl:param name="svgpdfdebug" select="0"/>
 
-<xsl:param name="describe" select="''"/> 
+<xsl:param name="describe" select="''"/>
 
 
 <!-- ==================================================================== -->
@@ -69,14 +69,14 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:apply-templates/>
       </xsl:when>
       <xsl:otherwise>
-        <!-- We have only one imagedata element --> 
+        <!-- We have only one imagedata element -->
 
         <!-- HTML Version -->
         <xsl:element name="imageobject">
           <xsl:attribute name="role">html</xsl:attribute>
           <xsl:element name="imagedata">
             <xsl:attribute name="fileref">
-               <xsl:value-of 
+               <xsl:value-of
                   select="substring-before(./imageobject/imagedata/@fileref,
                   '.svg')"/>
                <xsl:text>.</xsl:text>
@@ -91,7 +91,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
           <xsl:attribute name="role">fo</xsl:attribute>
           <xsl:element name="imagedata">
             <xsl:attribute name="fileref">
-               <xsl:value-of 
+               <xsl:value-of
                   select="substring-before(./imageobject/imagedata/@fileref,
                   '.svg')"/>
                <xsl:text>.svg</xsl:text>
@@ -120,23 +120,12 @@ NATO Command, Control and Consultation Organisation (NC3O).
   </xsl:variable>
   <xsl:choose>
     <xsl:when test="contains($pivalue, concat(' ', $attribute, '='))">
-      <xsl:variable name="rest" select="substring-after($pivalue, concat(' ', $attribute, '='))"/>    
+      <xsl:variable name="rest" select="substring-after($pivalue, concat(' ', $attribute, '='))"/>
       <xsl:variable name="quote" select="substring($rest, 1, 1)"/>
       <xsl:value-of select="substring-before(substring($rest,2), $quote)"/>
     </xsl:when>
-
     <xsl:otherwise>
-      <!-- not found -->
-<!--
-      <xsl:choose>
-        <xsl:when test="$attribute='area'">
-          <xsl:message terminate="yes">Servicearea id not found.</xsl:message>
-	</xsl:when>
-        <xsl:when test="$attribute='subarea'">
-	  <xsl:message terminate="yes">Subarea id not found</xsl:message>
-        </xsl:when>
-      </xsl:choose>
--->
+      <xsl:message terminate="yes">Taxonomy area not found.</xsl:message>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
@@ -150,7 +139,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:template match="@*|node()">
   <xsl:copy>
-    <xsl:apply-templates select="@*"/> 
+    <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
   </xsl:copy>
 </xsl:template>
