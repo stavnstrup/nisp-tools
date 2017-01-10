@@ -65,14 +65,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
         </xsl:call-template>
       </xsl:variable>
 
-      <xsl:message terminate="yes">
-        obligation: $obligation
-
-        node: $node
-     </xsl:message>
-
-
-
       <xsl:if test="not($node='')">
         <xsl:apply-templates select="$db//node[@id=$node]" mode="highlevel">
           <xsl:with-param name="obligation" select="$obligation"/>

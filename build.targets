@@ -132,7 +132,7 @@
    <property name="vol2.resolve.src" value="vol2-resolved.xml"/>
    <property name="vol2.pdf.file" value="NISP-Vol2-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="vol2.rtf.file" value="NISP-Vol2-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
-   <property name="xsl-resolve-vol2" value="resolve2.xsl"/>
+   <property name="xsl-resolve-vol2" value="resolve-nodes.xsl"/>
    <target name="vol2" description="* Create Volume 2 in HTML5 and PDF" depends="vol2.html, vol2.pdf"/>
    <target name="vol2.db-resolve.check">
       <uptodate property="vol2.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
@@ -221,7 +221,7 @@
    <property name="vol3.resolve.src" value="vol3-resolved.xml"/>
    <property name="vol3.pdf.file" value="NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="vol3.rtf.file" value="NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
-   <property name="xsl-resolve-vol3" value="resolve3.xsl"/>
+   <property name="xsl-resolve-vol3" value="resolve-nodes.xsl"/>
    <target name="vol3" description="* Create Volume 3 in HTML5 and PDF" depends="vol3.html, vol3.pdf"/>
    <target name="vol3.db-resolve.check">
       <uptodate property="vol3.db-resolve.notRequired" targetfile="${build.resolve}/resolved-standards.xml">
