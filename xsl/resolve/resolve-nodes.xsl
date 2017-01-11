@@ -213,11 +213,15 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <xsl:choose>
         <xsl:when test="$record/status/uri != ''">
 	        <ulink url="{$record/status/uri}">
-            <xsl:value-of select="."/>
+            <xsl:call-template name="display-standard">
+              <xsl:with-param name="std" select="$record"/>
+            </xsl:call-template>
           </ulink>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="."/>
+          <xsl:call-template name="display-standard">
+            <xsl:with-param name="std" select="$record"/>
+          </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
       <xsl:apply-templates select="@refid" mode="addindexentry"/>
@@ -225,6 +229,30 @@ NATO Command, Control and Consultation Organisation (NC3O).
   </listitem>
 </xsl:template>
 
+<xsl:template name="display-standard">
+  <xsl:param name="std"/>
+
+  <xsl:variable name="myorgid" select="$std/document/@orgid"/>
+
+  <xsl:value-of select="$std/document/@title"/>
+  <xsl:if test="$std/document/@orgid or $std/document/@pubnum or $std/document/@date">
+    <xsl:text> (</xsl:text>
+    <xsl:if test="$std/document/@orgid">
+      <xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/>
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:if test="$std/document/@pubnum">
+      <xsl:value-of select="$std/document/@pubnum"/>
+    </xsl:if>
+    <xsl:if test="($std/document/@orgid or $std/document/@pubnum) and $std/document/@date">
+      <xsl:text>:</xsl:text>
+    </xsl:if>
+    <xsl:if test="$std/document/@date">
+      <xsl:value-of select="substring($std/document/@date,1,4)"/>
+    </xsl:if>
+    <xsl:text>)</xsl:text>
+  </xsl:if>
+</xsl:template>
 
 <!-- ==================================================================== -->
 
