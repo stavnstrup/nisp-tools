@@ -11,17 +11,25 @@
 
 Sort standard and profiles by id.
 
-Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2014, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
 
 <xsl:template match="records">
   <records>
-    <xsl:apply-templates select="standard|setofstandards|serviceprofile|profile|capabilityprofile">
+    <xsl:apply-templates select="standard|serviceprofile|profile|capabilityprofile">
        <xsl:sort select="@id"/>
     </xsl:apply-templates>
   </records>
+</xsl:template>
+
+<xsl:template match="bestpracticeprofile">
+  <bestpracticeprofile>
+    <xsl:apply-templates>
+      <xsl:sort select="@genTitle"/>
+    </xsl:apply-templates>
+  </bestpracticeprofile>
 </xsl:template>
 
 <xsl:template match="@*|node()">
