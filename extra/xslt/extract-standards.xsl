@@ -105,8 +105,10 @@ Copyright (c) 2014-2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:template match="table:table-row[position()=1]"/>
+<xsl:template match="table:table-row[position()=1]" mode="obligation"/>
 
 <xsl:template match="table:table-row[table:table-cell[position()=1]='']"/>
+<xsl:template match="table:table-row[table:table-cell[position()=1]='']" mode="obligation"/>
 
 <xsl:template match="table:table-row">
   <standard>
