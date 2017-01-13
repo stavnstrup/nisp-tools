@@ -12,6 +12,7 @@
   <xsl:variable name="empty.pubnum" select="count(//document[@pubnum=''])"/>
   <xsl:variable name="empty.date" select="count(//document[@date=''])"/>
   <xsl:variable name="empty.uri" select="count(//standard)-count(//status/uri)"/>
+  <xsl:variable name="empty.applicability" select="count(//applicability[not(string(.))])"/>
 
   <xsl:if test="$empty.tag">
     <xsl:message>
@@ -48,17 +49,24 @@
       <xsl:text> empty uris</xsl:text>
     </xsl:message>
   </xsl:if>
-  
+  <xsl:if test="$empty.applicability">
+    <xsl:message>
+      <xsl:text>Warning: </xsl:text>
+      <xsl:value-of select="$empty.applicability"/>
+      <xsl:text> empty applicability elements</xsl:text>
+    </xsl:message>
+  </xsl:if>
+
 
   <xsl:if test="$empty.tag + $empty.orgid + $empty.pubnum + $empty.date > 0">
     <xsl:message>Run the command "build debug" for additional information</xsl:message>
   </xsl:if>
 
 
-  
+
     <!--
 	count(//serviceprofile[not(uuid) or uuid = '']) +
-    -->    
+    -->
 
   <xsl:variable name="standards.wo.uuid" select="count(//standard[not(uuid) or uuid = ''])"/>
   <xsl:variable name="profiles.wo.uuid" select="count(//capabilityprofile[not(uuid) or uuid = '']) +
