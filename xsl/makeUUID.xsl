@@ -13,7 +13,7 @@ Description : This stylesheet creates an UUID element in all standards
               the standard is not done manually, but by creating a new
               standard/profile record.
 
-              Copyright (C) 2013-2015 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
+              Copyright (C) 2013-2017 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Acquisition and Logistic Organisation (DALO).
 -->
 
@@ -25,21 +25,9 @@ Description : This stylesheet creates an UUID element in all standards
             doctype-system="../schema/dtd/stddb43-draft.dtd"/>
 
 
-
 <xsl:strip-space elements="*"/>
 
-<xsl:template match="sp-list">
-  <sp-list>
-    <xsl:apply-templates select="@*"/>
-    <xsl:apply-templates/>
-  </sp-list>
-  <xsl:text>&#x0a;</xsl:text>
-</xsl:template>
-
-<xsl:template match="standard|setofstandards|capabilityprofile">
-<!--
-      <xsl:template match="standard|setofstandards|serviceprofile|profile|capabilityprofile">
--->
+<xsl:template match="standard|capabilityprofile">
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
@@ -74,6 +62,5 @@ Description : This stylesheet creates an UUID element in all standards
     <xsl:apply-templates/>
   </xsl:copy>
 </xsl:template>
-
 
 </xsl:stylesheet>
