@@ -235,19 +235,19 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="myorgid" select="$std/document/@orgid"/>
 
   <xsl:value-of select="$std/document/@title"/>
-  <xsl:if test="$std/document/@orgid or $std/document/@pubnum or $std/document/@date">
+  <xsl:if test="$std/document/@orgid != '' or $std/document/@pubnum !='' or $std/document/@date != ''">
     <xsl:text> (</xsl:text>
-    <xsl:if test="$std/document/@orgid">
+    <xsl:if test="$std/document/@orgid != ''">
       <xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/>
       <xsl:text> </xsl:text>
     </xsl:if>
-    <xsl:if test="$std/document/@pubnum">
+    <xsl:if test="$std/document/@pubnum !=''">
       <xsl:value-of select="$std/document/@pubnum"/>
     </xsl:if>
-    <xsl:if test="($std/document/@orgid or $std/document/@pubnum) and $std/document/@date">
+    <xsl:if test="($std/document/@orgid !='' or $std/document/@pubnum !='') and $std/document/@date !=''">
       <xsl:text>:</xsl:text>
     </xsl:if>
-    <xsl:if test="$std/document/@date">
+    <xsl:if test="$std/document/@date !=''">
       <xsl:value-of select="substring($std/document/@date,1,4)"/>
     </xsl:if>
     <xsl:text>)</xsl:text>
