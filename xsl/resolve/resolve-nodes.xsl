@@ -181,26 +181,24 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="bpserviceprofile" mode="lowlevel">
   <xsl:param name="obligation" select="''"/>
 
-  <xsl:variable name="tref" select="@tref"/>
-
-  <xsl:if test="count(bpgroup[@mode=$obligation]/bprefstandard)>0">
-  <row>
-    <entry>
-      <xsl:value-of select="//node[@id=$tref]/@title"/>
-    </entry>
-    <entry>
-      <xsl:apply-templates select="bpgroup[@mode=$obligation]"/>
-    </entry>
-  </row>
-  </xsl:if>
+  <xsl:apply-templates select="bpgroup[@mode=$obligation]" mode="lowlevel"/>
 </xsl:template>
 
 
-<xsl:template match="bpgroup">
-  <xsl:if test="count(./bprefstandard)>0">
-    <itemizedlist spacing="compact">
-      <xsl:apply-templates mode="lowlevel"/>
-    </itemizedlist>
+<xsl:template match="bpgroup" mode="lowlevel">
+  <xsl:variable name="tref" select="../@tref"/>
+
+  <xsl:if test="count(bprefstandard)>0">
+    <row>
+      <entry>
+        <xsl:value-of select="//node[@id=$tref]/@title"/>
+      </entry>
+      <entry>
+        <itemizedlist spacing="compact">
+          <xsl:apply-templates mode="lowlevel"/>
+        </itemizedlist>
+      </entry>
+    </row>
   </xsl:if>
 </xsl:template>
 
