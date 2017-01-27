@@ -13,7 +13,7 @@
       class="pubnumber">ADatP-34</biblioid>
     <revhistory>
       <revision>
-        <revnumber>9.15</revnumber>
+        <revnumber>9.16</revnumber>
         <date>26 January 2017</date>
       </revision>
     </revhistory>
@@ -25,14 +25,22 @@
  *****************************************************************
 -->
   <chapter
-    id="v3c1-candidates">
-    <title>Candidate Emerging Standards and Profiles</title>
-    <sect1
-      id="v3c1-standards">
-      <title>Standards</title>
-
-      <para>Emerging Standards</para>
-
+    id="v3c1-standards">
+    <title>Standards</title>
+    <sect1>
+      <title>Introduction</title>
+      <para>This purpose of this chapter is to specify the candidate NISP standards. The document organizes these standards, following  baseline 2.0 NATO's C3 Taxonomy, as endorsed by the NATO C3 Board per AC/322-N(2016)0021-AS1 on 11 February 2016. A graphical representation of this taxonomy is included in volume 1.</para>
+      <para>For some standards it was not clear yet which service identified in the C3 Taxonomy should be used. Therefore, as an interim solution, the taxonomy was extended with user-defined "Cloud Services". In a separate section, all standards are listed for which could not yet be defined how they should be linked to the C3 Taxonomy.</para>
+<para>The standards are presented in tabular form. The left column of the table corresponds to a service in the C3 Taxonomy. The section headers correspond to a service at a higher (or the same) level. In general, a service is only listed if at least one standard is assigned to this service.</para>
+      <sect2 id="v2s2-rel">
+        <title>Releasability Statement</title>
+        <para>In principle, NISP only contains or references standards or related documents, which are
+          generally available for NATO/NATO member nations/CCEB.</para>
+       </sect2>
+    </sect1>
+    <sect1>
+      <title>Operational Capabilities</title>
+      <para condition="ignore" />
       <sect2>
         <title>Business Processes</title>
         <para condition="ignore" />
@@ -43,36 +51,51 @@
         <para condition="ignore" />
         <?dbmerge node="T-067fc1be-b7a7-471d-bef4-a42f91ac95b8-X" obligation="emerging"?>
       </sect2>
+    </sect1>
 
-       <!-- Service Area Table: Technical Services -->
-       <sect2>
-         <title>Community Of Interest (COI) Services</title>
-         <para condition="ignore" />
-         <?dbmerge node="T-c4eea9ff-c404-4ae6-9f02-a12826657675-X" obligation="emerging"?>
-       </sect2>
-       <sect2>
-         <title>Core Services</title>
-         <para condition="ignore" />
-         <?dbmerge node="T-3567de6b-7a0a-47c9-bc7f-18d7904c5df6-X" obligation="emerging"?>
-       </sect2>
-       <sect2>
-         <title>Communications Services</title>
-         <para condition="ignore" />
-         <?dbmerge node="T-2c978bbc-f422-42e8-83e6-105a6bdb1e54-X" obligation="emerging"?>
-       </sect2>
-        <sect2>
-         <title>Cloud Services</title>
-         <para condition="ignore" />
-         <?dbmerge node="user.cloud" obligation="mandatory"?>
-       </sect2>
+    <sect1>
+      <title>User Applications</title>
+      <para condition="ignore" />
+      <?dbmerge node="T-cdd0fd6c-5d52-4d46-8d36-6f9c67475fcb-X" obligation="emerging"?>
+    </sect1>
+    <sect1 id="v2s1-ts">
+      <title>Technical Services</title>
+      <para>The "Technical Services" include those services required to enable "User Applications".
+        They are part of the "Back-End Capabilities" while "User Applications" are part of "User-Facing Capabilities".</para>
+      <para>According to the C3 Taxonomy, they consist of "Community Of Interest (COI) Services", "Core Services" and "Communications Services".
+        The complete collection of Technical Services is sometimes referred to as the "Technical Services Framework" (TSF) or "NNEC Services Framework" (NSF).</para>
+      <para>In addition to the "Technical Services" identified in the C3 Taxonomy, a taxonomy layer “Cloud Computing” has been added.
+        This enables a more useful categorisation of cloud-based standards (currently only included as candidate standards).</para>
 
-     </sect1>
-     <sect1>
-       <title>Un-assigned standards</title>
-       <para>The following standards have been declared candidate standards for NATO common funded systems. However, no information of how to map the standard to the C3 Taxonomy have been provided.</para> 
-       <?dbmerge node="user.undefined.taxonomynode" obligation="mandatory"?>
-     </sect1>
-</chapter>
+      <!-- Service Area Table: Technical Services -->
+      <sect2>
+        <title>Community Of Interest (COI) Services</title>
+        <para condition="ignore" />
+        <?dbmerge node="T-c4eea9ff-c404-4ae6-9f02-a12826657675-X" obligation="emerging"?>
+      </sect2>
+      <sect2>
+        <title>Core Services</title>
+        <para condition="ignore" />
+        <?dbmerge node="T-3567de6b-7a0a-47c9-bc7f-18d7904c5df6-X" obligation="emerging"?>
+      </sect2>
+      <sect2>
+        <title>Communications Services</title>
+        <para condition="ignore" />
+        <?dbmerge node="T-2c978bbc-f422-42e8-83e6-105a6bdb1e54-X" obligation="emerging"?>
+      </sect2>
+      <sect2>
+        <title>Cloud Services</title>
+        <para condition="ignore" />
+        <?dbmerge node="user.cloud" obligation="emerging"?>
+      </sect2>
+    </sect1>
+
+    <sect1>
+      <title>Un-assigned standards</title>
+      <para>The following standards have been declared candidate standards for NATO common funded systems. However, no information of how to map the standard to the C3 Taxonomy have been provided.</para> 
+      <?dbmerge node="user.undefined.taxonomynode" obligation="emerging"?>
+    </sect1>
+  </chapter>
 <index></index>
 <!--
  *****************************************************************
