@@ -3,7 +3,7 @@
 <!--
 
 This stylesheet is created for the NISP, and is
-intended to identify upcoming emerging, fading
+intended to identify upcoming candidate, fading
 standards and setofstandards.
 
 Copyright (c) 2010, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
@@ -22,7 +22,7 @@ Copyright (c) 2010, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:template match="standards">
-  <xsl:message>List all emerging and fading standards/setofstandards</xsl:message>
+  <xsl:message>List all candidate and fading standards/setofstandards</xsl:message>
   <allupcoming describe="{$describe}">
     <xsl:apply-templates select="//bpgroup[@mode != 'mandatory']/bprefstandard"/>
   </allupcoming>

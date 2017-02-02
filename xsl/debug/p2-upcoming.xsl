@@ -6,7 +6,7 @@
                 extension-element-prefixes="date"
                 version='1.1'
                 exclude-result-prefixes="#default saxon">
-  
+
 
 <xsl:output method="html" indent="yes"/>
 
@@ -30,7 +30,7 @@
 
     <h1>Emerging and fading standards and profiles in the NISP Standard Database</h1>
 
-    <p>Created on 
+    <p>Created on
     <xsl:variable name="date">
       <xsl:value-of select="date:date-time()"/>
     </xsl:variable>
@@ -43,15 +43,15 @@
     <xsl:text> - </xsl:text>
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
     <xsl:text> using rev. </xsl:text><xsl:value-of select="@describe"/></p>
-   
+
     <p>N.B. Besides being selected as mandatory a standard or profile might be other categories such as
     emerging or fasing. The date coloumn represents the last date, the status of the standard was changed.</p>
 
-    <h2>Emerging </h2>
-    <p><xsl:value-of select="count(element[@mode='emerging'])"/> emerging standards and profiles</p>
+    <h2>Candidate </h2>
+    <p><xsl:value-of select="count(element[@mode='candidate'])"/> candidate standards and profiles</p>
     <table border="1">
       <xsl:call-template name="header"/>
-      <xsl:apply-templates select="element[@mode='emerging']">
+      <xsl:apply-templates select="element[@mode='candidate']">
         <xsl:sort select="@lastchange" order="ascending"/>
       </xsl:apply-templates>
     </table>

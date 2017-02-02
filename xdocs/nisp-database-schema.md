@@ -17,7 +17,7 @@ document. The original design of the database reflected the structure
 of the list of standard and profiles described in the NC3 Technical
 Architecture version 1. In order to enable consistency across the
 different volumes, the database have been extended to be able to
-describe the selection of mandatory-, emerging- and fading standards
+describe the selection of mandatory-, candidate- and fading standards
 and profiles. This selection of standards and profiles are justified
 in the rationale statements, which are also part of the
 database. Recently the database have been reorganised to reflect
@@ -420,7 +420,7 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 <!ATTLIST refstandard
           refid IDREF #REQUIRED
 	  obligation (mandatory|recommended|optional) "mandatory"
-	  lcstage (emerging|current|fading|retired) "current"
+	  lcstage (candidate|current|fading|retired) "current"
 	  lctime CDATA #IMPLIED
 	  condition CDATA #IMPLIED>
 ~~~
@@ -431,7 +431,7 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 <!ATTLIST refprofile
           refid IDREF #REQUIRED
 	  obligation (mandatory | recommended | optional) "mandatory"
-	  lcstage (emerging | current | fading | retired) "current"
+	  lcstage (candidate | current | fading | retired) "current"
 	  lctime CDATA #IMPLIED
 	  condition CDATA #IMPLIED>
 ~~~
@@ -454,7 +454,7 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 Standard Selection
 ------------------
 
-In NISP volume 2, all mandatory and emerging standards are listed. The
+In NISP volume 2, all mandatory and candidate standards are listed. The
 selection mechanism of standards is described in the `<list>`
 element. The `<list>` element consists of zero or more
 `<sp-list>` elements.
@@ -495,7 +495,7 @@ The `<select>` element describe the standard or profile, which
 is selected in NISP. The content of the element is a a text describing
 the standards or profile. The mandatory `mode` attribute describes the
 status and can be chosen from on of the following self explaining
-values: `unknown`, `mandatory`, `emerging`, `midterm`, `farterm` or
+values: `unknown`, `mandatory`, `candidate`, `midterm`, `farterm` or
 `fading`. N.B. the value `unknown` should only be used temporary.
 
 The `id` attribute is also required and is a reference to the actual
@@ -512,7 +512,7 @@ of a `<standard>` or a `<profile>` element.
 
 <!ATTLIST select
           id IDREF #REQUIRED
-          mode (unknown|mandatory|emerging|midterm|
+          mode (unknown|mandatory|candidate|midterm|
                 farterm|fading) #REQUIRED>
 ~~~
 

@@ -15,7 +15,7 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
                 extension-element-prefixes="date"
                 version='1.1'
                 exclude-result-prefixes="#default saxon">
-  
+
 <xsl:output method="html" indent="yes"/>
 
 <xsl:param name="describe" select="''"/>
@@ -41,7 +41,7 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
     <h1>Comparison of bprefstandard  statements and refered standards/profiles</h1>
 
-    <p>Created on 
+    <p>Created on
     <xsl:variable name="date">
       <xsl:value-of select="date:date-time()"/>
     </xsl:variable>
@@ -98,7 +98,7 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td>
       <xsl:choose>
         <xsl:when test="ancestor::bpgroup[@mode='mandatory']">M</xsl:when>
-        <xsl:when test="ancestor::bpgroup[@mode='emerging']">E</xsl:when>
+        <xsl:when test="ancestor::bpgroup[@mode='candidate']">C</xsl:when>
         <xsl:when test="ancestor::bpgroup[@mode='fading']">F</xsl:when>
       </xsl:choose>
     </td>

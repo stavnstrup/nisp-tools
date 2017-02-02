@@ -27,11 +27,11 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:strip-space elements="*"/>
-  
+
 
 
 <!-- If this param is set to one, only one headline is generated.
-     You can therefore use the import the html file in a spreadsheet program 
+     You can therefore use the import the html file in a spreadsheet program
      and use the freeze pane facility -->
 
 <xsl:param name="excelXP" select="0"/>
@@ -71,7 +71,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </xsl:variable>
 
     <table border="0"><tr><td><xsl:text>Created on </xsl:text><xsl:value-of select="$formatted-date"/><xsl:text> using rev. </xsl:text><xsl:value-of select="$describe"/></td></tr></table>
-   
+
     <h2>Statistics</h2>
 
     <table border="0">
@@ -93,20 +93,20 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::setofstandards])"/></td>
         <td align="right"><xsl:value-of select="count(.//setofstandards[status='rejected'])"/></td>
       </tr>
-<!--      
+<!--
       <tr>
         <td>Service Groups</td>
         <td align="right"><xsl:value-of select="count(.//servicegroup)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::serviceprofile])"/></td>
         <td align="right"><xsl:value-of select="count(.//servicegroup[status='rejected'])"/></td>
-       </tr>      
+       </tr>
       <tr>
         <td>Service Profiles</td>
         <td align="right"><xsl:value-of select="count(.//serviceprofile)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::serviceprofile])"/></td>
         <td align="right"><xsl:value-of select="count(.//serviceprofile[status='rejected'])"/></td>
         </tr>
--->        
+-->
       <tr>
         <td>Capability Profiles</td>
         <td align="right"><xsl:value-of select="count(.//capabilityprofile)"/></td>
@@ -121,7 +121,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <p>This page contains tables of all standards and profiles included in
   the database. The standards and profiles are sorted by the <emphasis>id</emphasis> attribute.</p>
 
-  <p>In this overview, rows with a red background are represent 
+  <p>In this overview, rows with a red background are represent
   deleted standards and profiles. Cells with a yellow background, indicates that that we
   properly don't have the information for this field. It will be
   appreciated very much, if YOU will identify this information and send it to <a href="mailto:stavnstrup@mil.dk">me</a>.</p>
@@ -144,7 +144,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         another organisation. There might be multiple AKA record. Each
         record begins on a new line</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
-     <li><b>Select</b> - Is this record selected by NATO (M : Mandatory, E: Emerging, F: fading)</li>
+     <li><b>Select</b> - Is this record selected by NATO (M : Mandatory, C: Candidate, F: fading)</li>
      <li><b>History</b> - What is the history of the record</li>
      <li><b>URI</b> - Location of the standard</li>
    </ul>
@@ -163,7 +163,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   </table>
 
   <h2 id="profiles">Profiles</h2>
-  
+
   <p>This table lists all capability, service- and setofstandards.
 
   <ul>
@@ -188,7 +188,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:sort select="@id" order="ascending"/>
     </xsl:apply-templates>
   </table>
-  
+
   </body></html>
 </xsl:template>
 
@@ -251,8 +251,8 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="profilespec/@date"/>
-    </td>        
-    <td><xsl:value-of select="profilespec/@version"/></td>        
+    </td>
+    <td><xsl:value-of select="profilespec/@version"/></td>
     <td><xsl:apply-templates select="document/correction"/></td>
     <td><xsl:apply-templates select="document/alsoknown"/></td>
     <td>
@@ -273,7 +273,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:variable name="tref" select="ancestor::bpserviceprofile/@tref"/>
   <xsl:choose>
     <xsl:when test="parent::bpgroup[@mode='mandatory']">M</xsl:when>
-    <xsl:when test="parent::bpgroup[@mode='emerging']">E</xsl:when>
+    <xsl:when test="parent::bpgroup[@mode='candidate']">C</xsl:when>
     <xsl:when test="parent::bpgroup[@mode='fading']">F</xsl:when>
   </xsl:choose>
   <xsl:text> ( </xsl:text>
@@ -354,14 +354,14 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:value-of select="document/@date"/>
-    </td>        
-    <td><xsl:value-of select="document/@version"/></td>        
+    </td>
+    <td><xsl:value-of select="document/@version"/></td>
     <td><xsl:apply-templates select="document/correction"/></td>
     <td><xsl:apply-templates select="document/alsoknown"/></td>
     <td>
       <xsl:if test="@tag =''">
         <xsl:attribute name="class">missing</xsl:attribute>
-      </xsl:if>            
+      </xsl:if>
       <xsl:value-of select="@tag"/></td>
     <td align="center">
       <xsl:apply-templates select="/standards/bestpracticeprofile//bprefstandard[@refid=$myid]"/>
@@ -388,7 +388,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:template match="alsoknown">
-  <xsl:value-of select="@orgid"/><xsl:text>:</xsl:text><xsl:value-of 
+  <xsl:value-of select="@orgid"/><xsl:text>:</xsl:text><xsl:value-of
        select="@pubnum"/><xsl:text>:</xsl:text><xsl:value-of select="@date"/>
   <xsl:if test="following-sibling::alsoknown[position()=1]"><br /></xsl:if>
 </xsl:template>
@@ -398,7 +398,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <a>
     <xsl:attribute name="href">
       <xsl:value-of select="."/>
-    </xsl:attribute> 
+    </xsl:attribute>
     <xsl:value-of select="."/>
   </a>
 </xsl:template>

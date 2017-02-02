@@ -15,7 +15,7 @@ Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
                 xmlns:saxon="http://icl.com/saxon"
                 version='1.1'
                 exclude-result-prefixes="#default saxon">
-  
+
 <xsl:output method="xml" indent="no" saxon:next-in-chain="p2-duplex.xsl"/>
 
 
@@ -55,11 +55,11 @@ Copyright (c) 2003  Jens Stavnstrup/DDRE <js@ddre.dk>
     <stage><xsl:value-of select="ancestor::standardrecord/status/@stage|ancestor::profilerecord/status/@stage"/></stage>
     <ncsp>
       <xsl:if test="/*/servicearea/serviceclass/ncsp-list/ncsp-view/mandatory[@id=$myid]">M</xsl:if>
-      <xsl:if test="/*/servicearea/serviceclass/ncsp-list/ncsp-view/emerging[@id=$myid]">E</xsl:if>
+      <xsl:if test="/*/servicearea/serviceclass/ncsp-list/ncsp-view/candidate[@id=$myid]">C</xsl:if>
       <xsl:if test="/*/servicearea/serviceclass/ncsp-list/ncsp-view/fading[@id=$myid]">F</xsl:if>
     </ncsp>
     <org><xsl:value-of select="@orgid"/></org>
-    <pubnum><xsl:value-of select="@pubnum"/></pubnum> 
+    <pubnum><xsl:value-of select="@pubnum"/></pubnum>
     <id><xsl:value-of select="$myid"/></id>
     <tag><xsl:value-of select="ancestor::standardrecord/@tag|ancestor::profilerecord/@tag"/></tag>
     <title><xsl:value-of select="@title"/></title>
