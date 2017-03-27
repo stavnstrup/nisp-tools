@@ -99,6 +99,7 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:param name="draft.watermark.image" select="''"/>
 
+<xsl:param name="table.footnote.number.format">1</xsl:param>
 
 <!-- Chunking -->
 

@@ -250,6 +250,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </xsl:if>
     <xsl:text>)</xsl:text>
   </xsl:if>
+  <xsl:variable name="note" select="string($std/document/@note)"/>
+  <xsl:if test="string-length($note) &gt; 0">
+	<footnote><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
+  </xsl:if>
 </xsl:template>
 
 <!-- ==================================================================== -->

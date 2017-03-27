@@ -121,7 +121,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 -->
 </xsl:attribute-set>
 
-
+<xsl:param name="table.footnote.number.format">1</xsl:param>
 
 <!-- Graphics -->
 
