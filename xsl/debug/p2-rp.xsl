@@ -8,7 +8,7 @@
                 exclude-result-prefixes="#default date saxon">
 
 <xsl:output method="html" indent="yes"/>
-  
+
 <xsl:key name="key1" match="standard" use="responsibleparty/@rpref"/>
 
 
@@ -27,7 +27,7 @@
   <body>
     <h1>Responsible parties</h1>
 
-    <table border="0"><tr><td>Created on 
+    <table border="0"><tr><td>Created on
     <xsl:variable name="date">
       <xsl:value-of select="date:date-time()"/>
     </xsl:variable>
@@ -40,7 +40,7 @@
     <xsl:text> - </xsl:text>
     <xsl:value-of select="substring-before(substring-after($date, 'T'),'+')"/>
     <xsl:text> using rev. </xsl:text><xsl:value-of select="@describe"/></td></tr></table>
-    
+
     <xsl:apply-templates select="records"/>
   </body></html>
 </xsl:template>
@@ -62,7 +62,7 @@
 	<xsl:value-of select="../../responsibleparties/rpkey[@key=$rp]/@long"/>
       </a>
       <xsl:text> - </xsl:text>
-      <xsl:variable name="rpnum" select="count(//*/responsibleparty[@rpref=$rp])"/> 
+      <xsl:variable name="rpnum" select="count(//*/responsibleparty[@rpref=$rp])"/>
       <xsl:value-of select="$rpnum"/>
       <xsl:text> standards &#x2248; </xsl:text>
       <xsl:value-of select="format-number($rpnum div $all, '#.##%')"/>
@@ -72,13 +72,13 @@
   </ol>
 
   <hr />
-  
+
   <xsl:for-each select="standard[generate-id() = generate-id(key('key1', responsibleparty/@rpref)[1])]">
     <xsl:sort select="responsibleparty/@rpref"/>
 
     <xsl:variable name="rp" select="responsibleparty/@rpref"/>
 
-    
+
     <h2 id="{$rp}">
       <xsl:value-of select="../../responsibleparties/rpkey[@key=$rp]/@long"/>
     </h2>
@@ -96,33 +96,27 @@
       </xsl:if>
       </p>
     </xsl:if>
-    
+
     <table border='1'>
       <tr>
 	<th>Org</th>
 	<th>Pubnum</th>
 	<th>Title</th>
-	<th>RP comment</th>
-	<th>Re-evaluate</th>
-	<th>Re-evaluate comment</th>
-      </tr>
+	      </tr>
       <xsl:for-each select="key('key1', responsibleparty/@rpref)">
 	<tr>
 	  <td><xsl:value-of select="document/@orgid"/></td>
 	  <td><xsl:value-of select="document/@pubnum"/></td>
 	  <td><xsl:value-of select="document/@title"/></td>
-	  <td><xsl:value-of select="responsibleparty/@comment"/></td>
-	  <td><xsl:value-of select="responsibleparty/reevaluation/@date"/></td>
-	  <td><xsl:value-of select="responsibleparty/reevaluation/@comment"/></td>
 	</tr>
       </xsl:for-each>
     </table>
   </xsl:for-each>
-</xsl:template>    
+</xsl:template>
 
 <xsl:template match="@*|node()">
   <xsl:copy>
-    <xsl:apply-templates select="@*"/> 
+    <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
   </xsl:copy>
 </xsl:template>

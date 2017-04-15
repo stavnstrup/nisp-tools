@@ -140,10 +140,10 @@
 
 <!-- responsibleparty -->
 
-<!ELEMENT responsibleparty (reevaluation?)>
+<!ELEMENT responsibleparty EMPTY>
 <!ATTLIST responsibleparty
-	  rpref   CDATA  #REQUIRED
-	  comment CDATA  #IMPLIED>
+	  rpref   CDATA  #REQUIRED>
+
 
 <!ELEMENT reevaluation EMPTY>
 <!ATTLIST reevaluation
@@ -250,18 +250,13 @@
 
 <!ELEMENT responsibleparties (rpkey*)>
 
-<!ELEMENT rpkey (pointofcontact*)>
+<!ELEMENT rpkey EMPTY>
 
 <!ATTLIST rpkey
 	  key    CDATA #REQUIRED
 	  short  CDATA #REQUIRED
 	  long   CDATA #REQUIRED>
 
-<!ELEMENT pointofcontact EMPTY>
-<!ATTLIST pointofcontact
-	  name   CDATA   #REQUIRED
-	  email  CDATA   #REQUIRED
-	  phone  CDATA   #IMPLIED>
 
 
 <!-- ...................................................................... -->
