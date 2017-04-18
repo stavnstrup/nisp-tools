@@ -174,13 +174,13 @@
 
 
 
-<!ELEMENT capabilityprofile (profile*,  uuid?)>
+<!ELEMENT capabilityprofile ((profile | serviceprofile)+,  uuid?)>
 <!ATTLIST capabilityprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
 
 
-<!ELEMENT profile ((serviceprofile | profile),  uuid?)*>
+<!ELEMENT profile ((profile | serviceprofile)+,  uuid?)*>
 <!ATTLIST profile
           id ID #REQUIRED
           title CDATA #REQUIRED>
