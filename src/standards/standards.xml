@@ -17096,8 +17096,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="ietf-rfc7521" tag="RFC 7521">
-         <document orgid="ietf" pubnum="RFC 7521" title="Assertion Framework for OAuth 2.0 Client Authentication and
-                          Authorization Grants" date="2015-05"/>
+         <document orgid="ietf" pubnum="RFC 7521" title="Assertion Framework for OAuth 2.0 Client Authentication and                           Authorization Grants" date="2015-05"/>
          <applicability>JThis specification provides a framework for the use of assertions
    with OAuth 2.0 in the form of a new client authentication mechanism
    and a new authorization grant type.  Mechanisms are specified for
@@ -17109,11 +17108,11 @@ database as a logical folder of email messages.</applicability>
                <event date="2017-04-18" flag="added" version="10.0" rfcp="9-15"/>
             </history>
          </status>
+         <uuid>b6066b24-2b90-45f1-b6c4-52d6731bd05a</uuid>
       </standard>
 
       <standard id="ietf-rfc7522" tag="RFC 7522">
-         <document orgid="ietf" pubnum="RFC 7522" title="Security Assertion Markup Language (SAML) 2.0 Profile
-      for OAuth 2.0 Client Authentication and Authorization Grants" date="2015-05"/>
+         <document orgid="ietf" pubnum="RFC 7522" title="Security Assertion Markup Language (SAML) 2.0 Profile       for OAuth 2.0 Client Authentication and Authorization Grants" date="2015-05"/>
          <applicability>This document defines how a SAML Assertion can be used to request an
    access token when a client wishes to utilize an existing trust
    relationship, expressed through the semantics of the SAML Assertion,
@@ -17124,8 +17123,8 @@ database as a logical folder of email messages.</applicability>
                <event date="2017-04-18" flag="added" version="10.0" rfcp="9-15"/>
             </history>
          </status>
+         <uuid>e5bde63c-9f11-455d-928a-c5896f965f24</uuid>
       </standard>
-
 
       <standard id="ietf-rfc7619" tag="RFC 7619: IKEv2">
          <document orgid="ietf" pubnum="RFC 7619" title="The NULL Authentication Method in the Internet Key Exchange Protocol Version 2 (IKEv2)" date="2015-08-01"/>
@@ -51865,6 +51864,34 @@ to help Web application authors, new elements are introduced based on research i
          </serviceprofile>
          <uuid>9ad91436-2538-4bdb-8072-7061ce08e328</uuid>
       </capabilityprofile>
+
+      <capabilityprofile id="sip-token" title="service interface profile for security token services">
+         <serviceprofile title="">
+            <reftaxonomy refid="user.undefined.taxonomynode"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="oasis-wstrust-1.4"/>
+               <refstandard refid="oasis-wsfed-1.1"/>
+               <refstandard refid="ibm-passive-request"/>
+               <refstandard refid="oasis-wss-v1.1-spec-os-soapmessagesecurity"/>
+            </obgroup>
+         </serviceprofile>
+         <uuid>da63e1b4-ebfc-4bbd-816d-ab9e57295143</uuid>
+      </capabilityprofile>
+
+      <standard id="ibm-passive-request" tag="WS-F Passive Request">
+         <document orgid="ibm" pubnum="" date="2003-07-08" title="WS-Federation: Passive Requestor Profile"/>
+         <applicability>This profile specification describes how the cross trust realm identity, authentication
+and authorization federation mechanisms defined in WS-Federation can be utilized
+used by passive requestors such as Web browsers to provide Identity Services.
+Passive requesters of this profile are limited to the HTTP protocol.</applicability>
+         <status mode="accepted">
+            <uri>http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fedpass/ws-fedpass.pdf</uri>
+            <history>
+               <event flag="added" date="2017-04-18" rfcp="9-15" version="10.0"/>
+            </history>
+         </status>
+         <uuid>79f7265d-a010-4d5f-9881-08050cb3c384</uuid>
+      </standard>
 
    </records>
    <organisations>
