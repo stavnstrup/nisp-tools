@@ -173,20 +173,31 @@
 <!-- profiles -->
 
 
-
-<!ELEMENT capabilityprofile ((profile | serviceprofile)+,  uuid?)>
+<!ELEMENT capabilityprofile (profilespec?, (profile | serviceprofile)+, status?,  uuid?)>
 <!ATTLIST capabilityprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
 
 
-<!ELEMENT profile ((profile | serviceprofile)+,  uuid?)*>
+<!-- profilespec -->
+
+<!ELEMENT profilespec EMPTY>
+<!ATTLIST profilespec
+          orgid   CDATA #REQUIRED
+          pubnum  CDATA #REQUIRED
+          date    CDATA #REQUIRED
+          title   CDATA #REQUIRED
+          version CDATA #IMPLIED
+          note    CDATA #IMPLIED>
+
+
+<!ELEMENT profile (profilespec?, (profile | serviceprofile)+,  status?, uuid?)*>
 <!ATTLIST profile
           id ID #REQUIRED
           title CDATA #REQUIRED>
 
 
-<!ELEMENT serviceprofile (description?, reftaxonomy+, obgroup+, guide*,  uuid?)>
+<!ELEMENT serviceprofile (profilespec?, description?, reftaxonomy+, obgroup+, guide*,  status?, uuid?)>
 <!ATTLIST serviceprofile
           title CDATA #REQUIRED>
 
