@@ -44759,6 +44759,7 @@ An X.509 certificate specifies a binding between a public key and a set of attri
             <history>
                <event date="2014-11-25" flag="added" rfcp="8-5" version="9.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2017-04-19" rfcp="9-15" version="10.0"/>
             </history>
          </status>
          <uuid>6fbc6b0a-b865-438c-b257-1b425bfeece6</uuid>
@@ -51814,7 +51815,7 @@ to help Web application authors, new elements are introduced based on research i
          <status mode="accepted">
             <uri>http://xmpp.org/extensions/xep-0313.html</uri>
             <history>
-               <event date="2014-11-25" flag="added   " rfcp="8-5" version="9.0"/>
+               <event date="2014-11-25" flag="added" rfcp="8-5" version="9.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
             </history>
          </status>
@@ -51910,6 +51911,123 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
             </history>
          </status>
          <uuid>79f7265d-a010-4d5f-9881-08050cb3c384</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0048" tag="XEP 0048">
+         <document orgid="xmpp" pubnum="XEP-0048" title="Bookmarks" date="2007-11-07"/>
+         <applicability>For ease-of-use in a Jabber client, it is desirable to have a way to store shortcuts to various services and resources (such as conference rooms and web pages) as "bookmarks" that can be displayed in the user's client. Several Jabber clients have already agreed on and implemented a method to provide this service; that informal agreement is documented and expanded upon in this document. In particular, we introduce the &lt;storage/&gt; element (qualified by the 'storage:bookmarks' namespace) as a container for this sort of this data. While bookmarks data can be stored using any XML storage mechanism, this document recommends one method that is specific to XMPP.</applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>http://xmpp.org/extensions/xep-0048.html</uri>
+            <history>
+               <event date="2017-04-20" flag="added" version="10.0" rfcp="9-15"/>
+            </history>
+         </status>
+         <uuid>e019f3b8-c057-41e4-8692-7f30d3e94939</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0053" tag="XEP 0053">
+         <document orgid="xmpp" pubnum="XEP-0053" title="XMPP Registrar Function" date="2008-10-29"/>
+         <applicability>Because the XMPP Standards Foundation (XSF) publishes a relatively large number of protocol specifications (see XMPP Extension Protocols (XEP-0001)), it is important to keep track of the namespaces defined by those specifications as well as the parameters used in the context of the relevant protocols. (Examples of such parameters include the features and options used in Feature Negotiation (XEP-0020) and the identities and features used in Service Discovery (XEP-0030).) In particular, the common use of protocols published by the XSF requires that namespaces and particular parameter values be assigned uniquely. It is the role of the XMPP Registrar to make those unique assignments and to maintain registries of the currently assigned values. The XMPP Registrar shall also function as a single point of contact between the XMPP Standards Foundation and the Internet Assigned Numbers Authority (IANA).</applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>http://xmpp.org/extensions/xep-0053.html</uri>
+            <history>
+               <event date="2017-04-20" flag="added" version="10.0" rfcp="9-15"/>
+            </history>
+         </status>
+         <uuid>eb20e912-5c63-4904-ba89-bd140dd127a2</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0055" tag="XEP 0055">
+         <document orgid="xmpp" pubnum="XEP-0055" title="Jabber Search" date="2009-09-15"/>
+         <applicability>This specification documents a protocol currently used to search information repositories on the Jabber network. To date, the jabber:iq:search protocol has been used mainly to search for people who have registered with user directories (e.g., the "Jabber User Directory" hosted at users.jabber.org). However, the jabber:iq:search protocol is not limited to user directories, and could be used to search other Jabber information repositories (such as chatroom directories) or even to provide a Jabber interface to conventional search engines.  The basic functionality is to query an information repository regarding the possible search fields, to send a search query, and to receive search results. Note well that there is currently no mechanism for paging through results or limiting the number of "hits", and that the allowable search fields are limited to those defined in the XML schema; however, extensibility MAY be provided via the Data Forms (XEP-0004) protocol.</applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>http://xmpp.org/extensions/xep-0055.html</uri>
+            <history>
+               <event date="2017-04-20" flag="added" version="10.0" rfcp="9-15"/>
+            </history>
+         </status>
+         <uuid>4faca012-5c36-4a5c-8339-bc859228e9a9</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0068" tag="XEP 0068">
+         <document orgid="xmpp" pubnum="XEP-0068" title="Field Standardization for Data Forms" date="2012-05-28"/>
+         <applicability>XMPP extensions that reuse Data Forms (XEP-0004), such as Multi-User Chat (XEP-0045) and Ad-Hoc Commands (XEP-0050), typically need a way to gather data from both humans (using a GUI format) and computer processes (using a pre-defined but flexible format). The 'jabber:x:data' namespace provides an adequate mechanism for both of these uses, as long as computer processes can rely on the var="" names on a particular type of form. This document defines a mechanism for the XMPP Registrar to standardize the field names in such forms, thus enabling XMPP clients to process forms as they have to this point while giving protocol authors a way to specify a mechanism for non-GUI processors to determine the semantic meanings of forms and their constituent fields.</applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>https://xmpp.org/extensions/xep-0068.html</uri>
+            <history>
+               <event date="2017-04-20" flag="added" version="10.0" rfcp="9-15"/>
+            </history>
+         </status>
+         <uuid>c024b895-6732-4bfc-a65e-306e855e0d76</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0080" tag="XEP 0080">
+         <document orgid="xmpp" pubnum="XEP-0080" title="User Location" date="2014-05-05"/>
+         <applicability>This document defines a format for capturing data about an entity's geographical location (geoloc). The format defined herein can describe most earthbound geographical locations, especially locations that may change fairly frequently. Potential uses for this approach include:  * Publishing location information to a set of subscribers. * Querying another entity for its location. * Sending location information to another entity. * Attaching location information to presence. Geographical location is captured in terms of Global Positioning System (GPS) coordinates as well as civil location (city, street, building, etc.).</applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>http://xmpp.org/extensions/xep-0080.html</uri>
+            <history>
+               <event date="2017-04-20" flag="added" version="10.0" rfcp="9-15"/>
+            </history>
+         </status>
+         <uuid>a4701174-35b5-4d06-bae4-d1d2531cfabe</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0127" tag="XEP 0127">
+         <document orgid="xmpp" pubnum="XEP-0127" title="Common Alerting Protocol (CAP) Over XMPP" date="2004-12-09"/>
+         <applicability>The Common Alerting Protocol (CAP) is an open format for alerts and notifications, defined by OASIS. CAP was developed to address the call, published in a (U.S.) National Science and Technology Council report, for "a standard method ... to collect and relay instantaneously and automatically all types of hazard warnings and reports". Given that the Extensible Messaging and Presence Protocol (see XMPP Core) provides a near-real-time transport mechanism for structured information, and that CAP is defined as an XML data format, it makes sense to define a way to transport CAP information over XMPP. Such a method is defined herein.</applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>http://xmpp.org/extensions/xep-0127.html</uri>
+            <history>
+               <event date="2017-04-20" flag="added" version="10.0" rfcp="9-15"/>
+            </history>
+         </status>
+         <uuid>37d8b658-f355-4e17-a76a-2a1b444af0f3</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0141" tag="XEP 0141">
+         <document orgid="xmpp" pubnum="XEP-0141" title="Data Forms Layout" date="2005-05-12"/>
+         <applicability>Data Forms (XEP-0004) ("x:data") provides a simple and interoperable way to request and present information for both applications and humans. However, the simple nature of "x:data" requires the form renderer to use a generic "key/value" format. This document builds upon "x:data" to enable applications to specify additional layout information.</applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>http://xmpp.org/extensions/xep-0141.html</uri>
+            <history>
+               <event date="2017-04-20" flag="added" version="10.0" rfcp="9-15"/>
+            </history>
+         </status>
+         <uuid>a641fad2-e5db-47f6-bdcf-6ffa44b598a1</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0256" tag="XEP 0256">
+         <document orgid="xmpp" pubnum="XEP-0256" title="Last Activity in Presence" date="2009-09-15"/>
+         <applicability>Last Activity (XEP-0012) defines a method for determining the last time that an XMPP entity was active. This document specifies that an online client MAY include last activity information when sending a presence update. Including such information essentially means "when I sent this presence notification I had last been active at time T".</applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>http://xmpp.org/extensions/xep-0256.html</uri>
+            <history>
+               <event date="2017-04-20" flag="added" version="10.0" rfcp="9-15"/>
+            </history>
+         </status>
+         <uuid>767a6c2b-29f4-4cca-83be-92ff8ce6e875</uuid>
+      </standard>
+
+      <standard id="oasis-wsrf-ws_base_faults-1.2-spec-os" tag="WS Base Faults 1.2">
+         <document orgid="oasis" pubnum="wsrf-ws_base_faults-1.2-spec-os " title="Web Services Base Faults 1.2" date="2006-04-01"/>
+         <applicability>Problem determination in a Web services setting is simplified by standardizing a base set of information that may appear in fault messages. WS-BaseFaults defines an XML Schema type for base faults, along with rules for how this base fault type is used and extended by Web services. </applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>https://docs.oasis-open.org/wsrf/wsrf-ws_base_faults-1.2-spec-os.pdf</uri>
+            <history>
+               <event date="2017-04-20" flag="added" version="10.0" rfcp="9-15"/>
+            </history>
+         </status>
+         <uuid>c765541f-52e4-4aad-a332-5187e4d51c7c</uuid>
       </standard>
 
    </records>
