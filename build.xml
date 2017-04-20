@@ -23,7 +23,7 @@ file is located. Then type
   ./build.sh (unix)
   .\build.bat (win32)
 
-This will build a HTML and PDF version of the NISP. 
+This will build a HTML and PDF version of the NISP.
 To know more about the available targets take a look at this file, which is
 pretty self-explanatory or type
 
@@ -41,7 +41,7 @@ For additional help, type
  [win32] .\build.bat -help
 
 $Id$
-  
+
 -->
 
 <!DOCTYPE project PUBLIC "-//Apache//DTD ANT XML 1.8.1 (NISP specific)//EN"
@@ -80,7 +80,7 @@ $Id$
   <property name="src-version" value="&src-version;"/>
   <property name="src-version-major" value="&src-version-major;"/>
   <property name="src-revision" value="&src-revision;"/>
-  
+
   <!-- Java compiler options -->
   <property name="build.compiler" value="modern"/>
   <property name="debug" value="off"/>
@@ -132,9 +132,9 @@ $Id$
   <property name="nisp.class.label" value="'NATO/EAPC UNCLASSIFIED'"/>
   <property name="nisp.release.label" value="'RELEASABLE TO AUS, NZL &amp; SGP'"/>
   <property name="nisp.draft.watermark" value="'yes'"/>
-  
 
-  <property name="nisp.lifecycle.opts" 
+
+  <property name="nisp.lifecycle.opts"
             value="nisp.lifecycle.stage=${nisp.lifecycle.stage}
                    nisp.class.label=${nisp.class.label}
                    nisp.release.label=${nisp.release.label}
@@ -153,13 +153,13 @@ $Id$
   <property name="xslt.class" value="com.icl.saxon.StyleSheet"/>
 
   <!-- Saxon options -->
-  <property name="xslt.opts" 
-            value="-x org.apache.xml.resolver.tools.ResolvingXMLReader 
+  <property name="xslt.opts"
+            value="-x org.apache.xml.resolver.tools.ResolvingXMLReader
                    -y org.apache.xml.resolver.tools.ResolvingXMLReader
                    -r org.apache.xml.resolver.tools.CatalogResolver"/>
 
   <!-- Allows XInclude procesing -->
-  <property name="use.dom" 
+  <property name="use.dom"
             value="-Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl"/>
   <property name="use.sax"
             value="-Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl"/>
@@ -167,7 +167,7 @@ $Id$
             value="-Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration"/>
 
   <!-- Batik Class -->
-  <property name="batik-class" 
+  <property name="batik-class"
             value="org.apache.batik.apps.rasterizer.Main"/>
 
   <!-- Validation Class -->
@@ -176,7 +176,7 @@ $Id$
 
   <property name="fop.message"
             value="info"/>
-  
+
   <!-- =================================================================== -->
   <!-- Build Classpaths for Xerces, Saxon, Fop and Batik                   -->
   <!-- =================================================================== -->
@@ -232,7 +232,7 @@ $Id$
       <pathelement location="catalog.xml"/>
     </catalogpath>
   </xmlcatalog>
-  
+
   <!-- Batik Rasterizer Ant Task -->
   <taskdef name="rasterize"
        classname="org.apache.tools.ant.taskdefs.optional.RasterizerTask"
@@ -245,11 +245,11 @@ $Id$
 
 
   <!-- JGit Describe task -->
-  <taskdef name="git-describe" 
-           classname="org.mdonoughe.JGitDescribeTask" 
+  <taskdef name="git-describe"
+           classname="org.mdonoughe.JGitDescribeTask"
            classpath="lib/jgit-describe.jar:lib/org.eclipse.jgit-1.3.0-SNAPSHOT.jar"/>
 
-   
+
 
   <!-- =================================================================== -->
   <!-- Creates output build directories and doc prerequistes               -->
@@ -276,14 +276,14 @@ $Id$
        <classpath refid="lib-saxon-classpath"/>
     </java>
   </target>
-  
+
   <target name="-newdb" depends="checkdb">
     <property file="${build.dir}/build.uuid"/>
     <condition property="no-uuids-missing">
       <equals arg1="${missing.uuids}" arg2="0"/>
     </condition>
     <fail message="Please run: build -f uuid-build.xml"
-          unless="no-uuids-missing"/>    
+          unless="no-uuids-missing"/>
   </target>
 
   <target name="-get-describe">
@@ -307,28 +307,28 @@ $Id$
 
     <mkdir dir="${build.dir}/rtf/"/>
 
-    <copy todir="${build.dir}/css" 
+    <copy todir="${build.dir}/css"
       preservelastmodified="yes">
       <fileset dir="${basedir}/xsl/css"/>
     </copy>
 
-    <copy todir="${build.dir}/javascripts" 
+    <copy todir="${build.dir}/javascripts"
       preservelastmodified="yes">
       <fileset dir="${basedir}/xsl/javascripts"/>
     </copy>
 
-    <copy todir="${build.dir}/fonts" 
+    <copy todir="${build.dir}/fonts"
       preservelastmodified="yes">
       <fileset dir="${basedir}/xsl/fonts"/>
     </copy>
 
-    <copy todir="${build.dir}/images" 
+    <copy todir="${build.dir}/images"
       preservelastmodified="yes">
       <fileset dir="${basedir}/xsl/images"/>
     </copy>
 
     <available  property="hcc.present" file="${hhc}"/>
- 
+
     <condition property="hcc.message" value="Compiling HTMLHelp file">
       <equals arg1="${hcc.present}" arg2="true"/>
     </condition>
@@ -377,7 +377,7 @@ $Id$
 
   <target name="createPDFcoverdoc">
     <java classname="${xslt.class}" fork="yes" dir="${basedir}">
-      <arg line="-o ${basedir}/src/master/PDFcoverdoc.xml ${basedir}/src/documents.xml 
+      <arg line="-o ${basedir}/src/master/PDFcoverdoc.xml ${basedir}/src/documents.xml
                   ${basedir}/xsl/PDFcoverdoc.xsl nisp.lifecycle.stage=${nisp.lifecycle.stage}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
@@ -385,7 +385,7 @@ $Id$
 
 
   <target name="master-check" depends="init, createPDFcoverdoc">
-    <uptodate property="master.notRequired" 
+    <uptodate property="master.notRequired"
               targetfile="${build.dir}/index.html">
        <srcfiles dir="${src.dir}/master" includes="*.xml"/>
        <srcfiles dir="${src.dir}" includes="documents.xml"/>
@@ -394,19 +394,19 @@ $Id$
      </uptodate>
   </target>
 
-  <target name="master" description="* Create the NISP master documents as HTML5 pages" 
+  <target name="master" description="* Create the NISP master documents as HTML5 pages"
           depends="master-check" unless="master.notRequired">
     <echo message="Creating the NISP master documents"/>
 <!--
     <xslt basedir="${src.dir}/master" destdir="${build.dir}"
           style="${xsl-xhtml.dir}/master.xsl"
           includes="*.xml">
-       <param name="nisp.lifecycle.stage" expression="${nisp.lifecycle.stage}"/>      
+       <param name="nisp.lifecycle.stage" expression="${nisp.lifecycle.stage}"/>
        <param name="nisp.lifecycle.postfix" expression="${nisp.lifecycle.postfix}"/>
-    </xslt> 
+    </xslt>
 -->
     <java classname="${xslt.class}" fork="yes" dir="${build.dir}">
-      <arg line="${xslt.opts} -o ${build.dir}/ ${src.dir}/master/ 
+      <arg line="${xslt.opts} -o ${build.dir}/ ${src.dir}/master/
                  ${xsl-xhtml.dir}/master.xsl ${nisp.lifecycle.opts}
                  datestamp=${DSTAMP}
                  describe=${describe}"/>
@@ -441,13 +441,13 @@ $Id$
     </uptodate>
   </target>
 
-  <target name="acronyms" 
+  <target name="acronyms"
           description="* Create the acronyms as chunked HTML5 pages"
           depends="init, acronyms-check" unless="acronyms.notrequired">
     <echo message="Create the acronyms as chunked XHTML pages"/>
 
     <java classname="${xslt.class}" fork="yes" dir="${build.acronyms}">
-      <arg line="${xslt.opts} ${src.acronyms}/acronyms.xml 
+      <arg line="${xslt.opts} ${src.acronyms}/acronyms.xml
          ${xsl-xhtml.dir}/acronyms.xsl ${nisp.lifecycle.opts} datestamp=${DSTAMP} describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
@@ -470,8 +470,8 @@ $Id$
           unless="layout-fo.notRequired">
     <echo message="Creating Layout for fo documents"/>
     <java classname="${xslt.class}" fork="yes" dir="${xsl-fo.dir}">
-      <arg line="${xslt.opts} -o nisp-titlepages.xsl 
-           ${xsl-fo.dir}/nisp-titlepage-spec.xml 
+      <arg line="${xslt.opts} -o nisp-titlepages.xsl
+           ${xsl-fo.dir}/nisp-titlepage-spec.xml
            ${docbook-xsl.dir}/template/titlepage.xsl"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
@@ -488,7 +488,7 @@ $Id$
   <!-- =================================================================== -->
   <!-- Utility function                                                    -->
   <!-- =================================================================== -->
-  
+
 
 
   <!-- =================================================================== -->
@@ -497,7 +497,7 @@ $Id$
 
 
   <target name="merge.check" depends="init">
-    <uptodate property="merge.notRequired" 
+    <uptodate property="merge.notRequired"
               targetfile="${build.dir}/htmlhelp/nisp.xml">
       <srcfiles dir="${build.resolve}" includes="*.xml"/>
       <srcfiles dir="${xsl-htmlhelp.dir}" includes="mkset.xsl"/>
@@ -506,7 +506,7 @@ $Id$
 
   <!-- Combine all document into one set -->
 
-  <target name="merge" 
+  <target name="merge"
           depends="resolve, merge.check"
           unless="merge.notRequired">
     <echo message="Merge all volumes into a set"/>
@@ -518,7 +518,7 @@ $Id$
        <classpath refid="lib-saxon-classpath"/>
        <jvmarg value="${use.sax}"/>
        <jvmarg value="${use.dom}"/>
-       <jvmarg value="${use.xinc}"/>    
+       <jvmarg value="${use.xinc}"/>
      </java>
   </target>
 
@@ -619,7 +619,7 @@ $Id$
           depends="-get-describe">
     <java classname="${xslt.class}" fork="yes"
           dir="${build.dir}/debug/">
-      <arg line="${xslt.opts} -o family.html 
+      <arg line="${xslt.opts} -o family.html
                  ${basedir}/src/standards/standards.xml
                  ${xsl-debug.dir}/deb-family.xsl
                  describe=${describe}"/>
@@ -649,7 +649,7 @@ $Id$
                  ${xsl-debug.dir}/deb-select.xsl
                  describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
-    </java>    
+    </java>
   </target>
 
   <target name="deb-upcoming" description="* [DEBUG] Create list of upcoming/fading standards/profiles"
@@ -723,7 +723,7 @@ $Id$
       </exec>
     </sequential>
   </macrodef>
-  
+
   <target name="doc" description="* Create documentation pages">
     <makemanpage manpage="nisp"/>
     <makemanpage manpage="nisp-database"/>
@@ -732,7 +732,7 @@ $Id$
     <makemanpage manpage="nisp-debug"/>
     <makemanpage manpage="nisp-build"/>
     <move todir="${basedir}/docs/">
-      <fileset dir="${basedir}/xdocs/" includes="*.html"/> 
+      <fileset dir="${basedir}/xdocs/" includes="*.html"/>
     </move>
   </target>
 
@@ -757,14 +757,14 @@ $Id$
   <!-- Create the web distribution -->
 
   <target name="web" description="* Create the website containing the NISP"
-          depends="all, htmlhelp"> 
+          depends="all, htmlhelp">
     <mkdir dir="${zip.dir}"/>
     <zip zipfile="${zip.dir}/${name}-web-${src-version}${nisp.lifecycle.postfix}.zip">
       <zipfileset dir="${build.dir}"
                   prefix="${name}-${src-version}"
-                  excludes="pdf/*.fo, 
+                  excludes="pdf/*.fo,
                             **/htmlhelp/**/*.xml,
-                            **/htmlhelp/figures/, 
+                            **/htmlhelp/figures/,
                             **/htmlhelp/*.h*,
                             **/htmlhelp/*.css,
                             **/rtf/**,
@@ -793,17 +793,17 @@ $Id$
   <target name="tool" description="* Create a new tool distribution"
           depends="new-dtd">
     <mkdir dir="${zip.dir}"/>
-    
+
     <mkdir dir="${dist.dir}/src"/>
 
-    <copy todir="${dist.dir}/bin" 
+    <copy todir="${dist.dir}/bin"
       preservelastmodified="yes">
       <fileset dir="${basedir}/bin"/>
     </copy>
 
 
     <mkdir dir="${dist.dir}/docs"/>
-    <copy todir="${dist.dir}/docs" 
+    <copy todir="${dist.dir}/docs"
       preservelastmodified="yes">
       <fileset dir="${basedir}/docs"
                includes="manual.pdf, README"/>
@@ -811,7 +811,7 @@ $Id$
 
     <mkdir dir="${dist.dir}/xdocs"/>
 
-    <copy todir="${dist.dir}/xdocs" 
+    <copy todir="${dist.dir}/xdocs"
       preservelastmodified="yes">
       <fileset dir="${basedir}/xdocs"
                excludes="*.ced"/>
@@ -820,17 +820,17 @@ $Id$
     <copy todir="${dist.dir}/extra"
           preservelastmodified="yes">
       <fileset dir="${basedir}/extra"/>
-    </copy> 
+    </copy>
 
 
-    <copy todir="${dist.dir}/lib" 
+    <copy todir="${dist.dir}/lib"
       preservelastmodified="yes">
       <fileset dir="${basedir}/lib">
         <exclude name="java/build/**"/>
       </fileset>
     </copy>
 
-    <copy todir="${dist.dir}/schema" 
+    <copy todir="${dist.dir}/schema"
       preservelastmodified="yes">
       <fileset dir="${basedir}/schema"/>
     </copy>
@@ -859,9 +859,9 @@ $Id$
 
     <copy todir="${dist.dir}" preservelastmodified="yes">
       <fileset dir="${basedir}"
-               includes="README, build.xml, build.targets, newbuild.xml, 
-                         build.bat, build.sh, 
-                         build-internet.xml, user.properties, INSTALL, 
+               includes="README, build.xml, build.targets, newbuild.xml,
+                         build.bat, build.sh,
+                         build-internet.xml, user.properties, INSTALL,
                          VERSION, WhatsNew, catalog.xml"/>
     </copy>
     <zip zipfile="${zip.dir}/${name}-tools-${tool-version}.zip">
@@ -912,6 +912,11 @@ $Id$
   <target name="zip" description="* Create source, tool, xsl, web and pdf archives"
           depends="source, tool, xsl, web, pdf-only"/>
 
+  <!-- Define test target used by travis -->
+
+  <target name="test" description="Test build and debug steps"
+          depends="all, debug"/>
+
   <!-- =================================================================== -->
   <!-- Various targets to clean                                            -->
   <!-- =================================================================== -->
@@ -921,12 +926,12 @@ $Id$
     <delete dir="${build.resolve}"/>
   </target>
 
-  <target name="clean-dist" 
+  <target name="clean-dist"
           description="* Clean the distribution directories">
-    <delete dir="${dist.dir}"/>    
+    <delete dir="${dist.dir}"/>
   </target>
 
-  <target name="clean-zip" 
+  <target name="clean-zip"
           description="* Clean the distribution zip directories">
     <delete dir="${zip.dir}"/>
   </target>
@@ -935,23 +940,23 @@ $Id$
           depends="clean-build, clean-dist"/>
 
 
-          
+
   <!-- =================================================================== -->
   <!-- Internal usage only                                                 -->
   <!-- =================================================================== -->
-  
+
 
   <target name="new-dtd">
     <antstructure output="schema/dtd/ant.dtd"/>
   </target>
 
-  <!-- Create a raw version of the stylesheets (Everything except 
+  <!-- Create a raw version of the stylesheets (Everything except
        Norman Walsh's DocBook XSL collection) -->
 
   <target name="raw-xsl">
      <mkdir dir="${zip.dir}"/>
      <zip zipfile="${zip.dir}/${name}-raw-xsl-${dbxsl-version}.zip">
-       <zipfileset  dir="${basedir}/xsl" prefix="xsl-${dbxsl-version}" 
+       <zipfileset  dir="${basedir}/xsl" prefix="xsl-${dbxsl-version}"
                     includes="**" excludes="docbook-*/**, sxw*/**"/>
      </zip>
   </target>
@@ -960,7 +965,7 @@ $Id$
 
   <target name="fixCRLFsource">
     <fixcrlf srcdir="${src.dir}" eol="crlf"
-             excludes="**/*.jpg, **/*.gif, 
+             excludes="**/*.jpg, **/*.gif,
          .    dtd/docbkx412/**, dtd/docbkx42CR1/**,
               dtd/docbkx42/**"/>
   </target>
@@ -968,6 +973,6 @@ $Id$
   <target name="fixCRLFtools">
     <fixcrlf srcdir="" eol="crlf"
              excludes="**/*.jpg, **/*.gif, **/*.jar, **/*.sh"/>
-  </target> 
-  
+  </target>
+
 </project>
