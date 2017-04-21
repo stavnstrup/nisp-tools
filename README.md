@@ -51,7 +51,7 @@ Mr. Hervé Radiguet
 E-Mail: Herve.Radiguet@act.nato.int
 
 
-Mr Jens Stavnstrup (for technical matters related to this distribution)
-Danish Defence Acquisition and Logistics Organisation
-Tel: + 45 - 728 14355
+Mr Jens Stavnstrup (for technical matters related to this distribution)  
+Danish Defence Acquisition and Logistics Organisation  
+Tel: + 45 - 728 14355  
 E-Mail: stavnstrup@mil.dk
