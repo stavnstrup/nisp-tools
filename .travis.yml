@@ -1,11 +1,14 @@
 git:
-    depth: 100
+  depth: 100
 
-before_install:
-    - sudo apt-get -qq update
-    - sudo apt-get install -y ant
+# before_install:
+#   - sudo apt-get -qq update
 
 language: java
 
 jdk:
   - oraclejdk7
+
+script:
+  - ant all
+  - ant debug
