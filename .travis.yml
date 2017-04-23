@@ -1,8 +1,9 @@
 git:
   depth: 100
 
-# before_install:
-#   - sudo apt-get -qq update
+before_install:
+ - sudo apt-get -qq update
+ - sudo apt-get install -qq libxml2-utils
 
 language: java
 
@@ -10,5 +11,6 @@ jdk:
   - oraclejdk7
 
 script:
+  - xmllint --noout --valid src/standards/standards.xml
   - ant all
   - ant debug
