@@ -11016,6 +11016,7 @@ XML documents.</guide>
             <history>
                <event date="2017-01-17" flag="added" version="10.0" rfcp="9-2"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2017-04-24" rfcp="9-2" version="10.0"/>
             </history>
          </status>
          <uuid>943e54b8-14d3-475b-addf-f96a0c3292bb</uuid>
@@ -52205,23 +52206,7 @@ to help Web application authors, new elements are introduced based on research i
          </status>
          <uuid>d6824ea3-fee6-414c-ac56-c2bb5b848813</uuid>
       </capabilityprofile>
-<!--
-      <capabilityprofile id="sip-" title="">
-        <profilespec orgid="ncia" pubnum="AI_TECH_2016.06.02." date="2015-02-04" title="" version="1"/>
-         <serviceprofile title="">
-            <reftaxonomy refid="user.undefined.taxonomynode"/>
-            <obgroup obligation="mandatory">
 
-            </obgroup>
-         </serviceprofile>
-         <status mode="accepted">
-            <uri/>
-            <history>
-               <event flag="added" date="2017-04-21" rfcp="9-15" version="10.0"/>
-            </history>
-         </status>
-      </capabilityprofile>
--->
       <standard id="ibm-passive-request" tag="WS-F Passive Request">
          <document orgid="ibm" pubnum="" date="2003-07-08" title="WS-Federation: Passive Requestor Profile"/>
          <applicability>This profile specification describes how the cross trust realm identity, authentication
@@ -52425,6 +52410,46 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
          <uuid>e6c7411a-31a6-4b18-8559-fa4c4f27234b</uuid>
       </capabilityprofile>
 
+      <capabilityprofile id="binding-xmpp" title="Extensible Message and Presence Protocol (XMPP) Binding Profile">
+         <profilespec orgid="" pubnum="" date="" title="Extensible Message and Presence Protocol (XMPP) Binding Profile" version="1"/>
+         <serviceprofile title="">
+            <reftaxonomy refid="user.undefined.taxonomynode"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="ietf-rfc2634"/>
+               <refstandard refid="nso-stanag4774"/>
+               <refstandard refid="nso-stanag4778"/>
+               <refstandard refid="xmpp-xep-0258"/>
+               <refstandard refid="xmpp-xep-0060"/>
+               <refstandard refid="ietf-rfc6122"/>
+               <refstandard refid="ietf-rfc6120"/>
+               <refstandard refid="ietf-rfc6121"/>
+            </obgroup>
+         </serviceprofile>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2017-04-24" rfcp="9-2" version="10.0"/>
+            </history>
+         </status>
+         <uuid>52d81448-83c8-481a-ba79-ebdf7a4aa657</uuid>
+      </capabilityprofile>
+<!--
+            <capabilityprofile id="" title="">
+              <profilespec orgid="" pubnum="" date="" title="" version="1"/>
+               <serviceprofile title="">
+                  <reftaxonomy refid="user.undefined.taxonomynode"/>
+                  <obgroup obligation="mandatory">
+
+                  </obgroup>
+               </serviceprofile>
+               <status mode="accepted">
+                  <uri/>
+                  <history>
+                     <event flag="added" date="2017-04-21" rfcp="9-2" version="10.0"/>
+                  </history>
+               </status>
+            </capabilityprofile>
+      -->
    </records>
    <organisations>
       <orgkey key="acm" short="ACM" text="ACM"/>
