@@ -1634,6 +1634,7 @@
             <history>
                <event date="2017-01-17" flag="added" version="10.0" rfcp="9-2"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2017-04-25" rfcp="9-2" version="10.0"/>
             </history>
          </status>
          <uuid>ee33d3d5-42a9-47bb-ba60-8da584dec674</uuid>
@@ -20475,6 +20476,7 @@ database as a logical folder of email messages.</applicability>
             <history>
                <event date="2017-01-17" flag="added" version="10.0" rfcp="9-2"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2017-04-25" rfcp="9-2" version="10.0"/>
             </history>
          </status>
          <uuid>c21f1d0e-8020-4719-a760-f6c944ad8e18</uuid>
@@ -49037,6 +49039,7 @@ applications. </applicability>
                <event date="2008-12-10" flag="added" rfcp="2-18" version="3.0"/>
                <event date="2010-11-04" flag="changed" version="5.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2017-04-25" rfcp="9-2" version="10.0"/>
             </history>
          </status>
          <uuid>b2ad9e50-1910-48de-8856-d1d572d9457b</uuid>
@@ -52434,22 +52437,43 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
          <uuid>52d81448-83c8-481a-ba79-ebdf7a4aa657</uuid>
       </capabilityprofile>
 <!--
-            <capabilityprofile id="" title="">
-              <profilespec orgid="" pubnum="" date="" title="" version="1"/>
-               <serviceprofile title="">
-                  <reftaxonomy refid="user.undefined.taxonomynode"/>
-                  <obgroup obligation="mandatory">
+                  <capabilityprofile id="" title="">
+                    <profilespec orgid="" pubnum="" date="" title="" version="1"/>
+                     <serviceprofile title="">
+                        <reftaxonomy refid="user.undefined.taxonomynode"/>
+                        <obgroup obligation="mandatory">
 
-                  </obgroup>
-               </serviceprofile>
-               <status mode="accepted">
-                  <uri/>
-                  <history>
-                     <event flag="added" date="2017-04-21" rfcp="9-2" version="10.0"/>
-                  </history>
-               </status>
-            </capabilityprofile>
-      -->
+                        </obgroup>
+                     </serviceprofile>
+                     <status mode="accepted">
+                        <uri/>
+                        <history>
+                           <event flag="added" date="2017-04-21" rfcp="9-2" version="10.0"/>
+                        </history>
+                     </status>
+                  </capabilityprofile>
+                -->
+      <capabilityprofile id="binding-metadata" title="Profiles for Binding Metadata to a Data Object">
+         <profilespec orgid="" pubnum="" date="" title="Profiles for Binding Metadata to a Data Object" version="1"/>
+         <serviceprofile title="">
+            <reftaxonomy refid="user.undefined.taxonomynode"/>
+            <obgroup obligation="mandatory">
+               <refstandard refid="iso-16684-1"/>
+               <refstandard refid="w3c-rec-rdf-primer-20040210"/>
+               <refstandard refid="adobe-xmp-part3-2016"/>
+               <refstandard refid="nso-stanag4774"/>
+               <refstandard refid="nso-stanag4778"/>
+            </obgroup>
+         </serviceprofile>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2017-04-25" rfcp="9-2" version="10.0"/>
+            </history>
+         </status>
+         <uuid>606c0793-76a1-46b0-9f06-80bb6cb20638</uuid>
+      </capabilityprofile>
+
    </records>
    <organisations>
       <orgkey key="acm" short="ACM" text="ACM"/>
