@@ -167,7 +167,7 @@
 <!-- profiles -->
 
 
-<!ELEMENT capabilityprofile (profilespec, (profile | serviceprofile)+, status,  uuid?)>
+<!ELEMENT capabilityprofile (profilespec, (profile | serviceprofile | refprofile)+, status,  uuid?)>
 <!ATTLIST capabilityprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
@@ -185,7 +185,7 @@
           note    CDATA #IMPLIED>
 
 
-<!ELEMENT profile (profilespec?, (profile | serviceprofile)+,  status?, uuid?)*>
+<!ELEMENT profile (profilespec?, (profile | serviceprofile | refprofile)+,  status?, uuid?)*>
 <!ATTLIST profile
           id ID #REQUIRED
           title CDATA #REQUIRED>
@@ -193,6 +193,7 @@
 
 <!ELEMENT serviceprofile (profilespec?, description?, reftaxonomy+, obgroup+, guide*,  status?, uuid?)>
 <!ATTLIST serviceprofile
+          id CDATA #IMPLIED
           title CDATA #REQUIRED>
 
 <!ELEMENT description  %ho; (%tbl.entry.mdl;)*>
@@ -209,6 +210,11 @@
 <!ATTLIST refstandard
           refid IDREF #REQUIRED>
 
+          
+<!ELEMENT refprofile EMPTY>
+<!ATTLIST refprofile
+          refid CDATA #IMPLIED>
+          
 <!ELEMENT guide %ho; (%tbl.entry.mdl;)*>
 
 
@@ -226,7 +232,7 @@
           refid IDREF #REQUIRED
 	  lctime CDATA #IMPLIED>
 
-<!ELEMENT refprofile EMPTY>
+<!ELEMENT refprofile1 EMPTY>
 <!ATTLIST refprofile
           refid IDREF #REQUIRED
 	  lctime CDATA #IMPLIED>
