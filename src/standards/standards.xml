@@ -6163,7 +6163,7 @@ they can be used as timeservers for IPv4 Mission
                      </itemizedlist>
                   </guide>
                </serviceprofile>
-               <serviceprofile title="Informal Messaging Profile">
+               <serviceprofile id="fmn2-informal-messaging" title="Informal Messaging Profile">
                   <description>The Informal Messaging Profile provides standards and guidance for SMTP settings and the marking and classification of                                             informal messages.</description>
                   <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
                   <obgroup obligation="mandatory">
@@ -6260,7 +6260,7 @@ defined for audio-based collaboration services
 (end-to-end protected voice) should be used.</guide>
                   <guide>The voice sampling interval is 40ms.</guide>
                </serviceprofile>
-               <serviceprofile title="Secure Voice Profile">
+               <serviceprofile id="fmn1-secure-voice" title="Secure Voice Profile">
                   <description>The Secure Voice Profile provides standards and guidance for the facilitation of secure telephony and other protected                                      audio-based collaboration on federated mission networks.</description>
                   <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
                   <obgroup obligation="conditional">
@@ -16749,6 +16749,28 @@ database as a logical folder of email messages.</applicability>
             </history>
          </status>
          <uuid>31dbe03a-68fa-4f00-b8dd-84a1579c0b26</uuid>
+      </standard>
+
+      <standard id="ietf-rfc6184" tag="RFC 6184">
+         <document orgid="ietf" pubnum="RFC 6184" title="RTP Payload Format for H.264 Video" date="2011-05"/>
+         <applicability>This memo describes an RTP Payload format for the ITU-T
+   Recommendation H.264 video codec and the technically identical
+   ISO/IEC International Standard 14496-10 video codec, excluding the
+   Scalable Video Coding (SVC) extension and the Multiview Video Coding
+   extension, for which the RTP payload formats are defined elsewhere.
+   The RTP payload format allows for packetization of one or more
+   Network Abstraction Layer Units (NALUs), produced by an H.264 video
+   encoder, in each RTP payload.  The payload format has wide
+   applicability, as it supports applications from simple low bitrate
+   conversational usage, to Internet video streaming with interleaved
+   transmission, to high bitrate video-on-demand.</applicability>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc6184.txt</uri>
+            <history>
+               <event date="2017-04-27" flag="added" rfcp="9-6" version="10.0"/>
+            </history>
+         </status>
+         <uuid>63cdc79e-e218-4d3f-ad5e-d97b8f7669fe</uuid>
       </standard>
 
       <standard id="ietf-rfc6265" tag="RFC 6265: HTTP state change mgmt.">
@@ -35400,6 +35422,19 @@ to ensure approximate agreement with UT1.</applicability>
          <uuid>e9cd4fac-3dd1-4ef6-8466-1e0830ff6086</uuid>
       </standard>
 
+      <standard id="itu-t-g.711" tag="G.711">
+         <document orgid="itu-t" pubnum="G.711" date="1988-11-25" title="Pulse code modulation (PCM) of voice frequencies"/>
+         <applicability>Pulse code modulation (PCM) of voice frequencies</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://www.itu.int/rec/T-REC-G.711-198811-I/en</uri>
+            <history>
+               <event flag="added" date="2017-04-02" rfcp="9-6" version="10.0"/>
+            </history>
+         </status>
+         <uuid>ec4b0d4a-1b34-44e8-9229-cb69c0758b51</uuid>
+      </standard>
+
       <standard id="itu-t-g.722" tag="G.722">
          <document orgid="itu-t" pubnum="G.722" date="2012-09" title="7 kHz Audio-Coding within 64 kbit/s"/>
          <applicability>
@@ -35426,7 +35461,7 @@ to ensure approximate agreement with UT1.</applicability>
          <uuid>60a7fc13-f046-4651-a27d-058d6c65db84</uuid>
       </standard>
 
-      <standard id="itu-t-g.722.1-corr1-06.08" tag="G.772.2 Corr. 1">
+      <standard id="itu-t-g.722.1-corr1-06.08" tag="G.772.1 Corr. 1">
          <document orgid="itu-t" pubnum="G.722.1 (2005) Corrigendum 1 (06/08)" title="Low-complexity coding at 24 and 32 kbit/s for hands-free operation in systems with low frame loss" date="2008-06"/>
          <applicability>This corrigendum corrects three changes necessary to the existing C code (Release 1.1) that is supplied with ITU-T Rec. G.722.1. In each case, it corrects an error that was introduced when the original C code (known as release code3.003 at the time of Determination) was converted to use basic operators. The corrected code will be labelled as Release 1.2.</applicability>
          <status mode="accepted">
@@ -35434,6 +35469,7 @@ to ensure approximate agreement with UT1.</applicability>
             <history>
                <event date="2014-11-25" flag="added" rfcp="8-5" version="9.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2017-04-30" rfcp="9-6" version="10.0"/>
             </history>
          </status>
          <uuid>7a5e6dd5-da9d-488d-bbaf-e424bf68394f</uuid>
@@ -48250,6 +48286,19 @@ applications. </applicability>
          <uuid>472facf9-ae56-4e62-a3c8-2bf01c1e50f9</uuid>
       </standard>
 
+      <standard id="w3c-rec-css-style-attr-20131107" tag="CSS Style Attr.">
+         <document orgid="w3c" pubnum="REC-css-style-attr-20131107" title="CSS Style Attributes" date="2013-11-07"/>
+         <applicability>Markup languages such as HTML [HTML401] and SVG [SVG11] provide a style attribute on most elements, to hold inline style information that applies to those elements. One of the possible style sheet languages is CSS. This draft describes the syntax and interpretation of the CSS fragment that can be used in such style attributes.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://www.w3.org/TR/css-style-attr/</uri>
+            <history>
+               <event date="2017-04-26" flag="added" rfcp="9-6" version="10.0"/>
+            </history>
+         </status>
+         <uuid>649eb7b7-28ac-41d9-b9e0-281f5b8955b6</uuid>
+      </standard>
+
       <standard id="w3c-datetime" tag="Date/Time">
          <document orgid="w3c" pubnum="datetime" date="1998" title="Date and Time Formats"/>
          <applicability>
@@ -51240,6 +51289,7 @@ to help Web application authors, new elements are introduced based on research i
             <history>
                <event flag="added" date="2013-09-04" version="8.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2017-04-29" rfcp="9-6" version="10.0"/>
             </history>
          </status>
          <uuid>6bc7852f-37ea-436b-9e8c-3bfdc1651e9f</uuid>
@@ -51417,6 +51467,7 @@ to help Web application authors, new elements are introduced based on research i
             <history>
                <event flag="added" date="2013-10-22" rfcp="7-27" version="8.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2017-04-29" rfcp="9-6" version="10.0"/>
             </history>
          </status>
          <uuid>c2540ae7-2e6b-42e0-942f-dc50dab12da7</uuid>
@@ -52585,6 +52636,876 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
             </history>
          </status>
          <uuid>0037f3d5-7531-4049-90c7-2956c3f1d846</uuid>
+      </capabilityprofile>
+
+      <standard id="ietf-rfc1521" tag="RFC 1521">
+         <document orgid="ietf" pubnum="RFC 1521" title="MIME (Multipurpose Internet Mail Extensions) Part One: Mechanisms for Specifying and Describing the Format of Internet Message Bodies" date="1993-10-01"/>
+         <applicability>STD 11, RFC 822 defines a message representation protocol which specifies considerable detail about message headers, but which leaves the message content, or message body, as flat ASCII text. This document redefines the format of message bodies to allow multi-part textual and non-textual message bodies to be represented and exchanged without loss of information. This is based on earlier work documented in RFC 934 and STD 11, RFC 1049, but extends and revises that work. Because RFC 822 said so little about message bodies, this document is largely orthogonal to (rather than a revision of) RFC 822.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc1521.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>8d7e116b-f185-49dc-8b3c-0b596a9ddb18</uuid>
+      </standard>
+
+      <standard id="ietf-rfc1866" tag="RFC 1866">
+         <document orgid="ietf" pubnum="RFC 1866" title="Hypertext Markup Language - 2.0" date="1995-10-01"/>
+         <applicability>The Hypertext Markup Language (HTML) is a simple markup language used to create hypertext documents that are platform independent. HTML documents are SGML documents with generic semantics that are appropriate for representing information from a wide range of domains. HTML markup can represent hypertext news, mail, documentation, and hypermedia; menus of options; database query results; simple structured documents with in-lined graphics; and hypertext views of existing bodies of information.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc1866.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>5663244c-ad33-4be1-ba38-188b4ec17ff6</uuid>
+      </standard>
+
+      <standard id="ietf-rfc1896" tag="RFC 1896">
+         <document orgid="ietf" pubnum="RFC 1896" title="The text/enriched MIME Content-type" date="1996-02-01"/>
+         <applicability>MIME [RFC-1521] defines a format and general framework for the representation of a wide variety of data types in Internet mail. This document defines one particular type of MIME data, the text/enriched MIME type. The text/enriched MIME type is intended to facilitate the wider interoperation of simple enriched text across a wide variety of hardware and software platforms. This document is only a minor revision to the text/enriched MIME type that was first described in [RFC-1523] and [RFC-1563], and is only intended to be used in the short term until other MIME types for text formatting in Internet mail are developed and deployed. </applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc1896.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>40699723-cbe2-4db0-b866-9e43163c2c02</uuid>
+      </standard>
+
+      <standard id="ietf-rfc4353" tag="RFC 4353: SIP">
+         <document orgid="ietf" pubnum="RFC 4353" title="A Framework for Conferencing with the Session Initiation Protocol (SIP)" date="2006-02-01"/>
+         <applicability>The Session Initiation Protocol (SIP) supports the initiation, modification, and termination of media sessions between user agents. These sessions are managed by SIP dialogs, which represent a SIP relationship between a pair of user agents. Because dialogs are between pairs of user agents, SIP's usage for two-party communications (such as a phone call), is obvious. Communications sessions with multiple participants, generally known as conferencing, are more complicated. This document defines a framework for how such conferencing can occur. This framework describes the overall architecture, terminology, and protocol components needed for multi-party conferencing.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4353.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>de90dcd5-0503-4b4c-837e-b7d668b6c3a4</uuid>
+      </standard>
+
+      <standard id="ietf-rfc4411" tag="RFC 4411">
+         <document orgid="ietf" pubnum="RFC 4411" title="Extending the Session Initiation Protocol (SIP) Reason Header for Preemption Events" date="2006-02-01"/>
+         <applicability>This document proposes an IANA Registration extension to the Session Initiation Protocol (SIP) Reason Header to be included in a BYE Method Request as a result of a session preemption event, either at a user agent (UA), or somewhere in the network involving a reservation-based protocol such as the Resource ReSerVation Protocol (RSVP) or Next Steps in Signaling (NSIS). This document does not attempt to address routers failing in the packet path; instead, it addresses a deliberate tear down of a flow between UAs, and informs the terminated UA(s) with an indication of what occurred.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4411.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>7679ac52-6d3c-4a60-92df-aa24185973d7</uuid>
+      </standard>
+
+      <standard id="ietf-rfc4568" tag="RFC 4568: SDP">
+         <document orgid="ietf" pubnum="RFC 4568" title="Session Description Protocol (SDP) Security Descriptions for Media Streams" date="2006-02-01"/>
+         <applicability>This document defines a Session Description Protocol (SDP) cryptographic attribute for unicast media streams.  The attribute    describes a cryptographic key and other parameters that serve to configure security for a unicast media stream in either a single  message or a roundtrip exchange.  The attribute can be used with a variety of SDP media transports, and this document defines how to use it for the Secure Real-time Transport Protocol (SRTP) unicast media streams.  The SDP crypto attribute requires the services of a data security protocol to secure the SDP message.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4568.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>7bd3462e-3c07-418f-9307-654e52944be2</uuid>
+      </standard>
+
+      <standard id="ietf-rfc4579" tag="RFC 4579">
+         <document orgid="ietf" pubnum="RFC 4579" title="Session Initiation Protocol (SIP) Call Control - Conferencing for User Agents" date="2006-08-01"/>
+         <applicability>This specification defines conferencing call control features for the Session Initiation Protocol (SIP). This document builds on the Conferencing Requirements and Framework documents to define how a tightly coupled SIP conference works. The approach is explored from the perspective of different user agent (UA) types: conference-unaware, conference-aware, and focus UAs. The use of Uniform Resource Identifiers (URIs) in conferencing, OPTIONS for capabilities discovery, and call control using REFER are covered in detail with example call flow diagrams. The usage of the isfocus feature tag is defined.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4579.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>00d5a766-6a91-4998-bd80-4b2e06d6f974</uuid>
+      </standard>
+
+      <standard id="ietf-rfc4773" tag="RFC 4773">
+         <document orgid="ietf" pubnum="RFC 4773" title="Administration of the IANA Special Purpose IPv6 Address Block" date="2006-12-01"/>
+         <applicability>This is a direction to IANA concerning the management of the IANA Special Purpose IPv6 address assignment registry.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc4773.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>da7595d6-5ce4-4501-ac30-cdc8f9466851</uuid>
+      </standard>
+
+      <standard id="ietf-rfc5366" tag="RFC 5366">
+         <document orgid="ietf" pubnum="RFC 5366" title="Conference Establishment Using Request-Contained Lists in the Session Initiation Protocol (SIP)" date="2008-10-01"/>
+         <applicability>This document describes how to create a conference using SIP URI-list services. In particular, it describes a mechanism that allows a User Agent Client to provide a conference server with the initial list of participants using an INVITE-contained URI list.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc5366.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>b11bda86-8177-4964-950c-fb7a546fc036</uuid>
+      </standard>
+
+      <standard id="ietf-rfc5853" tag="RFC 5853">
+         <document orgid="ietf" pubnum="RFC 5853" title="Requirements from Session Initiation Protocol (SIP) Session Border Control (SBC) Deployments" date="2010-04-01"/>
+         <applicability>This document describes functions implemented in Session Initiation Protocol (SIP) intermediaries known as Session Border controllers (SBCs). The goal of this document is to describe the commonly provided functions of SBCs. A special focus is given to those practices that are viewed to be in conflict with SIP architectural principles. This document also explores the underlying requirements of network operators that have led to the use of these functions and practices in order to identify protocol requirements and determine whether those requirements are satisfied by existing specifications or if additional standards work is required.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc5853.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>c520d10d-305d-406c-a56d-688cef21aeda</uuid>
+      </standard>
+
+      <standard id="ietf-rfc5903" tag="RFC 5903">
+         <document orgid="ietf" pubnum="RFC 5903" title="Elliptic Curve Groups modulo a Prime (ECP Groups) for IKE and IKEv2" date="2010-06-01"/>
+         <applicability>This document describes three Elliptic Curve Cryptography (ECC) groups for use in the Internet Key Exchange (IKE) and Internet Key Exchange version 2 (IKEv2) protocols in addition to previously defined groups.  These groups are based on modular arithmetic rather than binary arithmetic.  These groups are defined to align IKE and IKEv2 with other ECC implementations and standards, particularly NIST standards.  In addition, the curves defined here can provide more efficient implementation than previously defined ECC groups. </applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc5903.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>00779492-e62e-48d0-936f-f3ac3cb5e0d5</uuid>
+      </standard>
+
+      <standard id="ietf-rfc6152" tag="RFC 6152">
+         <document orgid="ietf" pubnum="RFC 6152" title="SMTP Service Extension for 8-bit MIME Transport" date="2011-03-01"/>
+         <applicability>This memo defines an extension to the SMTP service whereby an SMTP content body consisting of text containing octets outside of the US-ASCII octet range (hex 00-7F) may be relayed using SMTP.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc6152.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>084af188-3339-43db-b52c-ec3547fbb527</uuid>
+      </standard>
+
+      <standard id="ietf-rfc7092" tag="RFC 7092">
+         <document orgid="ietf" pubnum="RFC 7092" title="A Taxonomy of Session Initiation Protocol (SIP) Back-to-Back User Agents" date="2013-12-01"/>
+         <applicability>In many SIP deployments, SIP entities exist in the SIP signaling path between the originating and final terminating endpoints, which go beyond the definition of a SIP proxy, performing functions not defined in Standards Track RFCs. The only term for such devices provided in RFC 3261 is for a Back-to-Back User Agent (B2BUA), which is defined as the logical concatenation of a SIP User Agent Server (UAS) and User Agent Client (UAC).</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc7092.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>2c089516-dba1-4361-93ce-f81df0d5cbb5</uuid>
+      </standard>
+
+      <standard id="ietf-rfc7656" tag="RFC 7656">
+         <document orgid="ietf" pubnum="RFC 7656" title="A Taxonomy of Semantics and Mechanisms for Real-Time Transport Protocol (RTP) Sources" date="2015-11-01"/>
+         <applicability>The terminology about, and associations among, Real-time Transport Protocol (RTP) sources can be complex and somewhat opaque. This document describes a number of existing and proposed properties and relationships among RTP sources and defines common terminology for discussing protocol entities and their relationships.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc7656.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>c62846cb-da31-4909-919f-eb69a36f4db1</uuid>
+      </standard>
+
+      <standard id="ietf-rfc7667" tag="RFC 7667">
+         <document orgid="ietf" pubnum="RFC 7667" title="RTP Topologies" date="2015-11-01"/>
+         <applicability>This document discusses point-to-point and multi-endpoint topologies used in environments based on the Real-time Transport Protocol (RTP). In particular, centralized topologies commonly employed in the video conferencing industry are mapped to the RTP terminology.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc7667.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>ee1db9b0-9a63-41d2-92c5-0e1e7b58d105</uuid>
+      </standard>
+
+      <standard id="ietf-rfc7670" tag="RFC 7670">
+         <document orgid="ietf" pubnum="RFC 7670" title="Generic Raw Public-Key Support for IKEv2" date="2016-01-01"/>
+         <applicability>The Internet Key Exchange Version 2 (IKEv2) protocol did have support for raw public keys, but it only supported RSA raw public keys. In constrained environments, it is useful to make use of other types of public keys, such as those based on Elliptic Curve Cryptography. This document updates RFC 7296, adding support for other types of raw public keys to IKEv2.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc7670.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>3038dd0a-2862-4d07-aed0-5513841d5500</uuid>
+      </standard>
+
+      <standard id="ietf-rfc7919" tag="RFC 7919">
+         <document orgid="ietf" pubnum="RFC 7919" title="Negotiated Finite Field Diffie-Hellman Ephemeral Parameters for Transport Layer Security (TLS)" date="2016-08-01"/>
+         <applicability>Traditional finite-field-based Diffie-Hellman (DH) key exchange during the Transport Layer Security (TLS) handshake suffers from a    number of security, interoperability, and efficiency shortcomings. These shortcomings arise from lack of clarity about which DH group parameters TLS servers should offer and clients should accept.  This document offers a solution to these shortcomings for compatible peers by using a section of the TLS "Supported Groups Registry" (renamed from "EC Named Curve Registry" by this document) to establish common finite field DH parameters with known structure and a mechanism for peers to negotiate support for these groups. </applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc7919.txt</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>b54c2a00-485a-4629-a837-7d22458cf513</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0047" tag="XEP-0047">
+         <document orgid="xmpp" pubnum="XEP-0047" title="In-Band Bytestreams" date="2012-06-22"/>
+         <applicability>This document describes In-Band Bytestreams (IBB), an XMPP protocol extension that enables two entities to establish a virtual bytestream over which they can exchange Base64-encoded chunks of data over XMPP itself. Because IBB provides a generic bytestream, its usage is open-ended. To date it has been used as a fallback method for sending files (see SI File Transfer (XEP-0096) and Jingle File Transfer (XEP-0234)) when out-of-band methods such as SOCKS5 Bytestreams (XEP-0065) are not available. However, IBB could also be useful for any kind of relatively low-bandwidth activity, such as games, shell sessions, or encrypted text.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://xmpp.org/extensions/xep-0047.html</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>867da4a7-ce12-4026-bed7-489b35d2689c</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0160" tag="XEP-0160">
+         <document orgid="xmpp" pubnum="XEP-0160" title="Best Practices for Handling Offline Messages" date="2016-10-07"/>
+         <applicability>XMPP Core and XMPP IM specify general rules for handling XML stanzas, but explicitly do not address how to handle message stanzas sent to recipients (e.g., IM users or other nodes) that are offline, except to say that a server MUST return a &lt;service-unavailable/&gt; error if offline message storage or message forwarding is not enabled (see RFC 6121). This document fills the gap by specifying best practices for storage and delivery of so-called "offline messages".  </applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://xmpp.org/extensions/xep-0160.html</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>29f9b5dd-1f98-45ef-98a8-705892bba91f</uuid>
+      </standard>
+
+      <standard id="itu-e.123" tag="ITU E.123">
+         <document orgid="itu" pubnum="E.123" title="Notation for national and international telephone numbers, e-mail addresses and web addresses" date="2001-02-02"/>
+         <applicability>E.123 is a standards-based recommendation by the International Telecommunications Union sector ITU-T, and is entitled Notation for national and international telephone numbers, e-mail addresses and Web addresses. It provides guidelines for the presentation of telephone numbers, email addresses, and web addresses in print, on letterheads, and similar purposes.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://www.itu.int/rec/T-REC-E.123-200102-I/en</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>43dd0f45-0c2e-40c2-8663-7c57f3b9f736</uuid>
+      </standard>
+
+      <standard id="nso-stanag3377" tag="STANAG 3377">
+         <document orgid="nso" pubnum="STANAG 3377" title="Air Reconnaissance Intelligence Report Forms ed. 6" date="2002-11-12"/>
+         <applicability/>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://nso.nato.int/</uri>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>1125aa86-55b2-4d95-92a9-710740828fc4</uuid>
+      </standard>
+
+      <standard id="iso-iec-15455" tag="">
+         <document orgid="iso-iec" pubnum="15455" title="" date=""/>
+         <applicability/>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>b1c95671-3e3a-4e05-9f63-4d42835433d6</uuid>
+      </standard>
+
+      <capabilityprofile id="fmn2" title="FMN Spiral 2 Profile">
+         <profilespec orgid="fmn" pubnum="" title="" date="2017-03-21" version="2.0"/>
+         <profile id="f1" title="FMN Spiral 2 Human-to-Human Communication Profile">
+            <profile id="f2" title="FMN Spiral 2 Web Authentication Profile">
+               <serviceprofile title="Federated Web Authentication Profile">
+                  <reftaxonomy refid="T-ba82b230-5e03-44bc-897a-ea5890dae4cb-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="oasis-wstrust-1.4"/>
+                     <refstandard refid="oasis-saml-2.0"/>
+                     <refstandard refid="ietf-rfc5322"/>
+                     <refstandard refid="ietf-rfc3986"/>
+                     <refstandard refid="ietf-rfc2256"/>
+                     <refstandard refid="ietf-rfc2798"/>
+                     <refstandard refid="ietf-rfc4519"/>
+                  </obgroup>
+                  <guide>The Identity Providers must support both the SP Lite and IdP Lite operational modes defined in the "Conformance Requirements for the OASIS Security Assertion Markup Language (SAML) V2.0 (15 March 2005)" specification.</guide>
+               </serviceprofile>
+            </profile>
+            <profile id="fmn2-webhost" title="FMN Spiral 2 Web Hosting Profile">
+               <serviceprofile title="Web Feeds Profile">
+                  <description>The Web Feeds Profile provides standards and guidance for the delivery of content to feed aggregators (web sites as well as directly to user agents).</description>
+                  <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                  <obgroup obligation="mandatory">
+                     <description>Web content providers must support at least one of the two standards (RSS and/or Atom).</description>
+                     <refstandard refid="ietf-rfc4287"/>
+                     <refstandard refid="ietf-rfc5023"/>
+                     <refstandard refid="rss-2.0"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>Receivers of web content such as news
+aggregators or user agents must support both
+the RSS and the ATOM standard.</description>
+                     <refstandard refid="ietf-rfc4287"/>
+                     <refstandard refid="ietf-rfc5023"/>
+                     <refstandard refid="rss-2.0"/>
+                  </obgroup>
+                  <guide>RSS and Atom documents should reference
+related OpenSearch description documents via
+the Atom 1.0 "link" element, as specified in
+Section 4.2.7 of RFC 4287.</guide>
+                  <guide>The "rel" attribute of the link element should
+contain the value "search" when referring to
+OpenSearch description documents. This
+relationship value is pending IANA registration.
+The reuse of the Atom link element is
+recommended in the context of other syndication
+formats that do natively support comparable
+functionality.</guide>
+                  <guide>The following restrictions apply:
+          <itemizedlist>
+                        <listitem>
+                           <para>The "type" attribute must contain the value "application/opensearchdescription+xml".</para>
+                        </listitem>
+                        <listitem>
+                           <para>The "rel" attribute must contain the value "search".</para>
+                        </listitem>
+                        <listitem>
+                           <para>The "href" attribute must contain a URI that resolves to an OpenSearch description document.</para>
+                        </listitem>
+                        <listitem>
+                           <para>The "title" attribute may contain a human-readable plain text string describing the search engine.</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+               <serviceprofile title="Web Content Profile">
+                  <description>The Web Content Profile provides standards and guidance for the processing, sharing and presentation of web content on federated mission networks. Web presentation services must be based on a fundamental set of basic and widely
+      understood protocols, such as those listed below. Recommendations in the FMN Spiral 2 Service Interface Profile for Web Applications are intended to improve the experience of Web applications and to make information and services available to users
+      irrespective of their device and Web browser. However, it does not mean that exactly the same information is available in an identical representation across all devices: the context of mobile use, device capability variations, bandwidth issues and
+      mobile network capabilities all affect the representation. Some services and information are more suitable for and targeted at particular user contexts. While services may be most appropriately experienced in one context or another, it is considered
+      best practice to provide as reasonable experience as is possible given device limitations and not to exclude access from any particular class of device, except where this is necessary because of device limitations.</description>
+                  <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                  <obgroup obligation="mandatory">
+                     <description>Publishing information including text, multi-media, hyperlink features, scripting languages and style sheets on the network.</description>
+                     <refstandard refid="iso-iec-15455"/><!--
+      Very OLD standard • ISO/IEC 15445 - "Information technology  Document description and processing languages  HyperText Markup Language (HTML)"
+-->
+                     <refstandard refid="ietf-rfc2854"/>
+                     <refstandard refid="w3c-rec-html5-20141028"/>
+                     <refstandard refid="ietf-rfc4329"/>
+                     <refstandard refid="w3c-rec-css3-mediaqueries-20120619"/>
+                     <refstandard refid="w3c-rec-css3-selectors-20110929"/>
+                     <refstandard refid="ietf-rfc2616"/>
+                     <refstandard refid="ietf-rfc2817"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>Providing a common style sheet language for
+describing presentation semantics (that is, the
+look and formatting) of documents written in
+markup languages like HTML.</description>
+                     <refstandard refid="w3c-rec-css2-2011067"/>
+                     <refstandard refid="w3c-rec-css-style-attr-20131107"/>
+                     <refstandard refid="w3c-rec-css-namespaces-3-20140320"/>
+                     <refstandard refid="w3c-rec-css3-color-20110607"/>
+                  </obgroup>
+                  <guide>To enable the use of web applications by the
+widest possible audience, web applications shall
+be device independent and shall be based on
+HTML5 standards and criteria for the
+development, delivery and consumption of Web
+applications and dynamic Web sites. HTML5 is a
+new version of the mark-up language HTML, with
+new elements, attributes, and behaviours (data
+format) and it contains a larger set of associated
+technologies such as CSS 3 and JavaScript that
+allows more diverse and powerful Web sites and
+applications.</guide>
+                  <guide>Some organizations or end user devices do not
+allow the use of proprietary extensions such as
+Microsoft Web Parts, Microsoft Silverlight or
+Adobe Flash. Those technologies shall be
+avoided. Web applications will not require any
+proprietary browser plug-ins on the client side.
+Implementers shall use open standard based
+solutions (HTML5 / CSS3).</guide>
+                  <guide>The requirements defined in the FMN Spiral 2
+Service Interface Profile for Web Applications are
+mandatory for all web content consumers
+(browsers) and are optional for web content
+providers. It is expected that in the future FMN
+Spiral Specifications they will become mandatory
+also for the web content providers.</guide>
+               </serviceprofile>
+               <serviceprofile title="Structured Data Profile">
+                  <description>The Structured Data Profile provides standards and guidance for the structuring of web content on federated mission
+networks.</description>
+                  <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                  <obgroup obligation="mandatory">
+                     <description>General formatting of information for sharing or
+exchange.</description>
+                     <refstandard refid="w3c-rec-xml10-20081126"/>
+                     <refstandard refid="ietf-rfc4627"/>
+                     <refstandard refid="w3c-rec-xmlschema-1-20041028"/>
+                     <refstandard refid="w3c-rec-xmlschema-2-20041028"/>
+                     <refstandard refid="w3c-NOTE-xhtml1-schema-20020902"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Geospatial Web Feeds Profile">
+                  <description>The Geospatial Web Feeds Profile provides standards and guidance for the delivery of geospatial content to web sites
+and to user agents, including the encoding of location as part of web feeds.
+
+Feed processing software is required to either read or ignore these extensions and shall not fail if these extensions are
+present, so there is no danger of breaking someone's feed reader (or publisher) by including this element in a feed.</description>
+                  <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                  <obgroup obligation="recommended">
+                     <description>GeoRSS GML Profile 1.0 a GML subset for point
+"gml:Point", line "gml:LineString", polygon
+"gml:Polygon", and box "gml:Envelope".
+In Atom feeds, location shall be specified using
+Atom 1.0's official extension mechanism in
+combination with the GeoRSS GML Profile 1.0
+whereby a "georss:where" element is added as a
+child of the element.</description>
+                     <refstandard refid="ogc-06-050r3"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>GeoRSS Simple encoding for "georss:point",
+"georss:line", "georss:polygon", "georss:box".</description>
+                     <refstandard refid="ogc-11-044"/>
+                  </obgroup>
+                  <guide>Geography Markup Language (GML) allows to
+specify a coordinate reference system (CRS)
+other than WGS84 decimal degrees (lat/long). If
+there is a need to express geography in a CRS
+other than WGS84, it is recommended to specify
+the geographic object multiple times, one in
+WGS84 and the others in your other desired
+CRSs.</guide>
+                  <guide>For backwards compatibility it is recommended
+to also implement RSS 2.0.</guide>
+               </serviceprofile>
+               <serviceprofile title="Web Services Profile">
+                  <description>Providing transport-neutral mechanisms to address web services.</description>
+                  <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="w3c-note-wsdl20-soap11-binding-20070626"/>
+                     <refstandard refid="w3c-address"/>
+                  </obgroup>
+                  <obgroup obligation="recommended">
+                     <description>Reliable messaging for web services, describes
+a protocol that allows messages to be
+transferred reliably between nodes implementing
+this protocol in the presence of software
+component, system, or network failures.</description>
+                     <refstandard refid="oasis-relmes"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Web Platform Profile">
+                  <description>The Web Platform Profile provides standards and guidance to enable web technology on federated mission networks.</description>
+                  <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc2616"/>
+                     <refstandard refid="ietf-rfc2817"/>
+                     <refstandard refid="ietf-rfc3986"/>
+                     <refstandard refid="ietf-rfc1738"/>
+                  </obgroup>
+                  <guide>HTTP shall be used as the transport protocol for
+information without 'need-to-know' caveats
+between all service providers and consumers
+(unsecured HTTP traffic). HTTPS shall be used
+as the transport protocol between all service
+providers and consumers to ensure
+confidentiality requirements (secured HTTP
+traffic). Unsecured and secured HTTP traffic
+should use their standard well-known ports by
+default, i.e. 80 for HTTP and 443 for HTTPS.</guide>
+               </serviceprofile>
+            </profile>
+            <profile id="xxx" title="FMN Spiral 2 Unified Collaboration Profile">
+               <profile id="fmn2-cover-secure-voice" title="Secure Voice Profile">
+                  <refprofile refid="fmn1-secure-voice"/>
+               </profile>
+               <profile id="x1" title="FMN Spiral 2 Call Signaling Profile">
+                  <serviceprofile title="Unified Voice and VTC Services Call Signaling Profile">
+                     <reftaxonomy refid="user.unknown.taxonomynode"/>
+                     <obgroup obligation="mandatory">
+                        <refstandard refid="itu-t-g.711"/>
+                        <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+                        <refstandard refid="itu-t-h.264"/>
+                     </obgroup>
+                  </serviceprofile>
+                  <serviceprofile title="Standalone VTC Services Call Signaling Profile">
+                     <reftaxonomy refid="user.unknown.taxonomynode"/>
+                     <obgroup obligation="mandatory">
+                        <refstandard refid="itu-t-g.711"/>
+                        <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+                        <refstandard refid="itu-t-h.264"/>
+                     </obgroup>
+                  </serviceprofile>
+                  <serviceprofile title="Standalone Voice Services Call Signaling Profile">
+                     <reftaxonomy refid="user.unknown.taxonomynode"/>
+                     <obgroup obligation="mandatory">
+                        <refstandard refid="itu-t-g.729"/>
+                        <refstandard refid="itu-t-g.711"/>
+                        <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+                     </obgroup>
+                  </serviceprofile>
+               </profile>
+               <profile id="fmn2-video-vased-collab" title="Video-based Collaboration Profile">
+                  <serviceprofile title="Video-based Collaboration Profile">
+                     <description>The Video-based Collaboration Profile provides standards and guidance for the implementation and configuration of                                                   Video Tele Conferencing (VTC) systems and services in a federated mission network.</description>
+                     <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+                     <obgroup obligation="mandatory">
+                        <description>The following standards are required for VTC services.</description>
+                        <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+                        <refstandard refid="itu-t-g.711"/>
+                     </obgroup>
+                     <obgroup obligation="mandatory">
+                        <description>The following standards are required for video coding in VTC.</description>
+                        <refstandard refid="itu-t-h.264"/>
+                        <refstandard refid="ietf-rfc6184"/>
+                        <refstandard refid="itu-t-h.239"/>
+                     </obgroup>
+                     <obgroup obligation="conditional">
+                        <description>Not required at this time, but when available it can be implemented between dedicated network segments after approval from the MN administrative authority.</description>
+                        <refstandard refid="ietf-rfc4582"/>
+                     </obgroup>
+                     <guide>It Is recommended that dynamic port ranges are
+constrained to a limited and agreed number. This
+is an activity that needs to be performed at the
+mission planning stage. Different vendors have
+different limitations on fixed ports. However
+common ground can always be found.</guide>
+                     <guide>As a Minimum G.722.1 is to be used. Others are
+exceptions and need to be agreed by the MN
+administrative authority for video calls.</guide>
+                  </serviceprofile>
+               </profile>
+               <profile id="fmn2-content-encapsulation-profile" title="Content Encapsulation Profile">
+                  <serviceprofile title="Content Encapsulation Profile">
+                     <description>The Content Encapsulation Profile provides standards and guidance for content encapsulation within bodies of internet messages, following the Multipurpose Internet Mail Extensions (MIME) specification.</description>
+                     <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+                     <obgroup obligation="mandatory">
+                        <description>Media and Content Types:</description>
+                        <refstandard refid="ietf-rfc1521"/>
+                        <refstandard refid="ietf-rfc1896"/>
+                        <refstandard refid="ietf-rfc1866"/>
+                     </obgroup>
+                     <obgroup obligation="mandatory">
+                        <description>MIME Encapsulation</description>
+                        <refstandard refid="ietf-rfc2045"/>
+                        <refstandard refid="ietf-rfc2046"/>
+                        <refstandard refid="ietf-rfc2047"/>
+                        <refstandard refid="ietf-rfc2049"/>
+                        <refstandard refid="ietf-rfc3030"/>
+                        <refstandard refid="ietf-rfc4288"/>
+                        <refstandard refid="ietf-rfc6152"/>
+                     </obgroup>
+                     <guide>10 MB max message size limit</guide>
+                  </serviceprofile>
+               </profile>
+               <profile id="fmn2-cover-unified-audio-video" title="FMN Spiral 2 Unified Audio and Video Profile">
+                  <serviceprofile title="Session Initiation and Control Profile">
+                     <description>The Session Initiation and Control Profile provides standards used for session initiation and control.</description>
+                     <reftaxonomy refid="user.unknown.taxonomynode"/>
+                     <obgroup obligation="mandatory">
+                        <description>The following standards define the SIP and RTP support for conferencing.</description>
+                        <refstandard refid="ietf-rfc4353"/>
+                        <refstandard refid="ietf-rfc4579"/>
+                        <refstandard refid="ietf-rfc5366"/>
+                        <refstandard refid="ietf-rfc7667"/>
+                     </obgroup>
+                     <obgroup obligation="mandatory">
+                        <description>The following standards are used for regular session initiation and control.</description>
+                        <refstandard refid="ietf-rfc3261"/>
+                        <refstandard refid="ietf-rfc3262"/>
+                        <refstandard refid="ietf-rfc3264"/>
+                        <refstandard refid="ietf-rfc6665"/>
+                        <refstandard refid="ietf-rfc3311"/>
+                        <refstandard refid="ietf-rfc4028"/>
+                        <refstandard refid="ietf-rfc4566"/>
+                     </obgroup>
+                  </serviceprofile>
+                  <serviceprofile title="Media Infrastructure Taxonomy Profile">
+                     <description>The Media Infrastructure Taxonomy Profile provides guidance and taxonomy for media infrastructures.</description>
+                     <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+                     <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+                     <obgroup obligation="mandatory">
+                        <refstandard refid="ietf-rfc5853"/>
+                        <refstandard refid="ietf-rfc7092"/>
+                        <refstandard refid="ietf-rfc7656"/>
+                     </obgroup>
+                  </serviceprofile>
+                  <serviceprofile title="Media Streaming Profile">
+                     <description>The Media Streaming Profile provides standards used to stream media across the mission network.</description>
+                     <reftaxonomy refid="user.unknown.taxonomynode"/>
+                     <obgroup obligation="mandatory">
+                        <refstandard refid="ietf-rfc3550"/>
+                        <refstandard refid="ietf-rfc4733"/>
+                     </obgroup>
+                  </serviceprofile>
+                  <serviceprofile title="IPSec-based Media Infrastructure Security Profile">
+                     <description>The IPSec-based Media Infrastructure Security Profile provides security standards that are used for security of media
+infrastructure based on Internet Protocol Security (IPSec).</description>
+                     <reftaxonomy refid="user.unknown.taxonomynode"/>
+                     <obgroup obligation="conditional">
+                        <description>Securing the MN Media infrastructure can be
+done in several ways and that the selection of
+the appropriate method is to be done during the
+mission planning. For this specific method, the
+following standard apply.</description>
+                        <refstandard refid="ietf-rfc7296"/>
+                        <refstandard refid="ietf-rfc4303"/>
+                        <refstandard refid="ietf-rfc4754"/>
+                        <refstandard refid="ietf-rfc5903"/>
+                        <refstandard refid="ietf-rfc7427"/>
+                        <refstandard refid="ietf-rfc7670"/>
+                     </obgroup>
+                  </serviceprofile>
+                  <serviceprofile title="SRTP-based Media Infrastructure Security Profile">
+                     <description>The SRTP-based Media Infrastructure Security Profile provides security standards that are used for security of media
+infrastructure based on Transport Layer Security (TLS) and Secure Real-time Transport Protocol (SRTP).</description>
+                     <reftaxonomy refid="user.unknown.taxonomynode"/>
+                     <obgroup obligation="conditional">
+                        <description>Securing the MN Media infrastructure can be
+done in several ways and that the selection of
+the appropriate method is to be done during the
+mission planning. For this specific method, the
+following standard apply</description>
+                        <refstandard refid="ietf-rfc3711"/>
+                        <refstandard refid="ietf-rfc4568"/>
+                        <refstandard refid="ietf-rfc5246"/>
+                        <refstandard refid="ietf-rfc7919"/>
+                     </obgroup>
+                     <guide>Note that securing the MN Media infrastructure
+can be done in several ways and that the
+selection of the appropriate method is to be done
+during the mission planning.</guide>
+                  </serviceprofile>
+                  <serviceprofile title="Priority and Pre-emption Profile">
+                     <description>The Priority and Pre-emption Profile provides standards are used to execute priority and pre-emption service with SIP.</description>
+                     <reftaxonomy refid="user.unknown.taxonomynode"/>
+                     <obgroup obligation="mandatory">
+                        <refstandard refid="ietf-rfc4411"/>
+                        <refstandard refid="ietf-rfc4412"/>
+                     </obgroup>
+                  </serviceprofile>
+                  <serviceprofile title="Basic Text-based Collaboration Profile">
+                     <description>The Basic Text-based Collaboration Profile provides standards and guidance to establish a basic near-real time                                                        text-based group collaboration capability (chat) for time critical reporting and decision making in military operations.</description>
+                     <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+                     <reftaxonomy refid="T-c31cbe2b-47ef-432a-b428-90cdea2e377c-X"/>
+                     <obgroup obligation="mandatory">
+                        <description>The following standards are the base IETF
+protocols for interoperability of chat services.</description>
+                        <refstandard refid="ietf-rfc6120"/>
+                        <refstandard refid="ietf-rfc6121"/>
+                        <refstandard refid="ietf-rfc6122"/>
+                     </obgroup>
+                     <obgroup obligation="mandatory">
+                        <description>The following standards are required to achieve compliance for an XMPP Server and an XMPP Client dependent upon the categorisation of presenting a core or advanced instant messaging service interface.</description>
+                        <refstandard refid="xmpp-xep-0004"/>
+                        <refstandard refid="xmpp-xep-0012"/>
+                        <refstandard refid="xmpp-xep-0030"/>
+                        <refstandard refid="xmpp-xep-0045"/>
+                        <refstandard refid="xmpp-xep-0047"/>
+                        <refstandard refid="xmpp-xep-0049"/>
+                        <refstandard refid="xmpp-xep-0054"/>
+                        <refstandard refid="xmpp-xep-0055"/>
+                        <refstandard refid="xmpp-xep-0060"/>
+                        <refstandard refid="xmpp-xep-0065"/>
+                        <refstandard refid="xmpp-xep-0092"/>
+                        <refstandard refid="xmpp-xep-0114"/>
+                        <refstandard refid="xmpp-xep-0115"/>
+                        <refstandard refid="xmpp-xep-0160"/>
+                        <refstandard refid="xmpp-xep-0198"/>
+                        <refstandard refid="xmpp-xep-0199"/>
+                        <refstandard refid="xmpp-xep-0202"/>
+                        <refstandard refid="xmpp-xep-0203"/>
+                        <refstandard refid="xmpp-xep-0220"/>
+                        <refstandard refid="xmpp-xep-0258"/>
+                     </obgroup>
+                  </serviceprofile>
+               </profile>
+               <profile id="fmn2-cover-number-plan" title="Numbering Plans Profile">
+                  <serviceprofile title="Numbering Plans Profile">
+                     <description>The Numbering Plans Profile provides standards and guidance for the facilitation of numbering plans of telecommunications, audio and video networks.</description>
+                     <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+                     <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+                     <obgroup obligation="mandatory">
+                        <description>The following standards are used for numbering.
+Network planners and engineers are reminded
+that in case Canada and United States are both
+participating in a mission network, there is a
+necessity to de-conflict the country code a.k.a.
+Country Identified (CI).</description>
+                        <refstandard refid="nso-stanag4705ed1"/>
+                        <refstandard refid="itu-t-e.123"/>
+                        <refstandard refid="itu-t-e.164"/>
+                     </obgroup>
+                     <obgroup obligation="optional">
+                        <refstandard refid="nso-stanag5046ed4"/>
+                     </obgroup>
+                  </serviceprofile>
+               </profile>
+               <profile id="fmn2-cover-formatted-messages" title="Formatted Messages Profile">
+                  <serviceprofile title="Formatted Messages Profile">
+                     <description>The Formatted Messages Profile provides standards and a set of minimum formatted messages that are typically used in
+military operations. These formatted messages may be used as payload/attachment in combination with various transport
+mechanisms such as informal messaging (Email), text collaboration (Chat) or in standardized voice procedures, e.g.
+MEDEVAC Requests.</description>
+                     <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+                     <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+                     <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+                     <obgroup obligation="mandatory">
+                        <refstandard refid="nso-stanag5500ed7"/>
+                        <refstandard refid="nso-stanag7149ed6"/>
+                     </obgroup>
+                     <obgroup obligation="mandatory">
+                        <description>
+                           <itemizedlist>
+                              <listitem>
+                                 <para>In-Flight Report (INFLIGHTREP)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Reconnaissance Exploitation Report
+(RECCEXREP)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>General Version of Initial Programmed
+Interpretation Report/Supplemental
+Programmed Interpretation Report
+(IPIR/SUPIR)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>ADP Version of Initial Programmed
+Interpretation Report/Supplemental
+Programmed Interpretation Report
+(IPIR/SUPIR)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Radar Exploitation Report (RADAREXREP)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Radar Exploitation Report - Abbreviated
+(RADAREXREP-A)</para>
+                              </listitem>
+                           </itemizedlist>
+                        </description>
+                        <refstandard refid="nso-stanag3377"/>
+                     </obgroup>
+                     <guide>The following set of APP-11 messages that
+should be supported cited in the form: MTF
+Name (MTF Identifier, MTF Index Ref Number)):
+<itemizedlist>
+                           <listitem>
+                              <para>PRESENCE REPORT (PRESENCE, A009)</para>
+                           </listitem>
+                           <listitem>
+                              <para>CASUALTY EVACUATION REQUEST
+(CASEVACREQ, A015)</para>
+                           </listitem>
+                           <listitem>
+                              <para>ENEMY CONTACT REPORT (ENEMY
+CONTACT REP, A023)</para>
+                           </listitem>
+                           <listitem>
+                              <para>INCIDENT REPORT (INCREP, A078)</para>
+                           </listitem>
+                           <listitem>
+                              <para>MINEFIELD CLEARING RECONNAISSANCE
+ORDER (MINCLRRECCEORD, A095)</para>
+                           </listitem>
+                           <listitem>
+                              <para>AIRSPACE CONTROL ORDER (ACO, F011)</para>
+                           </listitem>
+                           <listitem>
+                              <para>AIR TASKING ORDER (ATO, F058)</para>
+                           </listitem>
+                           <listitem>
+                              <para>KILLBOX MESSAGE (KILLBOX, F083)</para>
+                           </listitem>
+                           <listitem>
+                              <para>AIR SUPPORT REQUEST (AIRSUPREQ,
+F091)</para>
+                           </listitem>
+                           <listitem>
+                              <para>INCIDENT SPOT REPORT (INCSPOTREP,
+J006)</para>
+                           </listitem>
+                           <listitem>
+                              <para>SEARCH AND RESCUE INCIDENT
+REPORT (SARIR, J012)</para>
+                           </listitem>
+                           <listitem>
+                              <para>EOD INCIDENT REPORT (EODINCREP,
+J069)</para>
+                           </listitem>
+                           <listitem>
+                              <para>EVENTS REPORT (EVENTREP, J092)</para>
+                           </listitem>
+                           <listitem>
+                              <para>SITUATION REPORT (SITREP, J095)</para>
+                           </listitem>
+                           <listitem>
+                              <para>OPSITREP IRREGULAR ACTOR
+(OPSITREP IA, A011)</para>
+                           </listitem>
+                           <listitem>
+                              <para>MEDICAL EVACUATION REQUEST
+(MEDEVAC, A012)</para>
+                           </listitem>
+                           <listitem>
+                              <para>TROOPS IN CONTACT SALTA FORMAT
+(SALTATIC, A073)</para>
+                           </listitem>
+                           <listitem>
+                              <para>FRIENDLY FORCE INFORMATION (FFI,
+J025)</para>
+                           </listitem>
+                           <listitem>
+                              <para>UXO IED REPORT 10-LINER (UXOIED,
+A075)</para>
+                           </listitem>
+                        </itemizedlist>
+                     </guide>
+                  </serviceprofile>
+               </profile>
+               <profile id="fmn2-cover-informal-messaging" title="Informal Messaging Profile">
+                  <refprofile refid="fmn2-informal-messaging"/>
+               </profile>
+               <profile id="fmn2-cover-audio-collab" title="Audio-based Collaboration Profile">
+                  <serviceprofile title="Audio-based Collaboration Profile">
+                     <description>The Audio-based Collaboration Profile provides standards and guidance for the implementation of an interoperable voice
+system (telephony) on federated mission networks.</description>
+                     <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+                     <obgroup obligation="mandatory">
+                        <description>The following standards are used for audio
+protocols.</description>
+                        <refstandard refid="itu-t-g.729"/>
+                        <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+                     </obgroup>
+                  </serviceprofile>
+               </profile>
+            </profile>
+         </profile>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+            </history>
+         </status>
+         <uuid>75f9fb4b-9220-4c67-9fab-06212c537635</uuid>
       </capabilityprofile>
 <!--
       <capabilityprofile id="" title="">
