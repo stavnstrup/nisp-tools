@@ -53957,10 +53957,87 @@ protocols.</description>
                      </obgroup>
                   </serviceprofile>
                </profile>
-            </profile><!--           
-            <profile id="" title="FMN Spiral 2 Geospatial Profile">
-            
             </profile>
+            <profile id="fmn2-cover-geospatial" title="FMN Spiral 2 Geospatial Profile">
+               <serviceprofile title="Web Map Service Profile">
+                  <description>The Web Map Service standard and guidance provides a standardized interface for geodata provision in a defined format
+over a network connection</description>
+                  <reftaxonomy refid="T-4a3a0865-33e0-4cff-9a7c-9f334e46a61c-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="iso-19128"/>
+                     <refstandard refid="ogc-06-042"/>
+                  </obgroup>
+                  <guide>Additional Implementation Guidance:<itemizedlist>
+                        <listitem>
+                           <para>DGIWG – 112, DGIWG – Web Map Service
+1.3 Profile v.2.1.0, 16 November 2015</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+               <serviceprofile title="Web Feature Service Profile">
+                  <description>The Web Feature Service standard and guidance provides a standardized interface for geodata provision in a defined
+format over a network connection.</description>
+                  <reftaxonomy refid="T-6b8ade43-9cd5-4845-a616-2ae553c64e53-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="iso-19142"/>
+                     <refstandard refid="ogc-09-025r2"/>
+                  </obgroup>
+                  <guide>Additional Implementation Guidance:<itemizedlist>
+                        <listitem>
+                           <para>DGIWG – 122, DGIWG - Web Feature Service 2.0 Profile v.2.0.0, 16 November
+2015</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+               <serviceprofile title="Geospatial Data Exchange Profile">
+                  <description>Maps, geographical overviews and digital images provide valuable knowledge of a mission area and are intensively used
+for planning and mission execution purposes at every level of command. Geospatial information (GI) requirements are
+typically defined by product type (what is required – the level of detail at a specific scale) and coverage (where it is
+required). Geospatial support covers land, sea and air-space (battle space) segments and consists of four main product
+types: topographical, hydrographical, aeronautical information and suitable geospatially referenced imagery.
+Typically, maps and geospatial1 datasets are being produced by different organisations and need to be exchanged (e.g.
+via automated or manual file transfer) between different participants using standardised exchange formats. These
+datasets would then be loaded into specialised geospatial information systems (GIS) and published via standardized Web
+Services.</description>
+                  <reftaxonomy refid="user.undefined.taxonomynode"/>
+                  <obgroup obligation="recommended">
+                     <description>File geodatabases store geospatial datasets and
+can hold any number of these large, individual
+datasets. File geodatabases can be used across
+multiple platforms. Users are rapidly adopting file
+geodatabases in place of using legacy
+shapefiles.</description>
+                     <refstandard refid="ogc-12-128r12"/>
+                  </obgroup>
+                  <obgroup obligation="recommended">
+                     <description>File based storage and exchange of digital
+geospatial mapping (raster) data.</description>
+                     <refstandard refid="nima-mil-prf-89038"/>
+                     <refstandard refid="nima-rpf"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ogc-07-147r2"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>File based storage and exchange of digital geospatial mapping (raster) data.</description>
+                     <refstandard refid="osgeo-geotiff"/>
+                     <refstandard refid="ogc-05-047r3"/>
+                  </obgroup>
+                  <guide>Often the exchange of large geospatial(raster)
+data sets between Geo organizations of different
+Mission Participants is conducted in the
+proprietary Multi-resolution seamless image
+database format (MrSID Generation 3). Data in
+MrSID format could be transformed to GeoTIFF.
+The JPEG 2000 image compression standard
+offers many of the same advantages as MrSID,
+plus the added benefits of being an international
+standard (ISO/IEC 15444).</guide>
+               </serviceprofile>
+            </profile><!--
+ 
             <profile id="" title="FMN Spiral 2 Information Management Profile">
             
             </profile>
