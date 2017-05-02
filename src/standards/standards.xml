@@ -54181,9 +54181,274 @@ v3.0</para>
                      </itemizedlist>
                   </guide>
                </serviceprofile>
+            </profile>
+            <profile id="fmn2-cover-smc" title="FMN Spiral 2 SMC Profile">
+               <profile id="fmn2-cover-" title="SMC Orchestration Profile">
+                  <serviceprofile title="Service Implementation Trouble Ticketing Profile">
+                     <description>The Service Implementation Profile for Trouble Ticketing enables the handover between the incident sending Service
+Providers and the incident receiving Service Provider. The handover point is set after incident inception, logging and
+categorization and before incident prioritization.
+Service Implementation Profile for Trouble Ticketing provides implementation guidance for the TMForum Trouble Ticket
+API REST Specification. The IER for an incident record handover is represented in this API as follows:
+
+<itemizedlist>
+                           <listitem>
+                              <para>id: Unique identifier of the trouble ticket</para>
+                           </listitem>
+                           <listitem>
+                              <para>correlationId: Additional identifier coming from an external system</para>
+                           </listitem>
+                           <listitem>
+                              <para>description: Description of the trouble</para>
+                           </listitem>
+                           <listitem>
+                              <para>severity: The severity of the trouble. It can be for example : minor, major, critical severity corresponds to ITIL incident
+impact. The sending entity (customer for this service) can only classify impact. The priority will be given by the
+receiving entity (the service provider) based on the SLA's target resolution time (urgency).</para>
+                           </listitem>
+                           <listitem>
+                              <para>type: Type of trouble ticket</para>
+                           </listitem>
+                           <listitem>
+                              <para>creationDate: The date on which the trouble was discovered</para>
+                           </listitem>
+                           <listitem>
+                              <para>targetResolutionDate: Foreseen trouble resolution date</para>
+                           </listitem>
+                           <listitem>
+                              <para>status: The current status of the Trouble Ticket</para>
+                           </listitem>
+                           <listitem>
+                              <para>subStatus: The current sub status of the Trouble Ticket</para>
+                           </listitem>
+                           <listitem>
+                              <para>statusChangeReason: The reason of state change</para>
+                           </listitem>
+                           <listitem>
+                              <para>statusChangeDate: The date of state change</para>
+                           </listitem>
+                           <listitem>
+                              <para>resolutionDate: The date of resolution</para>
+                           </listitem>
+                           <listitem>
+                              <para>relatedParty: Party playing a role within trouble ticket</para>
+                           </listitem>
+                           <listitem>
+                              <para>role: Role of the party</para>
+                           </listitem>
+                           <listitem>
+                              <para>reference: Identifier of the party</para>
+                           </listitem>
+                           <listitem>
+                              <para>relatedObject: Objects linked with trouble ticket</para>
+                           </listitem>
+                           <listitem>
+                              <para>reference: Identifier of the object</para>
+                           </listitem>
+                           <listitem>
+                              <para>involvement: The related object’s type of relation to the incident</para>
+                           </listitem>
+                           <listitem>
+                              <para>note: Extra-information about the trouble ticket</para>
+                           </listitem>
+                           <listitem>
+                              <para>date: Date of the note</para>
+                           </listitem>
+                           <listitem>
+                              <para>author: Author of the no</para>
+                           </listitem>
+                        </itemizedlist>
+                     </description>
+                     <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                     <obgroup obligation="recommended">
+                        <description>The following extended attribute should be
+included in the message as nested sub-entities
+mapped as follows: confidentialityInformation as
+"related object" with involvement
+"confidentialityInformation" and with
+PolicyIdentifier, Classification, Privacy Mark and
+Category.</description>
+                        <refstandard refid="nso-stanag4774"/>
+                     </obgroup>
+                     <obgroup obligation="mandatory">
+                        <refstandard refid="tm-forum-tmf621"/>
+                        <refstandard refid="tm-forum-tr250"/>
+                     </obgroup>
+                     <guide>The following set of extended attributes shall be
+included in the message as nested sub-entities
+mapped as follows:
+<itemizedlist>
+                           <listitem>
+                              <para>securityMarking: human readable text
+reflecting the security classification of the
+incident in accordance with the applicable
+security policy (e.g. "NATO UNCLASSIFIED")</para>
+                           </listitem>
+                           <listitem>
+                              <para>impactedService: as "related object" with
+involvement: "impactedService" and
+reference pointing to a resource of type
+"Service"</para>
+                           </listitem>
+                           <listitem>
+                              <para>assigneeGroup: support group to which the
+incident is assigned to be implemented as
+"related party" with role: "assigneeGroup" and
+reference pointing to a "Party" resource</para>
+                           </listitem>
+                           <listitem>
+                              <para>attachment: as "related object" with
+involvement: "relatedAttachment" and
+reference pointing to a binary file resource</para>
+                           </listitem>
+                           <listitem>
+                              <para>relatedEvents: as "related object" with
+involvement: "relatedEvent" and reference
+pointing to a resource of type "Event"</para>
+                           </listitem>
+                           <listitem>
+                              <para>relatedProblems: as "related object" with
+involvement: "relatedProblem" and reference
+pointing to a resource of type "Problem"</para>
+                           </listitem>
+                           <listitem>
+                              <para>relatedServiceRequests: as "related object"
+with involvement: "relatedServiceRequest"
+and reference pointing to a resource of type
+"ServiceRequest"</para>
+                           </listitem>
+                           <listitem>
+                              <para>relatedSecurityIncidents: as "related object"
+with involvement: "relatedSecurityIncident"
+and reference pointing to a resource of type
+"SecurityIncident"</para>
+                           </listitem>
+                           <listitem>
+                              <para>relatedMajorIncidents: as "related object" with
+involvement: "relatedMajorIncident" and
+reference pointing to a resource of type
+"MajorIncident"</para>
+                           </listitem>
+                           <listitem>
+                              <para>location: as "related object" with involvement:
+"impactedLocation" and reference pointing to
+a resource of type "Location"</para>
+                           </listitem>
+                        </itemizedlist>
+                     </guide>
+                  </serviceprofile>
+                  <serviceprofile title="Service Implementation Request Managing Profile">
+                     <description>The Service Implementation Profile for Request Managing enables the handover of service requests between a sending
+Service Provider and a receiving Service Provider. The handover point is set after the request data validation and request
+prioritization and before the approval steps.
+The Service Implementation Profile for Request Managing provides implementation guidance for the TMForum Product
+Ordering API REST Specification. The IER for an incident record handover is represented in this API as follows:
+<itemizedlist>
+                           <listitem>
+                              <para>id: ID created on the receiving side request management system (initially empty)</para>
+                           </listitem>
+                           <listitem>
+                              <para>externalId: ID of the request on the requestor's system (to facilitate searches afterwards)</para>
+                           </listitem>
+                           <listitem>
+                              <para>description: Description of the request</para>
+                           </listitem>
+                           <listitem>
+                              <para>priority: The consumers indication based on per agreed priority levels (0 = highest priority, 4 = lowest priority)</para>
+                           </listitem>
+                           <listitem>
+                              <para>orderDate: Date when the request was created</para>
+                           </listitem>
+                           <listitem>
+                              <para>requestedCompletionDate: Requested delivery date from the requestor perspective</para>
+                           </listitem>
+                           <listitem>
+                              <para>expactedCompletionDate: Expected delivery date amended by the provider</para>
+                           </listitem>
+                           <listitem>
+                              <para>requestedStartDate: Order start date wished by the requestor</para>
+                           </listitem>
+                           <listitem>
+                              <para>completionDate: Date when the order was actually completed</para>
+                           </listitem>
+                           <listitem>
+                              <para>notificationContact: Customer contact to be notified on request completion</para>
+                           </listitem>
+                           <listitem>
+                              <para>href: hyperlink to access the order direct access to REST resource</para>
+                           </listitem>
+                           <listitem>
+                              <para>id: ID created on the receiving side request management system (this MUST be initially empty)</para>
+                           </listitem>
+                           <listitem>
+                              <para>externalId: ID of the request on the requestor's system (used to facilitate searches afterwards)</para>
+                           </listitem>
+                           <listitem>
+                              <para>description: Description of the request</para>
+                           </listitem>
+                           <listitem>
+                              <para>priority: The consumers indication based on preagreed priorities ranging from levels 0 = highest priority to 4 = lowest
+priority</para>
+                           </listitem>
+                           <listitem>
+                              <para>orderDate: Date when the request was created</para>
+                           </listitem>
+                        </itemizedlist>
+                     </description>
+                     <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                     <obgroup obligation="recommended">
+                        <description>The following extended attribute should be
+included in the message as nested sub-entities
+mapped as follows: confidentialityInformation as
+"related object" with involvement
+"confidentialityInformation" and with
+PolicyIdentifier, Classification, Privacy Mark and
+Category.</description>
+                        <refstandard refid="nso-stanag4774"/>
+                     </obgroup>
+                     <obgroup obligation="mandatory">
+                        <refstandard refid="tm-forum-tmf622"/>
+                        <refstandard refid="tm-forum-tr250"/>
+                     </obgroup>
+                     <guide>The following additional attributes shall be
+included in the message as nested sub-entities
+as specified in:
+<itemizedlist>
+                           <listitem>
+                              <para>securityMarking</para>
+                           </listitem>
+                           <listitem>
+                              <para>orderItem</para>
+                           </listitem>
+                           <listitem>
+                              <para>product</para>
+                           </listitem>
+                           <listitem>
+                              <para>relatedParty</para>
+                           </listitem>
+                           <listitem>
+                              <para>note</para>
+                           </listitem>
+                           <listitem>
+                              <para>location</para>
+                           </listitem>
+                           <listitem>
+                              <para>securityDomain</para>
+                           </listitem>
+                           <listitem>
+                              <para>releasabilityCommunity</para>
+                           </listitem>
+                           <listitem>
+                              <para>orderItem</para>
+                           </listitem>
+                           <listitem>
+                              <para>product</para>
+                           </listitem>
+                        </itemizedlist>
+                     </guide>
+                  </serviceprofile>
+               </profile>
             </profile><!--
-           <profile id="" title="FMN Spiral 2 SMC Profile">
-           </profile>
            <profile id="" title="FMN Spiral 2 Situational Awareness Profile">
            </profile>
 -->
