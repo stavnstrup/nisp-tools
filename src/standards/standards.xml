@@ -54097,16 +54097,97 @@ spreadsheets and presentations. They differ in
 design and scope.</guide>
                </serviceprofile>
             </profile>
-         </profile><!--         
-         <profile id="" title="FMN Spiral 2 Communities of Interest Profile">
-           <profile id="" title="FMN Spiral 2 Intelligence Profile">
-           </profile>
+         </profile>
+         <profile id="fmn2-cover-community-interest" title="FMN Spiral 2 Communities of Interest Profile">
+            <profile id="fmn2-cover-intell" title="FMN Spiral 2 Intelligence Profile">
+               <serviceprofile title="ISR Library Interface Profile">
+                  <description>The ISR Library Interface is the standard interface for querying and accessing heterogeneous product libraries
+maintained by various nations.</description>
+                  <reftaxonomy refid="T-569dc136-b47b-4af3-8063-18da810cf1c2-X"/>
+                  <obgroup obligation="mandatory">
+                     <description>The following NATO standards are mandated for
+interoperability of ISR libraries. Note:
+implementation of STANAG 5525 in the context
+of the ISR Library Interface Profile is limited to
+the definition of unique keys that could be used
+to unambiguously refer to an external information
+object that is modelled in accordance with
+STANAG 5525.</description>
+                     <refstandard refid="nso-stanag4545ed2"/>
+                     <refstandard refid="nso-stanag4607ed3"/>
+                     <refstandard refid="nso-stanag4609ed4"/>
+                     <refstandard refid="nso-stanag4559ed3"/>
+                     <refstandard refid="nso-stanag5525"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>The following international standards are
+mandated for interoperability of ISR libraries</description>
+                     <refstandard refid="iso-639-2"/>
+                     <refstandard refid="iso-iec-7498-1"/>
+                     <refstandard refid="iso-iec-11179-3"/>
+                     <refstandard refid="iso-iec-12087-5"/>
+                     <refstandard refid="iso-iec-14750"/>
+                  </obgroup>
+                  <obgroup obligation="conditional">
+                     <description>When individual standards of STANAG 4559
+(Edition 4) become available and are agreed,
+those are to be implemented instead of STANAG
+4559 (Edition 3 Amendment 2)/MAJIIC Baseline
+Bravo.1</description>
+                     <refstandard refid="nso-stanag4559ed4"/>
+                  </obgroup>
+                  <guide>To ensure optimization of network resources the
+CSD services work best with a unicast address
+space.
+AEDP-17 defines two interfaces:
+<itemizedlist>
+                        <listitem>
+                           <para>the first one is in support of the
+provider-consumer interface (see ISR Library
+Access Pattern) based on web services</para>
+                        </listitem>
+                        <listitem>
+                           <para>the second one is a federated service
+provider interface (see ISR Library Federation
+Pattern) based on CORBA IIOP.</para>
+                        </listitem>
+                     </itemizedlist>
+
+
+Service provider must identify which
+interfaces/patterns they support as a part of the
+federation process.
+For detailed description of the MAJIIC 2 CSD
+implementation please refer to the MAJIIC 2
+documentation:
+
+<itemizedlist>
+                        <listitem>
+                           <para>Getting Started v1.0</para>
+                        </listitem>
+                        <listitem>
+                           <para>CSD Data Model version 2.7 v1.0</para>
+                        </listitem>
+                        <listitem>
+                           <para>Architecture Requirements Document v6.0</para>
+                        </listitem>
+                        <listitem>
+                           <para>MAJIIC 2 CSD Data Model v2.7</para>
+                        </listitem>
+                        <listitem>
+                           <para>MAJIIC 2 CSD Publish Service Specification
+v3.0</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+            </profile><!--
            <profile id="" title="FMN Spiral 2 SMC Profile">
            </profile>
            <profile id="" title="FMN Spiral 2 Situational Awareness Profile">
            </profile>
-         </profile>
---><!--         
+-->
+         </profile><!--         
          <profile id="" title="FMN Spiral 2 Communications and Networking Profile">
            <profile id="" title="FMN Spiral 2 Networking Profile">
            </profile>
