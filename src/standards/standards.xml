@@ -54036,12 +54036,67 @@ offers many of the same advantages as MrSID,
 plus the added benefits of being an international
 standard (ISO/IEC 15444).</guide>
                </serviceprofile>
-            </profile><!--
- 
-            <profile id="" title="FMN Spiral 2 Information Management Profile">
-            
             </profile>
--->
+            <profile id="fmn2-cover-information-management" title="FMN Spiral 2 Information Management Profile">
+               <serviceprofile title="Character Encoding Profile">
+                  <description>The Character Encoding Profile provides standards and guidance for the encoding of character sets.</description>
+                  <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                  <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+                  <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+                  <obgroup obligation="mandatory">
+                     <description>Use of UTF-8 for complete Unicode support,
+including fully internationalized addresses is
+mandatory.</description>
+                     <refstandard refid="ietf-rfc3629"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Internationalization Profile">
+                  <description>The Internationalization Profile provides standards and guidance for the design and development of content and (web) applications, in a way that ensures it will work well for, or can be easily adapted for, users from any culture, region, or language.</description>
+                  <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                  <obgroup obligation="recommended">
+                     <refstandard refid="w3c-rec-charmod-20050215"/>
+                     <refstandard refid="w3c-rec-its-20070403"/>
+                     <refstandard refid="w3c-rec-its20-20131029"/>
+                     <refstandard refid="w3c-rec-ruby-20010531"/>
+                  </obgroup>
+                  <guide>Best practices and tutorials on
+internationalization can be found at:
+http://www.w3.org/International/articlelist.</guide>
+               </serviceprofile>
+               <serviceprofile title="File Format Profile">
+                  <description>The File Format Profile provides standards and guidance for the collaborative generation of spreadsheets, charts,                                      presentations and word processing documents.</description>
+                  <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+                  <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+                  <obgroup obligation="mandatory">
+                     <description>For still image coding.</description>
+                     <refstandard refid="iso-iec-10918-1"/>
+                     <refstandard refid="iso-iec-10918-3"/>
+                  </obgroup>
+                  <obgroup obligation="recommended">
+                     <description>For word processing documents, spreadsheets and presentations.</description>
+                     <refstandard refid="iso-iec-26300-2006"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>For word processing documents, spreadsheets and presentations.<footnote>
+                           <para>In the published FMN Spiral specification 1.1, the reference to ISO/IEC 29500 is incomplete. As a result, the respective part of the standard and the title do not show up in the FMN 1.1 profile.</para>
+                        </footnote>
+                     </description>
+                     <refstandard refid="iso-iec-29500-1"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <description>For document exchange, storage and long-term
+preservation.</description>
+                     <refstandard refid="iso-19005-1"/>
+                     <refstandard refid="iso-19005-2"/>
+                     <refstandard refid="iso-32000-1"/>
+                  </obgroup>
+                  <guide>ISO/IEC 29500 and ISO/IEC 26300 are both
+open document formats for XML-based saving
+and exchanging word processing documents,
+spreadsheets and presentations. They differ in
+design and scope.</guide>
+               </serviceprofile>
+            </profile>
          </profile><!--         
          <profile id="" title="FMN Spiral 2 Communities of Interest Profile">
            <profile id="" title="FMN Spiral 2 Intelligence Profile">
