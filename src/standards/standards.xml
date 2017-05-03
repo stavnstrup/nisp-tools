@@ -54449,10 +54449,224 @@ as specified in:
                      </guide>
                   </serviceprofile>
                </profile>
-            </profile><!--
-           <profile id="" title="FMN Spiral 2 Situational Awareness Profile">
-           </profile>
--->
+            </profile>
+            <profile id="fmn2-cover-sit-aware" title="FMN Spiral 2 Situational Awareness Profile">
+               <serviceprofile title="Maritime Information Exchange Profile">
+                  <description>The Maritime Information Exchange Profile provides standards and guidance to support the exchange of Maritime
+Recognized Picture information within a coalition network or a federation of networks.</description>
+                  <reftaxonomy refid="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X"/>
+                  <obgroup obligation="conditional">
+                     <description>For interconnecting Track Management Service
+the following transport protocol to share
+OTH-GOLD messages is mandatory:
+<itemizedlist>
+                           <listitem>
+                              <para>TCP (connect, send, disconnect) - default
+port:2020</para>
+                           </listitem>
+                        </itemizedlist>
+End-users that do not have RMP Applications
+MAY generate OTH-GOLD messages manually
+and transmit them via eMail/SMTP (see also
+Message Text Format messaging).</description>
+                     <refstandard refid="dod-oth-g"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="dod-oth-g"/>
+                  </obgroup>
+                  <guide>The implementation of the following message
+types is mandatory:
+<itemizedlist>
+                        <listitem>
+                           <para>Contact Report (GOLD)</para>
+                        </listitem>
+                     </itemizedlist>
+The implementation of the following message
+types is optional:
+<itemizedlist>
+                        <listitem>
+                           <para>Area of Interest Filter (AOI),</para>
+                        </listitem>
+                        <listitem>
+                           <para>FOTC Situation Report (SITREP),</para>
+                        </listitem>
+                        <listitem>
+                           <para>Group Track Message (GROUP),</para>
+                        </listitem>
+                        <listitem>
+                           <para>Operator Note (OPNOTE),</para>
+                        </listitem>
+                        <listitem>
+                           <para>PIM Track (PIMTRACK),</para>
+                        </listitem>
+                        <listitem>
+                           <para>Screen Kilo Message (SCRNKILO),</para>
+                        </listitem>
+                        <listitem>
+                           <para>4-Whiskey Message (4WHISKEY)</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+               <serviceprofile title="Joint C3 Information Exchange Profile">
+                  <description>The Joint C3 Information Exchange Profile provides standards and guidance to support the exchange of Command and
+Control information within a coalition network or a federation of networks.</description>
+                  <reftaxonomy refid="T-54f06201-f6f4-4939-a537-75a0c1ff70bc-X"/>
+                  <reftaxonomy refid="T-addefcae-f004-47a1-822d-153067a17458-X"/>
+                  <obgroup obligation="mandatory">
+                     <description>The MIP3.1 interoperability specification
+comprises both a mandatory interface
+specification as well as optional guidance
+documents, and is available on the MIP website
+(https://www.mip-interop.org). The interface
+specification consists of the: (i) MTIDP (MIP
+Technical Interface Design Plan): defining the
+MIP3.1 Data Exchange Mechanism (DEM) (ii)
+JC3IEDM: defining the MIP3.1 data model (also
+available as STANAG 5525); and (iii) MIR (MIP
+Implementation Rules): defining implementation
+rules for mapping the JC3IEDM to C2 systems.
+The suite of guidance documents includes the
+MOP (MIP Operating Procedures), which
+provides technical procedures for
+configuration/operation of MIP3.1 interfaces in a
+Coalition environment.</description>
+                     <refstandard refid="mip-jc3iedm"/>
+                  </obgroup>
+                  <obgroup obligation="conditional">
+                     <description>If there is a requirement to exchange
+<itemizedlist>
+                           <listitem>
+                              <para>presence reports,</para>
+                           </listitem>
+                           <listitem>
+                              <para>alerts,</para>
+                           </listitem>
+                           <listitem>
+                              <para>general information, or</para>
+                           </listitem>
+                           <listitem>
+                              <para>overlay graphics</para>
+                           </listitem>
+                        </itemizedlist>
+with tactical units within a short timeframe across
+network boundaries a compression scheme that
+minimizes the load on the tactical radio network
+should be used.</description>
+                     <refstandard refid="nso-stanag4677"/>
+                  </obgroup>
+                  <guide>The Joint C3 Information Exchange profile
+should be used primarily for the exchange of
+Battlespace Objects; this profile is not intended
+to support high volume, high frequency updates
+such as Friendly Force Tracks (FFT).</guide>
+               </serviceprofile>
+               <serviceprofile title="Friendly Force Tracking Profile">
+                  <description>The Friendly Force Tracking Profile provides standards and guidance to support the exchange of Friendly Force Tracking
+information within a coalition network or a federation of networks.</description>
+                  <reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="nso-stanag5527ed1"/>
+                  </obgroup>
+                  <obgroup obligation="conditional">
+                     <description>NFFI may only be used if at least one service
+provider provides a mediation service to translate
+between FFI-MTF and NFFI (aka "FFT Proxy") or
+all mission network participants agree during the
+network planning to only use NFFI.</description>
+                     <refstandard refid="c3b-ac322-d2006-0066"/>
+                  </obgroup>
+                  <guide>Messages exchanged according to the exchange
+mechanisms described in ADatP-36(A) shall
+comply with the Message Text Format (FFI MTF)
+schema incorporated in APP-11(D)(1).
+Caveat: the Interim NFFI Standard for
+Interoperability of Force Tracking Systems
+(AC/322-D(2006)0066) was never promulgated
+as a STANAG. The roadmap proposed by the
+NATO C3B FFT CaT provides for the
+abandonment of this interim standard in the near
+future.</guide>
+               </serviceprofile>
+               <serviceprofile title="JREAP Profile">
+                  <description>The Joint Range Extension Application Protocol (JREAP) enables Link 16 tactical data to be transmitted over digital
+media and networks not originally designed for tactical data exchange. Full detail of JREAP instructions and procedures
+can be found in ATDLP-5.18(B)(1).
+Link 16 messages (i.e. J-series) are embedded inside of the JREAP. JREAP management messages (i.e. X-series) are
+used, in order to ensure proper dissemination of the Link 16 messages.
+Capabilities are provided that include:
+<itemizedlist>
+                        <listitem>
+                           <para>Extending the range-limited tactical networks to beyond LOS while reducing their dependence upon relay platforms</para>
+                        </listitem>
+                        <listitem>
+                           <para>Reducing the loading on stressed networks</para>
+                        </listitem>
+                        <listitem>
+                           <para>Providing backup communications in the event of the loss of the normal link</para>
+                        </listitem>
+                        <listitem>
+                           <para>Providing a connection to a platform that may not be equipped with the specialized communications equipment for that
+TDL.</para>
+                        </listitem>
+                     </itemizedlist>
+
+For media that do not support OSI network and transport layers, the JREAP provides network and transport layer
+functionality. For media supporting OSI network and transport layers, the JREAP is encapsulated within those layers.
+JREAP software can be integrated into a host system or into a stand-alone processor. The appropriate interface terminals
+are required at each end of any JREAP alternate media link.</description>
+                  <reftaxonomy refid="user.undefined.taxonomynode"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="nso-stanag5518ed1"/>
+                  </obgroup>
+                  <obgroup obligation="conditional">
+                     <description>The SIMPLE protocol is going to be used only for
+Verification and Validation purpose of all systems
+employing or interfacing with tactical data links
+and only when the systems do not support
+JREAP. It is not going to be used within the
+operational network for operational purpose.
+STANAG 5602 covers ATDLP-6.02 (SIMPLE),
+which specifies the requirements for the transfer
+of data between remote sites to support the
+interoperability testing of tactical data link
+implementations in different platforms.</description>
+                     <refstandard refid="nso-stanag5602ed4"/>
+                  </obgroup>
+                  <guide>The JREAP is designed to support operations
+using Link 16 over most communication media
+(JRE media). Each JRE medium has unique
+characteristics. Military Ultra High Frequency
+(UHF) satellite and terrestrial Radio frequency
+(RF) communications are half-duplex. Military
+Super High Frequency (SHF) Satellite
+Communications (SATCOM) support full-duplex
+operations but are limited to point-to-point
+circuits. Military Extremely High Frequency
+(EHF) Medium Data Rate (MDR) SATCOM has
+circuit configuration limitations. The DoD Joint
+Technical Architecture (JTA) defines the
+applicable Information Transfer Standards for
+these military communications systems.
+Commercial SATCOM is mostly point-to-point
+and supports full-duplex usage. IP
+communications can have packet loss, packet
+reordering, and packet delay characteristics that
+are difficult to predict.</guide>
+               </serviceprofile>
+               <serviceprofile title="Battlespace Object Federation Profile">
+                  <reftaxonomy refid="T-d8fd520c-940b-48e6-ab46-2ccf9f6858ed-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="mip-jc3iedm"/>
+                  </obgroup>
+               </serviceprofile>
+               <serviceprofile title="Battlespace Event Federation Profile">
+                  <reftaxonomy refid="T-54f06201-f6f4-4939-a537-75a0c1ff70bc-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="nato-oir"/>
+                  </obgroup>
+               </serviceprofile>
+            </profile>
          </profile><!--         
          <profile id="" title="FMN Spiral 2 Communications and Networking Profile">
            <profile id="" title="FMN Spiral 2 Networking Profile">
