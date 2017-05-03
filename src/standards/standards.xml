@@ -6021,7 +6021,7 @@ done via certificates, then IKEv2 is used.</description>
                </serviceprofile>
             </profile>
             <profile id="fmn-fed-net" title="Federated Networking Profile">
-               <serviceprofile title="Directory Data Structure Profile">
+               <serviceprofile id="fmn1-sp-directory-data-structure" title="Directory Data Structure Profile">
                   <description>The Directory Data Structure Profile provides standards and guidance in support of the definition of the namespace of a federated mission network on the basis of the Lightweight Directory Access Protocol (LDAP)</description>
                   <reftaxonomy refid="T-3898a275-2231-4656-96aa-b9b37e5cbc78-X"/>
                   <obgroup obligation="mandatory">
@@ -6073,7 +6073,7 @@ Policy"</para>
                      </itemizedlist>
                   </guide>
                </serviceprofile>
-               <serviceprofile title="Directory Data Exchange Profile">
+               <serviceprofile id="fmn1-sp-directory-data-exchange" title="Directory Data Exchange Profile">
                   <description>The Directory Data Exchange Profile provides standards and guidance in support of a mechanism used to connect to,                                                search, and modify Internet directories on the basis of the Lightweight Directory Access Protocol (LDAP).</description>
                   <reftaxonomy refid="T-3898a275-2231-4656-96aa-b9b37e5cbc78-X"/>
                   <obgroup obligation="mandatory">
@@ -6100,8 +6100,8 @@ Policy"</para>
                      <refstandard refid="ietf-rfc2782"/>
                   </obgroup>
                </serviceprofile>
-               <serviceprofile title="Time Synchronization Profile">
-                  <description>The Time Synchronization Profile provides standards and guidance to support the synchronization of clocks across a                                             network or a federation of networks and the safeguard of the accurate use of time stamps.</description>
+               <serviceprofile id="fmn1-sp-time-synchronization" title="Time Synchronization Profile">
+                  <description>The Time Synchronization Profile provides standards and guidance to support the synchronization of clocks across a network or a federation of networks and the safeguard of the accurate use of time stamps.</description>
                   <reftaxonomy refid="T-f15d7721-33a3-48e1-b2c6-b0d896f642dc-X"/>
                   <obgroup obligation="mandatory">
                      <description>Mission Network Elements must provide a time server either directly connected to a stratum-0 device or over a network path to a stratum-1 time server of another Mission Network Element. All other entities in the federation must use the time service of their host.</description>
@@ -53359,6 +53359,24 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
          <uuid>4df48857-074c-4b53-ac93-72f7ebb7b472</uuid>
       </standard>
 
+      <standard id="ietf-rfc3526" tag="RFC 3526">
+         <document orgid="ietf" pubnum="RFC 3536" title="More Modular Exponential (MODP) Diffie-Hellman groups for Internet Key Exchange (IKE)" date="2003-05"/>
+         <applicability>This document defines new Modular Exponential (MODP) Groups for the
+   Internet Key Exchange (IKE) protocol.  It documents the well known
+   and used 1536 bit group 5, and also defines new 2048, 3072, 4096,
+   6144, and 8192 bit Diffie-Hellman groups numbered starting at 14.
+   The selection of the primes for theses groups follows the criteria
+   established by Richard Schroeppel.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc3526.txt</uri>
+            <history>
+               <event date="2017-05-03" flag="added" version="10.0" rfcp="9-6"/>
+            </history>
+         </status>
+         <uuid>e0b0211b-5f93-4e2e-b2d9-d1f408f11e0d</uuid>
+      </standard>
+
       <standard id="ietf-rfc7153" tag="RFC 7153">
          <document orgid="ietf" pubnum="RFC 7153" title="IANA Registries for BGP Extended Communities" date="2014-03-01"/>
          <applicability>This document reorganizes the IANA registries for the type values and sub-type values of the BGP Extended Communities attribute and the BGP IPv6-Address-Specific Extended Communities attribute. This is done in order to remove interdependencies among the registries, thus making it easier for IANA to determine which codepoints are available for assignment in which registries. This document also clarifies the information that must be provided to IANA when requesting an allocation from one or more of these registries. These changes are compatible with the existing allocations and thus do not affect protocol implementations. The changes will, however, impact the "IANA Considerations" sections of future protocol specifications.</applicability>
@@ -54667,14 +54685,165 @@ are difficult to predict.</guide>
                   </obgroup>
                </serviceprofile>
             </profile>
-         </profile><!--         
-         <profile id="" title="FMN Spiral 2 Communications and Networking Profile">
-           <profile id="" title="FMN Spiral 2 Networking Profile">
-           </profile>
+         </profile>
+         <profile id="fmn2-cover-comm-network" title="FMN Spiral 2 Communications and Networking Profile">
+            <profile id="fmn2-cover-networking" title="FMN Spiral 2 Networking Profile">
+               <refprofile refid="fmn1-sp-directory-data-structure"/>
+               <serviceprofile title="Domain Naming Profile">
+                  <description>The Domain Naming Profile provides standards and guidance to support the hierarchical distributed naming system for computers, services, or any resource connected to a federated mission network.</description>
+                  <reftaxonomy refid="T-92db9afd-4dab-4e76-9ba6-0287ded2d4e7-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="ietf-rfc1034"/>
+                     <refstandard refid="ietf-rfc1035"/>
+                     <refstandard refid="ietf-rfc2181"/>
+                     <refstandard refid="ietf-rfc2782"/>
+                     <refstandard refid="ietf-rfc3258"/>
+                     <refstandard refid="ietf-rfc4786"/>
+                     <refstandard refid="ietf-rfc5936"/>
+                     <refstandard refid="ietf-rfc5966"/>
+                     <refstandard refid="ietf-rfc6891"/>
+                     <refstandard refid="ietf-rfc7094"/>
+                  </obgroup>
+               </serviceprofile>
+               <refprofile refid="fmn1-sp-directory-data-exchange"/>
+               <refprofile refid="fmn1-sp-time-synchronization"/>
+               <serviceprofile title="Digital Certificate Profile">
+                  <description>The Digital Certificate Profile provides standards and guidance in support of a Public Key Infrastructure (PKI) on federated mission networks.</description>
+                  <reftaxonomy refid="T-13a17bdd-8eb2-418c-8cb8-7f32a435f432-X"/>
+                  <obgroup obligation="mandatory">
+                     <description>CRLs may be provided at multiple endpoints.
+The addresses of these endpoints shall be
+provided in digital certificates through X.509
+certificate extensions such as Authority
+Information Access (AIA) and CRL distribution
+point (CDP). Each CA shall provide CRLs using
+at least one of the endpoint types (HTTP or
+LDAP). Clients must support both types.</description>
+                     <refstandard refid="ietf-rfc5280"/>
+                     <refstandard refid="ietf-rfc4523"/>
+                  </obgroup>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="itu-t-x.509"/>
+                  </obgroup>
+                  <obgroup obligation="optional">
+                     <description>The Online Certificate Status Protocol (OCSP)
+capability is optional for PKI Service providers
+and consumers.</description>
+                     <refstandard refid="ietf-rfc6960"/>
+                  </obgroup>
+                  <guide>The version of the encoded public key certificate
+shall be version 3. The version of the encoded
+certificate revocation list (CRL) shall be version
+      2.</guide>
+                  <guide>Additional Implementation Guidance:
+<itemizedlist>
+                        <listitem>
+                           <para>AC/322-D(2004)0024-REV2-ADD2 - "NATO
+Public Key Infrastructure (NPKI) Certificate
+Policy"</para>
+                        </listitem>
+                        <listitem>
+                           <para>AC/322-D(2010)0036 - "NATO Cryptographic
+  Interoperability Strategy"</para>
+                        </listitem>
+                     </itemizedlist>
+                  </guide>
+               </serviceprofile>
+               <serviceprofile title="Cryptographic Algorithms Profile">
+                  <description>The Cryptographic Algorithms Profile specifies the use of public standards for cryptographic algorithm interoperability to
+protect IT systems.</description>
+                  <reftaxonomy refid="T-13a17bdd-8eb2-418c-8cb8-7f32a435f432-X"/>
+                  <obgroup obligation="mandatory">
+                     <refstandard refid="nist-fips197"/>
+                     <refstandard refid="nist-sp800-56arev2"/>
+                     <refstandard refid="nist-fips-186-4"/>
+                     <refstandard refid="nist-fips-180-4"/>
+                     <refstandard refid="ietf-rfc3526"/>
+                     <refstandard refid="nist-sp800-56brev1"/>
+                  </obgroup>
+                  <guide>The following algorithms are to be used to
+support specific functions:
+<itemizedlist>
+                        <listitem>
+                           <para>Advanced Encryption Standard (AES)
+(FIPS PUB 197)</para>
+                        </listitem>
+                     </itemizedlist>
+
+Function: Symmetric block cipher used for
+information protection. Parameters: Use 256 bit
+keys to protect up to TOP SECRET
+
+<itemizedlist>
+                        <listitem>
+                           <para>Elliptic Curve Diffie-Hellman (ECDH) Key
+Exchange (NIST SP 800-56A Rev 2)</para>
+                        </listitem>
+                     </itemizedlist>
+
+Function: Asymmetric algorithm used for key
+establishment Parameters: Use Curve P-384 to
+protect up to TOP SECRET.
+
+<itemizedlist>
+                        <listitem>
+                           <para>Elliptic Curve Digital Signature Algorithm
+(ECDSA) (FIPS PUB 186-4)</para>
+                        </listitem>
+                     </itemizedlist>
+
+Function: Asymmetric algorithm used for digital
+signatures Parameters: Use Curve P-384 to
+protect up to TOP SECRET.
+
+<itemizedlist>
+                        <listitem>
+                           <para>Secure Hash Algorithm (SHA) (FIPS PUB
+180-4)</para>
+                        </listitem>
+                     </itemizedlist>
+
+Function: Algorithm used for computing a
+condensed representation of information
+Parameters: Use SHA-384 to protect up to TOP
+SECRET.
+
+<itemizedlist>
+                        <listitem>
+                           <para>Diffie-Hellman (DH) Key Exchange (IETF
+RFC 3526)</para>
+                        </listitem>
+                     </itemizedlist>
+
+Function: Asymmetric algorithm used for key
+establishment Parameters: Minimum 3072-bit
+modulus to protect up to TOP SECRET
+
+<itemizedlist>
+                        <listitem>
+                           <para>RSA (NIST SP 800-56B Rev 1)</para>
+                        </listitem>
+                     </itemizedlist>
+
+Function: Asymmetric algorithm used for
+key-establishment Parameters: Minimum
+3072-bit modulus to protect up to TOP SECRET.
+
+<itemizedlist>
+                        <listitem>
+                           <para>RSA (FIPS PUB 186-4)</para>
+                        </listitem>
+                     </itemizedlist>
+
+Function: Asymmetric algorithm used for digital
+signatures Parameters: Minimum 3072
+bitmodulus to protect up to TOP SECRET.</guide>
+               </serviceprofile>
+            </profile><!--           
            <profile id="" title="FMN Spiral 2 Communications Profile">
            </profile>
+           -->
          </profile>
--->
          <status mode="accepted">
             <uri/>
             <history>
