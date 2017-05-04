@@ -193,7 +193,7 @@
 
 <!ELEMENT serviceprofile (profilespec?, description?, reftaxonomy+, obgroup+, guide*,  status?, uuid?)>
 <!ATTLIST serviceprofile
-          id CDATA #IMPLIED
+          id ID #REQUIRED
           title CDATA #REQUIRED>
 
 <!ELEMENT description  %ho; (%tbl.entry.mdl;)*>
@@ -213,7 +213,7 @@
           
 <!ELEMENT refprofile EMPTY>
 <!ATTLIST refprofile
-          refid CDATA #IMPLIED>
+          refid IDREF #IMPLIED>
           
 <!ELEMENT guide %ho; (%tbl.entry.mdl;)*>
 
