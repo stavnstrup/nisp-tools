@@ -5,7 +5,7 @@
 This stylesheet is created for the NISP, and is
 intended to list the parties responsible for providing expert guidedance.
 
-Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -18,30 +18,13 @@ Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:output indent="yes" saxon:next-in-chain="p2-rp.xsl"/>
 
-<xsl:strip-space elements="*"/>
+<!-- Remove deleted standards -->
 
-<xsl:param name="describe" select="''"/>
-
-
-<xsl:template match="standards">
-  <standards describe="{$describe}">
-    <xsl:apply-templates select="records|organisations|responsibleparties"/>
-  </standards>
-</xsl:template>
-		
-<xsl:template match="standard[not(responsibleparty)]">
-  <standard>
-    <xsl:apply-templates select="@*"/> 
-    <xsl:apply-templates select="document|applicability"/>
-    <responsibleparty rpref="undefined"/>
-    <xsl:apply-templates select="status|uuid"/>
-  </standard>
-</xsl:template>		  
-
+<xsl:template match="standard[descendant::event[(position()=last()) and (@flag = 'deleted')]]"/>
 
 <xsl:template match="@*|node()">
   <xsl:copy>
-    <xsl:apply-templates select="@*"/> 
+    <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
   </xsl:copy>
 </xsl:template>
