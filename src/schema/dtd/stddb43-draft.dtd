@@ -98,7 +98,7 @@
 
 <!ELEMENT records ((standard | serviceprofile | capabilityprofile)*)>
 
-<!ELEMENT standard (document, applicability, responsibleparty?, status, uuid?)>
+<!ELEMENT standard (document, applicability, responsibleparty, status, uuid?)>
 <!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED>
@@ -210,11 +210,11 @@
 <!ATTLIST refstandard
           refid IDREF #REQUIRED>
 
-          
+
 <!ELEMENT refprofile EMPTY>
 <!ATTLIST refprofile
           refid IDREF #IMPLIED>
-          
+
 <!ELEMENT guide %ho; (%tbl.entry.mdl;)*>
 
 
