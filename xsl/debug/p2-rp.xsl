@@ -5,7 +5,7 @@
 This stylesheet is created for the NISP, and is
 intended to list the parties responsible for providing expert guidedance.
 
-Copyright (c) 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2014-2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
