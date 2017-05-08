@@ -5,7 +5,7 @@
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
             doctype-public="-//DDRE//DTDStandardDB XML V4.3//EN"
-            doctype-system="../schema/dtd/stddb43-draft.dtd"/>
+            doctype-system="../schema/dtd/stddb43.dtd"/>
 
 <!--
 
@@ -18,7 +18,16 @@ Copyright (c) 2014, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="records">
   <records>
-    <xsl:apply-templates select="standard|serviceprofile|profile|capabilityprofile">
+    <xsl:apply-templates select="standard">
+       <xsl:sort select="@id"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="capabilityprofile">
+       <xsl:sort select="@id"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="profile">
+       <xsl:sort select="@id"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="serviceprofile">
        <xsl:sort select="@id"/>
     </xsl:apply-templates>
   </records>
@@ -30,6 +39,24 @@ Copyright (c) 2014, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:sort select="@genTitle"/>
     </xsl:apply-templates>
   </bestpracticeprofile>
+</xsl:template>
+
+
+<xsl:template match="responsibleparties">
+  <responsibleparties>
+    <xsl:apply-templates>
+      <xsl:sort select="@key"/>
+    </xsl:apply-templates>
+  </responsibleparties>
+</xsl:template>
+
+
+<xsl:template match="organisations">
+  <organisations>
+    <xsl:apply-templates>
+      <xsl:sort select="@key"/>
+    </xsl:apply-templates>
+  </organisations>
 </xsl:template>
 
 <xsl:template match="@*|node()">

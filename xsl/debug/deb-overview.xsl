@@ -88,31 +88,23 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td align="right"><xsl:value-of select="count(.//standard[status='rejected'])"/></td>
       </tr>
       <tr>
-        <td>Set of Standards</td>
-        <td align="right"><xsl:value-of select="count(.//setofstandards)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::setofstandards])"/></td>
-        <td align="right"><xsl:value-of select="count(.//setofstandards[status='rejected'])"/></td>
+        <td>Capability Profiles</td>
+        <td align="right"><xsl:value-of select="count(.//capabilityprofile)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::capabilityprofile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//capabilityprofile[status='rejected'])"/></td>
       </tr>
-<!--
       <tr>
-        <td>Service Groups</td>
-        <td align="right"><xsl:value-of select="count(.//servicegroup)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::serviceprofile])"/></td>
-        <td align="right"><xsl:value-of select="count(.//servicegroup[status='rejected'])"/></td>
-       </tr>
+        <td>Profiles</td>
+        <td align="right"><xsl:value-of select="count(.//profile)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::profile])"/></td>
+        <td align="right"><xsl:value-of select="count(.//profile[status='rejected'])"/></td>
+      </tr>
       <tr>
         <td>Service Profiles</td>
         <td align="right"><xsl:value-of select="count(.//serviceprofile)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::serviceprofile])"/></td>
         <td align="right"><xsl:value-of select="count(.//serviceprofile[status='rejected'])"/></td>
-        </tr>
--->
-      <tr>
-        <td>Capability Profiles</td>
-        <td align="right"><xsl:value-of select="count(.//capabilityprofile)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::capabilityprofile])"/></td>
-        <td align="right"><xsl:value-of select="count(.//capabilityprofile[status='rejected'])"/></td>
-       </tr>
+      </tr>
     </table>
 
 
@@ -164,10 +156,10 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
   <h2 id="profiles">Profiles</h2>
 
-  <p>This table lists all capability, service- and setofstandards.
+  <p>This table lists all capability, profiles and serviceprofiles.
 
   <ul>
-    <li>Setofstandards (SS) list standards and profiles which fits natually
+    <li>Profiles (PR) list standards and profiles which fits natually
      together and is mainly developed for convenience only.</li>
 
     <li>Service Profiles (SP) which will
@@ -178,13 +170,13 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     Service Framework</a> (part of the <a
     href="https://tide.act.nato.int/em/index.php?title=C3_Taxonomy">C3
     taxonomy</a>).</li>
-    <li>Capability Profiles (CP) consists of a set of serviceprofiless. An example of this is the FMN profile.</li>
+    <li>Capability Profiles (CP) consists of a set of profile and serviceprofiles. An example of this is the FMN profile.</li>
   </ul></p>
 
 
   <table class="overview" border="1">
     <xsl:call-template name="htmlheader"/>
-    <xsl:apply-templates select="//setofstandards|//capabilityprofile|//serviceprofile">
+    <xsl:apply-templates select="//profile|//capabilityprofile|//serviceprofile">
       <xsl:sort select="@id" order="ascending"/>
     </xsl:apply-templates>
   </table>
@@ -213,7 +205,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="setofstandards|serviceprofile|capabilityprofile">
+<xsl:template match="profile|serviceprofile|capabilityprofile">
   <xsl:variable name="myid" select="@id"/>
   <tr>
     <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">
@@ -224,7 +216,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:choose>
         <xsl:when test="local-name(.)='capabilityprofile'">CP</xsl:when>
         <xsl:when test="local-name(.)='serviceprofile'">SP</xsl:when>
-        <xsl:otherwise>SS</xsl:otherwise>
+        <xsl:otherwise>PR</xsl:otherwise>
       </xsl:choose>
     </td>
     <td>

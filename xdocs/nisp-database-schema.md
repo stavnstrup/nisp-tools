@@ -26,7 +26,7 @@ inclusion in the NATO Architecture Repository (NAR)
 
 In order to enable validation of the database, a schema in form
 of a DTD have been defined. This DTD is located in the source distribution at
-`schema/dtd/stddb41.dtd`.
+`schema/dtd/stddb43.dtd`.
 
 Since some of the element in the schema represent textual information
 in the form of DocBook fragments such as paragraphs, unnumbered lists
@@ -44,10 +44,9 @@ is included.
 The standard database DTD is logically separated into four
 different parts:
 
-* service taxonomy on the C3 taxonomy baseline 1 - dated june 15, 2012
+* service taxonomy on the C3 taxonomy baseline 2 - dated november 2, 2015
 * standard selection
-* standard and profile description
-* community of interest profiles
+* standard and profile descriptions
 * mapping between organisation abbreviations and full names
 * mapping between responsible parties abbreviation and full names
 
@@ -55,7 +54,7 @@ The root element of the DTD is the element `<standards>`
 and is described by:
 
 ~~~{.dtd}
-<!ELEMENT standards (revhistory?, taxonomy, lists, records,
+<!ELEMENT standards (revhistory?, taxonomy, bestpracticeprofile, records,
                      organisations, responsibleparties)>
 ~~~
 
@@ -85,7 +84,7 @@ what level in the taxonomy the node is located and the `emUUID`
 attribute is the UUID assigned in the TIDE EM-Wiki.
 
 ~~~{.dtd}
-<!ELEMENT taxonomy (node)>
+<!ELEMENT taxonomy (node+)>
 
 <!ELEMENT node (node*)>
 
@@ -116,7 +115,7 @@ All standards and profiles are contained in the `<records>`
 element.
 
 ~~~{.dtd}
-<!ELEMENT records ((standard | serviceprofile | capabilityprofile)*)>
+<!ELEMENT records ((standard | serviceprofile | profile | capabilityprofile)*)>
 ~~~
 
 ### Standards
@@ -129,6 +128,7 @@ consists of:
 
 * document - describes the actual standard
 * applicability - when and where should the standard be used
+* responsible - Who is responsible for the standard
 * status - contains historical data
 * uuid - an automatically generated UUID. Note, that although the UUID
   is mandatory, it is defined as optional in the schema, so that the
@@ -136,7 +136,7 @@ consists of:
   automatically generated.
 
 ~~~{.dtd}
-<!ELEMENT standard (document, applicability, status, uuid?)>
+<!ELEMENT standard (document, applicability, responsibleparty, status, uuid?)>
 
 <!ATTLIST standard
           tag CDATA #REQUIRED
@@ -450,24 +450,51 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 ~~~
 
 
+Best Practice profile
+---------------------
 
-Standard Selection
-------------------
+In NISP volume 2 and 3 all mandatory and candidate standards are listed. The
+selection mechanism of standards is described in the `<bestpracticeprofile>`
+element. The `<bestpracticeprofile>` element consists of zero or more
+`<bpserviceprofile>` elements.
 
-In NISP volume 2, all mandatory and candidate standards are listed. The
-selection mechanism of standards is described in the `<list>`
-element. The `<list>` element consists of zero or more
-`<sp-list>` elements.
 
 ~~~{.dtd}
-<!ELEMENT lists (sp-list*)>
+<!ELEMENT bestpracticeprofile (bpserviceprofile*)>
 ~~~
 
-The `<sp-list>` consists of one or more `<sp-view>`
+
+
+
+~~~{.dtd}
+<!ELEMENT bpserviceprofile (bpgroup*)>
+<!ATTLIST bpserviceprofile
+          tref IDREF #REQUIRED
+          genTitle CDATA #IMPLIED>
+~~~
+
+
+~~~{.dtd}
+<!ELEMENT bpgroup (bprefstandard+)>
+<!ATTLIST bpgroup
+          mode (unknown|mandatory|candidate|fading) #REQUIRED>
+~~~
+
+
+~~~{.dtd}
+<!ELEMENT bprefstandard (#PCDATA)>
+<!ATTLIST bprefstandard
+          refid IDREF #REQUIRED>
+~~~
+
+
+
+
+The `<bpserviceprofile>` consists of one or more `<bpgroup>`
 elements, which represent a row in a table of selected standards and
 profiles.
 
-Each `<sp-list>` have a `tref` attribute, which is a reference
+Each `<bpserviceprofile>` have a `tref` attribute, which is a reference
 to a position in the taxonomy.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.dtd}

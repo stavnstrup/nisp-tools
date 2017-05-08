@@ -22,12 +22,12 @@ Description : This stylesheet creates an UUID element in all standards
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
             doctype-public="-//DDRE//DTDStandardDB XML V4.3//EN"
-            doctype-system="../schema/dtd/stddb43-draft.dtd"/>
+            doctype-system="../schema/dtd/stddb43.dtd"/>
 
 
 <xsl:strip-space elements="*"/>
 
-<xsl:template match="standard|capabilityprofile">
+<xsl:template match="standard|serviceprofile|profile|capabilityprofile">
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
