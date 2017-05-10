@@ -584,7 +584,7 @@ $Id$
 
 
   <target name="debug" description="* [DEBUG] Create misc. debugging reports"
-          depends="init, deb-overview, deb-ownership, deb-family, deb-dates, deb-select, deb-upcoming, deb-rp">
+          depends="init, deb-overview, deb-ownership, deb-family, deb-dates, deb-upcoming, deb-rp">
   </target>
 
   <target name="debug-figs" description="* [DEBUG] Create misc. debugging reports and figure reports"
@@ -635,18 +635,6 @@ $Id$
       <arg line="${xslt.opts} -o dates.html
                  ${basedir}/src/standards/standards.xml
                  ${xsl-debug.dir}/deb-dates.xsl
-                 describe=${describe}"/>
-      <classpath refid="lib-saxon-classpath"/>
-    </java>
-  </target>
-
-  <target name="deb-select" description="* [DEBUG] Check what standard/profile a select statement referes to"
-          depends="-get-describe">
-    <java classname="${xslt.class}" fork="yes"
-          dir="${build.dir}/debug/">
-      <arg line="${xslt.opts} -o select.html
-                 ${basedir}/src/standards/standards.xml
-                 ${xsl-debug.dir}/deb-select.xsl
                  describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>
     </java>
