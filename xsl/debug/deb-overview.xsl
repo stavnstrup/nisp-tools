@@ -9,7 +9,7 @@
 This stylesheet is created for the NISP , and is
 intended to create an overview of the starndard database.
 
-Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -128,15 +128,9 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
      <li><b>Title</b> - The title of the <i>standard</i></li>
      <li><b>Date</b> - The publication date of the <i>standard</i></li>
      <li><b>Ver</b> - Version of the <i>standard</i> or <i>profile</i></li>
-     <li><b>Correction</b> - Correction info for
-        this <i>standard</i>. There might be multiple corrections
-        records (Technical Correction, Ammentment etc.). Each record
-        begins on a new line</li>
-     <li><b>AKA</b> - (Also Known As) A standard can be published by
-        another organisation. There might be multiple AKA record. Each
-        record begins on a new line</li>
+     <li><b>Responsible Party</b> - An organisational unit within NATO, who takes the responsibility to guide NATO on the specific standard.</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
-     <li><b>Select</b> - Is this record selected by NATO (M : Mandatory, C: Candidate, F: fading)</li>
+     <li><b>Best Practice</b> - Is this record part of the best practic profile (A : Agreed, C: Candidate, F: fading), i.e. mandatory for NATO common funded systems</li>
      <li><b>History</b> - What is the history of the record</li>
      <li><b>URI</b> - Location of the standard</li>
    </ul>
@@ -195,10 +189,9 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <th>Title</th>
     <th>Date</th>
     <th>Ver</th>
-    <th>Correction</th>
-    <th>AKA</th>
+    <th>Responsible Party</th>
     <th>Tag</th>
-    <th>Select</th>
+    <th>Best Practice</th>
     <th>History</th>
     <th>URI</th>
    </tr>
@@ -308,6 +301,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="standard">
   <xsl:variable name="myid" select="@id"/>
+  <xsl:variable name="myrp" select="responsibleparty/@rpref"/>
   <tr>
     <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">
       <xsl:attribute name="class">deleted</xsl:attribute>
@@ -348,8 +342,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:value-of select="document/@date"/>
     </td>
     <td><xsl:value-of select="document/@version"/></td>
-    <td><xsl:apply-templates select="document/correction"/></td>
-    <td><xsl:apply-templates select="document/alsoknown"/></td>
+    <td><xsl:apply-templates select="/standards/responsibleparties/rpkey[@key=$myrp]/@short"/></td>
     <td>
       <xsl:if test="@tag =''">
         <xsl:attribute name="class">missing</xsl:attribute>
