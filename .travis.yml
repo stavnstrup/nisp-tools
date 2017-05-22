@@ -1,6 +1,9 @@
 git:
   depth: 100
 
+sudo:
+  required
+
 before_install:
  - sudo apt-get -qq update
  - sudo apt-get install -qq libxml2-utils
@@ -14,3 +17,10 @@ script:
   - xmllint --noout --valid src/standards/standards.xml
   - ant all
   - ant debug
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: "./_scripts/deploy.sh"
+  on:
+    branch: master
