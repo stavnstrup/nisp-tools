@@ -13,10 +13,12 @@ rm -rf *
 # Now the master branch will contain only the contents of the _site directory.
 cp -R ../nisp-tools/build/* .
 
-# Make sure we have the updated .travis.yml file so tests won't run on master.
-# cp ../nisp-tools/.travis.yml .
+# Configure bot data
 git config user.email ${GH_EMAIL}
 git config user.name "nisp-bot"
+
+# Using a custom domain with GitHub Pages
+echo "live.nisp.nw3.dk" > CNAME
 
 # Commit and push generated content to master branch.
 git status
