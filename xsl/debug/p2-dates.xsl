@@ -23,7 +23,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DDRE <js@ddre.dk>
                 extension-element-prefixes="date"
                 version='1.1'
                 exclude-result-prefixes="#default">
-  
+
 <xsl:output method="html" indent="no"/>
 
 
@@ -36,7 +36,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DDRE <js@ddre.dk>
   <body>
     <h1>Sort all records by date</h1>
 
-    <p>Created on 
+    <p>Created on
     <xsl:variable name="date">
       <xsl:value-of select="date:date-time()"/>
     </xsl:variable>
@@ -57,7 +57,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DDRE <js@ddre.dk>
 
    <ul>
      <li><b>Rec</b> - The position of the record</li>
-     <li><b>Type</b> - Is this a <i>standard</i> (S), a <i>setofstandards</i> (SS), <i>serviceprofile</i> (SP) o <i>capabilityprofile</i> (CP)</li>
+     <li><b>Type</b> - Is this a <i>standard</i> (S), <i>serviceprofile</i> (SP), a <i>profile</i> (P) or <i>capabilityprofile</i> (CP)</li>
      <li><b>ID</b> - What ID is assiciated with this record</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
      <li><b>Date</b> - The date of the <i>event</i></li>
