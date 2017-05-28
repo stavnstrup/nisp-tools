@@ -497,16 +497,16 @@ Description : This stylesheet is a customization of Norman Walsh
   <xsl:param name="direction" select="next"/>
   <xsl:choose>
     <xsl:when test="$direction = 'prev'">
-      <i class="foundicon-left-arrow"></i>
+      <i class="fa fa-arrow-left"></i>
     </xsl:when>
     <xsl:when test="$direction = 'next'">
-      <i class="foundicon-right-arrow"></i>
+      <i class="fa fa-arrow-right"></i>
     </xsl:when>
     <xsl:when test="$direction = 'up'">
-      <i class="foundicon-up-arrow"></i>
+      <i class="fa fa-arrow-up"></i>
     </xsl:when>
     <xsl:when test="$direction = 'home'">
-      <i class="foundicon-home"></i>
+      <i class="fa fa-home"></i>
     </xsl:when>
     <xsl:otherwise>
       <xsl:text>xxx</xsl:text>
