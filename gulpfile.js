@@ -66,6 +66,21 @@ gulp.task('build:styles:man', function() {
         .on('error', gutil.log);
 });
 
+/**
+ * Task: build:styles:css
+ *
+ * Copies any other CSS files to the assets directory, to be used by pages/posts
+ * that specify custom CSS files.
+ */
+gulp.task('build:styles:css', function() {
+    return gulp.src(['scss' + '/*.css'])
+      .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+      .pipe(cleancss())
+      .pipe(gulp.dest('xsl/css'))
+      .pipe(gulp.dest('build/css'))
+      .on('error', gutil.log);
+});
+
 
 /**
  * Task: build:styles
@@ -74,7 +89,8 @@ gulp.task('build:styles:man', function() {
  */
 gulp.task('build:styles', [
     'build:styles:nisp',
-    'build:styles:man'
+    'build:styles:man',
+    'build:styles:css'
 ]);
 
 
