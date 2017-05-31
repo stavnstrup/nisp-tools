@@ -53,7 +53,7 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:choose>
     </type>
     <id><xsl:value-of select="ancestor::standard/@id|ancestor::profile/@id|ancestor::serviceprofile/@id|ancestor::capabilityprofile/@id"/></id>
-    <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::profile/@tag|ancestor::serviceprofile/@tag|ancestor::capabilityprofile/@tag"/></tag>
+    <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::profile/@title|ancestor::serviceprofile/@title|ancestor::capabilityprofile/@title"/></tag>
     <date><xsl:value-of select="@date"/></date>
     <flag><xsl:value-of select="@flag"/></flag>
     <rfcp><xsl:value-of select="@rfcp"/></rfcp>
