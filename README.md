@@ -48,10 +48,10 @@ If you wish to have further information on the NISP Interoperability
 Standards and Profiles, feel free to contact:
 
 Mr. Hervé Radiguet  
-E-Mail: Herve.Radiguet@act.nato.int
+E-Mail: herve.radiguet@act.nato.int
 
 
 Mr Jens Stavnstrup (for technical matters related to this distribution)  
 Danish Defence Acquisition and Logistics Organisation  
 Tel: + 45 - 728 14355  
-E-Mail: stavnstrup@mil.dk
+E-Mail: stavnstrup@gmail.com
