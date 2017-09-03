@@ -23,8 +23,8 @@ script:
   - ant debug
 
 deploy:
-  skip_cleanup: true
   - provider: script
+    skip_cleanup: true
     script: "./_scripts/deploy-live-nisp.sh"
     on:
       branch: master
