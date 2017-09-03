@@ -24,7 +24,7 @@ script:
 
 deploy:
   skip_cleanup: true
-  provider: script
-  script: "./_scripts/deploy.sh"
-  on:
-    branch: master
+  - provider: script
+    script: "./_scripts/deploy-live-nisp.sh"
+    on:
+      branch: master

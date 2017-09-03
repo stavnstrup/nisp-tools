@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Deployment to live.nisp.nw3.dk
+
 # Enable error reporting to the console.
 set -e
 
