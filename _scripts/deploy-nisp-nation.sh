@@ -11,3 +11,5 @@ cd ../nisp-nation.master
 
 # Generate yaml and json representation of NISP database elements
 saxonb-xslt -ext:on ../nisp-tools/src/standards/standards.xml debug.xsl
+
+ls -laR
