@@ -19,15 +19,15 @@ notifications:
 
 script:
   - xmllint --noout --valid src/standards/standards.xml
-#  - ant all
-#  - ant debug
+  - ant all
+  - ant debug
 
 deploy:
   - provider: script
     skip_cleanup: true
     script: "./_scripts/deploy-live-nisp.sh"
     on:
-      branch: xmaster
+      branch: master
   - provider: script
     skip_cleanup: true
     script: "./_scripts/deploy-nisp-nation.sh"
