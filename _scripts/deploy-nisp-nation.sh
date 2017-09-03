@@ -14,4 +14,4 @@ saxonb-xslt -ext:on ../nisp-tools/src/standards/standards.xml debug.xsl
 
 bundle install
 bundle exec jekyll build
-ls -laR _site/
+
