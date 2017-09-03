@@ -27,4 +27,9 @@ deploy:
     skip_cleanup: true
     script: "./_scripts/deploy-live-nisp.sh"
     on:
+      branch: xmaster
+  - provider: script
+    skip_cleanup: true
+    script: "./_scripts/deploy-nisp-nation.sh"
+    on:
       branch: master
