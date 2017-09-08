@@ -1,16 +1,18 @@
 git:
   depth: 300
 
-sudo: required
-
-before_install:
- - sudo apt-get -qq update
- - sudo apt-get install -qq libxml2-utils libsaxonb-java
-
 language: java
 
 jdk:
   - oraclejdk8
+
+sudo: required
+
+before_install:
+ - sudo apt-get -qq update
+
+install:
+ - sudo apt-get install -qq libxml2-utils libsaxonb-java
 
 notifications:
   email:
@@ -28,8 +30,6 @@ deploy:
     script: "./_scripts/deploy-live-nisp.sh"
     on:
       branch: master
-  - provider: script
-    skip_cleanup: true
-    script: "./_scripts/deploy-nisp-nation.sh"
-    on:
-      branch: master
+
+after_script:
+  - "./_scripts/trigger-site-build.sh"
