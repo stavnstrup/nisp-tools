@@ -800,6 +800,8 @@
       <bpserviceprofile genTitle="Distributed Time Services" tref="T-f15d7721-33a3-48e1-b2c6-b0d896f642dc-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="w3c-timezone"/>
+            <bprefstandard refid="ietf-rfc5905"/>
+            <bprefstandard refid="ieee-1588-ptp"/>
          </bpgroup>
          <bpgroup mode="candidate">
             <bprefstandard refid="opengroup-c310"/>
@@ -987,7 +989,6 @@
             <bprefstandard refid="x-consortium-x11r7.5"/>
             <bprefstandard refid="ietf-rfc3550"/>
             <bprefstandard refid="ietf-rfc3977"/>
-            <bprefstandard refid="ietf-rfc5905"/>
             <bprefstandard refid="iso-iec-13818"/>
             <bprefstandard refid="iso-iec-14496"/>
             <bprefstandard refid="iso-iec-11172-3"/>
@@ -5784,6 +5785,20 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
          </status>
          <uuid>204b7f40-21c0-451e-a4fb-faaf0fee6163</uuid>
       </standard>
+
+<standard id="ieee-1588-ptp" tag="PTP">
+  <document orgid="ieee" pubnum="1588" title="Precision Time Protocol (PTP)" date="2008"/>
+  <applicability>The protocol provided in this standard enables precise synchronization of clocks in measurement and control systems implemented with technologies such as network communication, local computing, and distributed objects. The protocol is applicable to systems communicating via packet networks. Heterogeneous systems are enabled that include clocks of various inherent precision, resolution, and stability to synchronize. System-wide synchronization accuracy and precision in the sub-microsecond range are supported with minimal network and local clock computing resources. Simple systems are installed and operated without requiring the management attention of users because the default behavior of the protocol allows for it.</applicability>
+  <responsibleparty rpref="ncia/nsii"/>
+<status mode="accepted">
+  <uri>https://standards.ieee.org/findstds/standard/1588-2008.html</uri>
+  <history>
+    <event date="2017-09-19" flag="added" rfcp="10-8" version="11.0"/>
+
+  </history>
+</status>
+</standard>
+
 
       <standard id="ieee-802.11r" tag="Wi-Fi">
          <document date="2008-07-15" orgid="ieee" pubnum="802.11r" title="Fast BSS Transition"/>
