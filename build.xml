@@ -605,6 +605,19 @@ $Id$
     </java>
   </target>
 
+  <target name="deb-current" description="* [DEBUG] Create DB Overview"
+          depends="-get-describe">
+    <java classname="${xslt.class}" fork="yes"
+          dir="${build.dir}/debug/">
+      <arg line="${xslt.opts} -o current.html
+                 ${basedir}/src/standards/standards.xml
+                 ${xsl-debug.dir}/deb-current.xsl
+                 describe=${describe}"/>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+  </target>
+
+
   <target name="deb-family" description="* [DEBUG] Create DB parent/child relationship list"
           depends="-get-describe">
     <java classname="${xslt.class}" fork="yes"
