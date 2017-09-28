@@ -41,7 +41,6 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   </taxonomy>
 </xsl:template>
 
-
 <xsl:template match="swivt:Subject">
   <xsl:param name="level"/>
   <xsl:param name="maxlevel" select="0"/>
@@ -49,6 +48,7 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:variable name="myname" select="@rdf:about"/>
   <node title="{rdfs:label}" level="{$level}"
         id="{concat('T-', property:UUID, '-X')}"
+        description="{property:Description}"
         emUUID="{property:UUID}">
     <xsl:if test="($maxlevel = 0) or ($level &lt; $maxlevel)">
       <xsl:apply-templates select="/rdf:RDF/swivt:Subject[property:Is_child_of/@rdf:resource=$myname]">
@@ -63,14 +63,18 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <!-- Change maxlevel for these subtrees i.e. main nodes in the Technical Service Framework -->
 
+
 <xsl:template match="swivt:Subject[rdfs:label = 'Community Of Interest (COI) Services' or
                                    rdfs:label = 'Core Services' or
                                    rdfs:label = 'Communications Services']">
   <xsl:param name="level"/>
+  <xsl:param name="maxlevel" select="0"/>
+
   <xsl:variable name="myname" select="@rdf:about"/>
 
   <node title="{rdfs:label}" level="{$level}"
         id="{concat('T-', property:UUID, '-X')}"
+        description="{property:Description}"
         emUUID="{property:UUID}">
     <xsl:apply-templates select="/rdf:RDF/swivt:Subject[property:Is_child_of/@rdf:resource=$myname]">
       <xsl:with-param name="level" select="$level + 1"/>
@@ -81,7 +85,26 @@ Copyright (c) 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
+<xsl:template match="swivt:Subject[rdfs:label = 'SMC Applications']">
+  <xsl:param name="level"/>
+  <xsl:param name="maxlevel" select="0"/>
+
+  <xsl:variable name="myname" select="@rdf:about"/>
+
+  <node title="{rdfs:label}" level="{$level}"
+        id="{concat('T-', property:UUID, '-X')}"
+        description="{property:Description}"
+        emUUID="{property:UUID}">
+    <xsl:apply-templates select="/rdf:RDF/swivt:Subject[property:Is_child_of/@rdf:resource=$myname]">
+      <xsl:with-param name="level" select="$level + 1"/>
+      <xsl:with-param name="maxlevel" select="6"/>
+      <xsl:sort select="property:Order" order="ascending" data-type="number"/>
+    </xsl:apply-templates>
+  </node>
+</xsl:template>
+
 <xsl:template match="swivt:Subject[rdfs:label = 'Missions and Operations'  or
                                    rdfs:label = 'Capability Hierarchy, Codes and Statements']"/>
+
 
 </xsl:stylesheet>
