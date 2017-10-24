@@ -52808,8 +52808,13 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>4991fbff-3ff6-4728-a179-28c9bf677f19</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-crypto" title="Cryptographic Artefact Binding Profiles">
+      <capabilityprofile id="binding-crypto" short="Cryptographic Services" title="Cryptographic Artefact Binding Profiles">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Cryptographic Artefact Binding Profiles" version="1"/>
+         <description>
+            <para>Profile the use of cryptographic protocols, which can be used to implement support for different
+						cryptographic techniques and mechanisms, for generating cryptographic artefacts
+						to be stored in a cryptographic binding.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-crypto-cryptographic-artefact-binding"/>
          </subprofiles>
@@ -52822,8 +52827,14 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>e6c7411a-31a6-4b18-8559-fa4c4f27234b</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-generic" title="Generic Open Packaging Convention (OPC) Binding Profile">
+      <capabilityprofile id="binding-generic" short="Generic Packaging Services" title="Generic Open Packaging Convention (OPC) Binding Profile">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Generic Open Packaging Convention (OPC) Binding Profile" version="1"/>
+         <description>
+            <para>This profile defines a generic packaging mechanism, based upon the Open Packaging Container (OPC)
+						defined in ISO/IEC 29500-2:2008, to associate any arbitrary file that do not use the
+						Office Open XML (OOXML) format or have no specific profile for supporting the Binding Information
+						with their own file format.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-generic-generic-open-packaging-convention"/>
          </subprofiles>
@@ -52836,8 +52847,11 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>f0d609fc-4c86-4a18-8250-be28d1e616a0</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-extensible" title="Extensible Metadata Platform (XMP) Binding Profile">
+      <capabilityprofile id="binding-extensible" short="Metadata Services" title="Extensible Metadata Platform (XMP) Binding Profile">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Extensible Metadata Platform (XMP) Binding Profile" version="1"/>
+         <description>
+            <para>This Binding Profile for XMP describes how metadata should be incorporated within an XMP packet as a structured value.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-extensible-metadata-platform"/>
          </subprofiles>
@@ -52850,8 +52864,11 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>241bb673-0c07-49cd-a226-b890cd77b1b2</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-metadata" title="Profiles for Binding Metadata to a Data Object">
+      <capabilityprofile id="binding-metadata" short="Labelling Services" title="Profiles for Binding Metadata to a Data Object">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Profiles for Binding Metadata to a Data Object" version="1"/>
+         <description>
+            <para>Introduces and describes profiles for Binding Metadata to a Data Object which may and will be reused in other profiles.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-metadata-binding-metadata-to-a-data-object"/>
          </subprofiles>
@@ -52864,8 +52881,11 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>606c0793-76a1-46b0-9f06-80bb6cb20638</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-ooxml" title="Office Open XML (OOXML) Formats Binding Profile">
+      <capabilityprofile id="binding-ooxml" short="Metadata Services" title="Office Open XML (OOXML) Formats Binding Profile">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Office Open XML (OOXML) Formats Binding Profile" version="1"/>
+         <description>
+            <para>This profile for the OOXML describes how metadata can be maintained.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-ooxml-office-open-xml"/>
          </subprofiles>
@@ -52878,8 +52898,16 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>5e369bd3-1ca3-4ba0-9121-bec52198cc47</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-rest" title="Representational State Transfer (REST) Profile">
+      <capabilityprofile id="binding-rest" short="REST Services" title="Representational State Transfer (REST) Profile">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Representational State Transfer (REST) Profile" version="1"/>
+         <description>
+            <para>In an environment where data objects must have bound metadata,
+						the resource identified in the URI will already contain a BDO
+						(detached, encapsulating or embedded). As such, there is no requirement
+						for metadata binding that is specific for REST. However, to support
+						information sharing between partners it may be necessary to locate
+						a Binding Data Object (BDO) in the HTTP protocol layer.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-rest-representational-state-transfer"/>
          </subprofiles>
@@ -52892,8 +52920,11 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>0e75bf5e-5786-42fe-84fc-53cb70edf031</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-sidecar" title="Sidecar Files Binding Profile">
+      <capabilityprofile id="binding-sidecar" short="Metadata Services" title="Sidecar Files Binding Profile">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Sidecar Files Binding Profile" version="1"/>
+         <description>
+            <para>Sidecar files allow the association of metadata with a data object for which there is no profile.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-sidecar-sidecar-files"/>
          </subprofiles>
@@ -52906,8 +52937,12 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>75b1714b-ee91-43fe-b0fa-bec982e26feb</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-smtp" title="Simple Mail Transfer Protocol (SMTP) Binding Profile">
+      <capabilityprofile id="binding-smtp" short="Informal Messaging Services" title="Simple Mail Transfer Protocol (SMTP) Binding Profile">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Simple Mail Transfer Protocol (SMTP) Binding Profile" version="1"/>
+         <description>
+            <para>This profile specifies the mechanism for binding metadata to Internet Email
+						(both formal and informal) including MIME entities.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-smtp-simple-mail-transfer-protocol"/>
          </subprofiles>
@@ -52920,8 +52955,13 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>b91c020f-55d0-461a-b755-54944b74487e</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-soap" title="Simple Object Access Protocol (SOAP) Binding Profile">
+      <capabilityprofile id="binding-soap" short="SOA Platform Services" title="Simple Object Access Protocol (SOAP) Binding Profile">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Simple Object Access Protocol (SOAP) Binding Profile" version="1"/>
+         <description>
+            <para>Where there is a requirement to bind metadata to a SOAP message or data object (s)
+						within the SOAP body that is exchanged between a service consumer and a service provider,
+						the SOAP Binding Profile specified must be adhered to.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-soap-simple-object-access-protocol"/>
          </subprofiles>
@@ -52934,8 +52974,15 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>0037f3d5-7531-4049-90c7-2956c3f1d846</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="binding-xmpp" title="Extensible Message and Presence Protocol (XMPP) Binding Profile">
+      <capabilityprofile id="binding-xmpp" short="XMPP Services" title="Extensible Message and Presence Protocol (XMPP) Binding Profile">
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Extensible Message and Presence Protocol (XMPP) Binding Profile" version="1"/>
+         <description>
+            <para>Confidentiality metadata labels can be supported in XMPP stanzas as indicated by XEP-0258
+						whereby a mechanism for carrying Enhanced Security Services (ESS) Security labels is standardized.
+						This profile extends the XEP-0258 specification to support carrying an Embedded or Detached BDO
+						for Message stanzas. This profile supports the XMPP use cases for one-to-one
+						instant messaging and multi-user chat.</para>
+         </description>
          <subprofiles>
             <refprofile refid="binding-xmpp-extensible-message-and-presence-protocol-xmpp-binding"/>
          </subprofiles>
@@ -52948,8 +52995,16 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>52d81448-83c8-481a-ba79-ebdf7a4aa657</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="fmn1" title="FMN Spiral 1 Profile">
+      <capabilityprofile id="fmn1" short="Federated Mission Networking" title="FMN Spiral 1.1 Profile">
          <profilespec orgid="fmn" pubnum="" date="2015-09-30" title="FMN Spiral 1 Profile" version="1.0"/>
+         <description>
+            <para>Defines the Standards Profile for Federated Mission Networking (FMN) Spiral 1.
+						FMN Standards Profiles provide a suite of interoperability standards and other standardized profiles
+						for interoperability of selected community of interest services, core services and
+						communications services in a federation of mission networks.
+						It places the required interoperability requirements, standards and specifications
+						in context for FMN Affiliates.</para>
+         </description>
          <subprofiles>
             <refprofile refid="fmn1-pr-fed-com-net"/>
             <refprofile refid="fmn1-pr-fed-hum-comm"/>
@@ -52963,8 +53018,16 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>37b9a98c-ba75-4e26-a8e6-d18ccf7c6a5b</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="fmn2" title="Proposed FMN Spiral 2 Profile">
+      <capabilityprofile id="fmn2" short="Federated Mission Networking" title="FMN Spiral 2 Profile (Candidate)">
          <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <description>
+            <para>This document defines the Standards Profile for Federated Mission Networking (FMN) Spiral 2.
+						The FMN Standards Profiles provides a suite of interoperability standards and other
+						standardized profiles for interoperability of selected community of interest services,
+						core services and communications services in a federation of mission networks.
+						It places the required interoperability requirements, standards and specifications
+						in context for FMN Affiliates.</para>
+         </description>
          <subprofiles>
             <refprofile refid="fmn2-pr-human.to-human"/>
             <refprofile refid="fmn2-pr-community-interest"/>
@@ -52979,8 +53042,12 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>75f9fb4b-9220-4c67-9fab-06212c537635</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="sip-bcs" title="Service Interface Profile for Basic Collaboration Services">
+      <capabilityprofile id="sip-bcs" short="Basic Collaboration Services" title="Service Interface Profile for Basic Collaboration Services">
          <profilespec orgid="ncia" pubnum="AI_TECH_2016.06.02.12" date="2015-02-04" title="Service Interface Profile for Basic Collaboration Services" version="1"/>
+         <description>
+            <para>This Collaboration Service Interface Profile (SIP) is focused on instant messaging
+						and is based on the extensible messaging and presence protocol (XMPP).</para>
+         </description>
          <subprofiles>
             <refprofile refid="sip-bcs-basic-collaboration"/>
          </subprofiles>
@@ -52993,8 +53060,12 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>4d45c7f1-c188-4744-9c8e-86815fe2d496</uuid>
       </capabilityprofile>
 
-      <capabilityprofile id="sip-entr-dir" title="Service Interface Profile for Enterprise Directory Services">
+      <capabilityprofile id="sip-entr-dir" short="ENTERPRISE DIRECTORY SERVICES" title="SERVICE INTERFACE PROFILE FOR ENTERPRISE DIRECTORY SERVICES">
          <profilespec orgid="ncia" pubnum="AI_TECH_2016.06.02.05" date="2015-02-04" title="Service Interface Profile for Enterprise Directory Services" version="1"/>
+         <description>
+            <para>The purpose of this Service Interface Profile (SIP) is to specify the interface
+						of the directory service itself.</para>
+         </description>
          <subprofiles>
             <refprofile refid="sip-entr-dir-enterprise-directory"/>
          </subprofiles>
