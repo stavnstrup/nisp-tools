@@ -52753,6 +52753,43 @@ to help Web application authors, new elements are introduced based on research i
          <uuid>5a3a9e60-0817-42b0-b0b3-ac701f7371e6</uuid>
       </standard>
 
+      <capabilityprofile id="x-tms-smtp" short="Tactical Messaging" title="X-TMS-SMTP">
+         <profilespec orgid="nato" pubnum="X-TMS-SMTP Profile" date="2016-12-01" title="Defines military header fields to be used for SMTP messages that are gatewayed across military mail environment boundaries"/>
+         <description>
+            <para>Defines military header fields to be used for SMTP messages that are gatewayed across military mail environment boundaries.</para>
+         </description>
+         <subprofiles>
+            <refprofile refid="x-tms-smtp-gateway"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2006-04-27" version="1.0" rfcp="7-1"/>
+            </history>
+         </status>
+         <uuid>003e3ad7-45c8-4cbb-a1d0-2f221548cf7f</uuid>
+      </capabilityprofile>
+
+      <serviceprofile id="x-tms-smtp-gateway" title="SMTP Header Fields in Gatewaying">
+         <profilespec orgid="nato" pubnum="X-TMS-SMTP" date="" title="Defines military header fields to be used for SMTP messages that are gatewayed across military mail environment boundaries"/>
+         <reftaxonomy refid="T-7a409ea6-6137-442d-8f77-f19ba8387772-X"/>
+         <obgroup obligation="mandatory">
+            <refstandard refid="ietf-rfc2821"/>
+         </obgroup>
+         <guide>
+            <para>Military header fields to be used for SMTP messages that are gatewayed across military mail environment boundaries.
+						It  specifies  "X-messages"  based  upon  RFC  2821,  section  "3.8.1  Header  Field  in Gatewaying".
+						The profile specifies for each header field the name and possible values of the body.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2006-04-27" version="1.0" rfcp="7-1"/>
+            </history>
+         </status>
+         <uuid>c4713c77-6d2d-431b-980f-2b0c836a1e05</uuid>
+      </serviceprofile>
+
       <capabilityprofile id="archive-archive" title="Archive Capability Profile">
          <profilespec orgid="nato" pubnum="AC/324-D(2014)0008" date="2014-07-03" title="Directive on the Preservation of NATO Digital Information of Permanent Value"/>
          <subprofiles>
