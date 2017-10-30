@@ -32,7 +32,7 @@
 <xsl:param name="copyright.years" select="concat($copyright.first.year, '-', 
                                                  $copyright.last.year)"/>
 
-
+<xsl:param name="nisp.viewer.pathname" select="''"/>
 
 <!-- Should we use the paragraph numbering hack ? -->
 

@@ -410,6 +410,7 @@ $Id$
     <java classname="${xslt.class}" fork="yes" dir="${build.dir}">
       <arg line="${xslt.opts} -o ${build.dir}/ ${src.dir}/master/
                  ${xsl-xhtml.dir}/master.xsl ${nisp.lifecycle.opts}
+								 nisp.viewer.pathname=${nisp.viewer.pathname}
                  datestamp=${DSTAMP}
                  describe=${describe}"/>
       <classpath refid="lib-saxon-classpath"/>

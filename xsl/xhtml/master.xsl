@@ -37,7 +37,6 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
 <xsl:param name="nisp.release.label" select="''"/>
 
 
-
 <xsl:template name="system.head.content">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
@@ -106,7 +105,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
               <hr />
               <h5>NISP Database</h5>
               <p>Search the database.</p>
-              <div class="btn"><a class="small button" href="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP2/">Search</a></div>
+              <div class="btn"><a class="small button" href="{$nisp.viewer.pathname}">Search</a></div>
             </div>
           </div>
         </xsl:otherwise>

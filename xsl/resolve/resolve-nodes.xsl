@@ -24,8 +24,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:output method="xml" indent="no"
             saxon:next-in-chain="resolve-fix.xsl"/>
-
-
+						
 <xsl:variable name="db"
               select="document(concat($dbdir, $dbname))"/>
 
@@ -49,6 +48,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
   <xsl:variable name="pis"><xsl:value-of select="."/></xsl:variable>
 
+<xsl:value-of select="$pis"/>
   <xsl:choose>
     <xsl:when test="starts-with($pis, 'node=')">
       <!-- Get the  the node attribute -->
@@ -73,6 +73,39 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </xsl:when>
   </xsl:choose>
 </xsl:template>
+
+<!-- ==================================================================== -->
+<xsl:template match="processing-instruction('cpbprfmerge')">
+  <xsl:variable name="pis"><xsl:value-of select="."/></xsl:variable>
+  <xsl:variable name="cpbprf" select="$db//capabilityprofile[@id=$pis]"/>
+	<row>
+		<entry align="left" colname="col1">
+			<emphasis role="bold"><xsl:value-of select="$cpbprf/@short"/></emphasis>
+		</entry>
+		<entry align="left" colname="col2">
+			<xsl:value-of select="$cpbprf/@title"/>
+		</entry>
+	</row>
+	<row>
+		<entry align="left" namest="col1" nameend="col2">
+		<xsl:apply-templates select="$cpbprf/description"/>
+	</entry>
+	</row>
+	<row>
+		<entry align="left" namest="col1" nameend="col2">
+			<ulink url="{$cpbprf/status/uri}"><xsl:value-of select="$cpbprf/status/pdf"/></ulink>
+		</entry>
+	</row>
+	<row><!-- Intentional Blank Line -->
+		<entry align="left" namest="col1" nameend="col2">
+		</entry>
+	</row>
+</xsl:template>
+
+<xsl:template match="capabilityprofile/description">
+	<xsl:copy-of select="*"/>
+</xsl:template>
+
 
 <!-- ==================================================================== -->
 

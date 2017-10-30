@@ -408,6 +408,9 @@ Make dynamic targets.
             <xsl:value-of select="$db"/>
             <xsl:text></xsl:text>
             <xsl:text> ${xsl-styles.dir}/resolve/${xsl-resolve-db}</xsl:text>
+						<xsl:text> capabilityprofile.list.dir=${capabilityprofile.list.dir}</xsl:text>
+						<xsl:text> capabilityprofiles.location.pathname=${capabilityprofiles.location.pathname}</xsl:text>
+						<xsl:text> capabilityprofiles.location.name=${capabilityprofiles.location.name}</xsl:text>
           </xsl:attribute>
         </arg>
 
@@ -835,6 +838,7 @@ Make dynamic targets.
           <xsl:text> use.para.numbering=${use.para.numbering}</xsl:text>
           <xsl:text> datestamp=${DSTAMP}</xsl:text>
           <xsl:text> describe=${describe}</xsl:text>
+					<xsl:text> nisp.viewer.pathname=${nisp.viewer.pathname}</xsl:text>
         </xsl:attribute>
       </arg>
       <classpath refid="lib-saxon-classpath"/>
