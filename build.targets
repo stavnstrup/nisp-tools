@@ -103,7 +103,7 @@
    <target name="vol1.html" description="* Create Volume 1 in HTML5" depends="svg, vol1.resolve, vol1.html.check" unless="vol1-html.notRequired">
       <echo message="Create Volume 1 as chunked HTML5 pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol1}">
-         <arg line="${xslt.opts} ${build.resolve}/${vol1.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol1 pdf.prefix=NISP-Vol1 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
+         <arg line="${xslt.opts} ${build.resolve}/${vol1.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol1 pdf.prefix=NISP-Vol1 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe} nisp.viewer.pathname=${nisp.viewer.pathname}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
    </target>
@@ -143,7 +143,7 @@
    <target name="vol2.db-resolve" depends="init, vol2.db-resolve.check" unless="vol2.db-resolve.notRequired">
       <echo message="Resolve Volume 2 DB"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol2}">
-         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db} capabilityprofile.list.dir=${capabilityprofile.list.dir} capabilityprofiles.location.pathname=${capabilityprofiles.location.pathname} capabilityprofiles.location.name=${capabilityprofiles.location.name}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -191,7 +191,7 @@
    <target name="vol2.html" description="* Create Volume 2 in HTML5" depends="svg, vol2.resolve, vol2.html.check" unless="vol2-html.notRequired">
       <echo message="Create Volume 2 as chunked HTML5 pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol2}">
-         <arg line="${xslt.opts} ${build.resolve}/${vol2.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol2 pdf.prefix=NISP-Vol2 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
+         <arg line="${xslt.opts} ${build.resolve}/${vol2.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol2 pdf.prefix=NISP-Vol2 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe} nisp.viewer.pathname=${nisp.viewer.pathname}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
    </target>
@@ -232,7 +232,7 @@
    <target name="vol3.db-resolve" depends="init, vol3.db-resolve.check" unless="vol3.db-resolve.notRequired">
       <echo message="Resolve Volume 3 DB"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol3}">
-         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db} capabilityprofile.list.dir=${capabilityprofile.list.dir} capabilityprofiles.location.pathname=${capabilityprofiles.location.pathname} capabilityprofiles.location.name=${capabilityprofiles.location.name}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -280,7 +280,7 @@
    <target name="vol3.html" description="* Create Volume 3 in HTML5" depends="svg, vol3.resolve, vol3.html.check" unless="vol3-html.notRequired">
       <echo message="Create Volume 3 as chunked HTML5 pages"/>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol3}">
-         <arg line="${xslt.opts} ${build.resolve}/${vol3.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol3 pdf.prefix=NISP-Vol3 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
+         <arg line="${xslt.opts} ${build.resolve}/${vol3.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol3 pdf.prefix=NISP-Vol3 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe} nisp.viewer.pathname=${nisp.viewer.pathname}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
    </target>
