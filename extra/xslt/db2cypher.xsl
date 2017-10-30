@@ -5,7 +5,7 @@
 <xsl:output method="text" indent="yes"/>
 
 <xsl:template match="standards">
-<xsl:text>// CREATE ORGANISATION VERTICESS&#x0A;</xsl:text>
+<xsl:text>// CREATE ORGANISATION VERTICES&#x0A;</xsl:text>
 <xsl:apply-templates select="organisations"/>
 <xsl:text>// CREATE RESPONSIBLE PARTY VERTICES&#x0A;</xsl:text>
 <xsl:apply-templates select="responsibleparties"/>
@@ -15,6 +15,12 @@
 <xsl:apply-templates select="taxonomy" mode="edge"/>
 <xsl:text>// CREATE STANDARD VERTICES&#x0A;</xsl:text>
 <xsl:apply-templates select="records/standard"/>
+<xsl:text>// CREATE CAPABILITYPROFILE VERTICES&#x0A;</xsl:text>
+<xsl:apply-templates select="records/capabilityprofile"/>
+<xsl:text>// CREATE PROFILE VERTICES&#x0A;</xsl:text>
+<xsl:apply-templates select="records/profile"/>
+<xsl:text>// CREATE SERVICEPROFILE VERTICES&#x0A;</xsl:text>
+<xsl:apply-templates select="records/serviceprofile"/>
 <xsl:text>// CREATE INDICES</xsl:text>
 </xsl:template>
 
@@ -115,11 +121,46 @@
 </xsl:template>
 
 
-<xsl:match template="capabilityprofile"/>
+<!-- ============================================
+     Create Capabilityprofile vertices
+     ============================================
+-->
 
-<xsl:match template="profile"/>
+<xsl:template match="capabilityprofile">
+<xsl:text>CREATE (</xsl:text>
+<xsl:value-of select="@id"/>
+<xsl:text>:CAPABILITYPROFILE { id: '</xsl:text>
+<xsl:value-of select="@id"/>
+<xsl:text>'})&#x0A;</xsl:text>
+</xsl:template>
 
-<xsl:match template="serviceprofile"/>
+
+<!-- ============================================
+     Create Profile vertices
+     ============================================
+-->
+
+<xsl:template match="profile">
+<xsl:text>CREATE (</xsl:text>
+<xsl:value-of select="@id"/>
+<xsl:text>:PROFILE { id: '</xsl:text>
+<xsl:value-of select="@id"/>
+<xsl:text>'})&#x0A;</xsl:text>
+</xsl:template>
+
+
+<!-- ============================================
+     Create Serviceprofile vertices
+     ============================================
+-->
+
+<xsl:template match="serviceprofile">
+<xsl:text>CREATE (</xsl:text>
+<xsl:value-of select="@id"/>
+<xsl:text>:SERVICEPROFILE { id: '</xsl:text>
+<xsl:value-of select="@id"/>
+<xsl:text>'})&#x0A;</xsl:text>
+</xsl:template>
 
 
 
