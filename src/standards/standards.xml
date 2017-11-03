@@ -705,12 +705,13 @@
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Architecture Management Application" tref="T-3bcf6864-7fbe-4355-b30f-6a9e390a5a9d-X">
-        <bpgroup mode="mandatory">
-          <bprefstandard refid="iso-iec-ieee-42010"/>
-          <bprefstandard refid="iso-iec-ieee-dis42020"/>
-          <bprefstandard refid="omg-dtc2013-12-09"/>
-          <bprefstandard refid="omg-formal-2015-06-03-sysml"/>
-        </bpgroup>
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="iso-iec-ieee-42010"/>
+            <bprefstandard refid="iso-iec-ieee-dis42020"/>
+            <bprefstandard refid="omg-dtc2013-12-09"/>
+            <bprefstandard refid="omg-formal-2015-06-03-sysml"/>
+            <bprefstandard refid="nato-ac322-d-2017-0007-U"/>
+         </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Audio-based Collaboration Services" tref="T-9f408558-029b-4625-ab8a-3dfcdb677800-X">
          <bpgroup mode="mandatory">
@@ -754,13 +755,15 @@
             <bprefstandard refid="nso-stanag5511ed6"/>
             <bprefstandard refid="nso-stanag4586ed3"/>
             <bprefstandard refid="nso-stanag4175ed5"/>
-            <bprefstandard refid="nso-stanag5501ed7"/>
+
+            <bprefstandard refid="nso-stanag5516ed4"/>
          </bpgroup>
          <bpgroup mode="candidate">
             <bprefstandard refid="thirdgpp-umts"/>
             <bprefstandard refid="nso-stanag5511ed7"/>
             <bprefstandard refid="nso-stanag4586ed4"/>
             <bprefstandard refid="nso-stanag4175ed6"/>
+            <bprefstandard refid="nso-stanag5516ed5"/>
             <bprefstandard refid="nso-stanag5616ed6"/>
             <bprefstandard refid="nso-stanag5616ed7"/>
             <bprefstandard refid="nso-atdlp-7.33a1"/>
@@ -1326,6 +1329,7 @@
             <bprefstandard refid="nso-stanag4207ed3"/>
             <bprefstandard refid="nso-stanag4290ed1"/>
             <bprefstandard refid="nso-stanag5046ed4"/>
+            <bprefstandard refid="nso-stanag5501ed7"/>Effectivite
          </bpgroup>
          <bpgroup mode="fading">
             <bprefstandard refid="nso-stanag5046ed3"/>
@@ -1339,7 +1343,6 @@
             <bprefstandard refid="nato-acp190b-nato-supp-1a"/>
             <bprefstandard refid="nato-acp190b-nato-supp2"/>
             <bprefstandard refid="nato-ac322-sc3-d2007-0003-rev5"/>
-            <bprefstandard refid="nso-stanag5516ed4"/>
             <bprefstandard refid="nso-stanag5522ed2"/>
             <bprefstandard refid="nso-stanag5527ed1"/>
             <bprefstandard refid="c3b-ac322-d2006-0066"/>
@@ -1350,8 +1353,6 @@
          </bpgroup>
          <bpgroup mode="candidate">
             <bprefstandard refid="nso-stanag5511ed7"/>
-            <bprefstandard refid="nso-stanag5516ed5"/>
-            <bprefstandard refid="nso-stanag5516ed6"/>
             <bprefstandard refid="nso-stanag5516ed7"/>
             <bprefstandard refid="nso-stanag5522ed3"/>
             <bprefstandard refid="nso-stanag4610ed1"/>
@@ -1360,11 +1361,11 @@
             <bprefstandard refid="nso-stanag5522ed4"/>
             <bprefstandard refid="nso-stanag5522ed5"/>
             <bprefstandard refid="nso-stanag5555ed1"/>
-            <bprefstandard refid="nso-stanag5601ed7"/>
             <bprefstandard refid="nso-stanag4162ed.3"/>
             <bprefstandard refid="nso-stanag4722"/>
          </bpgroup>
       </bpserviceprofile>
+
       <bpserviceprofile genTitle="Transmission Services" tref="T-8a45e97a-f563-4d05-9256-92c51eef8909-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="nso-stanag4175ed5"/>
@@ -1612,6 +1613,20 @@
             <bprefstandard refid="bluetooth-bluetooth5"/>
          </bpgroup>
       </bpserviceprofile>
+
+
+     <bpserviceprofile genTitle="Native Circuit-based Access Services" tref="T-d423c6a1-de1a-43ae-887a-2dcb58b5afe0-X">
+       <bpgroup mode="mandatory">
+         <bprefstandard refid="nso-stanag4578ed2"/>
+       </bpgroup>
+     </bpserviceprofile>
+
+     <bpserviceprofile genTitle="Circuit-Based Transport Services" tref="T-6c78c8dd-a68d-478d-8655-fc38569c1b30-X">
+       <bpgroup mode="mandatory">
+         <bprefstandard refid="nso-stanag4578ed2"/>
+       </bpgroup>
+     </bpserviceprofile>
+
    </bestpracticeprofile>
    <records>
       <standard id="acm-2002-rest-toit" tag="REST">
@@ -37875,6 +37890,19 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>ddba744c-dcc9-45fb-ac94-52c56beafb45</uuid>
       </standard>
 
+      <standard id="nato-ac322-d-2017-0007-U" tag="NISPX">
+         <document orgid="nato" pubnum="AC/322-D(2017)0007-U" date="2017-03-01" title="NATO Interoperability Standards and Profile eXchange Specification"/>
+         <applicability>The NATO Interoperability Standards and Profiles eXchange (NISPX) Specification provides a format for use in machine-to-machine message exchange and for file based exchange. NISPX is an XML grammar used to encode and transport representations of Interoperability Standards and Profile data. NISPX packages and their related files (if any) may be compressed using the ZIP format into single digital information objects (containers). This specification will be used by the IPCaT to publish selected NISP datasets electronically as a Trusted Data Source (TDS) and should be used by standardization groups and other responsible parties to submit standards and profiles for inclusion into the NISP.</applicability>
+         <responsibleparty rpref="undefined"/>
+         <status mode="accepted">
+            <uri>https://tide.act.nato.int/tidepedia/index.php/NATO_Interoperability_Standards_and_Profiles_eXchange_Specification</uri>
+            <history>
+               <event flag="added" date="2017-11-03" rfcp="10-24" version="11.0"/>
+            </history>
+         </status>
+         <uuid>69bd70b3-85fb-48dc-8bfc-7fd5f1191ec2</uuid>
+      </standard>
+
       <standard id="nato-ac35-d1012-revised" tag="NTCSEC">
          <document orgid="nato" pubnum="AC/35-D/1012(Revised)" date="1990-05-28" title="NATO Trusted Computer System Evaluation Criteria (NTCSEC)"/>
          <applicability>
@@ -43309,7 +43337,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5516ed5" tag="STANAG 5516 (RD) Ed 5">
-         <document orgid="nso" pubnum="STANAG 5516 (RD) Ed 5" date="2009-03-18" title="Tactical Data Exchange - Link 16"/>
+         <document orgid="nso" pubnum="STANAG 5516 (RD) Ed 5" date="2009-06-15" title="Tactical Data Exchange - Link 16"/>
          <applicability>
             Link-16 is a high capacity, secure, jam-resistant, nodeless
             broadcast-type RF data link that uses a Time Division Multiple Access (TDMA)
@@ -43327,7 +43355,8 @@ The purpose of this specification is to assure uniformity of treatment among all
                <event flag="added" date="2014-05-06" version="9.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-14" version="10.0"/>
                <event flag="changed" date="2017-03-03" rfcp="9-46" version="10.0"/>
-            </history>
+               <event date="2017-11-05" flag="changed" version="11.0" rfcp="10-24"/>
+           </history>
          </status>
          <uuid>414db7ab-3ecb-452c-bffd-4df91664e087</uuid>
       </standard>
@@ -43430,7 +43459,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5518ed3" tag="STANAG 5518 (RD) Ed 3">
-         <document orgid="nso" pubnum="STANAG 5518 (RD) Ed 3" title="Standard for Joint Range Extension Application Protocol (JREAP) - ATDLP-5.18 Edition B" date="2015-10-16"/>
+         <document orgid="nso" pubnum="STANAG 5518 (RD) Ed 3" title="Standard for Joint Range Extension Application Protocol (JREAP) - ATDLP-5.18 Edition B" date="2016-04-17"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -43438,6 +43467,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             <history>
                <event date="2016-12-23" flag="added" version="10.0" rfcp="9-16"/>
                <event date="2017-03-03" flag="changed" version="10.0" rfcp="9-46"/>
+               <event date="2017-11-05" flag="changed" version="11.0" rfcp="10-24"/>
             </history>
          </status>
          <uuid>03730454-df13-4ed8-99f0-14e574f16c0d</uuid>
@@ -43471,7 +43501,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5522ed3" tag="STANAG 5522 (RD) Ed 3">
-         <document orgid="nso" pubnum="STANAG 5522 (RD) Ed 3" date="2009-03-18" title="Tactical Data Link – Link 22">
+         <document orgid="nso" pubnum="STANAG 5522 (RD) Ed 3" date="2009-06-17" title="Tactical Data Link – Link 22">
             <comment>Tactical Data Exchange</comment>
          </document>
          <applicability>
@@ -43490,6 +43520,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             <history>
                <event flag="added" date="2014-05-06" version="9.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-14" version="10.0"/>
+               <event date="2017-11-05" flag="changed" version="11.0" rfcp="10-24"/>
             </history>
          </status>
          <uuid>de60698d-ecc2-4283-b99f-f72f8cd96fbc</uuid>
@@ -43673,13 +43704,14 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5601ed7" tag="STANAG 5601 Ed 7">
-         <document orgid="nso" pubnum="STANAG 5601 Ed 7" title="Standards for Interface of Data Links 1, 11, and 11B Through a Buffer - ATDLP-6.01 Edition A" date="2016-09-29" note="This is a candidate standard in the NISP, but promulgated according to the NSO."/>
+         <document orgid="nso" pubnum="STANAG 5601 Ed 7" title="Standards for Interface of Data Links 1, 11, and 11B Through a Buffer - ATDLP-6.01 Edition A" date="2017-05-31" note="This is a candidate standard in the NISP, but promulgated according to the NSO."/>
          <applicability>To provide a specification for the automatic data exchange through a buffer, of tactical information  among  systems  using  Link  1, Link 11 and Link 11B.</applicability>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
                <event date="2016-12-23" flag="added" version="10.0" rfcp="9-16"/>
+               <event date="2017-11-05" flag="changed" version="11.0" rfcp="10-24"/>
             </history>
          </status>
          <uuid>323ab5cd-c7c7-4444-9dfd-2f22f60f3d72</uuid>
@@ -43768,7 +43800,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5616ed6" tag="STANAG 5616 (RD) Ed 6">
-         <document orgid="nso" pubnum="STANAG 5616 (RD) Ed 6" date="2011-04-08" title="Standards for Data Forwarding between Tactical Data Systems employing Link 11/11B and Tactical Data Systems employing Link-16"/>
+         <document orgid="nso" pubnum="STANAG 5616 (RD) Ed 6" date="2011-08-15" title="Standards for Data Forwarding between Tactical Data Systems employing Link 11/11B and Tactical Data Systems employing Link-16"/>
          <applicability>
             The purpose of this STANAG is to specify rules, protocols, and
             translations required between J series and M series messages. Data forwarding
@@ -43798,6 +43830,7 @@ The purpose of this specification is to assure uniformity of treatment among all
                <event flag="added" date="2014-05-06" version="9.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-14" version="10.0"/>
                <event flag="changed" date="2017-03-03" rfcp="9-46" version="10.0"/>
+               <event date="2017-11-05" flag="changed" version="11.0" rfcp="10-24"/>
             </history>
          </status>
          <uuid>5f5bea81-9965-4727-a70a-8c18e1d0a089</uuid>
@@ -54505,11 +54538,11 @@ problematic</para>
          <profilespec orgid="ncia" pubnum="TN-1491" date="2017-05-18" title="Extensible Metadata Platform (XMP) Binding Profile" version="1"/>
          <reftaxonomy refid="user.undefined.taxonomynode"/>
          <obgroup obligation="mandatory">
-           <refstandard refid="iso-16684-1"/>
-           <refstandard refid="w3c-rec-rdf-primer-20040210"/>
-           <refstandard refid="adobe-xmp-part3-2016"/>
-           <refstandard refid="nso-stanag4774"/>
-           <refstandard refid="nso-stanag4778"/>
+            <refstandard refid="iso-16684-1"/>
+            <refstandard refid="w3c-rec-rdf-primer-20040210"/>
+            <refstandard refid="adobe-xmp-part3-2016"/>
+            <refstandard refid="nso-stanag4774"/>
+            <refstandard refid="nso-stanag4778"/>
          </obgroup>
          <status mode="accepted">
             <uri/>
