@@ -679,6 +679,12 @@
             <node id="user.archive.text.chat" title="Chat (e.g. JChat conversations)" emUUID="" level="3"/>
             <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="3"/>
          </node>
+         <node id="user.c3extendend" title="Extendend C3 Taxonomy" emUUID="" level="2">
+            <node id="T-6c7b5ec2-1772-4876-bbe3-ffd1f3f765d0-X" title="Wired Local Area Transmission Services" emUUID="6c7b5ec2-1772-4876-bbe3-ffd1f3f765d0" level="3"/>
+            <node id="T-6e3551c3-4131-48e7-b39a-6a8927f5a7ba-X" title="Wired Metropolitan Area Transmission Services" emUUID="6e3551c3-4131-48e7-b39a-6a8927f5a7ba" level="3"/>
+            <node id="T-30406e59-7929-4d51-b45a-8bf58ee002b0-X" title="Wired Wide Area Transmission Services" emUUID="30406e59-7929-4d51-b45a-8bf58ee002b0" level="3"/>
+            <node id="45601b01-2ac4-4744-8cf6-bb248fbd8dea" title="Packet-based Broadcast Services" emUUID="45601b01-2ac4-4744-8cf6-bb248fbd8dea" level="3"/>
+         </node>
       </node>
    </taxonomy>
    <bestpracticeprofile>
@@ -754,8 +760,6 @@
             <bprefstandard refid="nso-stanag7085ed3"/>
             <bprefstandard refid="nso-stanag5511ed6"/>
             <bprefstandard refid="nso-stanag4586ed3"/>
-            <bprefstandard refid="nso-stanag4175ed5"/>
-
             <bprefstandard refid="nso-stanag5516ed4"/>
          </bpgroup>
          <bpgroup mode="candidate">
@@ -767,14 +771,9 @@
             <bprefstandard refid="nso-stanag5616ed6"/>
             <bprefstandard refid="nso-stanag5616ed7"/>
             <bprefstandard refid="nso-atdlp-7.33a1"/>
-            <bprefstandard refid="nso-atdlp-7.04a1"/>
-            <bprefstandard refid="nso-atdlp-7.12a1"/>
-            <bprefstandard refid="nso-atdlp-7.31a1"/>
          </bpgroup>
          <bpgroup mode="fading">
             <bprefstandard refid="itu-t-epqv"/>
-            <bprefstandard refid="nso-stanag5501ed5"/>
-            <bprefstandard refid="nso-stanag5501ed6"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Communications Services" tref="T-2c978bbc-f422-42e8-83e6-105a6bdb1e54-X">
@@ -1086,6 +1085,18 @@
             <bprefstandard refid="eurocom-d0"/>
          </bpgroup>
       </bpserviceprofile>
+      <bpserviceprofile genTitle="IPv4 Routed Access Services" tref="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X">
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4711ed1"/>
+            <bprefstandard refid="nato-tn-1417"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="IPv6 Routed Access Services" tref="T-3a549feb-b0ac-4aa9-987c-efa4010ac493-X">
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4711ed1"/>
+            <bprefstandard refid="nato-tn-1417"/>
+         </bpgroup>
+      </bpserviceprofile>
       <bpserviceprofile genTitle="Logistics COI Services" tref="T-8bf5cd36-8236-4c72-8efa-61120a5abe19-X"/>
       <bpserviceprofile genTitle="Mediation Services" tref="T-13aba303-3b24-4b90-9d48-ad9ac4313c37-X">
          <bpgroup mode="mandatory">
@@ -1153,6 +1164,8 @@
          </bpgroup>
          <bpgroup mode="candidate">
             <bprefstandard refid="nso-stanag5067ed2"/>
+            <bprefstandard refid="nso-stanag4711ed1"/>
+            <bprefstandard refid="nato-tn-1417"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Packet-based Access Services" tref="T-634cdcd8-6b7c-4427-94ba-8098b03b6b0b-X">
@@ -1161,6 +1174,24 @@
             <bprefstandard refid="itu-t-y.1541"/>
             <bprefstandard refid="itu-t-y.1542"/>
             <bprefstandard refid="itu-t-j.241"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Packet-based Aggregation Services" tref="T-92b6a7e7-7f82-41f4-90e2-45569d3cccbd-X">
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4711ed1"/>
+            <bprefstandard refid="nato-tn-1417"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Packet-based Broadcast Services" tref="T-45601b01-2ac4-4744-8cf6-bb248fbd8dea-X">
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4711ed1"/>
+            <bprefstandard refid="nato-tn-1417"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Packet-based Transport Services" tref="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X">
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4711ed1"/>
+            <bprefstandard refid="nato-tn-1417"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Policy Decision Point (PDP) Services" tref="T-f9b492da-a24a-4eaa-b797-0fc1c37068ec-X">
@@ -1322,6 +1353,7 @@
       <bpserviceprofile genTitle="Tactical Messaging Access Services" tref="T-7a409ea6-6137-442d-8f77-f19ba8387772-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="cceb-acp200"/>
+            <bprefstandard refid="nso-stanag4175ed5"/>
             <bprefstandard refid="nso-stanag4214ed2"/>
             <bprefstandard refid="nso-stanag4705ed1"/>
             <bprefstandard refid="nso-stanag4578ed2"/>
@@ -1329,10 +1361,11 @@
             <bprefstandard refid="nso-stanag4207ed3"/>
             <bprefstandard refid="nso-stanag4290ed1"/>
             <bprefstandard refid="nso-stanag5046ed4"/>
-            <bprefstandard refid="nso-stanag5501ed7"/>Effectivite
-         </bpgroup>
-         <bpgroup mode="fading">
-            <bprefstandard refid="nso-stanag5046ed3"/>
+            <bprefstandard refid="nso-stanag5501ed7"/>
+            <bprefstandard refid="nso-atdlp-7.04a1"/>
+            <bprefstandard refid="nso-atdlp-7.12a1"/>
+            <bprefstandard refid="nso-atdlp-7.31a1"/>
+            <bprefstandard refid="nso-ntdliprev3"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Track Services" tref="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X">
@@ -1355,7 +1388,6 @@
             <bprefstandard refid="nso-stanag5511ed7"/>
             <bprefstandard refid="nso-stanag5516ed7"/>
             <bprefstandard refid="nso-stanag5522ed3"/>
-            <bprefstandard refid="nso-stanag4610ed1"/>
             <bprefstandard refid="nso-stanag5518ed2"/>
             <bprefstandard refid="nso-stanag5518ed3"/>
             <bprefstandard refid="nso-stanag5522ed4"/>
@@ -1365,10 +1397,8 @@
             <bprefstandard refid="nso-stanag4722"/>
          </bpgroup>
       </bpserviceprofile>
-
       <bpserviceprofile genTitle="Transmission Services" tref="T-8a45e97a-f563-4d05-9256-92c51eef8909-X">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="nso-stanag4175ed5"/>
             <bprefstandard refid="eia-rs-530"/>
             <bprefstandard refid="eia-tia-eia-492000-a"/>
             <bprefstandard refid="nso-stanag5030ed4"/>
@@ -1411,7 +1441,6 @@
             <bprefstandard refid="ietf-rfc5668"/>
          </bpgroup>
          <bpgroup mode="candidate">
-            <bprefstandard refid="nso-stanag4711ed1"/>
             <bprefstandard refid="nato-tn-1417"/>
             <bprefstandard refid="ietf-rfc2080"/>
             <bprefstandard refid="ietf-rfc2545"/>
@@ -1444,30 +1473,6 @@
             <bprefstandard refid="cceb-acp200v2c"/>
             <bprefstandard refid="cceb-acp200v2d"/>
             <bprefstandard refid="cceb-acp201orig"/>
-            <bprefstandard refid="iicwg-scip-233.102"/>
-            <bprefstandard refid="iicwg-scip-233.104"/>
-            <bprefstandard refid="iicwg-scip-233.105"/>
-            <bprefstandard refid="iicwg-scip-233.108"/>
-            <bprefstandard refid="iicwg-scip-233.150"/>
-            <bprefstandard refid="iicwg-scip-233.151"/>
-            <bprefstandard refid="iicwg-scip-233.201"/>
-            <bprefstandard refid="iicwg-scip-233.302"/>
-            <bprefstandard refid="iicwg-scip-233.303"/>
-            <bprefstandard refid="iicwg-scip-233.304"/>
-            <bprefstandard refid="iicwg-scip-233.305"/>
-            <bprefstandard refid="iicwg-scip-233.402"/>
-            <bprefstandard refid="iicwg-scip-233.422"/>
-            <bprefstandard refid="iicwg-scip-233.423"/>
-            <bprefstandard refid="iicwg-scip-233.441"/>
-            <bprefstandard refid="iicwg-scip-233.442"/>
-            <bprefstandard refid="iicwg-scip-233.443"/>
-            <bprefstandard refid="iicwg-scip-233.502"/>
-            <bprefstandard refid="iicwg-scip-233.516"/>
-            <bprefstandard refid="iicwg-scip-233.517"/>
-            <bprefstandard refid="iicwg-scip-233.546"/>
-            <bprefstandard refid="iicwg-scip-233.563"/>
-            <bprefstandard refid="iicwg-scip-233.601"/>
-            <bprefstandard refid="iicwg-scip-233.603"/>
             <bprefstandard refid="nato-acp100ns-1p"/>
             <bprefstandard refid="nato-acp100ns-2a"/>
             <bprefstandard refid="nato-acp117ns-1s"/>
@@ -1491,20 +1496,8 @@
             <bprefstandard refid="nato-acp176ns-1f"/>
             <bprefstandard refid="nato-acp190ns-2d"/>
             <bprefstandard refid="nato-acp198ns-1h"/>
-            <bprefstandard refid="nato-nine-crl-transfer"/>
-            <bprefstandard refid="nato-nine-ign-key-clt"/>
-            <bprefstandard refid="nato-nine-ign-key-netctrl"/>
-            <bprefstandard refid="nato-nine-zero-net-ctrl"/>
-            <bprefstandard refid="nato-nine-zero-net-clt"/>
-            <bprefstandard refid="nato-nine-ipsec-mer"/>
-            <bprefstandard refid="nato-nine-tp-sb"/>
-            <bprefstandard refid="nato-nine-tp-sa-mer"/>
-            <bprefstandard refid="nato-nine-tp-sa-med"/>
-            <bprefstandard refid="nato-nine-tp-ikev2-sa-med"/>
-            <bprefstandard refid="nato-nine-tp-ikev2-sa-mer"/>
             <bprefstandard refid="nso-stanag4494ed1"/>
             <bprefstandard refid="nso-stanag4606ed4"/>
-            <bprefstandard refid="nso-ntdliprev3"/>
             <bprefstandard refid="nso-atdlp-7.02a1"/>
             <bprefstandard refid="nso-atdlp-7.03a1"/>
             <bprefstandard refid="nso-adatp-12e"/>
@@ -1590,6 +1583,14 @@
             <bprefstandard refid="nso-stanag4486ed3"/>
          </bpgroup>
       </bpserviceprofile>
+      <bpserviceprofile genTitle="Wireless BLOS Mobile Wideband Transmission Services" tref="T-35f9ebe7-00ac-490b-bb91-7b7a7c09dbf7-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag4175ed5"/>
+         </bpgroup>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4175ed5"/>
+         </bpgroup>
+      </bpserviceprofile>
       <bpserviceprofile genTitle="Wireless BLOS Static Wideband Transmission Services" tref="T-ab020d8f-c2bc-468d-9d36-9327a5295563-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="nso-stanag4622ed1"/>
@@ -1613,20 +1614,50 @@
             <bprefstandard refid="bluetooth-bluetooth5"/>
          </bpgroup>
       </bpserviceprofile>
-
-
-     <bpserviceprofile genTitle="Native Circuit-based Access Services" tref="T-d423c6a1-de1a-43ae-887a-2dcb58b5afe0-X">
-       <bpgroup mode="mandatory">
-         <bprefstandard refid="nso-stanag4578ed2"/>
-       </bpgroup>
-     </bpserviceprofile>
-
-     <bpserviceprofile genTitle="Circuit-Based Transport Services" tref="T-6c78c8dd-a68d-478d-8655-fc38569c1b30-X">
-       <bpgroup mode="mandatory">
-         <bprefstandard refid="nso-stanag4578ed2"/>
-       </bpgroup>
-     </bpserviceprofile>
-
+      <bpserviceprofile genTitle="Native Circuit-based Access Services" tref="T-d423c6a1-de1a-43ae-887a-2dcb58b5afe0-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag4578ed2"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Circuit-Based Transport Services" tref="T-6c78c8dd-a68d-478d-8655-fc38569c1b30-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag4578ed2"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Wired Local Area Transmission Services" tref="T-6c7b5ec2-1772-4876-bbe3-ffd1f3f765d0-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag4290ed1"/>
+         </bpgroup>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4290ed2"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Wired Metropolitan Area Transmission Services" tref="T-6e3551c3-4131-48e7-b39a-6a8927f5a7ba-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag4290ed1"/>
+         </bpgroup>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4290ed2"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Wired Wide Area Transmission Services" tref="T-30406e59-7929-4d51-b45a-8bf58ee002b0-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag4290ed1"/>
+         </bpgroup>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4290ed2"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Native Circuit-Based Access Services" tref="T-d423c6a1-de1a-43ae-887a-2dcb58b5afe0-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag5046ed4"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Circuit-Based Transport Services" tref="T-6c78c8dd-a68d-478d-8655-fc38569c1b30-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag5046ed4"/>
+         </bpgroup>
+      </bpserviceprofile>
    </bestpracticeprofile>
    <records>
       <standard id="acm-2002-rest-toit" tag="REST">
@@ -1693,7 +1724,7 @@
       </standard>
 
       <standard id="adobe-xmp-part3-2016" tag="Adobe XMP">
-         <document orgid="adobe" pubnum="XMP-part3-2016" title="XMP Specification Part 3, Storage in Files" date=""/>
+         <document orgid="adobe" pubnum="XMP-part3-2016" title="XMP Specification Part 3, Storage in Files" date="2016-08"/>
          <applicability>This standard provides information about how serialized XMP metadata is packaged into XMP packets and embedded in different file formats. It includes information about how XMP relates to and incorporates other metadata formats, and how to reconcile values that are represented in multiple metadata formats</applicability>
          <responsibleparty rpref="ncia"/>
          <status mode="accepted">
@@ -20406,7 +20437,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iso-16684-1" tag="XMP data model">
-         <document orgid="iso" pubnum="16684-1" title="Graphic Technology – Extensible metadata platform (XMP) specification – Part 1: Data model, serialization and core propertie" date=""/>
+         <document orgid="iso" pubnum="16684-1" title="Graphic Technology – Extensible metadata platform (XMP) specification – Part 1: Data model, serialization and core propertie" date="2012-02-29"/>
          <applicability>This International Standard specifies a standard for the definition, creation, and processing of metadata that can be applied to a broad range of resource types. The Extensible Metadata Platform (XMP) was introduced by Adobe Systems Incorporated in 2001 and has since established itself as a critical technology for improving business efficiency in many industries. The Adobe Systems XMP Specification Part 1 version of July 2010 is the basis for this International Standard. Establishing this International Standard ensures the stability and longevity of its definitions and encourages broader integration and interoperability of XMP with existing standards</applicability>
          <responsibleparty rpref="ncia"/>
          <status mode="accepted">
@@ -39611,7 +39642,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-adatp-12e" tag="ADatP-12 (E )">
-         <document orgid="nso-e" pubnum="ADatP-12 (E )" title="Standard Operating Procedures for the CRC-SAM Interface - VOL I &amp; II" date=""/>
+         <document orgid="nso" pubnum="ADatP-12 (E )" title="Standard Operating Procedures for the CRC-SAM Interface - VOL I &amp; II" date="2010-11-02"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -40859,6 +40890,23 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>5499e160-f684-4517-995d-4b35a2b6a7f5</uuid>
       </standard>
 
+      <standard id="nso-stanag4290ed2" tag="STANAG 4290 Ed 2">
+         <document orgid="nso" pubnum="STANAG 4290 Ed 2" date="2017-12-15" title="Standard for Gateway Multichannel Cable Link (Optical)"/>
+         <applicability>
+            This STANAG defines the multiplexing scheme and physical
+            connector for use with the fibre optical transmission in conjunction with the STANAG
+            4206 Tactical Digital Gateway.
+         </applicability>
+         <responsibleparty rpref="ns"/>
+         <status mode="accepted">
+            <uri>https://nso.nato.int/</uri>
+            <history>
+               <event flag="added" date="2017-11-06" rfcp="10-24" version="11.0"/>
+            </history>
+         </status>
+         <uuid>f72be9d6-851b-45a1-8829-8f6d96b311ed</uuid>
+      </standard>
+
       <standard id="nso-stanag4292ed2" tag="STANAG 4292 Ed 2">
          <document orgid="nso" pubnum="STANAG 4292 Ed 2" date="1987-02-05" title="Standards to Achieve Communication Between Single Channel Tactical Combat Net Radio Equipment and Frequency Hopping Radios Operating in the same VHF (30-108 MHz) Band" version="2"/>
          <applicability/>
@@ -40873,8 +40921,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>0633223a-2957-4efb-88b0-cd3bff5404f6</uuid>
       </standard>
 
-      <standard id="nso-stanag4294part1" tag="">
-         <document orgid="nso" pubnum="STANAG 4294 Part 1" title="Navstar Global Positioning System (GPS)(PART I) Summary Of Performance Requirements" date=""/>
+      <standard id="nso-stanag4294part1" tag="GPS (STANAG 4294 Part 1)">
+         <document orgid="nso" pubnum="STANAG 4294 Part 1" title="Navstar Global Positioning System (GPS)(PART I) Summary Of Performance Requirements" date="1997-12-05" version="2"/>
          <applicability/>
          <responsibleparty rpref="c3b-iffcat"/>
          <status mode="accepted">
@@ -40886,8 +40934,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>66fd6b36-30e3-4e1d-a717-a48e3b35ef90</uuid>
       </standard>
 
-      <standard id="nso-stanag4294part2" tag="">
-         <document orgid="nso" pubnum="STANAG 4294 Part 2" title="Navstar Global Positioning System (GPS)(PART II) Summary Of Performance Requirements" date=""/>
+      <standard id="nso-stanag4294part2" tag="GPS (STANAG 4294 Part 2)">
+         <document orgid="nso" pubnum="STANAG 4294 Part 2" title="Navstar Global Positioning System (GPS)(PART II) Summary Of Performance Requirements" date="1999-10-29" version="2"/>
          <applicability/>
          <responsibleparty rpref="c3b-iffcat"/>
          <status mode="accepted">
@@ -41609,7 +41657,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4545ed1" tag="NSIF">
-         <document orgid="nso" pubnum="STANAG 4545 ed.1" date="1998" title="NATO Secondary Imagery Format (NSIF)"/>
+         <document orgid="nso" pubnum="STANAG 4545 Ed 1" date="1998" title="NATO Secondary Imagery Format (NSIF)"/>
          <applicability>
             This STANAG promotes interoperability for the exchange of Secondary Imagery
             among North Atlantic Treaty Organisation (NATO) Command Control Communications
@@ -41634,7 +41682,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4545ed1am1" tag="STANAG 4545, NATO Secondary Imagery Format (NSIF)">
-         <document orgid="nso" pubnum="STANAG4545ed1am1" title="STANAG 4545 edition 1 amendment 1, NATO Secondary Imagery Format (NSIF) " date="2000-04-14"/>
+         <document orgid="nso" pubnum="STANAG4545 Ed 1 Am 1" title="STANAG 4545 Edition 1 Amendment 1, NATO Secondary Imagery Format (NSIF) " date="2000-04-14"/>
          <applicability>The NATO Secondary Imagery Format (NSIF) is the standard for formatting digital imagery files and imagery related products and exchanging them among different computer systems.</applicability>
          <responsibleparty rpref="ncia-other"/>
          <status mode="accepted">
@@ -41748,7 +41796,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4564ed3" tag="WECDIS">
-         <document orgid="nso" pubnum="STANAG 4564 ed. 3" title="Standard on warship Electronic Chart Display and Information Systems (WECDIS)" date=""/>
+         <document orgid="nso" pubnum="STANAG 4564 Ed 3" title="Standard on warship Electronic Chart Display and Information Systems (WECDIS)" date=""/>
          <applicability>This STANAG defines a standard for WECDIS in order to ensure that
          all electronic chart / geographic information systems fitted on warships from
          NATO nations will provide a minimum common set of functions to the operator
@@ -42099,12 +42147,13 @@ The purpose of this specification is to assure uniformity of treatment among all
             TBD
          </applicability>
          <responsibleparty rpref="tdl"/>
-         <status mode="accepted">
+         <status mode="deleted">
             <uri>https://nso.nato.int/</uri>
             <history>
                <event flag="added" date="2011-10-17" rfcp="5-56" version="6.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-14" version="10.0"/>
                <event flag="changed" date="2017-03-03" rfcp="9-46" version="10.0"/>
+               <event flag="deleted" date="2017-11-06" rfcp="10-24" version="11.0"/>
             </history>
          </status>
          <uuid>b37bfc8d-6304-4d4e-b662-e6b6e35e8267</uuid>
@@ -42762,8 +42811,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>ebacf7b4-2889-4004-b6a7-2f38502fb54b</uuid>
       </standard>
 
-      <standard id="nso-stanag4774" tag="STANAG 4774 ED 1:2016">
-         <document orgid="nso" pubnum="STANAG 4774 ED 1:2016" title="Confidentiality Metadata Label Syntax - ADatP-4774 Edition A" date="2016-06-29"/>
+      <standard id="nso-stanag4774" tag="STANAG 4774 Ed 1:2016">
+         <document orgid="nso" pubnum="STANAG 4774 Ed 1:2016" title="Confidentiality Metadata Label Syntax - ADatP-4774 Edition A" date="2016-06-29"/>
          <applicability/>
          <responsibleparty rpref="ncia"/>
          <status mode="accepted">
@@ -42776,8 +42825,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>6db42793-2ded-4a7f-98b2-143426a9fbae</uuid>
       </standard>
 
-      <standard id="nso-stanag4778" tag="STANAG 4778 ED 1">
-         <document orgid="nso" pubnum="STANAG 4778 ED 1" title="Metadata Binding - ADatP-4778 Edition A" date=""/>
+      <standard id="nso-stanag4778" tag="STANAG 4778 Ed 1">
+         <document orgid="nso" pubnum="STANAG 4778 Ed 1" title="Metadata Binding - ADatP-4778 Edition A" date=""/>
          <applicability/>
          <responsibleparty rpref="ncia"/>
          <status mode="accepted">
@@ -42861,13 +42910,14 @@ The purpose of this specification is to assure uniformity of treatment among all
             logic rules to given data.
          </applicability>
          <responsibleparty rpref="ns"/>
-         <status mode="accepted">
+         <status mode="deleted">
             <uri>https://nso.nato.int/</uri>
             <history>
                <event date="2009-09-15" flag="added" rfcp="3-3" version="4.0"/>
                <event date="2010-08-10" flag="changed" version="5.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-14" version="10.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
+               <event flag="deleted" date="2017-11-06" rfcp="10-24" version="11.0"/>
             </history>
          </status>
          <uuid>77bd6e3f-ff85-4b81-af86-ea96fcb39c1b</uuid>
@@ -43117,11 +43167,12 @@ The purpose of this specification is to assure uniformity of treatment among all
             applicable, using Link 1 as defined in this STANAG.
          </applicability>
          <responsibleparty rpref="tdl"/>
-         <status mode="accepted">
+         <status mode="deleted">
             <uri>https://nso.nato.int/</uri>
             <history>
                <event flag="added" date="2012-09-01" rfcp="6-20" version="7.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-14" version="10.0"/>
+               <event flag="deleted" date="2017-11-06" rfcp="10-24" version="11.0"/>
             </history>
          </status>
          <uuid>29ef59da-903a-42a5-bbbd-41e164c536fb</uuid>
@@ -43135,11 +43186,12 @@ The purpose of this specification is to assure uniformity of treatment among all
             applicable, using Link 1 as defined in this STANAG.
          </applicability>
          <responsibleparty rpref="tdl"/>
-         <status mode="accepted">
+         <status mode="deleted">
             <uri>https://nso.nato.int/</uri>
             <history>
                <event flag="added" date="2014-05-05" version="9.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-14" version="10.0"/>
+               <event flag="deleted" date="2017-11-06" rfcp="10-24" version="11.0"/>
             </history>
          </status>
          <uuid>e9e4db21-3618-4314-8f0e-4021a498e19c</uuid>
@@ -43233,8 +43285,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>d91a00b0-f07c-4036-b121-17b55c4d4b03</uuid>
       </standard>
 
-      <standard id="nso-stanag5511ed8" tag="STANAG 5511 ED 8">
-         <document orgid="nso" pubnum="STANAG 5511 ED 8" date="" title="Tactical Data Exchange - Link 11/11B"/>
+      <standard id="nso-stanag5511ed8" tag="STANAG 5511 Ed 8">
+         <document orgid="nso" pubnum="STANAG 5511 Ed 8" date="" title="Tactical Data Exchange - Link 11/11B"/>
          <applicability>
             Link-11 employs netted communications techniques and a standard
             message format for exchanging digital information among airborne, land-based
@@ -43356,7 +43408,7 @@ The purpose of this specification is to assure uniformity of treatment among all
                <event flag="changed" date="2017-01-14" rfcp="9-14" version="10.0"/>
                <event flag="changed" date="2017-03-03" rfcp="9-46" version="10.0"/>
                <event date="2017-11-05" flag="changed" version="11.0" rfcp="10-24"/>
-           </history>
+            </history>
          </status>
          <uuid>414db7ab-3ecb-452c-bffd-4df91664e087</uuid>
       </standard>
@@ -43851,7 +43903,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag6001ed4" tag="STANAG 6001, Language Proficiency Levels">
-         <document orgid="nso" pubnum="STANAG 6001 ed 4" title="Language Proficiency Levels" date="2010-10-12"/>
+         <document orgid="nso" pubnum="STANAG 6001 Ed 4" title="Language Proficiency Levels" date="2010-10-12"/>
          <applicability>STANAG 6001 is a language proficiency scale designed to allow comparisons of language ability in different countries.</applicability>
          <responsibleparty rpref="ncia-other"/>
          <status mode="accepted">
