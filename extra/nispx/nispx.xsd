@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *******************************************************************************
+     XML Schema for exchanging NATO Interoperability Standards and Profiles (NISP).
+     *******************************************************************************
+ -->
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:nispx="urn:nato:stanag:5524:nispexchange:1:0"
+           targetNamespace="urn:nato:stanag:5524:nispexchange:1:0"
+           version="0.1"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:appinfo>
+      <UniqueIdentifier>urn:nato:stanag:5524:nispexchange:1:0
+      </UniqueIdentifier>
+      <Name>NISP eXchange Schema</Name>
+      <Definition>Schema for a NISP eXchange data package</Definition>
+      <VersionIndicator>0.1</VersionIndicator>
+      <UsageGuidance>Used within NATO for representing a confidentiality label.</UsageGuidance>
+      <RestrictionType/>
+      <RestrictionValue/>
+      <ConfidentialityLabel ReviewDateTime="2019-04-01T09:00:00Z">
+        <ConfidentialityInformation>
+          <PolicyIdentifier>NATO</PolicyIdentifier>
+          <Classification>UNCLASSIFIED</Classification>
+          <Category Type="PERMISSIVE" TagName="Context">
+            <GenericValue>NATO</GenericValue>
+          </Category>
+        </ConfidentialityInformation>
+        <CreationDateTime>2016-04-21T10:14:00Z</CreationDateTime>
+      </ConfidentialityLabel>
+    </xs:appinfo>
+  </xs:annotation>
+
+  <xs:element name="nispx" type="nispxType"/>
+
+  <xs:complexType name="nispxType">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="containerProfile" type="containerProfileType"/>
+      <xs:element name="elementProfile" type="elementProfileType"/>
+      <xs:element name="standard" type="standardType"/>
+      <xs:element name="coverDocument" type="coverDocumentType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="profileType">
+    <xs:sequence>
+      <xs:element name="uuid" type="xs:ID" use="required"/>
+      <xs:element name="publisher" type="xs:string"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="version" type="xs:string" minOccurs="0"/>
+      <xs:element name="dateIssued" type="xs:string" minOccurs="0"/>
+      <xs:element name="language" type="xs:string" minOccurs="0"/>
+      <xs:element name="description" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="containerProfileType">
+    <xs:extension base="profileType">
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="containerProfileIDREF" type="xs:IDREF"/>
+        <xs:element name="elementProfileIDREF" type="xs:IDREF"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexType>
+
+  <xs:unique name="containerProfileUniqueID">
+    <xs:selector xpath="containerProfile"/>
+    <xs:field xpath="@uuid"/>
+  </xs:unique>
+
+  <xs:element name="profileReference" minOccurs="1" maxOccurs="1">
+    <xs:complexType>
+      <xs:attribute name="ref" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="elementProfileType">
+    <xs:extension base="profileType">
+      <xs:sequence>
+        <xs:element name="taxonomyElement" type="taxonomyElementType" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:element name="obgroup" type="obgroupType" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:element name="guidelines" type="xs:string" minOccurs="0"/>
+        <xs:element name="groupOfStandards" minOccour="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:simpleType name="obligation">
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="mandatory"/>
+                  <xs:enumeration value="conditional"/>
+                  <xs:enumeration value="recommended"/>
+                  <xs:enumeration value="optional"/>
+                </xs:restriction>
+              </xs:simpleType>
+              <xs:element name="stdReference"/>
+              <xs:element name="remarks" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexType>
+
+  <xs:unique name="elementProfileUniqueID">
+    <xs:selector xpath="elementProfile"/>
+    <xs:field xpath="@uuid"/>
+  </xs:unique>
+
+  <xs:element name="stdReference">
+    <xs:complexType>
+      <xs:attribute name="ref" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="standardType">
+    <xs:sequence>
+      <xs:element name="publisher" type="xs:string"/>
+      <xs:element name="identifier" type="xs:string"/>
+      <xs:element name="dateIssued" type="xs:string" minOccurs="0"/>
+      <xs:element name="decription" type="xs:string"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="version" type="xs:string" minOccurs="0"/>
+      <xs:element name="partOf" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="lifecycle" type="xs:string"/>
+      <xs:element name="equivalentStandards" minOccurs="0"/>
+      <xs:element name="source" type="xs:string" minOccurs="0"/>
+      <xs:element name="replaces" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="subject" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="subjectCategory" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="language" type="xs:string" minOccurs="0"/>
+      <xs:element name="uuid" type="xs:string"/>
+      <xs:element name="alternativeTitle" type="xs:string"/>
+      <xs:element name="isauthorizedby" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="conformityAssessment" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="intellectualProperty" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="coverDocumentType">
+    <xs:sequence>
+      <xs:element name="publisher" type="xs:string"/>
+      <xs:element name="identifier" type="xs:string"/>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="alternativeTitle" type="xs:string"/>
+      <xs:element name="language" type="xs:string" minOccurs="0"/>
+      <xs:source name="source" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
