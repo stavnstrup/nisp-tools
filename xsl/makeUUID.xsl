@@ -46,9 +46,14 @@ Description : This stylesheet creates an UUID element in all standards
 <xsl:template match="status">
   <status>
     <xsl:apply-templates select="@*"/>
-    <xsl:if test="history/event[(position()=last()) and (@flag='deleted')]">
-      <xsl:attribute name="mode">deleted</xsl:attribute>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="history/event[(position()=last()) and (@flag='deleted')]">
+        <xsl:attribute name="mode">deleted</xsl:attribute>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:attribute name="mode">accepted</xsl:attribute>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:apply-templates/>
   </status>
 </xsl:template>
