@@ -16,8 +16,10 @@
 <xsl:text>// CREATE STANDARD VERTICES&#x0A;</xsl:text>
 <xsl:apply-templates select="records/standard"/>
 <xsl:text>// CREATE CAPABILITYPROFILE VERTICES&#x0A;</xsl:text>
+<xsl:text>// AND EDGES BETWEEN CAPABILITYPROFILES AND PROFILES&#x0A;</xsl:text>
 <xsl:apply-templates select="records/capabilityprofile"/>
 <xsl:text>// CREATE PROFILE VERTICES&#x0A;</xsl:text>
+<xsl:text>// AND EDGES BETWEEN PROFILES AND SERVICEPROFILES&#x0A;</xsl:text>
 <xsl:apply-templates select="records/profile"/>
 <xsl:text>// CREATE SERVICEPROFILE VERTICES&#x0A;</xsl:text>
 <xsl:apply-templates select="records/serviceprofile"/>
@@ -121,9 +123,10 @@
 </xsl:template>
 
 
-<!-- ============================================
+<!-- ========================================================
      Create Capabilityprofile vertices
-     ============================================
+     Create Edgeges between Capability profiles and profiles
+     ========================================================
 -->
 
 <xsl:template match="capabilityprofile">
@@ -131,8 +134,20 @@
 <xsl:value-of select="@id"/>
 <xsl:text>:CAPABILITYPROFILE { id: '</xsl:text>
 <xsl:value-of select="@id"/>
+<xsl:apply-templates select="profilespec"/>
+<xsl:apply-templates select="status/uri"/>
+<xsl:text>', uuid: '</xsl:text><xsl:value-of select="uuid"/>
 <xsl:text>'})&#x0A;</xsl:text>
+<xsl:text>CREATE (</xsl:text>
+<xsl:value-of select="profilespec/@orgid"/>
+<xsl:text>)-[:OWNS]->(</xsl:text>
+<xsl:value-of select="@id"/>
+<xsl:text>)&#x0A;</xsl:text>
+<xsl:apply-templates select="subprofiles/refprofile"/>
 </xsl:template>
+
+
+
 
 
 <!-- ============================================
@@ -145,7 +160,16 @@
 <xsl:value-of select="@id"/>
 <xsl:text>:PROFILE { id: '</xsl:text>
 <xsl:value-of select="@id"/>
+<xsl:apply-templates select="profilespec"/>
+<xsl:apply-templates select="status/uri"/>
+<xsl:text>', uuid: '</xsl:text><xsl:value-of select="uuid"/>
 <xsl:text>'})&#x0A;</xsl:text>
+<xsl:text>CREATE (</xsl:text>
+<xsl:value-of select="profilespec/@orgid"/>
+<xsl:text>)-[:OWNS]->(</xsl:text>
+<xsl:value-of select="@id"/>
+<xsl:text>)&#x0A;</xsl:text>
+<xsl:apply-templates select="subprofiles/refprofile"/>
 </xsl:template>
 
 
@@ -159,9 +183,40 @@
 <xsl:value-of select="@id"/>
 <xsl:text>:SERVICEPROFILE { id: '</xsl:text>
 <xsl:value-of select="@id"/>
+<xsl:apply-templates select="profilespec"/>
+<xsl:apply-templates select="status/uri"/>
+<xsl:text>', uuid: '</xsl:text><xsl:value-of select="uuid"/>
 <xsl:text>'})&#x0A;</xsl:text>
+<xsl:text>CREATE (</xsl:text>
+<xsl:value-of select="profilespec/@orgid"/>
+<xsl:text>)-[:OWNS]->(</xsl:text>
+<xsl:value-of select="@id"/>
+<xsl:text>)&#x0A;</xsl:text>
 </xsl:template>
 
 
+<!-- ============================================
+     Utilities
+     ============================================
+-->
+
+<xsl:template match="profilespec">
+<xsl:text>', pubnum: '</xsl:text><xsl:value-of select="@pubnum"/>
+<xsl:text>', title: '</xsl:text><xsl:value-of select="@title"/>
+<xsl:text>', version: '</xsl:text><xsl:value-of select="@version"/>
+<xsl:text>', date: '</xsl:text><xsl:value-of select="@date"/>
+</xsl:template>
+
+<xsl:template match="refprofile">
+<xsl:text>CREATE (</xsl:text>
+<xsl:value-of select="../../@id"/>
+<xsl:text>)-[:CONTAINS]->(</xsl:text>
+<xsl:value-of select="@refid"/>
+<xsl:text>)&#x0A;</xsl:text>
+</xsl:template>
+
+<xsl:template match="uri">
+<xsl:text>', uri: '</xsl:text><xsl:value-of select="status/@uri"/>
+</xsl:template>
 
 </xsl:stylesheet>
