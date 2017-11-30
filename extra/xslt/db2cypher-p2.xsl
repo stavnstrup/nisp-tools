@@ -4,11 +4,11 @@
                 extension-element-prefixes="saxon"
                 version='2.0'>
 
-<!--
 <xsl:output saxon:next-in-chain="db2cypher-p3.xsl"/>
--->
+<!--
 
 <xsl:output indent="yes"/>
+-->
 
 
 <!-- Remove -->
@@ -17,7 +17,7 @@
   <xsl:element name="{local-name()}">
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="orgid">
-      <xsl:value-of select="translate(@orgid,'-','_')"/>
+      <xsl:value-of select="translate(@orgid,'-.','__')"/>
     </xsl:attribute>
     <xsl:apply-templates/>
   </xsl:element>
@@ -27,7 +27,7 @@
   <xsl:element name="{local-name()}">
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="rpref">
-      <xsl:value-of select="translate(@rpref,'-','_')"/>
+      <xsl:value-of select="translate(@rpref,'-.','__')"/>
     </xsl:attribute>
     <xsl:apply-templates/>
   </xsl:element>
@@ -37,7 +37,7 @@
   <xsl:element name="{local-name()}">
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="id">
-      <xsl:value-of select="translate(@id,'-','_')"/>
+      <xsl:value-of select="translate(@id,'-.','__')"/>
     </xsl:attribute>
     <xsl:apply-templates/>
   </xsl:element>
@@ -47,7 +47,7 @@
   <bpserviceprofile>
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="tref">
-      <xsl:value-of select="translate(@tref,'-','_')"/>
+      <xsl:value-of select="translate(@tref,'-.','__')"/>
     </xsl:attribute>
     <xsl:apply-templates/>
   </bpserviceprofile>
@@ -57,7 +57,7 @@
   <bprefstandard>
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="refid">
-      <xsl:value-of select="translate(@refid,'-','_')"/>
+      <xsl:value-of select="translate(@refid,'-.','__')"/>
     </xsl:attribute>
     <xsl:apply-templates/>
   </bprefstandard>
@@ -81,7 +81,7 @@
   <xsl:element name="{local-name()}">
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="key">
-      <xsl:value-of select="translate(@key,'-','_')"/>
+      <xsl:value-of select="translate(@key,'-.','__')"/>
     </xsl:attribute>
     <xsl:apply-templates/>
   </xsl:element>
