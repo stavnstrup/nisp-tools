@@ -41,16 +41,6 @@ Copyright (c) 2014, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   </bestpracticeprofile>
 </xsl:template>
 
-
-<xsl:template match="responsibleparties">
-  <responsibleparties>
-    <xsl:apply-templates>
-      <xsl:sort select="@key"/>
-    </xsl:apply-templates>
-  </responsibleparties>
-</xsl:template>
-
-
 <xsl:template match="organisations">
   <organisations>
     <xsl:apply-templates>

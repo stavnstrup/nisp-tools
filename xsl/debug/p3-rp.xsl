@@ -59,7 +59,7 @@
 	  <xsl:text>#</xsl:text>
 	  <xsl:value-of select="$rp"/>
 	</xsl:attribute>
-	<xsl:value-of select="../../responsibleparties/rpkey[@key=$rp]/@long"/>
+	<xsl:value-of select="../../organisations/orgkey[@key=$rp]/@long"/>
       </a>
       <xsl:text> - </xsl:text>
       <xsl:variable name="rpnum" select="count(//*/responsibleparty[@rpref=$rp])"/>
@@ -80,22 +80,8 @@
 
 
     <h2 id="{$rp}">
-      <xsl:value-of select="../../responsibleparties/rpkey[@key=$rp]/@long"/>
+      <xsl:value-of select="../../organisations/orgkey[@key=$rp]/@long"/>
     </h2>
-
-    <xsl:if test="$rp != 'undefined'">
-      <xsl:variable name="poc" select="../../responsibleparties/rpkey[@key=$rp]/pointofcontact"/>
-      <p><strong>POC: </strong> <xsl:value-of select="$poc/@name"/>
-      <xsl:if test="$poc/@email != ''">
-	<xsl:text>, email: </xsl:text>
-	<xsl:value-of select="$poc/@email"/>
-      </xsl:if>
-      <xsl:if test="$poc/@phone != ''">
-	<xsl:text>, phone: </xsl:text>
-	<xsl:value-of select="$poc/@phone"/>
-      </xsl:if>
-      </p>
-    </xsl:if>
 
     <table border='1'>
       <tr>

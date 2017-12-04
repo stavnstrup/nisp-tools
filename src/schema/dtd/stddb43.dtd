@@ -57,7 +57,7 @@
 <!-- ...................................................................... -->
 
 
-<!ELEMENT standards (revhistory?, taxonomy, bestpracticeprofile, records, organisations, responsibleparties)>
+<!ELEMENT standards (revhistory?, taxonomy, bestpracticeprofile, records, organisations)>
 <!ATTLIST standards
           revision CDATA #REQUIRED>
 
@@ -214,7 +214,7 @@
 
 <!ELEMENT profilespec EMPTY>
 <!ATTLIST profilespec
-          orgid   CDATA #REQUIRED
+          orgid   IDREF #REQUIRED
           pubnum  CDATA #REQUIRED
           date    CDATA #REQUIRED
           title   CDATA #REQUIRED
@@ -232,25 +232,13 @@
 
 <!ELEMENT orgkey EMPTY>
 <!ATTLIST orgkey
-          key    CDATA   #REQUIRED
+          key    ID   #REQUIRED
           short  CDATA   #REQUIRED
-          text   CDATA   #REQUIRED
+          long   CDATA   #REQUIRED
           uri    CDATA   #IMPLIED>
 
 
 <!ELEMENT header EMPTY>
-
-
-<!-- .........................RESPONSIBLE PARTIES.......................... -->
-
-<!ELEMENT responsibleparties (rpkey*)>
-
-<!ELEMENT rpkey EMPTY>
-
-<!ATTLIST rpkey
-	  key    CDATA #REQUIRED
-	  short  CDATA #REQUIRED
-	  long   CDATA #REQUIRED>
 
 
 

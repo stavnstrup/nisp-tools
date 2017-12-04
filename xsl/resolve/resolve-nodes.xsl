@@ -82,7 +82,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="orgname">
     <xsl:choose>
       <xsl:when test="$orgid != ''"><xsl:value-of
-                select="$db//standards/organisations/orgkey[@key=$orgid]/@text"/></xsl:when>
+                select="$db//standards/organisations/orgkey[@key=$orgid]/@long"/></xsl:when>
       <xsl:otherwise><primary><xsl:text>UNKNOWN ORG</xsl:text></primary></xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -115,7 +115,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
      <indexterm>
        <xsl:choose>
          <xsl:when test="@orgid != ''"><primary><xsl:value-of
-                   select="ancestor::standards/organisations/orgkey[@key=$org]/@text"/></primary></xsl:when>
+                   select="ancestor::standards/organisations/orgkey[@key=$org]/@long"/></primary></xsl:when>
          <xsl:otherwise><primary><xsl:text>UNKNOWN ORG</xsl:text></primary></xsl:otherwise>
        </xsl:choose>
        <xsl:choose>
