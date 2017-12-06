@@ -53924,7 +53924,7 @@ applications. </applicability>
          <subprofiles>
             <refprofile refid="fmn2-sp-time-synchronization"/>
             <refprofile refid="fmn2-cryptographic-algorithms-profile"/>
-            <refprofile refid="fmn1-sp-directory-data-structure"/>
+            <refprofile refid="fmn2-sp-directory-data-structure"/>
             <refprofile refid="fmn1-sp-directory-data-exchange"/>
             <refprofile refid="fmn2-domain-naming-profile"/>
             <refprofile refid="fmn2-digital-certificate-profile"/>
@@ -55433,6 +55433,29 @@ done via certificates, then IKEv2 is used.</description>
          <uuid>89fb1feb-961e-46ee-8aea-2392d2fa56a6</uuid>
       </serviceprofile>
 
+      <serviceprofile id="fmn2-sp-directory-data-structure" title="Directory Data Structure Profile">
+         <profilespec orgid="fmn" pubnum="" date="2017-09-29" title="FMN Spiral 2 Standards Profile" version="2.0"/>
+         <description>The Directory Data Structure Profile provides standards and guidance in support of the
+					definition of the namespace of a federated mission network on the basis of the Lightweight Directory
+					Access Protocol (LDAP).</description>
+         <reftaxonomy refid="T-3898a275-2231-4656-96aa-b9b37e5cbc78-X"/>
+         <obgroup obligation="mandatory">
+            <refstandard refid="ietf-rfc2798"/>
+            <refstandard refid="ietf-rfc4519"/>
+         </obgroup>
+         <guide>The Federated Directory Services shall be able to exchange inetOrgPerson object class
+					with mandatory Common Name (cn) and Surname (sn) attributes. Based on the specific MN
+					requirements, the list of exchanged attributes for particular MN might be extended by SMA during
+					MN planning process.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2017-12-06" rfcp="10-29" version="11.0"/>
+            </history>
+         </status>
+         <uuid>4ae7c420-b488-4180-82be-ef826a1ceb3d</uuid>
+      </serviceprofile>
+
       <serviceprofile id="fmn1-sp-time-synchronization" title="Time Synchronization Profile">
          <profilespec orgid="fmn" pubnum="" date="2015-09-30" title="FMN Spiral 1 Profile" version="1.0"/>
          <description>The Time Synchronization Profile provides standards and guidance to support the synchronization of clocks across a network or a federation of networks and the safeguard of the accurate use of time stamps.</description>
@@ -55874,87 +55897,41 @@ mandatory.</description>
             <refstandard refid="ietf-rfc3526"/>
             <refstandard refid="nist-sp800-56brev1"/>
          </obgroup>
-         <guide>The following algorithms are to be used to
-support specific functions:
-<itemizedlist>
+         <guide>The following algorithms and parameters are to
+					be used to support specific functions:
+            <itemizedlist>
                <listitem>
-                  <para>Advanced Encryption Standard (AES)
-(FIPS PUB 197)</para>
+                  <para><emphasis>Root CA Certificates</emphasis></para>
+                  <itemizedlist>
+                     <listitem><para>Digest Algorithm: SHA-256, or SHA-384 (Root CA certificates, which were signed
+                        using SHA-1 before 1 January 2016, may be used until 1 January 2025)</para></listitem>
+                     <listitem><para>RSA modulus size (bits): 2048, 3072 and 4096</para></listitem>
+                     <listitem><para>ECC Curve: NIST P-256, and P-384</para></listitem>
+                  </itemizedlist>
+               </listitem>
+               <listitem>
+                  <para><emphasis>Subordinate CA Certificates</emphasis></para>
+                  <itemizedlist>
+                     <listitem><para>Digest Algorithm: SHA-256, and SHA-384</para></listitem>
+                     <listitem><para>RSA modulus size (bits): 2048, 3072 and 4096</para></listitem>
+                     <listitem><para>ECC Curve: NIST P-256, and P-384</para></listitem>
+                  </itemizedlist>
+               </listitem>
+               <listitem>
+                  <para><emphasis>Subscriber Certificates</emphasis></para>
+                  <itemizedlist>
+                     <listitem><para>Digest Algorithm: SHA-256, and SHA-384</para></listitem>
+                     <listitem><para>RSA modulus size (bits): 2048, 3072 and 4096</para></listitem>
+                     <listitem><para>ECC Curve: NIST P-256, and P-384</para></listitem>
+                  </itemizedlist>
                </listitem>
             </itemizedlist>
-
-Function: Symmetric block cipher used for
-information protection. Parameters: Use 256 bit
-keys to protect up to TOP SECRET
-
-<itemizedlist>
-               <listitem>
-                  <para>Elliptic Curve Diffie-Hellman (ECDH) Key
-Exchange (NIST SP 800-56A Rev 2)</para>
-               </listitem>
-            </itemizedlist>
-
-Function: Asymmetric algorithm used for key
-establishment Parameters: Use Curve P-384 to
-protect up to TOP SECRET.
-
-<itemizedlist>
-               <listitem>
-                  <para>Elliptic Curve Digital Signature Algorithm
-(ECDSA) (FIPS PUB 186-4)</para>
-               </listitem>
-            </itemizedlist>
-
-Function: Asymmetric algorithm used for digital
-signatures Parameters: Use Curve P-384 to
-protect up to TOP SECRET.
-
-<itemizedlist>
-               <listitem>
-                  <para>Secure Hash Algorithm (SHA) (FIPS PUB
-180-4)</para>
-               </listitem>
-            </itemizedlist>
-
-Function: Algorithm used for computing a
-condensed representation of information
-Parameters: Use SHA-384 to protect up to TOP
-SECRET.
-
-<itemizedlist>
-               <listitem>
-                  <para>Diffie-Hellman (DH) Key Exchange (IETF
-RFC 3526)</para>
-               </listitem>
-            </itemizedlist>
-
-Function: Asymmetric algorithm used for key
-establishment Parameters: Minimum 3072-bit
-modulus to protect up to TOP SECRET
-
-<itemizedlist>
-               <listitem>
-                  <para>RSA (NIST SP 800-56B Rev 1)</para>
-               </listitem>
-            </itemizedlist>
-
-Function: Asymmetric algorithm used for
-key-establishment Parameters: Minimum
-3072-bit modulus to protect up to TOP SECRET.
-
-<itemizedlist>
-               <listitem>
-                  <para>RSA (FIPS PUB 186-4)</para>
-               </listitem>
-            </itemizedlist>
-
-Function: Asymmetric algorithm used for digital
-signatures Parameters: Minimum 3072
-bitmodulus to protect up to TOP SECRET.</guide>
+         </guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="10-29" version="11.0"/>
             </history>
          </status>
          <uuid>0986146d-2000-49db-a9dc-f2dbd1afc04a</uuid>
