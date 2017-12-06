@@ -55982,18 +55982,16 @@ mandatory.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-digital-certificate-profile" title="Digital Certificate Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Digital Certificate Profile provides standards and guidance in support of a Public Key Infrastructure (PKI) on federated mission networks.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Digital Certificate Profile provides standards and guidance in
+					support of a Public Key Infrastructure (PKI) on federated mission networks.</description>
          <reftaxonomy refid="T-13a17bdd-8eb2-418c-8cb8-7f32a435f432-X"/>
          <obgroup obligation="mandatory">
-            <description>CRLs may be provided at multiple endpoints.
-The addresses of these endpoints shall be
-provided in digital certificates through X.509
-certificate extensions such as Authority
-Information Access (AIA) and CRL distribution
-point (CDP). Each CA shall provide CRLs using
-at least one of the endpoint types (HTTP or
-LDAP). Clients must support both types.</description>
+            <description>CRLs may be provided at multiple endpoints. The addresses of these endpoints
+							shall be provided in digital certificates through X.509 certificate extensions such
+							as Authority Information Access (AIA) and CRL distribution point (CDP). Each CA
+							shall provide CRLs using at least one of the endpoint types (HTTP or LDAP). Clients
+							must support both types.</description>
             <refstandard refid="ietf-rfc5280"/>
             <refstandard refid="ietf-rfc4523"/>
          </obgroup>
@@ -56001,25 +55999,20 @@ LDAP). Clients must support both types.</description>
             <refstandard refid="itu-t-x.509"/>
          </obgroup>
          <obgroup obligation="optional">
-            <description>The Online Certificate Status Protocol (OCSP)
-capability is optional for PKI Service providers
-and consumers.</description>
+            <description>The Online Certificate Status Protocol (OCSP) capability is optional for
+							PKI Service providers and consumers.</description>
             <refstandard refid="ietf-rfc6960"/>
          </obgroup>
-         <guide>The version of the encoded public key certificate
-shall be version 3. The version of the encoded
-certificate revocation list (CRL) shall be version
-      2.</guide>
+         <guide>The version of the encoded public key certificate shall be version 3. The version
+					of the encoded certificate revocation list (CRL) shall be version 2.</guide>
          <guide>Additional Implementation Guidance:
-<itemizedlist>
+            <itemizedlist>
                <listitem>
-                  <para>AC/322-D(2004)0024-REV2-ADD2 - "NATO
-Public Key Infrastructure (NPKI) Certificate
-Policy"</para>
+                  <para>AC/322-D(2004)0024-REV2-ADD2 - "NATO Public Key Infrastructure (NPKI)
+										Certificate Policy"</para>
                </listitem>
                <listitem>
-                  <para>AC/322-D(2010)0036 - "NATO Cryptographic
-  Interoperability Strategy"</para>
+                  <para>AC/322-D(2010)0036 - "NATO Cryptographic Interoperability Strategy"</para>
                </listitem>
             </itemizedlist>
          </guide>
