@@ -1608,11 +1608,11 @@
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Wireless LOS Mobile Transmission Services" tref="T-19eefbaa-c1cd-4154-b101-d6bd0994bd34-X">
-        <bpgroup mode="mandatory">
-           <bprefstandard refid="bluetooth-bluetooth42"/>
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="bluetooth-bluetooth42"/>
          </bpgroup>
          <bpgroup mode="candidate">
-           <bprefstandard refid="bluetooth-bluetooth5"/>
+            <bprefstandard refid="bluetooth-bluetooth5"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Native Circuit-based Access Services" tref="T-d423c6a1-de1a-43ae-887a-2dcb58b5afe0-X">
@@ -43905,8 +43905,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag6001ed4" tag="STANAG 6001, Language Proficiency Levels">
-         <document orgid="nso" pubnum="STANAG 6001 Ed 4" title="Language Proficiency Levels"
-                   date="2010-10-12"/>
+         <document orgid="nso" pubnum="STANAG 6001 Ed 4" title="Language Proficiency Levels" date="2010-10-12"/>
          <applicability>STANAG 6001 is a language proficiency scale designed to allow comparisons of language ability in different countries.</applicability>
          <responsibleparty rpref="ncia-other"/>
          <status mode="accepted">
@@ -45398,11 +45397,9 @@ The purpose of this specification is to assure uniformity of treatment among all
          </status>
          <uuid>b580759a-2794-49b2-92d9-b3bb35a0ac2d</uuid>
       </standard>
-      <standard id="oasis-wsfed-1.1"
-                tag="OASIS Web Services Federation Language (WS-Federation) 1.1">
-         <document orgid="oasis" pubnum="wsfed-1.1"
-                   title="Web Services Federation Language (WS-Federation) Version 1.1"
-                   date="2006-12"/>
+
+      <standard id="oasis-wsfed-1.1" tag="OASIS Web Services Federation Language (WS-Federation) 1.1">
+         <document orgid="oasis" pubnum="wsfed-1.1" title="Web Services Federation Language (WS-Federation) Version 1.1" date="2006-12"/>
          <applicability>This specification defines mechanisms to allow different security realms to federate, such that authorized access to resources managed in one realm can be provided to security principals whose identities and attributes are  managed in other realms. This includes mechanisms for brokering of identity, attribute, authentication and authorization assertions between realms, and privacy of federated claims.</applicability>
          <responsibleparty rpref="undefined"/>
          <status mode="accepted">
@@ -53925,12 +53922,12 @@ applications. </applicability>
       <profile id="fmn2-pr-networking" title="FMN Spiral 2 Networking Profile">
          <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
          <subprofiles>
-            <refprofile refid="fmn2-domain-naming-profile"/>
-            <refprofile refid="fmn2-digital-certificate-profile"/>
+            <refprofile refid="fmn2-sp-time-synchronization"/>
             <refprofile refid="fmn2-cryptographic-algorithms-profile"/>
             <refprofile refid="fmn1-sp-directory-data-structure"/>
             <refprofile refid="fmn1-sp-directory-data-exchange"/>
-            <refprofile refid="fmn1-sp-time-synchronization"/>
+            <refprofile refid="fmn2-domain-naming-profile"/>
+            <refprofile refid="fmn2-digital-certificate-profile"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
@@ -55460,6 +55457,31 @@ they can be used as timeservers for IPv4 Mission
             </history>
          </status>
          <uuid>cbb9478f-564d-4af3-bd24-f6fa25a3ae44</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn2-sp-time-synchronization" title="Time Synchronization Profile">
+         <profilespec orgid="fmn" pubnum="" date="2017-09-29" title="FMN Spiral 2 Standards Profile" version="2.0"/>
+         <description>The Time Synchronization Profile provides standards and guidance to support
+					the synchronization of clients and servers across a network or a federation of networks
+					and the safeguard of the accurate use of timestamps.</description>
+         <reftaxonomy refid="T-f15d7721-33a3-48e1-b2c6-b0d896f642dc-X"/>
+         <obgroup obligation="mandatory">
+            <description>Service providers must synchronize their network segment with a stratum 1
+							time server directly connected to a stratum 0 device, or over a reliable network path
+							to a stratum 1 time server of another service provider. All other entities in the
+							federation must use the time service of their host service provider.</description>
+            <refstandard refid="ietf-rfc5905"/>
+            <refstandard refid="itu-r-tf.460-6"/>
+         </obgroup>
+         <guide>Stratum 1 devices must implement IPv4 so that they can be used as time servers for
+					IPv4-based Mission Networks.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2017-12-06" flag="added" rfcp="10-29" version="11.0"/>
+            </history>
+         </status>
+         <uuid>2a1706d3-5032-4ce5-83fc-ffed044d2354</uuid>
       </serviceprofile>
 
       <serviceprofile id="fmn1-structured-data-profile" title="Structured Data Profile">
@@ -58162,5 +58184,5 @@ component, system, or network failures.</description>
       <orgkey key="satcom" short="SATCOM CaT" long="Satellite Commucation Capability Team"/>
       <orgkey key="scip" short="SCIP IICWG" long="Secure Communications Interoperability Protocol - International Interoperability Control Working Group"/>
       <orgkey key="tdl" short="TDL" long="Tactical Datalink Capability Team"/>
- </organisations>
+   </organisations>
 </standards>
