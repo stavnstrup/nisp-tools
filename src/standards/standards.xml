@@ -16525,6 +16525,26 @@ database as a logical folder of email messages.</applicability>
          <uuid>766344c7-0139-4c9d-853f-8635844bcdac</uuid>
       </standard>
 
+      <standard id="ietf-rfc6382" tag="RFC 6382">
+         <document orgid="ietf" pubnum="RFC 6382" title="Unique Origin Autonomous System Numbers (ASNs) per Node for Globally Anycasted Services" date="2011-10"/>
+         <applicability>This document makes recommendations regarding the use of unique
+					origin autonomous system numbers (ASNs) per node for globally
+					anycasted critical infrastructure services in order to provide
+					routing system discriminators for a given anycasted prefix. Network
+					management and monitoring techniques, or other operational
+					mechanisms, may employ this new discriminator in whatever manner best
+					accommodates their operating environment.
+         </applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://www.ietf.org/rfc/rfc6382.txt</uri>
+            <history>
+               <event date="2017-12-06" flag="added" version="11.0" rfcp="10-29"/>
+            </history>
+         </status>
+         <uuid>b0664bea-4d65-4bb7-b339-ad5888e58137</uuid>
+      </standard>
+
       <standard id="ietf-rfc6477" tag="RFC 6477: MMHS and SMTP">
          <document orgid="ietf" pubnum="RFC 6477" date="2012" title="Registration of Military Message Handling System (MMHS) Header Fields for Use in Internet Mail"/>
          <applicability>
@@ -55901,28 +55921,52 @@ mandatory.</description>
 					be used to support specific functions:
             <itemizedlist>
                <listitem>
-                  <para><emphasis>Root CA Certificates</emphasis></para>
+                  <para>
+                     <emphasis>Root CA Certificates</emphasis>
+                  </para>
                   <itemizedlist>
-                     <listitem><para>Digest Algorithm: SHA-256, or SHA-384 (Root CA certificates, which were signed
-                        using SHA-1 before 1 January 2016, may be used until 1 January 2025)</para></listitem>
-                     <listitem><para>RSA modulus size (bits): 2048, 3072 and 4096</para></listitem>
-                     <listitem><para>ECC Curve: NIST P-256, and P-384</para></listitem>
+                     <listitem>
+                        <para>Digest Algorithm: SHA-256, or SHA-384 (Root CA certificates, which were signed
+                        using SHA-1 before 1 January 2016, may be used until 1 January 2025)</para>
+                     </listitem>
+                     <listitem>
+                        <para>RSA modulus size (bits): 2048, 3072 and 4096</para>
+                     </listitem>
+                     <listitem>
+                        <para>ECC Curve: NIST P-256, and P-384</para>
+                     </listitem>
                   </itemizedlist>
                </listitem>
                <listitem>
-                  <para><emphasis>Subordinate CA Certificates</emphasis></para>
+                  <para>
+                     <emphasis>Subordinate CA Certificates</emphasis>
+                  </para>
                   <itemizedlist>
-                     <listitem><para>Digest Algorithm: SHA-256, and SHA-384</para></listitem>
-                     <listitem><para>RSA modulus size (bits): 2048, 3072 and 4096</para></listitem>
-                     <listitem><para>ECC Curve: NIST P-256, and P-384</para></listitem>
+                     <listitem>
+                        <para>Digest Algorithm: SHA-256, and SHA-384</para>
+                     </listitem>
+                     <listitem>
+                        <para>RSA modulus size (bits): 2048, 3072 and 4096</para>
+                     </listitem>
+                     <listitem>
+                        <para>ECC Curve: NIST P-256, and P-384</para>
+                     </listitem>
                   </itemizedlist>
                </listitem>
                <listitem>
-                  <para><emphasis>Subscriber Certificates</emphasis></para>
+                  <para>
+                     <emphasis>Subscriber Certificates</emphasis>
+                  </para>
                   <itemizedlist>
-                     <listitem><para>Digest Algorithm: SHA-256, and SHA-384</para></listitem>
-                     <listitem><para>RSA modulus size (bits): 2048, 3072 and 4096</para></listitem>
-                     <listitem><para>ECC Curve: NIST P-256, and P-384</para></listitem>
+                     <listitem>
+                        <para>Digest Algorithm: SHA-256, and SHA-384</para>
+                     </listitem>
+                     <listitem>
+                        <para>RSA modulus size (bits): 2048, 3072 and 4096</para>
+                     </listitem>
+                     <listitem>
+                        <para>ECC Curve: NIST P-256, and P-384</para>
+                     </listitem>
                   </itemizedlist>
                </listitem>
             </itemizedlist>
@@ -55989,7 +56033,7 @@ Policy"</para>
       </serviceprofile>
 
       <serviceprofile id="fmn2-domain-naming-profile" title="Domain Naming Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-20" version="2.0"/>
          <description>The Domain Naming Profile provides standards and guidance to support the hierarchical distributed naming system for computers, services, or any resource connected to a federated mission network.</description>
          <reftaxonomy refid="T-92db9afd-4dab-4e76-9ba6-0287ded2d4e7-X"/>
          <obgroup obligation="mandatory">
@@ -56001,6 +56045,7 @@ Policy"</para>
             <refstandard refid="ietf-rfc4786"/>
             <refstandard refid="ietf-rfc5936"/>
             <refstandard refid="ietf-rfc5966"/>
+            <refstandard refid="ietf-rfc6382"/>
             <refstandard refid="ietf-rfc6891"/>
             <refstandard refid="ietf-rfc7094"/>
          </obgroup>
@@ -56008,6 +56053,7 @@ Policy"</para>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="10-29" version="11.0"/>
             </history>
          </status>
          <uuid>ca3f8dfb-8b2a-4d8b-8c88-aa0bf93d86b3</uuid>
