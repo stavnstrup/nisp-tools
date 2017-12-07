@@ -25233,8 +25233,8 @@ database as a logical folder of email messages.</applicability>
 
       <standard id="iso-iec-12087-5" tag="BIFF">
          <document orgid="iso-iec" pubnum="12087-5" date="1998" title="Image Processing and Interchange (IPI) - Functional Specification - Part 5: Basic Image Interchange Format (BIIF)">
-            <correction cpubnum="COR1" date="2001"/>
-            <correction cpubnum="COR2" date="2002"/>
+            <correction cpubnum="COR1" date="2001-05">Technical Corrigendum 1</correction>
+            <correction cpubnum="COR2" date="2002-04">Technical Corrigendum 2</correction>
          </document>
          <applicability>
             This part of ISO/IEC 12087 establishes the specification of the Basic Image Interchange
@@ -37721,8 +37721,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>954673e1-6f26-4280-b97a-48567786df0c</uuid>
       </standard>
 
-      <standard id="mip-jc3iedm" tag="JC3IEDM BL 3.1.4">
-         <document orgid="mip" pubnum="JC3IEDM" date="2012" version="BL 3.1.4" title="Joint C3 Information Exchange Data Model (JC3IEDM)"/>
+      <standard id="mip-jc3iedm" tag="MIP JC3IEDM BL 3.1.4">
+         <document orgid="mip" pubnum="MIP JC3IEDM" date="2012" version="BL 3.1.4" title="Joint C3 Information Exchange Data Model (JC3IEDM)"/>
          <applicability>
             The MIP scope is to deliver a command and control interoperability solution
             focused on the Land operational user in a Joint environment.
@@ -43707,7 +43707,7 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>9eda2755-fe34-4656-b686-44e99ff5779c</uuid>
       </standard>
 
-      <standard id="nso-stanag5525" tag="STANAG 5525">
+      <standard id="nso-stanag5525ed1" tag="STANAG 5525 Ed 1">
          <document orgid="nso" pubnum="STANAG 5525" title="Joint Consultation, Command and Control Information Exchange Data Model (JC3IEDM)" date="2007-06-26"/>
          <applicability/>
          <responsibleparty rpref="fmn-cpwg"/>
@@ -53833,7 +53833,9 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-community-interest" title="FMN Spiral 2 Communities of Interest Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Communities of Interest Profile arranges standards profiles for the facilitation
+					of information sharing and exchange on user platforms.</description>
          <subprofiles>
             <refprofile refid="fmn2-pr-intell"/>
             <refprofile refid="fmn2-pr-smc"/>
@@ -53843,6 +53845,7 @@ applications. </applicability>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>70d153cd-32eb-4100-9401-831924efa815</uuid>
@@ -53941,7 +53944,9 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-intell" title="FMN Spiral 2 Intelligence Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The FMN Spiral 2 Intelligence Profile arranges standards profiles for the facilitation
+					and exploitation of Intelligence, Surveillance and Reconnaissance (JISR) Services.</description>
          <subprofiles>
             <refprofile refid="fmn2-isr-library-interface-profile"/>
          </subprofiles>
@@ -53949,6 +53954,7 @@ applications. </applicability>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>e9d410ef-e5d8-4bfe-904c-ebdababb255c</uuid>
@@ -54017,19 +54023,18 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-sit-aware" title="FMN Spiral 2 Situational Awareness Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
-            <refprofile refid="fmn2-maritime-information-exchange-profile"/>
-            <refprofile refid="fmn2-joint-c3-information-exchange-profile"/>
             <refprofile refid="fmn2-friendly-force-tracking-profile"/>
+            <refprofile refid="fmn2-joint-c3-information-exchange-profile"/>
+            <refprofile refid="fmn2-maritime-information-exchange-profile"/>
             <refprofile refid="fmn2-jreap-profile"/>
-            <refprofile refid="fmn2-battlespace-object-federation-profile"/>
-            <refprofile refid="fmn2-battlespace-event-federation-profile"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>f78b190c-67b5-47c7-b975-0e0870c577b1</uuid>
@@ -56262,36 +56267,42 @@ A075)</para>
       </serviceprofile>
 
       <serviceprofile id="fmn2-friendly-force-tracking-profile" title="Friendly Force Tracking Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Friendly Force Tracking Profile provides standards and guidance to support the exchange of Friendly Force Tracking
-information within a coalition network or a federation of networks.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Friendly Force Tracking Profile provides standards and guidance to support
+					the exchange of Friendly Force Tracking information within a coalition network or a federation
+					of networks.</description>
          <reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
          <obgroup obligation="mandatory">
             <refstandard refid="nso-stanag5527ed1"/>
+            <refstandard refid="nso-stanag7149ed6"/>
          </obgroup>
          <obgroup obligation="conditional">
-            <description>NFFI may only be used if at least one service
-provider provides a mediation service to translate
-between FFI-MTF and NFFI (aka "FFT Proxy") or
-all mission network participants agree during the
-network planning to only use NFFI.</description>
+            <description>VMF may only be used when messages are converted to NFFI or to FFI before
+							the publication on the FFT network, using the exchange mechanism described in the
+							MIL-STD-6017B.</description>
+            <refstandard refid="dod-mil-std6017c"/>
+         </obgroup>
+         <obgroup obligation="conditional">
+            <description>NFFI may only be used if at least one service provider provides a mediation
+							service to translate between FFI-MTF and NFFI (aka "FFT Proxy") or all mission network
+							participants agree during the network planning to only use NFFI.</description>
             <refstandard refid="c3b-ac322-d2006-0066"/>
          </obgroup>
          <guide>Messages exchanged according to the exchange
-mechanisms described in ADatP-36(A) shall
-comply with the Message Text Format (FFI MTF)
-schema incorporated in APP-11(D)(1).
-Caveat: the Interim NFFI Standard for
-Interoperability of Force Tracking Systems
-(AC/322-D(2006)0066) was never promulgated
-as a STANAG. The roadmap proposed by the
-NATO C3B FFT CaT provides for the
-abandonment of this interim standard in the near
-future.</guide>
+					mechanisms described in ADatP-36(A) shall comply with the Message Text Format (FFI MTF)
+					schema incorporated in APP-11(D)(1).</guide>
+         <guide>Caveat: The Interim NFFI Standard for Interoperability of Force Tracking Systems
+					(AC/322-D(2006)0066) was never promulgated as a STANAG. The roadmap proposed by the NATO	
+					C3B FFT CaT provides for the abandonment of this interim standard in the near future.</guide>
+         <guide>Caveat: VMF uses the concept of the Unit Reference Number (URN) as unique identifier on
+					the tracked unit and this is not in line with the NFFI and FFI unique identifier. VMF URN can be
+					used as FFI and NFFI unique identifier but the viceversa is not true, so specific rules shall be
+					defined for the unique identifier allignments.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>b3f9b48e-1596-42ac-a8c0-e6f1c8e23770</uuid>
@@ -56688,152 +56699,90 @@ following standard apply.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-isr-library-interface-profile" title="ISR Library Interface Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The ISR Library Interface is the standard interface for querying and accessing heterogeneous product libraries
-maintained by various nations.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The ISR Library Interface is the standard interface for querying and accessing
+					heterogeneous product libraries maintained by various nations.</description>
          <reftaxonomy refid="T-569dc136-b47b-4af3-8063-18da810cf1c2-X"/>
          <obgroup obligation="mandatory">
-            <description>The following NATO standards are mandated for
-interoperability of ISR libraries. Note:
-implementation of STANAG 5525 in the context
-of the ISR Library Interface Profile is limited to
-the definition of unique keys that could be used
-to unambiguously refer to an external information
-object that is modelled in accordance with
-STANAG 5525.</description>
+            <description>The following NATO standards are mandated for interoperability of ISR libraries.</description>
             <refstandard refid="nso-stanag4545ed2"/>
             <refstandard refid="nso-stanag4607ed3"/>
-            <refstandard refid="nso-stanag4609ed4"/>
             <refstandard refid="nso-stanag4559ed3"/>
-            <refstandard refid="nso-stanag5525"/>
+            <refstandard refid="nso-stanag4609ed4"/>
          </obgroup>
          <obgroup obligation="mandatory">
-            <description>The following international standards are
-mandated for interoperability of ISR libraries</description>
+            <description>Note: implementation of STANAG 5525 in the context of the ISR Library Interface
+							Profile is limited to the definition of unique keys that could be used to unambiguously
+							refer to an external information object that is modelled in accordance with STANAG 5525.</description>
+            <refstandard refid="nso-stanag5525ed1"/>
+         </obgroup>
+         <obgroup obligation="mandatory">
+            <description>The following international standards are mandated for interoperability of
+							ISR libraries.</description>
             <refstandard refid="iso-639-2"/>
-            <refstandard refid="iso-iec-7498-1"/>
             <refstandard refid="iso-iec-11179-3"/>
             <refstandard refid="iso-iec-12087-5"/>
             <refstandard refid="iso-iec-14750"/>
          </obgroup>
-         <obgroup obligation="conditional">
-            <description>When individual standards of STANAG 4559
-(Edition 4) become available and are agreed,
-those are to be implemented instead of STANAG
-4559 (Edition 3 Amendment 2)/MAJIIC Baseline
-Bravo.1</description>
-            <refstandard refid="nso-stanag4559ed4"/>
-         </obgroup>
-         <guide>To ensure optimization of network resources the
-CSD services work best with a unicast address
-space.
-AEDP-17 defines two interfaces:
-<itemizedlist>
-               <listitem>
-                  <para>the first one is in support of the
-provider-consumer interface (see ISR Library
-Access Pattern) based on web services</para>
-               </listitem>
-               <listitem>
-                  <para>the second one is a federated service
-provider interface (see ISR Library Federation
-Pattern) based on CORBA IIOP.</para>
-               </listitem>
-            </itemizedlist>
-
-
-Service provider must identify which
-interfaces/patterns they support as a part of the
-federation process.
-For detailed description of the MAJIIC 2 CSD
-implementation please refer to the MAJIIC 2
-documentation:
-
-<itemizedlist>
-               <listitem>
-                  <para>Getting Started v1.0</para>
-               </listitem>
-               <listitem>
-                  <para>CSD Data Model version 2.7 v1.0</para>
-               </listitem>
-               <listitem>
-                  <para>Architecture Requirements Document v6.0</para>
-               </listitem>
-               <listitem>
-                  <para>MAJIIC 2 CSD Data Model v2.7</para>
-               </listitem>
-               <listitem>
-                  <para>MAJIIC 2 CSD Publish Service Specification
-v3.0</para>
-               </listitem>
-            </itemizedlist>
+         <guide>To ensure optimization of network resources the CSD services work best
+					with a unicast address space.</guide>
+         <guide>AEDP-17 defines two interfaces:
+					<itemizedlist>
+						<listitem>
+							<para>the first one is in support of the provider-consumer interface (see
+								ISR Library Access Pattern) based on web services</para>
+						</listitem>
+						<listitem>
+							<para>the second one is a federated service provider interface (see ISR
+								Library Federation Pattern) based on CORBA IIOP.</para>
+					 </listitem>
+					</itemizedlist>
          </guide>
+         <guide>Service provider must identify which interfaces/patterns they support
+					as a part of the federation process.</guide>
+         <guide>AEDP-17 is based on the specifications that were originally developed
+					under the MAJIIC 2 programme. To enhance interoperability in the area of the
+					optional extensibility mechanism, the implementation as specified in Bravo.1 is
+					encouraged over the set of "agreed extensions".</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>b7d268cd-aa39-48ef-970a-51335c495e27</uuid>
       </serviceprofile>
 
       <serviceprofile id="fmn2-joint-c3-information-exchange-profile" title="Joint C3 Information Exchange Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Joint C3 Information Exchange Profile provides standards and guidance to support the exchange of Command and
-Control information within a coalition network or a federation of networks.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Joint C3 Information Exchange Profile provides standards and guidance to support
+					the exchange of Command and Control information within a coalition network or a federation
+					of networks.</description>
          <reftaxonomy refid="T-54f06201-f6f4-4939-a537-75a0c1ff70bc-X"/>
          <reftaxonomy refid="T-addefcae-f004-47a1-822d-153067a17458-X"/>
          <obgroup obligation="mandatory">
-            <description>The MIP3.1 interoperability specification
-comprises both a mandatory interface
-specification as well as optional guidance
-documents, and is available on the MIP website
-(https://www.mip-interop.org). The interface
-specification consists of the: (i) MTIDP (MIP
-Technical Interface Design Plan): defining the
-MIP3.1 Data Exchange Mechanism (DEM) (ii)
-JC3IEDM: defining the MIP3.1 data model (also
-available as STANAG 5525); and (iii) MIR (MIP
-Implementation Rules): defining implementation
-rules for mapping the JC3IEDM to C2 systems.
-The suite of guidance documents includes the
-MOP (MIP Operating Procedures), which
-provides technical procedures for
-configuration/operation of MIP3.1 interfaces in a
-Coalition environment.</description>
             <refstandard refid="mip-jc3iedm"/>
          </obgroup>
-         <obgroup obligation="conditional">
-            <description>If there is a requirement to exchange
-<itemizedlist>
-                  <listitem>
-                     <para>presence reports,</para>
-                  </listitem>
-                  <listitem>
-                     <para>alerts,</para>
-                  </listitem>
-                  <listitem>
-                     <para>general information, or</para>
-                  </listitem>
-                  <listitem>
-                     <para>overlay graphics</para>
-                  </listitem>
-               </itemizedlist>
-with tactical units within a short timeframe across
-network boundaries a compression scheme that
-minimizes the load on the tactical radio network
-should be used.</description>
-            <refstandard refid="nso-stanag4677"/>
-         </obgroup>
-         <guide>The Joint C3 Information Exchange profile
-should be used primarily for the exchange of
-Battlespace Objects; this profile is not intended
-to support high volume, high frequency updates
-such as Friendly Force Tracks (FFT).</guide>
+         <guide>The MIP3.1 interoperability specification comprises both a mandatory technical interface
+					specification as well as implementation guidance documents, and is available on the MIP website
+					(https://www.mip-interop.org). The interface specification consists of the: (i) MTIDP (MIP
+					Technical Interface Design Plan): defining the MIP3.1 Data Exchange Mechanism (DEM) (ii)
+					JC3IEDM: defining the MIP3.1 data model (also available as STANAG 5525); and (iii) MIR (MIP
+					Implementation Rules): defining implementation rules for mapping the JC3IEDM to C2 systems.
+					The suite of guidance documents includes the MOP (MIP Operating Procedures), which provides
+					technical procedures for configuration/operation of MIP3.1 interfaces in a Coalition environment.</guide>
+         <guide>The Joint C3 Information Exchange profile should be used primarily for the exchange of
+					Battlespace Objects; this profile is not intended to support high volume, high frequency updates
+					such as Friendly Force Tracks (FFT).</guide>
+         <guide>Likewise, Joint C3 Information Exchange profile is not designed to support the exchange of
+					data over tactical bearers (limited capacity and intermittent availability) across network
+					boundaries - STANAG 4677 would be more appropriate.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>1dda31c0-46f8-401b-b918-f1c1ba070011</uuid>
