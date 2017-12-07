@@ -56604,20 +56604,13 @@ http://www.w3.org/International/articlelist.</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-ip-quality-of-service-profile" title="IP Quality of Service Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The IP Quality of Service Profile provides standards and guidance to establish and control an agreed level of performance for IP services in federated networks.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The IP Quality of Service Profile provides standards and guidance to establish and
+					control an agreed level of performance for IP services in federated networks.</description>
          <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
-         <obgroup obligation="conditional">
-            <description>The following normative standards shall apply for
-IP Quality of Service (QoS). The condition is that
-this STANAG, although widely used and
-referenced, is currently a draft version in process
-by approval authorities.</description>
-            <refstandard refid="nso-stanag4711ed1"/>
-         </obgroup>
          <obgroup obligation="mandatory">
-            <description>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP)</description>
+            <description>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP).</description>
             <refstandard refid="ietf-rfc2474"/>
             <refstandard refid="ietf-rfc4594"/>
             <refstandard refid="itu-t-y.1540"/>
@@ -56626,14 +56619,17 @@ by approval authorities.</description>
             <refstandard refid="itu-t-m.2301"/>
             <refstandard refid="itu-t-j.241"/>
          </obgroup>
-         <guide>For NATO-led Mission Network deployments, the
-            following governing policies apply:
+         <obgroup obligation="conditional">
+            <description>The following normative standards shall apply for IP Quality of Service (QoS).
+							The condition is that this STANAG, although widely used and referenced, is currently
+							a draft version in process by approval authorities.</description>
+            <refstandard refid="nso-stanag4711ed1"/>
+         </obgroup>
+         <guide>For NATO-led Mission Network deployments, the following governing policies apply:
             <itemizedlist>
                <listitem>
-                  <para>AC/322(SC/6)WP(2009)0002-REV2 - "NC3B
-Policy on the Federation of Networks and
-Provision of Communications Services within
-the Networking Information Infrastructure"</para>
+                  <para>AC/322(SC/6)WP(2009)0002-REV2 - "NC3B Policy on the Federation of Networks and
+										Provision of Communications Services within the Networking Information Infrastructure"</para>
                </listitem>
                <listitem>
                   <para>NATO Policy for Standardization</para>
@@ -56644,6 +56640,7 @@ the Networking Information Infrastructure"</para>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>d231472d-8bca-422f-9159-ff9528a7a763</uuid>
