@@ -57071,19 +57071,10 @@ Country Identified (CI).</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-routing-encapsulation-profile" title="Routing Encapsulation Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Routing Encapsulation Profile provides standards and guidance for generic routing encapsulation functions between                                              network interconnection points (NIPs)</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Routing Encapsulation Profile provides standards and guidance for generic routing
+					encapsulation functions between network interconnection points (NIPs).</description>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
-         <obgroup obligation="conditional">
-            <description>Depending on whether authentication of IPSec
-sessions is based on pre-shared keys or
-certificates is used. If pre-shared keys are used,
-standard for IKE is the IKEv1, If authentication is
-done via certificates, then IKEv2 is used.</description>
-            <refstandard refid="ietf-rfc2409"/>
-            <refstandard refid="ietf-rfc7296"/>
-            <refstandard refid="ietf-rfc7427"/>
-         </obgroup>
          <obgroup obligation="mandatory">
             <refstandard refid="ietf-rfc2890"/>
             <refstandard refid="ietf-rfc4303"/>
@@ -57092,10 +57083,19 @@ done via certificates, then IKEv2 is used.</description>
             <refstandard refid="ietf-rfc5903"/>
             <refstandard refid="ietf-rfc7670"/>
          </obgroup>
+         <obgroup obligation="conditional">
+            <description>Depending on whether authentication of IPSec sessions is based on pre-shared keys or
+							certificates is used. If pre-shared keys are used, standard for IKE is the IKEv1, If authentication
+							is done via certificates, then IKEv2 is used.</description>
+            <refstandard refid="ietf-rfc2409"/>
+            <refstandard refid="ietf-rfc7296"/>
+            <refstandard refid="ietf-rfc7427"/>
+         </obgroup>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="10-29" version="11.0"/>
             </history>
          </status>
          <uuid>e3e380f6-3844-4744-8c19-598ce810620d</uuid>
