@@ -53811,20 +53811,22 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-communication" title="FMN Spiral 2 Communications Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
             <refprofile refid="fmn2-inter-autonomous-systems-ip-communications-security-profile"/>
-            <refprofile refid="fmn2-inter-autonomous-systems-ip-transport-profile"/>
-            <refprofile refid="fmn2-ip-quality-of-service-profile"/>
             <refprofile refid="fmn2-routing-encapsulation-profile"/>
+            <refprofile refid="fmn2-ip-quality-of-service-profile"/>
+            <refprofile refid="fmn2-inter-autonomous-systems-anycast-routing-profile"/>
             <refprofile refid="fmn2-ip-routing-information-profile"/>
-            <refprofile refid="fmn2-inter-autonomous-systems-multicast-routing-profile"/>
+            <refprofile refid="fmn2-inter-autonomous-systems-ip-transport-profile"/>
             <refprofile refid="fmn2-inter-autonomous-systems-routing-profile"/>
+            <refprofile refid="fmn2-inter-autonomous-systems-multicast-routing-profile"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="10-29" version="11.0"/>
             </history>
          </status>
          <uuid>5b9e00be-a0f9-4736-ab03-af61bc22201f</uuid>
@@ -56516,6 +56518,28 @@ interconnections.</description>
             </history>
          </status>
          <uuid>865d1f6a-ccdb-4515-9e0c-e0ef7cc2c71c</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn2-inter-autonomous-systems-anycast-routing-profile" title="Inter-Autonomous Systems Anycast Routing Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Inter-Autonomous Systems Anycast Routing Profile provides standards and guidance
+					for Anycast routing between inter-autonomous systems.</description>
+         <reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
+         <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
+         <obgroup obligation="mandatory">
+            <description>The following standards apply for anycast.</description>
+            <refstandard refid="ietf-rfc4786"/>
+            <refstandard refid="ietf-rfc6382"/>
+            <refstandard refid="ietf-rfc7094"/>
+         </obgroup>
+         <guide>Guidance on the use of the anycast is given in IETF RFC 7094:2014, Architectural
+					Considerations of IP Anycast</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2017-12-06" flag="added" rfcp="10-29" version="11.0"/>
+            </history>
+         </status>
       </serviceprofile>
 
       <serviceprofile id="fmn2-inter-autonomous-systems-routing-profile" title="Inter-Autonomous Systems Routing Profile">
