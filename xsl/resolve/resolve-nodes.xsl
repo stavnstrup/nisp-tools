@@ -66,7 +66,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
       </xsl:variable>
 
       <xsl:if test="not($node='')">
-        <xsl:apply-templates select="$db//node[@id=$node]" mode="highlevel">
+        <xsl:apply-templates select="$db//node[@id=$node]" mode="displaysubtree">
           <xsl:with-param name="obligation" select="$obligation"/>
         </xsl:apply-templates>
       </xsl:if>
@@ -146,8 +146,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
   <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
-  <tgroup cols="2">
-    <colspec colwidth="24*" colname="c1" />
+  <tgroup cols="4">
+    <colspec colwidth="25*" colname="c1" />
     <colspec colwidth="76*" colname="c2"/>
     <thead>
       <row>
@@ -169,14 +169,40 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:param name="obligation" select="''"/>
 
   <xsl:variable name="id" select="@id"/>
+  <!-- -->
   <xsl:apply-templates select="//bpserviceprofile[@tref=$id]"  mode="lowlevel">
     <xsl:with-param name="obligation" select="$obligation"/>
   </xsl:apply-templates>
+  <!-- -->
   <xsl:apply-templates mode="lowlevel">
     <xsl:with-param name="obligation" select="$obligation"/>
   </xsl:apply-templates>
 </xsl:template>
 
+
+<xsl:template match="node" mode="displaysubtree">
+    <xsl:param name="obligation" select="''"/>
+
+    <xsl:variable name="id" select="@id"/>
+    <informaltable frame="all" pgwide="1">
+    <tgroup cols="4">
+      <colspec colwidth="25*" colname="c1" />
+      <colspec colwidth="25*" colname="c2"/>
+      <colspec colwidth="25*" colname="c3"/>
+      <colspec colwidth="25*" colname="c4"/>
+      <thead>
+        <row>
+          <entry>Title</entry>
+  	      <entry>Pubnum</entry>
+  	      <entry>Profiles</entry>
+          <entry>Responsible Party</entry>
+        </row>
+      </thead>
+      <tbody>
+
+
+
+</xsl:template>
 
 <xsl:template match="bpserviceprofile" mode="lowlevel">
   <xsl:param name="obligation" select="''"/>

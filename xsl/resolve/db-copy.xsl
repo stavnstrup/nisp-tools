@@ -19,6 +19,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
                 version='1.1'
                 exclude-result-prefixes="#default">
 
+
+<xsl:output indent="yes"/>
+
 <!-- ==================================================================== -->
 
 <xsl:template match="/">
