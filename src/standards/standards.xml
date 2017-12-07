@@ -53811,20 +53811,22 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-communication" title="FMN Spiral 2 Communications Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
             <refprofile refid="fmn2-inter-autonomous-systems-ip-communications-security-profile"/>
-            <refprofile refid="fmn2-inter-autonomous-systems-ip-transport-profile"/>
-            <refprofile refid="fmn2-ip-quality-of-service-profile"/>
             <refprofile refid="fmn2-routing-encapsulation-profile"/>
+            <refprofile refid="fmn2-ip-quality-of-service-profile"/>
+            <refprofile refid="fmn2-inter-autonomous-systems-anycast-routing-profile"/>
             <refprofile refid="fmn2-ip-routing-information-profile"/>
-            <refprofile refid="fmn2-inter-autonomous-systems-multicast-routing-profile"/>
+            <refprofile refid="fmn2-inter-autonomous-systems-ip-transport-profile"/>
             <refprofile refid="fmn2-inter-autonomous-systems-routing-profile"/>
+            <refprofile refid="fmn2-inter-autonomous-systems-multicast-routing-profile"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="10-29" version="11.0"/>
             </history>
          </status>
          <uuid>5b9e00be-a0f9-4736-ab03-af61bc22201f</uuid>
@@ -56393,117 +56395,99 @@ to also implement RSS 2.0.</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-inter-autonomous-systems-ip-communications-security-profile" title="Inter-Autonomous Systems IP Communications Security Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Inter-Autonomous Systems IP Communications Security Profile provides standards and guidance for
-communications security for transporting IP packets between federated mission network interconnections and in general
-over the whole Mission Network.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Inter-Autonomous Systems IP Communications Security Profile provides standards and guidance
+					for communications security for transporting IP packets between federated mission network interconnections
+					and in general over the whole Mission Network.</description>
          <reftaxonomy refid="T-4760c261-4248-4da0-8b39-05ecbe7b2297-X"/>
          <obgroup obligation="conditional">
-            <description>n Missions, where NATO information products
-are carried over the mission network, the
-MISSION SECRET (MS) communications
-infrastructure is protected at minimum with
-Type-B crypto devices.</description>
+            <description>In Missions, where NATO information products are carried over the mission network,
+							the MISSION SECRET (MS) communications infrastructure is protected at minimum with Type-B
+							crypto devices.</description>
             <refstandard refid="c3b-ac322-d0047-rev2-inv"/>
          </obgroup>
-         <obgroup obligation="conditional">
-            <description>In NATO-led Missions, NATO SECRET (NS) and
-MISSION SECRET (MS) communications
-infrastructure are protected with Type-A crypto
-devices.</description>
+         <obgroup obligation="recommended">
+            <description>In Missions, where NATO information products are carried over the mission network, the
+							MISSION SECRET (MS) communications infrastructure is protected at minimum with Type-B
+							crypto devices.</description>
             <refstandard refid="c3b-ac322-d0047-rev2-inv"/>
          </obgroup>
-         <obgroup obligation="conditional">
-            <description>In Missions, where NATO information products
-are not carried over the mission network,
-MISSION SECRET (MS) communications
-infrastructure is protected with technical
-structures by mutual agreement made during the
-mission planning phase.</description>
-            <refstandard refid="c3b-ac322-d0047-rev2-inv"/>
-         </obgroup>
-         <guide>n Missions, where the mission network
-classification is MISSION RESTRICTED (MR) or
-lower, communication infrastructure is protected
-at the minimum with technical structures that are
-within Service Instruction section Security and in
-Routing Encapsulation Profile.</guide>
+         <guide>In Missions, where the mission network classification is MISSION RESTRICTED (MR) orlower,
+					communication infrastructure is protected at the minimum with technical structures that are
+					within Service Instruction section Security and in Routing Encapsulation Profile.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="10-29" version="11.0"/>
             </history>
          </status>
          <uuid>31460610-a75b-4957-95d4-52c4b03f5b5f</uuid>
       </serviceprofile>
 
       <serviceprofile id="fmn2-inter-autonomous-systems-ip-transport-profile" title="Inter-Autonomous Systems IP Transport Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Inter-Autonomous Systems IP Transport Profile provides standards and guidance for Edge Transport Services between autonomous systems, using Internet Protocol (IP) over point-to-point Ethernet links on optical fibre.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Inter-Autonomous Systems IP Transport Profile provides standards and guidance for Edge
+					Transport Services between autonomous systems, using Internet Protocol (IP) over point-to-point Ethernet
+					links on optical fibre.</description>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
-         <obgroup obligation="optional">
-            <description>If the interconnection point is outside a shelter in
-a harsh environment, the interconnection shall
-follow STANAG 4290 or MIL-DTL-83526
-connector specifications.</description>
-            <refstandard refid="mil-dtl83526"/>
-            <refstandard refid="nso-stanag4290ed1"/>
-         </obgroup>
          <obgroup obligation="mandatory">
-            <description>The use of LC-connectors is required
-                     for network interconnections inside shelters (or
-                     inside other conditioned infrastructure).</description>
+            <description>The use of LC-connectors is required for network interconnections inside shelters
+							(or inside other conditioned infrastructure).</description>
             <refstandard refid="itu-t-g.652"/>
             <refstandard refid="iec-61754-20"/>
          </obgroup>
          <obgroup obligation="mandatory">
             <refstandard refid="iso-iec-11801"/>
          </obgroup>
+         <obgroup obligation="optional">
+            <description>If the interconnection point is outside a shelter in a harsh environment,
+							the interconnection shall follow STANAG 4290 or MIL-DTL-83526 connector specifications.</description>
+            <refstandard refid="mil-dtl83526"/>
+            <refstandard refid="nso-stanag4290ed1"/>
+         </obgroup>
          <obgroup obligation="mandatory">
-            <description>Section 3 - Clause 38 - 1000BASE-LX, nominal
-transmit wavelength 1310nm.</description>
+            <description>Section 3 - Clause 38 - 1000BASE-LX, nominal transmit wavelength 1310nm.</description>
             <refstandard refid="ieee-802.3-2013"/>
          </obgroup>
          <obgroup obligation="mandatory">
             <description>Standards for IP version 4 (IPv4) over Ethernet</description>
             <refstandard refid="ietf-rfc826"/>
          </obgroup>
-         <guide>Use 1Gb/s Ethernet over single-mode optical fibre (SMF).</guide>
+         <guide>Use 1 Gb/s Ethernet over single-mode optical fibre (SMF).</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>05e5dc92-16c8-4500-ae93-92349c4a9974</uuid>
       </serviceprofile>
 
       <serviceprofile id="fmn2-inter-autonomous-systems-multicast-routing-profile" title="Inter-Autonomous Systems Multicast Routing Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Inter-Autonomous Systems Multicast Routing Profile provides standards and guidance for multicast routing between
-inter-autonomous systems. Interconnections are based on bilateral agreements.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Inter-Autonomous Systems Multicast Routing Profile provides standards and guidance for
+					multicast routing between inter-autonomous systems. Interconnections are based on bilateral agreements.</description>
          <reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
          <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
          <obgroup obligation="mandatory">
-            <description>The following standards shall apply to multicast routing</description>
+            <description>The following standards shall apply to multicast routing.</description>
             <refstandard refid="ietf-rfc6308"/>
             <refstandard refid="ietf-rfc5771"/>
             <refstandard refid="ietf-rfc2365"/>
          </obgroup>
          <obgroup obligation="mandatory">
-            <description>Service providers with their own multicast
-capability shall provide a Rendezvous Point (RP)
-supporting the following IP multicast protocol
-standards.</description>
-            <refstandard refid="ietf-rfc3618"/>
-            <refstandard refid="ietf-rfc4760"/>
-         </obgroup>
-         <obgroup obligation="mandatory">
-            <description>The following standards shall apply for all IP
-interconnections.</description>
+            <description>The following standards shall apply for all IP interconnections.</description>
             <refstandard refid="ietf-rfc7761"/>
             <refstandard refid="ietf-rfc1112"/>
             <refstandard refid="ietf-rfc3376"/>
+         </obgroup>
+         <obgroup obligation="mandatory">
+            <description>Service providers with their own multicast capability shall provide a Rendezvous
+							Point (RP)supporting the following IP multicast protocol standards.</description>
+            <refstandard refid="ietf-rfc3618"/>
+            <refstandard refid="ietf-rfc4760"/>
          </obgroup>
          <obgroup obligation="optional">
             <refstandard refid="ietf-rfc4607"/>
@@ -56513,27 +56497,54 @@ interconnections.</description>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>865d1f6a-ccdb-4515-9e0c-e0ef7cc2c71c</uuid>
       </serviceprofile>
 
-      <serviceprofile id="fmn2-inter-autonomous-systems-routing-profile" title="Inter-Autonomous Systems Routing Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Inter-Autonomous Systems Routing Profile provides standards and guidance for routing between inter-autonomous systems</description>
+      <serviceprofile id="fmn2-inter-autonomous-systems-anycast-routing-profile" title="Inter-Autonomous Systems Anycast Routing Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Inter-Autonomous Systems Anycast Routing Profile provides standards and guidance
+					for Anycast routing between inter-autonomous systems.</description>
          <reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
          <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
          <obgroup obligation="mandatory">
-            <description>The following standard is added to improve
-MD5-based BGP-authentication.</description>
+            <description>The following standards apply for anycast.</description>
+            <refstandard refid="ietf-rfc4786"/>
+            <refstandard refid="ietf-rfc6382"/>
+            <refstandard refid="ietf-rfc7094"/>
+         </obgroup>
+         <guide>Guidance on the use of the anycast is given in IETF RFC 7094:2014, Architectural
+					Considerations of IP Anycast</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2017-12-06" flag="added" rfcp="10-29" version="11.0"/>
+            </history>
+         </status>
+      </serviceprofile>
+
+      <serviceprofile id="fmn2-inter-autonomous-systems-routing-profile" title="Inter-Autonomous Systems Routing Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Inter-Autonomous Systems Routing Profile provides standards and guidance for routing between
+					inter-autonomous systems.</description>
+         <reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
+         <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
+         <obgroup obligation="mandatory">
+            <description>The following standard is added to improve MD5-based BGP-authentication.</description>
             <refstandard refid="ietf-rfc5082"/>
          </obgroup>
          <obgroup obligation="mandatory">
-            <description>The following standard applies for unicast routing</description>
+            <description>The following standard applies for unicast routing.</description>
             <refstandard refid="ietf-rfc4632"/>
          </obgroup>
+         <obgroup obligation="recommended">
+            <description>Additionally, the following standard applies for 32-bit autonomous system numbers (ASN).</description>
+            <refstandard refid="ietf-rfc5668"/>
+         </obgroup>
          <obgroup obligation="mandatory">
-            <description>The following standards apply for all IP interconnections</description>
+            <description>The following standards apply for all IP interconnections.</description>
             <refstandard refid="ietf-rfc1997"/>
             <refstandard refid="ietf-rfc4360"/>
             <refstandard refid="ietf-rfc5492"/>
@@ -56544,28 +56555,20 @@ MD5-based BGP-authentication.</description>
             <refstandard refid="ietf-rfc6286"/>
             <refstandard refid="ietf-rfc7153"/>
          </obgroup>
-         <obgroup obligation="recommended">
-            <description>Additionally, the following standard applies for
-32-bit autonomous system numbers (ASN).</description>
-            <refstandard refid="ietf-rfc5668"/>
-         </obgroup>
          <obgroup obligation="conditional">
-            <description>The following standard can be added to improve
-MD5-based BGP-authentication, depending on
-bilateral agreement.</description>
+            <description>The following standard can be added to improve MD5-based BGP-authentication,
+							depending on bilateral agreement.</description>
             <refstandard refid="ietf-rfc7454"/>
          </obgroup>
-         <guide>Border Gateway Protocol (BGP) deployment
-guidance in IETF RFC 1772:1995, Application of
-the Border Gateway Protocol in the Internet.</guide>
-         <guide>BGP sessions must be authenticated, through a
-TCP message authentication code (MAC) using
-a one-way hash function (MD5), as described in
-IETF RFC 4271.</guide>
+         <guide>Border Gateway Protocol (BGP) deployment guidance in IETF RFC 1772:1995, Application of
+					the Border Gateway Protocol in the Internet.</guide>
+         <guide>BGP sessions must be authenticated, through a TCP message authentication code (MAC) using
+					a one-way hash function (MD5), as described in IETF RFC 4271.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>baf63697-c2b9-4d4b-afb5-d55ed9991659</uuid>
@@ -56594,20 +56597,13 @@ http://www.w3.org/International/articlelist.</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-ip-quality-of-service-profile" title="IP Quality of Service Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The IP Quality of Service Profile provides standards and guidance to establish and control an agreed level of performance for IP services in federated networks.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The IP Quality of Service Profile provides standards and guidance to establish and
+					control an agreed level of performance for IP services in federated networks.</description>
          <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
-         <obgroup obligation="conditional">
-            <description>The following normative standards shall apply for
-IP Quality of Service (QoS). The condition is that
-this STANAG, although widely used and
-referenced, is currently a draft version in process
-by approval authorities.</description>
-            <refstandard refid="nso-stanag4711ed1"/>
-         </obgroup>
          <obgroup obligation="mandatory">
-            <description>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP)</description>
+            <description>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP).</description>
             <refstandard refid="ietf-rfc2474"/>
             <refstandard refid="ietf-rfc4594"/>
             <refstandard refid="itu-t-y.1540"/>
@@ -56616,14 +56612,17 @@ by approval authorities.</description>
             <refstandard refid="itu-t-m.2301"/>
             <refstandard refid="itu-t-j.241"/>
          </obgroup>
-         <guide>For NATO-led Mission Network deployments, the
-            following governing policies apply:
+         <obgroup obligation="conditional">
+            <description>The following normative standards shall apply for IP Quality of Service (QoS).
+							The condition is that this STANAG, although widely used and referenced, is currently
+							a draft version in process by approval authorities.</description>
+            <refstandard refid="nso-stanag4711ed1"/>
+         </obgroup>
+         <guide>For NATO-led Mission Network deployments, the following governing policies apply:
             <itemizedlist>
                <listitem>
-                  <para>AC/322(SC/6)WP(2009)0002-REV2 - "NC3B
-Policy on the Federation of Networks and
-Provision of Communications Services within
-the Networking Information Infrastructure"</para>
+                  <para>AC/322(SC/6)WP(2009)0002-REV2 - "NC3B Policy on the Federation of Networks and
+										Provision of Communications Services within the Networking Information Infrastructure"</para>
                </listitem>
                <listitem>
                   <para>NATO Policy for Standardization</para>
@@ -56634,26 +56633,28 @@ the Networking Information Infrastructure"</para>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>d231472d-8bca-422f-9159-ff9528a7a763</uuid>
       </serviceprofile>
 
       <serviceprofile id="fmn2-ip-routing-information-profile" title="IP Routing Information Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The IP Routing Information Profile provides standards and guidance for support of the Routing Information Protocol (RIP) to expand the amount of useful information carried in RIP messages and to add a measure of security.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The IP Routing Information Profile provides standards and guidance for support of the
+					Routing Information Protocol (RIP) to expand the amount of useful information carried in RIP
+					messages and to add a measure of security.</description>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
          <obgroup obligation="conditional">
-            <description>This standard applies as a conditional capability
-to support automatic configuration. Otherwise,
-partners will follow the manual configuration
-process.</description>
+            <description>This standard applies as a conditional capability to support automatic configuration.
+							Otherwise, partners will follow the manual configuration process.</description>
             <refstandard refid="ietf-rfc2453"/>
          </obgroup>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>86a1c3c6-0ca6-464c-8259-67e309690058</uuid>
@@ -57061,19 +57062,10 @@ Country Identified (CI).</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-routing-encapsulation-profile" title="Routing Encapsulation Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Routing Encapsulation Profile provides standards and guidance for generic routing encapsulation functions between                                              network interconnection points (NIPs)</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Routing Encapsulation Profile provides standards and guidance for generic routing
+					encapsulation functions between network interconnection points (NIPs).</description>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
-         <obgroup obligation="conditional">
-            <description>Depending on whether authentication of IPSec
-sessions is based on pre-shared keys or
-certificates is used. If pre-shared keys are used,
-standard for IKE is the IKEv1, If authentication is
-done via certificates, then IKEv2 is used.</description>
-            <refstandard refid="ietf-rfc2409"/>
-            <refstandard refid="ietf-rfc7296"/>
-            <refstandard refid="ietf-rfc7427"/>
-         </obgroup>
          <obgroup obligation="mandatory">
             <refstandard refid="ietf-rfc2890"/>
             <refstandard refid="ietf-rfc4303"/>
@@ -57082,10 +57074,19 @@ done via certificates, then IKEv2 is used.</description>
             <refstandard refid="ietf-rfc5903"/>
             <refstandard refid="ietf-rfc7670"/>
          </obgroup>
+         <obgroup obligation="conditional">
+            <description>Depending on whether authentication of IPSec sessions is based on pre-shared keys or
+							certificates is used. If pre-shared keys are used, standard for IKE is the IKEv1, If authentication
+							is done via certificates, then IKEv2 is used.</description>
+            <refstandard refid="ietf-rfc2409"/>
+            <refstandard refid="ietf-rfc7296"/>
+            <refstandard refid="ietf-rfc7427"/>
+         </obgroup>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="10-29" version="11.0"/>
             </history>
          </status>
          <uuid>e3e380f6-3844-4744-8c19-598ce810620d</uuid>
