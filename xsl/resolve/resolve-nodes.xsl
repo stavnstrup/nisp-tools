@@ -10,7 +10,6 @@ Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
 
-
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -66,7 +65,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
       </xsl:variable>
 
       <xsl:if test="not($node='')">
-        <xsl:apply-templates select="$db//node[@id=$node]" mode="displaysubtree">
+        <xsl:apply-templates select="$db//node[@id=$node]" mode="highlevel">
           <xsl:with-param name="obligation" select="$obligation"/>
         </xsl:apply-templates>
       </xsl:if>
@@ -109,7 +108,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="@*" mode="addindexentry">
   <xsl:variable name="id" select="."/>
 
-  <xsl:variable name="record" select="$db//standard[@id=$id]|$db//setofstandards[@id=$id]"/>
+  <xsl:variable name="record" select="$db/records/standard[@id=$id]"/>
   <xsl:for-each select="$record//document">
      <xsl:variable name="org" select="@orgid"/>
      <indexterm>
@@ -134,7 +133,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <!-- ==================================================================== -->
 
-
 <!-- This template can properly be merged into the procesing
      instruction template, but assumes that the node seleted is at a
      sufficiently high level and do not "have" any standards.
@@ -148,11 +146,15 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <informaltable frame="all" pgwide="1">
   <tgroup cols="4">
     <colspec colwidth="25*" colname="c1" />
-    <colspec colwidth="76*" colname="c2"/>
+    <colspec colwidth="25*" colname="c2"/>
+    <colspec colwidth="25*" colname="c3"/>
+    <colspec colwidth="25*" colname="c4"/>
     <thead>
       <row>
-        <entry>Service</entry>
-	      <entry>Standards</entry>
+        <entry>Title</entry>
+        <entry>Pubnum</entry>
+        <entry>Profiles</entry>
+        <entry>Responsible Party</entry>
       </row>
     </thead>
     <tbody>
@@ -169,40 +171,48 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:param name="obligation" select="''"/>
 
   <xsl:variable name="id" select="@id"/>
-  <!-- -->
-  <xsl:apply-templates select="//bpserviceprofile[@tref=$id]"  mode="lowlevel">
-    <xsl:with-param name="obligation" select="$obligation"/>
-  </xsl:apply-templates>
-  <!-- -->
+
+  <xsl:variable name="bprefs" select="count(//bprefstandard[(../@mode=$obligation) and (../../@tref=$id)])"/>
+  <xsl:variable name="sprefs" select="count(/standards/profilehierachy//refstandard[(../@obligation=$obligation) and (../../reftaxonomy/@refid=$id)])"/>
+
+  <xsl:if test="$bprefs+$sprefs>0">
+    <row>
+      <entry namest="c1" nameend="c4"><emphasis><xsl:value-of select="@title"/></emphasis></entry>
+    </row>
+    <!-- Get standards from basic standards profile -->
+    <xsl:apply-templates select="//bpserviceprofile[@tref=$id]"  mode="lowlevel">
+      <xsl:with-param name="obligation" select="$obligation"/>
+    </xsl:apply-templates>
+    <!-- Get standards from other profiles -->
+    <xsl:apply-templates select="//serviceprofile[reftaxonomy/@refid=$id]"  mode="lowlevel">
+      <xsl:with-param name="obligation" select="$obligation"/>
+    </xsl:apply-templates>
+  </xsl:if>
+  <!-- Handle child nodes -->
   <xsl:apply-templates mode="lowlevel">
     <xsl:with-param name="obligation" select="$obligation"/>
   </xsl:apply-templates>
 </xsl:template>
 
 
-<xsl:template match="node" mode="displaysubtree">
-    <xsl:param name="obligation" select="''"/>
+<xsl:template match="serviceprofile" mode="lowlevel">
+  <xsl:param name="obligation" select="''"/>
 
-    <xsl:variable name="id" select="@id"/>
-    <informaltable frame="all" pgwide="1">
-    <tgroup cols="4">
-      <colspec colwidth="25*" colname="c1" />
-      <colspec colwidth="25*" colname="c2"/>
-      <colspec colwidth="25*" colname="c3"/>
-      <colspec colwidth="25*" colname="c4"/>
-      <thead>
-        <row>
-          <entry>Title</entry>
-  	      <entry>Pubnum</entry>
-  	      <entry>Profiles</entry>
-          <entry>Responsible Party</entry>
-        </row>
-      </thead>
-      <tbody>
-
-
-
+  <xsl:apply-templates select="obgroup[@obligation=$obligation]/refstandard" mode="lowlevel"/>
 </xsl:template>
+
+
+<xsl:template match="refstandard" mode="lowlevel">
+  <xsl:variable name="curid" select="@refid"/>
+  <xsl:variable name="record" select="$db//standard[@id=$curid]"/>
+
+  <xsl:call-template name="display-standard">
+    <xsl:with-param name="std" select="$record"/>
+  </xsl:call-template>
+
+  <xsl:apply-templates select="@refid" mode="addindexentry"/>
+</xsl:template>
+
 
 <xsl:template match="bpserviceprofile" mode="lowlevel">
   <xsl:param name="obligation" select="''"/>
@@ -210,28 +220,24 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:apply-templates select="bpgroup[@mode=$obligation]" mode="lowlevel"/>
 </xsl:template>
 
-
 <xsl:template match="bpgroup" mode="lowlevel">
   <xsl:variable name="tref" select="../@tref"/>
 
-  <xsl:if test="count(bprefstandard)>0">
-    <row>
-      <entry>
-        <xsl:value-of select="//node[@id=$tref]/@title"/>
-      </entry>
-      <entry>
-        <itemizedlist spacing="compact">
-          <xsl:apply-templates mode="lowlevel"/>
-        </itemizedlist>
-      </entry>
-    </row>
-  </xsl:if>
+  <xsl:apply-templates mode="lowlevel"/>
 </xsl:template>
 
 
 <xsl:template match="bprefstandard" mode="lowlevel">
   <xsl:variable name="curid" select="@refid"/>
   <xsl:variable name="record" select="$db//standard[@id=$curid]"/>
+
+  <xsl:call-template name="display-standard">
+    <xsl:with-param name="std" select="$record"/>
+  </xsl:call-template>
+
+  <xsl:apply-templates select="@refid" mode="addindexentry"/>
+
+<!--
   <listitem>
     <para>
       <xsl:choose>
@@ -251,11 +257,29 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <xsl:apply-templates select="@refid" mode="addindexentry"/>
     </para>
   </listitem>
+-->
 </xsl:template>
+
+
+
 
 <xsl:template name="display-standard">
   <xsl:param name="std"/>
 
+  <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
+
+  <row>
+    <entry><xsl:value-of select="$std/document/@title"/></entry>
+    <entry>
+      <xsl:if test="$std/document/@pubnum !=''">
+        <xsl:value-of select="$std/document/@pubnum"/>
+      </xsl:if>
+    </entry>
+    <entry></entry>
+    <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
+  </row>
+
+<!--
   <xsl:variable name="myorgid" select="$std/document/@orgid"/>
 
   <xsl:value-of select="$std/document/@title"/>
@@ -276,11 +300,14 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </xsl:if>
     <xsl:text>)</xsl:text>
   </xsl:if>
+
+-->
   <xsl:variable name="note" select="string($std/document/@note)"/>
   <xsl:if test="string-length($note) &gt; 0">
 	<footnote><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
   </xsl:if>
 </xsl:template>
+
 
 <!-- ==================================================================== -->
 
