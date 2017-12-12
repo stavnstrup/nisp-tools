@@ -56863,141 +56863,128 @@ following standard apply.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-jreap-profile" title="JREAP Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Joint Range Extension Application Protocol (JREAP) enables Link 16 tactical data to be transmitted over digital
-media and networks not originally designed for tactical data exchange. Full detail of JREAP instructions and procedures
-can be found in ATDLP-5.18(B)(1).
-Link 16 messages (i.e. J-series) are embedded inside of the JREAP. JREAP management messages (i.e. X-series) are
-used, in order to ensure proper dissemination of the Link 16 messages.
-Capabilities are provided that include:
-<itemizedlist>
-               <listitem>
-                  <para>Extending the range-limited tactical networks to beyond LOS while reducing their dependence upon relay platforms</para>
-               </listitem>
-               <listitem>
-                  <para>Reducing the loading on stressed networks</para>
-               </listitem>
-               <listitem>
-                  <para>Providing backup communications in the event of the loss of the normal link</para>
-               </listitem>
-               <listitem>
-                  <para>Providing a connection to a platform that may not be equipped with the specialized communications equipment for that
-TDL.</para>
-               </listitem>
-            </itemizedlist>
-
-For media that do not support OSI network and transport layers, the JREAP provides network and transport layer
-functionality. For media supporting OSI network and transport layers, the JREAP is encapsulated within those layers.
-JREAP software can be integrated into a host system or into a stand-alone processor. The appropriate interface terminals
-are required at each end of any JREAP alternate media link.</description>
-         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>
+					<para>The Joint Range Extension Application Protocol (JREAP) enables Link 16 tactical data to be
+						transmitted over digital media and networks not originally designed for tactical data exchange.
+						Full detail of JREAP instructions and procedures can be found in ATDLP-5.18(B)(1).</para>
+					<para>Link 16 messages (i.e. J-series) are embedded inside of the JREAP. JREAP management
+						messages (i.e. X-series) are used, in order to ensure proper dissemination of the Link 16 messages.</para>
+					<para>Capabilities are provided that include:</para>
+					<itemizedlist>
+						<listitem>
+							<para>Extending the range-limited tactical networks to beyond LOS while reducing their
+								dependence upon relay platforms</para>
+						</listitem>
+						<listitem>
+							<para>Reducing the loading on stressed networks</para>
+						</listitem>
+						<listitem>
+							<para>Providing backup communications in the event of the loss of the normal link</para>
+						</listitem>
+						<listitem>
+							<para>Providing a connection to a platform that may not be equipped with the specialized
+								communications equipment for that TDL.</para>
+						</listitem>
+					</itemizedlist>
+					<para>For media that do not support OSI network and transport layers, the JREAP provides network
+						and transport layer functionality. For media supporting OSI network and transport layers,
+						the JREAP is encapsulated within those layers. JREAP software can be integrated into a host
+						system or into a stand-alone processor. The appropriate interface terminals are required
+						at each end of any JREAP alternate media link.</para></description>
+         <reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
+         <obgroup obligation="conditional">
+            <description>The SIMPLE protocol is going to be used only for Verification and Validation
+							purpose of all systems employing or interfacing with tactical data links and only when
+							the systems do not support JREAP. It is not going to be used within the operational
+							network for operational purpose. STANAG 5602 covers ATDLP-6.02 (SIMPLE), which specifies
+							the requirements for the transfer of data between remote sites to support the
+							interoperability testing of tactical data link implementations in different platforms.</description>
+            <refstandard refid="nso-stanag5602ed4"/>
+            <refstandard refid="nso-stanag5516ed4"/>
+         </obgroup>
          <obgroup obligation="mandatory">
             <refstandard refid="nso-stanag5518ed1"/>
          </obgroup>
-         <obgroup obligation="conditional">
-            <description>The SIMPLE protocol is going to be used only for
-Verification and Validation purpose of all systems
-employing or interfacing with tactical data links
-and only when the systems do not support
-JREAP. It is not going to be used within the
-operational network for operational purpose.
-STANAG 5602 covers ATDLP-6.02 (SIMPLE),
-which specifies the requirements for the transfer
-of data between remote sites to support the
-interoperability testing of tactical data link
-implementations in different platforms.</description>
-            <refstandard refid="nso-stanag5602ed4"/>
-         </obgroup>
-         <guide>The JREAP is designed to support operations
-using Link 16 over most communication media
-(JRE media). Each JRE medium has unique
-characteristics. Military Ultra High Frequency
-(UHF) satellite and terrestrial Radio frequency
-(RF) communications are half-duplex. Military
-Super High Frequency (SHF) Satellite
-Communications (SATCOM) support full-duplex
-operations but are limited to point-to-point
-circuits. Military Extremely High Frequency
-(EHF) Medium Data Rate (MDR) SATCOM has
-circuit configuration limitations. The DoD Joint
-Technical Architecture (JTA) defines the
-applicable Information Transfer Standards for
-these military communications systems.
-Commercial SATCOM is mostly point-to-point
-and supports full-duplex usage. IP
-communications can have packet loss, packet
-reordering, and packet delay characteristics that
-are difficult to predict.</guide>
+         <guide>The JREAP is designed to support operations using Link 16 over most communication media
+					(JRE media). Each JRE medium has unique characteristics. Military Ultra High Frequency (UHF)
+					satellite and terrestrial Radio frequency (RF) communications are half-duplex. Military
+					Super High Frequency (SHF) Satellite Communications (SATCOM) support full-duplex operations
+					but are limited to point-to-point circuits. Military Extremely High Frequency (EHF) Medium
+					Data Rate (MDR) SATCOM has circuit configuration limitations. The DoD Joint Technical
+					Architecture (JTA) defines the applicable Information Transfer Standards for these military
+					communications systems. Commercial SATCOM is mostly point-to-point and supports full-duplex
+					usage. IP communications can have packet loss, packet reordering, and packet delay
+					characteristics that are difficult to predict.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>10005e5f-e77a-41ff-a12f-a62661ab8349</uuid>
       </serviceprofile>
 
       <serviceprofile id="fmn2-maritime-information-exchange-profile" title="Maritime Information Exchange Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Maritime Information Exchange Profile provides standards and guidance to support the exchange of Maritime
-Recognized Picture information within a coalition network or a federation of networks.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Maritime Information Exchange Profile provides standards and guidance to support
+					the exchange of Maritime Recognized Picture information within a coalition network or a
+					federation of networks.</description>
          <reftaxonomy refid="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X"/>
          <obgroup obligation="conditional">
-            <description>For interconnecting Track Management Service
-the following transport protocol to share
-OTH-GOLD messages is mandatory:
-<itemizedlist>
-                  <listitem>
-                     <para>TCP (connect, send, disconnect) - default
-port:2020</para>
-                  </listitem>
-               </itemizedlist>
-End-users that do not have RMP Applications
-MAY generate OTH-GOLD messages manually
-and transmit them via eMail/SMTP (see also
-Message Text Format messaging).</description>
-            <refstandard refid="dod-oth-g"/>
+            <description>For interconnecting Track Management Service the following transport protocol
+							to share OTH-GOLD messages is mandatory:
+						<itemizedlist>
+							<listitem>
+								<para>TCP (connect, send, disconnect) - default port:2020</para>
+							</listitem>
+						</itemizedlist>
+						End-users that do not have RMP Applications MAY generate OTH-GOLD messages manually and transmit
+						them via eMail/SMTP (see also Message Text Format messaging).</description>
          </obgroup>
          <obgroup obligation="mandatory">
             <refstandard refid="dod-oth-g"/>
          </obgroup>
-         <guide>The implementation of the following message
-types is mandatory:
-<itemizedlist>
-               <listitem>
-                  <para>Contact Report (GOLD)</para>
-               </listitem>
-            </itemizedlist>
-The implementation of the following message
-types is optional:
-<itemizedlist>
-               <listitem>
-                  <para>Area of Interest Filter (AOI),</para>
-               </listitem>
-               <listitem>
-                  <para>FOTC Situation Report (SITREP),</para>
-               </listitem>
-               <listitem>
-                  <para>Group Track Message (GROUP),</para>
-               </listitem>
-               <listitem>
-                  <para>Operator Note (OPNOTE),</para>
-               </listitem>
-               <listitem>
-                  <para>PIM Track (PIMTRACK),</para>
-               </listitem>
-               <listitem>
-                  <para>Screen Kilo Message (SCRNKILO),</para>
-               </listitem>
-               <listitem>
-                  <para>4-Whiskey Message (4WHISKEY)</para>
-               </listitem>
-            </itemizedlist>
+         <guide>The implementation of the following message types is mandatory:
+         <itemizedlist>
+					 <listitem>
+						<para>Contact Report (GOLD)</para>
+					 </listitem>
+					</itemizedlist>
+					The implementation of the following message types is optional:
+					<itemizedlist>
+						<listitem>
+							<para>Area of Interest Filter (AOI),</para>
+						</listitem>
+						<listitem>
+							<para>FOTC Situation Report,</para>
+						</listitem>
+						<listitem>
+							<para>Group Track Message (GROUP),</para>
+						</listitem>
+						<listitem>
+							<para>Operator Note (OPNOTE),</para>
+						</listitem>
+						<listitem>
+							<para>Overlay Message (OVLY1, OVLY2),</para>
+						</listitem>
+						<listitem>
+							<para>PIM Track (PIMTRACK),</para>
+						</listitem>
+						<listitem>
+							<para>Screen Kilo Message (SCRNKILO),</para>
+						</listitem>
+						<listitem>
+							<para>4-Whiskey Message (4WHISKEY)</para>
+						</listitem>
+					</itemizedlist>
          </guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>960a8037-6284-4619-9075-0783488b5855</uuid>
