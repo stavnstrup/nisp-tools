@@ -54023,7 +54023,7 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-information-management" title="FMN Spiral 2 Information Management Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
             <refprofile refid="fmn2-character-encoding-profile"/>
             <refprofile refid="fmn2-internationalization-profile"/>
@@ -54033,6 +54033,7 @@ applications. </applicability>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>50daeb90-f19a-4c01-8b77-d9c51f619ad9</uuid>
@@ -56003,21 +56004,23 @@ protocols for interoperability of chat services.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-character-encoding-profile" title="Character Encoding Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Character Encoding Profile provides standards and guidance for the encoding of character sets.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Character Encoding Profile provides standards and guidance for the encoding
+					of character sets.</description>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
-         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+         <reftaxonomy refid="T-6fe5364b-2627-4501-9477-c7e9932e618d-X"/>				 
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
          <obgroup obligation="mandatory">
-            <description>Use of UTF-8 for complete Unicode support,
-including fully internationalized addresses is
-mandatory.</description>
+            <description>Use of UTF-8 for complete Unicode support, including fully internationalized
+							addresses is mandatory.</description>
             <refstandard refid="ietf-rfc3629"/>
          </obgroup>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>3e2669ae-6e21-45ef-a51d-47c15d918904</uuid>
@@ -56224,42 +56227,38 @@ mandatory.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-file-format-profile" title="File Format Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The File Format Profile provides standards and guidance for the collaborative generation of spreadsheets, charts,                                      presentations and word processing documents.</description>
-         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The File Format Profile provides standards and guidance for the collaborative
+					generation of spreadsheets, charts, presentations and word processing documents.</description>
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
-         <obgroup obligation="mandatory">
-            <description>For still image coding.</description>
-            <refstandard refid="iso-iec-10918-1"/>
-            <refstandard refid="iso-iec-10918-3"/>
-         </obgroup>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
          <obgroup obligation="recommended">
             <description>For word processing documents, spreadsheets and presentations.</description>
             <refstandard refid="iso-iec-26300-2006"/>
          </obgroup>
          <obgroup obligation="mandatory">
-            <description>For word processing documents, spreadsheets and presentations.<footnote>
-                  <para>In the published FMN Spiral specification 1.1, the reference to ISO/IEC 29500 is incomplete. As a result, the respective part of the standard and the title do not show up in the FMN 1.1 profile.</para>
-               </footnote>
-            </description>
-            <refstandard refid="iso-iec-29500-1-2012"/>
-         </obgroup>
-         <obgroup obligation="mandatory">
-            <description>For document exchange, storage and long-term
-preservation.</description>
+            <description>For document exchange, storage and long-term preservation.</description>
             <refstandard refid="iso-19005-1"/>
             <refstandard refid="iso-19005-2"/>
             <refstandard refid="iso-32000-1"/>
          </obgroup>
-         <guide>ISO/IEC 29500 and ISO/IEC 26300 are both
-open document formats for XML-based saving
-and exchanging word processing documents,
-spreadsheets and presentations. They differ in
-design and scope.</guide>
+         <obgroup obligation="mandatory">
+            <description>For word processing documents, spreadsheets and presentations.</description>
+            <refstandard refid="iso-iec-29500-1-2012"/>
+         </obgroup>
+         <obgroup obligation="mandatory">
+            <description>For still image coding.</description>
+            <refstandard refid="iso-iec-10918-1"/>
+            <refstandard refid="iso-iec-10918-3"/>
+         </obgroup>
+         <guide>ISO/IEC 29500 and ISO/IEC 26300 are both open document formats for XML-based saving
+					and exchanging word processing documents, spreadsheets and presentations. They differ in
+					design and scope.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>d1b122bf-23b9-41a5-bf7d-85ef4522b517</uuid>
@@ -56713,8 +56712,10 @@ to also implement RSS 2.0.</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-internationalization-profile" title="Internationalization Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Internationalization Profile provides standards and guidance for the design and development of content and (web) applications, in a way that ensures it will work well for, or can be easily adapted for, users from any culture, region, or language.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Internationalization Profile provides standards and guidance for the design
+					and development of content and (web) applications, in a way that ensures it will work well for,
+					or can be easily adapted for, users from any culture, region, or language.</description>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
          <obgroup obligation="recommended">
             <refstandard refid="w3c-rec-charmod-20050215"/>
@@ -56722,13 +56723,13 @@ to also implement RSS 2.0.</guide>
             <refstandard refid="w3c-rec-its20-20131029"/>
             <refstandard refid="w3c-rec-ruby-20010531"/>
          </obgroup>
-         <guide>Best practices and tutorials on
-internationalization can be found at:
-http://www.w3.org/International/articlelist.</guide>
+         <guide>Best practices and tutorials on internationalization can be found at:
+					http://www.w3.org/International/articlelist.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>f11c5767-55ae-45a3-8dca-097983b8fe58</uuid>
