@@ -56438,54 +56438,51 @@ A075)</para>
       </serviceprofile>
 
       <serviceprofile id="fmn2-geospatial-data-exchange-profile" title="Geospatial Data Exchange Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>Maps, geographical overviews and digital images provide valuable knowledge of a mission area and are intensively used
-for planning and mission execution purposes at every level of command. Geospatial information (GI) requirements are
-typically defined by product type (what is required – the level of detail at a specific scale) and coverage (where it is
-required). Geospatial support covers land, sea and air-space (battle space) segments and consists of four main product
-types: topographical, hydrographical, aeronautical information and suitable geospatially referenced imagery.
-Typically, maps and geospatial1 datasets are being produced by different organisations and need to be exchanged (e.g.
-via automated or manual file transfer) between different participants using standardised exchange formats. These
-datasets would then be loaded into specialised geospatial information systems (GIS) and published via standardized Web
-Services.</description>
-         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>
+					<para>Maps, geographical overviews and digital images provide valuable knowledge of a mission area
+						and are intensively used for planning and mission execution purposes at every level of command.
+						Geospatial information (GI) requirements are typically defined by product type (what is
+						required – the level of detail at a specific scale) and coverage (where it is required).
+						Geospatial support covers land, sea and air-space (battle space) segments and consists
+						of four main product types: topographical, hydrographical, aeronautical information and
+						suitable geospatially referenced imagery.</para>
+					<para>Typically, maps and geospatial1 datasets are being produced by different organisations
+					and need to be exchanged (e.g. via automated or manual file transfer) between different
+					participants using standardised exchange formats. These datasets would then be loaded
+					into specialised geospatial information systems (GIS) and published via standardized Web
+					Services.</para>
+         </description>
+         <reftaxonomy refid="T-54a19444-8cd5-4766-9140-6cdc53aafb79-X"/>
          <obgroup obligation="recommended">
-            <description>File geodatabases store geospatial datasets and
-can hold any number of these large, individual
-datasets. File geodatabases can be used across
-multiple platforms. Users are rapidly adopting file
-geodatabases in place of using legacy
-shapefiles.</description>
+            <description>File geodatabases store geospatial datasets and can hold any number of these large,
+							individual datasets. File geodatabases can be used across multiple platforms. Users are
+							rapidly adopting file geodatabases in place of using legacy shapefiles.</description>
             <refstandard refid="ogc-12-128r12"/>
          </obgroup>
          <obgroup obligation="recommended">
-            <description>File based storage and exchange of digital
-geospatial mapping (raster) data.</description>
+            <description>File based storage and exchange of digital geospatial mapping (raster) data.</description>
             <refstandard refid="nga-mil-prf-89038"/>
             <refstandard refid="nga-rpf"/>
-         </obgroup>
-         <obgroup obligation="mandatory">
-            <refstandard refid="ogc-07-147r2"/>
          </obgroup>
          <obgroup obligation="mandatory">
             <description>File based storage and exchange of digital geospatial mapping (raster) data.</description>
             <refstandard refid="osgeo-geotiff"/>
             <refstandard refid="ogc-05-047r3"/>
          </obgroup>
-         <guide>Often the exchange of large geospatial(raster)
-data sets between Geo organizations of different
-Mission Participants is conducted in the
-proprietary Multi-resolution seamless image
-database format (MrSID Generation 3). Data in
-MrSID format could be transformed to GeoTIFF.
-The JPEG 2000 image compression standard
-offers many of the same advantages as MrSID,
-plus the added benefits of being an international
-standard (ISO/IEC 15444).</guide>
+         <obgroup obligation="mandatory">
+            <refstandard refid="ogc-07-147r2"/>
+         </obgroup>
+         <guide>Often the exchange of large geospatial(raster) data sets between Geo organizations of
+					different Mission Participants is conducted in the proprietary Multi-resolution seamless image
+					database format (MrSID Generation 3). Data in MrSID format could be transformed to GeoTIFF.
+					The JPEG 2000 image compression standard offers many of the same advantages as MrSID, plus
+					the added benefits of being an international standard (ISO/IEC 15444).</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>19eb9a53-6d6c-49da-806d-355db89c50a5</uuid>
@@ -57593,9 +57590,9 @@ also for the web content providers.</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-web-feature-service-profile" title="Web Feature Service Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <description>The Web Feature Service standard and guidance provides a standardized interface
-				 for geodata provision in a defined format over a network connection.</description>
+					for geodata provision in a defined format over a network connection.</description>
          <reftaxonomy refid="T-6b8ade43-9cd5-4845-a616-2ae553c64e53-X"/>
          <obgroup obligation="mandatory">
             <refstandard refid="iso-19142"/>
@@ -57674,25 +57671,26 @@ functionality.</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-web-map-service-profile" title="Web Map Service Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Web Map Service standard and guidance provides a standardized interface for geodata provision in a defined format
-over a network connection</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Web Map Service standard and guidance provides a standardized interface
+					for geodata provision in a defined format over a network connection.</description>
          <reftaxonomy refid="T-4a3a0865-33e0-4cff-9a7c-9f334e46a61c-X"/>
          <obgroup obligation="mandatory">
             <refstandard refid="iso-19128"/>
             <refstandard refid="ogc-06-042"/>
          </obgroup>
-         <guide>Additional Implementation Guidance:<itemizedlist>
-               <listitem>
-                  <para>DGIWG – 112, DGIWG – Web Map Service
-1.3 Profile v.2.1.0, 16 November 2015</para>
-               </listitem>
-            </itemizedlist>
+         <guide>Additional Implementation Guidance:
+					<itemizedlist>
+						<listitem>
+							<para>DGIWG – 112, DGIWG – Web Map Service 1.3 Profile v.2.1.0, 16 November 2015</para>
+						</listitem>
+					</itemizedlist>
          </guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>842b6773-0521-4f6e-baa7-24d905bb9284</uuid>
