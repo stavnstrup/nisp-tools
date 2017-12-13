@@ -53966,34 +53966,43 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-geospatial" title="FMN Spiral 2 Geospatial Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>Geospatial Services deliver network-based access to quality raster, vector and
+					terrain data, available in varying degrees of format and complexity. Geospatial Services
+					form a distinct class of information services through their unique requirements for
+					collecting, converting, storing, retrieving, processing, analysing, creating, and
+					displaying geographic data.</description>
          <subprofiles>
-            <refprofile refid="fmn2-web-map-service-profile"/>
             <refprofile refid="fmn2-web-feature-service-profile"/>
             <refprofile refid="fmn2-geospatial-data-exchange-profile"/>
+            <refprofile refid="fmn2-web-map-service-profile"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>2133c551-9443-49f7-9796-0affbcb45de3</uuid>
       </profile>
 
       <profile id="fmn2-pr-human-to-human" title="FMN Spiral 2 Human-to-Human Communication Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Human-to-Human Communications Profile arranges standards profiles for the facilitation
+				 of information sharing and exchange on user platforms.</description>
          <subprofiles>
+            <refprofile refid="fmn2-pr-geospatial"/>
+            <refprofile refid="fmn2-pr-information-management"/>
             <refprofile refid="fmn2-pr-web-auth"/>
             <refprofile refid="fmn2-pr-webhost"/>
             <refprofile refid="fmn2-pr-uni-collab"/>
-            <refprofile refid="fmn2-pr-geospatial"/>
-            <refprofile refid="fmn2-pr-information-management"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>ad88f9d0-bf63-4d33-95b1-5120576318dd</uuid>
@@ -57585,24 +57594,25 @@ also for the web content providers.</guide>
 
       <serviceprofile id="fmn2-web-feature-service-profile" title="Web Feature Service Profile">
          <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Web Feature Service standard and guidance provides a standardized interface for geodata provision in a defined
-format over a network connection.</description>
+         <description>The Web Feature Service standard and guidance provides a standardized interface
+				 for geodata provision in a defined format over a network connection.</description>
          <reftaxonomy refid="T-6b8ade43-9cd5-4845-a616-2ae553c64e53-X"/>
          <obgroup obligation="mandatory">
             <refstandard refid="iso-19142"/>
             <refstandard refid="ogc-09-025r2"/>
          </obgroup>
-         <guide>Additional Implementation Guidance:<itemizedlist>
-               <listitem>
-                  <para>DGIWG – 122, DGIWG - Web Feature Service 2.0 Profile v.2.0.0, 16 November
-2015</para>
-               </listitem>
-            </itemizedlist>
+         <guide>Additional Implementation Guidance:
+					<itemizedlist>
+						<listitem>
+							<para>DGIWG – 122, DGIWG - Web Feature Service 2.0 Profile v.2.0.0, 16 November 2015</para>
+						</listitem>
+					</itemizedlist>
          </guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>26261429-f2fc-432e-aed4-14da0c38df5d</uuid>
