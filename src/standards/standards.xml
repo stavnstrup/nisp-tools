@@ -54079,20 +54079,50 @@ applications. </applicability>
          <uuid>4b789a04-6315-4afa-9d2e-320d9bc483a9</uuid>
       </profile>
 
-      <profile id="fmn2-pr-orchestration" title="SMC Orchestration Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <subprofiles>
-            <refprofile refid="fmn2-service-implementation-trouble-ticketing-profile"/>
-            <refprofile refid="fmn2-service-implementation-request-managing-profile"/>
-         </subprofiles>
+      <serviceprofile id="fmn2-pr-orchestration" title="SMC Orchestration Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>Service Management and Control Orchestration Profile provides standards and guidance
+					to support the orchestration of SMC processes and ITSM systems in a multi-service provider
+					environment.</description>
+         <reftaxonomy refid="T-60aedc7e-b256-4242-9a18-51b116dc8559-X"/>
+         <obgroup obligation="mandatory">
+						<description>
+							<para>The required conformance level for Service Management and Control Orchestration
+								is &quot;Level 1 conformance&quot;. This is defined in terms of implemented</para>
+							<itemizedlist>
+								<listitem><para>Mandatory data attributes</para></listitem>
+								<listitem><para>Mandatory operations</para></listitem>
+								<listitem><para>Mandatory filters and attribute selection</para></listitem>
+							</itemizedlist>
+							<para>Level 1 conformance ensures that any two given federated Service Management System
+								implementations of the SMC process APIs will be in practice interoperable with a core
+								feature set. The core feature set is sufficient to enable incident, request, problem
+								and change (process) handovers between Service Providers. Level 1 also provides
+								updates to subscribed Service Providers when an incident, request, problem or change
+								changes status. Implementers MAY implement higher levels of conformance.</para>
+						</description>
+            <refstandard refid="tm-forum-tr250"/>
+         </obgroup>
+         <obgroup obligation="recommended">
+						<description>
+							<para>Compliance with the Service Implementation Profiles for REST Messaging/REST Security
+								Services that the implementations meet a set of non-functional requirements aligned with
+								emerging message labelling and security standards.</para>
+						</description>
+            <refprofile refid="sip-rest-rest-security"/>
+            <refprofile refid="sip-rest-msg-rest-messaging"/>
+         </obgroup>
+				 <guide>The Service Management and Control Orchestration Profile will expand over time and
+					new APIs are expected to be added as they mature as commercial standards.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>31239b56-37ea-4d1c-a446-2887a18d34a5</uuid>
-      </profile>
+      </serviceprofile>
 
       <profile id="fmn2-pr-secure-voice" title="Secure Voice Profile">
          <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
@@ -54127,14 +54157,18 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-smc" title="FMN Spiral 2 SMC Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The FMN Spiral 2 Service Management and Control (SMC) Profile arranges standards
+					profiles for the facilitation and exploitation of SMC services.</description>
          <subprofiles>
             <refprofile refid="fmn2-pr-orchestration"/>
+            <refprofile refid="fmn2-service-implementation-trouble-ticketing-profile"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>3e0b9e65-17f2-4ab7-9836-cf8859a35643</uuid>
@@ -57236,153 +57270,72 @@ as specified in:
       </serviceprofile>
 
       <serviceprofile id="fmn2-service-implementation-trouble-ticketing-profile" title="Service Implementation Trouble Ticketing Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Service Implementation Profile for Trouble Ticketing enables the handover between the incident sending Service Providers and the incident receiving Service Provider. The handover point is set after incident inception, logging and categorization and before incident prioritization. Service Implementation Profile for Trouble Ticketing provides implementation guidance for the TMForum Trouble Ticket API REST Specification. The IER for an incident record handover is represented in this API as follows:
-
-<itemizedlist>
-               <listitem>
-                  <para>id: Unique identifier of the trouble ticket</para>
-               </listitem>
-               <listitem>
-                  <para>correlationId: Additional identifier coming from an external system</para>
-               </listitem>
-               <listitem>
-                  <para>description: Description of the trouble</para>
-               </listitem>
-               <listitem>
-                  <para>severity: The severity of the trouble. It can be for example : minor, major, critical severity corresponds to ITIL incident
-impact. The sending entity (customer for this service) can only classify impact. The priority will be given by the
-receiving entity (the service provider) based on the SLA's target resolution time (urgency).</para>
-               </listitem>
-               <listitem>
-                  <para>type: Type of trouble ticket</para>
-               </listitem>
-               <listitem>
-                  <para>creationDate: The date on which the trouble was discovered</para>
-               </listitem>
-               <listitem>
-                  <para>targetResolutionDate: Foreseen trouble resolution date</para>
-               </listitem>
-               <listitem>
-                  <para>status: The current status of the Trouble Ticket</para>
-               </listitem>
-               <listitem>
-                  <para>subStatus: The current sub status of the Trouble Ticket</para>
-               </listitem>
-               <listitem>
-                  <para>statusChangeReason: The reason of state change</para>
-               </listitem>
-               <listitem>
-                  <para>statusChangeDate: The date of state change</para>
-               </listitem>
-               <listitem>
-                  <para>resolutionDate: The date of resolution</para>
-               </listitem>
-               <listitem>
-                  <para>relatedParty: Party playing a role within trouble ticket</para>
-               </listitem>
-               <listitem>
-                  <para>role: Role of the party</para>
-               </listitem>
-               <listitem>
-                  <para>reference: Identifier of the party</para>
-               </listitem>
-               <listitem>
-                  <para>relatedObject: Objects linked with trouble ticket</para>
-               </listitem>
-               <listitem>
-                  <para>reference: Identifier of the object</para>
-               </listitem>
-               <listitem>
-                  <para>involvement: The related object’s type of relation to the incident</para>
-               </listitem>
-               <listitem>
-                  <para>note: Extra-information about the trouble ticket</para>
-               </listitem>
-               <listitem>
-                  <para>date: Date of the note</para>
-               </listitem>
-               <listitem>
-                  <para>author: Author of the no</para>
-               </listitem>
-            </itemizedlist>
-         </description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Service Implementation Profile for Trouble Ticketing enables the handover between the incident
+					sending Service Providers and the incident receiving Service Provider. The handover point is set after
+					incident inception, logging and categorization and before incident prioritization. The profile provides
+					the implementation guidance for the TMForum Trouble Ticket API REST Specification.</description>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
-         <obgroup obligation="recommended">
-            <description>The following extended attribute should be
-included in the message as nested sub-entities
-mapped as follows: confidentialityInformation as
-"related object" with involvement
-"confidentialityInformation" and with
-PolicyIdentifier, Classification, Privacy Mark and
-Category.</description>
-            <refstandard refid="nso-stanag4774"/>
-         </obgroup>
+         <reftaxonomy refid="T-95e4fb5e-3528-4c23-b2bf-ebe107f3c294-X"/>
          <obgroup obligation="mandatory">
             <refstandard refid="tm-forum-tmf621"/>
             <refstandard refid="tm-forum-tr250"/>
          </obgroup>
-         <guide>The following set of extended attributes shall be
-included in the message as nested sub-entities
-mapped as follows:
-<itemizedlist>
-               <listitem>
-                  <para>securityMarking: human readable text
-reflecting the security classification of the
-incident in accordance with the applicable
-security policy (e.g. "NATO UNCLASSIFIED")</para>
-               </listitem>
-               <listitem>
-                  <para>impactedService: as "related object" with
-involvement: "impactedService" and
-reference pointing to a resource of type
-"Service"</para>
-               </listitem>
-               <listitem>
-                  <para>assigneeGroup: support group to which the
-incident is assigned to be implemented as
-"related party" with role: "assigneeGroup" and
-reference pointing to a "Party" resource</para>
-               </listitem>
-               <listitem>
-                  <para>attachment: as "related object" with
-involvement: "relatedAttachment" and
-reference pointing to a binary file resource</para>
-               </listitem>
-               <listitem>
-                  <para>relatedEvents: as "related object" with
-involvement: "relatedEvent" and reference
-pointing to a resource of type "Event"</para>
-               </listitem>
-               <listitem>
-                  <para>relatedProblems: as "related object" with
-involvement: "relatedProblem" and reference
-pointing to a resource of type "Problem"</para>
-               </listitem>
-               <listitem>
-                  <para>relatedServiceRequests: as "related object"
-with involvement: "relatedServiceRequest"
-and reference pointing to a resource of type
-"ServiceRequest"</para>
-               </listitem>
-               <listitem>
-                  <para>relatedSecurityIncidents: as "related object"
-with involvement: "relatedSecurityIncident"
-and reference pointing to a resource of type
-"SecurityIncident"</para>
-               </listitem>
-               <listitem>
-                  <para>relatedMajorIncidents: as "related object" with
-involvement: "relatedMajorIncident" and
-reference pointing to a resource of type
-"MajorIncident"</para>
-               </listitem>
-               <listitem>
-                  <para>location: as "related object" with involvement:
-"impactedLocation" and reference pointing to
-a resource of type "Location"</para>
-               </listitem>
-            </itemizedlist>
+         <obgroup obligation="recommended">
+            <description>The following extended attribute should be included in the message as nested
+							sub-entities mapped as follows: confidentialityInformation as "related object" with involvement
+							&quot;confidentialityInformation&quot; and with PolicyIdentifier, Classification, Privacy Mark and
+							Category.</description>
+            <refstandard refid="nso-stanag4774"/>
+         </obgroup>
+         <guide>The following set of extended attributes shall be included in the message as nested
+					sub-entities mapped as follows:
+					<itemizedlist>
+						<listitem>
+							<para>securityMarking: human readable text reflecting the security classification of the
+								incident in accordance with the applicable security policy (e.g. &quot;NATO UNCLASSIFIED&quot;)</para>
+						</listitem>
+						<listitem>
+							<para>impactedService: as &quot;related object&quot; with involvement: &quot;impactedService&quot;
+								and reference pointing to a resource of type &quot;Service&quot;</para>
+						</listitem>
+						<listitem>
+							<para>assigneeGroup: support group to which the incident is assigned to be implemented as
+								&quot;related party&quot; with role: &quot;assigneeGroup&quot; and reference pointing
+								to a &quot;Party&quot; resource</para>
+						</listitem>
+						<listitem>
+							<para>attachment: as &quot;related object&quot; with involvement: &quot;relatedAttachment&quot; and
+								reference pointing to a binary file resource</para>
+						</listitem>
+						<listitem>
+							<para>relatedEvents: as &quot;related object&quot; with involvement: &quot;relatedEvent&quot;
+							and reference pointing to a resource of type &quot;Event&quot;</para>
+						</listitem>
+						<listitem>
+							<para>relatedProblems: as &quot;related object&quot; with involvement: &quot;relatedProblem&quot;"
+								and reference pointing to a resource of type &quot;Problem&quot;</para>
+						</listitem>
+						<listitem>
+							<para>relatedServiceRequests: as &quot;related object&quot; with involvement:
+								&quot;relatedServiceRequest&quot; and reference pointing to a resource of type
+								&quot;ServiceRequest&quot;</para>
+						</listitem>
+						<listitem>
+							<para>relatedSecurityIncidents: as &quot;related object&quot; with involvement:
+								&quot;relatedSecurityIncident&quot; and reference pointing to a resource of type
+								&quot;SecurityIncident&quot;</para>
+						</listitem>
+						<listitem>
+							<para>relatedMajorIncidents: as &quot;related object&quot; with involvement:
+								&quot;relatedMajorIncident&quot; and reference pointing to a resource of type
+								&quot;MajorIncident&quot;</para>
+						</listitem>
+						<listitem>
+							<para>location: as &quot;related object&quot; with involvement: &quot;impactedLocation&quot; and
+								reference pointing to a resource of type &quot;Location&quot;</para>
+						</listitem>
+					</itemizedlist>
          </guide>
          <status mode="accepted">
             <uri/>
