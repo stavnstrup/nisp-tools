@@ -54241,7 +54241,9 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-web-auth" title="FMN Spiral 2 Web Authentication Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Web Authentication Profile defines standards profiles for user authentication
+					to the web applications in a federated environment.</description>
          <subprofiles>
             <refprofile refid="fmn2-federated-web-authentication-profile"/>
          </subprofiles>
@@ -54249,6 +54251,7 @@ applications. </applicability>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>8400cf74-812b-46fb-9e82-8d20d25f7e5a</uuid>
@@ -56205,10 +56208,9 @@ protocols for interoperability of chat services.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-federated-web-authentication-profile" title="Federated Web Authentication Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <reftaxonomy refid="T-ba82b230-5e03-44bc-897a-ea5890dae4cb-X"/>
          <obgroup obligation="mandatory">
-            <refstandard refid="oasis-wstrust-1.4"/>
             <refstandard refid="oasis-saml-2.0"/>
             <refstandard refid="ietf-rfc5322"/>
             <refstandard refid="ietf-rfc3986"/>
@@ -56216,11 +56218,37 @@ protocols for interoperability of chat services.</description>
             <refstandard refid="ietf-rfc2798"/>
             <refstandard refid="ietf-rfc4519"/>
          </obgroup>
-         <guide>The Identity Providers must support both the SP Lite and IdP Lite operational modes defined in the "Conformance Requirements for the OASIS Security Assertion Markup Language (SAML) V2.0 (15 March 2005)" specification.</guide>
+         <guide>The Identity Providers must support the following components of the SAML 2.0 specification:
+					<itemizedlist>
+						<listitem>
+							<para>Profiles</para>
+							<itemizedlist>
+								<listitem>
+									<para>Web Browser SSO Profile</para>
+								</listitem>
+								<listitem>
+									<para>Single Logout Profile</para>
+								</listitem>
+							</itemizedlist>
+						</listitem>
+						<listitem>
+							<para>Bindings:</para>
+							<itemizedlist>
+								<listitem>
+									<para>HTTP Redirect Binding</para>
+								</listitem>
+								<listitem>
+									<para>HTTP POST Binding.</para>
+								</listitem>
+							</itemizedlist>
+						</listitem>
+					</itemizedlist>
+         </guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>a053e95f-c418-45c3-824f-7984a950d9a2</uuid>
