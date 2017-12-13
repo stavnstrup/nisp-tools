@@ -717,6 +717,7 @@
             <bprefstandard refid="omg-dtc2013-12-09"/>
             <bprefstandard refid="omg-formal-2015-06-03-sysml"/>
             <bprefstandard refid="nato-ac322-d-2017-0007-U"/>
+            <bprefstandard refid="opengroup-c174"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Audio-based Collaboration Services" tref="T-9f408558-029b-4625-ab8a-3dfcdb677800-X">
@@ -47275,6 +47276,19 @@ applications. </applicability>
          <uuid>c9d31bbe-18fb-4e15-a1ab-34e87fb2dcec</uuid>
       </standard>
 
+      <standard id="opengroup-c174" tag="Archimate Exchange">
+         <document orgid="opengroup" pubnum="c174" title="ArchiMate Model Exchange File Format for the ArchiMate Modeling Language, Version 3.0" date="2016-12"/>
+         <applicability>The Open Group ArchiMate Model Exchange File Format Standard defines a file format that can be used to exchange data between tools that wish to import and export ArchiMate Version 3 models. ArchiMate exchange files enable exporting content from one ArchiMate modeling tool or repository and importing it into another while retaining information describing the model in the file and how it is structured, such as a list of model elements and relationships. The Standard focuses on the packaging and transport of ArchiMate models.</applicability>
+         <responsibleparty rpref=""/>
+         <status mode="accepted">
+            <uri>https://publications.opengroup.org/c174</uri>
+            <history>
+               <event flag="added" date="2017-12-13" rfcp="10-001" version="11.0"/>
+            </history>
+         </status>
+         <uuid>b0f358af-e685-497a-bc4a-d48774fcd8fc</uuid>
+      </standard>
+
       <standard id="opengroup-c310" tag="DCE DTS">
          <document orgid="opengroup" pubnum="C310" date="1994" title="DCE 1.1: Time Services">
             <correction cpubnum="U017" date="1996-10-15"/>
@@ -56864,33 +56878,34 @@ following standard apply.</description>
       <serviceprofile id="fmn2-jreap-profile" title="JREAP Profile">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <description>
-					<para>The Joint Range Extension Application Protocol (JREAP) enables Link 16 tactical data to be
+            <para>The Joint Range Extension Application Protocol (JREAP) enables Link 16 tactical data to be
 						transmitted over digital media and networks not originally designed for tactical data exchange.
 						Full detail of JREAP instructions and procedures can be found in ATDLP-5.18(B)(1).</para>
-					<para>Link 16 messages (i.e. J-series) are embedded inside of the JREAP. JREAP management
+            <para>Link 16 messages (i.e. J-series) are embedded inside of the JREAP. JREAP management
 						messages (i.e. X-series) are used, in order to ensure proper dissemination of the Link 16 messages.</para>
-					<para>Capabilities are provided that include:</para>
-					<itemizedlist>
-						<listitem>
-							<para>Extending the range-limited tactical networks to beyond LOS while reducing their
+            <para>Capabilities are provided that include:</para>
+            <itemizedlist>
+               <listitem>
+                  <para>Extending the range-limited tactical networks to beyond LOS while reducing their
 								dependence upon relay platforms</para>
-						</listitem>
-						<listitem>
-							<para>Reducing the loading on stressed networks</para>
-						</listitem>
-						<listitem>
-							<para>Providing backup communications in the event of the loss of the normal link</para>
-						</listitem>
-						<listitem>
-							<para>Providing a connection to a platform that may not be equipped with the specialized
+               </listitem>
+               <listitem>
+                  <para>Reducing the loading on stressed networks</para>
+               </listitem>
+               <listitem>
+                  <para>Providing backup communications in the event of the loss of the normal link</para>
+               </listitem>
+               <listitem>
+                  <para>Providing a connection to a platform that may not be equipped with the specialized
 								communications equipment for that TDL.</para>
-						</listitem>
-					</itemizedlist>
-					<para>For media that do not support OSI network and transport layers, the JREAP provides network
+               </listitem>
+            </itemizedlist>
+            <para>For media that do not support OSI network and transport layers, the JREAP provides network
 						and transport layer functionality. For media supporting OSI network and transport layers,
 						the JREAP is encapsulated within those layers. JREAP software can be integrated into a host
 						system or into a stand-alone processor. The appropriate interface terminals are required
-						at each end of any JREAP alternate media link.</para></description>
+						at each end of any JREAP alternate media link.</para>
+         </description>
          <reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
          <obgroup obligation="conditional">
             <description>The SIMPLE protocol is going to be used only for Verification and Validation
@@ -56935,10 +56950,10 @@ following standard apply.</description>
             <description>For interconnecting Track Management Service the following transport protocol
 							to share OTH-GOLD messages is mandatory:
 						<itemizedlist>
-							<listitem>
-								<para>TCP (connect, send, disconnect) - default port:2020</para>
-							</listitem>
-						</itemizedlist>
+                  <listitem>
+                     <para>TCP (connect, send, disconnect) - default port:2020</para>
+                  </listitem>
+               </itemizedlist>
 						End-users that do not have RMP Applications MAY generate OTH-GOLD messages manually and transmit
 						them via eMail/SMTP (see also Message Text Format messaging).</description>
          </obgroup>
@@ -56947,37 +56962,37 @@ following standard apply.</description>
          </obgroup>
          <guide>The implementation of the following message types is mandatory:
          <itemizedlist>
-					 <listitem>
-						<para>Contact Report (GOLD)</para>
-					 </listitem>
-					</itemizedlist>
+               <listitem>
+                  <para>Contact Report (GOLD)</para>
+               </listitem>
+            </itemizedlist>
 					The implementation of the following message types is optional:
 					<itemizedlist>
-						<listitem>
-							<para>Area of Interest Filter (AOI),</para>
-						</listitem>
-						<listitem>
-							<para>FOTC Situation Report,</para>
-						</listitem>
-						<listitem>
-							<para>Group Track Message (GROUP),</para>
-						</listitem>
-						<listitem>
-							<para>Operator Note (OPNOTE),</para>
-						</listitem>
-						<listitem>
-							<para>Overlay Message (OVLY1, OVLY2),</para>
-						</listitem>
-						<listitem>
-							<para>PIM Track (PIMTRACK),</para>
-						</listitem>
-						<listitem>
-							<para>Screen Kilo Message (SCRNKILO),</para>
-						</listitem>
-						<listitem>
-							<para>4-Whiskey Message (4WHISKEY)</para>
-						</listitem>
-					</itemizedlist>
+               <listitem>
+                  <para>Area of Interest Filter (AOI),</para>
+               </listitem>
+               <listitem>
+                  <para>FOTC Situation Report,</para>
+               </listitem>
+               <listitem>
+                  <para>Group Track Message (GROUP),</para>
+               </listitem>
+               <listitem>
+                  <para>Operator Note (OPNOTE),</para>
+               </listitem>
+               <listitem>
+                  <para>Overlay Message (OVLY1, OVLY2),</para>
+               </listitem>
+               <listitem>
+                  <para>PIM Track (PIMTRACK),</para>
+               </listitem>
+               <listitem>
+                  <para>Screen Kilo Message (SCRNKILO),</para>
+               </listitem>
+               <listitem>
+                  <para>4-Whiskey Message (4WHISKEY)</para>
+               </listitem>
+            </itemizedlist>
          </guide>
          <status mode="accepted">
             <uri/>
