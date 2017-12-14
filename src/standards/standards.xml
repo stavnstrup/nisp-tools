@@ -52532,7 +52532,7 @@ applications. </applicability>
       <standard id="xmpp-xep-0055" tag="XEP 0055">
          <document orgid="xmpp" pubnum="XEP-0055" title="XEP-0055: Jabber Search" date="2009-09-15"/>
          <applicability>This specification documents a protocol currently used to search information repositories on the Jabber network. To date, the jabber:iq:search protocol has been used mainly to search for people who have registered with user directories (e.g., the "Jabber User Directory" hosted at users.jabber.org). However, the jabber:iq:search protocol is not limited to user directories, and could be used to search other Jabber information repositories (such as chatroom directories) or even to provide a Jabber interface to conventional search engines.  The basic functionality is to query an information repository regarding the possible search fields, to send a search query, and to receive search results. Note well that there is currently no mechanism for paging through results or limiting the number of "hits", and that the allowable search fields are limited to those defined in the XML schema; however, extensibility MAY be provided via the Data Forms (XEP-0004) protocol.</applicability>
-         <responsibleparty rpref="ncia"/>
+         <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
             <uri>http://xmpp.org/extensions/xep-0055.html</uri>
             <history>
@@ -52540,6 +52540,25 @@ applications. </applicability>
             </history>
          </status>
          <uuid>4faca012-5c36-4a5c-8339-bc859228e9a9</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0059" tag="XEP 0059">
+         <document orgid="xmpp" pubnum="XEP-0059" title="XEP-0059: Result Set Management" date="2006-09-20" version="1.0"/>
+         <applicability>This specification defines an XMPP protocol extension that enables an entity to page
+					through and otherwise manage the receipt of large result sets. The protocol can be used in the
+					context of any XMPP protocol that might send large result sets (such as service discovery,
+					multi-user chat, and publish-subscribe). While the requesting entity in such an interaction
+					can explicitly request the use of result set management, an indication that result set
+					management is in use can also be proactively included by the responding entity when returning
+					a limited result set in response to a query.</applicability>
+         <responsibleparty rpref="ncia"/>
+         <status mode="accepted">
+            <uri>https://xmpp.org/extensions/xep-0059.html</uri>
+            <history>
+               <event date="2017-12-06" flag="added" rfcp="11-29" version="11.0"/>
+            </history>
+         </status>
+         <uuid>d5d9a19d-91fe-4d6e-9f4b-98de380780dd</uuid>
       </standard>
 
       <standard tag="XEP-0060" id="xmpp-xep-0060">
@@ -52652,19 +52671,18 @@ applications. </applicability>
       </standard>
 
       <standard tag="XEP-0082" id="xmpp-xep-0082">
-         <document orgid="xmpp" pubnum="XEP-0082" date="2013-03-07" version="1.1" title="XEP-0082: XMPP Date and Time Profiles"/>
-         <applicability>
-            This document specifies a standardization of ISO 8601 profiles and
-            their lexical representation for use in XMPP protocol extensions.
-         </applicability>
-         <responsibleparty rpref="ncia"/>
+         <document orgid="xmpp" pubnum="XEP-0082" date="2013-09-26" version="1.1" title="XEP-0082: XMPP Date and Time Profiles"/>
+         <applicability>This document specifies a standardization of ISO 8601 profiles and their lexical representation for use
+					in XMPP protocol extensions.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
-            <uri>http://xmpp.org/extensions/xep-0082.html</uri>
+            <uri>https://xmpp.org/extensions/xep-0082.html</uri>
             <history>
                <event flag="added" date="2013-09-04" version="8.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
                <event flag="changed" date="2017-04-19" rfcp="9-15" version="10.0"/>
                <event flag="changed" date="2017-04-19" rfcp="9-15" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>05d2e3a1-06e6-40c8-b3da-d50ceb60d2dc</uuid>
@@ -53105,28 +53123,45 @@ applications. </applicability>
       </standard>
 
       <standard id="xmpp-xep-0313" tag="XEP-0313">
-         <document orgid="xmpp" pubnum="XEP-0313" title="XEP-0313: Message Archive Management (MAM)" date="2013-05-31"/>
-         <applicability>This document defines a protocol to query and control an archive of messages stored on a server</applicability>
-         <responsibleparty rpref="undefined"/>
-         <status mode="deleted">
-            <uri>http://xmpp.org/extensions/xep-0313.html</uri>
+         <document orgid="xmpp" pubnum="XEP-0313" title="XEP-0313: Message Archive Management" date="2017-02-22" version="0.6.1"/>
+         <applicability>This document defines a protocol to query and control an archive of
+					messages stored on a server.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://xmpp.org/extensions/xep-0313.html</uri>
             <history>
                <event date="2014-11-25" flag="added" rfcp="8-5" version="9.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event date="2017-12-06" flag="added" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>9ef2f9d5-b073-4769-9242-5f2b8756341e</uuid>
       </standard>
 
+      <standard id="xmpp-xep-0334" tag="XEP-0334">
+         <document orgid="xmpp" pubnum="XEP-0334" title="XEP-0334: Message Processing Hints" date="2015-09-01" version="0.2"/>
+         <applicability>This document defines a way to include hints to entities routing or receiving a message.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://xmpp.org/extensions/xep-0334.html</uri>
+            <history>
+               <event date="2017-12-06" flag="added" rfcp="11-29" version="11.0"/>
+            </history>
+         </status>
+         <uuid>b651792d-8da3-4ad6-9bc4-cb1fd1be5338</uuid>
+      </standard>
+
       <standard id="xmpp-xep-0346" tag="XEP-0346">
-         <document orgid="xmpp" pubnum="XEP-0346" title="XEP-0346: Form Discovery and Publishing (FDP)" date="2014-04-10"/>
-         <applicability>This specification describes a series of conventions that allow the management of form templates and publishing of completed forms</applicability>
-         <responsibleparty rpref="undefined"/>
-         <status mode="deleted">
-            <uri>http://xmpp.org/extensions/xep-0346.html</uri>
+         <document orgid="xmpp" pubnum="XEP-0346" title="XEP-0346: Form Discovery and Publishing" date="2017-09-11" version="0.2"/>
+         <applicability>This specification describes a series of conventions that allow the management of form
+					templates and publishing of completed forms.</applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://xmpp.org/extensions/xep-0346.html</uri>
             <history>
                <event date="2014-11-25" flag="added" rfcp="8-5" version="9.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event date="2017-12-06" flag="added" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>af9b17ee-699d-43fe-9dfa-2542310e6106</uuid>
@@ -54096,33 +54131,39 @@ applications. </applicability>
 					environment.</description>
          <reftaxonomy refid="T-60aedc7e-b256-4242-9a18-51b116dc8559-X"/>
          <obgroup obligation="mandatory">
-						<description>
-							<para>The required conformance level for Service Management and Control Orchestration
-								is &quot;Level 1 conformance&quot;. This is defined in terms of implemented</para>
-							<itemizedlist>
-								<listitem><para>Mandatory data attributes</para></listitem>
-								<listitem><para>Mandatory operations</para></listitem>
-								<listitem><para>Mandatory filters and attribute selection</para></listitem>
-							</itemizedlist>
-							<para>Level 1 conformance ensures that any two given federated Service Management System
+            <description>
+               <para>The required conformance level for Service Management and Control Orchestration
+								is "Level 1 conformance". This is defined in terms of implemented</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>Mandatory data attributes</para>
+                  </listitem>
+                  <listitem>
+                     <para>Mandatory operations</para>
+                  </listitem>
+                  <listitem>
+                     <para>Mandatory filters and attribute selection</para>
+                  </listitem>
+               </itemizedlist>
+               <para>Level 1 conformance ensures that any two given federated Service Management System
 								implementations of the SMC process APIs will be in practice interoperable with a core
 								feature set. The core feature set is sufficient to enable incident, request, problem
 								and change (process) handovers between Service Providers. Level 1 also provides
 								updates to subscribed Service Providers when an incident, request, problem or change
 								changes status. Implementers MAY implement higher levels of conformance.</para>
-						</description>
+            </description>
             <refstandard refid="tm-forum-tr250"/>
          </obgroup>
          <obgroup obligation="recommended">
-						<description>
-							<para>Compliance with the Service Implementation Profiles for REST Messaging/REST Security
+            <description>
+               <para>Compliance with the Service Implementation Profiles for REST Messaging/REST Security
 								Services that the implementations meet a set of non-functional requirements aligned with
 								emerging message labelling and security standards.</para>
-						</description>
+            </description>
             <refprofile refid="sip-rest-rest-security"/>
             <refprofile refid="sip-rest-msg-rest-messaging"/>
          </obgroup>
-				 <guide>The Service Management and Control Orchestration Profile will expand over time and
+         <guide>The Service Management and Control Orchestration Profile will expand over time and
 					new APIs are expected to be added as they mature as commercial standards.</guide>
          <status mode="accepted">
             <uri/>
@@ -54185,17 +54226,18 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-uni-collab" title="FMN Spiral 2 Unified Collaboration Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
-            <refprofile refid="fmn2-pr-secure-voice"/>
-            <refprofile refid="fmn2-pr-call-sign"/>
-            <refprofile refid="fmn2-pr-video-vased-collab"/>
-            <refprofile refid="fmn2-pr-content-encapsulation-profile"/>
-            <refprofile refid="fmn2-pr-unified-audio-video"/>
-            <refprofile refid="fmn2-pr-number-plan"/>
+            <refprofile refid="fmn2-pr-basic-text-based-collaboration-chatroom"/>
+            <refprofile refid="fmn2-pr-video-based-collab"/>
             <refprofile refid="fmn2-pr-formatted-messages"/>
-            <refprofile refid="fmn2-pr-informal-messaging"/>
+            <refprofile refid="fmn2-pr-number-plan"/>
             <refprofile refid="fmn2-pr-audio-collab"/>
+            <refprofile refid="fmn2-pr-secure-voice"/>
+            <refprofile refid="fmn2-pr-content-encapsulation-profile"/>
+            <refprofile refid="fmn2-pr-call-sign"/>
+            <refprofile refid="fmn2-pr-unified-audio-video"/>
+            <refprofile refid="fmn2-pr-informal-messaging"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
@@ -54204,6 +54246,20 @@ applications. </applicability>
             </history>
          </status>
          <uuid>777b9cb0-e177-4e49-8351-36f5c695740a</uuid>
+      </profile>
+
+      <profile id="fmn2-pr-basic-text-based-collaboration-chatroom" title="FMN Spiral 2 Basic Text-based Collaboration Chatroom Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <subprofiles>
+            <refprofile refid="fmn2-basic-text-based-collaboration-chatroom-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2017-12-06" flag="added" rfcp="11-29" version="11.0"/>
+            </history>
+         </status>
+         <uuid>7540ef96-8940-48c6-924d-efb4de2519dc</uuid>
       </profile>
 
       <profile id="fmn2-pr-unified-audio-video" title="FMN Spiral 2 Unified Audio and Video Profile">
@@ -54226,8 +54282,8 @@ applications. </applicability>
          <uuid>e4b2ed46-61b5-4d92-9ea0-e94f97d77b28</uuid>
       </profile>
 
-      <profile id="fmn2-pr-video-vased-collab" title="Video-based Collaboration Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+      <profile id="fmn2-pr-video-based-collab" title="Video-based Collaboration Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
             <refprofile refid="fmn2-video-based-collaboration-profile"/>
          </subprofiles>
@@ -54235,6 +54291,7 @@ applications. </applicability>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>93931343-ee95-4a3c-82ac-bd52b2a582e1</uuid>
@@ -55936,6 +55993,34 @@ protocols.</description>
          <uuid>5a1933e4-6a16-482a-bb47-5544fd1b23a6</uuid>
       </serviceprofile>
 
+      <serviceprofile id="fmn2-basic-text-based-collaboration-chatroom-profile" title="Basic Text-based Collaboration Chatroom Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Basic Text-based Collaboration Chatroom Profile provides standards and guidance to
+					host chatrooms to support persistent near-real time text-based group collaboration capability (chat)
+					for time critical reporting and decision making in military operations.</description>
+         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+         <reftaxonomy refid="T-c31cbe2b-47ef-432a-b428-90cdea2e377c-X"/>
+         <obgroup obligation="mandatory">
+            <description>XMPP Services hosting the shared chatrooms must comply with the following additional
+							extensions.</description>
+            <refstandard refid="xmpp-xep-0059"/>
+            <refstandard refid="xmpp-xep-0082"/>
+            <refstandard refid="xmpp-xep-0313"/>
+         </obgroup>
+         <obgroup obligation="optional">
+            <description>XMPP Services hosting the shared chatrooms may comply with the following additional extensions.</description>
+            <refstandard refid="xmpp-xep-0334"/>
+            <refstandard refid="xmpp-xep-0346"/>
+         </obgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2017-12-06" flag="added" rfcp="11-29" version="11.0"/>
+            </history>
+         </status>
+         <uuid>c1f2d0f0-d963-4384-b761-5c5af0247a8b</uuid>
+      </serviceprofile>
+
       <serviceprofile id="fmn2-basic-text-based-collaboration-profile" title="Basic Text-based Collaboration Profile">
          <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
          <description>The Basic Text-based Collaboration Profile provides standards and guidance to establish a basic near-real time                                                        text-based group collaboration capability (chat) for time critical reporting and decision making in military operations.</description>
@@ -56015,7 +56100,7 @@ protocols for interoperability of chat services.</description>
          <description>The Character Encoding Profile provides standards and guidance for the encoding
 					of character sets.</description>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
-         <reftaxonomy refid="T-6fe5364b-2627-4501-9477-c7e9932e618d-X"/>				 
+         <reftaxonomy refid="T-6fe5364b-2627-4501-9477-c7e9932e618d-X"/>
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
          <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
          <obgroup obligation="mandatory">
@@ -56224,29 +56309,29 @@ protocols for interoperability of chat services.</description>
          </obgroup>
          <guide>The Identity Providers must support the following components of the SAML 2.0 specification:
 					<itemizedlist>
-						<listitem>
-							<para>Profiles</para>
-							<itemizedlist>
-								<listitem>
-									<para>Web Browser SSO Profile</para>
-								</listitem>
-								<listitem>
-									<para>Single Logout Profile</para>
-								</listitem>
-							</itemizedlist>
-						</listitem>
-						<listitem>
-							<para>Bindings:</para>
-							<itemizedlist>
-								<listitem>
-									<para>HTTP Redirect Binding</para>
-								</listitem>
-								<listitem>
-									<para>HTTP POST Binding.</para>
-								</listitem>
-							</itemizedlist>
-						</listitem>
-					</itemizedlist>
+               <listitem>
+                  <para>Profiles</para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>Web Browser SSO Profile</para>
+                     </listitem>
+                     <listitem>
+                        <para>Single Logout Profile</para>
+                     </listitem>
+                  </itemizedlist>
+               </listitem>
+               <listitem>
+                  <para>Bindings:</para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>HTTP Redirect Binding</para>
+                     </listitem>
+                     <listitem>
+                        <para>HTTP POST Binding.</para>
+                     </listitem>
+                  </itemizedlist>
+               </listitem>
+            </itemizedlist>
          </guide>
          <status mode="accepted">
             <uri/>
@@ -56471,14 +56556,14 @@ A075)</para>
       <serviceprofile id="fmn2-geospatial-data-exchange-profile" title="Geospatial Data Exchange Profile">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <description>
-					<para>Maps, geographical overviews and digital images provide valuable knowledge of a mission area
+            <para>Maps, geographical overviews and digital images provide valuable knowledge of a mission area
 						and are intensively used for planning and mission execution purposes at every level of command.
 						Geospatial information (GI) requirements are typically defined by product type (what is
 						required – the level of detail at a specific scale) and coverage (where it is required).
 						Geospatial support covers land, sea and air-space (battle space) segments and consists
 						of four main product types: topographical, hydrographical, aeronautical information and
 						suitable geospatially referenced imagery.</para>
-					<para>Typically, maps and geospatial1 datasets are being produced by different organisations
+            <para>Typically, maps and geospatial1 datasets are being produced by different organisations
 					and need to be exchanged (e.g. via automated or manual file transfer) between different
 					participants using standardised exchange formats. These datasets would then be loaded
 					into specialised geospatial information systems (GIS) and published via standardized Web
@@ -56522,21 +56607,22 @@ A075)</para>
       <serviceprofile id="fmn2-geospatial-web-feeds-profile" title="Geospatial Web Feeds Profile">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <description>
-					<para>The Geospatial Web Feeds Profile provides standards and guidance for the delivery
+            <para>The Geospatial Web Feeds Profile provides standards and guidance for the delivery
 						of geospatial content to web sites and to user agents, including the encoding of location
 						as part of web feeds.</para>
-					<para>Feed processing software is required to either read or ignore these extensions and shall
+            <para>Feed processing software is required to either read or ignore these extensions and shall
 						not fail if these extensions are present, so there is no danger of breaking someone's
 						feed reader (or publisher) by including this element in a feed.</para>
-					</description>
+         </description>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
          <obgroup obligation="recommended">
             <description>
-							<para>GeoRSS GML Profile 1.0 a GML subset for point "gml:Point", line "gml:LineString",
+               <para>GeoRSS GML Profile 1.0 a GML subset for point "gml:Point", line "gml:LineString",
 								polygon "gml:Polygon", and box "gml:Envelope".</para>
-							<para>In Atom feeds, location shall be specified using Atom 1.0's official extension
+               <para>In Atom feeds, location shall be specified using Atom 1.0's official extension
 								mechanism in combination with the GeoRSS GML Profile 1.0 whereby a "georss:where"
-								element is added as a child of the element.</para></description>
+								element is added as a child of the element.</para>
+            </description>
             <refstandard refid="ogc-06-050r3"/>
          </obgroup>
          <obgroup obligation="mandatory">
@@ -57320,58 +57406,58 @@ as specified in:
          <obgroup obligation="recommended">
             <description>The following extended attribute should be included in the message as nested
 							sub-entities mapped as follows: confidentialityInformation as "related object" with involvement
-							&quot;confidentialityInformation&quot; and with PolicyIdentifier, Classification, Privacy Mark and
+							"confidentialityInformation" and with PolicyIdentifier, Classification, Privacy Mark and
 							Category.</description>
             <refstandard refid="nso-stanag4774"/>
          </obgroup>
          <guide>The following set of extended attributes shall be included in the message as nested
 					sub-entities mapped as follows:
 					<itemizedlist>
-						<listitem>
-							<para>securityMarking: human readable text reflecting the security classification of the
-								incident in accordance with the applicable security policy (e.g. &quot;NATO UNCLASSIFIED&quot;)</para>
-						</listitem>
-						<listitem>
-							<para>impactedService: as &quot;related object&quot; with involvement: &quot;impactedService&quot;
-								and reference pointing to a resource of type &quot;Service&quot;</para>
-						</listitem>
-						<listitem>
-							<para>assigneeGroup: support group to which the incident is assigned to be implemented as
-								&quot;related party&quot; with role: &quot;assigneeGroup&quot; and reference pointing
-								to a &quot;Party&quot; resource</para>
-						</listitem>
-						<listitem>
-							<para>attachment: as &quot;related object&quot; with involvement: &quot;relatedAttachment&quot; and
+               <listitem>
+                  <para>securityMarking: human readable text reflecting the security classification of the
+								incident in accordance with the applicable security policy (e.g. "NATO UNCLASSIFIED")</para>
+               </listitem>
+               <listitem>
+                  <para>impactedService: as "related object" with involvement: "impactedService"
+								and reference pointing to a resource of type "Service"</para>
+               </listitem>
+               <listitem>
+                  <para>assigneeGroup: support group to which the incident is assigned to be implemented as
+								"related party" with role: "assigneeGroup" and reference pointing
+								to a "Party" resource</para>
+               </listitem>
+               <listitem>
+                  <para>attachment: as "related object" with involvement: "relatedAttachment" and
 								reference pointing to a binary file resource</para>
-						</listitem>
-						<listitem>
-							<para>relatedEvents: as &quot;related object&quot; with involvement: &quot;relatedEvent&quot;
-							and reference pointing to a resource of type &quot;Event&quot;</para>
-						</listitem>
-						<listitem>
-							<para>relatedProblems: as &quot;related object&quot; with involvement: &quot;relatedProblem&quot;"
-								and reference pointing to a resource of type &quot;Problem&quot;</para>
-						</listitem>
-						<listitem>
-							<para>relatedServiceRequests: as &quot;related object&quot; with involvement:
-								&quot;relatedServiceRequest&quot; and reference pointing to a resource of type
-								&quot;ServiceRequest&quot;</para>
-						</listitem>
-						<listitem>
-							<para>relatedSecurityIncidents: as &quot;related object&quot; with involvement:
-								&quot;relatedSecurityIncident&quot; and reference pointing to a resource of type
-								&quot;SecurityIncident&quot;</para>
-						</listitem>
-						<listitem>
-							<para>relatedMajorIncidents: as &quot;related object&quot; with involvement:
-								&quot;relatedMajorIncident&quot; and reference pointing to a resource of type
-								&quot;MajorIncident&quot;</para>
-						</listitem>
-						<listitem>
-							<para>location: as &quot;related object&quot; with involvement: &quot;impactedLocation&quot; and
-								reference pointing to a resource of type &quot;Location&quot;</para>
-						</listitem>
-					</itemizedlist>
+               </listitem>
+               <listitem>
+                  <para>relatedEvents: as "related object" with involvement: "relatedEvent"
+							and reference pointing to a resource of type "Event"</para>
+               </listitem>
+               <listitem>
+                  <para>relatedProblems: as "related object" with involvement: "relatedProblem""
+								and reference pointing to a resource of type "Problem"</para>
+               </listitem>
+               <listitem>
+                  <para>relatedServiceRequests: as "related object" with involvement:
+								"relatedServiceRequest" and reference pointing to a resource of type
+								"ServiceRequest"</para>
+               </listitem>
+               <listitem>
+                  <para>relatedSecurityIncidents: as "related object" with involvement:
+								"relatedSecurityIncident" and reference pointing to a resource of type
+								"SecurityIncident"</para>
+               </listitem>
+               <listitem>
+                  <para>relatedMajorIncidents: as "related object" with involvement:
+								"relatedMajorIncident" and reference pointing to a resource of type
+								"MajorIncident"</para>
+               </listitem>
+               <listitem>
+                  <para>location: as "related object" with involvement: "impactedLocation" and
+								reference pointing to a resource of type "Location"</para>
+               </listitem>
+            </itemizedlist>
          </guide>
          <status mode="accepted">
             <uri/>
@@ -57488,7 +57574,7 @@ during the mission planning.</guide>
             <refstandard refid="w3c-rec-xmlschema-2-20041028"/>
             <refstandard refid="w3c-note-xhtml1-schema-20020902"/>
          </obgroup>
-				 <guide>XML shall be used for data exchange to satisfy those Information Exchange Requirements within
+         <guide>XML shall be used for data exchange to satisfy those Information Exchange Requirements within
 					 a FMN instance that are not addressed by a specific information exchange standard. XML
 					 Schemas and namespaces are required for all XML documents.</guide>
          <status mode="accepted">
@@ -57519,37 +57605,36 @@ during the mission planning.</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-video-based-collaboration-profile" title="Video-based Collaboration Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Video-based Collaboration Profile provides standards and guidance for the implementation and configuration of                                                   Video Tele Conferencing (VTC) systems and services in a federated mission network.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Video-based Collaboration Profile provides standards and guidance for the
+					implementation and configuration of Video Tele Conferencing (VTC) systems and services in
+					a federated mission network.</description>
          <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
-         <obgroup obligation="mandatory">
-            <description>The following standards are required for VTC services.</description>
-            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
-            <refstandard refid="itu-t-g.711"/>
-         </obgroup>
          <obgroup obligation="mandatory">
             <description>The following standards are required for video coding in VTC.</description>
             <refstandard refid="itu-t-h.264"/>
             <refstandard refid="ietf-rfc6184"/>
-            <refstandard refid="itu-t-h.239"/>
+         </obgroup>
+         <obgroup obligation="mandatory">
+            <description>The following standards are required for audio coding in VTC.</description>
+            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+            <refstandard refid="itu-t-g.711"/>
          </obgroup>
          <obgroup obligation="conditional">
-            <description>Not required at this time, but when available it can be implemented between dedicated network segments after approval from the MN administrative authority.</description>
+            <description>Not required at this time, but when available it can be implemented between
+							dedicated network segments after approval from the MN administrative authority.</description>
             <refstandard refid="ietf-rfc4582"/>
          </obgroup>
-         <guide>It Is recommended that dynamic port ranges are
-constrained to a limited and agreed number. This
-is an activity that needs to be performed at the
-mission planning stage. Different vendors have
-different limitations on fixed ports. However
-common ground can always be found.</guide>
-         <guide>As a Minimum G.722.1 is to be used. Others are
-exceptions and need to be agreed by the MN
-administrative authority for video calls.</guide>
+         <guide>It Is recommended that dynamic port ranges are constrained to a limited and agreed number.
+					This is an activity that needs to be performed at the mission planning stage. Different vendors
+					have different limitations on fixed ports. However common ground can always be found.</guide>
+         <guide>As a Minimum G.722.1 is to be used. Others are exceptions and need to be agreed by the MN
+					administrative authority for video calls.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>8097537b-0d04-4206-87d0-5305b1b1bbb8</uuid>
@@ -57558,10 +57643,10 @@ administrative authority for video calls.</guide>
       <serviceprofile id="fmn2-web-content-profile" title="Web Content Profile">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <description>
-					<para>The Web Content Profile provides standards and guidance for the processing, sharing
+            <para>The Web Content Profile provides standards and guidance for the processing, sharing
 						and presentation of web content on federated mission networks. Web presentation services must be
 						based on a fundamental set of basic and widely understood protocols, such as those listed below.</para>
-					<para>Recommendations in the FMN Spiral 2 Service Interface Profile for Web Applications are intended
+            <para>Recommendations in the FMN Spiral 2 Service Interface Profile for Web Applications are intended
 					to improve the experience of Web applications and to make information and services available to users
 					irrespective of their device and Web browser. However, it does not mean that exactly the same
 					information is available in an identical representation across all devices: the context of mobile
@@ -57570,7 +57655,8 @@ administrative authority for video calls.</guide>
 					user contexts. While services may be most appropriately experienced in one context or another, it
 					is considered best practice to provide as reasonable experience as is possible given device
 					limitations and not to exclude access from any particular class of device, except where this
-					is necessary because of device limitations.</para></description>
+					is necessary because of device limitations.</para>
+         </description>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
          <obgroup obligation="mandatory">
             <description>Providing a common style sheet language for describing presentation semantics
@@ -57626,10 +57712,10 @@ administrative authority for video calls.</guide>
          </obgroup>
          <guide>Additional Implementation Guidance:
 					<itemizedlist>
-						<listitem>
-							<para>DGIWG – 122, DGIWG - Web Feature Service 2.0 Profile v.2.0.0, 16 November 2015</para>
-						</listitem>
-					</itemizedlist>
+               <listitem>
+                  <para>DGIWG – 122, DGIWG - Web Feature Service 2.0 Profile v.2.0.0, 16 November 2015</para>
+               </listitem>
+            </itemizedlist>
          </guide>
          <status mode="accepted">
             <uri/>
@@ -57662,25 +57748,25 @@ administrative authority for video calls.</guide>
          </obgroup>
          <guide>RSS and Atom documents should reference related OpenSearch description documents via
 					the Atom 1.0 "link" element, as specified in Section 4.2.7 of RFC 4287.</guide>
-         <guide>The &quot;rel&quot; attribute of the link element should contain the value &quot;search&quot;
+         <guide>The "rel" attribute of the link element should contain the value "search"
 					when referring to OpenSearch description documents. This relationship value is pending IANA
 					registration. The reuse of the Atom link element is recommended in the context of other syndication
 					formats that do natively support comparable functionality.</guide>
          <guide>The following restrictions apply:
           <itemizedlist>
                <listitem>
-                  <para>The &quot;type&quot; attribute must contain the value
-										&quot;application/opensearchdescription+xml&quot;.</para>
+                  <para>The "type" attribute must contain the value
+										"application/opensearchdescription+xml".</para>
                </listitem>
                <listitem>
-                  <para>The &quot;rel&quot; attribute must contain the value &quot;search&quot;.</para>
+                  <para>The "rel" attribute must contain the value "search".</para>
                </listitem>
                <listitem>
-                  <para>The &quot;href&quot; attribute must contain a URI that resolves to an OpenSearch
+                  <para>The "href" attribute must contain a URI that resolves to an OpenSearch
 										description document.</para>
                </listitem>
                <listitem>
-                  <para>The &quot;title&quot; attribute may contain a human-readable plain text string describing the
+                  <para>The "title" attribute may contain a human-readable plain text string describing the
 										search engine.</para>
                </listitem>
             </itemizedlist>
@@ -57706,10 +57792,10 @@ administrative authority for video calls.</guide>
          </obgroup>
          <guide>Additional Implementation Guidance:
 					<itemizedlist>
-						<listitem>
-							<para>DGIWG – 112, DGIWG – Web Map Service 1.3 Profile v.2.1.0, 16 November 2015</para>
-						</listitem>
-					</itemizedlist>
+               <listitem>
+                  <para>DGIWG – 112, DGIWG – Web Map Service 1.3 Profile v.2.1.0, 16 November 2015</para>
+               </listitem>
+            </itemizedlist>
          </guide>
          <status mode="accepted">
             <uri/>
@@ -57774,15 +57860,15 @@ administrative authority for video calls.</guide>
 							component, system, or network failures.</description>
             <refstandard refid="oasis-relmes"/>
          </obgroup>
-				 <guide>
-					<para>The preferred method for implementing web-services are SOAP, however, there are
+         <guide>
+            <para>The preferred method for implementing web-services are SOAP, however, there are
 						many use cases (mashups etc.) where a REST based interface is easier to implement and
 						sufficient to meet the IERs.</para>
-					<para>Restful services support HTTP caching, if the data the Web service returns is not altered
+            <para>Restful services support HTTP caching, if the data the Web service returns is not altered
 						frequently and not dynamic in nature. REST is particularly useful for restricted-profile devices
 						such as mobile phones and tablets for which the overhead of additional parameters like headers
 						and other SOAP elements are less.</para>
-				 </guide>
+         </guide>
          <status mode="accepted">
             <uri/>
             <history>
