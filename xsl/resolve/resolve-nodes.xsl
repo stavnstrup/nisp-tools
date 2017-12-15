@@ -48,7 +48,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
   <xsl:variable name="pis"><xsl:value-of select="."/></xsl:variable>
 
-<xsl:value-of select="$pis"/>
   <xsl:choose>
     <xsl:when test="starts-with($pis, 'node=')">
       <!-- Get the  the node attribute -->
