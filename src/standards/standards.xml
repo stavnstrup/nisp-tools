@@ -53884,7 +53884,7 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-audio-collab" title="Audio-based Collaboration Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
             <refprofile refid="fmn2-audio-based-collaboration-profile"/>
          </subprofiles>
@@ -53892,6 +53892,7 @@ applications. </applicability>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>27703d68-8bda-4ffe-8a79-91101a0932e9</uuid>
@@ -53987,7 +53988,7 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-formatted-messages" title="Formatted Messages Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
             <refprofile refid="fmn2-formatted-messages-profile"/>
          </subprofiles>
@@ -53995,6 +53996,7 @@ applications. </applicability>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>912afe99-ef6f-44e4-863d-870d7aa62f57</uuid>
@@ -54111,7 +54113,7 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-number-plan" title="Numbering Plans Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
             <refprofile refid="fmn2-numbering-plans-profile"/>
          </subprofiles>
@@ -54119,6 +54121,7 @@ applications. </applicability>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>4b789a04-6315-4afa-9d2e-320d9bc483a9</uuid>
@@ -54176,14 +54179,15 @@ applications. </applicability>
       </serviceprofile>
 
       <profile id="fmn2-pr-secure-voice" title="Secure Voice Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
-            <refprofile refid="fmn1-pr-secure-voice"/>
+            <refprofile refid="fmn2-pr-secure-voice-profile"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>06b2b771-1617-491b-b243-9990047bea33</uuid>
@@ -55974,23 +55978,59 @@ Web</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-audio-based-collaboration-profile" title="Audio-based Collaboration Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Audio-based Collaboration Profile provides standards and guidance for the implementation of an interoperable voice
-system (telephony) on federated mission networks.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Audio-based Collaboration Profile provides standards and guidance for the
+					implementation of an interoperable voice system (telephony) on federated mission networks.</description>
          <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
          <obgroup obligation="mandatory">
-            <description>The following standards are used for audio
-protocols.</description>
+            <description>The following standards are used for audio protocols.</description>
             <refstandard refid="itu-t-g.729"/>
             <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+            <refstandard refid="itu-t-g.711"/>
          </obgroup>
+         <guide>Voice over IP (VoIP) refers to unprotected voice communication services running on
+					unclassified IP networks e.g. conventional IP telephony. Voice over Secure IP (VoSIP) refers to
+					non-protected voice service running on a classified IP networks. Depending on the security
+					classification of a FMN instance, VoIP or VoSIP is mandatory.</guide>
+         <guide>If a member choses to use network agnostic Secure Voice services in addition to VoSIP,
+					then SCIP specifications as defined for audio-based collaboration services (end-to-end protected
+					voice) should be used.</guide>
+         <guide>The voice sampling interval is 40ms.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>5a1933e4-6a16-482a-bb47-5544fd1b23a6</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn2-pr-secure-voice-profile" title="Secure Voice Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Secure Voice Profile provides standards and guidance for the facilitation of secure telephony
+					and other protected audio-based collaboration on federated mission networks.</description>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <obgroup obligation="mandatory">
+            <description>Secure voice services (end-to-end protected voice). SCIP-214 applies to minimum
+							essential requirements for SCIP devices. AComP-5068 Secure Communications Interoperability Protocol
+							(SCIP) Edition A Version 1 provides further guidance for the implementation of SCIP
+							specifications.</description>
+            <refstandard refid="iicwg-scip-210"/>
+            <refstandard refid="iicwg-scip-214"/>
+            <refstandard refid="iicwg-scip-215"/>
+            <refstandard refid="iicwg-scip-220"/>
+            <refstandard refid="iicwg-scip-221"/>
+            <refstandard refid="iicwg-scip-233"/>
+         </obgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2014-11-25" rfcp="8-5" version="9.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
+            </history>
+         </status>
+         <uuid>be180298-0604-4988-963a-b91534e23c29</uuid>
       </serviceprofile>
 
       <serviceprofile id="fmn2-basic-text-based-collaboration-chatroom-profile" title="Basic Text-based Collaboration Chatroom Profile">
@@ -56382,16 +56422,15 @@ protocols for interoperability of chat services.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-formatted-messages-profile" title="Formatted Messages Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Formatted Messages Profile provides standards and a set of minimum formatted messages that are typically used in
-military operations. These formatted messages may be used as payload/attachment in combination with various transport
-mechanisms such as informal messaging (Email), text collaboration (Chat) or in standardized voice procedures, e.g.
-MEDEVAC Requests.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Formatted Messages Profile provides standard for formatted messages that are
+					typically used in military operations. These formatted messages may be used as payload/attachment
+					in combination with various transport mechanisms such as informal messaging (e-mail),
+					text collaboration (chat) or in standardized voice procedures, e.g. MEDEVAC Requests.</description>
          <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
          <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
          <obgroup obligation="mandatory">
-            <refstandard refid="nso-stanag5500ed7"/>
             <refstandard refid="nso-stanag7149ed6"/>
          </obgroup>
          <obgroup obligation="mandatory">
@@ -56401,104 +56440,79 @@ MEDEVAC Requests.</description>
                      <para>In-Flight Report (INFLIGHTREP)</para>
                   </listitem>
                   <listitem>
-                     <para>Reconnaissance Exploitation Report
-(RECCEXREP)</para>
+                     <para>Reconnaissance Exploitation Report (RECCEXREP)</para>
                   </listitem>
                   <listitem>
-                     <para>General Version of Initial Programmed
-Interpretation Report/Supplemental
-Programmed Interpretation Report
-(IPIR/SUPIR)</para>
+                     <para>General Version of Initial Programmed Interpretation
+											Report/Supplemental Programmed Interpretation Report (IPIR/SUPIR)</para>
                   </listitem>
                   <listitem>
-                     <para>ADP Version of Initial Programmed
-Interpretation Report/Supplemental
-Programmed Interpretation Report
-(IPIR/SUPIR)</para>
+                     <para>ADP Version of Initial Programmed Interpretation Report/Supplemental
+											Programmed Interpretation Report (IPIR/SUPIR)</para>
                   </listitem>
                   <listitem>
                      <para>Radar Exploitation Report (RADAREXREP)</para>
                   </listitem>
                   <listitem>
-                     <para>Radar Exploitation Report - Abbreviated
-(RADAREXREP-A)</para>
+                     <para>Radar Exploitation Report - Abbreviated (RADAREXREP-A)</para>
                   </listitem>
                </itemizedlist>
             </description>
             <refstandard refid="nso-stanag3377"/>
          </obgroup>
-         <guide>The following set of APP-11 messages that
-should be supported cited in the form: MTF
-Name (MTF Identifier, MTF Index Ref Number)):
-<itemizedlist>
+         <guide>The following set of APP-11 messages that should be supported cited in the form:
+					MTF Name (MTF Identifier, MTF Index Ref Number)):
+					<itemizedlist>
                <listitem>
-                  <para>PRESENCE REPORT (PRESENCE, A009)</para>
+                  <para>Presence Report (PRESENCE, A009)</para>
                </listitem>
                <listitem>
-                  <para>CASUALTY EVACUATION REQUEST
-(CASEVACREQ, A015)</para>
+                  <para>Enemy Contact Report (ENEMY CONTACT REP, A023)</para>
                </listitem>
                <listitem>
-                  <para>ENEMY CONTACT REPORT (ENEMY
-CONTACT REP, A023)</para>
+                  <para>Incident Report (INCREP, A078)</para>
                </listitem>
                <listitem>
-                  <para>INCIDENT REPORT (INCREP, A078)</para>
+                  <para>Minefield Clearing Reconnaissance Order (MINCLRRECCEORD, A095)</para>
                </listitem>
                <listitem>
-                  <para>MINEFIELD CLEARING RECONNAISSANCE
-ORDER (MINCLRRECCEORD, A095)</para>
+                  <para>Airspace Control Order (ACO, F011)</para>
                </listitem>
                <listitem>
-                  <para>AIRSPACE CONTROL ORDER (ACO, F011)</para>
+                  <para>Air Tasking Order (ATO, F058)</para>
                </listitem>
                <listitem>
-                  <para>AIR TASKING ORDER (ATO, F058)</para>
+                  <para>Killbox Message (KILLBOX, F083)</para>
                </listitem>
                <listitem>
-                  <para>KILLBOX MESSAGE (KILLBOX, F083)</para>
+                  <para>Air Support Request (AIRSUPREQ, F091)</para>
                </listitem>
                <listitem>
-                  <para>AIR SUPPORT REQUEST (AIRSUPREQ,
-F091)</para>
+                  <para>Incident Spot Report (INCSPOTREP, J006)</para>
                </listitem>
                <listitem>
-                  <para>INCIDENT SPOT REPORT (INCSPOTREP,
-J006)</para>
+                  <para>Search and Rescue Incident Report (SARIR, J012)</para>
                </listitem>
                <listitem>
-                  <para>SEARCH AND RESCUE INCIDENT
-REPORT (SARIR, J012)</para>
+                  <para>EOD Incident Report (EODINCREP, J069)</para>
                </listitem>
                <listitem>
-                  <para>EOD INCIDENT REPORT (EODINCREP,
-J069)</para>
+                  <para>Events Report (EVENTREP, J092)</para>
                </listitem>
                <listitem>
-                  <para>EVENTS REPORT (EVENTREP, J092)</para>
+                  <para>Situation Report (SITREP, J095)</para>
                </listitem>
                <listitem>
-                  <para>SITUATION REPORT (SITREP, J095)</para>
+                  <para>Medical evacuation Request (MEDEVAC, A012)</para>
                </listitem>
                <listitem>
-                  <para>OPSITREP IRREGULAR ACTOR
-(OPSITREP IA, A011)</para>
+                  <para>Troops in Contact SALTA Format (SALTATIC, A073)</para>
                </listitem>
                <listitem>
-                  <para>MEDICAL EVACUATION REQUEST
-(MEDEVAC, A012)</para>
+                  <para>Friendly Force Information (FFI, J025)</para>
                </listitem>
                <listitem>
-                  <para>TROOPS IN CONTACT SALTA FORMAT
-(SALTATIC, A073)</para>
-               </listitem>
-               <listitem>
-                  <para>FRIENDLY FORCE INFORMATION (FFI,
-J025)</para>
-               </listitem>
-               <listitem>
-                  <para>UXO IED REPORT 10-LINER (UXOIED,
-A075)</para>
+                  <para>UXO IED Report 10-Liner (UXOIED, A075)</para>
                </listitem>
             </itemizedlist>
          </guide>
@@ -56506,6 +56520,7 @@ A075)</para>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>d3f7676e-2454-4768-ad11-045ae215282e</uuid>
@@ -57197,28 +57212,28 @@ following standard apply.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-numbering-plans-profile" title="Numbering Plans Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Numbering Plans Profile provides standards and guidance for the facilitation of numbering plans of telecommunications, audio and video networks.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Numbering Plans Profile provides standards and guidance for the facilitation
+					of numbering plans of telecommunications, audio and video networks.</description>
          <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
          <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
          <obgroup obligation="mandatory">
-            <description>The following standards are used for numbering.
-Network planners and engineers are reminded
-that in case Canada and United States are both
-participating in a mission network, there is a
-necessity to de-conflict the country code a.k.a.
-Country Identified (CI).</description>
+            <description>The following standards are used for numbering. Network planners and engineers
+							are reminded that in case Canada and United States are both participating in a mission network,
+							there is a necessity to de-conflict the country code a.k.a. Country Identified (CI).</description>
             <refstandard refid="nso-stanag4705ed1"/>
             <refstandard refid="itu-e.123"/>
             <refstandard refid="itu-t-e.164"/>
          </obgroup>
          <obgroup obligation="optional">
+            <description>The following standards are optionally used for numbering</description>
             <refstandard refid="nso-stanag5046ed4"/>
          </obgroup>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>2331e710-64ab-4325-bec4-f7e2da87ea65</uuid>
