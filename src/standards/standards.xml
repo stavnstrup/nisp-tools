@@ -54047,14 +54047,15 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-informal-messaging" title="Informal Messaging Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
-            <refprofile refid="fmn1-informal-messaging"/>
+            <refprofile refid="fmn2-informal-messaging"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>f3599609-4024-44f7-927a-c9f42151607e</uuid>
@@ -55300,6 +55301,61 @@ Releasable to XFOR.</guide>
             </history>
          </status>
          <uuid>4bfdff90-937c-4654-b214-84ac2e00f242</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn2-informal-messaging" title="Informal Messaging Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Informal Messaging Profile provides standards and guidance for SMTP settings and the
+					marking and classification of informal messages.</description>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <obgroup obligation="mandatory">
+            <description>Regarding Simple Mail Transfer Protocol (SMTP), the following standards are mandated
+							for interoperability of e-mail services within the Mission Network.</description>
+            <refstandard refid="ietf-rfc5321"/>
+            <refstandard refid="ietf-rfc1870"/>
+            <refstandard refid="ietf-rfc1985"/>
+            <refstandard refid="ietf-rfc2034"/>
+            <refstandard refid="ietf-rfc2920"/>
+            <refstandard refid="ietf-rfc3207"/>
+            <refstandard refid="ietf-rfc3461"/>
+            <refstandard refid="ietf-rfc3798"/>
+            <refstandard refid="ietf-rfc3885"/>
+            <refstandard refid="ietf-rfc4954"/>
+         </obgroup>
+         <guide>Depending on the protection requirements within the particular FMN instance, messages must be
+					marked in the message header field "Keywords" (IETF RFC 2822) and firstline-of-text in the
+					message body according to the following convention: [PPP] [CLASSIFICATION],
+					Releasable to [MISSION].</guide>
+         <guide>
+            <itemizedlist>
+               <listitem>
+                  <para>"PPP" is a short-name/code for identification of a security policy.</para>
+               </listitem>
+               <listitem>
+                  <para>"CLASSIFICATION" is the classification {SECRET, CONFIDENTIAL, RESTRICTED} or UNCLASSIFIED</para>
+               </listitem>
+               <listitem>
+                  <para>"MISSION" is a name/acronym for identifying the mission.</para>
+               </listitem>
+               <listitem>
+                  <para>"Releasable to" list shall include the name/acronym of the mission and may
+										be extended to include other entities.</para>
+               </listitem>
+            </itemizedlist>
+         </guide>
+         <guide>The use of a short-name/code does not imply that NATO or one or more member Nations
+					recognize those entities.</guide>
+         <guide>Example: Keywords: ITA UNCLASSIFIED, Releasable to XFOR.</guide>
+         <guide>TLS is mandatory for all SMTP communications. Mutual TLS is optional and the choice to
+					implement it must be listed in the Instantiation Instruction.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="2014-11-25" rfcp="8-5" version="9.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
+            </history>
+         </status>
+         <uuid>cd93371c-3939-47eb-949a-c3877be9beba</uuid>
       </serviceprofile>
 
       <serviceprofile id="fmn1-inter-autonomous-systems-ip-transport-profile" title="Inter-Autonomous Systems IP Transport Profile">
@@ -56939,16 +56995,15 @@ Web</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-ipsec-based-media-infrastructure-security-profile" title="IPSec-based Media Infrastructure Security Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The IPSec-based Media Infrastructure Security Profile provides security standards that are used for security of media
-infrastructure based on Internet Protocol Security (IPSec).</description>
-         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The IPSec-based Media Infrastructure Security Profile provides security standards
+					that are used for security of media infrastructure based on Internet Protocol Security (IPSec).</description>
+         <reftaxonomy refid="T-b4f004a3-5940-4438-be5b-2ee8ba014ac2-X"/>
+         <reftaxonomy refid="T-d339cfb9-96a1-493a-a2ab-11cf0dae8aab-X"/>
          <obgroup obligation="conditional">
-            <description>Securing the MN Media infrastructure can be
-done in several ways and that the selection of
-the appropriate method is to be done during the
-mission planning. For this specific method, the
-following standard apply.</description>
+            <description>Securing the MN Media infrastructure can be done in several ways and that the selection of
+							the appropriate method is to be done during the mission planning. For this specific method, the
+							following standard apply.</description>
             <refstandard refid="ietf-rfc7296"/>
             <refstandard refid="ietf-rfc4303"/>
             <refstandard refid="ietf-rfc4754"/>
@@ -56960,6 +57015,7 @@ following standard apply.</description>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>7fb0d720-3491-45f9-bc5d-0e5230db3ac2</uuid>
@@ -57185,11 +57241,11 @@ following standard apply.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-media-infrastructure-taxonomy-profile" title="Media Infrastructure Taxonomy Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <description>The Media Infrastructure Taxonomy Profile provides guidance and taxonomy for media infrastructures.</description>
          <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
          <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
-         <obgroup obligation="mandatory">
+         <obgroup obligation="optional">
             <refstandard refid="ietf-rfc5853"/>
             <refstandard refid="ietf-rfc7092"/>
             <refstandard refid="ietf-rfc7656"/>
@@ -57198,15 +57254,16 @@ following standard apply.</description>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>221bbf1f-21eb-448e-9b23-d9f6994e14e8</uuid>
       </serviceprofile>
 
       <serviceprofile id="fmn2-media-streaming-profile" title="Media Streaming Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <description>The Media Streaming Profile provides standards used to stream media across the mission network.</description>
-         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
          <obgroup obligation="mandatory">
             <refstandard refid="ietf-rfc3550"/>
             <refstandard refid="ietf-rfc4733"/>
@@ -57215,6 +57272,7 @@ following standard apply.</description>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>ef2389c5-2f9a-444a-8128-56118157b454</uuid>
@@ -57528,29 +57586,27 @@ as specified in:
       </serviceprofile>
 
       <serviceprofile id="fmn2-srtp-based-media-infrastructure-security-profile" title="SRTP-based Media Infrastructure Security Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The SRTP-based Media Infrastructure Security Profile provides security standards that are used for security of media
-infrastructure based on Transport Layer Security (TLS) and Secure Real-time Transport Protocol (SRTP).</description>
-         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The SRTP-based Media Infrastructure Security Profile provides security standards
+					that are used for security of media infrastructure based on Transport Layer Security (TLS)
+					and Secure Real-time Transport Protocol (SRTP).</description>
+         <reftaxonomy refid="T-4760c261-4248-4da0-8b39-05ecbe7b2297-X"/>
          <obgroup obligation="conditional">
-            <description>Securing the MN Media infrastructure can be
-done in several ways and that the selection of
-the appropriate method is to be done during the
-mission planning. For this specific method, the
-following standard apply</description>
+            <description>Securing the MN Media infrastructure can be done in several ways and that the selection
+							of the appropriate method is to be done during the mission planning. For this specific method, the
+							following standard apply</description>
             <refstandard refid="ietf-rfc3711"/>
             <refstandard refid="ietf-rfc4568"/>
             <refstandard refid="ietf-rfc5246"/>
             <refstandard refid="ietf-rfc7919"/>
          </obgroup>
-         <guide>Note that securing the MN Media infrastructure
-can be done in several ways and that the
-selection of the appropriate method is to be done
-during the mission planning.</guide>
+         <guide>Note that securing the MN Media infrastructure can be done in several ways and that the
+					selection of the appropriate method is to be done during the mission planning.</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>27665711-843c-43a3-b9f5-3c8ec07a27f8</uuid>
