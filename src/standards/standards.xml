@@ -53974,7 +53974,7 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-content-encapsulation-profile" title="Content Encapsulation Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
             <refprofile refid="fmn2-content-encapsulation"/>
          </subprofiles>
@@ -53982,6 +53982,7 @@ applications. </applicability>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>d58e02c4-5615-4eb0-b776-4140081da0d8</uuid>
@@ -54239,7 +54240,7 @@ applications. </applicability>
             <refprofile refid="fmn2-pr-audio-collab"/>
             <refprofile refid="fmn2-pr-secure-voice"/>
             <refprofile refid="fmn2-pr-content-encapsulation-profile"/>
-            <refprofile refid="fmn2-pr-call-sign"/>
+            <refprofile refid="fmn2-basic-text-based-collaboration-profile"/>
             <refprofile refid="fmn2-pr-unified-audio-video"/>
             <refprofile refid="fmn2-pr-informal-messaging"/>
          </subprofiles>
@@ -54267,20 +54268,20 @@ applications. </applicability>
       </profile>
 
       <profile id="fmn2-pr-unified-audio-video" title="FMN Spiral 2 Unified Audio and Video Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
          <subprofiles>
+            <refprofile refid="fmn2-priority-and-pre-emption-profile"/>
             <refprofile refid="fmn2-session-initiation-and-control-profile"/>
             <refprofile refid="fmn2-media-infrastructure-taxonomy-profile"/>
-            <refprofile refid="fmn2-media-streaming-profile"/>
-            <refprofile refid="fmn2-ipsec-based-media-infrastructure-security-profile"/>
             <refprofile refid="fmn2-srtp-based-media-infrastructure-security-profile"/>
-            <refprofile refid="fmn2-priority-and-pre-emption-profile"/>
-            <refprofile refid="fmn2-basic-text-based-collaboration-profile"/>
+            <refprofile refid="fmn2-ipsec-based-media-infrastructure-security-profile"/>
+            <refprofile refid="fmn2-media-streaming-profile"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>e4b2ed46-61b5-4d92-9ea0-e94f97d77b28</uuid>
@@ -56062,19 +56063,23 @@ Web</guide>
       </serviceprofile>
 
       <serviceprofile id="fmn2-basic-text-based-collaboration-profile" title="Basic Text-based Collaboration Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Basic Text-based Collaboration Profile provides standards and guidance to establish a basic near-real time                                                        text-based group collaboration capability (chat) for time critical reporting and decision making in military operations.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Basic Text-based Collaboration Profile provides standards and guidance to
+					establish a basic near-real time text-based group collaboration capability (chat) for time
+					critical reporting and decision making in military operations.</description>
          <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
          <reftaxonomy refid="T-c31cbe2b-47ef-432a-b428-90cdea2e377c-X"/>
          <obgroup obligation="mandatory">
-            <description>The following standards are the base IETF
-protocols for interoperability of chat services.</description>
+            <description>The following standards are the base IETF protocols for interoperability of
+							chat services.</description>
             <refstandard refid="ietf-rfc6120"/>
             <refstandard refid="ietf-rfc6121"/>
             <refstandard refid="ietf-rfc6122"/>
          </obgroup>
          <obgroup obligation="mandatory">
-            <description>The following standards are required to achieve compliance for an XMPP Server and an XMPP Client dependent upon the categorisation of presenting a core or advanced instant messaging service interface.</description>
+            <description>The following standards are required to achieve compliance for an XMPP Server
+							and an XMPP Client dependent upon the categorisation of presenting a core or advanced
+							instant messaging service interface.</description>
             <refstandard refid="xmpp-xep-0004"/>
             <refstandard refid="xmpp-xep-0012"/>
             <refstandard refid="xmpp-xep-0030"/>
@@ -56100,6 +56105,7 @@ protocols for interoperability of chat services.</description>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>daf4949d-5fef-43dd-a8c3-86546c726ced</uuid>
@@ -56159,15 +56165,11 @@ protocols for interoperability of chat services.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-content-encapsulation" title="Content Encapsulation">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Content Encapsulation Profile provides standards and guidance for content encapsulation within bodies of internet messages, following the Multipurpose Internet Mail Extensions (MIME) specification.</description>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Content Encapsulation Profile provides standards and guidance for content
+					encapsulation within bodies of internet messages, following the Multipurpose Internet
+					Mail Extensions (MIME) specification.</description>
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
-         <obgroup obligation="mandatory">
-            <description>Media and Content Types:</description>
-            <refstandard refid="ietf-rfc1521"/>
-            <refstandard refid="ietf-rfc1896"/>
-            <refstandard refid="ietf-rfc1866"/>
-         </obgroup>
          <obgroup obligation="mandatory">
             <description>MIME Encapsulation</description>
             <refstandard refid="ietf-rfc2045"/>
@@ -56178,11 +56180,18 @@ protocols for interoperability of chat services.</description>
             <refstandard refid="ietf-rfc4288"/>
             <refstandard refid="ietf-rfc6152"/>
          </obgroup>
+         <obgroup obligation="mandatory">
+            <description>Media and Content Types:</description>
+            <refstandard refid="ietf-rfc1521"/>
+            <refstandard refid="ietf-rfc1896"/>
+            <refstandard refid="ietf-rfc1866"/>
+         </obgroup>
          <guide>10 MB max message size limit</guide>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>86d2cd39-c2a0-4e13-bf97-d62de6c89582</uuid>
@@ -57240,9 +57249,11 @@ following standard apply.</description>
       </serviceprofile>
 
       <serviceprofile id="fmn2-priority-and-pre-emption-profile" title="Priority and Pre-emption Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Priority and Pre-emption Profile provides standards are used to execute priority and pre-emption service with SIP.</description>
-         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Priority and Pre-emption Profile provides standards are used to execute priority and
+					pre-emption service with SIP.</description>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
          <obgroup obligation="mandatory">
             <refstandard refid="ietf-rfc4411"/>
             <refstandard refid="ietf-rfc4412"/>
@@ -57251,6 +57262,7 @@ following standard apply.</description>
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>3009cc06-7b90-4026-9f5a-3e71bb6b72f8</uuid>
@@ -57484,9 +57496,10 @@ as specified in:
       </serviceprofile>
 
       <serviceprofile id="fmn2-session-initiation-and-control-profile" title="Session Initiation and Control Profile">
-         <profilespec orgid="fmn" pubnum="" title="Proposed FMN Spiral 2 Profile" date="2017-03-21" version="2.0"/>
-         <description>The Session Initiation and Control Profile provides standards used for session initiation and control.</description>
-         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 2 Standards Profile" date="2017-09-29" version="2.0"/>
+         <description>The Session Initiation and Control Profile provides standards used for session
+					initiation and control.</description>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
          <obgroup obligation="mandatory">
             <description>The following standards define the SIP and RTP support for conferencing.</description>
             <refstandard refid="ietf-rfc4353"/>
@@ -57499,15 +57512,16 @@ as specified in:
             <refstandard refid="ietf-rfc3261"/>
             <refstandard refid="ietf-rfc3262"/>
             <refstandard refid="ietf-rfc3264"/>
-            <refstandard refid="ietf-rfc6665"/>
             <refstandard refid="ietf-rfc3311"/>
             <refstandard refid="ietf-rfc4028"/>
             <refstandard refid="ietf-rfc4566"/>
+            <refstandard refid="ietf-rfc6665"/>
          </obgroup>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-04-30" flag="added" rfcp="9-6" version="10.0"/>
+               <event date="2017-12-06" flag="changed" rfcp="11-29" version="11.0"/>
             </history>
          </status>
          <uuid>6942aa6d-42fb-4474-85a0-6a35905076e6</uuid>
