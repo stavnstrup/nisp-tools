@@ -206,6 +206,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <row>
       <entry><xsl:value-of select="$std/document/@title"/></entry>
       <entry>
+        <xsl:if test="$std/document/@orgid !=''">
+          <xsl:value-of select="/standards/organisations/orgkey[@key=$std/document/@orgid]/@short"/>
+          <xsl:text> </xsl:text>
+        </xsl:if>
         <xsl:if test="$std/document/@pubnum !=''">
           <xsl:value-of select="$std/document/@pubnum"/>
         </xsl:if>
