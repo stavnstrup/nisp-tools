@@ -16,8 +16,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:saxon="http://icl.com/saxon"
                 version='1.1'
-                exclude-result-prefixes="#default">
+                exclude-result-prefixes="#default saxon">
 
 
 <xsl:output indent="yes"/>
@@ -44,45 +45,85 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
     <profilehierachy>
-      <xsl:apply-templates select="records/capabilityprofile"/>
+      <capabilityprofile type="bsp">
+        <xsl:apply-templates select="/standards//bpserviceprofile" mode="copyprofile"/>
+      </capabilityprofile>
+      <xsl:apply-templates select="records/capabilityprofile" mode="copyprofile"/>
     </profilehierachy>
   </standards>
 </xsl:template>
 
 
-<xsl:template match="capabilityprofile">
-  <capabilityprofile id="{@id}">
+<xsl:template match="bpserviceprofile" mode="copyprofile">
+  <serviceprofile>
+    <reftaxonomy refid="{@tref}"/>
+    <xsl:apply-templates mode="copyprofile"/>
+  </serviceprofile>
+</xsl:template>
+
+<xsl:template match="bpgroup" mode="copyprofile">
+  <obgroup obligation="{@mode}">
+    <xsl:apply-templates mode="copyprofile"/>
+  </obgroup>
+</xsl:template>
+
+<xsl:template match="bprefstandard" mode="copyprofile">
+  <hrefstandard refid="{@refid}"/>
+</xsl:template>
+
+
+
+<xsl:template match="capabilityprofile" mode="copyprofile">
+  <capabilityprofile type="cp" id="{@id}">
     <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
   </capabilityprofile>
 </xsl:template>
 
 
 <xsl:template match="profile" mode="copyprofile">
-  <profile>
-    <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
-  </profile>
+  <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
 </xsl:template>
 
 
 <xsl:template match="serviceprofile" mode="copyprofile">
   <serviceprofile id="{@id}">
-    <xsl:apply-templates select="reftaxonomy"/>
-    <xsl:apply-templates select="obgroup"/>
+    <xsl:apply-templates select="reftaxonomy" mode="copyprofile"/>
+    <xsl:apply-templates select="obgroup" mode="copyprofile"/>
   </serviceprofile>
 </xsl:template>
 
 
-<xsl:template match="subprofiles" mode="copyprofile">
-  <subprofile>
-    <xsl:apply-templates select="refprofile" mode="copyprofile"/>
-  </subprofile>
+
+<xsl:template match="reftaxonomy" mode="copyprofile">
+  <reftaxonomy refid="{@refid}"/>
 </xsl:template>
 
+<xsl:template match="subprofiles" mode="copyprofile">
+  <xsl:apply-templates select="refprofile" mode="copyprofile"/>
+</xsl:template>
+
+
+<xsl:template match="refstandard" mode="copyprofile">
+  <hrefstandard>
+    <xsl:apply-templates select="@*"/>
+  </hrefstandard>
+</xsl:template>
 
 <xsl:template match="refprofile" mode="copyprofile">
   <xsl:variable name="myid" select="@refid"/>
   <xsl:apply-templates select="/standards//*[@id=$myid]" mode="copyprofile"/>
 </xsl:template>
+
+
+<xsl:template match="obgroup" mode="copyprofile">
+  <obgroup>
+    <xsl:apply-templates select="@*"/>
+    <xsl:apply-templates select="refstandard" mode="copyprofile"/>
+  </obgroup>
+</xsl:template>
+
+
+
 
 
 <!-- ==================================================================== -->
