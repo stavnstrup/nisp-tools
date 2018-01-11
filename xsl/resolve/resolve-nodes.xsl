@@ -200,7 +200,13 @@ NATO Command, Control and Consultation Organisation (NC3O).
                       and
                 not(ancestor::serviceprofile/preceding-sibling::serviceprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
-      <entry><xsl:value-of select="$std/document/@title"/></entry>
+      <entry>
+        <xsl:value-of select="$std/document/@title"/>
+        <xsl:variable name="note" select="string($std/document/@note)"/>
+        <xsl:if test="string-length($note) &gt; 0">
+        	<footnote><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
+        </xsl:if>
+      </entry>
       <entry>
         <xsl:if test="$std/document/@orgid !=''">
           <xsl:value-of select="/standards/organisations/orgkey[@key=$std/document/@orgid]/@short"/>
@@ -220,12 +226,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </row>
   </xsl:if>
 
-<!--
-  <xsl:variable name="note" select="string($std/document/@note)"/>
-  <xsl:if test="string-length($note) &gt; 0">
-	<footnote><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
-  </xsl:if>
--->
+
 </xsl:template>
 
 
