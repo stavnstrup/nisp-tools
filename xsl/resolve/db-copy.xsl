@@ -48,7 +48,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <capabilityprofile type="bsp">
         <xsl:apply-templates select="/standards//bpserviceprofile" mode="copyprofile"/>
       </capabilityprofile>
-      <xsl:apply-templates select="records/capabilityprofile" mode="copyprofile"/>
+      <xsl:apply-templates select="records/capabilityprofile[status/@mode='accepted']" mode="copyprofile"/>
     </profilehierachy>
   </standards>
 </xsl:template>
