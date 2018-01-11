@@ -172,7 +172,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="id" select="@id"/>
 
   <xsl:variable name="refs" select="count(/standards/profilehierachy//hrefstandard[(../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)])"/>
-
   <xsl:if test="$refs>0">
     <row>
       <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
@@ -180,9 +179,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <!-- Get standards from profiles -->
     <xsl:apply-templates select="/standards/profilehierachy//hrefstandard[(../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)]" mode="funny">
       <xsl:with-param name="taxref" select="$id"/>
-<!-- -->
       <xsl:sort select="@refid"/>
-<!-- -->
     </xsl:apply-templates>
   </xsl:if>
   <!-- Handle child nodes -->
@@ -199,10 +196,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
-
-  <xsl:if test="not(. = ancestor::capabilityprofile/preceding-sibling::capabilityprofile//hrefstandard[(../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]
-                      or
-                    . = ancestor::serviceprofile/preceding-sibling::serviceprofile//hrefstandard[(../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)])">
+  <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)])
+                      and
+                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
       <entry><xsl:value-of select="$std/document/@title"/></entry>
       <entry>
@@ -220,9 +216,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
           <xsl:with-param name="stdid" select="$stdid"/>
         </xsl:apply-templates>
       </entry>
-<!--
-      <entry><xsl:value-of select="$stdid"/> [<xsl:value-of select="@location"/>]</entry>
--->
       <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
     </row>
   </xsl:if>
