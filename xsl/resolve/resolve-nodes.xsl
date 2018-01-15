@@ -108,8 +108,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="@*" mode="addindexentry">
   <xsl:variable name="id" select="."/>
 
-  <xsl:variable name="record" select="$db/records/standard[@id=$id]"/>
-  <xsl:for-each select="$record//document">
+  <xsl:variable name="record" select="$db//standard[@id=$id]"/>
+  <xsl:for-each select="$record/document">
      <xsl:variable name="org" select="@orgid"/>
      <indexterm>
        <xsl:choose>
@@ -213,6 +213,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:if test="string-length($note) &gt; 0">
         	<footnote><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
         </xsl:if>
+        <xsl:apply-templates select="@refid" mode="addindexentry"/>
       </entry>
       <entry>
         <xsl:if test="$std/document/@orgid !=''">
@@ -233,7 +234,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </row>
   </xsl:if>
 
-
 </xsl:template>
 
 
@@ -251,8 +251,5 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </xsl:if>
   </xsl:if>
 </xsl:template>
-
-
-
 
 </xsl:stylesheet>
