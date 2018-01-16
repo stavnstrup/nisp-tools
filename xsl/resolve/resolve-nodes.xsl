@@ -201,7 +201,14 @@ NATO Command, Control and Consultation Organisation (NC3O).
                 not(ancestor::serviceprofile/preceding-sibling::serviceprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
       <entry>
-        <xsl:value-of select="$std/document/@title"/>
+        <xsl:choose>
+          <xsl:when test="$std/status/uri != ''">
+            <ulink url="{$std/status/uri}"><xsl:value-of select="$std/document/@title"/></ulink>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$std/document/@title"/>
+          </xsl:otherwise>
+        </xsl:choose>
         <xsl:variable name="note" select="string($std/document/@note)"/>
         <xsl:if test="string-length($note) &gt; 0">
         	<footnote><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
