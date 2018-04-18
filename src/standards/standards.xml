@@ -690,7 +690,9 @@
    <bestpracticeprofile>
       <bpserviceprofile tref="T-c7cbdd74-1e68-4c20-9fd7-b5d45407e923-X">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="nso-stanag4193ed.3"/>
+            <bprefstandard refid="nso-stanag4193ed.3-p1"/>
+            <bprefstandard refid="nso-stanag4193ed.3-p2"/>
+            <bprefstandard refid="nso-stanag4193ed.3-p3"/>
             <bprefstandard refid="nso-aetp-11"/>
             <bprefstandard refid="nato-acp160ns-1f"/>
             <bprefstandard refid="cceb-acp160e"/>
@@ -699,7 +701,9 @@
       <bpserviceprofile genTitle="Air Services" tref="T-03b284a3-18d9-454b-b774-f5ef496504bb-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="nso-stanag1401ed15"/>
-            <bprefstandard refid="nso-stanag4193ed.3"/>
+            <bprefstandard refid="nso-stanag4193ed.3-p1"/>
+            <bprefstandard refid="nso-stanag4193ed.3-p2"/>
+            <bprefstandard refid="nso-stanag4193ed.3-p3"/>
             <bprefstandard refid="nso-aetp-11"/>
             <bprefstandard refid="nato-acp160ns-1f"/>
             <bprefstandard refid="cceb-acp160e"/>
@@ -1401,8 +1405,8 @@
             <bprefstandard refid="nso-stanag5522ed4"/>
             <bprefstandard refid="nso-stanag5522ed5"/>
             <bprefstandard refid="nso-stanag5555ed1"/>
-            <bprefstandard refid="nso-stanag4162ed.3"/>
-            <bprefstandard refid="nso-stanag4722"/>
+            <bprefstandard refid="nso-aidpp-01-ed.A-v1"/>
+            <bprefstandard refid="nso-aetp-4722-ed.a-v1"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Transmission Services" tref="T-8a45e97a-f563-4d05-9256-92c51eef8909-X">
@@ -39815,14 +39819,15 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>d2782c9e-2833-4b72-808e-fdbd79211c74</uuid>
       </standard>
 
-      <standard id="nso-aetp-11" tag="">
-         <document orgid="nso" pubnum="AETP-11" title="Implementation Options and Guidance for integrating IFF Mk XIIA Mode 5 on Military Platforms (IOG)" date="2009-10-28"/>
+      <standard id="nso-aetp-11" tag="AETP-11 B">
+         <document orgid="nso" pubnum="AETP-11Bv1" title="Implementation Options and Guidance for integrating IFF Mk XIIA Mode 5 on Military Platforms (IOG)" date="2017-03-31"/>
          <applicability/>
-         <responsibleparty rpref="c3b-iffcat"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri/>
             <history>
                <event date="2017-09-19" flag="added" version="11.0" rfcp="10-21"/>
+               <event date="2018-04-18" flag="changed" version="11.0" rfcp="10-36"/>
             </history>
          </status>
          <uuid>8959f028-ae7e-4e65-9326-90ab47333e04</uuid>
@@ -40052,7 +40057,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             agree to these brevity code meanings.
          </applicability>
          <responsibleparty rpref="mc-mcjsb-ierhwg"/>
-         <status mode="deleted">
+         <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
                <event flag="added" date="2010-08-13" rfcp="4-7" version="5.0"/>
@@ -40591,14 +40596,15 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>1a3df65b-d3f4-4200-be1c-d5ac3ba3e422</uuid>
       </standard>
 
-      <standard id="nso-stanag4162ed.3" tag="">
-         <document orgid="nso" pubnum="STANAG 4162 ed. 3" title="Identification Data Combining Process" date=""/>
+      <standard id="nso-aidpp-01-ed.A-v1" tag="AIDPP-01 ed. A version 1">
+         <document orgid="nso" pubnum="AIDPP-01 ed. A version 1" title="Identification Data Combining Process" date=""/>
          <applicability/>
-         <responsibleparty rpref="c3b-iffcat"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri>http://www.nso.int/</uri>
             <history>
                <event date="2017-09-19" flag="added" version="11.0" rfcp="10-21"/>
+               <event date="2018-04-18" flag="changed" version="11.0" rfcp="10-36"/>
             </history>
          </status>
          <uuid>7eaedd49-835a-4a7e-8381-e9b4ee090df6</uuid>
@@ -40719,17 +40725,44 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>01ebf7e0-dba2-4713-bc8c-a6ee8695f21c</uuid>
       </standard>
 
-      <standard id="nso-stanag4193ed.3" tag="">
-         <document orgid="nso" pubnum="STANAG 4193 Ed. 3" title="Technical Characteristics Of Iff Mk Xa And Mk Xii Interrogators And Transponders" date=""/>
+      <standard id="nso-stanag4193ed.3-p1" tag="STANAG 4193 Ed.3 Part 1">
+         <document orgid="nso" pubnum="STANAG 4193 Ed. 3" title="Technical Characteristics of the IFF Mk XIIA System Part I: System Destription and General Characteristics" date="2016-05-23"/>
          <applicability/>
-         <responsibleparty rpref="c3b-iffcat"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri>http://www.nso.int/</uri>
             <history>
                <event date="2017-09-19" flag="added" version="11.0" rfcp="10-21"/>
+               <event date="2018-04-18" flag="changed" version="11.0" rfcp="10-36"/>
             </history>
          </status>
          <uuid>b65b1c60-20b5-4a23-bfff-b61132d9e0f6</uuid>
+      </standard>
+
+      <standard id="nso-stanag4193ed.3-p2" tag="STANAG 4193 Ed.3 Part 2">
+         <document orgid="nso" pubnum="STANAG 4193 Ed. 3" title="Technical Characteristics of the IFF Mk XIIA System Part II: Classified System Characteristics" date="2016-05-23"/>
+         <applicability/>
+         <responsibleparty rpref="c3b-cap2"/>
+         <status mode="accepted">
+            <uri>http://www.nso.int/</uri>
+            <history>
+               <event date="2018-04-18" flag="added" version="11.0" rfcp="10-36"/>
+            </history>
+         </status>
+         <uuid>df89e777-c5d4-413a-b503-526bdc51f01e</uuid>
+      </standard>
+
+      <standard id="nso-stanag4193ed.3-p3" tag="STANAG 4193 Ed.3 Part 3">
+         <document orgid="nso" pubnum="STANAG 4193 Ed. 3" title="Technical Characteristics of the IFF Mk XIIA System Part III: Installed System Characteristics" date="2016-05-23"/>
+         <applicability/>
+         <responsibleparty rpref="c3b-cap2"/>
+         <status mode="accepted">
+            <uri>http://www.nso.int/</uri>
+            <history>
+               <event date="2018-04-18" flag="added" version="11.0" rfcp="10-36"/>
+            </history>
+         </status>
+         <uuid>4980eb33-8486-4b6b-8630-9d734b6d3f42</uuid>
       </standard>
 
       <standard id="nso-stanag4197ed1" tag="STANAG 4197 ed.1">
@@ -42927,10 +42960,10 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>ea05f4e1-7f3a-4c1b-93a7-6051979d3ac6</uuid>
       </standard>
 
-      <standard id="nso-stanag4722" tag="STANAG 4722 Ed 1">
-         <document orgid="nso" pubnum="STANAG 4722 Ed1" title="Technical Characteristics of Reverse IFF using Mode 5 Waveform - AEtP-4722 Edition A" date=""/>
+      <standard id="nso-aetp-4722-ed.a-v1" tag="AEtP-4722 Ed. A Ver. 1">
+         <document orgid="nso" pubnum="AEtP-4722 Ed. A Ver. 1" title="Technical Characteristics of Reverse IFF using Mode 5 Waveform - AEtP-4722 Edition A" date=""/>
          <applicability/>
-         <responsibleparty rpref="c3b-iffcat"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri>http://www.nso.int/</uri>
             <history>
