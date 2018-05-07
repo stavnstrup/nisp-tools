@@ -1394,6 +1394,10 @@
             <bprefstandard refid="nso-stanag5518ed1"/>
             <bprefstandard refid="nso-stanag5601ed7"/>
          </bpgroup>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag5518ed2"/>
+            <bprefstandard refid="nso-stanag5518ed3"/>
+         </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Track Services" tref="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X">
          <bpgroup mode="mandatory">
@@ -1412,14 +1416,9 @@
             <bprefstandard refid="nso-stanag5527ed1"/>
          </bpgroup>
          <bpgroup mode="candidate">
-            <bprefstandard refid="nso-stanag5511ed7"/>
-            <bprefstandard refid="nso-stanag5516ed7"/>
-            <bprefstandard refid="nso-stanag5522ed3"/>
-            <bprefstandard refid="nso-stanag5518ed2"/>
-            <bprefstandard refid="nso-stanag5518ed3"/>
-            <bprefstandard refid="nso-stanag5522ed4"/>
-            <bprefstandard refid="nso-stanag5522ed5"/>
-            <bprefstandard refid="nso-stanag5555ed1"/>
+            <bprefstandard refid="nso-stanag5511ed10"/>
+            <bprefstandard refid="nso-stanag5516ed8"/>
+            <bprefstandard refid="nso-stanag5522ed6"/>
             <bprefstandard refid="nso-aidpp-01-ed.A-v1"/>
             <bprefstandard refid="nso-aetp-4722-ed.a-v1"/>
          </bpgroup>
@@ -1533,6 +1532,7 @@
             <bprefstandard refid="ietf-rfc2484"/>
          </bpgroup>
          <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag5555ed1"/>
             <bprefstandard refid="tm-forum-tmf621"/>
             <bprefstandard refid="tm-forum-tmf622"/>
             <bprefstandard refid="tm-forum-tr250"/>
@@ -43594,6 +43594,17 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>86f17eee-3ada-42ed-9159-03eb988f1677</uuid>
       </standard>
 
+      <standard id="nso-stanag5511ed10" tag="STANAG 5511 Ed 10">
+         <document orgid="nso-e" pubnum="STANAG 5511 Ed 10 / ATDLP-5.11(B)" date="" title="Tactical Data Exchange - Link 11/11B"/>
+         <applicability/>
+         <responsibleparty rpref="tdl"/>
+         <status mode="accepted">
+            <history>
+               <event flag="added" date="2018-05-07" rfcp="10-27" version="11.0"/>
+            </history>
+         </status>
+      </standard>
+
       <standard id="nso-stanag5514ed2" tag="Link-14">
          <document orgid="nso" pubnum="STANAG 5514 - Edition 2" date="2002" title="Tactical Data Broadcasting - Link-14"/>
          <applicability>
@@ -43702,6 +43713,18 @@ The purpose of this specification is to assure uniformity of treatment among all
             </history>
          </status>
          <uuid>1f3deab7-f83f-41d3-a3a7-1c162e02aa9b</uuid>
+      </standard>
+
+      <standard id="nso-stanag5516ed8" tag="STANAG 5516 Ed 8">
+         <document orgid="nso-e" pubnum="STANAG 5516 Ed 8 / ATDLP-5.11(B)" title="NATO Bit-Oriented Message (BOM) Tactical Data Exchange - Link 16 - ATDLP-5.16 Edition A" date=""/>
+         <applicability/>
+         <responsibleparty rpref="tdl"/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-05-07" flag="added" rfcp="10-37" version="11.0"/>
+            </history>
+         </status>
       </standard>
 
       <standard id="nso-stanag5518ed1" tag="STANAG 5518 Ed 1">
@@ -43869,6 +43892,18 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>ee59e35a-f004-46f6-ba19-2f73f2b341b0</uuid>
       </standard>
 
+      <standard id="nso-stanag5522ed6" tag="STANAG 5522 Ed 6">
+         <document orgid="nso-e" pubnum="STANAG 5522 Ed 6 / ATDLP-5.22(B)" date="" title="Link-22 - ATDLP-5.22 Edition A"/>
+         <applicability/>
+         <responsibleparty rpref="tdl"/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2016-12-23" flag="added" version="10.0" rfcp="9-16"/>
+            </history>
+         </status>
+      </standard>
+
       <standard id="nso-stanag5523ed1" tag="STANAG 5523 Ed 1">
          <document orgid="nso" pubnum="STANAG 5523 Ed 1" date="2005-05-31" title="The NATO Corporate Data Model - ADatP-32 Part 1"/>
          <applicability>
@@ -44005,8 +44040,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>a9eacd1e-abcc-49c2-8420-64091904b7a8</uuid>
       </standard>
 
-      <standard id="nso-stanag5555ed1" tag="STANAG 5555 (RD) Ed 1">
-         <document orgid="nso" pubnum="STANAG 5555 (RD) Ed 1" title="NATO Qualification Levels for Tactical Data Link Personnel - ATDLP-5.55 Edition A" date="2016-04-29"/>
+      <standard id="nso-stanag5555ed1" tag="STANAG 5555 Ed 1">
+         <document orgid="nso" pubnum="STANAG 5555 Ed 1" title="NATO Qualification Levels for Tactical Data Link Personnel - ATDLP-5.55 Edition A" date="2016-04-29"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -44014,6 +44049,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             <history>
                <event date="2016-12-23" flag="added" version="10.0" rfcp="9-16"/>
                <event date="2017-03-03" flag="changed" version="10.0" rfcp="9-46"/>
+               <event date="2018-05-07" flag="changed" version="11.0" rfcp="10-37"/>
             </history>
          </status>
          <uuid>1f99b3ea-d03f-4f1f-8ff5-6fd1e9f77bf2</uuid>
