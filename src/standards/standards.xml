@@ -1062,6 +1062,7 @@
       <bpserviceprofile genTitle="Information Products" tref="T-067fc1be-b7a7-471d-bef4-a42f91ac95b8-X">
         <bpgroup mode="mandatory">
           <bprefstandard refid="mip-mim4.1"/>
+          <bprefstandard refid="nso-ntdliprev3"/>
         </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Infrastructure Guard Services" tref="T-bb5d1dd2-bf60-4b7e-9035-fdebd33f7b80-X"/>
@@ -1382,17 +1383,16 @@
          <bpgroup mode="mandatory">
             <bprefstandard refid="cceb-acp200"/>
             <bprefstandard refid="nso-stanag4175ed5"/>
-            <bprefstandard refid="nso-stanag4214ed2"/>
-            <bprefstandard refid="nso-stanag4705ed1"/>
             <bprefstandard refid="nso-stanag4206ed3"/>
             <bprefstandard refid="nso-stanag4207ed3"/>
+            <bprefstandard refid="nso-stanag4214ed2"/>
+            <bprefstandard refid="nso-stanag4705ed1"/>
             <bprefstandard refid="nso-stanag4290ed1"/>
             <bprefstandard refid="nso-stanag5046ed4"/>
             <bprefstandard refid="nso-stanag5501ed7"/>
-            <bprefstandard refid="nso-atdlp-7.04a1"/>
-            <bprefstandard refid="nso-atdlp-7.12a1"/>
-            <bprefstandard refid="nso-atdlp-7.31a1"/>
-            <bprefstandard refid="nso-ntdliprev3"/>
+            <bprefstandard refid="nso-stanag5511ed6"/>
+            <bprefstandard refid="nso-stanag5518ed1"/>
+            <bprefstandard refid="nso-stanag5601ed7"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Track Services" tref="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X">
@@ -1682,6 +1682,12 @@
       <bpserviceprofile genTitle="Situation Awareness Services" tref="T-75a41fc4-9672-479c-a7fe-2b0cc8b01d4b-X">
         <bpgroup mode="mandatory">
           <bprefstandard refid="mip-jc3iedm"/>
+        </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="SMC Processes" tref="T-cfd424b7-6d14-4c37-a22b-2673b433e296-X">
+        <bpgroup mode="mandatory">
+          <bprefstandard refid="nso-atdlp-7.12a1"/>
+          <bprefstandard refid="nso-atdlp-7.31a1"/>
         </bpgroup>
       </bpserviceprofile>
    </bestpracticeprofile>
@@ -44017,7 +44023,7 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>f930bbea-fe67-4d3a-b33e-686ca4ce6cac</uuid>
       </standard>
 
-      <standard id="nso-stanag5602ed4" tag="STANAG 5602 Ed 4">
+      <standard id="nso-stanag5602ed4" tag="SIMPLE - STANAG 5602 Ed 4">
          <document orgid="nso" pubnum="STANAG 5602 Ed 4" date="2014-10-02" title="Standard Interface for Multiple Platform Link Evaluation (SIMPLE) (- ATDLP-6.02 Edition A)"/>
          <applicability>
             This Stanag is a cover stanag for ATDLP-6.02 ed.A
@@ -57519,7 +57525,8 @@ Web</guide>
             <refstandard refid="nso-stanag5516ed4"/>
          </obgroup>
          <obgroup obligation="mandatory">
-            <refstandard refid="nso-stanag5518ed1"/>
+           <refstandard refid="nso-stanag5518ed1"/>
+           <refstandard refid="nso-stanag5602ed4"/>
          </obgroup>
          <guide>The JREAP is designed to support operations using Link 16 over most communication media
 					(JRE media). Each JRE medium has unique characteristics. Military Ultra High Frequency (UHF)
