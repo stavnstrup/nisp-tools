@@ -38,7 +38,9 @@
 </xsl:template>
 
 <xsl:template match="event">
-  <xsl:apply-templates select="../../../document"/>
+  <xsl:apply-templates select="../../../document">
+    <xsl:sort select="../@id"/>
+  </xsl:apply-templates>
 </xsl:template>
 
 <xsl:template match="document">
