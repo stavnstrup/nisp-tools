@@ -1,16 +1,12 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% Nov 25, 2014
+% Jul 4, 2018
 
-
-
-Name
-====
+# Name
 
 nisp-database-schema - The schema of database used to describe standards and profiles in NISP
 
-Description
-===========
+# Description
 
 The current NISP standards database is implemented as a XML
 document. The original design of the database reflected the structure
@@ -22,11 +18,11 @@ and profiles. This selection of standards and profiles are justified
 in the rationale statements, which are also part of the
 database. Recently the database have been reorganised to reflect
 additional requirements, but also to prepare the database for
-inclusion in the NATO Architecture Repository (NAR)
+inclusion in the NATO Architecture Repository (NAR).
 
 In order to enable validation of the database, a schema in form
 of a DTD have been defined. This DTD is located in the source distribution at
-`schema/dtd/stddb43.dtd`.
+`schema/dtd/stddb44.dtd`.
 
 Since some of the element in the schema represent textual information
 in the form of DocBook fragments such as paragraphs, unnumbered lists
@@ -45,17 +41,16 @@ The standard database DTD is logically separated into four
 different parts:
 
 * service taxonomy on the C3 taxonomy baseline 2 - dated november 2, 2015
-* standard selection
+* a best practice profile
 * standard and profile descriptions
 * mapping between organisation abbreviations and full names
-* mapping between responsible parties abbreviation and full names
 
 The root element of the DTD is the element `<standards>`
 and is described by:
 
 ~~~{.dtd}
 <!ELEMENT standards (revhistory?, taxonomy, bestpracticeprofile, records,
-                     organisations, responsibleparties)>
+                     organisations)>
 ~~~
 
 The `<revhistory>` element describes the historic changes to the database.
@@ -63,24 +58,23 @@ The `<revhistory>` element describes the historic changes to the database.
 The `<organisations>` element contains a mapping between
 keywords and organisation names and is used to ensure, that only
 registered organisation are used and therefore prevents the same
-organisation name to be spelled in multiple ways.
+organisation name to be spelled in multiple ways. The organisation element
+lists organisation which create/owns a standard but also organisations,
+which are responsible for a standard. Being responsible mean that an
+organisation is subject matter expert and recommend to use a given standard.
 
-The `<responsibleparties>` element contains a mapping between keywords
-and responsible parties element. The construct is similar to the
-approach taken for the `<organisation>` element.
-
-Service taxonomy
-----------------
+## Service taxonomy
 
 The services taxonomy describes how the standards and profiles are
 organised and is a subset of the C3 taxonomy.
 
 The service taxonomy is a hierarchical structure, consisting of
 `<node>` elements as described below. All the `<node>` elements must
-have an `id`, `title`, `level` and `emUUID` attribute. The `id`
+have an `id`, `title`, `level`, `description` and `emUUID` attribute. The `id`
 attribute is used to identify the relationship between selected
 standards and the service taxonomy. The `level` attribute described on
-what level in the taxonomy the node is located and the `emUUID`
+what level in the taxonomy the node is located, the `description` attribute
+contains a description of the node and the `emUUID`
 attribute is the UUID assigned in the TIDE EM-Wiki.
 
 ~~~{.dtd}
@@ -92,26 +86,57 @@ attribute is the UUID assigned in the TIDE EM-Wiki.
           id ID #REQUIRED
           title CDATA #REQUIRED
           level CDATA #REQUIRED
+          description CDATA #IMPLIED
           emUUID CDATA #REQUIRED>
-
 ~~~
 
+## Base Standards Profile
 
+In NISP volume 2 and 3 all mandatory and candidate standards are listed in what we call the *Base Standards Profile*. This profile used to be called the *Best Practice Profile*. When the last version of the DTD was implemented, we had not yet decided on the term Base Standards Profile, which is why the we retain the old naming scheme for this element end its children both in the DTD and in the database.
 
-Standard and profile definition
--------------------------------
+The `<bestpracticeprofile>` element consists of zero or more
+`<bpserviceprofile>` elements.
+
+~~~{.dtd}
+<!ELEMENT bestpracticeprofile (bpserviceprofile*)>
+~~~
+
+A `<bpserviceprofile>` element consists of one or more `<bpgroup>`
+elements, which represent a collection of standards mapped to a taxonomy node.
+Each `<bpserviceprofile>` have a `tref` attribute, which is a reference
+to a position in the taxonomy. A `genTitle` attribute may also exists, it should be identical with the title attribute of the associated note. Note that this attribute is actually never used except to explain which node the `tref` atrribute actually refers to.
+
+~~~{.dtd}
+<!ELEMENT bpserviceprofile (bpgroup*)>
+<!ATTLIST bpserviceprofile
+          tref IDREF #REQUIRED
+          genTitle CDATA #IMPLIED>
+~~~
+
+A `<bgroup>` element contains a list of `<bprefstandard>` elements, which references standards, which are mandatory or emerging depending on the value of the `mode` attribute.
+
+~~~{.dtd}
+<!ELEMENT bpgroup (bprefstandard+)>
+<!ATTLIST bpgroup
+          mode (unknown|mandatory|candidate|fading) #REQUIRED>
+
+<!ELEMENT bprefstandard (#PCDATA)>
+<!ATTLIST bprefstandard
+          refid IDREF #REQUIRED>
+~~~
+
+## Standard and profile definition
 
 Both de-jure and de-facto standards from many different standard
-'organizations' are labeled differently. Some standards have multiple
+organizations are labeled differently. Some standards have multiple
 parts each having a standard number, where for other standards only
 the cover standard have a number. Some standards are registered by
 multiple standard bodies. Some standards are updated, but the actual
 update are released as a separate document instead of releasing a new
-version of the standard. So the
-following rules tries to accommodate all the different conventions
-used, when describing a standard or profile.
+version of the standard. So the following rules tries to accommodate
+all the different conventions used, when describing a standard or profile.
 
-All standards and profiles are contained in the `<records>`
+All standards and profiles types are contained in the `<records>`
 element.
 
 ~~~{.dtd}
@@ -120,7 +145,6 @@ element.
 
 ### Standards
 
-
 All standards are implemented using a
 single `<standard>` element describing both the
 standard and historical aspect about the standard.  A standard
@@ -128,7 +152,7 @@ consists of:
 
 * document - describes the actual standard
 * applicability - when and where should the standard be used
-* responsible - Who is responsible for the standard
+* responsibleparty - Who is responsible for the standard
 * status - contains historical data
 * uuid - an automatically generated UUID. Note, that although the UUID
   is mandatory, it is defined as optional in the schema, so that the
@@ -154,8 +178,8 @@ standards.
 
 The `<document>` element exposes the publishing organisation,
 publication number, publishing date, title and version through the
-attributes `orgid`, `pubnum`, `date`, `title` and `version`. The
-`orgid` refers to an organisation is embedded in the `organisations`
+attributes `orgid`, `pubnum`, `date`, `title`, `version` and `note`. The
+`orgid` refers to an organisation is embedded in the `<organisations>`
 element. The rule of using organisation identifiers instead of the
 actual name of the organisation is mandated to prevent, that the same
 organisation exists in multiple incarnations in the database.
@@ -168,12 +192,13 @@ organisation exists in multiple incarnations in the database.
           pubnum  CDATA #REQUIRED
           date    CDATA #REQUIRED
           title   CDATA #REQUIRED
-          version CDATA #IMPLIED>
+          version CDATA #IMPLIED
+          note    CDATA #IMPLIED>
 ~~~
 
 If a standard is a cover standard (e.g ISO-8859), it may implement the
 `<substandards>` element, which contains a list of
-`<refstandard>` element. Each `<refstandard>` element will
+`<substandard>` element. Each `<substandard>` element will
 trough the attribute `refid` contain a reference to the substandard.
 
 The DTD allows a `<standard>` element using
@@ -231,16 +256,15 @@ A `<comment>` element contain data in the form of text or DocBook
 ~~~
 
 The `<applicability>` element uses the same content model as the
-DocBook `<element>` entry and contains a textual description of
+DocBook `<entry>` element and contains a textual description of
 the standard.
 
 #### Responsible Party
 
 ~~~{.dtd}
-<!ELEMENT responsibleparty (reevaluation?)>
+<!ELEMENT responsibleparty EMPTY>
 <!ATTLIST responsibleparty
-	  rpref   CDATA  #REQUIRED
-	  comment CDATA  #IMPLIED>
+          rpref   CDATA  #REQUIRED>
 ~~~
 
 The `<responsibleparty>` element references the organisational element
@@ -250,16 +274,6 @@ contains a reference to a `<rp>` element, which contains information
 about the responsible organisation. This construct is similar to the
 `<organisations>` element construct and can be used to ensure `rpref`
 is selected from a predefined set.
-
-~~~{.dtd}
-<!ELEMENT reevaluation EMPTY>
-<!ATTLIST reevaluation
-	  date    CDATA  #REQUIRED
-	  comment CDATA  #IMPLIED>
-~~~
-
-The `<revaluation>` element advises on when a standard shoul be revaluated.
-
 
 #### Status
 
@@ -274,13 +288,13 @@ in the DocBook DTD.
 <!ELEMENT status (info?, uri?, history)>
 
 <!ATTLIST status
-          mode   (accepted|rejected) #IMPLIED "accepted"
+          mode   (accepted|deleted|rejected) #IMPLIED "accepted"
           stage  CDATA #REQUIRED>
 ~~~
 
 The `<status>` element contains the attributes `mode`, which is
-implied and is used to indicate standards, which were either accepted
-or rejected.
+implied and is used to indicate standards, which were either
+accepted, rejected or deleted.
 
 ~~~{.dtd}
 <!ELEMENT info (#PCDATA | ulink)*>
@@ -316,7 +330,6 @@ number 7-1, which means a change proposal for NISP version 7.0, then
 we should set the `version` attribute to the value `8.0`, since this
 is the first version, this RFCP takes effect.
 
-
 The `date` attribute must use the Comple Date format YYYY-MM-DD as defined in [ISO 8601].
 
 #### UUID
@@ -334,15 +347,13 @@ NISP tool and comply with RFC 4122: "A Universally Unique Identifier
 (UUID) URN Namespace." The UUID generated is a version 4 type, which
 means it is a randomly generated UUID.
 
-
-
 ### Profiles
-
 
 The are multiple profile elements, each accommodating different goals.
 
 <ul>
   <li>capabilityprofile - Example: FMN</li>
+  <li>Profile - Example: The FMN sub-profile called ?
   <li>serviceprofile - Example: Infrastructure Services</li>
 </ul>
 
@@ -353,9 +364,6 @@ The `<capabilityprofile>` element is a container element, which list the service
 A `<capabilityprofile>` consists of a `<profilespec>` element describing
 the capability, a number of references to `<serviceprofile>` elements encapsulated in a
 `<services>` element and a `<status>` element.
-
-
-
 
 ~~~{.dtd}
 <!ELEMENT capabilityprofile (profilespec, (capabilitygroup+ | services), status, uuid?)>
@@ -372,13 +380,16 @@ combined size of all the tables becomes to big.  SOMETHING MISSING HERE ???
 <!ELEMENT capabilitygroup (services)>
 <!ATTLIST capabilitygroup
           id ID #REQUIRED
-	  title CDATA #REQUIRED>
+          title CDATA #REQUIRED>
 ~~~
 
 ~~~{.dtd}
 <!ELEMENT services (refprofile+)>
 ~~~
 
+#### Profile
+
+The `<profile>` element
 
 #### Service Profile
 
@@ -409,9 +420,6 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 ~~~{.dtd}
 <!ELEMENT guidance %ho; (%tbl.entry.mdl;)*>
 ~~~
-
-
-
 
 
 
@@ -450,116 +458,6 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 ~~~
 
 
-Best Practice profile
----------------------
-
-In NISP volume 2 and 3 all mandatory and candidate standards are listed. The
-selection mechanism of standards is described in the `<bestpracticeprofile>`
-element. The `<bestpracticeprofile>` element consists of zero or more
-`<bpserviceprofile>` elements.
-
-
-~~~{.dtd}
-<!ELEMENT bestpracticeprofile (bpserviceprofile*)>
-~~~
-
-
-
-
-~~~{.dtd}
-<!ELEMENT bpserviceprofile (bpgroup*)>
-<!ATTLIST bpserviceprofile
-          tref IDREF #REQUIRED
-          genTitle CDATA #IMPLIED>
-~~~
-
-
-~~~{.dtd}
-<!ELEMENT bpgroup (bprefstandard+)>
-<!ATTLIST bpgroup
-          mode (unknown|mandatory|candidate|fading) #REQUIRED>
-~~~
-
-
-~~~{.dtd}
-<!ELEMENT bprefstandard (#PCDATA)>
-<!ATTLIST bprefstandard
-          refid IDREF #REQUIRED>
-~~~
-
-
-
-
-The `<bpserviceprofile>` consists of one or more `<bpgroup>`
-elements, which represent a row in a table of selected standards and
-profiles.
-
-Each `<bpserviceprofile>` have a `tref` attribute, which is a reference
-to a position in the taxonomy.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.dtd}
-<!ELEMENT sp-list (sp-view*)>
-
-<!ATTLIST sp-list
-          tref IDREF #IMPLIED>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-A `<sp-view>` consists of zero or more `<select>` elements
-and potentially a `<remark>` and a `<rationale>` element.
-
-Each `<sp-view>` has an `idx`  attribute. The
-`idx` attribute is not used by the NISP tools, but is properly useful
-for the NISP dbviewer tools.
-
-~~~{.dtd}
-<!ELEMENT sp-view (select*, remarks?, rationale?)>
-
-<!ATTLIST sp-view
-          idx ID #IMPLIED>
-~~~
-
-The `<select>` element describe the standard or profile, which
-is selected in NISP. The content of the element is a a text describing
-the standards or profile. The mandatory `mode` attribute describes the
-status and can be chosen from on of the following self explaining
-values: `unknown`, `mandatory`, `candidate`, `midterm`, `farterm` or
-`fading`. N.B. the value `unknown` should only be used temporary.
-
-The `id` attribute is also required and is a reference to the actual
-standard or profile. This attribute ensures, that we do not selects
-standards, which have not been defined in the database. This feature
-is used by the build target _debug_  to detect errors in the database.
-
-All `<select>` elements must have an `id` and a `mode`
-attribute. The `id` attribute is a reference to an existing identifier
-of a `<standard>` or a `<profile>` element.
-
-~~~{.dtd}
-<!ELEMENT select (#PCDATA)>
-
-<!ATTLIST select
-          id IDREF #REQUIRED
-          mode (unknown|mandatory|candidate|midterm|
-                farterm|fading) #REQUIRED>
-~~~
-
-Remarks are just text eventually embedded in paragraphs. Remarks
-describes additional information about the selected standard. There
-might be information which is suitable for the index, therefore
-inclusion of the `<indexterm>` element.
-
-~~~~~~~~{.dtd}
-<!ELEMENT remarks (#PCDATA|para|indexterm)*>
-~~~~~~~~
-
-Rationale are just text eventually embedded in paragraphs. Rationale
-describes the reason a standards was selected. There might be
-information which is suitable for the index, therefore inclusion of
-the `<indexterm>` element.
-
-~~~{.dtd}
-<!ELEMENT rationale (#PCDATA | para | indexterm)*>
-~~~
 
 
 ### Mixed
