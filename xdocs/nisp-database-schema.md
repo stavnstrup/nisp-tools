@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% Jul 4, 2018
+% Jul 5, 2018
 
 # Name
 
@@ -90,7 +90,7 @@ attribute is the UUID assigned in the TIDE EM-Wiki.
           emUUID CDATA #REQUIRED>
 ~~~
 
-## Base Standards Profile
+## Base Standards Profile (formerly know as Best Practice Profile)
 
 In NISP volume 2 and 3 all mandatory and candidate standards are listed in what we call the *Base Standards Profile*. This profile used to be called the *Best Practice Profile*. When the last version of the DTD was implemented, we had not yet decided on the term Base Standards Profile, which is why the we retain the old naming scheme for this element end its children both in the DTD and in the database.
 
@@ -175,7 +175,6 @@ standards.
 
 #### Document
 
-
 The `<document>` element exposes the publishing organisation,
 publication number, publishing date, title and version through the
 attributes `orgid`, `pubnum`, `date`, `title`, `version` and `note`. The
@@ -251,21 +250,15 @@ A `<comment>` element contain data in the form of text or DocBook
 
 #### Applicability
 
-~~~{.dtd}
-<!ELEMENT applicability %ho; (%tbl.entry.mdl;)*>
-~~~
-
 The `<applicability>` element uses the same content model as the
 DocBook `<entry>` element and contains a textual description of
 the standard.
 
-#### Responsible Party
-
 ~~~{.dtd}
-<!ELEMENT responsibleparty EMPTY>
-<!ATTLIST responsibleparty
-          rpref   CDATA  #REQUIRED>
+<!ELEMENT applicability %ho; (%tbl.entry.mdl;)*>
 ~~~
+
+#### Responsible Party
 
 The `<responsibleparty>` element references the organisational element
 in NATO, which takes responsibility for guiding the IP CaT on
@@ -275,14 +268,23 @@ about the responsible organisation. This construct is similar to the
 `<organisations>` element construct and can be used to ensure `rpref`
 is selected from a predefined set.
 
-#### Status
+~~~{.dtd}
+<!ELEMENT responsibleparty EMPTY>
+<!ATTLIST responsibleparty
+          rpref   CDATA  #REQUIRED>
+~~~
 
+#### Status
 
 The `<status>` element can contain in the following order an
 `<info>`, `<uri>` and `<history>` element. The
 `<history>` element is mandatory, the `<info>` and
 `<uri>` elements are not. The `<uri>` element is defined
 in the DocBook DTD.
+
+The `<status>` element contains the attributes `mode`, which is
+implied and is used to indicate standards, which were either
+accepted, rejected or deleted.
 
 ~~~{.dtd}
 <!ELEMENT status (info?, uri?, history)>
@@ -292,28 +294,12 @@ in the DocBook DTD.
           stage  CDATA #REQUIRED>
 ~~~
 
-The `<status>` element contains the attributes `mode`, which is
-implied and is used to indicate standards, which were either
-accepted, rejected or deleted.
-
-~~~{.dtd}
-<!ELEMENT info (#PCDATA | ulink)*>
-~~~
-
 The `<info>` element contains textual information, which is not
 appropriate to put in e.g. the `<applicability>` element. It can also
 contain `<ulink>` elements, which e.g. could point to the standard.
 
 ~~~{.dtd}
-<!ELEMENT history (event)+>
-
-<!ELEMENT event (#PCDATA)>
-
-<!ATTLIST event
-          flag    (added|changed|deleted)   #REQUIRED
-          date    CDATA   #REQUIRED
-          rfcp    CDATA   #IMPLIED
-          version CDATA   #REQUIRED>
+<!ELEMENT info (#PCDATA | ulink)*>
 ~~~
 
 The `<history>` element contains historical information about a
@@ -332,6 +318,18 @@ is the first version, this RFCP takes effect.
 
 The `date` attribute must use the Comple Date format YYYY-MM-DD as defined in [ISO 8601].
 
+~~~{.dtd}
+<!ELEMENT history (event)+>
+
+<!ELEMENT event (#PCDATA)>
+
+<!ATTLIST event
+          flag    (added|changed|deleted)   #REQUIRED
+          date    CDATA   #REQUIRED
+          rfcp    CDATA   #IMPLIED
+          version CDATA   #REQUIRED>
+~~~
+
 #### UUID
 
 ~~~{.dtd}
@@ -349,21 +347,16 @@ means it is a randomly generated UUID.
 
 ### Profiles
 
-The are multiple profile elements, each accommodating different goals.
+Where the *Base Standards Profile* represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes. Community of Interest Profiles uses three different profile elements, which are *capability profile*, *profile* and *serviceprofile* organized in a tree structure.
 
-<ul>
-  <li>capabilityprofile - Example: FMN</li>
-  <li>Profile - Example: The FMN sub-profile called ?
-  <li>serviceprofile - Example: Infrastructure Services</li>
-</ul>
+The leaves of the tree consists of `servicprofile` elements which references selected standards. The root of the three is represented by a `capabilityprofile` element and all other nodes in the tree are represented by `profile` elements. The `capabilityprofile` and the `profile` element are almost identical and basically a kind of container elements. Alle profile elements are described in detail below.
 
 #### Capability Profile
 
-The `<capabilityprofile>` element is a container element, which list the services necessary to implement a given capability.
+The `<capabilityprofile>` element is a container element, which list the profiles necessary to implement a given capability.
 
 A `<capabilityprofile>` consists of a `<profilespec>` element describing
-the capability, a number of references to `<serviceprofile>` elements encapsulated in a
-`<services>` element and a `<status>` element.
+the capability, a number of references to `<profile>` or `<serviceprofile>` elements encapsulated in a `<subprofiles>` element and a `<status>` element.
 
 ~~~{.dtd}
 <!ELEMENT capabilityprofile (profilespec, (capabilitygroup+ | services), status, uuid?)>
@@ -403,50 +396,37 @@ A `<serviceprofile>` element represents a service, which is required by a specif
           tag CDATA #REQUIRED>
 ~~~
 
-
 ~~~{.dtd}
 <!ELEMENT servicegroup (guidance, parts)>
 <!ATTLIST servicegroup
-	  title CDATA #REQUIRED>
+          title CDATA #REQUIRED>
 ~~~
 
 #### References
-
-
-
-
-
 
 ~~~{.dtd}
 <!ELEMENT guidance %ho; (%tbl.entry.mdl;)*>
 ~~~
 
-
-
 ~~~{.dtd}
 <!ELEMENT refstandard EMPTY>
 <!ATTLIST refstandard
           refid IDREF #REQUIRED
-	  obligation (mandatory|recommended|optional) "mandatory"
-	  lcstage (candidate|current|fading|retired) "current"
-	  lctime CDATA #IMPLIED
-	  condition CDATA #IMPLIED>
+          obligation (mandatory|recommended|optional) "mandatory"
+          lcstage (candidate|current|fading|retired) "current"
+          lctime CDATA #IMPLIED
+          condition CDATA #IMPLIED>
 ~~~
-
 
 ~~~{.dtd}
 <!ELEMENT refprofile EMPTY>
 <!ATTLIST refprofile
           refid IDREF #REQUIRED
-	  obligation (mandatory | recommended | optional) "mandatory"
-	  lcstage (candidate | current | fading | retired) "current"
-	  lctime CDATA #IMPLIED
-	  condition CDATA #IMPLIED>
+          obligation (mandatory | recommended | optional) "mandatory"
+          lcstage (candidate | current | fading | retired) "current"
+          lctime CDATA #IMPLIED
+          condition CDATA #IMPLIED>
 ~~~
-
-
-
-
 
 ~~~{.dtd}
 <!ELEMENT parts (refstandard|refprofile)`>
@@ -457,9 +437,6 @@ A `<serviceprofile>` element represents a service, which is required by a specif
           refid IDREF #REQUIRED>
 ~~~
 
-
-
-
 ### Mixed
 
 The `<responsibleparties>` element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpkey element might contain one or more `<pointofcontact>` elements.
@@ -469,28 +446,12 @@ The `<responsibleparties>` element descries a mapping for rp references, and is 
 
 <!ELEMENT rpkey (pointofcontact*)>
 <!ATTLIST rpkey
-	  key    CDATA #REQUIRED
-	  short  CDATA #REQUIRED
-	  long   CDATA #REQUIRED>
+          key    CDATA #REQUIRED
+          short  CDATA #REQUIRED
+          long   CDATA #REQUIRED>
 ~~~
 
-
-
-~~~{.dtd}
-<!ELEMENT pointofcontact EMPTY>
-<!ATTLIST pointofcontact
-	  name   CDATA   #REQUIRED
-	  email  CDATA   #REQUIRED
-	  phone  CDATA   #IMPLIED>
-~~~
-
-
-
-
-
-
-Community of interest profiles (COI)
-------------------------------------
+## Community of interest profiles (COI)
 
 The `<community-of-interest>` element contains all the community-of-interest
 defined profiles defined by NATO communities.
@@ -502,7 +463,6 @@ attributes `coi` and `text`. The `coi` attribute is usually an
 abbreviation or shorthand form of the description of the community
 contained in the `text` attribute.
 
-
 ~~~{.dtd}
 <!ELEMENT community-of-interest (community*)>
 
@@ -513,30 +473,4 @@ contained in the `text` attribute.
           text    CDATA      #REQUIRED>
 ~~~
 
-
-
-
 [ISO 8601]: http://www.w3.org/TR/NOTE-datetime
-
-<!--
-
-
-Examples
---------
-
-Here are some examples
-
-
-
-Notes
------
-
-
-NAF 3 compliance
-~~~~~~~~~~~~~~~~
-
-The NISP database is not 100% NAF3 compliant.
-
-The teminology used
-
--->
