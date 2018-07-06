@@ -125,7 +125,7 @@ A `<bgroup>` element contains a list of `<bprefstandard>` elements, which refere
           refid IDREF #REQUIRED>
 ~~~
 
-## Standard and profile definition
+## Standards
 
 Both de-jure and de-facto standards from many different standard
 organizations are labeled differently. Some standards have multiple
@@ -143,7 +143,7 @@ element.
 <!ELEMENT records ((standard | serviceprofile | profile | capabilityprofile)*)>
 ~~~
 
-### Standards
+
 
 All standards are implemented using a
 single `<standard>` element describing both the
@@ -173,7 +173,7 @@ used the volume 3 of the NC3TA, and a is short title identifying the
 standard. A few future use could be to provide a title when selecting
 standards.
 
-#### Document
+### Document
 
 The `<document>` element exposes the publishing organisation,
 publication number, publishing date, title and version through the
@@ -248,7 +248,7 @@ A `<comment>` element contain data in the form of text or DocBook
 <!ELEMENT comment (#PCDATA | ulink)*>
 ~~~
 
-#### Applicability
+### Applicability
 
 The `<applicability>` element uses the same content model as the
 DocBook `<entry>` element and contains a textual description of
@@ -258,7 +258,7 @@ the standard.
 <!ELEMENT applicability %ho; (%tbl.entry.mdl;)*>
 ~~~
 
-#### Responsible Party
+### Responsible Party
 
 The `<responsibleparty>` element references the organisational element
 in NATO, which takes responsibility for guiding the IP CaT on
@@ -274,7 +274,7 @@ is selected from a predefined set.
           rpref   CDATA  #REQUIRED>
 ~~~
 
-#### Status
+### Status
 
 The `<status>` element can contain in the following order an
 `<info>`, `<uri>` and `<history>` element. The
@@ -330,7 +330,7 @@ The `date` attribute must use the Comple Date format YYYY-MM-DD as defined in [I
           version CDATA   #REQUIRED>
 ~~~
 
-#### UUID
+### UUID
 
 ~~~{.dtd}
 <!ELEMENT uuid (#PCDATA)>
@@ -345,13 +345,13 @@ NISP tool and comply with RFC 4122: "A Universally Unique Identifier
 (UUID) URN Namespace." The UUID generated is a version 4 type, which
 means it is a randomly generated UUID.
 
-### Profiles
+## Community of Interest Profiles
 
 Where the *Base Standards Profile* represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes. Community of Interest Profiles uses three different profile elements, which are *capability profile*, *profile* and *serviceprofile* organized in a tree structure.
 
 The leaves of the tree consists of `servicprofile` elements which references selected standards. The root of the three is represented by a `capabilityprofile` element and all other nodes in the tree are represented by `profile` elements. The `capabilityprofile` and the `profile` element are almost identical and basically a kind of container elements. Alle profile elements are described in detail below.
 
-#### Capability Profile
+### Capability Profile
 
 The `<capabilityprofile>` element is a container element, which list the profiles necessary to implement a given capability.
 
@@ -359,118 +359,77 @@ A `<capabilityprofile>` consists of a `<profilespec>` element describing
 the capability, a number of references to `<profile>` or `<serviceprofile>` elements encapsulated in a `<subprofiles>` element and a `<status>` element.
 
 ~~~{.dtd}
-<!ELEMENT capabilityprofile (profilespec, (capabilitygroup+ | services), status, uuid?)>
+<!ELEMENT capabilityprofile (profilespec, description, subprofiles?, status,  uuid?)>
 <!ATTLIST capabilityprofile
-          tag CDATA #REQUIRED
-          id ID #REQUIRED>
+          id ID #REQUIRED
+          short CDATA #REQUIRED
+          title CDATA #REQUIRED>
 ~~~
 
-Normally each `<serviceprofile`> is presented in exactly one table,
-but if a `<capabilityprofile>` consists of a lot of services - the
-combined size of all the tables becomes to big.  SOMETHING MISSING HERE ???
+### Profile
+
+A `<profile>` consists of a `<profilespec>` element describing
+the capability, a number of references to `<profile>` or `<serviceprofile>` elements encapsulated in a `<subprofiles>` element and a `<status>` element.
 
 ~~~{.dtd}
-<!ELEMENT capabilitygroup (services)>
-<!ATTLIST capabilitygroup
+<!ELEMENT profile (profilespec, description?, subprofiles?, status, uuid?)*>
+<!ATTLIST profile
           id ID #REQUIRED
           title CDATA #REQUIRED>
 ~~~
 
-~~~{.dtd}
-<!ELEMENT services (refprofile+)>
-~~~
+### Service Profile
 
-#### Profile
-
-The `<profile>` element
-
-#### Service Profile
-
-A `<serviceprofile>` element represents a service, which is required by a specific capability.
+A `<serviceprofile>` element represents a service, which is required by a specific capability and it consists of a `<profilespec>` element describing the capability, a number of one or more references in form of `<reftaxonomy>` elements to the taxonomy.
 
 ~~~{.dtd}
-<!ELEMENT serviceprofile (profilespec, (servicegroup+ |  guidance), status, uuid?)>
+<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, obgroup+, guide*,  status, uuid?)>
 <!ATTLIST serviceprofile
           id ID #REQUIRED
-          tref IDREF #REQUIRED
-          tag CDATA #REQUIRED>
-~~~
-
-~~~{.dtd}
-<!ELEMENT servicegroup (guidance, parts)>
-<!ATTLIST servicegroup
           title CDATA #REQUIRED>
 ~~~
 
-#### References
+### Profile Elements
 
 ~~~{.dtd}
-<!ELEMENT guidance %ho; (%tbl.entry.mdl;)*>
+<!ELEMENT description  %ho; (%tbl.entry.mdl;)*>
+
+<!ELEMENT reftaxonomy EMPTY>
+<!ATTLIST reftaxonomy
+          refid IDREF #REQUIRED>
+~~~
+
+~~~{.dtd}
+<!ELEMENT obgroup (description?, refstandard*, refprofile*)>
+<!ATTLIST obgroup
+          obligation (mandatory|recommended|optional|conditional) #REQUIRED>
 ~~~
 
 ~~~{.dtd}
 <!ELEMENT refstandard EMPTY>
 <!ATTLIST refstandard
-          refid IDREF #REQUIRED
-          obligation (mandatory|recommended|optional) "mandatory"
-          lcstage (candidate|current|fading|retired) "current"
-          lctime CDATA #IMPLIED
-          condition CDATA #IMPLIED>
+          refid IDREF #REQUIRED>
 ~~~
 
 ~~~{.dtd}
 <!ELEMENT refprofile EMPTY>
-<!ATTLIST refprofile
-          refid IDREF #REQUIRED
-          obligation (mandatory | recommended | optional) "mandatory"
-          lcstage (candidate | current | fading | retired) "current"
-          lctime CDATA #IMPLIED
-          condition CDATA #IMPLIED>
-~~~
-
-~~~{.dtd}
-<!ELEMENT parts (refstandard|refprofile)`>
-
-<!ELEMENT refprofile EMPTY>
-
 <!ATTLIST refprofile
           refid IDREF #REQUIRED>
 ~~~
 
-### Mixed
-
-The `<responsibleparties>` element descries a mapping for rp references, and is created to enable enforcement of a restricted set of responsibleparties. A rpkey element might contain one or more `<pointofcontact>` elements.
-
 ~~~{.dtd}
-<!ELEMENT responsibleparties (rpkey*)>
-
-<!ELEMENT rpkey (pointofcontact*)>
-<!ATTLIST rpkey
-          key    CDATA #REQUIRED
-          short  CDATA #REQUIRED
-          long   CDATA #REQUIRED>
+<!ELEMENT guide %ho; (%tbl.entry.mdl;)*>
 ~~~
 
-## Community of interest profiles (COI)
-
-The `<community-of-interest>` element contains all the community-of-interest
-defined profiles defined by NATO communities.
-
-Each co profile is embedded in a `<community>` element,
-which can contain multiple sub profiles represented by
-`<profile>`. The `<community>` element have two mandatory
-attributes `coi` and `text`. The `coi` attribute is usually an
-abbreviation or shorthand form of the description of the community
-contained in the `text` attribute.
+~~~{.dtd}
+<!ELEMENT subprofiles (refprofile+)>
+~~~
 
 ~~~{.dtd}
-<!ELEMENT community-of-interest (community*)>
+<!ELEMENT guidance %ho; (%tbl.entry.mdl;)*>
+~~~
 
-<!ELEMENT community (profile*)>
 
-<!ATTLIST community
-          coi     CDATA      #REQUIRED
-          text    CDATA      #REQUIRED>
 ~~~
 
 [ISO 8601]: http://www.w3.org/TR/NOTE-datetime
