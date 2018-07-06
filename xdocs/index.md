@@ -22,7 +22,7 @@ usage) and more technical documents.
 HOWTO Documents
 ---------------
 
-[nisp](nisp.html)
+[home](index.html)
 :   Overview of the NISP documentation (*this document*)
 
 
@@ -63,7 +63,3 @@ Technical Documents
 [nisp-software](nisp-software.html)
 :   x
 -->
-
-
-
-

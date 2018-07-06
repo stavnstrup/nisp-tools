@@ -256,7 +256,7 @@ published with a draft label.
 See Also
 ========
 
-[nisp]
+[home]
 
 
 [Ant]: (http://ant.apache.org/)
@@ -265,4 +265,4 @@ See Also
 
 [Pandoc]: (http://johnmacfarlane.net/pandoc/)
 
-[nisp]: (nisp.html)
+[home]: (index.html)
