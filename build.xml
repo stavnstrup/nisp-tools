@@ -707,7 +707,7 @@ $Id$
       <exec os="Linux" executable="pandoc" dir="${basedir}/xdocs/">
         <arg value="-s"/>
         <arg value="-thtml5"/>
-        <arg value="-c../xsl/css/man.css"/>
+        <arg value="-cman.css"/>
         <arg value="--template=nisp-default.html5"/>
         <arg value="-o@{manpage}.html"/>
         <arg value="@{manpage}.md"/>
@@ -725,6 +725,9 @@ $Id$
     <move todir="${basedir}/docs/">
       <fileset dir="${basedir}/xdocs/" includes="*.html"/>
     </move>
+    <copy todir="${basedir}/docs/"
+          preservelastmodified="yes"
+          file="${xsl-styles.dir}/css/man.css"/>
   </target>
 
 
