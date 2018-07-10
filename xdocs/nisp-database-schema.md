@@ -288,10 +288,8 @@ accepted, rejected or deleted.
 
 ~~~{.dtd}
 <!ELEMENT status (info?, uri?, history)>
-
 <!ATTLIST status
-          mode   (accepted|deleted|rejected) #IMPLIED "accepted"
-          stage  CDATA #REQUIRED>
+          mode   (accepted|deleted|rejected) #IMPLIED "accepted">
 ~~~
 
 The `<info>` element contains textual information, which is not
