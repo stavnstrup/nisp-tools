@@ -391,13 +391,40 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 
 ### Profile Elements
 
+A `<profilespec>` element exposes the publishing organisation, publication number, publishing date, title and version through the attributes orgid, pubnum, date, title, version and note. The orgid refers to an organisation is embedded in the  <organisations> element. The rule of using organisation identifiers instead of the actual name of the organisation is mandated to prevent, that the same organisation exists in multiple incarnations in the database.
+
+~~~{.dtd}
+<!ELEMENT profilespec EMPTY>
+<!ATTLIST profilespec
+          orgid   IDREF #REQUIRED
+          pubnum  CDATA #REQUIRED
+          date    CDATA #REQUIRED
+          title   CDATA #REQUIRED
+          version CDATA #IMPLIED
+          note    CDATA #IMPLIED>
+~~~
+
+A `<subprofile>` element references child profiles. This element is used by the `<capabilityprofile>` and the `<profile>` elements and must only reference `<profile>` or `<serviceprofile>` elements.
+
+~~~{.dtd}
+<!ELEMENT subprofiles (refprofile+)>
+~~~
+
+The `<description>` element uses the same content model as the
+DocBook `<entry>` element and contains a textual description of
+the profile.
+
 ~~~{.dtd}
 <!ELEMENT description  %ho; (%tbl.entry.mdl;)*>
+
+The `<reftaxonomy>` element refences a taxonomy node, which this a given `<serviceprofile>` element supports.
 
 <!ELEMENT reftaxonomy EMPTY>
 <!ATTLIST reftaxonomy
           refid IDREF #REQUIRED>
 ~~~
+
+The `<obgroup>` references standards and profiles with a specific obligation. The `<obgroup>` element is child of a `<serviceprofile>`element. 
 
 ~~~{.dtd}
 <!ELEMENT obgroup (description?, refstandard*, refprofile*)>
@@ -417,19 +444,11 @@ A `<serviceprofile>` element represents a service, which is required by a specif
           refid IDREF #REQUIRED>
 ~~~
 
+The `<guidance>` element provides guidance on how a set of standard should be implemented.
+
 ~~~{.dtd}
 <!ELEMENT guide %ho; (%tbl.entry.mdl;)*>
 ~~~
 
-~~~{.dtd}
-<!ELEMENT subprofiles (refprofile+)>
-~~~
-
-~~~{.dtd}
-<!ELEMENT guidance %ho; (%tbl.entry.mdl;)*>
-~~~
-
-
-~~~
 
 [ISO 8601]: http://www.w3.org/TR/NOTE-datetime
