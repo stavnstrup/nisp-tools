@@ -695,16 +695,6 @@
       </node>
    </taxonomy>
    <bestpracticeprofile>
-      <bpserviceprofile genTitle="Joint Applications" tref="T-c7cbdd74-1e68-4c20-9fd7-b5d45407e923-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="nso-stanag4193ed.3-p1"/>
-            <bprefstandard refid="nso-stanag4193ed.3-p2"/>
-            <bprefstandard refid="nso-stanag4193ed.3-p3"/>
-            <bprefstandard refid="nso-aetp-11"/>
-            <bprefstandard refid="nato-acp160ns-1f"/>
-            <bprefstandard refid="cceb-acp160e"/>
-         </bpgroup>
-      </bpserviceprofile>
       <bpserviceprofile genTitle="Air Services" tref="T-03b284a3-18d9-454b-b774-f5ef496504bb-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="nso-stanag1401ed15"/>
@@ -735,6 +725,38 @@
          <bpgroup mode="mandatory">
             <bprefstandard refid="itu-t-h.323"/>
             <bprefstandard refid="itu-t-g.722.1c"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Battlespace Event Services" tref="T-54f06201-f6f4-4939-a537-75a0c1ff70bc-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="mip-jc3iedm"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Battlespace Object Services" tref="T-d8fd520c-940b-48e6-ab46-2ccf9f6858ed-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="mip-jc3iedm"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Business Support CIS Security Services" tref="T-9fe03e23-01b3-4ce0-a790-05c48fe3fdcd-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="oasis-wss-v1.1-errata-os-samltokenprofile"/>
+            <bprefstandard refid="oasis-wssutil"/>
+            <bprefstandard refid="oasis-wstrust-1.4"/>
+            <bprefstandard refid="ws-i-basicsecurityprofile-1.1"/>
+            <bprefstandard refid="nato-npki-certp"/>
+            <bprefstandard refid="iso-iec-7501"/>
+         </bpgroup>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="ansi-incits-398"/>
+            <bprefstandard refid="fbi-iafis-doc-01078-8.1"/>
+         </bpgroup>
+         <bpgroup mode="fading">
+            <bprefstandard refid="nso-stanag5523ed1"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Business Support Guard Services" tref="T-7e15f5b0-5297-482c-8a51-b747c4b176a9-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="cceb-acp145"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="COI-Enabling Services" tref="T-d46e44a9-17df-4751-9d70-a42676e18dd3-X">
@@ -873,6 +895,12 @@
             <bprefstandard refid="iso-iec-9594"/>
          </bpgroup>
       </bpserviceprofile>
+      <bpserviceprofile genTitle="Distributed Search Services" tref="T-25166e6e-2929-44e2-90a6-6378b7417f76-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="iso-15836"/>
+            <bprefstandard refid="nato-tide-id-rr"/>
+         </bpgroup>
+      </bpserviceprofile>
       <bpserviceprofile genTitle="Distributed Time Services" tref="T-f15d7721-33a3-48e1-b2c6-b0d896f642dc-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="w3c-timezone"/>
@@ -896,34 +924,6 @@
             <bprefstandard refid="ietf-rfc3898"/>
          </bpgroup>
       </bpserviceprofile>
-      <bpserviceprofile genTitle="Distributed Search Services" tref="T-25166e6e-2929-44e2-90a6-6378b7417f76-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="iso-15836"/>
-            <bprefstandard refid="nato-tide-id-rr"/>
-         </bpgroup>
-      </bpserviceprofile>
-      <bpserviceprofile genTitle="Business Support Guard Services" tref="T-7e15f5b0-5297-482c-8a51-b747c4b176a9-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="cceb-acp145"/>
-         </bpgroup>
-      </bpserviceprofile>
-      <bpserviceprofile genTitle="Business Support CIS Security Services" tref="T-9fe03e23-01b3-4ce0-a790-05c48fe3fdcd-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="oasis-wss-v1.1-errata-os-samltokenprofile"/>
-            <bprefstandard refid="oasis-wssutil"/>
-            <bprefstandard refid="oasis-wstrust-1.4"/>
-            <bprefstandard refid="ws-i-basicsecurityprofile-1.1"/>
-            <bprefstandard refid="nato-npki-certp"/>
-            <bprefstandard refid="iso-iec-7501"/>
-         </bpgroup>
-         <bpgroup mode="candidate">
-            <bprefstandard refid="ansi-incits-398"/>
-            <bprefstandard refid="fbi-iafis-doc-01078-8.1"/>
-         </bpgroup>
-         <bpgroup mode="fading">
-            <bprefstandard refid="nso-stanag5523ed1"/>
-         </bpgroup>
-      </bpserviceprofile>
       <bpserviceprofile genTitle="Fax Services" tref="T-e00b1a32-6d87-4ee0-97ca-f47f45001e61-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="itu-t-t.30"/>
@@ -931,31 +931,6 @@
          </bpgroup>
          <bpgroup mode="candidate">
             <bprefstandard refid="itu-t-t.38"/>
-         </bpgroup>
-      </bpserviceprofile>
-      <bpserviceprofile genTitle="Military Messaging Services" tref="T-c65a1e19-5880-46bf-841b-b514aaf1464d-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="nso-stanag4312ed2"/>
-            <bprefstandard refid="nso-stanag4406ed2"/>
-            <bprefstandard refid="nso-stanag4545ed2"/>
-            <bprefstandard refid="nso-stanag5500ed7"/>
-            <bprefstandard refid="nso-stanag5501ed7"/>
-            <bprefstandard refid="nso-stanag5511ed6"/>
-            <bprefstandard refid="nso-stanag5516ed4"/>
-            <bprefstandard refid="nso-stanag5522ed2"/>
-            <bprefstandard refid="nso-stanag7149ed6"/>
-         </bpgroup>
-         <bpgroup mode="candidate">
-            <bprefstandard refid="us-dod-mil-std6017c"/>
-            <bprefstandard refid="oasis-wss-v1.1-spec-os-swaprofile"/>
-            <bprefstandard refid="ietf-rfc6477"/>
-            <bprefstandard refid="nso-stanag5511ed10"/>
-            <bprefstandard refid="nso-stanag5516ed8"/>
-            <bprefstandard refid="nso-stanag5522ed6"/>
-            <bprefstandard refid="nso-stanag7149ed6-app11-d2"/>
-         </bpgroup>
-         <bpgroup mode="fading">
-            <bprefstandard refid="iso-iec-10021"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Geospatial Applications" tref="T-c62c8dfd-357b-4315-8513-9d1a4bbba70c-X">
@@ -998,19 +973,6 @@
          <bpgroup mode="candidate">
             <bprefstandard refid="ietf-rfc3315"/>
             <bprefstandard refid="ietf-rfc3633"/>
-         </bpgroup>
-      </bpserviceprofile>
-      <bpserviceprofile genTitle="Packet-based Transport Services" tref="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="ietf-rfc3232"/>
-            <bprefstandard refid="ietf-rfc791"/>
-            <bprefstandard refid="ietf-rfc2460"/>
-            <bprefstandard refid="ietf-rfc2236"/>
-            <bprefstandard refid="ietf-std89"/>
-            <bprefstandard refid="ietf-rfc2003"/>
-         </bpgroup>
-         <bpgroup mode="candidate">
-            <bprefstandard refid="ietf-rfc5555"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="IPv4 Routed Access Services" tref="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X">
@@ -1068,8 +1030,8 @@
             <bprefstandard refid="nso-ntdliprev3"/>
          </bpgroup>
       </bpserviceprofile>
-      <bpserviceprofile genTitle="Infrastructure Guard Services" tref="T-bb5d1dd2-bf60-4b7e-9035-fdebd33f7b80-X"/>
       <bpserviceprofile genTitle="Infrastructure CIS Security Services" tref="T-d339cfb9-96a1-493a-a2ab-11cf0dae8aab-X"/>
+      <bpserviceprofile genTitle="Infrastructure Guard Services" tref="T-bb5d1dd2-bf60-4b7e-9035-fdebd33f7b80-X"/>
       <bpserviceprofile genTitle="Infrastructure Networking Services" tref="T-1c9fd0c0-433e-4426-b6cd-f914e3682f74-X">
          <bpgroup mode="candidate">
             <bprefstandard refid="opengroup-c706"/>
@@ -1121,6 +1083,16 @@
             <bprefstandard refid="eurocom-d0"/>
          </bpgroup>
       </bpserviceprofile>
+      <bpserviceprofile genTitle="Joint Applications" tref="T-c7cbdd74-1e68-4c20-9fd7-b5d45407e923-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag4193ed.3-p1"/>
+            <bprefstandard refid="nso-stanag4193ed.3-p2"/>
+            <bprefstandard refid="nso-stanag4193ed.3-p3"/>
+            <bprefstandard refid="nso-aetp-11"/>
+            <bprefstandard refid="nato-acp160ns-1f"/>
+            <bprefstandard refid="cceb-acp160e"/>
+         </bpgroup>
+      </bpserviceprofile>
       <bpserviceprofile genTitle="Logistics Services" tref="T-8bf5cd36-8236-4c72-8efa-61120a5abe19-X"/>
       <bpserviceprofile genTitle="Mediation Services" tref="T-13aba303-3b24-4b90-9d48-ad9ac4313c37-X">
          <bpgroup mode="mandatory">
@@ -1158,6 +1130,31 @@
             <bprefstandard refid="nso-stanag4140ed2"/>
             <bprefstandard refid="nso-stanag6015ed4"/>
             <bprefstandard refid="nso-stanag6022ed2"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Military Messaging Services" tref="T-c65a1e19-5880-46bf-841b-b514aaf1464d-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="nso-stanag4312ed2"/>
+            <bprefstandard refid="nso-stanag4406ed2"/>
+            <bprefstandard refid="nso-stanag4545ed2"/>
+            <bprefstandard refid="nso-stanag5500ed7"/>
+            <bprefstandard refid="nso-stanag5501ed7"/>
+            <bprefstandard refid="nso-stanag5511ed6"/>
+            <bprefstandard refid="nso-stanag5516ed4"/>
+            <bprefstandard refid="nso-stanag5522ed2"/>
+            <bprefstandard refid="nso-stanag7149ed6"/>
+         </bpgroup>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="us-dod-mil-std6017c"/>
+            <bprefstandard refid="oasis-wss-v1.1-spec-os-swaprofile"/>
+            <bprefstandard refid="ietf-rfc6477"/>
+            <bprefstandard refid="nso-stanag5511ed10"/>
+            <bprefstandard refid="nso-stanag5516ed8"/>
+            <bprefstandard refid="nso-stanag5522ed6"/>
+            <bprefstandard refid="nso-stanag7149ed6-app11-d2"/>
+         </bpgroup>
+         <bpgroup mode="fading">
+            <bprefstandard refid="iso-iec-10021"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Modeling and Simulation Services" tref="T-b46ef62a-c85f-4b03-af01-3cbcba47f673-X">
@@ -1214,6 +1211,19 @@
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Packet-based Transport Services" tref="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="ietf-rfc3232"/>
+            <bprefstandard refid="ietf-rfc791"/>
+            <bprefstandard refid="ietf-rfc2460"/>
+            <bprefstandard refid="ietf-rfc2236"/>
+            <bprefstandard refid="ietf-std89"/>
+            <bprefstandard refid="ietf-rfc2003"/>
+         </bpgroup>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="ietf-rfc5555"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Packet-based Transport Services" tref="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X">
          <bpgroup mode="candidate">
             <bprefstandard refid="nso-stanag4711ed1"/>
             <bprefstandard refid="nato-tn-1417"/>
@@ -1234,12 +1244,11 @@
             <bprefstandard refid="iso-19794-6"/>
          </bpgroup>
       </bpserviceprofile>
-      <bpserviceprofile genTitle="Web Presentation Services" tref="T-73a03cb5-fd4a-426a-a017-1ac32f0270a4-X">
+      <bpserviceprofile genTitle="Recognized Maritime Picture Services" tref="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="oasis-wsrp1.0"/>
-         </bpgroup>
-         <bpgroup mode="candidate">
-            <bprefstandard refid="oasis-wsrp2.0"/>
+            <bprefstandard refid="nso-stanag5511ed6"/>
+            <bprefstandard refid="nso-stanag5516ed4"/>
+            <bprefstandard refid="nso-stanag5522ed2"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Relational Database Storage Services" tref="T-1fe4aade-3ad5-4b31-a08d-ecb9d90cdbd3-X">
@@ -1251,10 +1260,10 @@
             <bprefstandard refid="nso-stanag5523ed1"/>
          </bpgroup>
       </bpserviceprofile>
-      <bpserviceprofile genTitle="SOA Platform Guard Services" tref="T-b54cd448-d1f9-4968-bf48-f58c2d5d301b-X">
+      <bpserviceprofile genTitle="SMC Processes" tref="T-cfd424b7-6d14-4c37-a22b-2673b433e296-X">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="ietf-rfc5246"/>
-            <bprefstandard refid="ietf-rfc4250"/>
+            <bprefstandard refid="nso-atdlp-7.12a1"/>
+            <bprefstandard refid="nso-atdlp-7.31a1"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="SOA Platform CIS Security Services" tref="T-6226703b-0575-4d13-a350-a7913ad83f3b-X">
@@ -1266,11 +1275,10 @@
             <bprefstandard refid="nist-fips-180-4"/>
          </bpgroup>
       </bpserviceprofile>
-      <bpserviceprofile genTitle="Recognized Maritime Picture Services" tref="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X">
+      <bpserviceprofile genTitle="SOA Platform Guard Services" tref="T-b54cd448-d1f9-4968-bf48-f58c2d5d301b-X">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="nso-stanag5511ed6"/>
-            <bprefstandard refid="nso-stanag5516ed4"/>
-            <bprefstandard refid="nso-stanag5522ed2"/>
+            <bprefstandard refid="ietf-rfc5246"/>
+            <bprefstandard refid="ietf-rfc4250"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="SOA Platform SMC Services" tref="T-60aedc7e-b256-4242-9a18-51b116dc8559-X">
@@ -1354,6 +1362,11 @@
             <bprefstandard refid="w3c-rec-wsdl20-20070626"/>
          </bpgroup>
       </bpserviceprofile>
+      <bpserviceprofile genTitle="Situational Awareness Services" tref="T-75a41fc4-9672-479c-a7fe-2b0cc8b01d4b-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="mip-jc3iedm"/>
+         </bpgroup>
+      </bpserviceprofile>
       <bpserviceprofile genTitle="Symbology Services" tref="T-3edec962-1d0e-4dc0-ab28-b01e0efc1064-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="nso-stanag7163ed1"/>
@@ -1401,6 +1414,11 @@
             <bprefstandard refid="nso-stanag5518ed2"/>
             <bprefstandard refid="nso-stanag5518ed3"/>
             <bprefstandard refid="nso-stanag5616ed7"/>
+         </bpgroup>
+      </bpserviceprofile>
+      <bpserviceprofile genTitle="Tasking and Order Services" tref="T-1be80686-963c-4196-8c2c-b2e5f63cf26d-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="mip-jc3iedm"/>
          </bpgroup>
       </bpserviceprofile>
       <bpserviceprofile genTitle="Track Services" tref="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X">
@@ -1606,6 +1624,14 @@
             <bprefstandard refid="w3c-rec-xlink11-20100506"/>
          </bpgroup>
       </bpserviceprofile>
+      <bpserviceprofile genTitle="Web Presentation Services" tref="T-73a03cb5-fd4a-426a-a017-1ac32f0270a4-X">
+         <bpgroup mode="mandatory">
+            <bprefstandard refid="oasis-wsrp1.0"/>
+         </bpgroup>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="oasis-wsrp2.0"/>
+         </bpgroup>
+      </bpserviceprofile>
       <bpserviceprofile genTitle="Wired Local Area Transmission Services" tref="T-6c7b5ec2-1772-4876-bbe3-ffd1f3f765d0-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="nso-stanag4290ed1"/>
@@ -1660,14 +1686,6 @@
             <bprefstandard refid="nso-stanag4444ed2"/>
          </bpgroup>
       </bpserviceprofile>
-      <bpserviceprofile genTitle="Wireless LOS Mobile Wideband Transmission Services" tref="T-3c22730c-af51-467c-9fef-195a0e211138-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="nso-stanag4175ed5"/>
-         </bpgroup>
-         <bpgroup mode="candidate">
-            <bprefstandard refid="nso-stanag4175ed6"/>
-         </bpgroup>
-      </bpserviceprofile>
       <bpserviceprofile genTitle="Wireless LOS Mobile Transmission Services" tref="T-19eefbaa-c1cd-4154-b101-d6bd0994bd34-X">
          <bpgroup mode="mandatory">
             <bprefstandard refid="bluetooth-bluetooth42"/>
@@ -1676,30 +1694,12 @@
             <bprefstandard refid="bluetooth-bluetooth5"/>
          </bpgroup>
       </bpserviceprofile>
-      <bpserviceprofile genTitle="Battlespace Event Services" tref="T-54f06201-f6f4-4939-a537-75a0c1ff70bc-X">
+      <bpserviceprofile genTitle="Wireless LOS Mobile Wideband Transmission Services" tref="T-3c22730c-af51-467c-9fef-195a0e211138-X">
          <bpgroup mode="mandatory">
-            <bprefstandard refid="mip-jc3iedm"/>
+            <bprefstandard refid="nso-stanag4175ed5"/>
          </bpgroup>
-      </bpserviceprofile>
-      <bpserviceprofile genTitle="Battlespace Object Services" tref="T-d8fd520c-940b-48e6-ab46-2ccf9f6858ed-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="mip-jc3iedm"/>
-         </bpgroup>
-      </bpserviceprofile>
-      <bpserviceprofile genTitle="Tasking and Order Services" tref="T-1be80686-963c-4196-8c2c-b2e5f63cf26d-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="mip-jc3iedm"/>
-         </bpgroup>
-      </bpserviceprofile>
-      <bpserviceprofile genTitle="Situational Awareness Services" tref="T-75a41fc4-9672-479c-a7fe-2b0cc8b01d4b-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="mip-jc3iedm"/>
-         </bpgroup>
-      </bpserviceprofile>
-      <bpserviceprofile genTitle="SMC Processes" tref="T-cfd424b7-6d14-4c37-a22b-2673b433e296-X">
-         <bpgroup mode="mandatory">
-            <bprefstandard refid="nso-atdlp-7.12a1"/>
-            <bprefstandard refid="nso-atdlp-7.31a1"/>
+         <bpgroup mode="candidate">
+            <bprefstandard refid="nso-stanag4175ed6"/>
          </bpgroup>
       </bpserviceprofile>
    </bestpracticeprofile>
@@ -3533,377 +3533,6 @@ Grids</applicability>
             </history>
          </status>
          <uuid>d65bfe5c-95b6-485a-8072-670259136b7f</uuid>
-      </standard>
-
-      <standard id="us-dod-8307" tag="Selecting Multimedia">
-         <document orgid="us-dod" pubnum="8307" date="1998-11" title="DoD Guide to selecting computerbased multi-media standards, technologies, products and practices"/>
-         <applicability>
-            The goal of this document is to provide guidance and to serve
-            as a reference source for information system architects and design engineers,
-            acquisition managers, and procurement officials to select appropriate multimedia
-            standards for their projects. Supporting objectives include enhancing the ease
-            of integration of multimedia products and platforms (often a nontrivial task)
-            and improving interoperability across the DoD enterprise, based on tenets and
-            guidance associated with the Defense Information Infrastructure (DII). This
-            includes conforming to and supporting the relevant standards, technologies,
-            products and practices of the DII Common Operating Environment (COE).
-         </applicability>
-         <responsibleparty rpref="undefined"/>
-         <status mode="deleted">
-            <uri>http://library.disa.mil/jr8300/jieo-8307.pdf</uri>
-            <history>
-               <event flag="added" date="2002-10-10" version="0.4"/>
-               <event flag="changed" date="2005-09-14" version="0.7"/>
-               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
-            </history>
-         </status>
-         <uuid>00eaeda5-b555-457b-9c42-149c8c3bdcec</uuid>
-      </standard>
-
-      <standard id="us-dod-directive5200.28-std" tag="TCSEC">
-         <document orgid="us-dod" pubnum="DoD Directive 5200.28-STD" date="1985-12" title="US DoD Trusted Computer System Evaluation Criteria (TCSEC), (the Orange Book)"/>
-         <applicability>
-            The TCSEC document defines the criteria against which a
-            multi-user operating system will be evaluated. These criteria are
-            organised into classes rated from D to A1 and permit to evaluate
-            the degree of trust that can be placed in a computer system for
-            the secure processing of classified and other sensitive
-            information.
-            <para>TCSEC provides 7 classes (profiles) :</para>
-            <itemizedlist>
-               <listitem>
-                  <para>D : no security</para>
-               </listitem>
-               <listitem>
-                  <para>
-                     C1 (discretionary security protection): this
-                     class satisfies the discretionary security requirement by
-                     providing separation of users and data. It incorporates some
-                     form of credible controls capable of enforcing access
-                     limitations on an individual basis
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     C2 (controlled access protection): this class
-                     enforces a more finely grained discretionary access control than
-                     C1, making users individually accountable for their actions
-                     through login procedures, auditing of security-relevant events
-                     and resource isolation.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     B1 (labelled security protection): this class
-                     requires all the features required for C2 with, in addition, an
-                     informal statement of the security policy model, data labelling
-                     and mandatory access control over names subjects and
-                     objects.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     B2 (structured protection): this requires the
-                     discretionary and mandatory access control enforcement found in
-                     B1 to be extended to all subjects and objects in the ADP
-                     system. In addition, covert channels are
-                     addressed. Authentication mechanisms are strengthened, trusted
-                     facility management is provided in the form of support for
-                     system administrator and operator functions, and stringent
-                     configuration management controls are imposed.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     B3 (security domains): this class requires a
-                     reference monotor that mediates all accesses of subjects to
-                     objects, is tamperproof and small enough to be subjected to
-                     analysis and tests. A security administrator is supported, audit
-                     mechanisms are expanded to signal security-relevant events and
-                     system recovery procedures are required.
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     A1 (verified design): this class is functionally
-                     equivalent to B3 but the distinguishing feature of systems in
-                     this class is the analysis derived from formal design
-                     specification and verification techniques and the resulting high
-                     degree of assurance that the system is correctly
-                     implemented.
-                  </para>
-               </listitem>
-            </itemizedlist>
-         </applicability>
-         <responsibleparty rpref="undefined"/>
-         <status mode="deleted">
-            <uri>http://www.fas.org/irp/nsa/rainbow/std001.htm</uri>
-            <history>
-               <event flag="added" date="1998-11-10" version="0.1"/>
-               <event flag="changed" date="2005-09-23" version="0.7"/>
-               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
-            </history>
-         </status>
-         <uuid>2d675fb6-460f-4d5a-bcd4-3ed600b8d490</uuid>
-      </standard>
-
-      <standard id="us-dod-ebts-1.2" tag="DoD EBTS 1.2">
-         <document orgid="us-dod" pubnum="DIN: DOD_BTF_TS_EBTS_ Nov06_01.02.00" date="2006-11-08" title="DOD EBTS" version="1.2"/>
-         <applicability>
-            DoD currently collects biometrics for matching and storage
-            within ABIS using EBTS v1.2 which is based on the older ANSI/NIST-ITL 1-2000
-            (American National Standard for Information Systems - Data Format for the
-            Interchange of Fingerprint, Facial, Scar Mark Tattoo (SMT) Information).
-         </applicability>
-         <responsibleparty rpref="amn-tmo"/>
-         <status mode="accepted">
-            <uri>http://www.biometrics.dod.mil/Files/Documents/Standards/DOD_BTF_TS_EBTS_Nov06_01%2002%2000.pdf</uri>
-            <history>
-               <event flag="added" date="2010-09-22" version="5.0"/>
-               <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
-            </history>
-         </status>
-         <uuid>8d841da2-b3a9-4de6-a1f6-7c6cfc3970ee</uuid>
-      </standard>
-
-      <standard id="us-dod-ebts-2.0" tag="DoD EBTS 2.0">
-         <document orgid="us-dod" pubnum="DIN: DOD_BTF_TS_EBTS_ Mar09_02.00.00" date="2009-03-27" title="DOD EBTS" version="2.0"/>
-         <applicability>
-            The ability to transmit biometric samples is critical for
-            enabling the DoD to share and leverage information across the DoD Biometrics
-            Enterprise. The DoD EBTS supports requirements for DoD encounters and
-            detainment circumstances. This standard is intended for those applications
-            requiring the exchange of biometric samples and related biographic and
-            contextual data both within the DoD Biometrics Enterprise and with external
-            agencies, coalition members, and governments.
-         </applicability>
-         <responsibleparty rpref="amn-tmo"/>
-         <status mode="accepted">
-            <uri>http://www.biometrics.dod.mil/Files/Documents/Standards/DoD_ABIS_EBTS_v2.0.pdf</uri>
-            <history>
-               <event flag="added" date="2010-09-22" version="5.0"/>
-               <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
-            </history>
-         </status>
-         <uuid>b2f4bbc5-cd0d-400f-aa6d-22084ebe1f03</uuid>
-      </standard>
-
-      <standard id="us-dod-hci" tag="HCI">
-         <document orgid="us-dod" pubnum="dodis" date="1996-04-30" title="DoD Human Computer Interface (HCI) Style Guide, DoD TAFIM Volume 8, V3.0" version="3.0"/>
-         <applicability>
-            This guide provides a common framework for HCI design and implementation.
-            It defines and documents the long-term functional goals, objectives, and requirements
-            of the human computer interface. Interface implementation options are standardised
-            enabling all DoD applications to appear and operate in a reasonably consistent manner
-         </applicability>
-         <responsibleparty rpref="undefined"/>
-         <status mode="deleted">
-            <uri>https://www.fas.org/irp/program/core/dodiis/sec2-2.html</uri>
-            <history>
-               <event flag="added" date="1998-11-06" version="0.1"/>
-               <event flag="deleted" date="2003-09-10" rfcp="4-37" version="0.5"/>
-               <event flag="changed" date="2005-09-06" version="0.7"/>
-               <event flag="changed" date="2013-09-01" version="8.0"/>
-               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
-            </history>
-         </status>
-         <uuid>b3f85dd3-12aa-4567-b97c-681e4ed6ea12</uuid>
-      </standard>
-
-      <standard id="us-dod-mil-std-2407" tag="VPF">
-         <document orgid="us-dod" pubnum="mil-std-2407" date="1996-06-28" title="Interface Standard for Vector Product Format"/>
-         <applicability>
-            The vector product format (VPF) is a standard format, structure, and
-            organization for large geographic databases that are based on a georelational
-            data model and are intended for direct use.  VPF is designed to be compatible
-            with a wide variety of applications and products.  VPF allows application
-            software to read data directly from computer-readable media without prior
-            conversion to an intermediate form.  VPF uses tables and indexes that
-            permit direct access by spatial location and thematic content and is designed
-            to be used with any digital geographic data in vector format that can be
-            represented using nodes, edges, and faces.  VPF defines the format of
-            data objects, and the georelational data model provides a data organization
-            within which software can manipulate the VPF data objects.  A product
-            specification corresponding to a specific database product determines
-            the precise contents of feature tables and their relationships in the
-            database. In this context, each separate product or application is defined
-            by a product specification and implemented by using VPF structures.
-         </applicability>
-         <responsibleparty rpref="undefined"/>
-         <status mode="deleted">
-            <uri>http://earth-info.nga.mil/publications/specs/printed/VPF/vpf.html</uri>
-            <history>
-               <event flag="added" date="2011-10-17" rfcp="5-47" version="6.0"/>
-               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
-            </history>
-         </status>
-         <uuid>20c82e94-7ac8-41a0-81b3-07ad51aa46c5</uuid>
-      </standard>
-
-      <standard id="us-dod-mil-std-2525b" tag="MIL-STD 2525B">
-         <document orgid="us-dod" pubnum="MIL-STD 2525B" date="1999-01-30" title="Common Warfighting Symbology"/>
-         <applicability>
-            This standard applies to all DOD components directly or indirectly
-            involved with C4I operations, system operations, system development, and training
-            within the context of warfighting operations. MIL-STD-2525B will serve as the
-            standard symbol set for all future DOD uses of C4I symbology. The standard
-            can be applied to mapping/charting, weather, cockpit display, and engineering
-            design symbology to the extent that it is usable by these communities. The
-            standard will apply to all future use of symbols in two-dimensional and
-            electronic display systems in C4I environments.
-            <para>
-               MIL-STD-2525B combines the symbology from two separate usage domains,
-               referred to as the "force domain" and the "engagement domain." These domains
-               use warfighting symbology in support of their C4IFTW functions. When integrated,
-               this symbology provides the basis for a final standard solution for C4IFTW
-               symbology.
-            </para>
-            <para>
-               Symbology used in the force domain has evolved from North Atlantic Treaty
-               Organization (NATO) Standardization Agreement (STANAG) 2019 (APP 6), "Military
-               Symbols for Land Based Systems," and U.S. Army Field Manual (FM) 101-5-1/Marine
-               Corp Reference Publication (MCRP) 5-2A, Operational Terms and Graphics. Commanders
-               and staff at all echelons use the symbols and graphics contained in these
-               documents for planning and execution of ground force military operations.
-               These symbols represent units, installations, equipment, and operations,
-               and are used in automated C4I systems or to mark maps and overlays manually.
-            </para>
-         </applicability>
-         <responsibleparty rpref="amn-tmo"/>
-         <status mode="accepted">
-            <uri>http://www.dtic.mil/dtic/tr/fulltext/u2/a552350.pdf</uri>
-            <history>
-               <event flag="added" date="2004-05-28" version="0.6"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
-            </history>
-         </status>
-         <uuid>10a9562c-0add-409d-b53a-53fb09abe47e</uuid>
-      </standard>
-
-      <standard id="us-dod-mil-std-2525c" tag="Common Warfighting Symbology">
-         <document orgid="us-dod" pubnum="MIL-STD-2525C" date="2008-11-17" title="Common Warfighting Symbology"/>
-         <applicability>
-            The mil standard provides common operational symbology along
-            with details on their display and plotting to ensure the compatibility,
-            and to the greatest extent possible, the interoperability of Land
-            Component Command, Control, Communications, Computer, and Intelligence
-            (C4I) systems, development, operations, and training.  It addresses the
-            efficient transmission of symbology information through the use of a
-            standard methodology for symbol hierarchy, information taxonomy, and
-            symbol identifiers.
-         </applicability>
-         <responsibleparty rpref="amn-tmo"/>
-         <status mode="accepted">
-            <uri>http://www.dtic.mil/doctrine//doctrine/other/ms_2525c.pdf</uri>
-            <history>
-               <event flag="added" date="2010-09-22" version="5.0"/>
-               <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
-            </history>
-         </status>
-         <uuid>29aa49e3-57a6-4e68-85ed-c80987dd2bd3</uuid>
-      </standard>
-
-      <standard id="us-dod-mil-std1840c" tag="CALS">
-         <document orgid="us-dod" pubnum="MIL-STD 1840C" date="1997" title="Continuous Acquisition and Lifecycle Support (CALS), previously known as Computer-aided Acquisition and Logistic Support."/>
-         <applicability>
-            CALS is a US DoD originated strategy, which is being adopted world-wide
-            by industry and a large number of nations. The strategy is intended to effect
-            the transition to a highly integrated and near paperless process for engineering,
-            manufacturing and product support through the computer aided exchange of information
-            in digital form. As yet, there is no agreed NATO CALS policy, although some
-            NATO nations and agencies are using CALS. The new NATO CALS Management Board (NCMB)
-            supported by the NATO CALS Office (NCO) are tasked with producing the necessary
-            NATO CALS policy, standards and procedures. The NCMB intends to work on the
-            migration of existing national standards into internationally acceptable standards
-         </applicability>
-         <responsibleparty rpref="undefined"/>
-         <status mode="deleted">
-            <uri>http://www.dt.navy.mil/tot-shi-sys/tec-inf-sys/cal-std/doc/1840C.pdf</uri>
-            <history>
-               <event flag="added" date="1997-02-28" version="0.1"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
-            </history>
-         </status>
-         <uuid>963c7a24-24f0-4661-a890-061bfe4e5c9e</uuid>
-      </standard>
-
-      <standard id="us-dod-mil-std6017b" tag="VMF">
-         <document orgid="us-dod" pubnum="mil-std 6017B" date="2009-10-30" title="Variable Message Format (VMF)"/>
-         <applicability>
-            The Variable Message Format (VMF) Military Standard (MIL-STD) provides
-            military services and agencies with Joint interoperability standards,
-            including message, data element, and protocol standards. These standards
-            are essential for the design, development, test, certification, fielding,
-            and continued operation of automated tactical data systems (TDSs) which
-            support the requirement to exchange timely, critical, command and control
-            information across Joint boundaries.
-         </applicability>
-         <responsibleparty rpref="ncia-c2"/>
-         <status mode="accepted">
-            <uri>http://www.freestd.us/soft2/681411.htm</uri>
-            <history>
-               <event flag="added" date="2012-10-30" rfcp="6-41" version="7.0"/>
-               <event flag="changed" date="2017-01-14" rfcp="9-19" version="10.0"/>
-            </history>
-         </status>
-         <uuid>2f5e2960-8ab1-48f6-a7a2-0ee6341524c0</uuid>
-      </standard>
-
-      <standard id="us-dod-mil-std6017c" tag="VMF">
-         <document orgid="us-dod" pubnum="mil-std 6017C" date="2012-05-31" title="Variable Message Format (VMF)" note="Except Annex B, List of Geographical Data Field Identifiers (DFIs)"/>
-         <applicability>
-            The Variable Message Format (VMF) Military Standard (MIL-STD) provides
-            military services and agencies with Joint interoperability standards,
-            including message, data element, and protocol standards. These standards
-            are essential for the design, development, test, certification, fielding,
-            and continued operation of automated tactical data systems (TDSs) which
-            support the requirement to exchange timely, critical, command and control
-            information across Joint boundaries.
-         </applicability>
-         <responsibleparty rpref="c3b-cap1"/>
-         <status mode="accepted">
-            <uri>http://www.freestd.us/soft4/1684941.htm</uri>
-            <history>
-               <event flag="added" date="2012-10-30" rfcp="6-41" version="7.0"/>
-               <event flag="changed" date="2017-01-14" rfcp="9-19" version="10.0"/>
-               <event flag="changed" date="2017-09-17" version="10.0"/>
-               <event flag="changed" date="2018-09-16" version="11.0" rfcp="10-32"/>
-            </history>
-         </status>
-         <uuid>11544a89-44f5-4373-a889-465f450700dd</uuid>
-      </standard>
-
-      <standard id="us-dod-oth-g" tag="OTH-G">
-         <document orgid="us-dod" pubnum="OTH-G Rev. C" date="1997-08-01" title="Operational Specification for OVER-THE-HORIZON TARGETING GOLD (Revision C) (OTH-G)">
-            <correction cpubnum="Change 2" date="1999-09-01"/>
-         </document>
-         <applicability>
-            OTH-G is mainly used within the US DoD armed forces and within
-            SACLANT and many NATO navies. The OTHG format is based on message text formats
-            (MTFs) within the OPSPEC. Each MTF is based on an ordered series of sets from
-            the appropriate set library. Each message must be constructed in accordance
-            with the rules for the specific MTF, the sets used to compose the MTF, their
-            supporting tables and entry lists, and the General Formatting Rules."
-            <para>
-               Background: "The Operational Specification for the Over-The-Horizon GOLD
-               (OS-OTG) (Rev C) Change 1 of 1 August 1998 provides a standardised method
-               of transmitting selected data between OTH-T systems and OTH-T support systems.
-               It is designed to be easily man readable.
-            </para>
-         </applicability>
-         <responsibleparty rpref="fmn-cpwg"/>
-         <status mode="accepted">
-            <uri>http://herbb.hanscom.af.mil/tbbs/R472/OS-OTG_REV_C.pdf</uri>
-            <history>
-               <event flag="added" date="1999-02-02" version="0.1"/>
-               <event flag="changed" date="2005-09-15" version="0.7"/>
-               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
-               <event flag="changed" date="2017-05-03" rfcp="9-6" version="10.0"/>
-            </history>
-         </status>
-         <uuid>8beb116a-66d0-4553-beeb-5f2a991ab972</uuid>
       </standard>
 
       <standard id="ebu-tech3285" tag="WAVE Audio with LPCM">
@@ -39910,6 +39539,33 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>8959f028-ae7e-4e65-9326-90ab47333e04</uuid>
       </standard>
 
+      <standard id="nso-aetp-4722-ed.a-v1" tag="AEtP-4722 Ed. A Ver. 1">
+         <document orgid="nso" pubnum="AEtP-4722 Ed. A Ver. 1" title="Technical Characteristics of Reverse IFF using Mode 5 Waveform - AEtP-4722 Edition A" date=""/>
+         <applicability/>
+         <responsibleparty rpref="c3b-cap2"/>
+         <status mode="accepted">
+            <uri>http://www.nso.int/</uri>
+            <history>
+               <event date="2017-09-19" flag="added" version="11.0" rfcp="10-21"/>
+            </history>
+         </status>
+         <uuid>3fa6b6fd-76d6-4c2c-9b26-24fcc066cab7</uuid>
+      </standard>
+
+      <standard id="nso-aidpp-01-ed.A-v1" tag="AIDPP-01 ed. A version 1">
+         <document orgid="nso" pubnum="AIDPP-01 ed. A version 1" title="Identification Data Combining Process" date=""/>
+         <applicability/>
+         <responsibleparty rpref="c3b-cap2"/>
+         <status mode="accepted">
+            <uri>http://www.nso.int/</uri>
+            <history>
+               <event date="2017-09-19" flag="added" version="11.0" rfcp="10-21"/>
+               <event date="2018-04-18" flag="changed" version="11.0" rfcp="10-36"/>
+            </history>
+         </status>
+         <uuid>7eaedd49-835a-4a7e-8381-e9b4ee090df6</uuid>
+      </standard>
+
       <standard id="nso-atdlp-7.02a1" tag="ATDLP-7.02(A)(1)">
          <document orgid="nso" pubnum="ATDLP-7.02(A)(1)" title="NATO Implementation Codes and Rules (NICR T/1)" date=""/>
          <applicability/>
@@ -40674,20 +40330,6 @@ The purpose of this specification is to assure uniformity of treatment among all
             </history>
          </status>
          <uuid>1a3df65b-d3f4-4200-be1c-d5ac3ba3e422</uuid>
-      </standard>
-
-      <standard id="nso-aidpp-01-ed.A-v1" tag="AIDPP-01 ed. A version 1">
-         <document orgid="nso" pubnum="AIDPP-01 ed. A version 1" title="Identification Data Combining Process" date=""/>
-         <applicability/>
-         <responsibleparty rpref="c3b-cap2"/>
-         <status mode="accepted">
-            <uri>http://www.nso.int/</uri>
-            <history>
-               <event date="2017-09-19" flag="added" version="11.0" rfcp="10-21"/>
-               <event date="2018-04-18" flag="changed" version="11.0" rfcp="10-36"/>
-            </history>
-         </status>
-         <uuid>7eaedd49-835a-4a7e-8381-e9b4ee090df6</uuid>
       </standard>
 
       <standard id="nso-stanag4175ed4" tag="STANAG 4175 ed.4">
@@ -43040,19 +42682,6 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>ea05f4e1-7f3a-4c1b-93a7-6051979d3ac6</uuid>
       </standard>
 
-      <standard id="nso-aetp-4722-ed.a-v1" tag="AEtP-4722 Ed. A Ver. 1">
-         <document orgid="nso" pubnum="AEtP-4722 Ed. A Ver. 1" title="Technical Characteristics of Reverse IFF using Mode 5 Waveform - AEtP-4722 Edition A" date=""/>
-         <applicability/>
-         <responsibleparty rpref="c3b-cap2"/>
-         <status mode="accepted">
-            <uri>http://www.nso.int/</uri>
-            <history>
-               <event date="2017-09-19" flag="added" version="11.0" rfcp="10-21"/>
-            </history>
-         </status>
-         <uuid>3fa6b6fd-76d6-4c2c-9b26-24fcc066cab7</uuid>
-      </standard>
-
       <standard id="nso-stanag4724" tag="STANAG 4724 Ed 1">
          <document orgid="nso" pubnum="STANAG 4724 Ed 1" date="2015-10-23" title="VLF / LF MSK Multi Channel Broadcast - AComP-4724 Edition A"/>
          <applicability>Cover stanag for AComP-4724</applicability>
@@ -43502,6 +43131,18 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>d5f5e6c4-54c6-4fc9-9add-48885d26ce76</uuid>
       </standard>
 
+      <standard id="nso-stanag5511ed10" tag="STANAG 5511 Ed 10">
+         <document orgid="nso-e" pubnum="STANAG 5511 Ed 10 / ATDLP-5.11(B)" date="" title="Tactical Data Exchange - Link 11/11B"/>
+         <applicability/>
+         <responsibleparty rpref="tdl"/>
+         <status mode="accepted">
+            <history>
+               <event flag="added" date="2018-05-07" rfcp="10-27" version="11.0"/>
+            </history>
+         </status>
+         <uuid>7b4d655a-2a41-4918-ac7a-65333c63bd7b</uuid>
+      </standard>
+
       <standard id="nso-stanag5511ed6" tag="STANAG 5511 Ed 6">
          <document orgid="nso" pubnum="STANAG 5511 Ed 6" date="2008-09-29" title="Tactical Data Exchange - Link 11/11B"/>
          <applicability>
@@ -43615,18 +43256,6 @@ The purpose of this specification is to assure uniformity of treatment among all
             </history>
          </status>
          <uuid>86f17eee-3ada-42ed-9159-03eb988f1677</uuid>
-      </standard>
-
-      <standard id="nso-stanag5511ed10" tag="STANAG 5511 Ed 10">
-         <document orgid="nso-e" pubnum="STANAG 5511 Ed 10 / ATDLP-5.11(B)" date="" title="Tactical Data Exchange - Link 11/11B"/>
-         <applicability/>
-         <responsibleparty rpref="tdl"/>
-         <status mode="accepted">
-            <history>
-               <event flag="added" date="2018-05-07" rfcp="10-27" version="11.0"/>
-            </history>
-         </status>
-         <uuid>7b4d655a-2a41-4918-ac7a-65333c63bd7b</uuid>
       </standard>
 
       <standard id="nso-stanag5514ed2" tag="Link-14">
@@ -49418,6 +49047,377 @@ applications. </applicability>
             </history>
          </status>
          <uuid>a1dcbb9c-e294-42c7-ae28-d1237c987775</uuid>
+      </standard>
+
+      <standard id="us-dod-8307" tag="Selecting Multimedia">
+         <document orgid="us-dod" pubnum="8307" date="1998-11" title="DoD Guide to selecting computerbased multi-media standards, technologies, products and practices"/>
+         <applicability>
+            The goal of this document is to provide guidance and to serve
+            as a reference source for information system architects and design engineers,
+            acquisition managers, and procurement officials to select appropriate multimedia
+            standards for their projects. Supporting objectives include enhancing the ease
+            of integration of multimedia products and platforms (often a nontrivial task)
+            and improving interoperability across the DoD enterprise, based on tenets and
+            guidance associated with the Defense Information Infrastructure (DII). This
+            includes conforming to and supporting the relevant standards, technologies,
+            products and practices of the DII Common Operating Environment (COE).
+         </applicability>
+         <responsibleparty rpref="undefined"/>
+         <status mode="deleted">
+            <uri>http://library.disa.mil/jr8300/jieo-8307.pdf</uri>
+            <history>
+               <event flag="added" date="2002-10-10" version="0.4"/>
+               <event flag="changed" date="2005-09-14" version="0.7"/>
+               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+            </history>
+         </status>
+         <uuid>00eaeda5-b555-457b-9c42-149c8c3bdcec</uuid>
+      </standard>
+
+      <standard id="us-dod-directive5200.28-std" tag="TCSEC">
+         <document orgid="us-dod" pubnum="DoD Directive 5200.28-STD" date="1985-12" title="US DoD Trusted Computer System Evaluation Criteria (TCSEC), (the Orange Book)"/>
+         <applicability>
+            The TCSEC document defines the criteria against which a
+            multi-user operating system will be evaluated. These criteria are
+            organised into classes rated from D to A1 and permit to evaluate
+            the degree of trust that can be placed in a computer system for
+            the secure processing of classified and other sensitive
+            information.
+            <para>TCSEC provides 7 classes (profiles) :</para>
+            <itemizedlist>
+               <listitem>
+                  <para>D : no security</para>
+               </listitem>
+               <listitem>
+                  <para>
+                     C1 (discretionary security protection): this
+                     class satisfies the discretionary security requirement by
+                     providing separation of users and data. It incorporates some
+                     form of credible controls capable of enforcing access
+                     limitations on an individual basis
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     C2 (controlled access protection): this class
+                     enforces a more finely grained discretionary access control than
+                     C1, making users individually accountable for their actions
+                     through login procedures, auditing of security-relevant events
+                     and resource isolation.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     B1 (labelled security protection): this class
+                     requires all the features required for C2 with, in addition, an
+                     informal statement of the security policy model, data labelling
+                     and mandatory access control over names subjects and
+                     objects.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     B2 (structured protection): this requires the
+                     discretionary and mandatory access control enforcement found in
+                     B1 to be extended to all subjects and objects in the ADP
+                     system. In addition, covert channels are
+                     addressed. Authentication mechanisms are strengthened, trusted
+                     facility management is provided in the form of support for
+                     system administrator and operator functions, and stringent
+                     configuration management controls are imposed.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     B3 (security domains): this class requires a
+                     reference monotor that mediates all accesses of subjects to
+                     objects, is tamperproof and small enough to be subjected to
+                     analysis and tests. A security administrator is supported, audit
+                     mechanisms are expanded to signal security-relevant events and
+                     system recovery procedures are required.
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     A1 (verified design): this class is functionally
+                     equivalent to B3 but the distinguishing feature of systems in
+                     this class is the analysis derived from formal design
+                     specification and verification techniques and the resulting high
+                     degree of assurance that the system is correctly
+                     implemented.
+                  </para>
+               </listitem>
+            </itemizedlist>
+         </applicability>
+         <responsibleparty rpref="undefined"/>
+         <status mode="deleted">
+            <uri>http://www.fas.org/irp/nsa/rainbow/std001.htm</uri>
+            <history>
+               <event flag="added" date="1998-11-10" version="0.1"/>
+               <event flag="changed" date="2005-09-23" version="0.7"/>
+               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+            </history>
+         </status>
+         <uuid>2d675fb6-460f-4d5a-bcd4-3ed600b8d490</uuid>
+      </standard>
+
+      <standard id="us-dod-ebts-1.2" tag="DoD EBTS 1.2">
+         <document orgid="us-dod" pubnum="DIN: DOD_BTF_TS_EBTS_ Nov06_01.02.00" date="2006-11-08" title="DOD EBTS" version="1.2"/>
+         <applicability>
+            DoD currently collects biometrics for matching and storage
+            within ABIS using EBTS v1.2 which is based on the older ANSI/NIST-ITL 1-2000
+            (American National Standard for Information Systems - Data Format for the
+            Interchange of Fingerprint, Facial, Scar Mark Tattoo (SMT) Information).
+         </applicability>
+         <responsibleparty rpref="amn-tmo"/>
+         <status mode="accepted">
+            <uri>http://www.biometrics.dod.mil/Files/Documents/Standards/DOD_BTF_TS_EBTS_Nov06_01%2002%2000.pdf</uri>
+            <history>
+               <event flag="added" date="2010-09-22" version="5.0"/>
+               <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
+            </history>
+         </status>
+         <uuid>8d841da2-b3a9-4de6-a1f6-7c6cfc3970ee</uuid>
+      </standard>
+
+      <standard id="us-dod-ebts-2.0" tag="DoD EBTS 2.0">
+         <document orgid="us-dod" pubnum="DIN: DOD_BTF_TS_EBTS_ Mar09_02.00.00" date="2009-03-27" title="DOD EBTS" version="2.0"/>
+         <applicability>
+            The ability to transmit biometric samples is critical for
+            enabling the DoD to share and leverage information across the DoD Biometrics
+            Enterprise. The DoD EBTS supports requirements for DoD encounters and
+            detainment circumstances. This standard is intended for those applications
+            requiring the exchange of biometric samples and related biographic and
+            contextual data both within the DoD Biometrics Enterprise and with external
+            agencies, coalition members, and governments.
+         </applicability>
+         <responsibleparty rpref="amn-tmo"/>
+         <status mode="accepted">
+            <uri>http://www.biometrics.dod.mil/Files/Documents/Standards/DoD_ABIS_EBTS_v2.0.pdf</uri>
+            <history>
+               <event flag="added" date="2010-09-22" version="5.0"/>
+               <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
+            </history>
+         </status>
+         <uuid>b2f4bbc5-cd0d-400f-aa6d-22084ebe1f03</uuid>
+      </standard>
+
+      <standard id="us-dod-hci" tag="HCI">
+         <document orgid="us-dod" pubnum="dodis" date="1996-04-30" title="DoD Human Computer Interface (HCI) Style Guide, DoD TAFIM Volume 8, V3.0" version="3.0"/>
+         <applicability>
+            This guide provides a common framework for HCI design and implementation.
+            It defines and documents the long-term functional goals, objectives, and requirements
+            of the human computer interface. Interface implementation options are standardised
+            enabling all DoD applications to appear and operate in a reasonably consistent manner
+         </applicability>
+         <responsibleparty rpref="undefined"/>
+         <status mode="deleted">
+            <uri>https://www.fas.org/irp/program/core/dodiis/sec2-2.html</uri>
+            <history>
+               <event flag="added" date="1998-11-06" version="0.1"/>
+               <event flag="deleted" date="2003-09-10" rfcp="4-37" version="0.5"/>
+               <event flag="changed" date="2005-09-06" version="0.7"/>
+               <event flag="changed" date="2013-09-01" version="8.0"/>
+               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+            </history>
+         </status>
+         <uuid>b3f85dd3-12aa-4567-b97c-681e4ed6ea12</uuid>
+      </standard>
+
+      <standard id="us-dod-mil-std-2407" tag="VPF">
+         <document orgid="us-dod" pubnum="mil-std-2407" date="1996-06-28" title="Interface Standard for Vector Product Format"/>
+         <applicability>
+            The vector product format (VPF) is a standard format, structure, and
+            organization for large geographic databases that are based on a georelational
+            data model and are intended for direct use.  VPF is designed to be compatible
+            with a wide variety of applications and products.  VPF allows application
+            software to read data directly from computer-readable media without prior
+            conversion to an intermediate form.  VPF uses tables and indexes that
+            permit direct access by spatial location and thematic content and is designed
+            to be used with any digital geographic data in vector format that can be
+            represented using nodes, edges, and faces.  VPF defines the format of
+            data objects, and the georelational data model provides a data organization
+            within which software can manipulate the VPF data objects.  A product
+            specification corresponding to a specific database product determines
+            the precise contents of feature tables and their relationships in the
+            database. In this context, each separate product or application is defined
+            by a product specification and implemented by using VPF structures.
+         </applicability>
+         <responsibleparty rpref="undefined"/>
+         <status mode="deleted">
+            <uri>http://earth-info.nga.mil/publications/specs/printed/VPF/vpf.html</uri>
+            <history>
+               <event flag="added" date="2011-10-17" rfcp="5-47" version="6.0"/>
+               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+            </history>
+         </status>
+         <uuid>20c82e94-7ac8-41a0-81b3-07ad51aa46c5</uuid>
+      </standard>
+
+      <standard id="us-dod-mil-std-2525b" tag="MIL-STD 2525B">
+         <document orgid="us-dod" pubnum="MIL-STD 2525B" date="1999-01-30" title="Common Warfighting Symbology"/>
+         <applicability>
+            This standard applies to all DOD components directly or indirectly
+            involved with C4I operations, system operations, system development, and training
+            within the context of warfighting operations. MIL-STD-2525B will serve as the
+            standard symbol set for all future DOD uses of C4I symbology. The standard
+            can be applied to mapping/charting, weather, cockpit display, and engineering
+            design symbology to the extent that it is usable by these communities. The
+            standard will apply to all future use of symbols in two-dimensional and
+            electronic display systems in C4I environments.
+            <para>
+               MIL-STD-2525B combines the symbology from two separate usage domains,
+               referred to as the "force domain" and the "engagement domain." These domains
+               use warfighting symbology in support of their C4IFTW functions. When integrated,
+               this symbology provides the basis for a final standard solution for C4IFTW
+               symbology.
+            </para>
+            <para>
+               Symbology used in the force domain has evolved from North Atlantic Treaty
+               Organization (NATO) Standardization Agreement (STANAG) 2019 (APP 6), "Military
+               Symbols for Land Based Systems," and U.S. Army Field Manual (FM) 101-5-1/Marine
+               Corp Reference Publication (MCRP) 5-2A, Operational Terms and Graphics. Commanders
+               and staff at all echelons use the symbols and graphics contained in these
+               documents for planning and execution of ground force military operations.
+               These symbols represent units, installations, equipment, and operations,
+               and are used in automated C4I systems or to mark maps and overlays manually.
+            </para>
+         </applicability>
+         <responsibleparty rpref="amn-tmo"/>
+         <status mode="accepted">
+            <uri>http://www.dtic.mil/dtic/tr/fulltext/u2/a552350.pdf</uri>
+            <history>
+               <event flag="added" date="2004-05-28" version="0.6"/>
+               <event flag="changed" date="2005-09-15" version="0.7"/>
+               <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
+            </history>
+         </status>
+         <uuid>10a9562c-0add-409d-b53a-53fb09abe47e</uuid>
+      </standard>
+
+      <standard id="us-dod-mil-std-2525c" tag="Common Warfighting Symbology">
+         <document orgid="us-dod" pubnum="MIL-STD-2525C" date="2008-11-17" title="Common Warfighting Symbology"/>
+         <applicability>
+            The mil standard provides common operational symbology along
+            with details on their display and plotting to ensure the compatibility,
+            and to the greatest extent possible, the interoperability of Land
+            Component Command, Control, Communications, Computer, and Intelligence
+            (C4I) systems, development, operations, and training.  It addresses the
+            efficient transmission of symbology information through the use of a
+            standard methodology for symbol hierarchy, information taxonomy, and
+            symbol identifiers.
+         </applicability>
+         <responsibleparty rpref="amn-tmo"/>
+         <status mode="accepted">
+            <uri>http://www.dtic.mil/doctrine//doctrine/other/ms_2525c.pdf</uri>
+            <history>
+               <event flag="added" date="2010-09-22" version="5.0"/>
+               <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
+            </history>
+         </status>
+         <uuid>29aa49e3-57a6-4e68-85ed-c80987dd2bd3</uuid>
+      </standard>
+
+      <standard id="us-dod-mil-std1840c" tag="CALS">
+         <document orgid="us-dod" pubnum="MIL-STD 1840C" date="1997" title="Continuous Acquisition and Lifecycle Support (CALS), previously known as Computer-aided Acquisition and Logistic Support."/>
+         <applicability>
+            CALS is a US DoD originated strategy, which is being adopted world-wide
+            by industry and a large number of nations. The strategy is intended to effect
+            the transition to a highly integrated and near paperless process for engineering,
+            manufacturing and product support through the computer aided exchange of information
+            in digital form. As yet, there is no agreed NATO CALS policy, although some
+            NATO nations and agencies are using CALS. The new NATO CALS Management Board (NCMB)
+            supported by the NATO CALS Office (NCO) are tasked with producing the necessary
+            NATO CALS policy, standards and procedures. The NCMB intends to work on the
+            migration of existing national standards into internationally acceptable standards
+         </applicability>
+         <responsibleparty rpref="undefined"/>
+         <status mode="deleted">
+            <uri>http://www.dt.navy.mil/tot-shi-sys/tec-inf-sys/cal-std/doc/1840C.pdf</uri>
+            <history>
+               <event flag="added" date="1997-02-28" version="0.1"/>
+               <event flag="changed" date="2005-09-15" version="0.7"/>
+               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+            </history>
+         </status>
+         <uuid>963c7a24-24f0-4661-a890-061bfe4e5c9e</uuid>
+      </standard>
+
+      <standard id="us-dod-mil-std6017b" tag="VMF">
+         <document orgid="us-dod" pubnum="mil-std 6017B" date="2009-10-30" title="Variable Message Format (VMF)"/>
+         <applicability>
+            The Variable Message Format (VMF) Military Standard (MIL-STD) provides
+            military services and agencies with Joint interoperability standards,
+            including message, data element, and protocol standards. These standards
+            are essential for the design, development, test, certification, fielding,
+            and continued operation of automated tactical data systems (TDSs) which
+            support the requirement to exchange timely, critical, command and control
+            information across Joint boundaries.
+         </applicability>
+         <responsibleparty rpref="ncia-c2"/>
+         <status mode="accepted">
+            <uri>http://www.freestd.us/soft2/681411.htm</uri>
+            <history>
+               <event flag="added" date="2012-10-30" rfcp="6-41" version="7.0"/>
+               <event flag="changed" date="2017-01-14" rfcp="9-19" version="10.0"/>
+            </history>
+         </status>
+         <uuid>2f5e2960-8ab1-48f6-a7a2-0ee6341524c0</uuid>
+      </standard>
+
+      <standard id="us-dod-mil-std6017c" tag="VMF">
+         <document orgid="us-dod" pubnum="mil-std 6017C" date="2012-05-31" title="Variable Message Format (VMF)" note="Except Annex B, List of Geographical Data Field Identifiers (DFIs)"/>
+         <applicability>
+            The Variable Message Format (VMF) Military Standard (MIL-STD) provides
+            military services and agencies with Joint interoperability standards,
+            including message, data element, and protocol standards. These standards
+            are essential for the design, development, test, certification, fielding,
+            and continued operation of automated tactical data systems (TDSs) which
+            support the requirement to exchange timely, critical, command and control
+            information across Joint boundaries.
+         </applicability>
+         <responsibleparty rpref="c3b-cap1"/>
+         <status mode="accepted">
+            <uri>http://www.freestd.us/soft4/1684941.htm</uri>
+            <history>
+               <event flag="added" date="2012-10-30" rfcp="6-41" version="7.0"/>
+               <event flag="changed" date="2017-01-14" rfcp="9-19" version="10.0"/>
+               <event flag="changed" date="2017-09-17" version="10.0"/>
+               <event flag="changed" date="2018-09-16" version="11.0" rfcp="10-32"/>
+            </history>
+         </status>
+         <uuid>11544a89-44f5-4373-a889-465f450700dd</uuid>
+      </standard>
+
+      <standard id="us-dod-oth-g" tag="OTH-G">
+         <document orgid="us-dod" pubnum="OTH-G Rev. C" date="1997-08-01" title="Operational Specification for OVER-THE-HORIZON TARGETING GOLD (Revision C) (OTH-G)">
+            <correction cpubnum="Change 2" date="1999-09-01"/>
+         </document>
+         <applicability>
+            OTH-G is mainly used within the US DoD armed forces and within
+            SACLANT and many NATO navies. The OTHG format is based on message text formats
+            (MTFs) within the OPSPEC. Each MTF is based on an ordered series of sets from
+            the appropriate set library. Each message must be constructed in accordance
+            with the rules for the specific MTF, the sets used to compose the MTF, their
+            supporting tables and entry lists, and the General Formatting Rules."
+            <para>
+               Background: "The Operational Specification for the Over-The-Horizon GOLD
+               (OS-OTG) (Rev C) Change 1 of 1 August 1998 provides a standardised method
+               of transmitting selected data between OTH-T systems and OTH-T support systems.
+               It is designed to be easily man readable.
+            </para>
+         </applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://herbb.hanscom.af.mil/tbbs/R472/OS-OTG_REV_C.pdf</uri>
+            <history>
+               <event flag="added" date="1999-02-02" version="0.1"/>
+               <event flag="changed" date="2005-09-15" version="0.7"/>
+               <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2017-05-03" rfcp="9-6" version="10.0"/>
+            </history>
+         </status>
+         <uuid>8beb116a-66d0-4553-beeb-5f2a991ab972</uuid>
       </standard>
 
       <standard id="usb.org-wusb" tag="WUSB">
