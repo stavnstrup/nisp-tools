@@ -74,7 +74,8 @@ have an `id`, `title`, `level`, `description` and `emUUID` attribute. The `id`
 attribute is used to identify the relationship between selected
 standards and the service taxonomy. The `level` attribute described on
 what level in the taxonomy the node is located, the `description` attribute
-contains a description of the node in the form of raw mediawiki markup and the `emUUID`
+contains a description of the node in the form of raw mediawiki markup, the `descriptionMD` attribute
+contains a description of the node in the form of raw markdown and the `emUUID`
 attribute is the UUID assigned in the TIDE EM-Wiki.
 
 ~~~{.dtd}
@@ -87,6 +88,7 @@ attribute is the UUID assigned in the TIDE EM-Wiki.
           title CDATA #REQUIRED
           level CDATA #REQUIRED
           description CDATA #IMPLIED
+          descriptionMD CDATA #IMPLIED
           emUUID CDATA #REQUIRED>
 ~~~
 
