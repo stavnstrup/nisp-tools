@@ -13,7 +13,7 @@ document. The original design of the database reflected the structure
 of the list of standard and profiles described in the NC3 Technical
 Architecture version 1. In order to enable consistency across the
 different volumes, the database have been extended to be able to
-describe the selection of mandatory-, candidate- and fading standards
+describe the selection of mandatory- and candidate standards
 and profiles. This selection of standards and profiles are justified
 in the rationale statements, which are also part of the
 database. Recently the database have been reorganised to reflect
@@ -120,7 +120,7 @@ A `<bgroup>` element contains a list of `<bprefstandard>` elements, which refere
 ~~~{.dtd}
 <!ELEMENT bpgroup (bprefstandard+)>
 <!ATTLIST bpgroup
-          mode (unknown|mandatory|candidate|fading) #REQUIRED>
+          mode (unknown|mandatory|candidate) #REQUIRED>
 
 <!ELEMENT bprefstandard (#PCDATA)>
 <!ATTLIST bprefstandard
