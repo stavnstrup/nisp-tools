@@ -181,7 +181,7 @@
           title CDATA #REQUIRED>
 
 
-<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, obgroup+, guide*,  status, uuid?)>
+<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, obgroup*, refgroup*, guide*,  status, uuid?)>
 <!ATTLIST serviceprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
@@ -195,6 +195,11 @@
 <!ELEMENT obgroup (description?, refstandard*, refprofile*)>
 <!ATTLIST obgroup
           obligation (mandatory|recommended|optional|conditional) #REQUIRED>
+
+<!ELEMENT refgroup (description?, refstandard*, refprofile*)>
+<!ATTLIST refgroup
+          obligation (none|mandatory|recommended|optional|conditional) "none"
+          lifecycle (current|candidate) "current">
 
 <!ELEMENT refstandard EMPTY>
 <!ATTLIST refstandard
