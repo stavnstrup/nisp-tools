@@ -380,10 +380,10 @@ the capability, a number of references to `<profile>` or `<serviceprofile>` elem
 
 ### Service Profile
 
-A `<serviceprofile>` element represents a service, which is required by a specific capability and it consists of a `<profilespec>` element describing the capability, a number of one or more references in form of `<reftaxonomy>` elements to the taxonomy.
+A `<serviceprofile>` element represents a service, which is required by a specific capability and it consists of a `<profilespec>` element describing the capability, a number of one or more references in form of `<reftaxonomy>` elements to the taxonomy. The `<serviceprofile>` serves two distinct roles, it represents a leave of the basic standards profiles which lists mandatory and emerging standardards for NATO common funded systems and second it represent the leaves of a community of interest profile like the Federated Mission Networking (FMN) profile. The role of the serviceprofile is controlles by the attributes of the `<refgroup>` element(s).
 
 ~~~{.dtd}
-<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, obgroup+, guide*,  status, uuid?)>
+<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
 <!ATTLIST serviceprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
@@ -391,7 +391,7 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 
 ### Profile Elements
 
-A `<profilespec>` element exposes the publishing organisation, publication number, publishing date, title and version through the attributes orgid, pubnum, date, title, version and note. The orgid refers to an organisation is embedded in the  <organisations> element. The rule of using organisation identifiers instead of the actual name of the organisation is mandated to prevent, that the same organisation exists in multiple incarnations in the database.
+A `<profilespec>` element exposes the publishing organisation, publication number, publishing date, title and version through the attributes orgid, pubnum, date, title, version and note. The orgid refers to an organisation is embedded in the `<organisations>` element. The rule of using organisation identifiers instead of the actual name of the organisation is mandated to prevent, that the same organisation exists in multiple incarnations in the database.
 
 ~~~{.dtd}
 <!ELEMENT profilespec EMPTY>
@@ -424,12 +424,15 @@ The `<reftaxonomy>` element refences a taxonomy node, which this a given `<servi
           refid IDREF #REQUIRED>
 ~~~
 
-The `<obgroup>` references standards and profiles with a specific obligation. The `<obgroup>` element is child of a `<serviceprofile>`element. 
+The `<refgroup>` references standards and profiles with a specific obligation. The `<refgroup>` element is child of a `<serviceprofile>`element.
+
+DESCRIBE obligation and lifecycle ATTRIBUTES AND HOW THEY CONTROL THE DUAL ROLES OF A SERVICE PROFILE
 
 ~~~{.dtd}
-<!ELEMENT obgroup (description?, refstandard*, refprofile*)>
-<!ATTLIST obgroup
-          obligation (mandatory|recommended|optional|conditional) #REQUIRED>
+<!ELEMENT refgroup (description?, refstandard*, refprofile*)>
+<!ATTLIST refgroup
+          obligation (none|mandatory|recommended|optional|conditional) "none"
+          lifecycle (current|candidate) "current">
 ~~~
 
 ~~~{.dtd}

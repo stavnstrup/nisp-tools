@@ -57,7 +57,7 @@
 <!-- ...................................................................... -->
 
 
-<!ELEMENT standards (revhistory?, taxonomy, bestpracticeprofile, records, organisations)>
+<!ELEMENT standards (revhistory?, taxonomy, records, organisations)>
 <!ATTLIST standards
           revision CDATA #REQUIRED>
 
@@ -74,25 +74,6 @@
           descriptionMD CDATA #IMPLIED
           emUUID CDATA #REQUIRED>
 
-<!-- ................... BEST PRACTICE PROFILE ............................ -->
-
-
-<!ELEMENT bestpracticeprofile (bpserviceprofile*)>
-
-<!ELEMENT bpserviceprofile (bpgroup*)>
-<!ATTLIST bpserviceprofile
-          tref IDREF #REQUIRED
-          genTitle CDATA #IMPLIED>
-
-<!ELEMENT bpgroup (bprefstandard+)>
-<!ATTLIST bpgroup
-          mode (unknown|mandatory|candidate) #REQUIRED>
-
-
-
-<!ELEMENT bprefstandard (#PCDATA)>
-<!ATTLIST bprefstandard
-          refid IDREF #REQUIRED>
 
 <!-- .......................... RECORDS .................................. -->
 
@@ -181,7 +162,7 @@
           title CDATA #REQUIRED>
 
 
-<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, obgroup*, refgroup*, guide*,  status, uuid?)>
+<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
 <!ATTLIST serviceprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
