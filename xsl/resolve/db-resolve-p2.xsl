@@ -44,33 +44,12 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <standards>
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
+
     <profilehierachy>
-      <capabilityprofile type="bsp">
-        <xsl:apply-templates select="/standards//bpserviceprofile" mode="copyprofile"/>
-      </capabilityprofile>
       <xsl:apply-templates select="records/capabilityprofile[status/@mode='accepted']" mode="copyprofile"/>
     </profilehierachy>
   </standards>
 </xsl:template>
-
-
-<xsl:template match="bpserviceprofile" mode="copyprofile">
-  <serviceprofile>
-    <reftaxonomy refid="{@tref}"/>
-    <xsl:apply-templates mode="copyprofile"/>
-  </serviceprofile>
-</xsl:template>
-
-<xsl:template match="bpgroup" mode="copyprofile">
-  <obgroup obligation="{@mode}">
-    <xsl:apply-templates mode="copyprofile"/>
-  </obgroup>
-</xsl:template>
-
-<xsl:template match="bprefstandard" mode="copyprofile">
-  <hrefstandard refid="{@refid}"/>
-</xsl:template>
-
 
 
 <xsl:template match="capabilityprofile" mode="copyprofile">
@@ -88,10 +67,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="serviceprofile" mode="copyprofile">
   <serviceprofile id="{@id}">
     <xsl:apply-templates select="reftaxonomy" mode="copyprofile"/>
-    <xsl:apply-templates select="obgroup" mode="copyprofile"/>
+    <xsl:apply-templates select="refgroup" mode="copyprofile"/>
   </serviceprofile>
 </xsl:template>
-
 
 
 <xsl:template match="reftaxonomy" mode="copyprofile">
@@ -115,15 +93,12 @@ NATO Command, Control and Consultation Organisation (NC3O).
 </xsl:template>
 
 
-<xsl:template match="obgroup" mode="copyprofile">
+<xsl:template match="refgroup" mode="copyprofile">
   <obgroup>
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates select="refstandard" mode="copyprofile"/>
   </obgroup>
 </xsl:template>
-
-
-
 
 
 <!-- ==================================================================== -->
