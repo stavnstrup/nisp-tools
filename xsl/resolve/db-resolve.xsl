@@ -23,6 +23,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:output saxon:next-in-chain="db-resolve-p2.xsl"/>
 
+<xsl:strip-space elements="*"/>
+
 <!-- ==================================================================== -->
 
 <xsl:template match="serviceprofile">

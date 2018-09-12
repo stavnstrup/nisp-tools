@@ -20,8 +20,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
                 version='1.1'
                 exclude-result-prefixes="#default saxon">
 
-
-<xsl:output indent="yes"/>
+<xsl:output indent="yes" />
 
 <!-- ==================================================================== -->
 
@@ -82,9 +81,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="refstandard" mode="copyprofile">
-  <hrefstandard>
+  <refstandard>
     <xsl:apply-templates select="@*"/>
-  </hrefstandard>
+  </refstandard>
 </xsl:template>
 
 <xsl:template match="refprofile" mode="copyprofile">
@@ -94,10 +93,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="refgroup" mode="copyprofile">
-  <obgroup>
+  <refgroup>
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates select="refstandard" mode="copyprofile"/>
-  </obgroup>
+  </refgroup>
 </xsl:template>
 
 
