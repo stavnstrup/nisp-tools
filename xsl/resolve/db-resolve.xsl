@@ -27,6 +27,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <!-- ==================================================================== -->
 
+<!-- Add type attribute to all service profile, to be able to differentiate serviceprofiles,
+     which are part of the Base Standards Profile and those which are not -->
+
 <xsl:template match="serviceprofile">
   <xsl:variable name="myid" select="@id"/>
   <serviceprofile>
