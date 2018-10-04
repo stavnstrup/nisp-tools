@@ -130,7 +130,7 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
      <li><b>Ver</b> - Version of the <i>standard</i> or <i>profile</i></li>
      <li><b>Responsible Party</b> - An organisational unit within NATO, who takes the responsibility to guide NATO on the specific standard.</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
-     <li><b>Best Practice</b> - Is this record part of the best practic profile (A : Agreed, C: Candidate, F: fading), i.e. mandatory for NATO common funded systems</li>
+     <li><b>Best Practice</b> - Is this record part of the best practic profile (A : Agreed, C: Candidate), i.e. mandatory for NATO common funded systems</li>
      <li><b>History</b> - What is the history of the record</li>
      <li><b>URI</b> - Location of the standard</li>
    </ul>
@@ -259,7 +259,6 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <xsl:choose>
     <xsl:when test="parent::bpgroup[@mode='mandatory']">M</xsl:when>
     <xsl:when test="parent::bpgroup[@mode='candidate']">C</xsl:when>
-    <xsl:when test="parent::bpgroup[@mode='fading']">F</xsl:when>
   </xsl:choose>
   <xsl:text> ( </xsl:text>
   <xsl:value-of select="/standards/taxonomy//*[@id=$tref]/@title"/>

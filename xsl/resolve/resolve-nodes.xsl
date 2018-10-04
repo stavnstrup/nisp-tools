@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 
 <!--
 
 This stylesheet is created for the NATO Interoperability Standard and
-profiles (NISP), and is intended for resolving volume 2.
+profiles (NISP), and is intended for resolving volume 2 and 3.
 
-Copyright (c) 2002-2017, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2002-2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -57,16 +57,16 @@ NATO Command, Control and Consultation Organisation (NC3O).
 	        <xsl:with-param name="attribute" select="'node'"/>
         </xsl:call-template>
       </xsl:variable>
-      <xsl:variable name="obligation">
+      <xsl:variable name="lifecycle">
         <xsl:call-template name="dbmerge-attribute">
           <xsl:with-param name="pi" select="$pis"/>
-	        <xsl:with-param name="attribute" select="'obligation'"/>
+	        <xsl:with-param name="attribute" select="'lifecycle'"/>
         </xsl:call-template>
       </xsl:variable>
 
       <xsl:if test="not($node='')">
         <xsl:apply-templates select="$db//node[@id=$node]" mode="highlevel">
-          <xsl:with-param name="obligation" select="$obligation"/>
+          <xsl:with-param name="lifecycle" select="$lifecycle"/>
         </xsl:apply-templates>
       </xsl:if>
     </xsl:when>
@@ -127,12 +127,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <!-- ==================================================================== -->
 
-<xsl:template match="select|remarks">
-  <xsl:apply-templates/>
-</xsl:template>
-
-<!-- ==================================================================== -->
-
 <!-- This template can properly be merged into the procesing
      instruction template, but assumes that the node seleted is at a
      sufficiently high level and do not "have" any standards.
@@ -140,7 +134,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 -->
 
 <xsl:template match="node" mode="highlevel">
-  <xsl:param name="obligation" select="''"/>
+  <xsl:param name="lifecycle" select="''"/>
 
   <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
@@ -159,8 +153,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </thead>
     <tbody>
       <xsl:choose>
-        <xsl:when test="$obligation='mandatory'">
-          <xsl:apply-templates select="." mode="listmandatory"/>
+        <xsl:when test="$lifecycle='current'">
+          <xsl:apply-templates select="." mode="listcurrent"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates select="." mode="listcandidate"/>
@@ -172,35 +166,35 @@ NATO Command, Control and Consultation Organisation (NC3O).
 </xsl:template>
 
 
-<xsl:template match="node" mode="listmandatory">
+<xsl:template match="node" mode="listcurrent">
   <xsl:variable name="id" select="@id"/>
 
-  <xsl:variable name="refs" select="count(/standards/profilehierachy//hrefstandard[(../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)])"/>
+  <xsl:variable name="refs" select="count(/standards/profilehierachy//refstandard[(../@lifecycle='current') and (../../reftaxonomy/@refid=$id)])"/>
   <xsl:if test="$refs>0">
     <row>
       <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     </row>
     <!-- Get standards from profiles -->
-    <xsl:apply-templates select="/standards/profilehierachy//hrefstandard[(../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)]" mode="listmandatory">
+    <xsl:apply-templates select="/standards/profilehierachy//refstandard[(../@lifecycle='current') and (../../reftaxonomy/@refid=$id)]" mode="listcurrent">
       <xsl:with-param name="taxref" select="$id"/>
       <xsl:sort select="@refid"/>
     </xsl:apply-templates>
   </xsl:if>
   <!-- Handle child nodes -->
-  <xsl:apply-templates mode="listmandatory"/>
+  <xsl:apply-templates mode="listcurrent"/>
 </xsl:template>
 
 
-<xsl:template match="hrefstandard" mode="listmandatory">
+<xsl:template match="refstandard" mode="listcurrent">
   <xsl:param name="taxref" select="''"/>
 
   <xsl:variable name="stdid" select="@refid"/>
   <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
-  <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)])
+  <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
                       and
-                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)])">
+                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
       <entry>
         <xsl:choose>
@@ -241,13 +235,13 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="node" mode="listcandidate">
   <xsl:variable name="id" select="@id"/>
 
-  <xsl:variable name="refs" select="count(/standards/bestpracticeprofile//bprefstandard[(../@mode='candidate') and (../../@tref=$id)])"/>
+  <xsl:variable name="refs" select="count(/standards/profilehierachy/capabilityprofile//refstandard[(../@lifecycle='candidate') and (../../reftaxonomy/@refid=$id)])"/>
   <xsl:if test="$refs>0">
     <row>
       <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     </row>
     <!-- Get standards from profiles -->
-    <xsl:apply-templates select="/standards/bestpracticeprofile//bprefstandard[(../@mode='candidate') and (../../@tref=$id)]" mode="listcandidate">
+    <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile//refstandard[(../@lifecycle='candidate') and (../../reftaxonomy/@refid=$id)]" mode="listcandidate">
       <xsl:with-param name="taxref" select="$id"/>
       <xsl:sort select="@refid"/>
     </xsl:apply-templates>
@@ -257,7 +251,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 </xsl:template>
 
 
-<xsl:template match="bprefstandard" mode="listcandidate">
+<xsl:template match="refstandard" mode="listcandidate">
   <xsl:param name="taxref" select="''"/>
 
   <xsl:variable name="stdid" select="@refid"/>
@@ -299,12 +293,12 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:param name="taxref"/>
   <xsl:param name="stdid"/>
 
-  <xsl:if test=".//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]">
+  <xsl:if test=".//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]">
     <xsl:choose>
-      <xsl:when test="@type = 'bsp'">BSP</xsl:when>
+      <xsl:when test="@id = 'bsp'">BSP</xsl:when>
       <xsl:otherwise><xsl:value-of select="translate(@id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:otherwise>
     </xsl:choose>
-    <xsl:if test="following-sibling::capabilityprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]">
+    <xsl:if test="following-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]">
       <xsl:text>, </xsl:text>
     </xsl:if>
   </xsl:if>
