@@ -9,7 +9,7 @@ documentation necessary to work with XML version of the NATO
 Interoperability Standards and Profiles using the DocBook XML DTD.
 
 For installation please see the file INSTALL. Additional information
-can be found in the "docs/" subdirectory of this distribution.
+can be found in the docs/ subdirectory also hosted [here](https://stavnstrup.github.io/nisp-tools/).
 
 
 ```
@@ -47,11 +47,11 @@ xsl/                 XSLT stylesheets
 If you wish to have further information on the NISP Interoperability
 Standards and Profiles, feel free to contact:
 
-Mr. Hervé Radiguet  
+Mr. Hervé Radiguet
 E-Mail: herve.radiguet@act.nato.int
 
 
-Mr Jens Stavnstrup (for technical matters related to this distribution)  
-Danish Defence Acquisition and Logistics Organisation  
-Tel: + 45 - 728 14355  
+Mr Jens Stavnstrup (for technical matters related to this distribution)
+Danish Defence Acquisition and Logistics Organisation
+Tel: + 45 - 728 14355
 E-Mail: stavnstrup@gmail.com

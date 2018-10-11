@@ -4,14 +4,14 @@
 
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
-            doctype-public="-//DDRE//DTDStandardDB XML V4.3//EN"
-            doctype-system="../schema/dtd/stddb43.dtd"/>
+            doctype-public="-//DDRE//DTDStandardDB XML V4.4//EN"
+            doctype-system="../schema/dtd/stddb44.dtd"/>
 
 <!--
 
 Sort standard and profiles by id.
 
-Copyright (c) 2014, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2014, 2018  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -40,16 +40,6 @@ Copyright (c) 2014, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </xsl:apply-templates>
   </bestpracticeprofile>
 </xsl:template>
-
-
-<xsl:template match="responsibleparties">
-  <responsibleparties>
-    <xsl:apply-templates>
-      <xsl:sort select="@key"/>
-    </xsl:apply-templates>
-  </responsibleparties>
-</xsl:template>
-
 
 <xsl:template match="organisations">
   <organisations>

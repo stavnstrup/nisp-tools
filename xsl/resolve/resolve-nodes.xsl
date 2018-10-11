@@ -10,7 +10,6 @@ Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
 
-
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -114,7 +113,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="orgname">
     <xsl:choose>
       <xsl:when test="$orgid != ''"><xsl:value-of
-                select="$db//standards/organisations/orgkey[@key=$orgid]/@text"/></xsl:when>
+                select="$db//standards/organisations/orgkey[@key=$orgid]/@long"/></xsl:when>
       <xsl:otherwise><primary><xsl:text>UNKNOWN ORG</xsl:text></primary></xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -141,13 +140,13 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="@*" mode="addindexentry">
   <xsl:variable name="id" select="."/>
 
-  <xsl:variable name="record" select="$db//standard[@id=$id]|$db//setofstandards[@id=$id]"/>
-  <xsl:for-each select="$record//document">
+  <xsl:variable name="record" select="$db//standard[@id=$id]"/>
+  <xsl:for-each select="$record/document">
      <xsl:variable name="org" select="@orgid"/>
      <indexterm>
        <xsl:choose>
          <xsl:when test="@orgid != ''"><primary><xsl:value-of
-                   select="ancestor::standards/organisations/orgkey[@key=$org]/@text"/></primary></xsl:when>
+                   select="ancestor::standards/organisations/orgkey[@key=$org]/@long"/></primary></xsl:when>
          <xsl:otherwise><primary><xsl:text>UNKNOWN ORG</xsl:text></primary></xsl:otherwise>
        </xsl:choose>
        <xsl:choose>
@@ -166,7 +165,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <!-- ==================================================================== -->
 
-
 <!-- This template can properly be merged into the procesing
      instruction template, but assumes that the node seleted is at a
      sufficiently high level and do not "have" any standards.
@@ -178,117 +176,170 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
   <xsl:variable name="id" select="@id"/>
   <informaltable frame="all" pgwide="1">
-  <tgroup cols="2">
-    <colspec colwidth="24*" colname="c1" />
-    <colspec colwidth="76*" colname="c2"/>
+  <tgroup cols="4">
+    <colspec colwidth="40*" colname="c1" />
+    <colspec colwidth="25*" colname="c2"/>
+    <colspec colwidth="20*" colname="c3"/>
+    <colspec colwidth="15*" colname="c4"/>
     <thead>
       <row>
-        <entry>Service</entry>
-	      <entry>Standards</entry>
+        <entry>Title</entry>
+        <entry>Pubnum</entry>
+        <entry>Profiles</entry>
+        <entry>Responsible Party</entry>
       </row>
     </thead>
     <tbody>
-      <xsl:apply-templates select="." mode="lowlevel">
-        <xsl:with-param name="obligation" select="$obligation"/>
-      </xsl:apply-templates>
+      <xsl:choose>
+        <xsl:when test="$obligation='mandatory'">
+          <xsl:apply-templates select="." mode="listmandatory"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="." mode="listcandidate"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </tbody>
   </tgroup>
   </informaltable>
 </xsl:template>
 
 
-<xsl:template match="node" mode="lowlevel">
-  <xsl:param name="obligation" select="''"/>
-
+<xsl:template match="node" mode="listmandatory">
   <xsl:variable name="id" select="@id"/>
-  <xsl:apply-templates select="//bpserviceprofile[@tref=$id]"  mode="lowlevel">
-    <xsl:with-param name="obligation" select="$obligation"/>
-  </xsl:apply-templates>
-  <xsl:apply-templates mode="lowlevel">
-    <xsl:with-param name="obligation" select="$obligation"/>
-  </xsl:apply-templates>
+
+  <xsl:variable name="refs" select="count(/standards/profilehierachy//hrefstandard[(../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)])"/>
+  <xsl:if test="$refs>0">
+    <row>
+      <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
+    </row>
+    <!-- Get standards from profiles -->
+    <xsl:apply-templates select="/standards/profilehierachy//hrefstandard[(../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)]" mode="listmandatory">
+      <xsl:with-param name="taxref" select="$id"/>
+      <xsl:sort select="@refid"/>
+    </xsl:apply-templates>
+  </xsl:if>
+  <!-- Handle child nodes -->
+  <xsl:apply-templates mode="listmandatory"/>
 </xsl:template>
 
 
-<xsl:template match="bpserviceprofile" mode="lowlevel">
-  <xsl:param name="obligation" select="''"/>
+<xsl:template match="hrefstandard" mode="listmandatory">
+  <xsl:param name="taxref" select="''"/>
 
-  <xsl:apply-templates select="bpgroup[@mode=$obligation]" mode="lowlevel"/>
-</xsl:template>
+  <xsl:variable name="stdid" select="@refid"/>
+  <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
+  <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
-
-<xsl:template match="bpgroup" mode="lowlevel">
-  <xsl:variable name="tref" select="../@tref"/>
-
-  <xsl:if test="count(bprefstandard)>0">
+  <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)])
+                      and
+                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
       <entry>
-        <xsl:value-of select="//node[@id=$tref]/@title"/>
+        <xsl:choose>
+          <xsl:when test="$std/status/uri != ''">
+            <ulink url="{$std/status/uri}"><xsl:value-of select="$std/document/@title"/></ulink>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$std/document/@title"/>
+          </xsl:otherwise>
+        </xsl:choose>
+        <xsl:variable name="note" select="string($std/document/@note)"/>
+        <xsl:if test="string-length($note) &gt; 0">
+        	<footnote><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
+        </xsl:if>
+        <xsl:apply-templates select="@refid" mode="addindexentry"/>
       </entry>
       <entry>
-        <itemizedlist spacing="compact">
-          <xsl:apply-templates mode="lowlevel"/>
-        </itemizedlist>
+        <xsl:if test="$std/document/@orgid !=''">
+          <xsl:value-of select="/standards/organisations/orgkey[@key=$std/document/@orgid]/@short"/>
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:if test="$std/document/@pubnum !=''">
+          <xsl:value-of select="$std/document/@pubnum"/>
+        </xsl:if>
       </entry>
+      <entry>
+        <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile" mode="listcp">
+          <xsl:with-param name="taxref" select="$taxref"/>
+          <xsl:with-param name="stdid" select="$stdid"/>
+        </xsl:apply-templates>
+      </entry>
+      <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
     </row>
   </xsl:if>
 </xsl:template>
 
 
-<xsl:template match="bprefstandard" mode="lowlevel">
-  <xsl:variable name="curid" select="@refid"/>
-  <xsl:variable name="record" select="$db//standard[@id=$curid]"/>
-  <listitem>
-    <para>
+<xsl:template match="node" mode="listcandidate">
+  <xsl:variable name="id" select="@id"/>
+
+  <xsl:variable name="refs" select="count(/standards/bestpracticeprofile//bprefstandard[(../@mode='candidate') and (../../@tref=$id)])"/>
+  <xsl:if test="$refs>0">
+    <row>
+      <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
+    </row>
+    <!-- Get standards from profiles -->
+    <xsl:apply-templates select="/standards/bestpracticeprofile//bprefstandard[(../@mode='candidate') and (../../@tref=$id)]" mode="listcandidate">
+      <xsl:with-param name="taxref" select="$id"/>
+      <xsl:sort select="@refid"/>
+    </xsl:apply-templates>
+  </xsl:if>
+  <!-- Handle child nodes -->
+  <xsl:apply-templates mode="listcandidate"/>
+</xsl:template>
+
+
+<xsl:template match="bprefstandard" mode="listcandidate">
+  <xsl:param name="taxref" select="''"/>
+
+  <xsl:variable name="stdid" select="@refid"/>
+  <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
+  <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
+
+  <row>
+    <entry>
       <xsl:choose>
-        <xsl:when test="$record/status/uri != ''">
-	        <ulink url="{$record/status/uri}">
-            <xsl:call-template name="display-standard">
-              <xsl:with-param name="std" select="$record"/>
-            </xsl:call-template>
-          </ulink>
+        <xsl:when test="$std/status/uri != ''">
+          <ulink url="{$std/status/uri}"><xsl:value-of select="$std/document/@title"/></ulink>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:call-template name="display-standard">
-            <xsl:with-param name="std" select="$record"/>
-          </xsl:call-template>
+          <xsl:value-of select="$std/document/@title"/>
         </xsl:otherwise>
       </xsl:choose>
+      <xsl:variable name="note" select="string($std/document/@note)"/>
+      <xsl:if test="string-length($note) &gt; 0">
+      	<footnote><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
+      </xsl:if>
       <xsl:apply-templates select="@refid" mode="addindexentry"/>
-    </para>
-  </listitem>
+    </entry>
+    <entry>
+      <xsl:if test="$std/document/@orgid !=''">
+        <xsl:value-of select="/standards/organisations/orgkey[@key=$std/document/@orgid]/@short"/>
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:if test="$std/document/@pubnum !=''">
+        <xsl:value-of select="$std/document/@pubnum"/>
+      </xsl:if>
+    </entry>
+    <entry>BSP</entry>
+    <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
+  </row>
 </xsl:template>
 
-<xsl:template name="display-standard">
-  <xsl:param name="std"/>
 
-  <xsl:variable name="myorgid" select="$std/document/@orgid"/>
+<xsl:template match="capabilityprofile" mode="listcp">
+  <xsl:param name="taxref"/>
+  <xsl:param name="stdid"/>
 
-  <xsl:value-of select="$std/document/@title"/>
-  <xsl:if test="$std/document/@orgid != '' or $std/document/@pubnum !='' or $std/document/@date != ''">
-    <xsl:text> (</xsl:text>
-    <xsl:if test="$std/document/@orgid != ''">
-      <xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/>
-      <xsl:text> </xsl:text>
+  <xsl:if test=".//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]">
+    <xsl:choose>
+      <xsl:when test="@type = 'bsp'">BSP</xsl:when>
+      <xsl:otherwise><xsl:value-of select="translate(@id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:otherwise>
+    </xsl:choose>
+    <xsl:if test="following-sibling::capabilityprofile//hrefstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]">
+      <xsl:text>, </xsl:text>
     </xsl:if>
-    <xsl:if test="$std/document/@pubnum !=''">
-      <xsl:value-of select="$std/document/@pubnum"/>
-    </xsl:if>
-    <xsl:if test="($std/document/@orgid !='' or $std/document/@pubnum !='') and $std/document/@date !=''">
-      <xsl:text>:</xsl:text>
-    </xsl:if>
-    <xsl:if test="$std/document/@date !=''">
-      <xsl:value-of select="substring($std/document/@date,1,4)"/>
-    </xsl:if>
-    <xsl:text>)</xsl:text>
-  </xsl:if>
-  <xsl:variable name="note" select="string($std/document/@note)"/>
-  <xsl:if test="string-length($note) &gt; 0">
-	<footnote><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
   </xsl:if>
 </xsl:template>
-
-<!-- ==================================================================== -->
-
 
 </xsl:stylesheet>

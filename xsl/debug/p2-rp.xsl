@@ -25,7 +25,7 @@ Copyright (c) 2014-2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="standards">
   <standards describe="{$describe}">
-    <xsl:apply-templates select="records|organisations|responsibleparties"/>
+    <xsl:apply-templates select="records|organisations"/>
   </standards>
 </xsl:template>
 

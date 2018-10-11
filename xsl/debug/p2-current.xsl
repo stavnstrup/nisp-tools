@@ -342,7 +342,7 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:value-of select="document/@date"/>
     </td>
     <td><xsl:value-of select="document/@version"/></td>
-    <td><xsl:apply-templates select="/standards/responsibleparties/rpkey[@key=$myrp]/@short"/></td>
+    <td><xsl:apply-templates select="/standards/organisations/orgkey[@key=$myrp]/@short"/></td>
     <td>
       <xsl:if test="@tag =''">
         <xsl:attribute name="class">missing</xsl:attribute>
