@@ -21,7 +21,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:import href="resolve-common.xsl"/>
 
 
-<xsl:output method="xml" indent="no"
+<xsl:output method="xml" indent="yes"
             saxon:next-in-chain="resolve-fix.xsl"/>
 						
 <xsl:variable name="db"
@@ -76,9 +76,11 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="processing-instruction('cpbprfmerge')">
   <xsl:variable name="pis"><xsl:value-of select="."/></xsl:variable>
   <xsl:variable name="cpbprf" select="$db//capabilityprofile[@id=$pis]"/>
+  <xsl:variable name="lc" select="'abcdefghijklmnopqrstuvwxyz'"/>
+  <xsl:variable name="uc" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
 	<row>
 		<entry align="left" colname="col1">
-			<emphasis role="bold"><xsl:value-of select="$cpbprf/@short"/></emphasis>
+			<emphasis role="bold"><xsl:value-of select="$cpbprf/@servicearea"/></emphasis>
 		</entry>
 		<entry align="left" colname="col2">
 			<xsl:value-of select="$cpbprf/@title"/>
@@ -90,14 +92,17 @@ NATO Command, Control and Consultation Organisation (NC3O).
 	</entry>
 	</row>
 	<row>
-		<entry align="left" namest="col1" nameend="col2">
+		<entry align="left" colname="col1">
 			<ulink url="{$cpbprf/status/uri}"><xsl:value-of select="$cpbprf/status/pdf"/></ulink>
+			<xsl:if test="$cpbprf/@docinfo != ''">
+				<xsl:value-of select="concat(' - ',$cpbprf/@docinfo)"/>
+			</xsl:if>
+		</entry>
+		<entry align="left" colname="col2">
+			<xsl:value-of select="translate($cpbprf/@id,$lc,$uc)"/>
 		</entry>
 	</row>
-	<row><!-- Intentional Blank Line -->
-		<entry align="left" namest="col1" nameend="col2">
-		</entry>
-	</row>
+	<row><!-- Intentional Blank Line --><entry align="left" namest="col1" nameend="col2"><xsl:text> </xsl:text></entry></row>
 </xsl:template>
 
 <xsl:template match="capabilityprofile/description">
