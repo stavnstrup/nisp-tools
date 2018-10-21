@@ -30,6 +30,42 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <!-- ==================================================================== -->
+<!-- Utility copied from docbook-xsl\lib\lib.xsl -->
+<xsl:template name="pi-attribute">
+  <xsl:param name="pis" select="processing-instruction('BOGUS_PI')"/>
+  <xsl:param name="attribute">filename</xsl:param>
+  <xsl:param name="count">1</xsl:param>
+
+  <xsl:choose>
+    <xsl:when test="$count&gt;count($pis)">
+      <!-- not found -->
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="pi">
+        <xsl:value-of select="$pis[$count]"/>
+      </xsl:variable>
+      <xsl:variable name="pivalue">
+        <xsl:value-of select="concat(' ', normalize-space($pi))"/>
+      </xsl:variable>
+      <xsl:choose>
+        <xsl:when test="contains($pivalue,concat(' ', $attribute, '='))">
+          <xsl:variable name="rest" select="substring-after($pivalue,concat(' ', $attribute,'='))"/>
+          <xsl:variable name="quote" select="substring($rest,1,1)"/>
+          <xsl:value-of select="substring-before(substring($rest,2),$quote)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="pi-attribute">
+            <xsl:with-param name="pis" select="$pis"/>
+            <xsl:with-param name="attribute" select="$attribute"/>
+            <xsl:with-param name="count" select="$count + 1"/>
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<!-- ==================================================================== -->
 
 <xsl:template match="/">
   <xsl:comment>
@@ -75,9 +111,22 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <!-- ==================================================================== -->
 <xsl:template match="processing-instruction('cpbprfmerge')">
   <xsl:variable name="pis"><xsl:value-of select="."/></xsl:variable>
-  <xsl:variable name="cpbprf" select="$db//capabilityprofile[@id=$pis]"/>
+  <xsl:variable name="pis.id">
+    <xsl:call-template name="pi-attribute">
+      <xsl:with-param name="pis" select="$pis"/>
+      <xsl:with-param name="attribute" select="'id'"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="pis.last">
+    <xsl:call-template name="pi-attribute">
+      <xsl:with-param name="pis" select="$pis"/>
+      <xsl:with-param name="attribute" select="'last'"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="cpbprf" select="$db//capabilityprofile[@id=$pis.id]"/>
   <xsl:variable name="lc" select="'abcdefghijklmnopqrstuvwxyz'"/>
   <xsl:variable name="uc" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
+
 	<row>
 		<entry align="left" colname="col1">
 			<emphasis role="bold"><xsl:value-of select="$cpbprf/@servicearea"/></emphasis>
@@ -102,7 +151,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
 			<xsl:value-of select="translate($cpbprf/@id,$lc,$uc)"/>
 		</entry>
 	</row>
-	<row><!-- Intentional Blank Line --><entry align="left" namest="col1" nameend="col2"><xsl:text> </xsl:text></entry></row>
+	<xsl:if test="$pis.last != 'true'">
+		<row><!-- Intentional Blank Line --><entry align="left" namest="col1" nameend="col2"><xsl:text> </xsl:text></entry></row>
+	</xsl:if>
 </xsl:template>
 
 <xsl:template match="capabilityprofile/description">
