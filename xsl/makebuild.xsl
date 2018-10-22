@@ -411,6 +411,10 @@ Make dynamic targets.
 						<xsl:text> capabilityprofile.list.dir=${capabilityprofile.list.dir}</xsl:text>
 						<xsl:text> capabilityprofiles.location.pathname=${capabilityprofiles.location.pathname}</xsl:text>
 						<xsl:text> capabilityprofiles.location.name=${capabilityprofiles.location.name}</xsl:text>
+						<xsl:text> nisp.viewer.pathname=${nisp.viewer.pathname}</xsl:text>
+						<xsl:text> replace.standard.uri=${replace.standard.uri}</xsl:text>
+						<xsl:text> nisp.viewer.standard.detail=${nisp.viewer.standard.detail}</xsl:text>
+						<xsl:text> nisp.viewer.target.type=${nisp.viewer.target.type}</xsl:text>
           </xsl:attribute>
         </arg>
 

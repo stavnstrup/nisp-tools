@@ -143,7 +143,7 @@
    <target name="vol2.db-resolve" depends="init, vol2.db-resolve.check" unless="vol2.db-resolve.notRequired">
       <echo message="Resolve Volume 2 DB"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol2}">
-         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db} capabilityprofile.list.dir=${capabilityprofile.list.dir} capabilityprofiles.location.pathname=${capabilityprofiles.location.pathname} capabilityprofiles.location.name=${capabilityprofiles.location.name}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db} capabilityprofile.list.dir=${capabilityprofile.list.dir} capabilityprofiles.location.pathname=${capabilityprofiles.location.pathname} capabilityprofiles.location.name=${capabilityprofiles.location.name} nisp.viewer.pathname=${nisp.viewer.pathname} replace.standard.uri=${replace.standard.uri} nisp.viewer.standard.detail=${nisp.viewer.standard.detail} nisp.viewer.target.type=${nisp.viewer.target.type}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
@@ -232,7 +232,7 @@
    <target name="vol3.db-resolve" depends="init, vol3.db-resolve.check" unless="vol3.db-resolve.notRequired">
       <echo message="Resolve Volume 3 DB"/>
       <java fork="yes" classname="${xslt.class}" dir="${src.vol3}">
-         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db} capabilityprofile.list.dir=${capabilityprofile.list.dir} capabilityprofiles.location.pathname=${capabilityprofiles.location.pathname} capabilityprofiles.location.name=${capabilityprofiles.location.name}"/>
+         <arg line="${xslt.opts} -o ${build.resolve}/resolved-standards.xml ${src.dir}/standards/standards.xml ${xsl-styles.dir}/resolve/${xsl-resolve-db} capabilityprofile.list.dir=${capabilityprofile.list.dir} capabilityprofiles.location.pathname=${capabilityprofiles.location.pathname} capabilityprofiles.location.name=${capabilityprofiles.location.name} nisp.viewer.pathname=${nisp.viewer.pathname} replace.standard.uri=${replace.standard.uri} nisp.viewer.standard.detail=${nisp.viewer.standard.detail} nisp.viewer.target.type=${nisp.viewer.target.type}"/>
          <classpath refid="lib-saxon-classpath"/>
          <jvmarg value="${use.sax}"/>
          <jvmarg value="${use.dom}"/>
