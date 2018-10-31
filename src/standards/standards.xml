@@ -59992,6 +59992,387 @@ as specified in:
          <uuid>c4713c77-6d2d-431b-980f-2b0c836a1e05</uuid>
       </serviceprofile>
 
+      <capabilityprofile id="fmn3" short="FMN 3" title="FMN Spiral 3 Standards Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+          <description>
+          <para><emphasis role="bold">Introduction</emphasis></para>
+          <para>This document defines the Standards Profile for Federated Mission Networking (FMN) Spiral 3.
+            The FMN Standards Profiles provides a suite of interoperability standards and other standardized
+            profiles for interoperability of selected community of interest services, core services and
+            communications services in a federation of mission networks. It places the required interoperability
+            requirements, standards and specifications in context for FMN Affiliates.</para>
+          <para>FMN Standards Profiles are generic specifications at a logical level. They allow for
+            independent national technical service implementations, without the loss of essential
+            interoperability aspects.</para>
+          <para>FMN is founded on a service-oriented approach. The interoperability standards applicable
+            to these services are identified and specified in line with the NATO C3 Taxonomy.</para>
+          <para>The standards metadata in the document is harvested from several standards organizations.
+            Not all organizations provide identification of standard editions and if they do, often only
+            the latest version is available for the generation of the profiles. Edition numbers are
+            documented in the implementation guidance for a respective profile and in the configuration
+            settings of FMN Service Instructions, whenever and wherever relevant and appropriate.</para>
+          <para><emphasis role="bold">Description</emphasis></para>
+          <para>FMN Standards Profiles provide a suite of interoperability standards and other standardized
+            profiles for interoperability of selected community of interest services, core services and
+            communications services in a federation of mission networks. It places the required
+            interoperability requirements, standards and specifications in context for FMN Affiliates.
+            FMN Standards Profiles are generic specifications at a logical level.
+            They allow for independent national technical service implementations, without the loss
+            of essential interoperability aspects.</para>
+          <para>Federated Mission Networking is founded on a service-oriented approach. The interoperability
+            standards applicable to these services are identified and specified in line with the NATO C3 Taxonomy.
+            The structure of this document likewise follows the taxonomy breakdown.</para>
+          <para><emphasis role="bold">Scope</emphasis></para>
+          <para>The Federated Mission Networking (FMN) Spiral 3 Profile provides a suite of interoperability
+            standards and other standardized profiles for interoperability of selected community of interest
+            services, core services and communications services in a federation of mission networks.</para>
+          <para><emphasis role="bold">Interoperability</emphasis></para>
+          <para>In the context of Federated Mission Networking, the purpose of standardization is to enable
+            interoperability in a multi-vendor, multi-network, multi-service environment. Technical
+            interoperability must be an irrefutable and inseparable element in capability development and
+            system implementation - without it, it is not possible to realize connections and service deliveries
+            across the federation and hence, information sharing will not be achieved.</para>
+          <para>Within NATO, interoperability is defined as "the ability to act together coherently, effectively
+            and efficiently to achieve allied tactical, operational and strategic objectives". In the context of
+            information exchange, interoperability means that a system, unit or forces of any service, nation can
+            transmit data to and receive data from any other system, unit or forces of any service or nation,
+            and use the exchanged data to operate effectively together.</para>
+          <para><emphasis role="bold">Standards and Profiles</emphasis></para>
+          <para>For successful Federated Mission Networking, technical interface standards are critical enablers
+            that have to be collectively followed and for which conformity by all participating members is
+            important.</para>
+          <para>Standards are aggregated in profiles. A standards profile is a set of standards for a particular
+            purpose, covering certain services in the C3 taxonomy, with a guidance on implementation when and
+            where needed. As profiles serve a particular purpose, they can be used in different environments,
+            and therefore, they are not specific to a single overarching operational or technical concept.
+            Profiles for Federated Mission Networking may and will be reused in other profiles.</para>
+          <para>Generally, the scope of a profile in the EM Wiki is limited: it will focus on only a few services
+            and a limited scope of functionality. Therefore, a full profile with a wider scope (ranging to an
+            environment, a system or a concept) will have to consist of a selection of profiles, that together
+            cover the full capability of that overarching profile. For organization of these standards and profiles,
+            the overarching profile - in this case the FMN Spiral 3 Profile - is broken down in a hierarchical
+            tree that forms a number of functional branches, ending in the leaves that are the profiles which
+            contain the actual assignments of standards and their implementation guidance.</para>
+          <para>In the profiles, interoperability standards fall into four obligation categories:
+            <itemizedlist>
+              <listitem><para>Mandatory - Mandatory interoperability standards must be met to enable
+                Federated Mission Networking</para></listitem>
+              <listitem><para>Conditional - Conditional interoperability standards must be present under
+                certain specific circumstances</para></listitem>
+              <listitem><para>Recommended - Recommended interoperability standards may be excluded for
+                valid reasons in particular circumstances, but the full implications must be understood
+                and carefully weighed</para></listitem>
+              <listitem><para>Optional - Optional interoperability standards are truly optional</para></listitem>
+            </itemizedlist>
+          </para>
+          <para><emphasis role="bold">Sources</emphasis></para>
+          <para>The interoperability standards profile in this document is derived from standards that are
+            maintained by a selection of standardization organizations and conformity and interoperability
+            resources. Some of these are included in the NATO Interoperability Standards and Profiles.
+            Furthermore, standards are used from:
+            <itemizedlist>
+              <listitem><para>International Telecommunication Union (ITU) Radiocommunication (R) and
+                Telecommunication (T) Recommendations</para></listitem>
+              <listitem><para>Multilateral Interoperability Programme (MIP) standards</para></listitem>
+            </itemizedlist>
+          </para>            
+        </description>
+        <subprofiles>
+          <refprofile refid="fmn3-pr-comm-network"/>
+<!--          <refprofile refid="fmn3-pr-community-interest"/> -->
+<!--          <refprofile refid="fmn3-pr-human-to-human"/> -->
+        </subprofiles>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-30" flag="added" rfcp="" version="12.0"/>
+          </history>
+        </status>
+      </capabilityprofile>
+
+      <profile id="fmn3-pr-comm-network" title="FMN Spiral 3 Communications and Networking Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+        <description>The Communications and Networking Profile arranges standards profiles for the facilitation
+          of the platform and communications infrastructure of federated mission networks.</description>
+        <subprofiles>
+          <refprofile refid="fmn3-pr-communication"/>
+<!--          <refprofile refid="fmn3-pr-networking"/> -->
+        </subprofiles>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-30" flag="added" rfcp="" version="12.0"/>
+          </history>
+        </status>
+      </profile>
+
+      <profile id="fmn3-pr-communication" title="FMN Spiral 3 Communications Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+        <subprofiles>
+          <refprofile refid="fmn3-inter-autonomous-systems-ip-transport-profile"/>
+          <refprofile refid="fmn3-inter-autonomous-systems-multicast-routing-profile"/>
+          <refprofile refid="fmn3-inter-autonomous-systems-routing-profile"/>
+          <refprofile refid="fmn3-inter-autonomous-systems-ip-communications-security-profile"/>
+          <refprofile refid="fmn3-interface-auto-configuration-profile"/>
+          <refprofile refid="fmn3-routing-encapsulation-profile"/>
+          <refprofile refid="fmn3-ip-quality-of-service-profile"/>
+        </subprofiles>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-30" flag="added" rfcp="" version="12.0"/>
+          </history>
+        </status>
+      </profile>
+
+      <serviceprofile id="fmn3-inter-autonomous-systems-ip-transport-profile" title="Inter-Autonomous Systems IP Transport Service Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+        <description>The Inter-Autonomous Systems IP Transport Profile provides standards and guidance for Edge
+          Transport Services between autonomous systems, using Internet Protocol (IP) over point-to-point Ethernet
+          links on optical fibre.</description>
+        <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
+        <refgroup obligation="optional" lifecycle="current">
+          <description>If the interconnection point is outside a shelter in a harsh environment, the interconnection
+            shall follow STANAG 4290 or MIL-DTL-83526 connector specifications.</description>
+          <refstandard refid="mil-dtl83526"/>
+          <refstandard refid="nso-stanag4290ed1"/><!-- to be checked -->
+        </refgroup>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>The use of LC-connectors is required for network interconnections inside shelters
+            (or inside other conditioned infrastructure).</description>
+          <refstandard refid="itu-t-g.652"/>
+          <refstandard refid="iec-61754-20"/><!-- to be checked -->
+        </refgroup>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>Standards for IP version 4 (IPv4) over Ethernet</description>
+          <refstandard refid="ietf-rfc826"/>
+        </refgroup>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <refstandard refid="iso-iec-11801"/>
+        </refgroup>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>Section 3 - Clause 38 - 1000BASE-LX, nominal transmit wavelength 1310nm.</description>
+          <refstandard refid="ieee-802.3-2013"/><!-- to be checked -->
+        </refgroup>
+        <guide>Use 1 Gb/s Ethernet over single-mode optical fibre (SMF).</guide>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-30" flag="added" rfcp="" version="12.0"/>
+          </history>
+        </status>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-inter-autonomous-systems-multicast-routing-profile" title="Inter-Autonomous Systems Multicast Routing Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+        <description>The Inter-Autonomous Systems Routing Profile provides standards and guidance for routing between
+        inter-autonomous systems.</description>
+        <reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
+        <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>The following standards shall apply to multicast routing.</description>
+          <refstandard refid="ietf-rfc6308"/>
+          <refstandard refid="ietf-rfc5771"/>
+          <refstandard refid="ietf-rfc2365"/>
+        </refgroup>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>Service providers with their own multicast capability shall provide a Rendezvous Point (RP)
+            supporting the following IP multicast protocol standards.</description>
+          <refstandard refid="ietf-rfc3618"/>
+          <refstandard refid="ietf-rfc4760"/>
+        </refgroup>
+        <refgroup obligation="optional" lifecycle="current">
+          <description/>
+          <refstandard refid="ietf-rfc4607"/>
+          <refstandard refid="ietf-rfc4608"/>
+        </refgroup>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>The following standards shall apply for all IP interconnections.</description>
+          <refstandard refid="ietf-rfc7761"/>
+          <refstandard refid="ietf-rfc1112"/>
+          <refstandard refid="ietf-rfc3376"/>
+        </refgroup>
+        <guide/>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-31" flag="added" rfcp="" version="12.0"/>
+          </history>
+        </status>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-inter-autonomous-systems-routing-profile" title="Inter-Autonomous Systems Routing Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+        <description>The Inter-Autonomous Systems Routing Profile provides standards and guidance for routing between
+          inter-autonomous systems.</description>
+        <reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
+        <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>The following standards apply for all IP interconnections.</description>
+          <refstandard refid="ietf-rfc1997"/>
+          <refstandard refid="ietf-rfc4360"/>
+          <refstandard refid="ietf-rfc5492"/>
+          <refstandard refid="ietf-rfc4271"/>
+          <refstandard refid="ietf-rfc4760"/>
+          <refstandard refid="ietf-rfc7606"/>
+          <refstandard refid="ietf-rfc6793"/>
+          <refstandard refid="ietf-rfc6286"/>
+          <refstandard refid="ietf-rfc7153"/>
+        </refgroup>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>The following standard applies for unicast routing.</description>
+          <refstandard refid="ietf-rfc4632"/>
+        </refgroup>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>The following standard is added to improve MD5-based BGP-authentication</description>
+          <refstandard refid="ietf-rfc5082"/>
+        </refgroup>
+        <refgroup obligation="conditional" lifecycle="current">
+          <description>The following standard can be added to improve MD5-based BGP-authentication,
+            depending on bilateral agreement.</description>
+          <refstandard refid="ietf-rfc7454"/>
+        </refgroup>
+        <refgroup obligation="recommended" lifecycle="current">
+          <description>Additionally, the following standard applies for 32-bit autonomous system numbers (ASN).</description>
+          <refstandard refid="ietf-rfc5668"/>
+        </refgroup>
+        <guide>
+          <para>Border Gateway Protocol (BGP) deployment guidance in IETF RFC 1772:1995, Application of the
+            Border Gateway Protocol in the Internet.</para>
+          <para>BGP sessions must be authenticated, through a TCP message authentication code (MAC) using a
+            one-way hash function (MD5), as described in IETF RFC 4271.</para>
+        </guide>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-31" flag="added" rfcp="" version="12.0"/>
+          </history>
+          </status>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-inter-autonomous-systems-ip-communications-security-profile" title="Inter-Autonomous Systems IP Communications Security Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+        <description>The Inter-Autonomous Systems IP Communications Security Profile provides standards and guidance
+          for communications security for transporting IP packets between federated mission network interconnections
+          and in general over the whole Mission Network.</description>
+        <reftaxonomy refid="T-4760c261-4248-4da0-8b39-05ecbe7b2297-X"/>
+        <refgroup obligation="recommended" lifecycle="current">
+          <description>In Missions, where NATO information products are not carried over the mission network,
+            MISSION SECRET (MS) communications infrastructure is protected with technical structures by mutual
+            agreement made during the mission planning phase.</description>
+          <refstandard refid="c3b-ac322-d2015-0031"/>
+          <refstandard refid="nsa-csfc-msccp"/>
+        </refgroup>
+        <refgroup obligation="conditional" lifecycle="current">
+          <description>In Missions, where NATO information products are carried over the mission network, the
+            MISSION SECRET (MS) communications infrastructure is protected at minimum with Type-B crypto
+            devices</description>
+          <refstandard refid="c3b-ac322-d2015-0031"/>
+        </refgroup>
+        <guide>In Missions, where the mission network classification is MISSION RESTRICTED (MR) or lower,
+          communication infrastructure is protected at the minimum with technical structures that are within
+          Service Instruction section Security and in Routing Encapsulation Profile.</guide>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-31" flag="added" rfcp="" version="12.0"/>
+          </history>
+        </status>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-interface-auto-configuration-profile" title="Interface Auto-Configuration Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+        <description>The Interface Auto-Configuration Profile provides standards and guidance for support of the
+          Routing Information Protocol (RIPv2 and RIPng) to expand the amount of useful information carried in RIP
+          messages for the exploitation of auto-configurations over NIP-G and PCN-compliant interfaces and to
+          add a measure of control.</description>
+        <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>The Interface Auto-Configuration Profile provides standards and guidance for support
+            of the Routing Information Protocol (RIPv2 and RIPng) to expand the amount of useful information
+            carried in RIP messages for the exploitation of auto-configurations over NIP-G and PCN-compliant
+            interfaces and to add a measure of control.</description>
+          <refstandard refid="ietf-rfc2453"/>
+          <refstandard refid="ietf-rfc2080"/>
+        </refgroup>
+        <guide>The auto-configuration is a highly recommended feature for the desired flexibility, maintainability
+          and survivability in communications systems configuration. Nevertheless, there is always an option to
+          follow a manual configuration process. This implies that auto-configuration in itself is not mandatory;
+          when applied, the listed standards are mandatory.</guide>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-31" flag="added" rfcp="" version="12.0"/>
+          </history>
+        </status>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-routing-encapsulation-profile" title="Routing Encapsulation Service Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+        <description>The Routing Encapsulation Profile provides standards and guidance for generic routing
+          encapsulation functions between network interconnection points (NIPs).</description>
+        <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <refstandard refid="ietf-rfc4303"/>
+          <refstandard refid="ietf-rfc2784"/>
+          <refstandard refid="ietf-rfc4754"/>
+          <refstandard refid="ietf-rfc5903"/>
+          <refstandard refid="ietf-rfc7670"/>
+          <refstandard refid="ietf-rfc7296"/>
+          <refstandard refid="ietf-rfc7427"/>
+        </refgroup>
+        <guide>Protected Core Communications does not support the use of pre-shared keys as an authentication
+          method. While Classified Information Domains in Coloured Clouds may use pre-shared keys in their
+          NIP-G interfaces.IKEv2 is used for authentication both using Digital Certificates and pre-shared keys.</guide>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-31" flag="added" rfcp="" version="12.0"/>
+          </history>
+        </status>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-ip-quality-of-service-profile" title="IP Quality of Service Profile">
+        <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+        <description>The IP Quality of Service Profile provides standards and guidance to establish and control
+          an agreed level of performance for IP services in federated networks.</description>
+        <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
+        <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP).</description>
+          <refstandard refid="ietf-rfc2474"/>
+          <refstandard refid="ietf-rfc4594"/>
+          <refstandard refid="itu-t-y.1540"/>
+          <refstandard refid="itu-t-y.1541"/>
+          <refstandard refid="itu-t-y.1542"/>
+          <refstandard refid="itu-t-m.2301"/>
+          <refstandard refid="itu-t-j.241"/>
+        </refgroup>
+        <refgroup obligation="mandatory" lifecycle="current">
+          <description>The following normative standards shall apply for IP Quality of Service (QoS).
+            The condition is that this STANAG, although widely used and referenced, is currently
+            a draft version in process by approval authorities.</description>
+          <refstandard refid="nso-stanag4711ed1"/>
+        </refgroup>
+        <guide>For NATO-led Mission Network deployments, the following governing policies apply:
+          <itemizedlist>
+            <listitem>
+              <para>AC/322(SC/6)WP(2009)0002-REV2 - "NC3B Policy on the Federation of Networks and
+                Provision of Communications Services within the Networking Information Infrastructure"</para>
+            </listitem>
+            <listitem>
+              <para>NATO Policy for Standardization</para>
+            </listitem>
+          </itemizedlist>
+        </guide>
+        <status mode="accepted">
+          <uri/>
+          <history>
+            <event date="2018-10-31" flag="added" rfcp="" version="12.0"/>
+          </history>
+        </status>
+      </serviceprofile>
+
    </records>
    <organisations>
       <orgkey key="acm" short="ACM" long="Association for Computing Machinery" uri="http://www.acm.org/"/>
