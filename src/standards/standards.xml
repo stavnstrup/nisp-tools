@@ -60422,6 +60422,224 @@ as specified in:
          <uuid>07a99b16-5d74-4884-bc6b-6eb5925c08e2</uuid>
       </serviceprofile>
 
+      <profile id="fmn3-pr-networking" title="FMN Spiral 3 Networking Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description/>
+         <subprofiles>
+            <refprofile refid="fmn3-digital-certificate-profile"/>
+            <refprofile refid="fmn3-domain-naming-profile"/>
+            <refprofile refid="fmn3-sp-time-synchronization"/>
+            <refprofile refid="fmn3-sp-directory-data-structure"/>
+            <refprofile refid="fmn3-cryptographic-algorithms-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-01" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>1a2b9e56-ba13-4feb-9d53-abf5fcb6b603</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-digital-certificate-profile" title="Digital Certificate Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Digital Certificate Profile provides standards and guidance in
+        support of a Public Key Infrastructure (PKI) on federated mission networks.</description>
+         <reftaxonomy refid="T-13a17bdd-8eb2-418c-8cb8-7f32a435f432-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="itu-t-x.509"/>
+         </refgroup>
+         <refgroup obligation="optional" lifecycle="current">
+            <description>The Online Certificate Status Protocol (OCSP) capability is optional for
+            PKI Service providers and consumers.</description>
+            <refstandard refid="ietf-rfc6960"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>CRLs may be provided at multiple endpoints. The addresses of these endpoints
+            shall be provided in digital certificates through X.509 certificate extensions such
+            as Authority Information Access (AIA) and CRL distribution point (CDP). Each CA
+            shall provide CRLs using at least one of the endpoint types (HTTP or LDAP). Clients
+            must support both types.</description>
+            <refstandard refid="ietf-rfc5280"/>
+            <refstandard refid="ietf-rfc4523"/>
+         </refgroup>
+         <guide>
+            <para>The version of the encoded public key certificate shall be version 3. The version
+            of the encoded certificate revocation list (CRL) shall be version 2.</para>
+            <para>Additional Implementation Guidance:
+            <itemizedlist>
+                  <listitem>
+                     <para>AC/322-D(2004)0024-REV2-ADD2 - "NATO Public Key Infrastructure (NPKI)
+                  Certificate Policy"</para>
+                  </listitem>
+                  <listitem>
+                     <para>AC/322-D(2010)0036 - "NATO Cryptographic Interoperability Strategy"</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-01" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>bdb98c91-690a-439a-b3dc-007c2ca7866c</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-domain-naming-profile" title="Domain Naming Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Domain Naming Profile provides standards and guidance to support the hierarchical
+          distributed naming system for computers, services, or any resource connected to a federated
+          mission network.</description>
+         <reftaxonomy refid="T-92db9afd-4dab-4e76-9ba6-0287ded2d4e7-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="ietf-rfc1034"/>
+            <refstandard refid="ietf-rfc1035"/>
+            <refstandard refid="ietf-rfc2181"/>
+            <refstandard refid="ietf-rfc2782"/>
+            <refstandard refid="ietf-rfc3258"/>
+            <refstandard refid="ietf-rfc4786"/>
+            <refstandard refid="ietf-rfc5936"/>
+            <refstandard refid="ietf-rfc5966"/>
+            <refstandard refid="ietf-rfc6382"/>
+            <refstandard refid="ietf-rfc6891"/>
+            <refstandard refid="ietf-rfc7094"/>
+         </refgroup>
+         <guide/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-01" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>1de19ebe-1ccb-411d-b7b4-484a39265181</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-sp-time-synchronization" title="Time Synchronization Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Time Synchronization Profile provides standards and guidance to support
+          the synchronization of clients and servers across a network or a federation of networks
+          and the safeguard of the accurate use of timestamps.</description>
+         <reftaxonomy refid="T-f15d7721-33a3-48e1-b2c6-b0d896f642dc-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Service providers must synchronize their network segment with a stratum 1
+            time server directly connected to a stratum 0 device, or over a reliable network path
+            to a stratum 1 time server of another service provider. All other entities in the
+            federation must use the time service of their host service provider.</description>
+            <refstandard refid="ietf-rfc5905"/>
+            <refstandard refid="itu-r-tf.460-6"/>
+         </refgroup>
+         <guide>Stratum 1 devices must implement IPv4 so that they can be used as time servers for
+        IPv4-based Mission Networks.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-01" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>9272fa4f-820c-4bef-ab6d-63d975807e1e</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-sp-directory-data-structure" title="Directory Data Structure Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Directory Data Structure Profile provides standards and guidance in support of the
+          definition of the namespace of a federated mission network on the basis of the Lightweight Directory
+          Access Protocol (LDAP).</description>
+         <reftaxonomy refid="T-3898a275-2231-4656-96aa-b9b37e5cbc78-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="ietf-rfc2798"/>
+            <refstandard refid="ietf-rfc4519"/>
+         </refgroup>
+         <guide>The Federated Directory Services shall be able to exchange inetOrgPerson object class
+        with mandatory Common Name (cn) and Surname (sn) attributes. Based on the specific MN
+        requirements, the list of exchanged attributes for particular MN might be extended by SMA during
+        MN planning process.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-01" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>e4c185cb-d64a-4d28-b10c-b252b96ecca4</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-cryptographic-algorithms-profile" title="Cryptographic Algorithms Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Cryptographic Algorithms Profile specifies the use of public standards for
+          cryptographic algorithm interoperability to protect IT systems.</description>
+         <reftaxonomy refid="T-13a17bdd-8eb2-418c-8cb8-7f32a435f432-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="nist-fips197"/>
+            <refstandard refid="nist-sp800-56arev3"/>
+            <refstandard refid="nist-fips-186-4"/>
+            <refstandard refid="nist-fips-180-4"/>
+            <refstandard refid="ietf-rfc3526"/>
+            <refstandard refid="nist-sp800-56brev1"/>
+         </refgroup>
+         <guide>The following algorithms and parameters are to
+          be used to support specific functions:
+          <itemizedlist>
+               <listitem>
+                  <para>
+                     <emphasis>Root CA Certificates</emphasis>
+                  </para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>Digest Algorithm: SHA-256, or SHA-384 (Root CA certificates, which were signed
+                    using SHA-1 before 1 January 2016, may be used until 1 January 2025)</para>
+                     </listitem>
+                     <listitem>
+                        <para>RSA modulus size (bits): 2048, 3072 and 4096</para>
+                     </listitem>
+                     <listitem>
+                        <para>ECC Curve: NIST P-256, and P-384</para>
+                     </listitem>
+                  </itemizedlist>
+               </listitem>
+               <listitem>
+                  <para>
+                     <emphasis>Subordinate CA Certificates</emphasis>
+                  </para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>Digest Algorithm: SHA-256, and SHA-384</para>
+                     </listitem>
+                     <listitem>
+                        <para>RSA modulus size (bits): 2048, 3072 and 4096</para>
+                     </listitem>
+                     <listitem>
+                        <para>ECC Curve: NIST P-256, and P-384</para>
+                     </listitem>
+                  </itemizedlist>
+               </listitem>
+               <listitem>
+                  <para>
+                     <emphasis>Subscriber Certificates</emphasis>
+                  </para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>Digest Algorithm: SHA-256, and SHA-384</para>
+                     </listitem>
+                     <listitem>
+                        <para>RSA modulus size (bits): 2048, 3072 and 4096</para>
+                     </listitem>
+                     <listitem>
+                        <para>ECC Curve: NIST P-256, and P-384</para>
+                     </listitem>
+                  </itemizedlist>
+               </listitem>
+            </itemizedlist>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-01" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>5d97ea4e-9f1f-46b7-99ab-7ceb0a9a6a21</uuid>
+      </serviceprofile>
+
    </records>
    <organisations>
       <orgkey key="acm" short="ACM" long="Association for Computing Machinery" uri="http://www.acm.org/"/>
