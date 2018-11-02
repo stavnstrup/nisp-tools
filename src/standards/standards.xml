@@ -60693,6 +60693,413 @@ as specified in:
          <uuid>5d97ea4e-9f1f-46b7-99ab-7ceb0a9a6a21</uuid>
       </serviceprofile>
 
+      <profile id="fmn3-pr-community-interest" title="FMN Spiral 3 Communities of Interest Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Communities of Interest Profile arranges standards profiles for the facilitation
+          of information sharing and exchange on user platforms.</description>
+         <subprofiles>
+            <refprofile refid="fmn3-pr-intell"/><!--          <refprofile refid="fmn3-pr-sit-aware"/> --><!--          <refprofile refid="fmn3-pr-smc"/> -->
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-01" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>28df766e-9f88-45b9-a049-933f700619d8</uuid>
+      </profile>
+
+      <profile id="fmn3-pr-intell" title="FMN Spiral 3 Intelligence Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The FMN Spiral 3 Intelligence Profile arranges standards profiles for the facilitation
+            and exploitation of Intelligence, Surveillance and Reconnaissance (ISR) Services.</description>
+         <subprofiles>
+            <refprofile refid="fmn3-isr-library-interface-profile"/>
+            <refprofile refid="fmn3-formatted-messages-for-isr-profile"/>
+            <refprofile refid="fmn3-formatted-messages-intelligence-profile"/>
+            <refprofile refid="fmn3-formatted-messages-isr-exploitation-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-01" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>e44dd8b1-9f06-42ca-a4ae-c6eb7d42e9df</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-isr-library-interface-profile" title="ISR Library Interface Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The ISR Library Interface is the standard interface for querying and accessing
+          heterogeneous product libraries maintained by various nations.</description>
+         <reftaxonomy refid="T-569dc136-b47b-4af3-8063-18da810cf1c2-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following international standards are mandated for interoperability of
+          ISR libraries.</description>
+            <refstandard refid="iso-639-2"/>
+            <refstandard refid="iso-iec-11179-3"/>
+            <refstandard refid="iso-iec-12087-5"/>
+            <refstandard refid="iso-iec-14750"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following NATO standards are mandated for interoperability of ISR libraries.
+            (For STANAG 4559 Ed 4: Only Standard AEDP-17 Ed. A Ver. 1  NATO Standard ISR Library Interface.)</description>
+            <refstandard refid="nso-stanag4545ed2"/>
+            <refstandard refid="nso-stanag4607ed3"/>
+            <refstandard refid="nso-stanag4559ed4"/>
+            <refstandard refid="nso-stanag4609ed4"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Note: implementation of STANAG 5525 in the context of the ISR Library Interface
+          Profile is limited to the definition of unique keys that could be used to unambiguously
+          refer to an external information object that is modelled in accordance with STANAG 5525.</description>
+            <refstandard refid="nso-stanag5525ed1"/>
+         </refgroup>
+         <guide>
+            <para>To ensure optimization of network resources the CSD services work best
+            with a unicast address space.</para>
+            <para>AEDP-17 Ed. A Vers. 1 defines two interfaces:
+            <itemizedlist>
+                  <listitem>
+                     <para>the first one is a federated service provider interface (see ISR Library Federation Pattern)
+                  based on CORBA's Internet Inter-ORB Protocol,</para>
+                  </listitem>
+                  <listitem>
+                     <para>the second one is in support of the provider-consumer interface (see ISR Library Access Pattern)
+                  based on web services.</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+            <para>Service provider must identify which interfaces/patterns they support
+            as a part of the federation process.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-01" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>b0b85dcb-fe39-4741-b93f-e4381df106a5</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-formatted-messages-for-isr-profile" title="Formatted Messages for ISR Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Formatted Messages Profile provides standard for formatted messages that are typically
+          used to exchange Intelligence, Surveillance, and Reconnaissance (ISR) products in military operations.
+          These formatted messages may be used as payload/attachment in combination with various transport
+          mechanisms such as informal messaging (e-mail), text collaboration (chat) or for publication as
+          files on websites. In addition, some of these formatted messages are also supported by federated
+          ISR Libraries.</description>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <reftaxonomy refid="T-569dc136-b47b-4af3-8063-18da810cf1c2-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>To support the exchange of information needed to govern and facilitate the collection
+              of Intelligence, Surveillance and Reconnaissance (ISR) information and production of intelligence
+              the following message formats defined in <emphasis role="bold">APP-11</emphasis> MUST be supported
+              (MTF Identifier, MTF Index Ref Number):
+              <itemizedlist>
+                     <listitem>
+                        <para>Intelligence Request (INTREQ, J021)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Information Requirement Management &amp; Collection Management Exchange (ICE, J033)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Information Requirement Management &amp; Collection Management Exchange (ICE, J033)</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag7149ed6"/>
+         </refgroup>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>
+               <para>The following XML Schema defined by <emphasis role="bold">MAJIIC 2</emphasis> SHOULD be supported:
+              <itemizedlist>
+                     <listitem>
+                        <para>ISR Spot Report (ISRSPOTREP)</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+               <para>This report is to be used for quick reporting allowing a free-text description of the results.
+              <itemizedlist>
+                     <listitem>
+                        <para>MAJIIC 2 Bravo.1</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>To support the sharing of JISR Products the following message formats defined
+              in various AEDPs MUST be supported:
+              <itemizedlist>
+                     <listitem>
+                        <para>ISR Track</para>
+                     </listitem>
+                     <listitem>
+                        <para>Measurement and Signature Intelligence Report (MASINTREP)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Imagery</para>
+                     </listitem>
+                     <listitem>
+                        <para>Ground Moving Target Indicator (GMTI)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Motion Imagery</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag4676ed1"/>
+            <refstandard refid="nso-stanag4716ed1"/>
+            <refstandard refid="nso-stanag4545ed2"/>
+            <refstandard refid="nso-stanag4607ed3"/>
+            <refstandard refid="nso-stanag4609ed4"/><!-- To be checked -->
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>To support the sharing of JISR Products the following message formats defined in <emphasis role="bold">APP-11</emphasis> and
+              <emphasis role="bold">STANAG 3377</emphasis> MUST be supported (MTF Identifier, MTF Index Ref Number):
+              <itemizedlist>
+                     <listitem>
+                        <para>Target Track Report (TRACKREP, J071)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Mission Report (MISREP, F031)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Inflight Report (INFLIGHTREP, J009)</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag7149ed6"/>
+            <refstandard refid="nso-stanag3377"/>
+         </refgroup>
+         <guide/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-02" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>68368c87-fdef-4f61-92c2-2c77c0c674ee</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-formatted-messages-intelligence-profile" title="Formatted Messages for Intelligence Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Formatted Messages Profile provides standard for formatted messages that are typically used to exchange
+          Intelligence Products in military operations. These formatted messages may be used as payload/attachment in
+          combination with various transport mechanisms such as informal messaging (e-mail), text collaboration (chat) or for
+          publication as files on websites.</description>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>To support exploitation the following <emphasis role="bold">APP-11</emphasis> message formats MUST be
+              supported (MTF Identifier, MTF Index Ref Number):
+              <itemizedlist>
+                     <listitem>
+                        <para>Air Intelligence Report (AIRINTREP, F001)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Counter-Intelligence and Security Report (CIINTREP, J112)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Counter-Intelligence and Security Summary (CIINTSUM, J113)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Counter-Intelligence and Security Supplementary Report (CISUPINTREP, J115)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Detailed Document Report (DEDOCREP, J089)</para>
+                     </listitem>
+                     <listitem>
+                        <para>First Hostile Act Report (First Hostile Act)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Intelligence Report (INTREP, J110)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Intelligence Summary (INTSUM, J111)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Maritime Intelligence Report (MARINTREP, J016)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Maritime Intelligence Summary (MARINTSUM, J015)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Supplementary Intelligence Report (SUPINTREP, J114)</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag7149ed6"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>To support the exchange of Intelligence Products the following <emphasis role="bold">AJP-2.5</emphasis> message
+              formats MUST be supported (MTF Identifier):
+              <itemizedlist>
+                     <listitem>
+                        <para>Human Intelligence Report (HUMINTREP)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Human Intelligence Summary (HUMINTSUM)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Interrogation Report (INTGREP)</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag2195ed2"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>To support the exchange of information needed to govern and facilitate the collection of Intelligence,
+              Surveillance and Reconnaissance (ISR) information and production of intelligence the following
+              message formats defined in <emphasis role="bold">APP-11</emphasis> MUST be supported (MTF Identifier, MTF Index Ref Number):
+              <itemizedlist>
+                     <listitem>
+                        <para>Intelligence Request (INTREQ, J021)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Information Requirement Management &amp; Collection Management Exchange (ICE, J033)</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag7149ed6"/>
+         </refgroup>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>
+               <para>To support exploitation the following MAJIIC 2 message formats SHOULD be supported
+              <itemizedlist>
+                     <listitem>
+                        <para>Electronic Order of Battle (EOB)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Pentagram Report (PentagramREP)</para>
+                     </listitem>
+                     <listitem>
+                        <para>MAJIIC 2 Bravo.1</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+         </refgroup>
+         <guide/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-02" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>9405a58f-f28d-4742-bfd6-c2f41fdc0b08</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-formatted-messages-isr-exploitation-profile" title="Formatted Messages for ISR Exploitation Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Formatted Messages Profile provides standard for formatted messages that are used to exploit Intelligence,
+          Surveillance, and Reconnaissance (ISR) information in military operations. These formatted messages may be used as
+          payload/attachment in combination with various transport mechanisms such as informal messaging (e-mail), text
+          collaboration (chat) or for publication as files on websites. In addition, some of these formatted messages are also
+          supported by federated ISR Libraries.</description>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <reftaxonomy refid="T-569dc136-b47b-4af3-8063-18da810cf1c2-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>To support exploitation the following <emphasis role="bold">APP-11</emphasis> message formats MUST be
+              supported (MTF Identifier, MTF Index Ref Number):
+              <itemizedlist>
+                     <listitem>
+                        <para>Preliminary Technical Report (PRETECHREP, J085)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Complementary Technical Report (COMTECHREP
+                    <itemizedlist>
+                              <listitem>
+                                 <para>COMTECHREP - TYPE A (J086)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>COMTECHREP - TYPE B (J087)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>COMTECHREP - TYPE C (J088)</para>
+                              </listitem>
+                           </itemizedlist>
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>Reconnaissance Exploitation Report (RECCEXREP, J103)</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+               <para>To support exploitation the following <emphasis role="bold">STANAG 3377</emphasis> message formats MUST be supported:
+              <itemizedlist>
+                     <listitem>
+                        <para>Motion Intel Exploitation Report (MIEXREP)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Radar Exploitation Report (RADAREXREP)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Radar Exploitation Report - Abbreviated (RADAREXREP-A)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Supplemental Programmed Interpretation Report (SUPIR)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Initial Programmed Interpretation Report (IPIR)
+                    <itemizedlist>
+                              <listitem>
+                                 <para>General Version of Initial Programmed Interpretation Report/Supplemental Programmed
+                          Interpretation Report (IPIR/SUPIR)</para>
+                              </listitem>
+                              <listitem>
+                                 <para/>
+                              </listitem>
+                           </itemizedlist>
+                        </para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+               <para>To support exploitation the following STANAG <emphasis role="bold">4607</emphasis> message formats MUST be supported:
+              <itemizedlist>
+                     <listitem>
+                        <para>Moving Target Indicator Exploitation Report (MTIEXREP)</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag7149ed6"/>
+            <refstandard refid="nso-stanag3377"/>
+            <refstandard refid="nso-stanag4607ed3"/>
+         </refgroup>
+         <guide/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-02" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+         <uuid>19fc1cb8-c1f2-4d4b-8e7c-da80ba79365e</uuid>
+      </serviceprofile>
+
    </records>
    <organisations>
       <orgkey key="acm" short="ACM" long="Association for Computing Machinery" uri="http://www.acm.org/"/>
