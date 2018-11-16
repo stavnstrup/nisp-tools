@@ -60264,7 +60264,8 @@ as specified in:
             </para>
          </description>
          <subprofiles>
-            <refprofile refid="fmn3-pr-comm-network"/><!--          <refprofile refid="fmn3-pr-community-interest"/> --><!--          <refprofile refid="fmn3-pr-human-to-human"/> -->
+            <refprofile refid="fmn3-pr-comm-network"/>
+            <refprofile refid="fmn3-pr-community-interest"/><!--          <refprofile refid="fmn3-pr-human-to-human"/> -->
          </subprofiles>
          <status mode="accepted">
             <uri/>
@@ -60791,7 +60792,8 @@ as specified in:
           of information sharing and exchange on user platforms.</description>
          <subprofiles>
             <refprofile refid="fmn3-pr-intell"/>
-            <refprofile refid="fmn3-pr-sit-aware"/><!--          <refprofile refid="fmn3-pr-smc"/> -->
+            <refprofile refid="fmn3-pr-sit-aware"/>
+            <refprofile refid="fmn3-pr-smc"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
@@ -61653,6 +61655,105 @@ as specified in:
             </history>
          </status>
          <uuid>2fbc5e51-17bf-40e7-ba97-5ca79aa4bf22</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-smc" title="FMN Spiral 3 SMC Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The FMN Spiral 3 Service Management and Control (SMC) Profile arranges standards profiles for
+            the facilitation and exploitation of SMC services.</description>
+         <subprofiles>
+            <refprofile refid="fmn3-smc-process-choreography-profile"/>
+            <refprofile refid="fmn3-smc-process-implementation-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>e1d03de2-342b-4179-afc0-db354e042c41</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-smc-process-choreography-profile" title="SMC Process Choreography Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>Service Management and Control Process Choreography Profile is the capability to bring together
+          individual services to accomplish a larger piece of work. It provides standards and guidance to support the
+          choreography of SMC processes and ITSM systems in a multi-service provider environment.</description>
+         <reftaxonomy refid="T-60aedc7e-b256-4242-9a18-51b116dc8559-X"/>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>For the implementation of SMC Federation Level 1 or 2, the following TM Forum REST specifications
+            are strongly recommended.</description>
+            <refstandard refid="tm-forum-tmf630"/>
+            <refstandard refid="tm-forum-tr250"/>
+         </refgroup>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>Compliance with the Service Implementation Profiles for REST Messaging/REST Security Services
+            that the implementations meet a set of non-functional requirements aligned with emerging message
+            labelling and security standards.</description>
+            <refprofile refid="sip-rest"/>
+            <refprofile refid="sip-rest-msg"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>FMN Spiral 3 Procedural Instructions for Service Management and Control</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+         </refgroup>
+         <guide>The Service Management and Control Process Choreography Profile will expand over time and new
+          APIs are expected to be added as they mature as commercial standards.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>0d4f0678-63c6-45d1-a810-df487a592802</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-smc-process-implementation-profile" title="SMC Process Implementation Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The SMC Process Implementation Profile enables the handover of federated Service Management records
+          between the sending Service Providers and the receiving Service Provider. Details about the handover point and
+          supported use cases is described per process in the Service Interface Profile. The profiles provide the implementation
+          guidance for the TM Forum API REST Specification.</description>
+         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>Note: Some of the TM Forum standards mentioned below refer to a newer version than documented in the official FMN Spiral 3 Profile.</description>
+            <refstandard refid="tm-forum-tmf621"/>
+            <refstandard refid="tm-forum-tmf638"/>
+            <refstandard refid="tm-forum-tmf641"/>
+            <refstandard refid="tm-forum-tmf622"/>
+            <refstandard refid="tm-forum-tmf000"/>
+            <refstandard refid="tm-forum-tr250"/>
+            <refstandard refid="tm-forum-tmf661"/>
+            <refstandard refid="nso-stanag4774"/>
+            <refstandard refid="nso-stanag4778"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>FMN Spiral 3 Service Interface Profile for Service Management and Control</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+         </refgroup>
+         <guide>FMN specific implementation details are specified within each of the Service Interface Profiles for
+          Service Management and Control.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>d7203531-0108-43aa-99c2-7b7717683266</uuid>
       </serviceprofile>
 
    </records>
