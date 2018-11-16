@@ -60699,7 +60699,9 @@ as specified in:
          <description>The Communities of Interest Profile arranges standards profiles for the facilitation
           of information sharing and exchange on user platforms.</description>
          <subprofiles>
-            <refprofile refid="fmn3-pr-intell"/><!--          <refprofile refid="fmn3-pr-sit-aware"/> --><!--          <refprofile refid="fmn3-pr-smc"/> -->
+            <refprofile refid="fmn3-pr-intell"/>
+            <refprofile refid="fmn3-pr-sit-aware"/>
+<!--          <refprofile refid="fmn3-pr-smc"/> -->
          </subprofiles>
          <status mode="accepted">
             <uri/>
@@ -61099,6 +61101,468 @@ as specified in:
             </history>
          </status>
          <uuid>19fc1cb8-c1f2-4d4b-8e7c-da80ba79365e</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-sit-aware" title="FMN Spiral 3 Situational Awareness Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-battlespace-event-federation-profile"/>
+            <refprofile refid="fmn3-friendly-force-tracking-profile"/>
+            <refprofile refid="fmn3-symbology-federation-profile"/>
+            <refprofile refid="fmn3-maritime-information-exchange-profile"/>
+            <refprofile refid="fmn3-formatted-messages-for-sa-profile"/>
+            <refprofile refid="fmn3-land-c2-information-exchange-profile"/>
+            <refprofile refid="fmn3-tactical-message-distribution-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-07" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>a7d11f44-d821-49dd-9089-3db1987fe2a7</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-battlespace-event-federation-profile" title="Battlespace Event Federation Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Battlespace Event Federation Profile provides standards and guidance to support the
+        exchange of information on significant incidents, important events, trends and activities within
+        a coalition network or a federation of networks.</description>
+         <reftaxonomy refid="T-54f06201-f6f4-4939-a537-75a0c1ff70bc-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>To support exploitation the following APP-11 message formats MUST be supported (MTF Identifier,
+            MTF Index Ref Number):
+              <itemizedlist>
+                     <listitem>
+                        <para>Incident Report (INCREP, A078)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Incident Spot Report (INCSPOTREP, J006)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Troops in Contact SALTA format (SALTATIC, A073)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Events Report (EVENTREP, J092)</para>
+                     </listitem>
+                     <listitem>
+                        <para>Improvised Explosive Device Report (IEDREP, A075)</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+               <para>The INCREP is used to report any significant incident caused by terrorism, civil unrest, natural
+            disaster, or media activity.</para>
+               <para>The INCSPOTREP is used to provide time critical information on important events that have an
+            immediate impact on operations.</para>
+               <para>The SALTATIC is used to report troops in contact, the report should be made as soon as possible by
+            the unit that has come under some form of attack. It uses the following basic format: Size of enemy,
+            Action of enemy, Location, Time and Action taken.</para>
+               <para>The EVENTREP is used to provide the chain of command information about important Events, trends
+            and activities that do not have an element of extreme urgency, but do influence on-going operations
+            The IEDREP is sent when an IED has been encountered. It identifies the hazard area, tactical
+            situation, operational priorities and the unit affected. This initial report should be followed by normal
+            EOD/Engineer reporting requirements.</para>
+            </description>
+            <refstandard refid="nso-stanag7149ed6-app11-d2"/>
+         </refgroup>
+         <guide/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-07" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>e22be390-6afd-4071-ba19-c92a323d8456</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-friendly-force-tracking-profile" title="Friendly Force Tracking Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Friendly Force Tracking Profile provides standards and guidance to support the exchange of Friendly Force
+          Tracking information within a coalition network or a federation of networks.</description>
+         <reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
+         <refgroup obligation="conditional" lifecycle="current">
+            <description>VMF may only be used when messages are converted to FFI before the publication on the FFT
+              network, using the exchange mechanism described in the MIL-STD-6017B.</description>
+            <refstandard refid="us-dod-mil-std6017b"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description/>
+            <refstandard refid="nso-stanag5527ed1"/>
+            <refstandard refid="nso-stanag7149ed6"/>
+         </refgroup>
+         <guide>
+            <para>Messages exchanged according to the exchange mechanisms described in ADatP-36(A) shall
+            comply with the Message Text Format (FFI MTF) schema incorporated in APP-11(D)(1).</para>
+            <para>IP1 is the preferred protocol for Spiral 3.</para>
+            <para>Caveat: where needed the other ADatP-36(A) protocols (IP2 an SIP3) may be used if the situation
+            requires this, and this MUST be determined on instantiation.</para>
+            <para>Caveat: VMF uses the concept of the Unit Reference Number (URN) as unique identifier on the
+            tracked unit and this is not in line with the FFI unique identifier. VMF URN can be used as FFI unique
+            identifier but the viceversa is not true, so specific rules shall be defined for the unique identifier
+            allignments.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>f027e7e5-778a-4b0f-bc60-c6842cbd482d</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-symbology-federation-profile" title="Symbology Federation Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description/>
+         <reftaxonomy refid="T-3edec962-1d0e-4dc0-ab28-b01e0efc1064-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Implementation of NATO Vector Graphics MUST use Symbology Standard APP-6(D). Remark: It
+            should be noted that as of July 2018 ADatP-4733 Version A Edition 1 does not include a binding to
+            APP-6(D). At this time this binding is is being developed by ACT with the intent of including this
+            update into the final ratified STANAG, but is not clear if it will result in a new Edition</description>
+            <refstandard refid="nso-stanag2019ed7"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Implementation of NATO Vector Graphics MUST be conformant to NVG Conformance Level: B2Q</description>
+            <refstandard refid="nato-tide-nvg"/>
+         </refgroup>
+         <guide>All presentation services shall render tracks, tactical graphics, and MOOTW objects using these
+          standards except in the case where the object being rendered is not covered in the standard. In
+          these exceptional cases, additional symbols shall be defined as extensions of existing symbol
+          standards and must be backwards compatible. These extensions shall be submitted as a request for
+          change within the configuration management process to be considered for inclusion in the next
+          version of the specification.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>0dd323ca-2b39-4f49-9d57-b45b5cdcfc08</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-maritime-information-exchange-profile" title="Maritime Information Exchange Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Maritime Information Exchange Profile provides standards and guidance to support the exchange of Maritime
+          Recognized Picture information within a coalition network or a federation of networks</description>
+         <reftaxonomy refid="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>For the RMP Services for building the Operational RMP it is mandatory to implement NVG to provide
+            an interface for Cross COI Shared Situational Awareness where OTH-T GOLD cannot be processed</description>
+            <refstandard refid="nato-tide-nvg"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description/>
+            <refstandard refid="us-dod-oth-g"/>
+         </refgroup>
+         <guide>
+            <para>The implementation of the following message types is mandatory:
+            <itemizedlist>
+                  <listitem>
+                     <para>Contact Report (CTC)</para>
+                  </listitem>
+                  <listitem>
+                     <para>Enhanced Contact Report (XCTC),</para>
+                  </listitem>
+                  <listitem>
+                     <para>Overlay Message (OVLY2, OVLY3),</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+            <para>The implementation of the following message types is optional:
+            <itemizedlist>
+                  <listitem>
+                     <para>Area of Interest Filter (AOI),</para>
+                  </listitem>
+                  <listitem>
+                     <para>FOTC Situation Report,</para>
+                  </listitem>
+                  <listitem>
+                     <para>Group Track Message (GROUP),</para>
+                  </listitem>
+                  <listitem>
+                     <para>Operator Note (OPNOTE),</para>
+                  </listitem>
+                  <listitem>
+                     <para>PIM Track (PIMTRACK).</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+            <para>These messages can be used for other C2 functions.</para>
+            <para>For interconnecting C2 Systems and their RMP Services, the implementation of the following
+            transport protocol to share OTH-T GOLD messages is mandatory:
+            <itemizedlist>
+                  <listitem>
+                     <para>TCP (connect, send, disconnect) - default port:2020</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+            <para>End-users that do not have RMP Applications MAY generate OTH-T GOLD messages manually and
+            transmit them via eMail/SMTP (see also Message Text Format messaging).</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>c95457df-1e72-4ac5-a893-7d8d9aa13d65</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-formatted-messages-for-sa-profile" title="Formatted Messages for SA Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Formatted Messages Profile for Situational Awareness provides standard for formatted messages that are typically
+          used in military operations in support of Situational Awareness. These formatted messages may be used as
+          payload/attachment in combination with various transport mechanisms such as informal messaging (e-mail), text
+          collaboration (chat) or in standardized voice procedures, e.g. MEDEVAC Requests.</description>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Procedures for Situational Awareness require the following messages:
+            <para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>Events:
+                    <itemizedlist>
+                              <listitem>
+                                 <para>Incident Report (INCREP – A078)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Incident Spot Report (INCSPOTREP – J006)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Troops in Contact SALTA Format (SALTATIC – A073)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Search and Rescue Incident Report (SARIR)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>EOD Incident Report (EODINCREP - J069) / EO Incident Report (EOINCREP)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Events Report (EVENTREP - J092)</para>
+                              </listitem>
+                           </itemizedlist>
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>Tasks and Orders:
+                    <itemizedlist>
+                              <listitem>
+                                 <para>Airspace Control Order (ACO - F011)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Air Tasking Order (ATO - F058)</para>
+                              </listitem>
+                           </itemizedlist>
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>Features:
+                    <itemizedlist>
+                              <listitem>
+                                 <para>Killbox Message (KILLBOX - F083)</para>
+                              </listitem>
+                           </itemizedlist>
+                        </para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag7149ed6-app11-d2"/>
+         </refgroup>
+         <guide>
+            <para/>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>846bc74c-ba2e-4b22-b166-c5c59c86fcf4</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-land-c2-information-exchange-profile" title="Land C2 Information Exchange Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Land C2 Information Exchange Profile provides standards and guidance to support the exchange of Command and
+          Control information within a coalition network or a federation of networks.</description>
+         <reftaxonomy refid="T-d8fd520c-940b-48e6-ab46-2ccf9f6858ed-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>MIP 3.1 Interoperability Specification - "MIP 3.1 Interoperability Specification"</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="mip-jc3iedm"/>
+         </refgroup>
+         <guide>
+            <para>The MIP3.1 Interoperability Specification comprises both a mandatory technical
+            interface specification as well as implementation guidance documents, and is available
+            on the MIP website (https://www.mip-interop.org). The interface specification consists
+            of:
+            <itemizedlist>
+                  <listitem>
+                     <para>MIP Technical Interface Design Plan (MTIDP) v3.1.2 - defining the MIP3.1 Data Exchange Mechanism (DEM)</para>
+                  </listitem>
+                  <listitem>
+                     <para>Joint C3 Information Exchange Data Model (JC3IEDM) v3.1.4 - defining the MIP3.1
+                  data model (also available as STANAG 5525); and</para>
+                  </listitem>
+                  <listitem>
+                     <para>MIP Implementation Rules (MIR) v3.1.5 - defining implementation rules for mapping
+                  the JC3IEDM to C2 systems.</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+            <para>The suite of guidance documents includes the MIP Operating Procedures (MOP), which
+            provides technical procedures for configuration/operation of MIP 3.1 interfaces in a
+            Coalition environment.</para>
+            <para>The Land C2 Information Exchange profile should be used primarily for the exchange of Battlespace
+            Objects; this profile is not intended to support high volume, high frequency updates such as Friendly
+            Force Tracking (FFT).</para>
+            <para>Likewise, the Land C2 Information Exchange profile is not designed to support the exchange of data
+            over tactical bearers (limited capacity and intermittent availability) across network boundaries -
+            STANAG 4677 would be more appropriate.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>4e83b89e-f2fc-41bf-8e8e-4710dde2a2fc</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-tactical-message-distribution-profile" title="Tactical Message Distribution Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Air Information Exchange Profile provides standards and guidance to support the exchange of Recognized Air
+          Picture (RAP) information within a coalition network or a federation of networks.</description>
+         <reftaxonomy refid="T-b0523d88-fcef-4265-a6aa-69ce20c9ec8f-X"/>
+         <reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
+         <reftaxonomy refid="T-75a41fc4-9672-479c-a7fe-2b0cc8b01d4b-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>The Standard for Joint Range Extension Application Protocol (JREAP) - ATDLP-5.18 Edition B
+              enables TDL data to be transmitted over digital media and networks not originally designed for
+              tactical data exchange. JREAP consists of three different protocols: A, B and C. For implementation
+              in FMN only JREAP, Appendix C 'Encapsulation over Internet Protocol (IP)' which enables TDL data
+              to be transmitted over an IP network must be used.</para>
+               <para>As per the common time reference within JREAP, UTC must be supported as the common time
+              reference. If no common time reference is available, round-trip shall be used.</para>
+            </description>
+            <refstandard refid="nso-stanag5518ed3"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>The "Minimum Link-16 Message Profile", as described in the FMN Spiral 3 Service Interface Profile
+              for RAP Data, defines the minimum set of data elements that are required to be available for
+              operational or technical reasons so that correctly formatted technical message can be generated to
+              establish a Recognized Air Picture in a federated environment. The implementation of the following
+              message types of STANAG 5516 is MANDATORY:
+              <itemizedlist>
+                     <listitem>
+                        <para>Precise Participant Location and Identification (PPLI) Messages
+                    <itemizedlist>
+                              <listitem>
+                                 <para>J2.0 Indirect Interface Unit PPLI</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J2.2 Air PPLI</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J2.3 Surface (Maritime) PPLI</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J2.4 Subsurface (Maritime) PPLI</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J2.5 Land (Ground) Point PPLI</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J2.6 Land (Ground) Track PPLI</para>
+                              </listitem>
+                           </itemizedlist>
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>Surveillance Messages
+                    <itemizedlist>
+                              <listitem>
+                                 <para>J3.0 Reference Point</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J3.1 Emergency Point</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J3.2 Air Track message</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J3.3 Surface (Maritime) Track</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J3.4 Subsurface (Maritime) Track</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J3.5 Land (Ground) Point/Track</para>
+                              </listitem>
+                              <listitem>
+                                 <para>J3.7 Electronic Warfare Product Information</para>
+                              </listitem>
+                           </itemizedlist>
+                        </para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+               <para>To maximize the ability to share tactical data in support of Situational Awareness, the following
+              message types must also be supported:
+              <itemizedlist>
+                     <listitem>
+                        <para>J7 Information Management</para>
+                     </listitem>
+                     <listitem>
+                        <para>J8 Information Management</para>
+                     </listitem>
+                     <listitem>
+                        <para>J9 Weapons Coordination and Management</para>
+                     </listitem>
+                     <listitem>
+                        <para>J10 Weapons Coordination and Management</para>
+                     </listitem>
+                     <listitem>
+                        <para>J12 Control</para>
+                     </listitem>
+                     <listitem>
+                        <para>J13 Platform and System Status</para>
+                     </listitem>
+                     <listitem>
+                        <para>J15 Threat Warning</para>
+                     </listitem>
+                     <listitem>
+                        <para>J17 Miscellaneous</para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag5516ed4"/>
+         </refgroup>
+         <guide>With regards to JREAP: JREAP is designed to support operations using Link 16 over most
+          communication media (JRE media) including forwarding TDL data over SATCOM links (JREAP-A),
+          Serial links (JREAP-B), and over IP networks (JREAP-C). Each JRE medium has unique
+          characteristics. It supports UDP Unicast, UDP multicast, and TCP. For implementation in FMN only
+          JREAP, Appendix C "Encapsulation over Internet Protocol (IP)" is to be used.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>2fbc5e51-17bf-40e7-ba97-5ca79aa4bf22</uuid>
       </serviceprofile>
 
    </records>
