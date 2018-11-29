@@ -60508,7 +60508,8 @@ as specified in:
          </description>
          <subprofiles>
             <refprofile refid="fmn3-pr-comm-network"/>
-            <refprofile refid="fmn3-pr-community-interest"/><!--          <refprofile refid="fmn3-pr-human-to-human"/> -->
+            <refprofile refid="fmn3-pr-community-interest"/>
+						<refprofile refid="fmn3-pr-human-to-human"/>
          </subprofiles>
          <status mode="accepted">
             <uri/>
@@ -61997,6 +61998,1443 @@ as specified in:
             </history>
          </status>
          <uuid>d7203531-0108-43aa-99c2-7b7717683266</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-human-to-human" title="FMN Spiral 3 Human-to-Human Communications Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Human-to-Human Communications Profile arranges standards profiles for the facilitation
+        of information sharing and exchange on user platforms.</description>
+         <subprofiles>
+            <refprofile refid="fmn3-pr-uni-collab"/>
+            <refprofile refid="fmn3-pr-information-management"/>
+            <refprofile refid="fmn3-pr-geospatial"/>
+            <refprofile refid="fmn3-pr-webhost"/>
+            <refprofile refid="fmn3-pr-web-auth"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>f83445e9-0ccb-45c6-8767-74d9ad8a7bc6</uuid>
+      </profile>
+
+      <profile id="fmn3-pr-uni-collab" title="FMN Spiral 3 Unified Collaboration Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-pr-audio-collab"/>
+            <refprofile refid="fmn3-pr-basic-text-based-collaboration"/>
+            <refprofile refid="fmn3-pr-number-plan"/>
+            <refprofile refid="fmn3-pr-call-signaling"/>
+            <refprofile refid="fmn3-pr-unified-audio-video"/>
+            <refprofile refid="fmn3-pr-calendaring-exchange"/>
+            <refprofile refid="fmn3-pr-formatted-messages"/>
+            <refprofile refid="fmn3-pr-video-based-collab"/>
+            <refprofile refid="fmn3-pr-secure-voice"/>
+            <refprofile refid="fmn3-pr-informal-messaging"/>
+            <refprofile refid="fmn3-pr-content-encapsulation"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>36465ebb-f538-4c71-bc00-228153924786</uuid>
+      </profile>
+
+      <profile id="fmn3-pr-audio-collab" title="Audio-based Collaboration Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-audio-based-collaboration-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>baa14c41-8884-4a9f-b4b1-433fd48253d0</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-audio-based-collaboration-profile" title="Audio-based Collaboration Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Audio-based Collaboration Profile provides standards and guidance for the
+        implementation of an interoperable voice system (telephony) on federated mission networks.</description>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following standards are used for audio protocols.</description>
+            <refstandard refid="itu-t-g.729"/>
+            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+            <refstandard refid="itu-t-g.711"/>
+         </refgroup>
+         <guide>
+            <para>Voice over IP (VoIP) refers to unprotected voice communication services running on
+            unclassified IP networks e.g. conventional IP telephony. Voice over Secure IP (VoSIP) refers to
+            non-protected voice service running on a classified IP networks. Depending on the security
+            classification of a FMN instance, VoIP or VoSIP is mandatory.</para>
+            <para>If a member choses to use network agnostic Secure Voice services in addition to VoSIP,
+            then SCIP specifications as defined for audio-based collaboration services (end-to-end protected
+            voice) should be used.</para>
+            <para>The voice sampling interval is 40ms.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>52e89de7-46c2-4810-9428-980b5de1a360</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-basic-text-based-collaboration" title="Basis Text-based Collaboration Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-basic-text-based-collaboration-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>6e728a88-053d-4df8-8f66-9f675e5689ee</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-basic-text-based-collaboration-profile" title="Basic Text-based Collaboration Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Basic Text-based Collaboration Profile provides standards and guidance to
+        establish a basic near-real time text-based group collaboration capability (chat) for time
+        critical reporting and decision making in military operations.</description>
+         <reftaxonomy refid="T-c31cbe2b-47ef-432a-b428-90cdea2e377c-X"/>
+         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following standards are the base IETF protocols for interoperability of
+          chat services.</description>
+            <refstandard refid="ietf-rfc6120"/>
+            <refstandard refid="ietf-rfc6121"/>
+            <refstandard refid="ietf-rfc6122"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following standards are required to achieve compliance for an XMPP Server
+          and an XMPP Client dependent upon the categorisation of presenting a core or advanced
+          instant messaging service interface.</description>
+            <refstandard refid="xmpp-xep-0004"/>
+            <refstandard refid="xmpp-xep-0012"/>
+            <refstandard refid="xmpp-xep-0030"/>
+            <refstandard refid="xmpp-xep-0045"/>
+            <refstandard refid="xmpp-xep-0047"/>
+            <refstandard refid="xmpp-xep-0049"/>
+            <refstandard refid="xmpp-xep-0054"/>
+            <refstandard refid="xmpp-xep-0055"/>
+            <refstandard refid="xmpp-xep-0060"/>
+            <refstandard refid="xmpp-xep-0065"/>
+            <refstandard refid="xmpp-xep-0092"/>
+            <refstandard refid="xmpp-xep-0114"/>
+            <refstandard refid="xmpp-xep-0115"/>
+            <refstandard refid="xmpp-xep-0160"/>
+            <refstandard refid="xmpp-xep-0198"/>
+            <refstandard refid="xmpp-xep-0199"/>
+            <refstandard refid="xmpp-xep-0202"/>
+            <refstandard refid="xmpp-xep-0203"/>
+            <refstandard refid="xmpp-xep-0220"/>
+            <refstandard refid="xmpp-xep-0258"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>c5b1bd12-cd97-4633-bdf6-315cfde713c9</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-number-plan" title="Numbering Plans Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-numbering-plans-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>2b97cfe2-0da1-49b1-9e66-6bff8717df12</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-numbering-plans-profile" title="Numbering Plans Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Numbering Plans Profile provides standards and guidance for the facilitation
+          of numbering plans of telecommunications, audio and video networks.</description>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+         <refgroup obligation="optional" lifecycle="current">
+            <description>The following standards are optionally used for numbering</description>
+            <refstandard refid="nso-stanag5046ed4"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following standards are used for numbering. Network planners and engineers
+              are reminded that in case Canada and United States are both participating in a mission network,
+              there is a necessity to de-conflict the country code a.k.a. Country Identified (CI).</description>
+            <refstandard refid="nso-stanag4705ed1"/>
+            <refstandard refid="itu-e.123"/>
+            <refstandard refid="itu-t-e.164"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>c95313b8-1779-4ea6-9512-7a2a9bd6ac81</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-call-signaling" title="FMN Spiral 3 Call Signaling Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-standalone-voice-services-call-signaling-profile"/>
+            <refprofile refid="fmn3-standalone-vtc-services-call-signaling-profile"/>
+            <refprofile refid="fmn3-unified-voice-and-vtc-services-call-signaling-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>b31418db-afb5-426f-beef-e4d90109b56a</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-standalone-voice-services-call-signaling-profile" title="Standalone Voice Services Call Signaling Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="itu-t-g.729"/>
+            <refstandard refid="itu-t-g.711"/>
+            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>f0225abe-3230-4764-9b50-ad15e207b90c</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-standalone-vtc-services-call-signaling-profile" title="Standalone VTC Services Call Signaling Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="itu-t-g.711"/>
+            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+            <refstandard refid="itu-t-h.264"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>90bea8c4-5d75-4dc7-807e-262d32c9121b</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-unified-voice-and-vtc-services-call-signaling-profile" title="Unified Voice and VTC Services Call Signaling Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="itu-t-g.711"/>
+            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+            <refstandard refid="itu-t-h.264"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>f087a06d-ed40-4697-b985-52f9aa3c0dc4</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-unified-audio-video" title="FMN Spiral 3 Unified Audio and Video Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-session-initiation-and-control-profile"/>
+            <refprofile refid="fmn3-priority-and-pre-emption-profile"/>
+            <refprofile refid="fmn3-media-streaming-profile"/>
+            <refprofile refid="fmn3-srtp-based-media-infrastructure-security-profile"/>
+            <refprofile refid="fmn3-ipsec-based-media-infrastructure-security-profile"/>
+            <refprofile refid="fmn3-media-infrastructure-taxonomy-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>c311cc61-4808-4ad2-b394-ee601df47706</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-session-initiation-and-control-profile" title="Session Initiation and Control Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Session Initiation and Control Profile provides standards used for session
+        initiation and control.</description>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following standards are used for regular session initiation and control.</description>
+            <refstandard refid="ietf-rfc3261"/>
+            <refstandard refid="ietf-rfc3262"/>
+            <refstandard refid="ietf-rfc3264"/>
+            <refstandard refid="ietf-rfc3311"/>
+            <refstandard refid="ietf-rfc4028"/>
+            <refstandard refid="ietf-rfc4566"/>
+            <refstandard refid="ietf-rfc6665"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following standards define the SIP and RTP support for conferencing.</description>
+            <refstandard refid="ietf-rfc4353"/>
+            <refstandard refid="ietf-rfc4579"/>
+            <refstandard refid="ietf-rfc5366"/>
+            <refstandard refid="ietf-rfc7667"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>0eff24e3-f9cf-43cf-8abe-d90cf58d318d</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-priority-and-pre-emption-profile" title="Priority and Pre-emption Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Priority and Pre-emption Profile provides standards are used to execute priority and
+          pre-emption service with SIP.</description>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="ietf-rfc4411"/>
+            <refstandard refid="ietf-rfc4412"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>617bf2a3-d5a9-475d-bf74-df9fc7a4a9eb</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-media-streaming-profile" title="Media Streaming Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Media Streaming Profile provides standards used to stream media across the mission network.</description>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="ietf-rfc3550"/>
+            <refstandard refid="ietf-rfc4733"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>9099f588-f241-4916-b237-6ef232ee1ec5</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-srtp-based-media-infrastructure-security-profile" title="SRTP-based Media Infrastructure Security Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The SRTP-based Media Infrastructure Security Profile provides security standards
+        that are used for security of media infrastructure based on Transport Layer Security (TLS)
+        and Secure Real-time Transport Protocol (SRTP).</description>
+         <reftaxonomy refid="T-4760c261-4248-4da0-8b39-05ecbe7b2297-X"/>
+         <refgroup obligation="conditional" lifecycle="current">
+            <description>Securing the MN Media infrastructure can be done in several ways and that the selection
+          of the appropriate method is to be done during the mission planning. For this specific method, the
+          following standard apply</description>
+            <refstandard refid="ietf-rfc3711"/>
+            <refstandard refid="ietf-rfc4568"/>
+            <refstandard refid="ietf-rfc5246"/>
+            <refstandard refid="ietf-rfc7919"/>
+         </refgroup>
+         <guide>Note that securing the MN Media infrastructure can be done in several ways and that the
+        selection of the appropriate method is to be done during the mission planning.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>0f5384b9-cc9a-451f-b4d1-512ade62faa3</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-ipsec-based-media-infrastructure-security-profile" title="IPSec-based Media Infrastructure Security Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The IPSec-based Media Infrastructure Security Profile provides security standards
+        that are used for security of media infrastructure based on Internet Protocol Security (IPSec).</description>
+         <reftaxonomy refid="T-b4f004a3-5940-4438-be5b-2ee8ba014ac2-X"/>
+         <reftaxonomy refid="T-d339cfb9-96a1-493a-a2ab-11cf0dae8aab-X"/>
+         <refgroup obligation="conditional" lifecycle="current">
+            <description>Securing the MN Media infrastructure can be done in several ways and that the selection of
+          the appropriate method is to be done during the mission planning. For this specific method, the
+          following standard apply.</description>
+            <refstandard refid="ietf-rfc7296"/>
+            <refstandard refid="ietf-rfc4303"/>
+            <refstandard refid="ietf-rfc4754"/>
+            <refstandard refid="ietf-rfc5903"/>
+            <refstandard refid="ietf-rfc7427"/>
+            <refstandard refid="ietf-rfc7670"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>ede81077-2d92-4214-b46b-1f62b48e9df3</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-media-infrastructure-taxonomy-profile" title="Media Infrastructure Taxonomy Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Media Infrastructure Taxonomy Profile provides guidance and taxonomy for media infrastructures.</description>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+         <refgroup obligation="optional" lifecycle="current">
+            <refstandard refid="ietf-rfc5853"/>
+            <refstandard refid="ietf-rfc7092"/>
+            <refstandard refid="ietf-rfc7656"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>146e4618-fa4f-4259-831a-07e8de4556e4</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-calendaring-exchange" title="FMN Spiral 3 Calendaring Exchange Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-calendaring-exchange-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>74fc5b7e-9d02-433b-aa4b-b26800d0e841</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-calendaring-exchange-profile" title="Calendaring Exchange Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>
+            <para>The calendaring exchange profile provides standards and guidance for the exchange Meeting Requests,
+            Free/Busy information as well as Calendar sharing implemented by CUA software.</para>
+            <para>The focus of this standard is on the exchange of the aforementioned information items and does not
+            cover other typical features found in collaboration software, e.g. chat or workflows.</para>
+         </description>
+         <reftaxonomy refid="T-d5b2a8d5-e4d6-4e91-89d4-9c2539aac1c6-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description/>
+            <refstandard refid="ietf-rfc5545"/>
+            <refstandard refid="ietf-rfc5546"/>
+            <refstandard refid="ietf-rfc6047"/>
+         </refgroup>
+         <guide>
+            <para>RFC 5545 is required in order to allow a vendor independent representation and exchange of
+            calendaring and scheduling information such as events, to-dos, journal entries, and free/busy
+            information, independent of any particular calendar service or protocol.</para>
+            <para>RFC 5546 defines the scheduling methods that permit two or more calendaring systems to perform
+            transactions such as publishing, scheduling, rescheduling, responding to scheduling requests,
+            negotiating changes, or canceling.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>9086f625-de7d-47ee-9a41-adee3c2df1af</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-formatted-messages" title="Formatted Messages Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-formatted-messages-for-sa-profile"/>
+            <refprofile refid="fmn3-formatted-messages-for-medevac-profile"/>
+            <refprofile refid="fmn3-formatted-messages-for-isr-profile"/>
+            <refprofile refid="fmn3-formatted-messages-intelligence-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>34fdf4f7-5656-4997-aeb4-3b6ce4e2ba5c</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-formatted-messages-for-medevac-profile" title="Formatted Messages for MEDEVAC Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Formatted Messages Profile provides standard for formatted messages that are typically used
+          for C2 of Medical Evacuation missions. These formatted messages may be used as payload/attachment
+          in combination with various transport mechanisms such as informal messaging (e-mail),
+          text collaboration (chat) or in standardized voice procedures.</description>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>
+               <para>C2 of MEDEVAC Missions requires the following messages:
+              <itemizedlist>
+                     <listitem>
+                        <para>Situational Awareness:
+                    <itemizedlist>
+                              <listitem>
+                                 <para>Incident Report (INCREP – A078)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Incident Spot Report (INCSPOTREP – J006)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Troops in Contact SALTA Format (SALTATIC A073)</para>
+                              </listitem>
+                           </itemizedlist>
+                        </para>
+                     </listitem>
+                     <listitem>
+                        <para>Requests:
+                    <itemizedlist>
+                              <listitem>
+                                 <para>Medical Evacuation Request (MEDEVAC – A012)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Mechanism Injury Symptoms Treatment (MIST AT, supplement to A012)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Diving Accident (DIVEACC – N019)</para>
+                              </listitem>
+                              <listitem>
+                                 <para>Evacuation Request (EVACREQ – N096)</para>
+                              </listitem>
+                           </itemizedlist>
+                        </para>
+                     </listitem>
+                  </itemizedlist>
+               </para>
+            </description>
+            <refstandard refid="nso-stanag7149ed6-app11-d2"/>
+            <refstandard refid="nso-stanag2546ed2"/>
+            <refstandard refid="nso-stanag2627ed1"/>
+         </refgroup>
+         <guide>
+            <para>The following set of APP-11 messages should be supported:
+            <itemizedlist>
+                  <listitem>
+                     <para>Presence Report (PRESENCE)</para>
+                  </listitem>
+                  <listitem>
+                     <para>Enemy Contact Report (ENEMY CONTACT REP)</para>
+                  </listitem>
+                  <listitem>
+                     <para>Search and Rescue Incident Report (SARIR)</para>
+                  </listitem>
+                  <listitem>
+                     <para>Events Report (EVENTREP)</para>
+                  </listitem>
+                  <listitem>
+                     <para>Situation Report (SITREP)</para>
+                  </listitem>
+                  <listitem>
+                     <para>Friendly Force Information (FFI)</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-02" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>a7d6913e-f457-4ec4-86d2-f67dffce1141</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-video-based-collab" title="Video-based Collaboration Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-video-based-collaboration-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>f1404919-d049-4232-af93-ae629320a6be</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-video-based-collaboration-profile" title="Video-based Collaboration Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Video-based Collaboration Profile provides standards and guidance for the
+        implementation and configuration of Video Tele Conferencing (VTC) systems and services in
+        a federated mission network.</description>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following standards are required for audio coding in VTC.</description>
+            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
+            <refstandard refid="itu-t-g.711"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>The following standards are required for video coding in VTC.</description>
+            <refstandard refid="itu-t-h.264"/>
+            <refstandard refid="ietf-rfc6184"/>
+         </refgroup>
+         <refgroup obligation="conditional" lifecycle="current">
+            <description>Not required at this time, but when available it can be implemented between
+          dedicated network segments after approval from the MN administrative authority.</description>
+            <refstandard refid="ietf-rfc4582"/>
+         </refgroup>
+         <guide>
+            <para>It Is recommended that dynamic port ranges are constrained to a limited and agreed number.
+            This is an activity that needs to be performed at the mission planning stage. Different vendors
+            have different limitations on fixed ports. However common ground can always be found.</para>
+            <para>As a Minimum G.722.1 is to be used. Others are exceptions and need to be agreed by the MN
+          administrative authority for video calls.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>8dc0b976-0901-41fc-84fb-f046805b5e08</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-secure-voice" title="Secure Voice Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-secure-voice-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>cc6a9d59-dc7b-4043-875e-5a704b8a9f4a</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-secure-voice-profile" title="Secure Voice Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Secure Voice Profile provides standards and guidance for the facilitation of secure telephony
+        and other protected audio-based collaboration on federated mission networks.</description>
+         <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+         <refgroup obligation="optional" lifecycle="current">
+            <description>SCIP Network Standards for operation over other network types</description>
+            <refstandard refid="iicwg-scip-214"/>
+            <refstandard refid="iicwg-scip-215"/>
+            <refstandard refid="iicwg-scip-216"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>SCIP Secure Applications</description>
+            <refstandard refid="iicwg-scip-233.501"/>
+            <refstandard refid="iicwg-scip-233.502"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>SCIP Signaling Plan and Negotiation</description>
+            <refstandard refid="iicwg-scip-210"/>
+            <refstandard refid="iicwg-scip-233.350"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>SCIP Network Standards for operation over VoIP RTP</description>
+            <refstandard refid="iicwg-scip-214.2"/>
+            <refstandard refid="iicwg-scip-214.3"/>
+         </refgroup>
+         <guide>AComP-5068 Secure Communications Interoperability Protocol (SCIP) Edition A Version 1 provides
+          further guidance for the implementation of SCIP specifications.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>690b5adc-e8fa-4e8b-9634-b5de8168cbfa</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-scip-x.509-profile" title="SCIP X.509 Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>
+            <para>The X.509 standard is used in cryptography to define the format of public key certificates,
+            which are used in many Internet protocols. One example is the use in Transport Layer Security
+            (TLS) / Secure Sockets Layer (SSL), which is the basis for HTTPS, the secure protocol for
+            browsing the web. Public key certificates are also used in offline applications, like electronic signatures.</para>
+            <para>An X.509 certificate contains a public key and an identity (a hostname, or an organization,
+            or an individual), and is either signed by a certificate authority or self-signed. When a certificate
+            is signed by a trusted certificate authority, or validated by other means, someone holding that
+            certificate can rely on the public key it contains to establish secure communications with another
+            party, or validate documents digitally signed by the corresponding private key.</para>
+            <para>Besides the format for certificates themselves, X.509 specifies certificate revocation lists as
+            a means to distribute information about certificates that are no longer valid, and a certification
+            path validation algorithm, which allows for certificates to be signed by intermediate Certificate Authority
+            (CA) certificates, which are in turn signed by other certificates, eventually reaching a trust anchor.</para>
+         </description>
+         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <refgroup obligation="conditional" lifecycle="current">
+            <description>SCIP Network Standards for operation over other network types</description>
+            <refstandard refid="iicwg-scip-233.109"/>
+            <refstandard refid="iicwg-scip-233.307"/>
+            <refstandard refid="iicwg-scip-233.401"/>
+            <refstandard refid="iicwg-scip-233.423"/>
+            <refstandard refid="iicwg-scip-233.444"/>
+            <refstandard refid="iicwg-scip-233.601"/>
+         </refgroup>
+         <guide/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>6442bd9e-91e7-4621-8608-b1bf007dd92b</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-scip-ppk-profile" title="SCIP PPK Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>When PPK is applied for the Secure Communications Interoperability Protocol (SCIP),
+          the following standards need to be followed.</description>
+         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <refgroup obligation="conditional" lifecycle="current">
+            <description>SCIP Network Standards for operation over other network types</description>
+            <refstandard refid="iicwg-scip-233.104"/>
+            <refstandard refid="iicwg-scip-233.304"/>
+            <refstandard refid="iicwg-scip-233.350"/>
+            <refstandard refid="iicwg-scip-233.401"/>
+            <refstandard refid="iicwg-scip-233.422"/>
+            <refstandard refid="iicwg-scip-233.441"/>
+            <refstandard refid="iicwg-scip-233.601"/>
+         </refgroup>
+         <guide/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>8819a287-9342-4f6c-ab60-f49283b15e94</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-informal-messaging" title="Informal Messaging Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-informal-messaging-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>7eefbf06-a35e-412c-95ec-423b20f2b03e</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-informal-messaging-profile" title="Informal Messaging Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Informal Messaging Profile provides standards and guidance for SMTP settings and the
+        marking of informal messages.</description>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Regarding Simple Mail Transfer Protocol (SMTP), the following standards are mandated
+          for interoperability of e-mail services within the Mission Network.</description>
+            <refstandard refid="ietf-rfc5321"/>
+            <refstandard refid="ietf-rfc1870"/>
+            <refstandard refid="ietf-rfc2034"/>
+            <refstandard refid="ietf-rfc2822"/>
+            <refstandard refid="ietf-rfc2920"/>
+            <refstandard refid="ietf-rfc3207"/>
+            <refstandard refid="ietf-rfc3461"/>
+            <refstandard refid="ietf-rfc4954"/>
+         </refgroup>
+         <guide>
+            <para>Informal messages must be marked in the message header field "Keywords" (IETF RFC 2822) and
+          firstline-of-text in the message body in accordance with the markings defined in the Security Policy
+          in effect.</para>
+            <para>TLS with mutual authentication is mandatory for all SMTP communications. Detailed TLS protocol
+          requirements are specified in the 'Service Interface Profile for Transport Layer Security'.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>25320e88-fef8-4ac2-b7f2-cd8f5aa0989b</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-content-encapsulation" title="Content Encapsulation Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-content-encapsulation-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>0ac198f1-e4d7-4b85-8f93-296ee8d1f809</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-content-encapsulation-profile" title="Content Encapsulation">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Content Encapsulation Profile provides standards and guidance for content
+        encapsulation within bodies of internet messages, following the Multipurpose Internet
+        Mail Extensions (MIME) specification.</description>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>MIME Encapsulation</description>
+            <refstandard refid="ietf-rfc2045"/>
+            <refstandard refid="ietf-rfc2046"/>
+            <refstandard refid="ietf-rfc2047"/>
+            <refstandard refid="ietf-rfc2049"/>
+            <refstandard refid="ietf-rfc4288"/>
+            <refstandard refid="ietf-rfc6152"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Media and Content Types:</description>
+            <refstandard refid="ietf-rfc1896"/>
+            <refstandard refid="ietf-rfc1866"/>
+         </refgroup>
+         <guide/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-27" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>d62066a9-8926-40ee-a74b-208b8f525549</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-information-management" title="FMN Spiral 3 Information Management Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <subprofiles>
+            <refprofile refid="fmn3-character-encoding-profile"/>
+            <refprofile refid="fmn3-file-format-profile"/>
+            <refprofile refid="fmn3-internationalization-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>a1b43a4d-dc9f-4845-aa63-54e2c389384a</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-character-encoding-profile" title="Character Encoding Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Character Encoding Profile provides standards and guidance for the encoding
+        of character sets.</description>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
+         <reftaxonomy refid="T-6fe5364b-2627-4501-9477-c7e9932e618d-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Use of UTF-8 for complete Unicode support, including fully internationalized
+            addresses is mandatory.</description>
+            <refstandard refid="ietf-rfc3629"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>728ca605-e1be-4ada-912e-8133d0057960</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-file-format-profile" title="File Format Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The File Format Profile provides standards and guidance for the collaborative
+          generation of spreadsheets, charts, presentations and word processing documents.</description>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>For word processing documents, spreadsheets and presentations.</description>
+            <refstandard refid="iso-iec-26300-2006"/>
+            <refstandard refid="iso-iec-26300-1-2015"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>For still image coding.</description>
+            <refstandard refid="iso-iec-10918-1"/>
+            <refstandard refid="iso-iec-10918-3"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>For document exchange, storage and long-term preservation.</description>
+            <refstandard refid="iso-19005-1"/>
+            <refstandard refid="iso-19005-2"/>
+            <refstandard refid="iso-32000-1"/>
+         </refgroup>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>For document exchange</description>
+            <refstandard refid="iso-32000-2"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>For word processing documents, spreadsheets and presentations.</description>
+            <refstandard refid="iso-iec-29500-1-2012"/>
+         </refgroup>
+         <guide>ISO/IEC 29500 and ISO/IEC 26300 are both open document formats for XML-based saving
+          and exchanging word processing documents, spreadsheets and presentations. They differ in
+          design and scope.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>93a3457f-a799-4b81-8a79-e22f3f67b99e</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-internationalization-profile" title="Internationalization Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Internationalization Profile provides standards and guidance for the design
+          and development of content and (web) applications, in a way that ensures it will work well for,
+          or can be easily adapted for, users from any culture, region, or language.</description>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <refgroup obligation="recommended" lifecycle="current">
+            <refstandard refid="w3c-rec-charmod-20050215"/>
+            <refstandard refid="w3c-rec-its-20070403"/>
+            <refstandard refid="w3c-rec-its20-20131029"/>
+            <refstandard refid="w3c-rec-ruby-20010531"/>
+         </refgroup>
+         <guide>Best practices and tutorials on internationalization can be found at:
+          http://www.w3.org/International/articlelist.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>c468e14d-2425-4bfb-822c-afb65f0ffa62</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-geospatial" title="FMN Spiral 3 Geospatial Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>Geospatial Services deliver network-based access to quality raster, vector and
+        terrain data, available in varying degrees of format and complexity. Geospatial Services
+        form a distinct class of information services through their unique requirements for
+        collecting, converting, storing, retrieving, processing, analysing, creating, and
+        displaying geographic data.</description>
+         <subprofiles>
+            <refprofile refid="fmn3-geospatial-web-feeds-profile"/>
+            <refprofile refid="fmn3-web-map-tile-service-profile"/>
+            <refprofile refid="fmn3-web-feature-service-profile"/>
+            <refprofile refid="fmn3-web-map-service-profile"/>
+            <refprofile refid="fmn3-geospatial-data-exchange-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>f59aad71-6903-43c6-aaec-ec183b1cf1d3</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-geospatial-web-feeds-profile" title="Geospatial Web Feeds Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>
+            <para>The Geospatial Web Feeds Profile provides standards and guidance for the delivery
+            of geospatial content to web sites and to user agents, including the encoding of location
+            as part of web feeds.</para>
+            <para>Feed processing software is required to either read or ignore these extensions and shall
+            not fail if these extensions are present, so there is no danger of breaking someone's
+            feed reader (or publisher) by including this element in a feed.</para>
+         </description>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>GeoRSS Simple encoding for "georss:point", "georss:line",
+          "georss:polygon", "georss:box".</description>
+            <refstandard refid="ogc-11-044"/>
+         </refgroup>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>
+               <para>GeoRSS GML Profile 1.0 a GML subset for point "gml:Point", line "gml:LineString",
+              polygon "gml:Polygon", and box "gml:Envelope".</para>
+               <para>In Atom feeds, location shall be specified using Atom 1.0's official extension
+              mechanism in combination with the GeoRSS GML Profile 1.0 whereby a "georss:where"
+              element is added as a child of the element.</para>
+            </description>
+            <refstandard refid="ogc-06-050r3"/>
+         </refgroup>
+         <guide>
+            <para>Geography Markup Language (GML) allows to specify a coordinate reference system (CRS)
+            other than WGS84 decimal degrees (lat/long). If there is a need to express geography in a CRS
+            other than WGS84, it is recommended to specify the geographic object multiple times, one in
+            WGS84 and the others in your other desired CRSs.</para>
+            <para>For backwards compatibility it is recommended to also implement RSS 2.0.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>3bc3d5e6-fbc4-4a5a-bd62-d49c1c4f4f96</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-web-map-tile-service-profile" title="Web Map Tile Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Web Map Tile Service standard and guidance provides a standardized protocol for
+          serving pre-rendered georeferenced map tiles over the Internet.</description>
+         <reftaxonomy refid="T-c7ed5167-7186-464a-bce4-173a98470b93-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>version 1.0</description>
+            <refstandard refid="ogc-11-044"/>
+         </refgroup>
+         <guide>
+            <para>Additional implementation guidance:
+            <itemizedlist>
+                  <listitem>
+                     <para>STANAG 6523 Edition 1</para>
+                  </listitem>
+                  <listitem>
+                     <para>NCIA Technical Instruction "AI TECH 06.02.14 Service Interface Profile for Geospatial Services - Map Rendering Service"</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>ce732d92-4964-47a0-871d-c3d749b13fac</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-web-feature-service-profile" title="Web Feature Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Web Feature Service standard and guidance provides a standardized interface
+          for geodata provision in a defined format over a network connection.</description>
+         <reftaxonomy refid="T-6b8ade43-9cd5-4845-a616-2ae553c64e53-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>With Corrigendum – version 2.0.2, 07/10/2014</description>
+            <refstandard refid="ogc-09-025r2"/>
+         </refgroup>
+         <guide>
+            <para>Additional Implementation Guidance:
+            <itemizedlist>
+                  <listitem>
+                     <para>STANAG 6523 Edition 1</para>
+                  </listitem>
+                  <listitem>
+                     <para>DGIWG – 122, DGIWG - Web Feature Service 2.0</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>19ab08e0-696c-4218-830d-58ae8ee446c7</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-web-map-service-profile" title="Web Map Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Web Map Service standard and guidance provides a standardized interface
+          for geodata provision in a defined format over a network connection.</description>
+         <reftaxonomy refid="T-4a3a0865-33e0-4cff-9a7c-9f334e46a61c-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="ogc-06-042"/>
+         </refgroup>
+         <guide>
+            <para>Additional Implementation Guidance:
+            <itemizedlist>
+                  <listitem>
+                     <para>STANAG 6523 Edition 1</para>
+                  </listitem>
+                  <listitem>
+                     <para>NCIA Technical Instruction "AI TECH 06.02.14 Service Interface Profile
+                  for Geospatial Services - Map Rendering Service"</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>6ceeae05-2d58-42bb-a674-adda007f1a3c</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-geospatial-data-exchange-profile" title="Geospatial Data Exchange Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>Geospatial data are being produced by different organisations and need to be exchanged
+        between different participants using standardized exchange formats. These datasets would then be
+        loaded into specialised geospatial information systems (GIS) and published via standardized Web Services
+        (e.g. WMS or WMTS for raster data/maps).</description>
+         <reftaxonomy refid="T-54a19444-8cd5-4766-9140-6cdc53aafb79-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>File based storage and exchange of digital geospatial vector data:</description>
+            <refstandard refid="ogc-07-147r2"/>
+         </refgroup>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>File geodatabases store geospatial datasets and can hold any number of these large,
+        individual datasets. File geodatabases can be used across multiple platforms. Users are
+        rapidly adopting file geodatabases in place of using legacy shapefiles.</description>
+            <refstandard refid="ogc-12-128r12"/>
+         </refgroup>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>File exchange of digital raster data:</description>
+            <refstandard refid="nga-mil-prf-89038"/>
+            <refstandard refid="nga-rpf"/>
+            <refstandard refid="mil-prf-89020b"/>
+            <refstandard refid="iso-iec-15444-1"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>File based storage and exchange of digital geospatial mapping (raster) data.</description>
+            <refstandard refid="osgeo-geotiff"/>
+            <refstandard refid="ogc-05-047r3"/>
+         </refgroup>
+         <guide>
+            <para>The direct exchange of data (via automated or manual file transfer) is to be considered only in case
+            of limited connectivity (no regular access to the network).</para>
+            <para>Often the exchange of large geospatial (raster) data sets between Geo organizations of different
+            Mission Participants is conducted in proprietary formats such as:
+            <itemizedlist>
+                  <listitem>
+                     <para>Shapefile (ESRI), technical description at
+                  <uri>https://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</uri>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+            <para>Or proprietary compression image formats such as:
+            <itemizedlist>
+                  <listitem>
+                     <para>Multi-resolution seamless image database format (MrSID Generation 3), technical description at
+                <uri>https://www.loc.gov/preservation/digital/formats/fdd/fdd000184.shtml</uri>. Data in MrSID format could
+                be transformed to GeoTIFF. The JPEG 2000 image compression standard offers many of the
+                same advantages as MrSID, plus the added benefits of being an international standard (ISO/IEC
+                15444).</para>
+                  </listitem>
+                  <listitem>
+                     <para>Erdas Compression Wavelet (ECW) which is optimized for aerial and satellite imagery.</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>04b0d3b5-1244-4ec7-ae75-11af96966fe3</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-webhost" title="FMN Spiral 3 Web Hosting Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Web Hosting Profile arranges standards profiles for the facilitation of web-based
+        services in a loosely coupled environment, where flexible and agile service orchestration
+        is a requirement on the basis of a Service Oriented Architecture (SOA).</description>
+         <subprofiles>
+            <refprofile refid="fmn3-structured-data-profile"/>
+            <refprofile refid="fmn3-web-feeds-profile"/>
+            <refprofile refid="fmn3-web-services-profile"/>
+            <refprofile refid="fmn3-web-platform-profile"/>
+            <refprofile refid="fmn3-web-content-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>25bf19c7-eeb8-4878-8786-159c27fd315e</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-structured-data-profile" title="Structured Data Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Structured Data Profile provides standards and guidance for the structuring of
+          web content on federated mission networks.</description>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>General formatting of information for sharing or exchange.</description>
+            <refstandard refid="w3c-rec-xml10-20081126"/>
+            <refstandard refid="ietf-rfc4627"/>
+            <refstandard refid="w3c-rec-xmlschema-1-20041028"/>
+            <refstandard refid="w3c-rec-xmlschema-2-20041028"/>
+            <refstandard refid="w3c-note-xhtml1-schema-20020902"/>
+         </refgroup>
+         <guide>XML shall be used for data exchange to satisfy those Information Exchange Requirements within
+          a FMN instance that are not addressed by a specific information exchange standard. XML
+          Schemas and namespaces are required for all XML documents.</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>a35ba169-3632-452a-8aa2-03c8f283f65f</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-web-feeds-profile" title="Web Feeds Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Web Feeds Profile provides standards and guidance for the delivery of content to
+        feed aggregators (web sites as well as directly to user agents).</description>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Web content providers must support at least one of the two standards
+            (RSS and/or Atom).</description>
+            <refstandard refid="ietf-rfc4287"/>
+            <refstandard refid="ietf-rfc5023"/>
+            <refstandard refid="rss-2.0"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Receivers of web content such as news aggregators or user agents must support both
+            the RSS and the ATOM standard.</description>
+            <refstandard refid="ietf-rfc4287"/>
+            <refstandard refid="ietf-rfc5023"/>
+            <refstandard refid="rss-2.0"/>
+         </refgroup>
+         <guide>
+            <para>RSS and Atom documents should reference related OpenSearch description documents via
+            the Atom 1.0 "link" element, as specified in Section 4.2.7 of RFC 4287.</para>
+            <para>The "rel" attribute of the link element should contain the value "search"
+            when referring to OpenSearch description documents. This relationship value is pending IANA
+            registration. The reuse of the Atom link element is recommended in the context of other syndication
+            formats that do natively support comparable functionality.</para>
+            <para>The following restrictions apply:
+            <itemizedlist>
+                  <listitem>
+                     <para>The "type" attribute must contain the value "application/opensearchdescription+xml".</para>
+                  </listitem>
+                  <listitem>
+                     <para>The "rel" attribute must contain the value "search".</para>
+                  </listitem>
+                  <listitem>
+                     <para>The "href" attribute must contain a URI that resolves to an OpenSearch description document.</para>
+                  </listitem>
+                  <listitem>
+                     <para>The "title" attribute may contain a human-readable plain text string describing the search engine.</para>
+                  </listitem>
+               </itemizedlist>
+            </para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>0624f61f-db54-4d34-b7ae-d9f5bb4775c0</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-web-services-profile" title="Web Services Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Web Services Profile provides standards and guidance for transport-neutral
+          mechanisms to address structured exchange of information in a decentralized, distributed
+          environment via web services.</description>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="w3c-note-soap-20000508"/>
+            <refstandard refid="w3c-note-wsdl-20010315"/>
+            <refstandard refid="w3c-note-wsdl20-soap11-binding-20070626"/>
+            <refstandard refid="w3c-address"/>
+         </refgroup>
+         <refgroup obligation="conditional" lifecycle="current">
+            <refstandard refid="acm-2002-rest-toit"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Provide the elements a web service needs to deliver a suitable UI service, such as
+            remote portlet functionality.</description>
+            <refstandard refid="w3c-cr-cors-20130129"/>
+         </refgroup>
+         <refgroup obligation="recommended" lifecycle="current">
+            <description>Reliable messaging for web services, describes a protocol that allows messages to be
+            transferred reliably between nodes implementing this protocol in the presence of software
+            component, system, or network failures.</description>
+            <refstandard refid="oasis-relmes"/>
+         </refgroup>
+         <guide>
+            <para>The preferred method for implementing web-services are SOAP, however, there are
+            many use cases (mashups etc.) where a REST based interface is easier to implement and
+            sufficient to meet the IERs.</para>
+            <para>Restful services support HTTP caching, if the data the Web service returns is not altered
+            frequently and not dynamic in nature. REST is particularly useful for restricted-profile devices
+            such as mobile phones and tablets for which the overhead of additional parameters like headers
+            and other SOAP elements are less.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>27c7d548-a9f7-4fe3-bd79-6c7791ee7f87</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-web-platform-profile" title="Web Platform Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Web Platform Profile provides standards and guidance to enable web
+        technology on federated mission networks.</description>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="ietf-rfc7230"/>
+            <refstandard refid="ietf-rfc7231"/>
+            <refstandard refid="ietf-rfc7232"/>
+            <refstandard refid="ietf-rfc7233"/>
+            <refstandard refid="ietf-rfc7234"/>
+            <refstandard refid="ietf-rfc7235"/>
+            <refstandard refid="ietf-rfc2817"/>
+            <refstandard refid="ietf-rfc3986"/>
+            <refstandard refid="ietf-rfc1738"/>
+         </refgroup>
+         <guide>HTTP MAY (only) be used as the transport protocol for CRL and AIA exchange between all service
+          providers and consumers (unsecured HTTP traffic). HTTPS MUST be used as the transport protocol
+          between all service providers and consumers to ensure confidentiality requirements (secured HTTP
+          traffic). HTTP traffic shall use port 80 by default. HTTPS traffic shall use port 443 by default</guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>aeb78860-14c5-4419-bceb-5dbe35fff067</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="fmn3-web-content-profile" title="Web Content Service Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>
+            <para>The Web Content Profile provides standards and guidance for the processing, sharing
+            and presentation of web content on federated mission networks. Web presentation services must be
+            based on a fundamental set of basic and widely understood protocols, such as those listed below.</para>
+            <para>Recommendations in the FMN Spiral 2 Service Interface Profile for Web Applications are intended
+            to improve the experience of Web applications and to make information and services available to users
+            irrespective of their device and Web browser. However, it does not mean that exactly the same
+            information is available in an identical representation across all devices: the context of mobile
+            use, device capability variations, bandwidth issues and mobile network capabilities all affect
+            the representation. Some services and information are more suitable for and targeted at particular
+            user contexts. While services may be most appropriately experienced in one context or another, it
+            is considered best practice to provide as reasonable experience as is possible given device
+            limitations and not to exclude access from any particular class of device, except where this
+            is necessary because of device limitations.</para>
+         </description>
+         <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Publishing information including text, multi-media, hyperlink features,
+          scripting languages and style sheets on the network.</description>
+            <refstandard refid="ietf-rfc2854"/>
+            <refstandard refid="w3c-rec-html5-20141028"/>
+            <refstandard refid="ietf-rfc4329"/>
+            <refstandard refid="w3c-rec-css3-mediaqueries-20120619"/>
+            <refstandard refid="w3c-rec-css3-selectors-20110929"/>
+         </refgroup>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <description>Providing a common style sheet language for describing presentation semantics
+          (that is, the look and formatting) of documents written in markup languages like HTML.</description>
+            <refstandard refid="w3c-rec-css2-2011067"/>
+            <refstandard refid="w3c-rec-css-style-attr-20131107"/>
+            <refstandard refid="w3c-rec-css-namespaces-3-20140320"/>
+            <refstandard refid="w3c-rec-css3-color-20110607"/>
+         </refgroup>
+         <guide>
+            <para>To enable the use of web applications by the widest possible audience, web applications shall
+            be device independent and shall be based on HTML5 standards and criteria for the
+            development, delivery and consumption of Web applications and dynamic Web sites. HTML5 is a
+            new version of the mark-up language HTML, with new elements, attributes, and behaviours (data
+            format) and it contains a larger set of associated technologies such as CSS 3 and JavaScript that
+            allows more diverse and powerful Web sites and applications.</para>
+            <para>Web applications will not require any browser plug-ins on the client side as some organizations
+            or end user devices do not allow the use of Java Applets or proprietary extensions such as
+            Silverlight (Microsoft), Flash (Adobe) or Quick Time (Apple). Implementers shall use open
+            standard based solutions (HTML5 / CSS3) instead.</para>
+            <para>The requirements defined in the FMN Spiral 2 Service Interface Profile for Web Applications are
+            mandatory for all web content consumers (browsers) and are optional for web content
+            providers. It is expected that in the future FMN Spiral Specifications they will become mandatory
+            also for the web content providers.</para>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>6ff72bda-d1e2-4ca7-bc49-d1c6d2e220ce</uuid>
+      </serviceprofile>
+
+      <profile id="fmn3-pr-web-auth" title="FMN Spiral 3 Web Authentication Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <description>The Web Authentication Profile defines standards profiles for user authentication
+        to the web applications in a federated environment.</description>
+         <subprofiles>
+            <refprofile refid="fmn3-federated-web-authentication-profile"/>
+         </subprofiles>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>9c76a3cd-b1cc-4b12-9b34-14e678333abd</uuid>
+      </profile>
+
+      <serviceprofile id="fmn3-federated-web-authentication-profile" title="Federated Web Authentication Profile">
+         <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
+         <reftaxonomy refid="T-ba82b230-5e03-44bc-897a-ea5890dae4cb-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="oasis-saml-2.0"/>
+            <refstandard refid="ietf-rfc5322"/>
+            <refstandard refid="ietf-rfc3986"/>
+            <refstandard refid="ietf-rfc2256"/>
+            <refstandard refid="ietf-rfc2798"/>
+            <refstandard refid="ietf-rfc4519"/>
+         </refgroup>
+         <guide>The Identity Providers must support the following components of the SAML 2.0 specification:
+          <itemizedlist>
+               <listitem>
+                  <para>Profiles</para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>Web Browser SSO Profile</para>
+                     </listitem>
+                     <listitem>
+                        <para>Single Logout Profile</para>
+                     </listitem>
+                  </itemizedlist>
+               </listitem>
+               <listitem>
+                  <para>Bindings:</para>
+                  <itemizedlist>
+                     <listitem>
+                        <para>HTTP Redirect Binding</para>
+                     </listitem>
+                     <listitem>
+                        <para>HTTP POST Binding.</para>
+                     </listitem>
+                  </itemizedlist>
+               </listitem>
+            </itemizedlist>
+         </guide>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>7096a451-5890-4ac3-a5dc-4eb908328132</uuid>
       </serviceprofile>
 
    </records>
