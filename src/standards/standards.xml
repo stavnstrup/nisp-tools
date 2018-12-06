@@ -1070,7 +1070,7 @@
             <refstandard refid="ieee-802.3-2013"/>
             <refstandard refid="iso-iec-11801"/>
             <refstandard refid="itu-t-g.652"/>
-            <refstandard refid="iec-61754-20"/>
+            <refstandard refid="iec-61754-20-100"/>
             <refstandard refid="nso-stanag4285ed1"/>
             <refstandard refid="nso-stanag4415ed2"/>
             <refstandard refid="nso-stanag4481ed1"/>
@@ -6576,15 +6576,15 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
          <uuid>79f7265d-a010-4d5f-9881-08050cb3c384</uuid>
       </standard>
 
-      <standard id="iec-61754-20" tag="LC-duplex single-mode connector">
-         <document orgid="iec" pubnum="61754-20" date="2012-05" title="Interface standard for LC connectors with protective housings related to IEC 61076-3-106"/>
+      <standard id="iec-61754-20-100" tag="LC-duplex single-mode connector">
+         <document orgid="iec" pubnum="61754-20-100" date="2012-05" title="Interface standard for LC connectors with protective housings related to IEC 61076-3-106"/>
          <applicability>
-            This part of IEC 61754 covers connectors with protective housings. The housing is defined as
-            variant 4 in IEC 61076-3-106:2006. These connectors use a push-pull coupling mechanism.
+            <para>This part of IEC 61754 covers connectors with protective housings. The housing is defined as
+            variant 4 in IEC 61076-3-106:2006. These connectors use a push-pull coupling mechanism.</para>
             <para>To connect the fibres inside the housing the LC interface is used as described in
-              IEC 61754-20:2002.</para>
+            IEC 61754-20:2002.</para>
             <para>The fully assembled variants (connectors) described in this document incorporate fixed and
-              free connectors.</para>
+            free connectors.</para>
          </applicability>
          <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
@@ -6592,6 +6592,7 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
             <history>
                <event date="2013-10-10" flag="added" rfcp="7-27" version="8.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
+               <event flag="changed" date="2018-12-06" rfcp="11-57" version="12.0">Standards number updated</event>
             </history>
          </status>
          <uuid>204b7f40-21c0-451e-a4fb-faaf0fee6163</uuid>
@@ -6942,6 +6943,30 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
             </history>
          </status>
          <uuid>8f75c48f-3a63-474f-a462-ca57fcd5cca9</uuid>
+      </standard>
+
+      <standard id="ieee-802.3-2018" tag="Standard for Ethernet">
+         <document date="2018-06-14" orgid="ieee" pubnum="802.3" title="IEEE Standard for Ethernet"/>
+         <applicability>
+            Ethernet local area network operation is specified for selected speeds of operation
+            from 1 Mb/s to 400 Gb/s using a common media access control (MAC) specification
+            and management information base (MIB). The Carrier Sense Multiple Access with Collision Detection
+            (CSMA/CD) MAC protocol specifies shared medium (half duplex) operation, as well as full duplex operation.
+            Speed specific Media Independent Interfaces (MIIs) allow use of selected Physical Layer devices (PHY)
+            for operation over coaxial, twisted pair or fiber optic cables, or electrical backplanes. System
+            considerations for multisegment shared access networks describe the use of Repeaters that are defined
+            for operational speeds up to 1000 Mb/s. Local Area Network (LAN) operation is supported at all speeds.
+            Other specified capabilities include: various PHY types for access networks, PHYs suitable for
+            metropolitan area network applications, and the provision of power over selected twisted pair PHY types.
+         </applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://ieeexplore.ieee.org/document/8457469</uri>
+            <history>
+               <event date="2018-11-26" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>2208e311-2af2-45d3-a23e-67999162320a</uuid>
       </standard>
 
       <standard id="ieee-802.3ab" tag="1000Base-T">
@@ -16845,7 +16870,7 @@ database as a logical folder of email messages.</applicability>
             calendaring systems.  These scheduling methods permit two or more
             calendaring systems to perform transactions such as publishing,
             scheduling, rescheduling, responding to scheduling requests,
-          	negotiating changes, or canceling.</para>
+            negotiating changes, or canceling.</para>
          </applicability>
          <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
@@ -26043,6 +26068,24 @@ database as a logical folder of email messages.</applicability>
             </history>
          </status>
          <uuid>a5590bb9-0a4e-4185-9979-167b2288e784</uuid>
+      </standard>
+
+      <standard id="iso-iec-11801-1" tag="Generic cabling for customer premises">
+         <document orgid="iso-iec" pubnum="11801-1" date="2017-11-13" title="Information technology -- Generic cabling for customer premises -- Part 1: General requirements"/>
+         <applicability>
+            This document specifies a multi-vendor cabling system which may be implemented with material from single
+            or multiple sources. This part of ISO/IEC 11801 defines requirements that are common to the other parts
+            of the ISO/IEC 11801 series. Cabling specified by this document supports a wide range of services including voice,
+            data, and vido that may also incorporate the supply of power. 
+         </applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>https://www.iso.org/standard/66182.html</uri>
+            <history>
+               <event date="2018-12-06" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>6688f09c-20c1-44ce-8cfc-9ba52bd1de04</uuid>
       </standard>
 
       <standard id="iso-iec-12087" tag="IPI/IIF Encoding">
@@ -42111,7 +42154,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4290ed2" tag="STANAG 4290 Ed 2">
-         <document orgid="nso" pubnum="STANAG 4290 Ed 2" date="2018-01-25" title="Standard for optical connector medium-rate and high-rate military tactical link - AComP-4290 Edition A"/>
+         <document orgid="nso" pubnum="STANAG 4290 Ed 2" date="2018-01-25" title="Standard for optical connector medium-rate and high-rate military tactical link - AComP-4290 Edition A Vers. 1"/>
          <applicability>
             <para>This Standard is one of a series, which, when taken together, specify all the technical characteristics,
 						parameters and procedures necessary for two NATO tactical, digital communication systems (networks)
@@ -57377,7 +57420,7 @@ Releasable to XFOR.</guide>
                      follow STANAG 4290 connector
                      specification.</description>
             <refstandard refid="itu-t-g.652"/>
-            <refstandard refid="iec-61754-20"/>
+            <refstandard refid="iec-61754-20-100"/>
             <refstandard refid="nso-stanag4290ed1"/>
          </refgroup>
          <guide>Use 1Gb/s Ethernet over single-mode optical fibre (SMF).</guide>
@@ -58766,7 +58809,7 @@ Web</guide>
             <description>The use of LC-connectors is required for network interconnections inside shelters
 							(or inside other conditioned infrastructure).</description>
             <refstandard refid="itu-t-g.652"/>
-            <refstandard refid="iec-61754-20"/>
+            <refstandard refid="iec-61754-20-100"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="iso-iec-11801"/>
@@ -60575,28 +60618,28 @@ as specified in:
           Transport Services between autonomous systems, using Internet Protocol (IP) over point-to-point Ethernet
           links on optical fibre.</description>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
-         <refgroup obligation="optional" lifecycle="current">
+         <refgroup obligation="conditional" lifecycle="current">
             <description>If the interconnection point is outside a shelter in a harsh environment, the interconnection
             shall follow STANAG 4290 or MIL-DTL-83526 connector specifications.</description>
             <refstandard refid="mil-dtl83526"/>
-            <refstandard refid="nso-stanag4290ed1"/><!-- to be checked -->
+            <refstandard refid="nso-stanag4290ed2"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>The use of LC-connectors is required for network interconnections inside shelters
             (or inside other conditioned infrastructure).</description>
             <refstandard refid="itu-t-g.652"/>
-            <refstandard refid="iec-61754-20"/><!-- to be checked -->
+            <refstandard refid="iec-61754-20-100"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>Standards for IP version 4 (IPv4) over Ethernet</description>
             <refstandard refid="ietf-rfc826"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
-            <refstandard refid="iso-iec-11801"/>
+            <refstandard refid="iso-iec-11801-1"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>Section 3 - Clause 38 - 1000BASE-LX, nominal transmit wavelength 1310nm.</description>
-            <refstandard refid="ieee-802.3-2013"/><!-- to be checked -->
+            <refstandard refid="ieee-802.3-2018"/>
          </refgroup>
          <guide>Use 1 Gb/s Ethernet over single-mode optical fibre (SMF).</guide>
          <status mode="accepted">
