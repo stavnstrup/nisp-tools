@@ -50455,7 +50455,7 @@ applications. </applicability>
          <applicability/>
          <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
-            <uri/>
+            <uri>https://projects.tmforum.org/jira/browse/AP-817</uri>
             <history>
                <event date="2018-11-16" flag="added" rfcp="11-57" version="12.0"/>
             </history>
@@ -54167,7 +54167,7 @@ applications. </applicability>
       </standard>
 
       <standard id="xmpp-xep-0030" tag="XEP-0030">
-         <document orgid="xmpp" pubnum="XEP-0030" date="2007-08-13" version="2.4" title="XEP-0030: Service Discovery"/>
+         <document orgid="xmpp" pubnum="XEP-0030" date="2008-06-06" version="2.4" title="XEP-0030: Service Discovery"/>
          <applicability>
             This specification defines an XMPP protocol extension for discovering information about
             other XMPP entities. Two kinds of information can be discovered: (1) the identity and
@@ -54181,6 +54181,7 @@ applications. </applicability>
             <history>
                <event flag="added" date="2013-10-22" rfcp="7-27" version="8.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
+               <event flag="changed" date="2018-12-06" rfcp="11-57" version="12.0">Standards date updated</event>
             </history>
          </status>
          <uuid>740d20a3-4ea4-41da-b1ec-25f5828e98ec</uuid>
@@ -54667,13 +54668,14 @@ applications. </applicability>
       </standard>
 
       <standard id="xmpp-xep-0160" tag="XEP-0160">
-         <document orgid="xmpp" pubnum="XEP-0160" title="XEP-0160: Best Practices for Handling Offline Messages" date="2016-10-07"/>
+         <document orgid="xmpp" pubnum="XEP-0160" title="XEP-0160: Best Practices for Handling Offline Messages" date="2016-01-24"/>
          <applicability>XMPP Core and XMPP IM specify general rules for handling XML stanzas, but explicitly do not address how to handle message stanzas sent to recipients (e.g., IM users or other nodes) that are offline, except to say that a server MUST return a &lt;service-unavailable/&gt; error if offline message storage or message forwarding is not enabled (see RFC 6121). This document fills the gap by specifying best practices for storage and delivery of so-called "offline messages".  </applicability>
          <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
             <uri>https://xmpp.org/extensions/xep-0160.html</uri>
             <history>
                <event date="2017-04-30" flag="added" version="10.0" rfcp="9-6"/>
+               <event date="2018-12-06" flag="changed" version="12.0" rfcp="11-57">Standards date updated</event>
             </history>
          </status>
          <uuid>29f9b5dd-1f98-45ef-98a8-705892bba91f</uuid>
@@ -54800,6 +54802,29 @@ applications. </applicability>
             </history>
          </status>
          <uuid>148080ef-cf56-4b9f-b8ca-190f19439d09</uuid>
+      </standard>
+
+      <standard id="xmpp-xep-0220-1.1" tag="XEP-0220">
+         <document orgid="xmpp" pubnum="XEP-0220" date="2014-08-05" version="1.1" title="XEP-0220: Server Dialback"/>
+         <applicability>
+            This specification defines the Server Dialback protocol, which is used between XMPP servers
+            to provide identity verification. Server Dialback uses the Domain Name System (DNS) as the
+            basis for verifying identity; the basic approach is that when a receiving server accepts
+            a server-to-server connection from an initiating server, it does not process XMPP stanzas
+            over the connection until it has verified the initiating server's identity. Additionally,
+            the protocol is used to negotitate whether the receiving server is accepting stanzas for
+            the target domain. Although Server Dialback does not provide strong authentication and is
+            subject to DNS poisoning attacks, it has effectively prevented most address spoofing on
+            the XMPP network since its development in the year 2000.
+         </applicability>
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="accepted">
+            <uri>http://xmpp.org/extensions/xep-0220.html</uri>
+            <history>
+               <event date="2018-11-02" flag="added" rfcp="11-57" version="12.0"/>
+            </history>
+         </status>
+         <uuid>01218209-a608-43d7-ac4c-726362232ada</uuid>
       </standard>
 
       <standard id="xmpp-xep-0227" tag="XEP-0227">
@@ -62193,7 +62218,7 @@ as specified in:
             <refstandard refid="xmpp-xep-0199"/>
             <refstandard refid="xmpp-xep-0202"/>
             <refstandard refid="xmpp-xep-0203"/>
-            <refstandard refid="xmpp-xep-0220"/>
+            <refstandard refid="xmpp-xep-0220-1.1"/>
             <refstandard refid="xmpp-xep-0258"/>
          </refgroup>
          <status mode="accepted">
