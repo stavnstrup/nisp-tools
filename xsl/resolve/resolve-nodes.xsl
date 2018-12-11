@@ -153,6 +153,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </thead>
     <tbody>
       <xsl:choose>
+        <!-- We use the lifeycle attribute with values current and candidate to identify mandatory and candidate standards for the best
+             service profile. But not the the lifecycle current also maps to multiple obligation levels, so we need to reduce the number
+             of obligation values to only mandatory, when the lifecycle value is current -->
         <xsl:when test="$lifecycle='current'">
           <xsl:apply-templates select="." mode="listcurrent"/>
         </xsl:when>
@@ -169,13 +172,15 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="node" mode="listcurrent">
   <xsl:variable name="id" select="@id"/>
 
-  <xsl:variable name="refs" select="count(/standards/profilehierachy//refstandard[(../@lifecycle='current') and (../../reftaxonomy/@refid=$id)])"/>
+  <xsl:variable name="refs" select="count(/standards/profilehierachy//refstandard[(../@lifecycle='current') and 
+                                           (../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)])"/>
   <xsl:if test="$refs>0">
     <row>
       <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     </row>
     <!-- Get standards from profiles -->
-    <xsl:apply-templates select="/standards/profilehierachy//refstandard[(../@lifecycle='current') and (../../reftaxonomy/@refid=$id)]" mode="listcurrent">
+    <xsl:apply-templates select="/standards/profilehierachy//refstandard[(../@lifecycle='current') and 
+                                 (../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)]" mode="listcurrent">
       <xsl:with-param name="taxref" select="$id"/>
       <xsl:sort select="@refid"/>
     </xsl:apply-templates>
