@@ -33,14 +33,6 @@ Copyright (c) 2014, 2018  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   </records>
 </xsl:template>
 
-<xsl:template match="bestpracticeprofile">
-  <bestpracticeprofile>
-    <xsl:apply-templates>
-      <xsl:sort select="@genTitle"/>
-    </xsl:apply-templates>
-  </bestpracticeprofile>
-</xsl:template>
-
 <xsl:template match="organisations">
   <organisations>
     <xsl:apply-templates>
