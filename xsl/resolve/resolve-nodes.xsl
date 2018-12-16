@@ -197,9 +197,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
-  <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
+  <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
                       and
-                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])">
+                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
       <entry>
         <xsl:choose>
