@@ -154,7 +154,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <tbody>
       <xsl:choose>
         <!-- We use the lifeycle attribute with values current and candidate to identify mandatory and candidate standards for the best
-             service profile. But not the the lifecycle current also maps to multiple obligation levels, so we need to reduce the number
+             service profile. But note that the lifecycle vallue current also maps to multiple obligation levels, so we need to reduce the number
              of obligation values to only mandatory, when the lifecycle value is current -->
         <xsl:when test="$lifecycle='current'">
           <xsl:apply-templates select="." mode="listcurrent"/>
@@ -170,18 +170,22 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="node" mode="listcurrent">
-  <xsl:variable name="id" select="@id"/>
 
+  <xsl:variable name="myid" select="@id"/>
+
+  <!-- At this state we are in a specific node in the taxonomy.
+       Check if there are standards associated with a specific node, which are current and mandatory
+  -->
   <xsl:variable name="refs" select="count(/standards/profilehierachy//refstandard[(../@lifecycle='current') and 
-                                           (../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)])"/>
+                                           (../@obligation='mandatory') and (../../reftaxonomy/@refid=$myid)])"/>
   <xsl:if test="$refs>0">
     <row>
       <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     </row>
-    <!-- Get standards from profiles -->
+    <!-- List all standards from all profiles -->
     <xsl:apply-templates select="/standards/profilehierachy//refstandard[(../@lifecycle='current') and 
-                                 (../@obligation='mandatory') and (../../reftaxonomy/@refid=$id)]" mode="listcurrent">
-      <xsl:with-param name="taxref" select="$id"/>
+                                 (../@obligation='mandatory') and (../../reftaxonomy/@refid=$myid)]" mode="listcurrent">
+      <xsl:with-param name="taxref" select="$myid"/>
       <xsl:sort select="@refid"/>
     </xsl:apply-templates>
   </xsl:if>
@@ -197,6 +201,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
+  <!--
+  -->
   <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
                       and
                 not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])">
@@ -246,7 +252,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     </row>
     <!-- Get standards from profiles -->
-    <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile//refstandard[(../@lifecycle='candidate') and (../../reftaxonomy/@refid=$id)]" mode="listcandidate">
+    <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile[@id='bsp']//refstandard[(../@lifecycle='candidate') and (../../reftaxonomy/@refid=$id)]" mode="listcandidate">
       <xsl:with-param name="taxref" select="$id"/>
       <xsl:sort select="@refid"/>
     </xsl:apply-templates>
