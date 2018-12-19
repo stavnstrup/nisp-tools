@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 
 <!--
 
@@ -6,12 +6,10 @@ This stylesheet is created for the NISP, and is intended for
 transforming the standards database from a relational structure to
 clean tree-structure.
 
-
-Copyright (c) 2009-2017, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2009-2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
-
 
 -->
 
@@ -59,6 +57,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="profile" mode="copyprofile">
+  <!-- We are only interested in the relationship between capabilityprofiles, serviceprofiles and
+       standards - so do not list profiles in the heirachy, -->
   <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
 </xsl:template>
 
@@ -74,6 +74,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="reftaxonomy" mode="copyprofile">
   <reftaxonomy refid="{@refid}"/>
 </xsl:template>
+
 
 <xsl:template match="subprofiles" mode="copyprofile">
   <xsl:apply-templates select="refprofile" mode="copyprofile"/>

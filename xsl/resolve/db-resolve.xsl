@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 
 <!--
 
 This stylesheet is created for the NISP, and is intended for
 tagging serviceprofile due to their dual functionallity.
 
-We use the following rules
+We add a type attribute to the servicprofile using the following rules
   bsp: serviceprofiles which is part of the basic standards profile (BSP)
   coi: any other service profile, which is part of a capability profile like FMN.
 
 Copyright (c) 2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
-Danish Defence Research Establishment (DDRE) and 
+Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
 
 -->
