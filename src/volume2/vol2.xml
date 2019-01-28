@@ -6,15 +6,15 @@
   <bookinfo>
     <title>NATO Interoperability Standards and Profiles</title>
 	<titleabbrev>NISP</titleabbrev>
-    <subtitle>Agreed Interoperability Standards and Profiles (Version 11)</subtitle>
+    <subtitle>Agreed Interoperability Standards and Profiles (Version 12)</subtitle>
     <corpauthor>C3B Interoperability Profiles Capability Team</corpauthor>
     <productname class="trade">Allied Data Publication 34</productname>
     <biblioid class="pubnumber">ADatP-34</biblioid>
     <volumenum>2</volumenum>
     <revhistory>
       <revision>
-        <revnumber>11.0</revnumber>
-        <date>3 Aug 2018</date>
+        <revnumber>12.0</revnumber>
+        <date>9 Jan 2019</date>
       </revision>
     </revhistory>
     <subjectset><subject><subjectterm>DO NOT REMOVE</subjectterm></subject></subjectset>
@@ -114,27 +114,28 @@
     <sect1>
       <title>Introduction</title>
       <para>The purpose of this chapter is to specify the agreed NISP standards. The document organizes these standards, following  baseline 2.0 NATO's C3 Taxonomy, as endorsed by the NATO C3 Board per AC/322-D(2016)0017 “C3 Taxonomy Baseline 2.0” dated 14 March 2016. A graphical representation of this taxonomy is included in volume 1.</para>
-      <para>For some standards it was not clear yet which service identified in the C3 Taxonomy should be used. Therefore, as an interim solution, the taxonomy was extended with user-defined &#x201C;Cloud Services&#x201D;. In a separate section, all standards are listed for which could not yet be defined how they should be linked to the C3 Taxonomy.</para>
-<para>The standards are presented in tabular form. The left column of the table corresponds to a service in the C3 Taxonomy. The section headers correspond to a service at a higher (or the same) level. In general, a service is only listed if at least one standard is assigned to this service.</para>
-<para>When STANAG X Ed Y is in ratification process, this is indicated by STANAG (RD) X Ed Y, and when it is a study draft, this is indicated by STANAG (Study) X Ed Y.</para>
+      <para>For some standards it was not clear yet which service identified in the C3 Taxonomy should be used. Therefore, as an interim solution, the taxonomy was extended with e.g. user-defined &#x201C;Cloud Services&#x201D;. In a separate section, all standards are listed for which could not yet be defined how they should be linked to the C3 Taxonomy.</para>
+      <para>The standards are presented in tabular form. Each table represent a subtree from the C3 taxonomy and each table line (marked in bold and spanning all columns in the table) represents a taxonomy node from the subtree.  Under each taxonomy node title, all standards which are mapped to the node are listed with the following attributes: title of the standard; where possible, a link to the standard; publication number of the standard; a list of all the capability profiles where the standard is used; and finally the "responsible party" which is the domain expert that advises NATO about the standard. In general, a taxonomy node is only listed if at least one standard is assigned to this taxonomy node.</para>
+      <para>When STANAG X Ed Y is in ratification process, this is indicated by STANAG (RD) X Ed Y, and when it is a study draft, this is indicated by STANAG (Study) X Ed Y.</para>
       <sect2 id="v2s2-rel">
         <title>Releasability Statement</title>
         <para>In principle, NISP only contains or references standards or related documents, which are
           generally available for NATO/NATO member nations/CCEB.</para>
        </sect2>
     </sect1>
+
 <!-- Ignore this section, since no standards are selected for this subtree
     <sect1>
       <title>Operational Capabilities</title>
       <para condition="ignore" />
-      <?dbmerge node="T-7f14b843-3b55-44cd-81ef-f614a8e73d2d-X" obligation="mandatory"?>
+      <?dbmerge node="T-7f14b843-3b55-44cd-81ef-f614a8e73d2d-X" lifecycle="current"?>
     </sect1>
 -->
 
     <sect1>
       <title>User Applications</title>
       <para condition="ignore" />
-      <?dbmerge node="T-cdd0fd6c-5d52-4d46-8d36-6f9c67475fcb-X" obligation="mandatory"?>
+      <?dbmerge node="T-cdd0fd6c-5d52-4d46-8d36-6f9c67475fcb-X" lifecycle="current"?>
     </sect1>
     <sect1 id="v2s1-ts">
       <title>Technical Services</title>
@@ -148,29 +149,35 @@
       <sect2>
         <title>Community Of Interest (COI) Services</title>
         <para condition="ignore" />
-        <?dbmerge node="T-c4eea9ff-c404-4ae6-9f02-a12826657675-X" obligation="mandatory"?>
+        <?dbmerge node="T-c4eea9ff-c404-4ae6-9f02-a12826657675-X" lifecycle="current"?>
       </sect2>
       <sect2>
         <title>Core Services</title>
         <para condition="ignore" />
-        <?dbmerge node="T-3567de6b-7a0a-47c9-bc7f-18d7904c5df6-X" obligation="mandatory"?>
+        <?dbmerge node="T-3567de6b-7a0a-47c9-bc7f-18d7904c5df6-X" lifecycle="current"?>
       </sect2>
       <sect2>
         <title>Communications Services</title>
         <para condition="ignore" />
-        <?dbmerge node="T-2c978bbc-f422-42e8-83e6-105a6bdb1e54-X" obligation="mandatory"?>
+        <?dbmerge node="T-2c978bbc-f422-42e8-83e6-105a6bdb1e54-X" lifecycle="current"?>
       </sect2>
        <sect2>
         <title>Cloud Services</title>
         <para condition="ignore" />
-        <?dbmerge node="user.cloud" obligation="mandatory"?>
+        <?dbmerge node="user.cloud" lifecycle="current"?>
+      </sect2>
+      <sect2>
+        <title>Extended C3 Taxonomy</title>
+        <para>The following table list taxonomy nodes, which will be part of a future version of the C3 taxonomy. They are part of this document, because stakesholders have
+        decided to using an unofficial classification scheme for a specific purpose.</para>
+        <?dbmerge node="user.c3extended" lifecycle="current"?>
       </sect2>
     </sect1>
 
     <sect1>
       <title>Un-assigned standards</title>
-      <para>The following standards have been declared mandatory standards for NATO common funded system. However, no information of how to map the standard to the C3 Taxonomy have been provided.</para>
-      <?dbmerge node="user.undefined.taxonomynode" obligation="mandatory"?>
+      <para>The following standards have been declared mandatory standards for NATO common funded system. However, no information of how to map the standards to the C3 Taxonomy have been provided.</para>
+      <?dbmerge node="user.undefined.taxonomynode" lifecycle="current"?>
     </sect1>
   </chapter>
   <chapter id="v2-baseline-profiles">
@@ -210,6 +217,7 @@
             <?cpbprfmerge id="x-tms-smtp"?>
             <?cpbprfmerge id="fmn1"?>
             <?cpbprfmerge id="fmn2"?>
+            <?cpbprfmerge id="fmn3"?>
             <?cpbprfmerge id="archive-archive"?>
             <?cpbprfmerge id="sip-sec"?>
             <?cpbprfmerge id="sip-rest"?>
@@ -225,7 +233,6 @@
             <?cpbprfmerge id="sip-bcs"?>
             <?cpbprfmerge id="sip-mesg-col-serv"?>
             <?cpbprfmerge id="sip-geo-mrs"?>
-<!--            <?cpbprfmerge binding-common-xml?> -->
             <?cpbprfmerge id="binding-crypto-v2"?>
             <?cpbprfmerge id="binding-smtp-v2"?>
             <?cpbprfmerge id="binding-xmpp-v2"?>
@@ -235,7 +242,8 @@
             <?cpbprfmerge id="binding-generic-v2"?>
             <?cpbprfmerge id="binding-sidecar-v2"?>
             <?cpbprfmerge id="binding-extensible-v2"?>
-            <?cpbprfmerge id="binding-wsmp-v2" last="true"?>
+            <?cpbprfmerge id="binding-wsmp-v2"?>
+            <?cpbprfmerge id="binding-common-xml" last="true"?>
           </tbody>
         </tgroup>
       </table>

@@ -4,8 +4,8 @@
 
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
-            doctype-public="-//DDRE//DTDStandardDB XML V4.4//EN"
-            doctype-system="../schema/dtd/stddb44.dtd"/>
+            doctype-public="-//DDRE//DTDStandardDB XML V4.5//EN"
+            doctype-system="../schema/dtd/stddb45.dtd"/>
 
 <!--
 
@@ -31,14 +31,6 @@ Copyright (c) 2014, 2018  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
        <xsl:sort select="@id"/>
     </xsl:apply-templates>
   </records>
-</xsl:template>
-
-<xsl:template match="bestpracticeprofile">
-  <bestpracticeprofile>
-    <xsl:apply-templates>
-      <xsl:sort select="@genTitle"/>
-    </xsl:apply-templates>
-  </bestpracticeprofile>
 </xsl:template>
 
 <xsl:template match="organisations">

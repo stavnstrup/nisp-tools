@@ -13,7 +13,7 @@ document. The original design of the database reflected the structure
 of the list of standard and profiles described in the NC3 Technical
 Architecture version 1. In order to enable consistency across the
 different volumes, the database have been extended to be able to
-describe the selection of mandatory-, candidate- and fading standards
+describe the selection of mandatory- and candidate standards
 and profiles. This selection of standards and profiles are justified
 in the rationale statements, which are also part of the
 database. Recently the database have been reorganised to reflect
@@ -74,7 +74,8 @@ have an `id`, `title`, `level`, `description` and `emUUID` attribute. The `id`
 attribute is used to identify the relationship between selected
 standards and the service taxonomy. The `level` attribute described on
 what level in the taxonomy the node is located, the `description` attribute
-contains a description of the node and the `emUUID`
+contains a description of the node in the form of raw mediawiki markup, the `descriptionMD` attribute
+contains a description of the node in the form of raw markdown and the `emUUID`
 attribute is the UUID assigned in the TIDE EM-Wiki.
 
 ~~~{.dtd}
@@ -87,6 +88,7 @@ attribute is the UUID assigned in the TIDE EM-Wiki.
           title CDATA #REQUIRED
           level CDATA #REQUIRED
           description CDATA #IMPLIED
+          descriptionMD CDATA #IMPLIED
           emUUID CDATA #REQUIRED>
 ~~~
 
@@ -118,7 +120,7 @@ A `<bgroup>` element contains a list of `<bprefstandard>` elements, which refere
 ~~~{.dtd}
 <!ELEMENT bpgroup (bprefstandard+)>
 <!ATTLIST bpgroup
-          mode (unknown|mandatory|candidate|fading) #REQUIRED>
+          mode (unknown|mandatory|candidate) #REQUIRED>
 
 <!ELEMENT bprefstandard (#PCDATA)>
 <!ATTLIST bprefstandard
@@ -378,10 +380,10 @@ the capability, a number of references to `<profile>` or `<serviceprofile>` elem
 
 ### Service Profile
 
-A `<serviceprofile>` element represents a service, which is required by a specific capability and it consists of a `<profilespec>` element describing the capability, a number of one or more references in form of `<reftaxonomy>` elements to the taxonomy.
+A `<serviceprofile>` element represents a service, which is required by a specific capability and it consists of a `<profilespec>` element describing the capability, a number of one or more references in form of `<reftaxonomy>` elements to the taxonomy. The `<serviceprofile>` serves two distinct roles, it represents a leave of the basic standards profiles which lists mandatory and emerging standardards for NATO common funded systems and second it represent the leaves of a community of interest profile like the Federated Mission Networking (FMN) profile. The role of the serviceprofile is controlles by the attributes of the `<refgroup>` element(s).
 
 ~~~{.dtd}
-<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, obgroup+, guide*,  status, uuid?)>
+<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
 <!ATTLIST serviceprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
@@ -389,7 +391,7 @@ A `<serviceprofile>` element represents a service, which is required by a specif
 
 ### Profile Elements
 
-A `<profilespec>` element exposes the publishing organisation, publication number, publishing date, title and version through the attributes orgid, pubnum, date, title, version and note. The orgid refers to an organisation is embedded in the  <organisations> element. The rule of using organisation identifiers instead of the actual name of the organisation is mandated to prevent, that the same organisation exists in multiple incarnations in the database.
+A `<profilespec>` element exposes the publishing organisation, publication number, publishing date, title and version through the attributes orgid, pubnum, date, title, version and note. The orgid refers to an organisation is embedded in the `<organisations>` element. The rule of using organisation identifiers instead of the actual name of the organisation is mandated to prevent, that the same organisation exists in multiple incarnations in the database.
 
 ~~~{.dtd}
 <!ELEMENT profilespec EMPTY>
@@ -422,12 +424,15 @@ The `<reftaxonomy>` element refences a taxonomy node, which this a given `<servi
           refid IDREF #REQUIRED>
 ~~~
 
-The `<obgroup>` references standards and profiles with a specific obligation. The `<obgroup>` element is child of a `<serviceprofile>`element. 
+The `<refgroup>` references standards and profiles with a specific obligation. The `<refgroup>` element is child of a `<serviceprofile>`element.
+
+DESCRIBE obligation and lifecycle ATTRIBUTES AND HOW THEY CONTROL THE DUAL ROLES OF A SERVICE PROFILE
 
 ~~~{.dtd}
-<!ELEMENT obgroup (description?, refstandard*, refprofile*)>
-<!ATTLIST obgroup
-          obligation (mandatory|recommended|optional|conditional) #REQUIRED>
+<!ELEMENT refgroup (description?, refstandard*, refprofile*)>
+<!ATTLIST refgroup
+          obligation (none|mandatory|recommended|optional|conditional) "none"
+          lifecycle (current|candidate) "current">
 ~~~
 
 ~~~{.dtd}

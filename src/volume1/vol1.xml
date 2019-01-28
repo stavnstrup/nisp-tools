@@ -6,15 +6,15 @@
   <bookinfo>
     <title>NATO Interoperability Standards and Profiles</title>
 	<titleabbrev>NISP</titleabbrev>
-    <subtitle>Introduction (Version 11)</subtitle>
+    <subtitle>Introduction (Version 12)</subtitle>
     <corpauthor>C3B Interoperability Profiles Capability Team</corpauthor>
     <productname class="trade">Allied Data Publication 34</productname>
     <biblioid class="pubnumber">ADatP-34</biblioid>
     <volumenum>1</volumenum>
     <revhistory>
       <revision>
-        <revnumber>11.0</revnumber>
-        <date>3 Aug 2018</date>
+        <revnumber>12.0</revnumber>
+        <date>9 Jan 2019</date>
       </revision>
     </revhistory>
     <keywordset>
@@ -36,9 +36,9 @@
 <chapter id="v1c-Introduction">
 <title>Introduction</title>
 <para>The NATO Interoperability Standards and Profiles (NISP) is developed by the NATO Consultation, Command and Control (C3) Board Interoperability Profiles Capability Team (IP CaT).</para>
-<para>The NISP will be made available to the general public as ADatP-34(K) when approved by the C3 Board<footnote><para>AC/322-N(2017)0043-REV1-AS1 approved ADatP-34(J)</para></footnote>.
+<para>The NISP will be made available to the general public as ADatP-34(K) when approved by the C3 Board<footnote><para>AC/322-N(2018)0049-REV1-AS1 approved ADatP-34(K)</para></footnote>.
 </para>
-<para>The included interoperability standards and profiles (Volume 2) are <emphasis role="bold">mandatory</emphasis> for use in NATO common funded Communications and Information Systems (CIS). Volume 3 contains <emphasis role="bold">candidate</emphasis><footnote><para>A candidate standard or profile may be mature enough to be used in future programmes after 1 to 2 years.</para></footnote> standards and profiles.</para>
+<para>The included interoperability standards and profiles (Volume 2) are <emphasis role="bold">mandatory</emphasis> for use in NATO common funded Communications and Information Systems (CIS). Volume 3 contains <emphasis role="bold">candidate</emphasis> standards and profiles.</para>
 <para>In case of conflict between any recommended non-NATO<footnote><para>ISO or other recognized non-NATO standards organization</para></footnote> standard and relevant NATO standard, the definition of the latter prevails.</para>
 <para>In the NISP the keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in [IETF RFC 2119].</para>
 <table frame="all" id="v1-abbreviations">
@@ -58,7 +58,7 @@
 <row><entry>ACP</entry><entry><para>Allied Communications Publication</para></entry></row>
 <row><entry>AdatP-34</entry><entry><para>Allied Data Publication - Cover publication for the NISP</para></entry>
 </row>
-<row><entry>BSP</entry><entry><para>Base Standards Profile</para></entry>
+<row><entry>BSP</entry><entry><para>Basic Standards Profile</para></entry>
 </row>
 <row><entry>C3</entry><entry><para>Consultation, Command and Control</para></entry>
 </row>
@@ -79,7 +79,7 @@
 </row>
 <row><entry>FMN</entry><entry><para>Federated Mission Networking</para></entry>
 </row>
-<row><entry>IOP</entry><entry><para>Interoperability Point: A definition of "IOP" will be incorporated in 2017: from MC-593 (23. February 2015) Minimum level of C2 service capabilities in support of combined joint NATO led operations</para></entry>
+<row><entry>IOP</entry><entry><para>Interoperability Point</para></entry>
 </row>
 <row><entry>IP CaT</entry><entry><para>Interoperability Profiles Capability Team</para></entry>
 </row>
@@ -115,7 +115,7 @@
 <title>Purpose of the NISP</title>
 <para>NISP gives guidelines to capability planners, programme managers and test managers for NATO common funded systems in the short or mid-term timeframes.</para>
 <para>The NISP prescribes the necessary technical standards and profiles to achieve interoperability of Communications and Information Systems in support of NATO's missions and operations. In accordance with the Alliance C3 Strategy (ref. C-M(2014)0016) all NATO Enterprise (ref. C-M(2014)0061) entities shall adhere to the NISP mandatory standards and profiles in volume 2.</para>
-<para>Other activities, that assure interoperability within the alliance should list their profiles in the NISP.</para>
+<para>Other activities that assure interoperability within the alliance should list their profiles in the NISP.</para>
 </sect1>
 <sect1 id="v1-Audience">
 <title>Intended Audience</title>
@@ -128,7 +128,7 @@
       <listitem><para>national planning and programme managers for their national initiatives</para></listitem>
     </itemizedlist>
 </para>
-<para>Specific NATO or national views to the NISP, based on data export to external planning and management systems will be possible upon delivery of the NISP Exchange Specification in 2017.</para>
+<para>Specific NATO or national views to the NISP based on data export to external planning and management systems will be possible upon delivery of the NISP Exchange Specification in 2017.</para>
 </sect1>
 </chapter>
 <chapter id="v1c-concepts">
@@ -142,18 +142,21 @@
 <sect1 id="v1c-stanag">
 <title>STANAG</title>
 <!-- Define the term STANAG see AAP-03-->
-<para>STANAG's are managed by the NATO standardization Organization (NSO). NATO STANAGS's that are promulgated shall be considered mandatory only for NATO common-funded systems. If NISP references a STANAG, the obligation status for it is only informative. The NSO maintains the obligation status in their own process of standardization.</para>
+<para>STANAG's are managed by the NATO Standardization Office (NSO). NATO STANAG's that are promulgated shall be considered mandatory only for NATO common-funded systems. If NISP references a STANAG, the obligation status for it is only informative. The NSO maintains the obligation status in their own process of standardization.</para>
 <para>Some older STANAG's combine the agreement and the actual specification into one single document. NISP references the specification part.</para>
+<para>Some STANAG's and NATO Standards included in the NISP are not yet registered in the NSO database. To indicate this, in the NISP tables the publication number starts with "NSO-Expected" instead of "NSO" and in the index, they are grouped under "NATO Standardization Office (expected in the future)".</para>
+<para>For some STANAG's, the status in the NISP deviates from the status according to the NSO. For example, the NISP contains mandatory STANAGs that are Superseded or Cancelled according to the NSO. Also the NISP contains candidate STANAGs that are already Promulgated according to the NSO. For those STANAG's, this deviation is documented in a footnote.</para>
+<para>When a STANAG is not yet Promulgated, this is identified by including "Study" or "RD" (Ratification Draft) in the publication number.</para>
 </sect1>
 <sect1 id="v1c-profiles">
 <title>Interoperability Profiles</title>
 <para>Profiles define the specific use of standards at a service interoperability point (SIOP) in a given context. Profiles support prerequisites for programmes or projects and enable interoperability implementation and testing.</para>
 <para>Interoperability Profiles provide combinations of standards and (sub)profiles for different CIS and identify essential profile elements including:
     <itemizedlist>
-      <listitem><para>Capability Requirements and other NAF architectural views,</para></listitem>
-      <listitem><para>Characteristic protocols,</para></listitem>
-      <listitem><para>Implementation options,</para></listitem>
-      <listitem><para>Technical standards,</para></listitem>
+      <listitem><para>Capability Requirements and other NAF architectural views</para></listitem>
+      <listitem><para>Characteristic protocols</para></listitem>
+      <listitem><para>Implementation options</para></listitem>
+      <listitem><para>Technical standards</para></listitem>
       <listitem><para>Service Interoperability Points, and</para></listitem>
       <listitem><para>The relationship with other profiles such as the system profile to which an application belongs.</para></listitem>
     </itemizedlist>
@@ -163,12 +166,15 @@
 <para>The NISP now defines the <emphasis role="bold">obligation status</emphasis> of profiles and standards as "mandatory" or "candidate".
     <itemizedlist>
       <listitem><para><emphasis role="bold">Mandatory</emphasis>: The application of standards or profiles is enforced for NATO common funded systems in planning, implementing and testing. NATO STANAGS's that are promulgated shall be considered mandatory. Nations are invited to do the same nationally to promote interoperabilty for federated systems and services. </para></listitem>
-      <listitem><para><emphasis role="bold">Candidate</emphasis>: The application of profiles and standards shall be planned for future programmes. The standard or profile is mature enough to be used  in programmes in 1 to 2 years. This implies, that from a planning perspective, this standard or profile may become mandatory at the time, the programme starts. A candidate standard or profile shall stay in volume 3 no longer than 2 years, unless explicitly marked as an exception to this rule.</para></listitem>
+      <listitem><para><emphasis role="bold">Candidate</emphasis>: 
+The application of a standard or profile shall only be used for the purpose of testing and programme / project planning. The standard or profile must have progressed to a stage in its life-cycle and is sufficiently mature and is expected to be approved by the standardization body in the foreseeable future. This implies, that from a planning perspective, the respective standard or profile is expected to become mandatory during execution of the programme. A candidate standard or profile should not stay in volume 3 for more than 3 years.
+</para></listitem>
     </itemizedlist>
 </para>
 <para>Profiles shall be updated if referenced standards change. Profiles are dynamic entities by nature. NATO captures this dynamic situation by updating profiles once a year in the NISP. Profile owners are responsible for the versioning of their profiles. Profile reviews are required every 2 years by their owners to ensure their accuracy and continued relevance.</para>
 <para>Proposed profiles (and standards) can be accepted as candidates in order to follow their developments and to decide if they can be promoted to mandatory standards and profiles. In some cases proposed standards and profiles can be readily accepted directly as mandatory.</para>
 <para>Interoperability Profiles can reference other Interoperability Profiles to allow for maximal reuse.</para>
+<para>Further information and guidance on creation of profiles is available in <xref linkend="v1-profileguidance"/>.</para>
 </sect1>
 
 <sect1>
@@ -184,7 +190,7 @@
 <para>Different initiatives and organizations have developed new concepts to govern developments in the interoperability domain. These concepts have logical relationship to the NISP.</para>
 <sect2 id="v1s-ABB">
 <title>Architecture Building Block</title>
-<para>An Architecture Building block is a constituent of the architecture model that describes a single aspect of the overall model
+<para>An Architecture Building Block (ABB) is a constituent of the architecture model that describes a single aspect of the overall model
 <footnote><para>TOGAF 9.1 Specification</para></footnote>.</para>
 <sect3 id="v1c-abbc"><title>Characteristics</title>
 <para>ABBs:
@@ -218,8 +224,8 @@
 <para>Federated Mission Networking (FMN) Spiral<footnote><para>Annex B TO Volume I - Implementation Overview, NATO FMN Implementation Plan v4.0 dated: 23 September 2014, Terms and Definitions</para></footnote>  Specifications encompass "an evolutionary cycle that will raise the level of maturity of federated mission networking capabilities over time".</para>
 <para>The FMN spiral specification contain the following sections
     <itemizedlist>
-      <listitem><para>architecture,</para></listitem>
-      <listitem><para>instructions,</para></listitem>
+      <listitem><para>architecture</para></listitem>
+      <listitem><para>instructions</para></listitem>
       <listitem><para>profiles, and</para></listitem>
       <listitem><para>requirements specifications.</para></listitem>
     </itemizedlist>
@@ -240,7 +246,7 @@ The Mandatory and Candidate FMN Spiral Profiles, in context for FMN Affiliates, 
 <itemizedlist>
 <listitem><para><emphasis role="bold">Volume 1</emphasis> - Introduction: This volume introduces basic concepts, provides the management framework for the configuration control of the NISP and the process for handling Request for Change (RFC). It includes also guidance on development of interoperability profiles.</para></listitem>
 <listitem><para><emphasis role="bold">Volume 2</emphasis> - Agreed Interoperability Standards and Profiles: This volume lists agreed interoperability standards and profiles, mandatory for NATO common funded systems. These should support NATO and National systems today and new systems actually under procurement or specification.</para></listitem>
-<listitem><para><emphasis role="bold">Volume 3</emphasis> - Candidate Interoperability Standards and Profiles: This Volume provides Standards and Interoperability Profiles for programmes to start in 1 to 2 years.</para></listitem>
+<listitem><para><emphasis role="bold">Volume 3</emphasis> - Candidate Interoperability Standards and Profiles: This Volume lists informative references to Standards and Interoperability Profiles, such as drafts of NATO specifications, that may be used as guidance for future programmes.</para></listitem>
 </itemizedlist>
 <para>Volume 2 is normative for NATO common funded systems and Volume 3 is informative.</para>
 </sect1>
@@ -259,8 +265,8 @@ The Mandatory and Candidate FMN Spiral Profiles, in context for FMN Affiliates, 
 </thead>
 <tbody>
 <row>
-<entry><para>Alliance C3 Strategy Information and Communication Technology to prepare NATO 2020 (7 March 2014)</para></entry>
-<entry><para>Alliance C3 Strategy C-M(2014)0016</para></entry>
+<entry><para>Alliance C3 Strategy Information and Communication Technology to prepare NATO 2020 (20 July 2018)</para></entry>
+<entry><para>Alliance C3 Strategy C-M(2019)0037</para></entry>
 </row>
 <row>
 <entry><para>Alliance C3 Policy (25 April 2016)</para></entry>
@@ -305,7 +311,7 @@ The Mandatory and Candidate FMN Spiral Profiles, in context for FMN Affiliates, 
         </mediaobject>
       </figure>
 </para>
-<para>The primary point of contact for RFC submission is the IP CaT. RFCs may be submitted to the <ulink url="http://nhqc3s.hq.nato.int">IP CaT via the Change web site</ulink> or via email to the indicated email address with attachments.</para>
+<para>The primary point of contact for RFC submission is the IP CaT. RFCs may be submitted to the <ulink url="http://nhqc3s.hq.nato.int">IP CaT via the Change web site</ulink> or via email to <ulink url="mailto:herve.radiguet@act.nato.int ">herve.radiguet@act.nato.int</ulink> with attachments.</para>
 <para>Review of RFCs will be coordinated with the responsible C3 Board substructure organizations where appropriate.</para>
 <para>The IP CaT reviews the submissions in dialog with national and international bodies. Based on that review, the RFC will be formally processed into the next version of the NISP; or returned to the originator for further details; or rejected. The IP CaT will attempt to address all RFCs submitted by 1 September into the next NISP release. RFCs submitted after this date may be considered for inclusion at the discretion of the IP CaT, or will be processed for the following NISP release.</para>
 
@@ -320,13 +326,13 @@ The Mandatory and Candidate FMN Spiral Profiles, in context for FMN Affiliates, 
 <para>The NISP is published in several formats:
       <itemizedlist>
         <listitem>
-          <para>Documentation in <ulink url="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP/index.html">HTML</ulink> and <ulink url="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP/PDFcoverdoc.html">PDF</ulink> Formats;</para>
+          <para>Documentation in <ulink url="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP/index.html">HTML</ulink> and <ulink url="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP/PDFcoverdoc.html">PDF</ulink> Formats</para>
         </listitem>
         <listitem>
-          <para>Website and searchable <ulink url="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP2/default.aspx">online Database</ulink>;</para>
+          <para>Website and searchable <ulink url="https://nhqc3s.hq.nato.int/Apps/Architecture/NISP2/default.aspx">online Database</ulink></para>
         </listitem>
         <listitem>
-          <para>Data export in XML format.</para>
+          <para>Data export in XML format</para>
         </listitem>
       </itemizedlist>
 </para>
@@ -334,7 +340,7 @@ The Mandatory and Candidate FMN Spiral Profiles, in context for FMN Affiliates, 
 </chapter>
 <chapter id="v1c-CoordinationNations">
 <title>National Systems Interoperability Coordination</title>
-      <para>Coordination of profiles and standards between Nations and NATO are critical for interoperability.
+      <para>Coordination of standards and profiles between Nations and NATO are critical for interoperability.
         As a result of the C3 Board substructure reorganization,  participants in IP CaT are subject matter experts (SME) and are no longer national representatives.
         SME's should therefore coordinate with national and C3 Board representatives to ensure national perspectives are presented to IP CaT. As such, each of the
         IP CaT SMEs is responsible for:</para>
@@ -350,7 +356,7 @@ The Mandatory and Candidate FMN Spiral Profiles, in context for FMN Affiliates, 
         </listitem>
       </itemizedlist>
 <para>National level coordination of interoperability technical standards and profiles is the responsibility of the C3 Board.
-When the NISP is approved by the C3 Board, it will become the NATO Standard covered by STANAG 5524 Edition 2.
+When the latest version of NISP is approved by the C3 Board, it will become the NATO Standard covered by STANAG 5524 Edition 2.
 This STANAG contains the agreement of the participating nations regarding usage of the mandatory standards and profiles in the NISP.
 </para>
 </chapter>
@@ -360,7 +366,7 @@ This STANAG contains the agreement of the participating nations regarding usage 
     <title>Interoperability Standards Guidance</title>
 
     <para>The NISP references Standards from different standardization bodies<footnote><para>In case of conflict between any recommended non-NATO standard and relevant NATO standard, the definition of
-the latter prevails.</para></footnote>. In the case of a ratified STANAG, NATO standardization procedures apply. The NISP only references these STANAG’s without displaying the country-specific reservations. The country-specific reservations can be found in the NATO Standardization Organisation's NATO  Standardization Document Database.</para>
+the latter prevails.</para></footnote>. In the case of a ratified STANAG, NATO standardization procedures apply. The NISP only references these STANAG’s without displaying the country-specific reservations. The country-specific reservations can be found in the NATO Standardization Office's NATO  Standardization Document Database.</para>
 
     <para>The Combined Communications Electronics Board (CCEB) nations will use NISP Volume 2 to publish the interoperability standards for the CCEB under the provisions of the NATO-CCEB List of Understandings (LoU)<footnote><para>References: NATO Letter AC/322(SC/5)L/144 of 18 October 2000, CCEB Letter D/CCEB/WS/1/16 of 9 November 2000, NATO Letter AC/322(SC/5)L/157 of 13 February 2001</para></footnote>.</para>
 
@@ -422,11 +428,12 @@ the latter prevails.</para></footnote>. In the case of a ratified STANAG, NATO s
                     SIP Template
  *****************************************************************
 -->
-
+<!--
   <xi:include
     xmlns:xi="http://www.w3.org/2001/XInclude"
     href="vol1-sipTemplate.xml"
     xpointer="v1-sip" />
+-->
 <!--
  *****************************************************************
                     Change Log
@@ -448,5 +455,16 @@ the latter prevails.</para></footnote>. In the case of a ratified STANAG, NATO s
     xmlns:xi="http://www.w3.org/2001/XInclude"
     href="vol1-NISPChangeLogDetails.xml"
     xpointer="v1-ChangeLog" />
+
+<!--
+ *****************************************************************
+                    RFCs
+ *****************************************************************
+-->
+
+  <xi:include
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="vol1-rfcs.xml"
+    xpointer="v1-RFCs" />
 
 </book>

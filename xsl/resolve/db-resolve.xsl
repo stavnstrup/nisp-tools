@@ -1,58 +1,54 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 
 <!--
 
 This stylesheet is created for the NISP, and is intended for
-transforming the standards database from a relational structure to
-clean tree-structure.
+tagging serviceprofile due to their dual functionallity.
 
+We add a type attribute to the servicprofile using the following rules
+  bsp: serviceprofiles which is part of the basic standards profile (BSP)
+  coi: any other service profile, which is part of a capability profile like FMN.
 
-Copyright (c) 2009-2010, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
-Danish Defence Research Establishment (DDRE) and 
+Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
-
 
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version='1.1'
-                exclude-result-prefixes="#default">
+                xmlns:saxon="http://icl.com/saxon"
+                exclude-result-prefixes="saxon">
 
-<xsl:output method="xml" version="1.0" encoding="ISO-8859-1"/>
+<!-- <xsl:output saxon:next-in-chain="db-resolve-p2.xsl"/> -->
 
-
-
-<!-- ==================================================================== -->
-
-<xsl:template match="/">
-  <xsl:comment>
-
-     DO NOT MODIFY THIS DOCUMENT. THIS IS A RESOLVED VERSION ONLY.
-     
-  </xsl:comment>
-
-  <xsl:apply-templates/>
-</xsl:template>  
+<xsl:strip-space elements="*"/>
 
 <!-- ==================================================================== -->
 
+<!-- Add type attribute to all service profile, to be able to differentiate serviceprofiles,
+     which are part of the Base Standards Profile and those which are not -->
 
-<xsl:template match="servicearea|subarea|servicecategory|category|subcategory">
-  <xsl:variable name="sid" select="@id"/>
-  <xsl:element name="{name(.)}">
+<xsl:template match="serviceprofile">
+  <xsl:variable name="myid" select="@id"/>
+  <serviceprofile>
+    <xsl:attribute name="type">
+      <xsl:choose>
+        <xsl:when test="/standards//capabilityprofile[@id='bsp']//refprofile[@refid=$myid]">
+          <xsl:text>bsp</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>coi</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
-    <xsl:apply-templates select="/standards/lists/sp-list[@tref=$sid]"/>
-    <xsl:apply-templates select="/standards/lists/profile-list[@tref=$sid]"/>
-    <xsl:apply-templates select="/standards/records/standard[@tref=$sid]|
-                                 /standards/records/setofstandards[@tref=$sid]"/>
-  </xsl:element>
+  </serviceprofile>
 </xsl:template>
 
-
-<xsl:template match="lists|records"/>
-
+<!-- ==================================================================== -->
 
 <xsl:template match="@*|node()">
   <xsl:copy>

@@ -28,7 +28,7 @@
     <body>
 
 
-    <h1>Emerging and fading standards and profiles in the NISP Standard Database</h1>
+    <h1>Emerging standards and profiles in the NISP Standard Database</h1>
 
     <p>Created on
     <xsl:variable name="date">
@@ -52,17 +52,6 @@
     <table border="1">
       <xsl:call-template name="header"/>
       <xsl:apply-templates select="element[@mode='candidate']">
-        <xsl:sort select="@lastchange" order="ascending"/>
-      </xsl:apply-templates>
-    </table>
-
-
-
-    <h2>Fading</h2>
-    <p><xsl:value-of select="count(element[@mode='fading'])"/> fading standards and profiles</p>
-    <table border="1">
-      <xsl:call-template name="header"/>
-      <xsl:apply-templates select="element[@mode='fading']">
         <xsl:sort select="@lastchange" order="ascending"/>
       </xsl:apply-templates>
     </table>

@@ -4,7 +4,7 @@
   <bookinfo>
     <title>NATO Interoperability Standards and Profiles</title>
 	<titleabbrev>NISP</titleabbrev>
-    <subtitle>Candidate Interoperability Standards and Profiles (Version 11)</subtitle>
+    <subtitle>Candidate Interoperability Standards and Profiles (Version 12)</subtitle>
     <volumenum>3</volumenum>
     <corpauthor>C3B Interoperability Profiles Capability Team</corpauthor>
     <productname
@@ -13,8 +13,8 @@
       class="pubnumber">ADatP-34</biblioid>
     <revhistory>
       <revision>
-        <revnumber>11.0</revnumber>
-        <date>3 Aug 2018</date>
+        <revnumber>12.0</revnumber>
+        <date>9 Jan 2019</date>
       </revision>
     </revhistory>
     <subjectset><subject><subjectterm>DO NOT REMOVE</subjectterm></subject></subjectset>
@@ -30,9 +30,9 @@
     <sect1>
       <title>Introduction</title>
       <para>The purpose of this chapter is to specify the candidate NISP standards. The document organizes these standards, following  baseline 2.0 NATO's C3 Taxonomy, as endorsed by the NATO C3 Board per AC/322-N(2016)0021-AS1 on 11 February 2016. A graphical representation of this taxonomy is included in volume 1.</para>
-      <para>For some standards it was not clear yet which service identified in the C3 Taxonomy should be used. Therefore, as an interim solution, the taxonomy was extended with user-defined "Cloud Services". In a separate section, all standards are listed for which could not yet be defined how they should be linked to the C3 Taxonomy.</para>
-<para>The standards are presented in tabular form. The left column of the table corresponds to a service in the C3 Taxonomy. The section headers correspond to a service at a higher (or the same) level. In general, a service is only listed if at least one standard is assigned to this service.</para>
-<para>When STANAG X Ed Y is in ratification process, this is indicated by STANAG (RD) X Ed Y, and when it is a study draft, this is indicated by STANAG (Study) X Ed Y.</para>
+      <para>For some standards it was not clear yet which service identified in the C3 Taxonomy should be used. Therefore, as an interim solution, the taxonomy was extended with e.g. user-defined "Cloud Services". In a separate section, all standards are listed for which could not yet be defined how they should be linked to the C3 Taxonomy.</para>
+      <para>The standards are presented in tabular form. Each table represent a subtree from the C3 taxonomy and each table line (marked in bold and spanning all columns in the table) represents a taxonomy node from the subtree.  Under each taxonomy node title, all standards which are mapped to the node are listed with the following attributes: title of the standard; where possible, a link to the standard; publication number of the standard; a list of all the capability profiles where the standard is used; and finally the "responsible party" which is the domain expert that advises NATO about the standard. In general, a taxonomy node is only listed if at least one standard is assigned to this taxonomy node.</para>
+      <para>When STANAG X Ed Y is in ratification process, this is indicated by STANAG (RD) X Ed Y, and when it is a study draft, this is indicated by STANAG (Study) X Ed Y.</para>
       <sect2 id="v3s2-rel">
         <title>Releasability Statement</title>
         <para>In principle, NISP only contains or references standards or related documents, which are
@@ -43,13 +43,13 @@
     <sect1 id="v3s1-oc">
       <title>Operational Capabilities</title>
       <para condition="ignore" />
-      <?dbmerge node="T-7f14b843-3b55-44cd-81ef-f614a8e73d2d-X" obligation="candidate"?>
+      <?dbmerge node="T-7f14b843-3b55-44cd-81ef-f614a8e73d2d-X" lifecycle="candidate"?>
     </sect1>
 -->
     <sect1 id="v3s1-ua">
       <title>User Applications</title>
       <para condition="ignore" />
-      <?dbmerge node="T-cdd0fd6c-5d52-4d46-8d36-6f9c67475fcb-X" obligation="candidate"?>
+      <?dbmerge node="T-cdd0fd6c-5d52-4d46-8d36-6f9c67475fcb-X" lifecycle="candidate"?>
     </sect1>
 
     <sect1 id="v3s1-ts">
@@ -65,24 +65,30 @@
       <sect2>
         <title>Community Of Interest (COI) Services</title>
         <para condition="ignore" />
-        <?dbmerge node="T-c4eea9ff-c404-4ae6-9f02-a12826657675-X" obligation="candidate"?>
+        <?dbmerge node="T-c4eea9ff-c404-4ae6-9f02-a12826657675-X" lifecycle="candidate"?>
       </sect2>
       <sect2>
         <title>Core Services</title>
         <para condition="ignore" />
-        <?dbmerge node="T-3567de6b-7a0a-47c9-bc7f-18d7904c5df6-X" obligation="candidate"?>
+        <?dbmerge node="T-3567de6b-7a0a-47c9-bc7f-18d7904c5df6-X" lifecycle="candidate"?>
       </sect2>
       <sect2>
         <title>Communications Services</title>
         <para condition="ignore" />
-        <?dbmerge node="T-2c978bbc-f422-42e8-83e6-105a6bdb1e54-X" obligation="candidate"?>
+        <?dbmerge node="T-2c978bbc-f422-42e8-83e6-105a6bdb1e54-X" lifecycle="candidate"?>
+      </sect2>
+      <sect2>
+        <title>Extended C3 Taxonomy</title>
+        <para>The following table list taxonomy nodes, which will be part of a future version of the C3 taxonomy. They are part of this document, because stakesholders have
+        decided to using an unofficial classification scheme for a specific purpose.</para>
+        <?dbmerge node="user.c3extended" lifecycle="candidate"?>
       </sect2>
     </sect1>
 
     <sect1>
       <title>Unassigned standards</title>
-      <para>The following standards have been declared candidate standards for NATO common funded systems. However, no information of how to map the standard to the C3 Taxonomy have been provided.</para>
-      <?dbmerge node="user.undefined.taxonomynode" obligation="candidate"?>
+      <para>The following standards have been declared candidate standards for NATO common funded systems. However, no information of how to map the standards to the C3 Taxonomy have been provided.</para>
+      <?dbmerge node="user.undefined.taxonomynode" lifecycle="candidate"?>
     </sect1>
   </chapter>
 <index></index>
@@ -98,5 +104,7 @@
     xmlns:xi="http://www.w3.org/2001/XInclude"
     href="vol3-annex-profiles.xml"
     xpointer="v3-baseline-profiles" />
+
 -->
+
 </book>

@@ -22,7 +22,7 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:template match="standards">
-  <xsl:message>Comparison of bprefstandard with referenced standard/setofstandards.</xsl:message>
+  <xsl:message>Comparison of bprefstandard with referenced standard.</xsl:message>
   <html>
     <head>
       <title>Comparison of text in select statement and referenced standards/profiles</title>
@@ -99,11 +99,9 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:choose>
         <xsl:when test="ancestor::bpgroup[@mode='mandatory']">M</xsl:when>
         <xsl:when test="ancestor::bpgroup[@mode='candidate']">C</xsl:when>
-        <xsl:when test="ancestor::bpgroup[@mode='fading']">F</xsl:when>
       </xsl:choose>
     </td>
     <xsl:apply-templates select="//standard[@id=$ref]"/>
-    <xsl:apply-templates select="//setofstandards[@id=$ref]"/>
   </tr>
 </xsl:template>
 
@@ -122,10 +120,4 @@ Copyright (c) 2014, 2015  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 
-<xsl:template match="setofstandards">
-  <td>SS</td><td>
-  <xsl:value-of select="@tag"/>
-  </td>
-</xsl:template>
-
-</xsl:stylesheet>
+s</xsl:stylesheet>

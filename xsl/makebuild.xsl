@@ -402,12 +402,40 @@ Make dynamic targets.
         </xsl:attribute>
         <arg>
           <xsl:attribute name="line">
-            <xsl:text>${xslt.opts} -o ${build.resolve}/resolved-</xsl:text>
+            <xsl:text>${xslt.opts} -o ${build.resolve}/</xsl:text>
+            <xsl:value-of select="'resolved-standards-1.xml'"/>
+<!--
             <xsl:value-of select="$db"/>
+-->
             <xsl:text> ${src.dir}/standards/</xsl:text>
             <xsl:value-of select="$db"/>
             <xsl:text></xsl:text>
             <xsl:text> ${xsl-styles.dir}/resolve/${xsl-resolve-db}</xsl:text>
+          </xsl:attribute>
+        </arg>
+
+        <classpath refid="lib-saxon-classpath"/>
+        <jvmarg><xsl:attribute name="value"><xsl:text>${use.sax}</xsl:text></xsl:attribute></jvmarg>
+        <jvmarg><xsl:attribute name="value"><xsl:text>${use.dom}</xsl:text></xsl:attribute></jvmarg>
+        <jvmarg><xsl:attribute name="value"><xsl:text>${use.xinc}</xsl:text></xsl:attribute></jvmarg>
+      </java>     
+      <java fork="yes">
+        <xsl:attribute name="classname">
+          <xsl:text>${xslt.class}</xsl:text>
+        </xsl:attribute>
+
+        <xsl:attribute name="dir">
+          <xsl:text>${src.</xsl:text>
+          <xsl:value-of select="$docid"/>
+          <xsl:text>}</xsl:text>
+        </xsl:attribute>
+        <arg>
+          <xsl:attribute name="line">
+            <xsl:text>${xslt.opts} -o ${build.resolve}/resolved-</xsl:text>
+            <xsl:value-of select="$db"/>
+            <xsl:text> ${build.resolve}/resolved-standards-1.xml</xsl:text>
+            <xsl:text></xsl:text>
+            <xsl:text> ${xsl-styles.dir}/resolve/${xsl-resolve-db-2}</xsl:text>
 						<xsl:text> capabilityprofile.list.dir=${capabilityprofile.list.dir}</xsl:text>
 						<xsl:text> capabilityprofiles.location.pathname=${capabilityprofiles.location.pathname}</xsl:text>
 						<xsl:text> capabilityprofiles.location.name=${capabilityprofiles.location.name}</xsl:text>

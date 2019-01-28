@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0"?>
 
 <!--
 
@@ -6,12 +6,10 @@ This stylesheet is created for the NISP, and is intended for
 transforming the standards database from a relational structure to
 clean tree-structure.
 
-
-Copyright (c) 2009-2017, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2009-2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
-
 
 -->
 
@@ -20,8 +18,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
                 version='1.1'
                 exclude-result-prefixes="#default saxon">
 
-
-<xsl:output indent="yes"/>
+<xsl:output indent="yes" />
 
 <!-- ==================================================================== -->
 
@@ -61,33 +58,12 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <standards>
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
+
     <profilehierachy>
-      <capabilityprofile type="bsp">
-        <xsl:apply-templates select="/standards//bpserviceprofile" mode="copyprofile"/>
-      </capabilityprofile>
       <xsl:apply-templates select="records/capabilityprofile[status/@mode='accepted']" mode="copyprofile"/>
     </profilehierachy>
   </standards>
 </xsl:template>
-
-
-<xsl:template match="bpserviceprofile" mode="copyprofile">
-  <serviceprofile>
-    <reftaxonomy refid="{@tref}"/>
-    <xsl:apply-templates mode="copyprofile"/>
-  </serviceprofile>
-</xsl:template>
-
-<xsl:template match="bpgroup" mode="copyprofile">
-  <obgroup obligation="{@mode}">
-    <xsl:apply-templates mode="copyprofile"/>
-  </obgroup>
-</xsl:template>
-
-<xsl:template match="bprefstandard" mode="copyprofile">
-  <hrefstandard refid="{@refid}"/>
-</xsl:template>
-
 
 
 <xsl:template match="capabilityprofile" mode="copyprofile">
@@ -98,6 +74,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="profile" mode="copyprofile">
+  <!-- We are only interested in the relationship between capabilityprofiles, serviceprofiles and
+       standards - so do not list profiles in the heirachy, -->
   <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
 </xsl:template>
 
@@ -105,15 +83,15 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="serviceprofile" mode="copyprofile">
   <serviceprofile id="{@id}">
     <xsl:apply-templates select="reftaxonomy" mode="copyprofile"/>
-    <xsl:apply-templates select="obgroup" mode="copyprofile"/>
+    <xsl:apply-templates select="refgroup" mode="copyprofile"/>
   </serviceprofile>
 </xsl:template>
-
 
 
 <xsl:template match="reftaxonomy" mode="copyprofile">
   <reftaxonomy refid="{@refid}"/>
 </xsl:template>
+
 
 <xsl:template match="subprofiles" mode="copyprofile">
   <xsl:apply-templates select="refprofile" mode="copyprofile"/>
@@ -121,9 +99,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="refstandard" mode="copyprofile">
-  <hrefstandard>
+  <refstandard>
     <xsl:apply-templates select="@*"/>
-  </hrefstandard>
+  </refstandard>
 </xsl:template>
 
 <xsl:template match="refprofile" mode="copyprofile">
@@ -132,11 +110,11 @@ NATO Command, Control and Consultation Organisation (NC3O).
 </xsl:template>
 
 
-<xsl:template match="obgroup" mode="copyprofile">
-  <obgroup>
+<xsl:template match="refgroup" mode="copyprofile">
+  <refgroup>
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates select="refstandard" mode="copyprofile"/>
-  </obgroup>
+  </refgroup>
 </xsl:template>
 
 <!-- ==================================================================== -->
@@ -151,7 +129,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <!-- ==================================================================== -->
   
 <xsl:variable name="capabilityprofile.list" select="document(concat($capabilityprofile.list.dir,'capabilityprofiles.xml'))/capabilityprofiles"/>
-
 <!--
   Add servicearea and docinfo information from capabilityprofile.list to the capability profile in the standards database. -->
   
@@ -188,7 +165,14 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </xsl:choose>
   </uri>
   <pdf>
-    <xsl:value-of select="$cpbprf.cur/pdf"/>
+		<xsl:choose>
+			<xsl:when test="$cpbprf.cur/pdf/@title != ''">
+				<xsl:value-of select="$cpbprf.cur/pdf/@title"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$cpbprf.cur/pdf"/>
+			</xsl:otherwise>
+		</xsl:choose>
   </pdf>
 </xsl:template>
 

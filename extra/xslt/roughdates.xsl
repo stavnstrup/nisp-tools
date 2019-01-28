@@ -20,8 +20,8 @@ Copyright (c) 2014, 2018  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
-            doctype-public="-//DDRE//DTDStandardDB XML V4.4//EN"
-            doctype-system="../src/schema/dtd/stddb44.dtd"/>
+            doctype-public="-//DDRE//DTDStandardDB XML V4.5//EN"
+            doctype-system="../src/schema/dtd/stddb45.dtd"/>
 
 
 <xsl:strip-space elements="*"/>
