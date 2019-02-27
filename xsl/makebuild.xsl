@@ -17,7 +17,7 @@ Make dynamic targets.
 
 <xsl:template match="documents">
   <project>
-  
+
   <!-- Generate multitarget -->
 <!--
   <xsl:call-template name="alldocs">
@@ -58,7 +58,7 @@ Make dynamic targets.
   <xsl:call-template name="alldocs">
     <xsl:with-param name="ext" select="'rtf'"/>
     <xsl:with-param name="dependsOn" select="'init, pdf'"/>
-    <xsl:with-param name="comment" select="'* Create all RTF files'"/>   
+    <xsl:with-param name="comment" select="'* Create all RTF files'"/>
   </xsl:call-template>
 -->
 
@@ -88,7 +88,7 @@ Make dynamic targets.
         <include name="*.svg"/>
         <exclude name="obsolete/*.svg"/>
       </fileset>
-    </copy> 
+    </copy>
   </target>
 
   <target name="svg.required" depends="copy.svg">
@@ -98,7 +98,7 @@ Make dynamic targets.
           <xsl:text>${build.dir}/figures</xsl:text>
         </xsl:attribute>
       </srcfiles>
-      <mapper type="glob" from="*.svg"> 
+      <mapper type="glob" from="*.svg">
         <xsl:attribute name="to">
           <xsl:text>${build.dir}/figures/*.${nisp.image.ext}</xsl:text>
         </xsl:attribute>
@@ -113,13 +113,13 @@ Make dynamic targets.
         <xsl:text>Create figures for HTML (${dpi.raster} dpi)</xsl:text>
       </xsl:attribute>
     </echo>
-    <rasterize bg="255,255,255"> 
+    <rasterize bg="255,255,255">
       <xsl:attribute name="result">
         <xsl:text>${nisp.image.mimetype}</xsl:text>
       </xsl:attribute>
       <xsl:attribute name="quality">
         <xsl:text>${nisp.image.quality}</xsl:text>
-      </xsl:attribute> 
+      </xsl:attribute>
       <xsl:attribute name="dpi">
         <xsl:text>${dpi.raster}</xsl:text>
       </xsl:attribute>
@@ -197,7 +197,7 @@ Make dynamic targets.
           <xsl:for-each select=".//docinfo">
             <xsl:value-of select="targets/target[@type='pdf']"/>
             <xsl:text>-v${src-version-major}${nisp.lifecycle.postfix}.pdf </xsl:text>
-          </xsl:for-each>      
+          </xsl:for-each>
         </xsl:attribute>
       </arg>
       <classpath refid="lib-fop-classpath"/>
@@ -211,11 +211,11 @@ Make dynamic targets.
 
   <!-- Generate targets for each document -->
   <xsl:apply-templates/>
-  
+
   </project>
 </xsl:template>
 
-	
+
 <xsl:template match="docinfo">
   <xsl:variable name="docid" select="./@id"/>
   <xsl:variable name="dir" select="../@dir"/>
@@ -325,12 +325,12 @@ Make dynamic targets.
         <xsl:attribute name="dir">
           <xsl:text>${src.</xsl:text>
           <xsl:value-of select="$docid"/>
-          <xsl:text>}</xsl:text>	  
+          <xsl:text>}</xsl:text>
 	</xsl:attribute>
 	<xsl:attribute name="includes">
 	  <xsl:text>${</xsl:text>
           <xsl:value-of select="$docid"/>
-          <xsl:text>.main.src}</xsl:text>	  
+          <xsl:text>.main.src}</xsl:text>
 	</xsl:attribute>
       </fileset>
       <attribute name="http://apache.org/xml/features/xinclude" value="true"/>
@@ -356,7 +356,7 @@ Make dynamic targets.
 
   <xsl:if test="$usedb='yes'">
     <!-- Check if the database needs to be resolved -->
-    
+
     <target name="{$docid}.db-resolve.check">
       <uptodate property="{$docid}.db-resolve.notRequired">
         <xsl:attribute name="targetfile">
@@ -387,7 +387,7 @@ Make dynamic targets.
     <!-- resolve the database -->
 
     <target name="{$docid}.db-resolve"
-            depends="init, {$docid}.db-resolve.check" 
+            depends="init, {$docid}.db-resolve.check"
             unless="{$docid}.db-resolve.notRequired">
       <echo message="Resolve {$title} DB"/>
       <java fork="yes">
@@ -415,7 +415,7 @@ Make dynamic targets.
         <jvmarg><xsl:attribute name="value"><xsl:text>${use.sax}</xsl:text></xsl:attribute></jvmarg>
         <jvmarg><xsl:attribute name="value"><xsl:text>${use.dom}</xsl:text></xsl:attribute></jvmarg>
         <jvmarg><xsl:attribute name="value"><xsl:text>${use.xinc}</xsl:text></xsl:attribute></jvmarg>
-      </java>     
+      </java>
     </target>
   </xsl:if>
 
@@ -514,7 +514,7 @@ Make dynamic targets.
           <xsl:text>${use.show.indexterms}</xsl:text>
           <xsl:text> nisp.image.ext=</xsl:text>
           <xsl:text>${nisp.image.ext}</xsl:text>
-          <xsl:text> describe=${describe}</xsl:text>          
+          <xsl:text> describe=${describe}</xsl:text>
         </xsl:attribute>
       </arg>
 
@@ -522,7 +522,7 @@ Make dynamic targets.
       <jvmarg><xsl:attribute name="value"><xsl:text>${use.sax}</xsl:text></xsl:attribute></jvmarg>
       <jvmarg><xsl:attribute name="value"><xsl:text>${use.dom}</xsl:text></xsl:attribute></jvmarg>
       <jvmarg><xsl:attribute name="value"><xsl:text>${use.xinc}</xsl:text></xsl:attribute></jvmarg>
-    </java>     
+    </java>
   </target>
 
 
