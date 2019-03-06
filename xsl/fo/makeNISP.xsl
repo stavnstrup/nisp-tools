@@ -104,6 +104,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="ulink.show" select="0"/>
 <xsl:param name="ulink.hyphenate" select="''"/>
 <xsl:param name="xref.with.number.and.title" select="0"/>
+
 <xsl:attribute-set name="xref.properties">
   <xsl:attribute name="color">
     <xsl:choose>
@@ -111,14 +112,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:otherwise>inherit</xsl:otherwise>
     </xsl:choose>
   </xsl:attribute>
-<!--
-  <xsl:attribute name="text-decoration">
-    <xsl:choose>
-      <xsl:when test="self::ulink">underline</xsl:when>
-      <xsl:otherwise>inherit</xsl:otherwise>
-    </xsl:choose>
-  </xsl:attribute>
--->
 </xsl:attribute-set>
 
 <xsl:param name="table.footnote.number.format">1</xsl:param>
