@@ -145,7 +145,7 @@
 </xsl:template>
 
 <xsl:template name="preface.titlepage.recto">
-  <fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="preface.titlepage.recto.style" margin-left="{$title.margin.left}" font-size="17.28pt" font-family="{$title.fontset}" font-weight="bold" space-before="10mm" text-transform="uppercase" text-decoration="underline" text-align="center">
+  <fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="preface.titlepage.recto.style" margin-left="{$title.margin.left}" font-size="17.28pt" font-family="{$title.fontset}" font-weight="bold" space-before="10mm" text-transform="uppercase" text-align="center">
 <xsl:call-template name="component.title">
 <xsl:with-param name="node" select="ancestor-or-self::preface[1]"/>
 </xsl:call-template></fo:block>
@@ -266,7 +266,7 @@
 </xsl:template>
 
 <xsl:template match="title" mode="chapter.titlepage.recto.auto.mode">
-<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="chapter.titlepage.recto.style" font-size="16pt" font-weight="bold" font-family="{$title.fontset}" space-before="10mm" text-transform="uppercase" text-decoration="underline" text-align="center">
+<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="chapter.titlepage.recto.style" font-size="16pt" font-weight="bold" font-family="{$title.fontset}" space-before="10mm" text-transform="uppercase" text-align="center">
 <xsl:call-template name="component.title">
 <xsl:with-param name="node" select="ancestor-or-self::chapter[1]"/>
 </xsl:call-template>
@@ -624,7 +624,7 @@
 </xsl:template>
 
 <xsl:template name="table.of.contents.titlepage.recto">
-  <fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="table.of.contents.titlepage.recto.style" space-before.minimum="1em" space-before.optimum="1.5em" space-before.maximum="2em" space-after="0.5em" margin-left="{$title.margin.left}" font-size="16pt" font-weight="bold" font-family="{$title.fontset}" text-decoration="underline" text-align="center">
+  <fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="table.of.contents.titlepage.recto.style" space-before.minimum="1em" space-before.optimum="1.5em" space-before.maximum="2em" space-after="0.5em" margin-left="{$title.margin.left}" font-size="16pt" font-weight="bold" font-family="{$title.fontset}" text-align="center">
 <xsl:call-template name="gentext">
 <xsl:with-param name="key" select="'TableofContents'"/>
 </xsl:call-template></fo:block>

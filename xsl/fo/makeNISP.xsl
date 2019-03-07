@@ -390,6 +390,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 -->
 
+<!--
 <xsl:param name="local.l10n.xml" select="document('')"/>
 
 
@@ -402,7 +403,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     </l:context>
   </l:l10n>
 </l:i18n>
-
+-->
 
 <!-- ==================================================================== -->
 <!--  Generate headers                                                    -->
