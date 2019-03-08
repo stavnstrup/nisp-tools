@@ -709,7 +709,8 @@
             <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="3"/>
          </node>
          <node id="user.c3extended" title="Extended C3 Taxonomy" emUUID="" level="2" description="These nodes will be part of version 3 of the C3 Taxonomy">
-            <node id="T-5E310F93-58F2-4383-8AA2-4466B858078-X" title="Information Exploitation Process" emUUID="5E310F93-58F2-4383-8AA2-4466B858078" level="3"/>
+            <node id="T-5e310f93-58f2-4383-8aa2-4466b8580782-X" title="Information Exploitation Process" emUUID="5e310f93-58f2-4383-8aa2-4466b8580782" level="3"/>
+						<node id="T-cef94bbc-8278-4066-b01f-403318515fa3-X" title="Browser Application" emUUID="cef94bbc-8278-4066-b01f-403318515fa3" level="3"/>
          </node>
       </node>
    </taxonomy>
@@ -54246,7 +54247,11 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
 
       <capabilityprofile id="sip-for-smc" short="SIP for SMC" title="Service Interface Profile for Service Management and Control">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <description/>
+         <description>This Service Interface Profile provides guidance and technical details to the procedures,
+          supporting services, infrastructure and data attributes required to implement Service Management and Control
+          (SMC) services in Mission Networks. As such, this document contributes to the establishment of
+          capabilities in support of Federated Mission Networking (FMN) as an affordable, effective and efficient
+          means to enable sharing of information in a coalition environment.</description>
          <subprofiles>
             <refprofile refid="sip-for-smc-profile"/>
             <refprofile refid="sip-for-smc-profile"/>
@@ -54263,7 +54268,12 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
 
       <capabilityprofile id="sip-for-tls" short="SIP for TLS" title="Service Interface Profile for Transport Layer Security">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <description/>
+         <description>This Service Interface Profile (SIP) provides detailed information, guidance, instructions, standards and
+          criteria to be used as a  for the usage of Transport Layer Security (TLS) protocol to provide authentication,
+          confidentiality and integrity services for protecting the communication between a consumer and a provider.
+          This publication is a living document and will be periodically reviewed and updated to reflect technology developments,
+          emerging best practices, evolving standards and new or deprecated cryptographic schemes
+          and algorithms.</description>
          <subprofiles>
             <refprofile refid="sip-for-tls-profile"/>
          </subprofiles>
@@ -54278,7 +54288,10 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
 
       <capabilityprofile id="sip-for-web-apps" short="SIP for Web Apps" title="Service Interface Profile for Web Applications">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <description/>
+         <description>This Service Interface Profile (SIP) provides detailed information, guidance, instructions, standards and
+         criteria to be used for development, delivery and consumption of Web applications and dynamic Web sites.
+         This publication is a living document and will be periodically reviewed and updated to reflect technology
+         developments and emerging best practices.</description>
          <subprofiles>
             <refprofile refid="sip-for-web-apps-profile"/>
          </subprofiles>
@@ -54448,7 +54461,10 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
 
       <capabilityprofile id="sip-recognized-air-picture-data" short="SIP Recogn Air Pict Data" title="Service Interface Profile for Recognized Air Picture Data">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <description/>
+         <description>This Service Interface Profile provides detailed information, guidance, instructions, standards and criteria
+              to define the minimum set of data elements that are required to be available for operational or technical
+              reasons so that correctly formatted technical message can be generated to establish a Recognized Air Picture
+              in a federated environment.</description>
          <subprofiles>
             <refprofile refid="sip-recognized-air-picture-data-profile"/>
          </subprofiles>
@@ -63918,7 +63934,8 @@ as specified in:
 
       <serviceprofile id="sip-for-web-apps-profile" title="Service Interface Profile for Web Applications">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <reftaxonomy refid="T-cef94bbc-8278-4066-b01f-403318515fa3-X"/>
+         <reftaxonomy refid="T-28813595-c7db-40fd-9b9a-9ea769ef9920-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="w3c-rec-html52"/>
             <refstandard refid="w3c-note-html5-diff"/>
