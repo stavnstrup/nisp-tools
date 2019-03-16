@@ -34,6 +34,8 @@
     </xsl:when>
   </xsl:choose>
 
+  <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="bookinfo/mediaobject"/>
+  <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="info/mediaobject"/>
   <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="bookinfo/revhistory"/>
   <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="info/revhistory"/>
   <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="bookinfo/corpauthor"/>
@@ -128,6 +130,12 @@
 
 <xsl:template match="subtitle" mode="book.titlepage.recto.auto.mode">
 <fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" font-size="24.8832pt" space-before="15mm" font-family="{$title.fontset}">
+<xsl:apply-templates select="." mode="book.titlepage.recto.mode"/>
+</fo:block>
+</xsl:template>
+
+<xsl:template match="mediaobject" mode="book.titlepage.recto.auto.mode">
+<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" space-before="1mm">
 <xsl:apply-templates select="." mode="book.titlepage.recto.mode"/>
 </fo:block>
 </xsl:template>

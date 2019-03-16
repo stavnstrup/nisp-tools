@@ -57,6 +57,21 @@ NATO Command, Control and Consultation Organisation (NC3O).
 </xsl:template>
 
 
+<!-- ==================================================================== -->
+
+<!-- Add mediaobject to info element -->
+
+<xsl:template match="bookinfo">
+  <bookinfo>
+    <xsl:apply-templates/>
+    <mediaobject/>
+      <imageobject>
+        <imagedata fileref="../figures/NATO_OTAN_Insignia.svg" contentwidth="4cm"/>
+      </imageobject>
+    </mediaobject>
+  </bookinfo>
+</xsl:template>
+
 
 <!-- ==================================================================== -->
 
