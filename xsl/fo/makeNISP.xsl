@@ -351,11 +351,24 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- The Document number should be embraced in a parentesis -->
 
 <xsl:template match="biblioid" mode="titlepage.mode">
-   <xsl:text>(</xsl:text>
-   <xsl:value-of select="."/>
-   <xsl:text>(</xsl:text>
-   <xsl:value-of select="$adatp34edition"/>
-   <xsl:text>))</xsl:text>
+  <fo:block>
+    NATO STANDARD
+  </fo:block>
+  <fo:block space-before="8mm">
+    <xsl:text></xsl:text>
+    <xsl:value-of select="."/>
+    <xsl:text>(</xsl:text>
+    <xsl:value-of select="$adatp34edition"/>
+    <xsl:text>) / Version </xsl:text>
+    <xsl:choose>
+      <xsl:when test="$version.minor=0">
+        <xsl:value-of select="$version.major"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$version.major+1"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </fo:block>
 </xsl:template>
 
 

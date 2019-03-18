@@ -35,18 +35,12 @@
                font-family="{$title.fontset}">
     <t:titlepage-content t:side="recto">
  
-      <productname
-             param:node="ancestor-or-self::book[1]"
-	     text-align="center"
-	     font-size="&hsize5;"
-	     space-before="12mm"
-	     font-weight="bold"
-	     font-family="{$title.fontset}"/>
+
       <biblioid
 	     param:node="ancestor-or-self::book[1]"
 	     text-align="center"
 	     font-size="&hsize5;"
-	     space-before="7mm"
+	     space-before="0mm"
 	     font-weight="bold"
 	     font-family="{$title.fontset}"/>
       <title
@@ -54,18 +48,18 @@
 	     param:node="ancestor-or-self::book[1]"
 	     text-align="center"
 	     font-size="&hsize5;"
-	     space-before="26mm"
+	     space-before="10mm"
 	     font-weight="bold"
 	     font-family="{$title.fontset}"/>
       <volumenum
 		text-align="center"
 		font-size="&hsize3;"
-		space-before="16mm"
+		space-before="10mm"
 		font-family="{$title.fontset}"/>
       <subtitle
 		text-align="center"
 		font-size="&hsize5;"
-		space-before="15mm"
+		space-before="10mm"
 		font-family="{$title.fontset}"/>
       <mediaobject
         text-align="center"
@@ -73,13 +67,22 @@
       <revhistory
 		text-align="center"
 		font-size="&hsize3;"
-		space-before="22mm"
+		space-before="0mm"
 	        font-weight="bold"
 		font-family="{$title.fontset}"/>
-      <corpauthor font-size="&hsize1;"
+<!--
+    <corpauthor font-size="&hsize1;"
 		  text-align="end"
 		  keep-with-next="always"
 		  space-before="30mm"/>
+-->
+      <productname
+             param:node="ancestor-or-self::book[1]"
+	     text-align="center"
+	     font-size="&hsize5;"
+	     space-before="6mm"
+	     font-weight="bold"
+	     font-family="{$title.fontset}"/>
     </t:titlepage-content>
 
   <t:titlepage-content t:side="verso"/>
