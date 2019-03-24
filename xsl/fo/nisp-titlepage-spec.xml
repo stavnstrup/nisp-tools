@@ -34,49 +34,53 @@
   <t:titlepage t:element="book" t:wrapper="fo:block"
                font-family="{$title.fontset}">
     <t:titlepage-content t:side="recto">
- 
-      <productname
-             param:node="ancestor-or-self::book[1]"
-	     text-align="center"
-	     font-size="&hsize5;"
-	     space-before="12mm"
-	     font-weight="bold"
-	     font-family="{$title.fontset}"/>
       <biblioid
 	     param:node="ancestor-or-self::book[1]"
 	     text-align="center"
-	     font-size="&hsize5;"
-	     space-before="7mm"
+	     font-size="&hsize4;"
+	     space-before="0mm"
 	     font-weight="bold"
 	     font-family="{$title.fontset}"/>
       <title
 	     t:named-template="division.title"
 	     param:node="ancestor-or-self::book[1]"
 	     text-align="center"
-	     font-size="&hsize5;"
-	     space-before="26mm"
+	     font-size="&hsize4;"
+	     space-before="10mm"
 	     font-weight="bold"
 	     font-family="{$title.fontset}"/>
       <volumenum
 		text-align="center"
 		font-size="&hsize3;"
-		space-before="16mm"
+		space-before="10mm"
 		font-family="{$title.fontset}"/>
       <subtitle
 		text-align="center"
-		font-size="&hsize5;"
-		space-before="15mm"
+		font-size="&hsize4;"
+		space-before="10mm"
 		font-family="{$title.fontset}"/>
+      <mediaobject
+        text-align="center"
+        space-before="1mm"/>
       <revhistory
 		text-align="center"
 		font-size="&hsize3;"
-		space-before="22mm"
+		space-before="0mm"
 	        font-weight="bold"
 		font-family="{$title.fontset}"/>
-      <corpauthor font-size="&hsize1;"
+<!--
+    <corpauthor font-size="&hsize1;"
 		  text-align="end"
 		  keep-with-next="always"
 		  space-before="30mm"/>
+-->
+      <productname
+             param:node="ancestor-or-self::book[1]"
+	     text-align="center"
+	     font-size="&hsize4;"
+	     space-before="6mm"
+	     font-weight="bold"
+	     font-family="{$title.fontset}"/>
     </t:titlepage-content>
 
   <t:titlepage-content t:side="verso"/>
@@ -92,7 +96,7 @@
 
 <!-- NISP style: Preface titles should be
 
-     uppercased, underlined and centered -->
+     uppercased and centered -->
 
 
 <t:titlepage t:element="preface" t:wrapper="fo:block">
@@ -107,7 +111,6 @@
 	   font-weight="bold"
            space-before="10mm"
            text-transform="uppercase"
-           text-decoration="underline"
            text-align="center"/>
   </t:titlepage-content>
 </t:titlepage>
@@ -116,19 +119,18 @@
 
 <!-- NISP style: Chapter titles should be
 
-           uppercased, underlined and centered -->
+           uppercased and centered -->
 
 <t:titlepage t:element="chapter" t:wrapper="fo:block"
              font-family="{$title.fontset}">
   <t:titlepage-content t:side="recto" margin-left="{$title.margin.left}">
     <title t:named-template="component.title"
 	   param:node="ancestor-or-self::chapter[1]"
- 	   font-size="16pt"
+ 	   font-size="18pt"
 	   font-weight="bold"
 	   font-family="{$title.fontset}"
            space-before="10mm"
            text-transform="uppercase"
-           text-decoration="underline"
            text-align="center"/>
   </t:titlepage-content>
 </t:titlepage>
@@ -137,19 +139,18 @@
 
 <!-- NISP style: Appendix titles should be
 
-           uppercased, underlined and centered -->
+           uppercased and centered -->
 
 <t:titlepage t:element="appendix" t:wrapper="fo:block">
   <t:titlepage-content t:side="recto">
     <title t:named-template="component.title"
 	   param:node="ancestor-or-self::appendix[1]"
 	   margin-left="{$title.margin.left}"
-	   font-size="16pt"
+	   font-size="18pt"
 	   font-weight="bold"
 	   font-family="{$title.fontset}"
            space-before="10mm"
            text-transform="uppercase"
-           text-decoration="underline"
            text-align="center"/>
   </t:titlepage-content>
 </t:titlepage>
@@ -162,8 +163,7 @@
     <title margin-left="{$title.margin.left}"
 	   font-family="{$title.fontset}"
            font-size="16pt"
-           text-transform="uppercase"
-           text-decoration="underline"/>
+           text-transform="uppercase"/>
   </t:titlepage-content>
 </t:titlepage>
 
@@ -171,8 +171,7 @@
   <t:titlepage-content t:side="recto">
     <title
 	   margin-left="{$title.margin.left}"
-	   font-family="{$title.fontset}"
-           text-decoration="underline"/>
+	   font-family="{$title.fontset}"/>
   </t:titlepage-content>
 </t:titlepage>
 
@@ -201,7 +200,6 @@
 
      font-size: 17.28 point
      font-weight: bold
-     decoraton: underlined
      alignment: centered      -->
 
 
@@ -219,7 +217,6 @@
 	     font-size="16pt"
 	     font-weight="bold"
 	     font-family="{$title.fontset}"
-             text-decoration="underline"
              text-align="center"/>
     </t:titlepage-content>
   </t:titlepage>

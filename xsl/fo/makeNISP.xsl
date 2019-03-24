@@ -4,24 +4,24 @@
 Name        : makeNISP.xsl
 
 Description : This stylesheet is a customization of Norman Walsh DocBook
-              XSL-FO stylesheets  and is used to create a XSL-FO version of 
+              XSL-FO stylesheets  and is used to create a XSL-FO version of
               the NATO Interoperability Standards and Profiles (NISP).
-              The stylesheet create as output XSL-FO files according to 
-              the Word Wide Webs Consortiums specification: "Extensible 
-              Stylesheet Language" version 1.0. 
+              The stylesheet create as output XSL-FO files according to
+              the Word Wide Webs Consortiums specification: "Extensible
+              Stylesheet Language" version 1.0.
               (see: http://www.w3c.org/REC/2001/XSL.html).
 
-              The stylesheet imports defined modifications, which are geared 
-              specifically towards The Apache Foundation Formatting Object 
-              processor (FOP), which still lack implementation of multiple 
+              The stylesheet imports defined modifications, which are geared
+              specifically towards The Apache Foundation Formatting Object
+              processor (FOP), which still lack implementation of multiple
               features.
 
               If the stylesheet is used, whith another FO processor, then
               use the appropiate processer extension, if available.
 
-              Copyright (C) 2001-2010 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
-              Danish Defence Research Establishment (DDRE), and 
-              Danish Acquisition and Logistics Organisation and 
+              Copyright (C) 2001-2019 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
+              Danish Defence Research Establishment (DDRE), and
+              Danish Acquisition and Logistics Organisation and
               NATO Command, Control and Consultation Organisation.(NC3O)
 
 
@@ -35,7 +35,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                 xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions"
                 xmlns:rx="http://www.renderx.com/XSL/Extensions"
                 xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="#default saxon axf rx stbl xtbl"  
+                exclude-result-prefixes="#default saxon axf rx stbl xtbl"
                 version="1.1">
 
 <xsl:import href="../docbook-xsl/fo/docbook.xsl"/>
@@ -70,7 +70,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- Stylesheet Extensions -->
 
-<xsl:param name="tablecolumns.extension" select="1"/> 
+<xsl:param name="tablecolumns.extension" select="1"/>
 <xsl:param name="use.extensions" select="1"/>
 
 <xsl:param name="graphicsize.extension" select="1"/>
@@ -104,6 +104,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="ulink.show" select="0"/>
 <xsl:param name="ulink.hyphenate" select="''"/>
 <xsl:param name="xref.with.number.and.title" select="0"/>
+
 <xsl:attribute-set name="xref.properties">
   <xsl:attribute name="color">
     <xsl:choose>
@@ -111,14 +112,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:otherwise>inherit</xsl:otherwise>
     </xsl:choose>
   </xsl:attribute>
-<!--
-  <xsl:attribute name="text-decoration">
-    <xsl:choose>
-      <xsl:when test="self::ulink">underline</xsl:when>
-      <xsl:otherwise>inherit</xsl:otherwise>
-    </xsl:choose>
-  </xsl:attribute>
--->
 </xsl:attribute-set>
 
 <xsl:param name="table.footnote.number.format">1</xsl:param>
@@ -185,11 +178,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
      Times, Courier, Helvetica, Symbol and Zapf Dingbats -->
 
 <xsl:param name="body.font.family" select="'Times'"/>
-<xsl:param name="title.font.family" select="'Times'"/>
 
-<!--
 <xsl:param name="title.font.family" select="'Helvetica'"/>
--->
 <!--
 <xsl:param name="dingbat.font.family" select="'Zapf Dingbats'"/>
 -->
@@ -319,7 +309,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                      |sect5/para">
   <fo:block xsl:use-attribute-sets="normal.para.spacing">
     <xsl:if test="$use.para.numbering != 0">
-      <xsl:number from="book" 
+      <xsl:number from="book"
                  count="para[parent::chapter or
                                parent::appendix or
                                parent::sect1 or
@@ -344,8 +334,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- Custom templates for titlepage elements                              -->
 <!-- ==================================================================== -->
 
-<!-- The volume number should be preceded with the text "Volume", except for 
-     volume 6 (the rationale document), where we do not want any volume info 
+<!-- The volume number should be preceded with the text "Volume", except for
+     volume 6 (the rationale document), where we do not want any volume info
      printed out -->
 
 <xsl:template match="volumenum" mode="titlepage.mode">
@@ -361,15 +351,28 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- The Document number should be embraced in a parentesis -->
 
 <xsl:template match="biblioid" mode="titlepage.mode">
-   <xsl:text>(</xsl:text>
-   <xsl:value-of select="."/>
-   <xsl:text>(</xsl:text>
-   <xsl:value-of select="$adatp34edition"/>
-   <xsl:text>))</xsl:text>
+  <fo:block>
+    NATO STANDARD
+  </fo:block>
+  <fo:block space-before="8mm">
+    <xsl:text></xsl:text>
+    <xsl:value-of select="."/>
+    <xsl:text>(</xsl:text>
+    <xsl:value-of select="$adatp34edition"/>
+    <xsl:text>) / Version </xsl:text>
+    <xsl:choose>
+      <xsl:when test="$version.minor=0">
+        <xsl:value-of select="$version.major"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$version.major+1"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </fo:block>
 </xsl:template>
 
 
-<!-- We only want to use the first revision element. Print version and date on 
+<!-- We only want to use the first revision element. Print version and date on
      seperate lines, preceeded with the text "Version" and "Date" -->
 
 <xsl:template match="revhistory" mode="titlepage.mode">
@@ -392,19 +395,20 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- Don't prefix Chapters or Appendixes, with the text Chapter/Appendix the
      format described below (component number and title).
-     
-     This may look very weird, but what we actually do is to redefine a 
+
+     This may look very weird, but what we actually do is to redefine a
      a subtree of the in-memory copy of the file:
-     "xsl/docbook-xsl/common/l10n.xml", and more precisely the subtree 
+     "xsl/docbook-xsl/common/l10n.xml", and more precisely the subtree
      represented by the file: xsl/docbook-xsl/common/en.xml
 
 -->
 
+<!--
 <xsl:param name="local.l10n.xml" select="document('')"/>
 
 
 <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
-  <l:l10n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0" 
+  <l:l10n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0"
           language="en">
     <l:context name="title-numbered">
       <l:template name="appendix" text="%n. %t"/>
@@ -412,7 +416,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     </l:context>
   </l:l10n>
 </l:i18n>
-
+-->
 
 <!-- ==================================================================== -->
 <!--  Generate headers                                                    -->
@@ -612,7 +616,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
           <xsl:when test="$position='right'">
             <xsl:value-of select="//book/bookinfo/biblioid"/>
             <xsl:text>(</xsl:text>
-            <xsl:value-of select="$adatp34edition"/>  
+            <xsl:value-of select="$adatp34edition"/>
             <xsl:text>)</xsl:text>
             <xsl:if test="($nisp.revision != 0) and ($nisp.lifecycle.stage = 'board' or $nisp.lifecycle.stage = 'release')">
               <xsl:text>-REV</xsl:text>
@@ -631,7 +635,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
           <xsl:when test="$position='left'">
             <xsl:value-of select="//book/bookinfo/biblioid"/>
             <xsl:text>(</xsl:text>
-            <xsl:value-of select="$adatp34edition"/>  
+            <xsl:value-of select="$adatp34edition"/>
             <xsl:text>)</xsl:text>
             <xsl:if test="($nisp.revision != 0) and ($nisp.lifecycle.stage = 'board' or $nisp.lifecycle.stage = 'release')">
               <xsl:text>-REV</xsl:text>
@@ -870,7 +874,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <!-- position can be left, center, right -->
 
     <!-- -->
-    <xsl:if test="(($sequence='blank' or $sequence='even') and $position='left') or 
+    <xsl:if test="(($sequence='blank' or $sequence='even') and $position='left') or
                   (($sequence='first' or $sequence='odd') and $position='right')">
       <xsl:if test="$nisp.lifecycle.stage='draft'">
         <xsl:choose>
@@ -890,7 +894,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <!-- Put pagenumber on all pages except the title page -->
     <xsl:if test="$pageclass != 'titlepage' and $position='center'">
       <fo:block space-before="4pt">- <fo:page-number/> -</fo:block>
-    </xsl:if>  
+    </xsl:if>
   </fo:block>
 </xsl:template>
 
@@ -905,7 +909,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
        pages. So we are not able to put "This page is not
        intentionally blank" on blank pages. According to
        http://xmlgraphics.apache.org/fop/fo.html#fo-blank-pages, we
-       can by putting it in a header, but then we can not have a normal NISP 
+       can by putting it in a header, but then we can not have a normal NISP
        header.
 
        N.B. Both Antenna House and Render X allows this behaviour.
@@ -920,12 +924,12 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
        normal pages (incl. blank pages) and one set for draft pages.
 
        The template "select.user.pagemaster" contains the logic for selecting
-       the userdefined page masters instead of the default pagemasters. 
+       the userdefined page masters instead of the default pagemasters.
 
        See http://www.sagehill.net/docbookxsl/PageDesign.html for a detailed
        explanation of userdefined pagemasters.
 
-       Note, that we use the default pagemaster for titlepages ??? 
+       Note, that we use the default pagemaster for titlepages ???
        NEED TO IVESTIGATE THE LAST STATEMENT
 
        .................................................................... -->
@@ -967,7 +971,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   </fo:simple-page-master>
 
 
-  
+
   <!-- NISP page master for normal blank pages (draft versions) -->
   <fo:simple-page-master master-name="nisp.blank-draft"
                          page-width="{$page.width}"
@@ -1011,7 +1015,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                             page-position="first"/>
       <fo:conditional-page-master-reference master-reference="titlepage-odd"
                                             odd-or-even="odd"/>
-      <fo:conditional-page-master-reference 
+      <fo:conditional-page-master-reference
                                             odd-or-even="even">
         <xsl:attribute name="master-reference">
           <xsl:choose>
@@ -1033,7 +1037,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                             page-position="first"/>
       <fo:conditional-page-master-reference master-reference="lot-odd"
                                             odd-or-even="odd"/>
-      <fo:conditional-page-master-reference 
+      <fo:conditional-page-master-reference
                                             odd-or-even="even">
         <xsl:attribute name="master-reference">
           <xsl:choose>
@@ -1054,7 +1058,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                             page-position="first"/>
       <fo:conditional-page-master-reference master-reference="front-odd"
                                             odd-or-even="odd"/>
-      <fo:conditional-page-master-reference 
+      <fo:conditional-page-master-reference
                                             odd-or-even="even">
         <xsl:attribute name="master-reference">
           <xsl:choose>
@@ -1075,7 +1079,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                             page-position="first"/>
       <fo:conditional-page-master-reference master-reference="body-odd"
                                             odd-or-even="odd"/>
-      <fo:conditional-page-master-reference 
+      <fo:conditional-page-master-reference
                                             odd-or-even="even">
         <xsl:attribute name="master-reference">
           <xsl:choose>
@@ -1096,7 +1100,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                             page-position="first"/>
       <fo:conditional-page-master-reference master-reference="back-odd"
                                             odd-or-even="odd"/>
-      <fo:conditional-page-master-reference 
+      <fo:conditional-page-master-reference
                                             odd-or-even="even">
         <xsl:attribute name="master-reference">
           <xsl:choose>
@@ -1117,7 +1121,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                             page-position="first"/>
       <fo:conditional-page-master-reference master-reference="index-odd"
                                             odd-or-even="odd"/>
-      <fo:conditional-page-master-reference 
+      <fo:conditional-page-master-reference
                                             odd-or-even="even">
         <xsl:attribute name="master-reference">
           <xsl:choose>
@@ -1129,7 +1133,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     </fo:repeatable-page-master-alternatives>
   </fo:page-sequence-master>
 
-  
+
   <xsl:if test="$draft.mode != 'no'">
     <!-- setup for draft title page(s) -->
 <!--
@@ -1141,7 +1145,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                               page-position="first"/>
         <fo:conditional-page-master-reference master-reference="titlepage-odd-draft"
                                               odd-or-even="odd"/>
-        <fo:conditional-page-master-reference 
+        <fo:conditional-page-master-reference
                                               odd-or-even="even">
           <xsl:attribute name="master-reference">
             <xsl:choose>
@@ -1163,7 +1167,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                               page-position="first"/>
         <fo:conditional-page-master-reference master-reference="lot-odd-draft"
                                               odd-or-even="odd"/>
-        <fo:conditional-page-master-reference 
+        <fo:conditional-page-master-reference
                                               odd-or-even="even">
           <xsl:attribute name="master-reference">
             <xsl:choose>
@@ -1184,7 +1188,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                               page-position="first"/>
         <fo:conditional-page-master-reference master-reference="front-odd-draft"
                                               odd-or-even="odd"/>
-        <fo:conditional-page-master-reference 
+        <fo:conditional-page-master-reference
                                               odd-or-even="even">
           <xsl:attribute name="master-reference">
             <xsl:choose>
@@ -1205,7 +1209,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                               page-position="first"/>
         <fo:conditional-page-master-reference master-reference="body-odd-draft"
                                               odd-or-even="odd"/>
-        <fo:conditional-page-master-reference 
+        <fo:conditional-page-master-reference
                                               odd-or-even="even">
           <xsl:attribute name="master-reference">
             <xsl:choose>
@@ -1226,7 +1230,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                               page-position="first"/>
         <fo:conditional-page-master-reference master-reference="back-odd-draft"
                                               odd-or-even="odd"/>
-        <fo:conditional-page-master-reference 
+        <fo:conditional-page-master-reference
                                               odd-or-even="even">
           <xsl:attribute name="master-reference">
             <xsl:choose>
@@ -1247,7 +1251,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
                                               page-position="first"/>
         <fo:conditional-page-master-reference master-reference="index-odd-draft"
                                               odd-or-even="odd"/>
-        <fo:conditional-page-master-reference 
+        <fo:conditional-page-master-reference
                                               odd-or-even="even">
           <xsl:attribute name="master-reference">
             <xsl:choose>

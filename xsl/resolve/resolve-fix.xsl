@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <!--
 
@@ -35,21 +35,39 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <row>
         <xsl:for-each select="../colspec"><entry/></xsl:for-each>
       </row>
-    </xsl:if>    
+    </xsl:if>
     <xsl:apply-templates/>
   </tbody>
-</xsl:template>  
+</xsl:template>
 
 <!-- ==================================================================== -->
 
 <!-- If during the resolver process step, a standard or profile do not have an
-     orgid, an indexterm element with an unknown organisation as primary 
-     elementis created. This templates removes the indexterm again. 
+     orgid, an indexterm element with an unknown organisation as primary
+     elementis created. This templates removes the indexterm again.
 -->
 
 
 <xsl:template match="indexterm[primary='UNKNOWN ORG']"/>
 
+<!-- ==================================================================== -->
+
+<!-- Remove redundant footnotes to standards -->
+
+<xsl:template match="footnote">
+  <xsl:variable name="myid" select="@id"/>
+  <xsl:choose>
+     <xsl:when test="preceding::footnote[@id=$myid]">
+       <footnoteref linkend="{$myid}"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <footnote>
+        <xsl:apply-templates select="@*"/>
+        <xsl:apply-templates/>
+      </footnote>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
 
 <!-- ==================================================================== -->
 

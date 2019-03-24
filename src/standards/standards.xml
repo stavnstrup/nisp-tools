@@ -5,6 +5,13 @@
 <standards revision="ADatP-34(L) - Draft">
    <revhistory>
       <revision>
+         <revnumber>12.0</revnumber>
+         <date>2019-03-18</date>
+         <revdescription>
+            <para>Used in initial release of ADatP-34(L) - AC/322-N(2019)0052</para>
+         </revdescription>
+      </revision>
+      <revision>
          <revnumber>11.0.2</revnumber>
          <date>2018-12-07</date>
          <revdescription>
@@ -641,7 +648,9 @@
                         <node title="Frame-based Aggregation Services" level="7" id="T-746825fb-1e38-46e6-9550-bc2f0a70fba6-X" description="The Frame-based Aggregation Services provide the termination of Frame-based Access Services or Frame-based Transport Services supported by different Transmission Services (e.g. optical, wireless terrestrial, SATCOM).&#xA;&#xA;The following service types can be considered:&#xA;* Star Topology frame services (Ethernet based, e.g. L2 satcom hub);&#xA;* L2 SATCOM hub services;&#xA;* DSL hub services (terrestrial, ATM based); and&#xA;* DLOS/NLOS hub services (incl. WiMAX)." emUUID="746825fb-1e38-46e6-9550-bc2f0a70fba6"/>
                         <node title="Circuit-based Aggregation Services" level="7" id="T-dd9cf98d-d7b3-49cd-9146-bc2ce547eb8c-X" description="The Circuit-based Aggregation Services involve the termination of multiple tributary circuits (e.g. E1), each providing circuit-based transport services to different network nodes, and multiplexing them into an aggregate rate (e.g. 16x E1 lines at 2 Mbps each, multiplexed into one E3 line at 34 Mbps)." emUUID="dd9cf98d-d7b3-49cd-9146-bc2ce547eb8c"/>
                      </node>
-                     <node title="Broadcast Services" level="6" id="T-bc2d3723-4a3a-4a34-a0b4-7886760f3137-X" description="The Broadcast Services provide the distribution of transport flows through a combination both the &#34;within the core&#34; and &#34;at the edge&#34; infrastructure types to form a logical &#34;ring'. Broadcast Services within the core involve the broadcast of transport flows towards multiple edge-points that connect to the broadcast node either directly over transmission lines or through Transit Services. Broadcast Services at the edge involve the broadcast of traffic flows towards multiple end-nodes that connect to the broadcast node over transmission lines. &#xA;&#xA;Broadcast Services involve Packet-, Frame- and Circuit-based Transport Services, where each of the services uses the same Transmission Service to diverge out of a given network node (often referred to as concentrator)." emUUID="bc2d3723-4a3a-4a34-a0b4-7886760f3137"/>
+                     <node title="Broadcast Services" level="6" id="T-bc2d3723-4a3a-4a34-a0b4-7886760f3137-X" description="The Broadcast Services provide the distribution of transport flows through a combination both the &#34;within the core&#34; and &#34;at the edge&#34; infrastructure types to form a logical &#34;ring'. Broadcast Services within the core involve the broadcast of transport flows towards multiple edge-points that connect to the broadcast node either directly over transmission lines or through Transit Services. Broadcast Services at the edge involve the broadcast of traffic flows towards multiple end-nodes that connect to the broadcast node over transmission lines. &#xA;&#xA;Broadcast Services involve Packet-, Frame- and Circuit-based Transport Services, where each of the services uses the same Transmission Service to diverge out of a given network node (often referred to as concentrator)." emUUID="bc2d3723-4a3a-4a34-a0b4-7886760f3137">
+                        <node id="T-45601b01-2ac4-4744-8cf6-bb248fbd8dea-X" title="Packet-based Broadcast Services" emUUID="45601b01-2ac4-4744-8cf6-bb248fbd8dea" level="7"/>
+                     </node>
                   </node>
                   <node title="Transmission Services" level="5" id="T-8a45e97a-f563-4d05-9256-92c51eef8909-X" description="The Transmission Services cover the physical layer (also referred to as media layer or air-interface in wireless/satellite (SATCOM) communications) supporting Transport Services, as well as Communications Access Services. Support for the latter is relevant to personal communications systems, in which the User Appliances directly connect to the transmission element without any transport elements in between.&#xA;&#xA;Transmission Services are confined to the assets dealing with the adaptation to the transmission media (i.e. line drivers, adapters, transceivers, transmitters, and radiating elements (e.g. antennas). In some cases this adaption will include the modem, but in other cases the modem will be associated with Transport Services when implementing the first stage of the media-adaptation process (e.g. coding,  modulation). The second stage, involving frequency conversion, amplification, radiation, bent-pipe transponder relay, etc., will be covered under Transmission Services proper.&#xA;&#xA;The Transmission Services nomenclature is based on the service categories wired or wireless (including SATCOM) and coverage (i.e. local, metro, wide, and LOS, BLOS). Additionally in the case of wireless the terms static or mobile are employed. Categorising the transmission services in this manner is considered to be intuitive, &#34;military service&#34; agnostic, combines both wireless-radio and SATCOM under the single term &#34;wireless&#34; thus resulting in fewer service categories and excludes cross referencing." emUUID="8a45e97a-f563-4d05-9256-92c51eef8909">
                      <node title="Transmission CIS Security Services" level="6" id="T-718d1dca-c35c-4fa4-a466-f25ef62008bb-X" description="The Transmission CIS Security Services provide a foundation to implement and enforce CIS Security policies at the communications transmission level." emUUID="718d1dca-c35c-4fa4-a466-f25ef62008bb">
@@ -651,6 +660,11 @@
                      <node title="Wireless LOS Static Transmission Services" level="6" id="T-3d1d6ffe-eb27-43a2-bf77-f76b44cbca35-X" description="The Wireless Line of Sight (LOS) Static Transmission Services support the wireless transfer of data amongst two or more static nodes within Line of Sight (LOS) of each other, employing modulated Radio Frequency (RF) carriers in different frequency bands. Selection of frequency bands is based on coverage, capacity, propagation, transceiver attributes, and frequency coordination constraints.&#xA;&#xA;In the context of these services, a distinction is made between transmission over an optical/visual LOS path (i.e. free of any form of visual obstruction), and a virtual LOS path (i.e. a straight line through visually obstructing material) - also referred to as Non- or Near- LOS (NLOS).&#xA;&#xA;Examples of Wireless Line of Sight (LOS) Static Transmission Services with optical/visual LOS are Direct Line of Sight (DLOS) radio and Ultra High Frequency (UHF) radio-relay. Services with virtual LOS are often employed in the context of Wireless Local Area Network (WLAN) and Wireless Metropolitan Area Network (WMAN), or with other types of LOS wireless communication such as Combat Net Radio (CNR), cellular, etc." emUUID="3d1d6ffe-eb27-43a2-bf77-f76b44cbca35">
                         <node title="Wireless LOS Static Narrowband Transmission Services" level="7" id="T-6ee07793-0002-465d-96f9-9df6d7ca0844-X" description="The Wireless Line of Sight (LOS) Static Narrowband Transmission Services support the wireless transfer of data amongst two or more static nodes within Line of Sight (LOS) of each other, employing modulated Radio Frequency (RF) carriers in different frequency bands, and employing narrowband low capacity wireless terminals operating mainly in the VHF, UHF frequency bands and in the HF frequency band using direct or ground wave propagation. &#xA;&#xA;Examples of Wireless LOS Static Narrowband Transmission Services are Single Channel HF/VHF/UHF Radio Equipment, Slow Hop HF EPM Communications Systems, Tactical Data Exchange (Link11/Link 11B), and Future NATO Narrowband Waveform (NBWF)." emUUID="6ee07793-0002-465d-96f9-9df6d7ca0844"/>
                         <node title="Wireless LOS Static Wideband Transmission Service" level="7" id="T-a5b16e23-0231-4322-a3f5-77e5fa7add9c-X" description="The Wireless Line of Sight (LOS) Static Wideband Transmission Services support the wireless transfer of data amongst two or more static nodes within Line of Sight (LOS) of each other, employing modulated Radio Frequency (RF) carriers in different frequency bands, and employing wideband high capacity wireless terminals operating in the UHF frequency band, S band (2 to 4 GHz), C band (4 to 8 GHz) and NATO military band IV (4.4 to 5 GHz).&#xA;&#xA;Examples of Wireless LOS Static Wideband Transmission Services are Point-to Point Microwave radio links, Wireless Personal Area Network (WPAN), Wireless Local Area Network (WLAN), Wireless Metropolitan Area Network (WMAN), Worldwide Interoperability for Microwave Access (WiMAX), Tactical Highband Networking Waveform (HNW), and Future NATO Wideband Waveform (WBWF)." emUUID="a5b16e23-0231-4322-a3f5-77e5fa7add9c"/>
+                     </node>
+                     <node title="Wired Transmission Services" level="6" id="T-ece8fc03-3661-41f1-ba4b-7ba8fedf9a56-X" description="The Wired Transmission Services support physical transfer of data, point-to-point or point-to multipoint, using wired transmission medium amongst two or more static nodes. Based on range and capacity, these services are distinguished for Local Area Networks (LAN - over relatively short distances), Metropolitan Area Networks (MAN - medium to high capacity over distances spanning tens of kilometers) or Wide Area Networks (WAN - high capacity wired transmission medium over long distances)." emUUID="ece8fc03-3661-41f1-ba4b-7ba8fedf9a56">
+                        <node id="T-6c7b5ec2-1772-4876-bbe3-ffd1f3f765d0-X" title="Wired Local Area Transmission Services" emUUID="6c7b5ec2-1772-4876-bbe3-ffd1f3f765d0" level="7"/>
+                        <node id="T-6e3551c3-4131-48e7-b39a-6a8927f5a7ba-X" title="Wired Metropolitan Area Transmission Services" emUUID="6e3551c3-4131-48e7-b39a-6a8927f5a7ba" level="7"/>
+                        <node id="T-30406e59-7929-4d51-b45a-8bf58ee002b0-X" title="Wired Wide Area Transmission Services" emUUID="30406e59-7929-4d51-b45a-8bf58ee002b0" level="7"/>
                      </node>
                      <node title="Wireless LOS Mobile Transmission Services" level="6" id="T-19eefbaa-c1cd-4154-b101-d6bd0994bd34-X" description="The Wireless Line of Sight (LOS) Mobile Transmission Services support the wireless data of amongst two or more nodes, where one or more of the nodes are operating on the move, within Line of Sight (LOS) of each other, employing modulated Radio Frequency (RF) carriers in different frequency bands. Selection of frequency bands is based on coverage, capacity, propagation, transceiver attributes, and frequency coordination constraints.&#xA;&#xA;In the context of these services, a distinction is made between transmission over an optical/visual LOS path (i.e. free of any form of visual obstruction), and a virtual LOS path (i.e. a straight line through visually obstructing material) - also referred to as Non- or Near- LOS (NLOS)." emUUID="19eefbaa-c1cd-4154-b101-d6bd0994bd34">
                         <node title="Wireless LOS Mobile Narrowband Transmission Services" level="7" id="T-cf5a3df7-cff8-4a27-abdc-a40b32b9f0c4-X" description="The Wireless Line of Sight (LOS) Mobile Narrowband Transmission Services support the wireless data of amongst two or more nodes, where one or more of the nodes are operating on the move, within Line of Sight (LOS) of each other, employing modulated Radio Frequency (RF) carriers in different frequency bands, and employing narrowband low capacity wireless terminals operating mainly in the VHF, UHF frequency bands and in the HF frequency band using direct or ground wave propagation.&#xA;&#xA;Examples of Wireless LOS Mobile Narrowband Transmission Services are Single Channel HF/VHF/UHF Radio Equipment, Slow Hop HF EPM Communications Systems, Tactical Data Exchange (Link11/Link 11B), and Future NATO Narrowband Waveform (NBWF), all with the consideration that adequate tracking antennas are employed and the transceivers are adapted for platform motion. Additional service types are Terrestrial Trunked Radio (TETRA), Militarized Cellular Networks, Digital Enhanced Cordless Telecommunications (DECT), and Narrowband HF/VHF Subnet Relay." emUUID="cf5a3df7-cff8-4a27-abdc-a40b32b9f0c4"/>
@@ -687,7 +701,7 @@
             <node id="user.cloud.cloud-computing" title="Cloud Computing" emUUID="" level="3"/>
             <node id="user.cloud.it-infrastructure-management" title="IT Infrastructure Management" emUUID="" level="3"/>
          </node>
-         <node id="user.directory-data-synchronization" title="Directory Data Synchronization Services" emUUID="" level="3"/>
+         <node id="user.directory-data-synchronization" title="Directory Data Synchronization Services" emUUID="" level="2"/>
          <node id="temp-Archive" title="Archive profile related" emUUID="" level="2">
             <node id="user.archive.data-sets-ds" title="Data sets (e.g. scientific data) and any structured information not fitting other content types" emUUID="" level="3"/>
             <node id="user.archive.data-sets-db" title="Database content" emUUID="" level="3"/>
@@ -702,11 +716,8 @@
             <node id="user.archive.webarchive" title="Web sites and portals" emUUID="" level="3"/>
          </node>
          <node id="user.c3extended" title="Extended C3 Taxonomy" emUUID="" level="2" description="These nodes will be part of version 3 of the C3 Taxonomy">
-            <node id="T-6c7b5ec2-1772-4876-bbe3-ffd1f3f765d0-X" title="Wired Local Area Transmission Services" emUUID="6c7b5ec2-1772-4876-bbe3-ffd1f3f765d0" level="3"/>
-            <node id="T-6e3551c3-4131-48e7-b39a-6a8927f5a7ba-X" title="Wired Metropolitan Area Transmission Services" emUUID="6e3551c3-4131-48e7-b39a-6a8927f5a7ba" level="3"/>
-            <node id="T-30406e59-7929-4d51-b45a-8bf58ee002b0-X" title="Wired Wide Area Transmission Services" emUUID="30406e59-7929-4d51-b45a-8bf58ee002b0" level="3"/>
-            <node id="T-45601b01-2ac4-4744-8cf6-bb248fbd8dea-X" title="Packet-based Broadcast Services" emUUID="45601b01-2ac4-4744-8cf6-bb248fbd8dea" level="3"/>
-            <node id="T-5E310F93-58F2-4383-8AA2-4466B858078-X" title="Information Exploitation Process" emUUID="5E310F93-58F2-4383-8AA2-4466B858078" level="3"/>
+            <node id="T-5e310f93-58f2-4383-8aa2-4466b8580782-X" title="Information Exploitation Process" emUUID="5e310f93-58f2-4383-8aa2-4466b8580782" level="3"/>
+						<node id="T-cef94bbc-8278-4066-b01f-403318515fa3-X" title="Browser Application" emUUID="cef94bbc-8278-4066-b01f-403318515fa3" level="3"/>
          </node>
       </node>
    </taxonomy>
@@ -1280,7 +1291,7 @@
       <standard id="c3b-ac322-d2006-0066" tag="Interim FFI">
          <document orgid="c3b" pubnum="AC/322-D(2006)0066" title="Interim NATO Friendly Force Information (FFI) Standard for Interoperability of Force Tracking Systems (FFTS)" date="2006"/>
          <applicability/>
-         <responsibleparty rpref="fmn-cpwg"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri/>
             <history>
@@ -6180,13 +6191,14 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
             on the network, and under the assumption that packets traveling along the
             network can be read, modified, and inserted at will.
          </applicability>
-         <responsibleparty rpref="ns"/>
-         <status mode="accepted">
+         <responsibleparty rpref="fmn-cpwg"/>
+         <status mode="deleted">
             <uri>https://www.ietf.org/rfc/rfc1510.txt</uri>
             <history>
                <event flag="added" date="2010-09-22" version="5.0"/>
                <event flag="changed" date="2017-01-14" rfcp="9-17" version="10.0"/>
                <event flag="changed" date="2018-10-08" rfcp="11-55" version="12.0"/>
+               <event flag="deleted" date="2019-03-06" rfcp="" version="12.0"/>
             </history>
          </status>
          <uuid>7d0f803e-4298-450b-9984-fbca07eb1170</uuid>
@@ -6555,7 +6567,7 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
             primarily defined in the standard protocol specification documents, with the
             corrections, amendments, and supplements contained in this memo
          </applicability>
-         <responsibleparty rpref="ns"/>
+         <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
             <uri>https://www.ietf.org/rfc/rfc1812.txt</uri>
             <history>
@@ -7576,7 +7588,7 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
       </standard>
 
       <standard id="ietf-rfc2246" tag="RFC 2246: TLS 1.0">
-         <document orgid="ietf" pubnum="RFC 2246" date="1999-01-00" title="The TLS Protocol Versin 1.0" version="1.0"/>
+         <document orgid="ietf" pubnum="RFC 2246" date="1999-01-00" title="The TLS Protocol Version 1.0" version="1.0"/>
          <applicability>
             This document specifies Version 1.0 of the Transport Layer
             Security (TLS) protocol. The TLS protocol provides communications privacy
@@ -8936,7 +8948,7 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
             defines how compliant systems should make use of those attributes for the
             purpose of conveying IPv6 routing information.
          </applicability>
-         <responsibleparty rpref="ns"/>
+         <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
             <uri>https://www.ietf.org/rfc/rfc2545.txt</uri>
             <history>
@@ -16585,7 +16597,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-120" tag="SCIP-120">
-         <document orgid="iicwg" pubnum="SCIP-120" date="2010-03-01" title="Key Management Plan rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-120" date="2010-03-01" title="Key Management Plan rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16598,7 +16610,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-121" tag="SCIP-121">
-         <document orgid="iicwg" pubnum="SCIP-121" date="2012-10-01" title="SCIP X.509 Key Management Plan rev.0.8" version="0"/>
+         <document orgid="cis3cip" pubnum="SCIP-121" date="2012-10-01" title="SCIP X.509 Key Management Plan rev.0.8" version="0"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16611,7 +16623,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-210" tag="SCIP-210">
-         <document orgid="iicwg" pubnum="SCIP-210" date="2010-09-01" title="SCIP Signalling Plan rev.3.3" version="3"/>
+         <document orgid="cis3cip" pubnum="SCIP-210" date="2010-09-01" title="SCIP Signalling Plan rev.3.3" version="3"/>
          <applicability>
             This document specifies the signaling requirements for the Secure Communication
             Interoperability Protocol (SCIP) operational modes. The requirements represent
@@ -16628,7 +16640,7 @@ database as a logical folder of email messages.</applicability>
                For details, contact AC/322 (SC/4).
             </para>
          </applicability>
-         <responsibleparty rpref="fmn-cpwg"/>
+         <responsibleparty rpref="ns"/>
          <status mode="accepted">
             <history>
                <event flag="added" date="2010-08-13" rfcp="4-3" version="5.0"/>
@@ -16641,7 +16653,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-213" tag="SCIP-213">
-         <document orgid="iicwg" pubnum="SCIP-213" date="2010-09-24" title="Mulitimedia Option-Specific MERs for SCIP Devices rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-213" date="2010-09-24" title="Mulitimedia Option-Specific MERs for SCIP Devices rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16654,7 +16666,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-213.1" tag="SCIP-213.1">
-         <document orgid="iicwg" pubnum="SCIP-213.1" date="2010-09-24" title="Mulitimedia Option-Specific MERs for SCIP Devices rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-213.1" date="2010-09-24" title="Mulitimedia Option-Specific MERs for SCIP Devices rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16667,7 +16679,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-214" tag="SCIP-214">
-         <document orgid="iicwg" pubnum="SCIP-214" date="2010-01-16" title="Network-Specific Minimum Essential Requirements (MERs) for SCIP Devices, rev.1.2" version="1.2"/>
+         <document orgid="cis3cip" pubnum="SCIP-214" date="2010-01-16" title="Network-Specific Minimum Essential Requirements (MERs) for SCIP Devices, rev.1.2" version="1.2"/>
          <applicability>
             This document provides an index to the specifications of the network-specific
             interface Minimum Essential Requirements (MERs) for Secure Communication
@@ -16679,7 +16691,7 @@ database as a logical folder of email messages.</applicability>
                For details, contact AC/322 (SC/4).
             </para>
          </applicability>
-         <responsibleparty rpref="fmn-cpwg"/>
+         <responsibleparty rpref="ns"/>
          <status mode="accepted">
             <history>
                <event flag="added" date="2010-08-13" rfcp="4-3" version="5.0"/>
@@ -16691,7 +16703,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-214.1" tag="SCIP-214.1">
-         <document orgid="iicwg" pubnum="SCIP-214.1" date="2008-06-10" title="SCIP over the PSTN rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-214.1" date="2008-06-10" title="SCIP over the PSTN rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16704,7 +16716,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-214.2" tag="SCIP-214.2">
-         <document orgid="iicwg" pubnum="SCIP-214.2" date="2010-01-1" title="SCIP over RTP rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-214.2" date="2010-01-1" title="SCIP over RTP rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16717,7 +16729,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-214.3" tag="SCIP-214.3">
-         <document orgid="iicwg" pubnum="SCIP-214.3" date="2014-05-02" title="Securing SIP Signaling - Use of TLS with SCIP" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-214.3" date="2014-05-02" title="Securing SIP Signaling - Use of TLS with SCIP" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16729,9 +16741,9 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-215" tag="SCIP-215">
-         <document orgid="iicwg" pubnum="SCIP-215" date="2011-07-08" title="U.S. SCIP/IP Implementation Standard and MER Publication rev.2.2" version="2"/>
+         <document orgid="cis3cip" pubnum="SCIP-215" date="2011-07-08" title="U.S. SCIP/IP Implementation Standard and MER Publication rev.2.2" version="2"/>
          <applicability/>
-         <responsibleparty rpref="fmn-cpwg"/>
+         <responsibleparty rpref="ns"/>
          <status mode="accepted">
             <history>
                <event flag="added" date="2012-11-26" rfcp="6-84" version="7.0"/>
@@ -16743,7 +16755,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-216" tag="SCIP-216">
-         <document orgid="iicwg" pubnum="SCIP-216" date="2011-07-08" title="Minimum Essential Requirements (MER) for V.150.1 Gateways Publication rev.2.2" version="2"/>
+         <document orgid="cis3cip" pubnum="SCIP-216" date="2011-07-08" title="Minimum Essential Requirements (MER) for V.150.1 Gateways Publication rev.2.2" version="2"/>
          <applicability/>
          <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
@@ -16757,9 +16769,9 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-220" tag="SCIP-220">
-         <document orgid="iicwg" pubnum="SCIP-220" date="2006-07-13" title="Requirement Document"/>
+         <document orgid="cis3cip" pubnum="SCIP-220" date="2006-07-13" title="Requirement Document"/>
          <applicability/>
-         <responsibleparty rpref="fmn-cpwg"/>
+         <responsibleparty rpref="ns"/>
          <status mode="accepted">
             <history>
                <event flag="added" date="2013-07-28" rfcp="7-27" version="8.0"/>
@@ -16771,9 +16783,9 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-221" tag="SCIP-221">
-         <document orgid="iicwg" pubnum="SCIP-221" date="2011-04-26" title="SCIP Minimum Implementation Profile (MIP) rev.3.0" version="3"/>
+         <document orgid="cis3cip" pubnum="SCIP-221" date="2011-04-26" title="SCIP Minimum Implementation Profile (MIP) rev.3.0" version="3"/>
          <applicability/>
-         <responsibleparty rpref="fmn-cpwg"/>
+         <responsibleparty rpref="ns"/>
          <status mode="accepted">
             <history>
                <event flag="added" date="2012-11-26" rfcp="6-84" version="7.0"/>
@@ -16786,7 +16798,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-231" tag="SCIP-231">
-         <document orgid="iicwg" pubnum="SCIP-231" date="2008-03-01" title="Secure Communications Interoperability Protocol ECMQV/AES Cryptography Specification, rev.1.3" version="1.1"/>
+         <document orgid="cis3cip" pubnum="SCIP-231" date="2008-03-01" title="Secure Communications Interoperability Protocol ECMQV/AES Cryptography Specification, rev.1.3" version="1.1"/>
          <applicability>
             This document specifies the cryptography requirements and associated Interoperable
             Non-Type 1 Operational Modes for the Secure Communications Interoperability
@@ -16814,9 +16826,9 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233" tag="SCIP-233">
-         <document orgid="iicwg" pubnum="SCIP-233" date="2012-08-06" title="SCIP Cryptography Specification - Main Module rev.1.1" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233" date="2012-08-06" title="SCIP Cryptography Specification - Main Module rev.1.1" version="1"/>
          <applicability/>
-         <responsibleparty rpref="fmn-cpwg"/>
+         <responsibleparty rpref="ns"/>
          <status mode="accepted">
             <history>
                <event flag="added" date="2012-11-26" rfcp="6-84" version="7.0"/>
@@ -16828,7 +16840,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.102" tag="SCIP-233.102">
-         <document orgid="iicwg" pubnum="SCIP-233.102" title="NATO Elliptic Curve (EC) Key Material Specification Rev. 1.0." date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.102" title="NATO Elliptic Curve (EC) Key Material Specification Rev. 1.0." date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16841,7 +16853,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.104" tag="SCIP-233.104">
-         <document orgid="iicwg" pubnum="SCIP-233.104" title="NATO Pre Placed Key (PPK) Key Material Format and Fill Checks Specification Rev.1.0" date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.104" title="NATO Pre Placed Key (PPK) Key Material Format and Fill Checks Specification Rev.1.0" date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16854,7 +16866,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.105" tag="SCIP-233.105">
-         <document orgid="iicwg" pubnum="SCIP-233.105" title="Universal Elliptic Curve (EC) Key Material Specification Rev. 1.0" date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.105" title="Universal Elliptic Curve (EC) Key Material Specification Rev. 1.0" date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16867,7 +16879,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.106" tag="SCIP-233.106">
-         <document orgid="iicwg" pubnum="SCIP-233.106" date="2012-08-06" title="Universal Call Setup Encryption (CSE) Key Material Format and Fill Specification rev.1.1" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.106" date="2012-08-06" title="Universal Call Setup Encryption (CSE) Key Material Format and Fill Specification rev.1.1" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16880,7 +16892,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.108" tag="SCIP-233.108">
-         <document orgid="iicwg" pubnum="SCIP-233.108" title="Universal Multi-Point Pre Placed Key (PPK) Material Format and Fill Specification Rev. 1.0" date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.108" title="Universal Multi-Point Pre Placed Key (PPK) Material Format and Fill Specification Rev. 1.0" date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16893,7 +16905,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.109" tag="SCIP-233.109">
-         <document orgid="iicwg" pubnum="SCIP-233.109" title="X.509 Elliptic Curve (EC) Key Material Format Specification" date="2014-10-07"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.109" title="X.509 Elliptic Curve (EC) Key Material Format Specification" date="2014-10-07"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16906,7 +16918,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.110" tag="SCIP-233.110">
-         <document orgid="iicwg" pubnum="SCIP-233.110" date="2012-10-17" title="MERCATOR Call Setup Encryption (CSE) Key Material Format and Fill Specification rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.110" date="2012-10-17" title="MERCATOR Call Setup Encryption (CSE) Key Material Format and Fill Specification rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16919,7 +16931,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.150" tag="SCIP-233.150">
-         <document orgid="iicwg" pubnum="SCIP-233.150" title="Unencrypted Key Fill Specification Rev. 1.0." date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.150" title="Unencrypted Key Fill Specification Rev. 1.0." date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16932,7 +16944,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.151" tag="SCIP-233.151">
-         <document orgid="iicwg" pubnum="SCIP-233.151" title="CRC Calculations Specifications Rev. 1.0." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.151" title="CRC Calculations Specifications Rev. 1.0." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16945,7 +16957,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.201" tag="SCIP-233.201">
-         <document orgid="iicwg" pubnum="SCIP-233.201" title="Universal Call-Setup Encryption (CSE) Specification Rev. 1.0." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.201" title="Universal Call-Setup Encryption (CSE) Specification Rev. 1.0." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16958,7 +16970,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.202" tag="SCIP-233.202">
-         <document orgid="iicwg" pubnum="SCIP-233.202" date="2012-10-17" title="MERCATOR Call Setup Encryption (CSE) Specification rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.202" date="2012-10-17" title="MERCATOR Call Setup Encryption (CSE) Specification rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16971,7 +16983,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.302" tag="SCIP-233.302">
-         <document orgid="iicwg" pubnum="SCIP-233.302" title="NATO EC Agreement and TEK Derivation Specification Rev. 1.0." date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.302" title="NATO EC Agreement and TEK Derivation Specification Rev. 1.0." date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16984,7 +16996,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.303" tag="SCIP-233.303">
-         <document orgid="iicwg" pubnum="SCIP-233.303" title="Universal ECMQV Key Agreement and TEK Derivation Specification Rev. 1.0" date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.303" title="Universal ECMQV Key Agreement and TEK Derivation Specification Rev. 1.0" date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -16997,7 +17009,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.304" tag="SCIP-233.304">
-         <document orgid="iicwg" pubnum="SCIP-233.304" title="NATO Point-to-Point and Multipoint PPK-Processing Specification Rev.1.0" date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.304" title="NATO Point-to-Point and Multipoint PPK-Processing Specification Rev.1.0" date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17010,7 +17022,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.305" tag="SCIP-233.305">
-         <document orgid="iicwg" pubnum="SCIP-233.305" title="Universal Multipoint PPK-Processing Specification Rev. 1.0." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.305" title="Universal Multipoint PPK-Processing Specification Rev. 1.0." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17023,7 +17035,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.307" tag="SCIP-233.307">
-         <document orgid="iicwg" pubnum="SCIP-233.307" date="2011-07-08" title="ECDH Key Agreement and TEK Derivation rev.1.1" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.307" date="2011-07-08" title="ECDH Key Agreement and TEK Derivation rev.1.1" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17036,7 +17048,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.308" tag="SCIP-233.308">
-         <document orgid="iicwg" pubnum="SCIP-233.308" date="2012-10-17" title="MERCATOR ECDH Key Agreement and TEK Derivation Specification rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.308" date="2012-10-17" title="MERCATOR ECDH Key Agreement and TEK Derivation Specification rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17049,7 +17061,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.350" tag="SCIP-233.350">
-         <document orgid="iicwg" pubnum="SCIP-233.350" date="2012-10-17" title="Interoperable Terminal Priority (TP) Community of Interest (COI) Specification rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.350" date="2012-10-17" title="Interoperable Terminal Priority (TP) Community of Interest (COI) Specification rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17062,7 +17074,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.401" tag="SCIP-233.401">
-         <document orgid="iicwg" pubnum="SCIP-233.401" date="2012-08-06" title="Application State Vector Processing Specification rev.1.2" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.401" date="2012-08-06" title="Application State Vector Processing Specification rev.1.2" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17075,7 +17087,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.402" tag="SCIP-233.402">
-         <document orgid="iicwg" pubnum="SCIP-233.402" title="Call Set-Up encryption (CSE) State Vector Processing Specification Rev. 1.0." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.402" title="Call Set-Up encryption (CSE) State Vector Processing Specification Rev. 1.0." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17088,7 +17100,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.422" tag="SCIP-233.422">
-         <document orgid="iicwg" pubnum="SCIP-233.422" title="NATO Fixed Filler Generation Specification Rev. 1.0." date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.422" title="NATO Fixed Filler Generation Specification Rev. 1.0." date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17101,7 +17113,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.423" tag="SCIP-233.423">
-         <document orgid="iicwg" pubnum="SCIP-233.423" title="Universal Fixed Filler Generation Specification Rev. 1.0." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.423" title="Universal Fixed Filler Generation Specification Rev. 1.0." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17114,7 +17126,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.441" tag="SCIP-233.441">
-         <document orgid="iicwg" pubnum="SCIP-233.441" title="Point-to-Point Cryptographic Verification Specification Rev. 1.1." date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.441" title="Point-to-Point Cryptographic Verification Specification Rev. 1.1." date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17127,7 +17139,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.442" tag="SCIP-233.442">
-         <document orgid="iicwg" pubnum="SCIP-233.442" title="Multipoint Cryptographic Verification Specification Rev. 1.0." date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.442" title="Multipoint Cryptographic Verification Specification Rev. 1.0." date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17140,7 +17152,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.443" tag="SCIP-233.443">
-         <document orgid="iicwg" pubnum="SCIP-233.443" title="Point-to-Point Cryptographic verification W/HMAC Specification Rev. 1.0." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.443" title="Point-to-Point Cryptographic verification W/HMAC Specification Rev. 1.0." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17153,7 +17165,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.444" tag="SCIP-233.444">
-         <document orgid="iicwg" pubnum="SCIP-233.444" date="2011-07-08" title="Point-to-Point Cryptographic Verification w/Signature rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.444" date="2011-07-08" title="Point-to-Point Cryptographic Verification w/Signature rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17166,7 +17178,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.445" tag="SCIP-233.445">
-         <document orgid="iicwg" pubnum="SCIP-233.445" date="2011-07-08" title="Point-to-Point Cryptographic Verification w/Signature rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.445" date="2011-07-08" title="Point-to-Point Cryptographic Verification w/Signature rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17179,7 +17191,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.501" tag="SCIP-233.501">
-         <document orgid="iicwg" pubnum="SCIP-233.501" date="2012-03-23" title="Secure MELP(e) Voice rev.1.1" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.501" date="2012-03-23" title="Secure MELP(e) Voice rev.1.1" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17192,7 +17204,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.502" tag="SCIP-233.502">
-         <document orgid="iicwg" pubnum="SCIP-233.502" title="Secure G.729D Voice Specification Rev. 1.1." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.502" title="Secure G.729D Voice Specification Rev. 1.1." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17205,7 +17217,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.516" tag="SCIP-233.516">
-         <document orgid="iicwg" pubnum="SCIP-233.516" title="Secure Reliable Transport (RT) Asynchronous Data Specification Rev. 1.1." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.516" title="Secure Reliable Transport (RT) Asynchronous Data Specification Rev. 1.1." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17218,7 +17230,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.517" tag="SCIP-233.517">
-         <document orgid="iicwg" pubnum="SCIP-233.517" title="Secure Best effort Transport (BET) Asynchronous Data Transfer Rev. 1.1." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.517" title="Secure Best effort Transport (BET) Asynchronous Data Transfer Rev. 1.1." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17231,7 +17243,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.518" tag="SCIP-233.518">
-         <document orgid="iicwg" pubnum="SCIP-233.518" date="2010-09-24" title="Secure Almost Full Bandwidth (AFB) Data rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.518" date="2010-09-24" title="Secure Almost Full Bandwidth (AFB) Data rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="scip"/>
          <status mode="accepted">
@@ -17243,9 +17255,9 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.519" tag="SCIP-233.519">
-         <document orgid="iicwg" pubnum="SCIP-233.519" date="2010-09-24" title="Secure Full Bandwidth (FB) Data rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.519" date="2010-09-24" title="Secure Full Bandwidth (FB) Data rev.1.0" version="1"/>
          <applicability/>
-         <responsibleparty rpref="scip"/>
+         <responsibleparty rpref="ns"/>
          <status mode="accepted">
             <history>
                <event flag="added" date="2012-11-26" rfcp="6-84" version="7.0"/>
@@ -17255,9 +17267,9 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.531" tag="SCIP-233.531">
-         <document orgid="iicwg" pubnum="SCIP-233.531" date="2010-09-24" title="Secure Packet Data rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.531" date="2010-09-24" title="Secure Packet Data rev.1.0" version="1"/>
          <applicability/>
-         <responsibleparty rpref="scip"/>
+         <responsibleparty rpref="ns"/>
          <status mode="accepted">
             <history>
                <event flag="added" date="2012-11-26" rfcp="6-84" version="7.0"/>
@@ -17267,7 +17279,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.546" tag="SCIP-233.546">
-         <document orgid="iicwg" pubnum="SCIP-233.546" title="Secure Dial Processing Specification Rev. 1.1." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.546" title="Secure Dial Processing Specification Rev. 1.1." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17280,7 +17292,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.547" tag="SCIP-233.547">
-         <document orgid="iicwg" pubnum="SCIP-233.547" date="2012-08-06" title="Secure Messaging Processing Specification rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.547" date="2012-08-06" title="Secure Messaging Processing Specification rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17293,7 +17305,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.562" tag="SCIP-233.562">
-         <document orgid="iicwg" pubnum="SCIP-233.562" date="2012-10-17" title="Galois/Counter Mode (GCM) Data Integrity Specification rev.0.1" version="0"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.562" date="2012-10-17" title="Galois/Counter Mode (GCM) Data Integrity Specification rev.0.1" version="0"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17306,7 +17318,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.563" tag="SCIP-233.563">
-         <document orgid="iicwg" pubnum="SCIP-233.563" title="MONGOOSE Encryption Algorithm Specification Rev. 1.0." date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.563" title="MONGOOSE Encryption Algorithm Specification Rev. 1.0." date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17319,7 +17331,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.601" tag="SCIP-233.601">
-         <document orgid="iicwg" pubnum="SCIP-233.601" title="AES-256 Encryption Algorithm Specification Rev. 1.0." date="2011-07-12"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.601" title="AES-256 Encryption Algorithm Specification Rev. 1.0." date="2011-07-12"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17332,7 +17344,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.603" tag="SCIP-233.603">
-         <document orgid="iicwg" pubnum="SCIP-233.603" title="MEDLEY Encryption Algorithm Specification Rev. 1.0." date=""/>
+         <document orgid="cis3cip" pubnum="SCIP-233.603" title="MEDLEY Encryption Algorithm Specification Rev. 1.0." date=""/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -17345,7 +17357,7 @@ database as a logical folder of email messages.</applicability>
       </standard>
 
       <standard id="iicwg-scip-233.604" tag="SCIP-233.604">
-         <document orgid="iicwg" pubnum="SCIP-233.604" date="2012-10-17" title="MERCATOR Encryption Algorithm Specification rev.1.0" version="1"/>
+         <document orgid="cis3cip" pubnum="SCIP-233.604" date="2012-10-17" title="MERCATOR Encryption Algorithm Specification rev.1.0" version="1"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -28693,7 +28705,7 @@ database as a logical folder of email messages.</applicability>
          <applicability>
             ISO/IEC 29500-1:2016 defines a set of XML vocabularies for representing word-processing documents, spreadsheets and presentations. On the one hand, the goal of ISO/IEC 29500 is to be capable of faithfully representing the pre-existing corpus of word-processing documents, spreadsheets and presentations that had been produced by the Microsoft Office applications (from Microsoft Office 97 to Microsoft Office 2008, inclusive) at the date of the creation of ISO/IEC 29500. It also specifies requirements for Office Open XML consumers and producers. On the other hand, the goal is to facilitate extensibility and interoperability by enabling implementations by multiple vendors and on multiple platforms.
          </applicability>
-         <responsibleparty rpref="c3b-dmcat"/>
+         <responsibleparty rpref="c3b-cscat"/>
          <status mode="accepted">
             <uri>https://www.iso.org/standard/71691.html</uri>
             <history>
@@ -28753,7 +28765,7 @@ database as a logical folder of email messages.</applicability>
             by which consumers can obtain a baseline version of the Office Open XML
             document (a version without extensions) for interoperability.
          </applicability>
-         <responsibleparty rpref="c3b-dmcat"/>
+         <responsibleparty rpref="c3b-cscat"/>
          <status mode="accepted">
             <uri>https://www.iso.org/standard/65533.html</uri>
             <history>
@@ -28790,7 +28802,7 @@ database as a logical folder of email messages.</applicability>
             These features are used only by documents of conformance class WML Transitional,
             SML Transitional, or PML Transitional.
          </applicability>
-         <responsibleparty rpref="c3b-dmcat"/>
+         <responsibleparty rpref="c3b-cscat"/>
          <status mode="accepted">
             <uri>https://www.iso.org/standard/71692.html</uri>
             <history>
@@ -36988,7 +37000,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             The MIP scope is to deliver a command and control interoperability solution
             focused on the Land operational user in a Joint environment.
          </applicability>
-         <responsibleparty rpref="fmn-cpwg"/>
+         <responsibleparty rpref="c3b-dmcat"/>
          <status mode="accepted">
             <uri>https://mip-interop.org/Public%20Document%20Library/Forms/AllItems.aspx?RootFolder=%2FPublic%20Document%20Library%2F04-Baseline_3%2E1%2FInterface-Specification%2FJC3IEDM</uri>
             <history>
@@ -37002,10 +37014,10 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>8086d5a6-0ad0-4e94-b03e-1870e78e39f2</uuid>
       </standard>
 
-      <standard id="mip-mim2.0" tag="MIM">
+      <standard id="mip-mim2.0" tag="MIM 2.0">
          <document orgid="mip" pubnum="MIM 2.0" title="MIP Information Model" date="2014-07-17"/>
          <applicability>The MIP Information Model (MIM) provides the semantic foundation for information exchange in the Command and Control (C2) domain. Its development is driven by the needs of the warfighters and its scope is defined by military information exchange requirements for multiple echelons in joint/combined operations. The MIM embodies all the operational concepts of the JC3IEDM. Based on a few basic notions, such as «Object», «Action», and «Metadata», the model provides semantically rich taxonomies of militarily relevant concepts.</applicability>
-         <responsibleparty rpref="ncia-sstrat-sea"/>
+         <responsibleparty rpref="c3b-dmcat"/>
          <status mode="accepted">
             <uri>http://www.mimworld.org</uri>
             <history>
@@ -37016,10 +37028,10 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>17a6d5bf-7077-4d32-8295-482dc88e565f</uuid>
       </standard>
 
-      <standard id="mip-mim4.1" tag="MIM">
+      <standard id="mip-mim4.1" tag="MIM 4.1">
          <document orgid="mip" pubnum="MIM 4.1" title="MIP Information Model 4.1" date="2017-07-17"/>
          <applicability>The MIP Information Model (MIM) provides the semantic foundation for information exchange in the Command and Control (C2) domain. Its development is driven by the needs of the warfighters and its scope is defined by military information exchange requirements for multiple echelons in joint/combined operations. The MIM embodies all the operational concepts of the JC3IEDM. Based on a few basic notions, such as «Object», «Action», and «Metadata», the model provides semantically rich taxonomies of militarily relevant concepts.</applicability>
-         <responsibleparty rpref="ncia-sstrat-sea"/>
+         <responsibleparty rpref="c3b-dmcat"/>
          <status mode="accepted">
             <uri>http://www.mimworld.org</uri>
             <history>
@@ -37028,7 +37040,19 @@ The purpose of this specification is to assure uniformity of treatment among all
          </status>
          <uuid>e6871150-07e8-47ec-ace2-5b3e7ac347d0</uuid>
       </standard>
-
+<!--
+      <standard id="mip-mim5" tag="MIM 5.0">
+         <document orgid="mip" pubnum="MIM 5.0" title="MIP Information Model 5.0" date=""/>
+         <applicability>The MIP Information Model (MIM) provides the semantic foundation for information exchange in the Command and Control (C2) domain. Its development is driven by the needs of the warfighters and its scope is defined by military information exchange requirements for multiple echelons in joint/combined operations. The MIM embodies all the operational concepts of the JC3IEDM. Based on a few basic notions, such as «Object», «Action», and «Metadata», the model provides semantically rich taxonomies of militarily relevant concepts.</applicability>
+         <responsibleparty rpref="c3b-dmcat"/>
+         <status mode="accepted">
+            <uri>http://www.mimworld.org</uri>
+            <history>
+               <event date="2019-02-27" flag="added" rfcp="" version="12.0"/>
+            </history>
+         </status>
+      </standard>
+-->
       <standard id="mip-mip-baseline1" tag="MIP-MEM">
          <document orgid="mip" pubnum="MIP-baseline1" date="2003" title="MIP-Message Exchange Mechanism"/>
          <applicability>
@@ -37167,7 +37191,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       <standard id="nato-ac322-d-2017-0007-U" tag="NISPX">
          <document orgid="nato" pubnum="AC/322-D(2017)0007-U" date="2017-03-01" title="NATO Interoperability Standards and Profile eXchange Specification"/>
          <applicability>The NATO Interoperability Standards and Profiles eXchange (NISPX) Specification provides a format for use in machine-to-machine message exchange and for file based exchange. NISPX is an XML grammar used to encode and transport representations of Interoperability Standards and Profile data. NISPX packages and their related files (if any) may be compressed using the ZIP format into single digital information objects (containers). This specification will be used by the IPCaT to publish selected NISP datasets electronically as a Trusted Data Source (TDS) and should be used by standardization groups and other responsible parties to submit standards and profiles for inclusion into the NISP.</applicability>
-         <responsibleparty rpref="ipcat"/>
+         <responsibleparty rpref="c3b-c3b-ipcat"/>
          <status mode="accepted">
             <uri>https://tide.act.nato.int/tidepedia/index.php/NATO_Interoperability_Standards_and_Profiles_eXchange_Specification</uri>
             <history>
@@ -39000,7 +39024,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-adatp-12e-vol1" tag="ADatP-12(E)">
-         <document orgid="nso" pubnum="ADatP-12(E)" title="Standard Operating Procedures for the Ship-Shore-Ship Buffer (SSSB)- VOL I" date="2010-11-02"/>
+         <document orgid="nso" pubnum="ADatP-12 Vol 1 (E)(1)" title="Standard Operating Procedures for the Interface of Data Links 1, 11, 11b and 14 through a Data Link Buffer System" date="2010-11-02"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -39013,7 +39037,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-adatp-12e-vol2" tag="ADatP-12(E)">
-         <document orgid="nso" pubnum="ADatP-12 (E )" title="Standard Operating Procedures for the CRC-SAM Interface - VOL II" date="2010-11-02"/>
+         <document orgid="nso" pubnum="ADatP-12 Vol 2 (E)" title="Standard Operating Procedures for the CRC-SAM Interface" date="2010-11-02"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -39054,7 +39078,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       <standard id="nso-aetp-11" tag="AETP-11 B">
          <document orgid="nso" pubnum="AETP-11Bv1" title="Implementation Options and Guidance for integrating IFF Mk XIIA Mode 5 on Military Platforms (IOG)" date="2017-03-31"/>
          <applicability/>
-         <responsibleparty rpref="c3b-cap2"/>
+         <responsibleparty rpref="c3b-iffcat"/>
          <status mode="accepted">
             <uri/>
             <history>
@@ -39092,8 +39116,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>7eaedd49-835a-4a7e-8381-e9b4ee090df6</uuid>
       </standard>
 
-      <standard id="nso-atdlp-7.02a1" tag="ATDLP-7.02(A)(1)">
-         <document orgid="nso-e" pubnum="ATDLP-7.02(A)(1)" title="NATO Implementation Codes and Rules (NICR T/1)" date=""/>
+      <standard id="tdl-atdlp-7.02a1" tag="ATDLP-7.02(A)(1)">
+         <document orgid="nso" pubnum="ATDLP-7.02 Ed A Ver 1" title="NATO Implementation Codes and Rules" date="2014-08-19"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -39107,8 +39131,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>5ce9a87d-0b4c-4658-aaae-cb9747b04cad</uuid>
       </standard>
 
-      <standard id="nso-atdlp-7.03a1" tag="ATDLP-7.03(A)(1)">
-         <document orgid="nso-e" pubnum="ATDLP-7.03(A)(1)" title="Interface Control Definiton for the International Exchange of MIDS/JTIDS Network (NETMAN T/1)" date=""/>
+      <standard id="tdl-atdlp-7.03a1" tag="ATDLP-7.03(A)(1)">
+         <document orgid="nso" pubnum="ATDLP-7.03 Ed A Ver 1" title="Interface Control Definiton for the International Exchange of MIDS/JTIDS Network Design Data" date="2014-08-19"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -39122,8 +39146,21 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>ff8389b6-6f97-441f-890e-263ff2cf1574</uuid>
       </standard>
 
-      <standard id="nso-atdlp-7.04a1" tag="ATDLP-7.04(A)(1)">
-         <document orgid="nso-e" pubnum="ATDLP-7.04(A)(1)" title="xTDL Framework Document [for Representation of TDL in eXtensible Markup Language (XML)]" date=""/>
+      <standard id="tdl-atdlp-7.03b1" tag="ATDLP-7.03(B)(1)">
+         <document orgid="tdl" pubnum="ATDLP-7.03(B)(1)" title="Interface Control Definiton for the International Exchange of MIDS/JTIDS Network (NETMAN T/1)" date=""/>
+         <applicability/>
+         <responsibleparty rpref="tdl"/>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event date="2019-03-04" flag="added" version="12.0" rfcp=""/>
+            </history>
+         </status>
+         <uuid>f0ee1af2-c063-4d58-afb2-47cb54827de7</uuid>
+      </standard>
+
+      <standard id="tdl-atdlp-7.04a1" tag="ATDLP-7.04(A)(1)">
+         <document orgid="nso-e" pubnum="ATDLP-7.04(A)(1)" title="xTDL Framework Document [for Representation of TDL in eXtensible Markup Language (XML)]." date="" note="Expected to be submitted for ratification 3Q2019."/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -39137,7 +39174,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-atdlp-7.12a1" tag="ATDLP-7.12(A)(1)">
-         <document orgid="nso-e" pubnum="ATDLP-7.12(A)(1)" title="Standard Operating Procedures for the CRC-SAM Interface - VOL I &amp; II" date=""/>
+         <document orgid="nso-e" pubnum="ATDLP-7.12(A)(1)" title="Standard Operating Procedures for the CRC-SAM Interface - VOL I &amp; II" date="" note="Once promulgated, the ATDLP-7.12 will supersede the ADatP-12(E)."/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -39151,7 +39188,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-atdlp-7.31a1" tag="ATDLP-7.31(A)(1)">
-         <document orgid="nso-e" pubnum="ATDLP-7.31(A)(1)" title="Standard Operating Procedures for Link 1" date=""/>
+         <document orgid="nso-e" pubnum="ATDLP-7.31(A)(1)" title="Standard Operating Procedures for Link 1" date="" note="Once promulgated, the ATDLP-7.31 will supersede the ADatP-31(C)."/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -39165,7 +39202,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-atdlp-7.33a1" tag="ATDLP-7.33(A)(1)">
-         <document orgid="nso-e" pubnum="ATDLP-7.33(A)(1)" title="Multi-Link Standard Operating Procedures for Tactical Data Systems Employing Link 11, Link 11B, Link 16,  IJMS, Link 22 and JREAP" date=""/>
+         <document orgid="nso-e" pubnum="ATDLP-7.33(A)(1)" title="Multi-Link Standard Operating Procedures for Tactical Data Systems Employing Link 11, Link 11B, Link 16,  IJMS, Link 22 and JREAP" date="" note="Once promulgated, the ATDLP-7.33 will supersede the ADatP-33(A)."/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -39179,15 +39216,29 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>150ccf20-40fb-4a41-ae6b-0309bd57cf3c</uuid>
       </standard>
 
-      <standard id="nso-ntdliprev3" tag="NTDLIP Rev.3">
-         <document orgid="nso-e" pubnum="NTDLIP Rev.3" title="NATO TDL Implementation Plan (NTDLIP T/1)" date=""/>
+      <standard id="nso-atdlp-7.33b1" tag="ATDLP-7.33(B)(1)">
+         <document orgid="nso-e" pubnum="ATDLP-7.33(B)(1)" title="Multi-Link Standard Operating Procedures for Tactical Data Systems Employing Link 11, Link 11B, Link 16, Link 22 and JREAP" date=""/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
             <uri/>
             <history>
+               <event date="2019-03-04" flag="added" version="12.0" rfcp=""/>
+            </history>
+         </status>
+         <uuid>2846c883-8d42-4243-ace2-cb861c50fce6</uuid>
+      </standard>
+
+      <standard id="nso-ntdliprev3" tag="NTDLIP Rev.3">
+         <document orgid="nso-e" pubnum="NTDLIP Rev.3" title="NATO TDL Implementation Plan (NTDLIP T/1)" date=""/>
+         <applicability/>
+         <responsibleparty rpref="tdl"/>
+         <status mode="deleted">
+            <uri/>
+            <history>
                <event date="2016-12-19" flag="added" version="10.0" rfcp="9-16"/>
                <event date="2017-03-03" flag="changed" version="10.0" rfcp="9-46"/>
+               <event date="2019-02-22" flag="deleted" version="12.0" rfcp=""/>
             </history>
          </status>
          <uuid>3ce82ee7-ac50-4315-af78-c5fc4201f818</uuid>
@@ -39509,7 +39560,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             <history>
                <event flag="added" date="2017-03-03" rfcp="9-46" version="10.0"/>
                <event flag="changed" date="2018-12-16" rfcp="" version="12.0">Responsible party updated</event>
-							 </history>
+            </history>
          </status>
          <uuid>fa059838-9b9a-4192-bb5d-ea00f242575b</uuid>
       </standard>
@@ -39765,7 +39816,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag3764ed6" tag="STANAG 3764 Ed 6">
-         <document orgid="nso" pubnum="STANAG 3764 Ed 6" date="2015-03-11" title="Exchange of Imagery" version="6" note="This is a mandatory standard in the NISP, but cancelled according to the NSO."/>
+         <document orgid="nso" pubnum="STANAG 3764 Ed 6" date="2015-03-11" title="Exchange of Imagery" version="6"/>
          <applicability>
             The purpose of this STANAG is to establish guidelines for the
             exchange of imagery for use in Imagery Interpretation Keys and to standardise
@@ -39927,9 +39978,9 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4162ed2" tag="">
-         <document orgid="nso" pubnum="STANAG 4162 Ed 2" title="Identification Data Combining Process" date="2009-02-11" note="STANAG 4162 Ed 3 already exists as RD. Not yet included in the NISP."/>
+         <document orgid="nso" pubnum="STANAG 4162 Ed 2" title="Identification Data Combining Process" date="2009-02-11"/>
          <applicability/>
-         <responsibleparty rpref="c3b-iffcat"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
@@ -40042,7 +40093,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4175ed6" tag="STANAG 4175 Ed 6">
-         <document orgid="nso-e" pubnum="STANAG 4175 Ed 6" title="Technical Characteristics of the Multifunctional Information Distribution  System (MIDS) - VOL I &amp; VOL II - ATDLP-1.75 Edition A" date=""/>
+         <document orgid="nso-e" pubnum="STANAG 4175 Ed 6" title="Technical Characteristics of the Multifunctional Information Distribution  System (MIDS) - VOL I &amp; VOL II - ATDLP-1.75 Edition A" note="The extant edition is Ed 5" date=""/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -40175,7 +40226,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4205ed3" tag="STANAG 4205 Ed 3">
-         <document orgid="nso" pubnum="STANAG 4205 Ed 3" date="2005-07-29" title="Technical standards for single channel UHF radio equipment" version="3" note="This is a mandatory standard in the NISP, but superseded according to the NSO. Edition 4 is already promulgated on 2018-02-22, but not yet included in the NISP."/>
+         <document orgid="nso" pubnum="STANAG 4205 Ed 3" date="2005-07-29" title="Technical standards for single channel UHF radio equipment" version="3"/>
          <applicability>
             The aim of this STANAG is to define the technical standards required
             to ensure interoperability of land, air and maritime single channel UHF radio equipment.
@@ -40190,6 +40241,22 @@ The purpose of this specification is to assure uniformity of treatment among all
             </history>
          </status>
          <uuid>941615a4-1379-4d2a-a736-06f49770aef9</uuid>
+      </standard>
+
+      <standard id="nso-stanag4205ed4" tag="STANAG 4205 Ed 4">
+         <document orgid="nso" pubnum="STANAG 4205 Ed 4" date="2018-02-22" title="Technical standards for single channel UHF radio equipment" version="3"/>
+         <applicability>
+            The aim of this STANAG is to define the technical standards required
+            to ensure interoperability of land, air and maritime single channel UHF radio equipment.
+         </applicability>
+         <responsibleparty rpref="los"/>
+         <status mode="accepted">
+            <uri>https://nso.nato.int/</uri>
+            <history>
+               <event flag="added" date="2018-02-22" version="12.0"/>
+            </history>
+         </status>
+         <uuid>255a3976-9c9b-45c0-a45e-c38cf047ace6</uuid>
       </standard>
 
       <standard id="nso-stanag4206ed3" tag="STANAG 4206 Ed 3">
@@ -40391,7 +40458,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4290ed1" tag="STANAG 4290 Ed 1">
-         <document orgid="nso" pubnum="STANAG 4290 Ed 1" date="2015-03-25" title="Standard for Gateway Multichannel Cable Link (Optical)" note="This is an mandatory standard in the NISP, but superseded according to the NSO."/>
+         <document orgid="nso" pubnum="STANAG 4290 Ed 1" date="2015-03-25" title="Standard for Gateway Multichannel Cable Link (Optical)"/>
          <applicability>
             This STANAG defines the multiplexing scheme and physical
             connector for use with the fibre optical transmission in conjunction with the STANAG
@@ -40411,7 +40478,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4290ed2" tag="STANAG 4290 Ed 2">
-         <document orgid="nso" pubnum="STANAG 4290 Ed 2" date="2018-01-25" title="Standard for optical connector medium-rate and high-rate military tactical link - AComP-4290 Edition A Vers. 1" note="This is a candidate standard in the NISP, but promulgated according to the NSO on 2018-01-25."/>
+         <document orgid="nso" pubnum="STANAG 4290 Ed 2" date="2018-01-25" title="Standard for optical connector medium-rate and high-rate military tactical link - AComP-4290 Edition A Vers. 1"/>
          <applicability>
             <para>This Standard is one of a series, which, when taken together, specify all the technical characteristics,
             parameters and procedures necessary for two NATO tactical, digital communication systems (networks)
@@ -40475,7 +40542,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       <standard id="nso-stanag4294part1" tag="GPS (STANAG 4294 Part 1)">
          <document orgid="nso" pubnum="STANAG 4294 Part 1" title="Navstar Global Positioning System (GPS)(PART I) Summary Of Performance Requirements" date="1997-12-05" version="2"/>
          <applicability/>
-         <responsibleparty rpref="c3b-iffcat"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
@@ -40488,7 +40555,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       <standard id="nso-stanag4294part2" tag="GPS (STANAG 4294 Part 2)">
          <document orgid="nso" pubnum="STANAG 4294 Part 2" title="Navstar Global Positioning System (GPS)(PART II) Summary Of Performance Requirements" date="1999-10-29" version="2"/>
          <applicability/>
-         <responsibleparty rpref="c3b-iffcat"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
@@ -40736,7 +40803,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4444ed2" tag="STANAG 4444 Ed 2">
-         <document orgid="nso" pubnum="STANAG 4444 Ed 2" date="2015-07-10" title="Voice Coding Algorithm" version="2" note="This is a candidate standard in the NISP, but promulgated according to the NSO on 2017-05-31. Both Ed 1 and Ed 2 are promulgated according to the NSO."/>
+         <document orgid="nso" pubnum="STANAG 4444 Ed 2" date="2015-07-10" title="Voice Coding Algorithm" version="2"/>
          <applicability>
             The aim of this STANAG is to define the technical
             specifications (standards) to ensure the interoperability of land, air and
@@ -40837,7 +40904,7 @@ The purpose of this specification is to assure uniformity of treatment among all
                frequency hopping HF-EPM waveform.
             </para>
          </applicability>
-         <responsibleparty rpref="ns"/>
+         <responsibleparty rpref="blos"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
@@ -40999,7 +41066,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4486ed3" tag="STANAG 4486 Ed 3">
-         <document orgid="nso" pubnum="STANAG 4486 Ed 3" date="2015-03-13" title="Super High Frequency (SHF) Military Satellite Communications (SATCOM) Frequency Division Multiple Access (FDMA) Non-EPM (Non-EPM) Modem for Services Conforming to Class-B of Stanag 4484" note="This is a mandatory standard in the NISP, but superseded according to the NSO. Ed 4 is promulgated on 2016-11-04, but not included in the NISP."/>
+         <document orgid="nso" pubnum="STANAG 4486 Ed 3" date="2015-03-13" title="Super High Frequency (SHF) Military Satellite Communications (SATCOM) Frequency Division Multiple Access (FDMA) Non-EPM (Non-EPM) Modem for Services Conforming to Class-B of Stanag 4484"/>
          <applicability>
             This standard defines interoperable characteristics of an SHF
             satellite communication modem. A modem compatible with this STANAG will be
@@ -41027,7 +41094,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4486ed4" tag="STANAG 4486 Ed 4">
-         <document orgid="nso" pubnum="STANAG 4486 Ed 4" date="2016-11-04" title="Super High Frequency (SHF) Military Satellite Communications (MILSATCOM) Frequency Division Multiple Access (FDMA) Non-EPM Modem for Services Conforming to Class-B Of STANAG 4484 - AComP-4486 Edition A" note="This standard is promulgated by 2016-11-04, but not mentioned in NISP. It is already added to the database, but not yet included in the NISP Volumes."/>
+         <document orgid="nso" pubnum="STANAG 4486 Ed 4" date="2016-11-04" title="Super High Frequency (SHF) Military Satellite Communications (MILSATCOM) Frequency Division Multiple Access (FDMA) Non-EPM Modem for Services Conforming to Class-B Of STANAG 4484 - AComP-4486 Edition A"/>
          <applicability>
             This standard defines interoperable characteristics of an SHF
             satellite communication modem. A modem compatible with this STANAG will be
@@ -41169,7 +41236,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4538ed2" tag="STANAG 4538 Ed 2">
-         <document orgid="nso-e" pubnum="STANAG 4538 Ed 2" date="" title="Technical Standards for an Automatic Radio Control System (ARCS) for HF Communication Links"/>
+         <document orgid="nso-e" pubnum="STANAG 4538 Ed 2" date="" title="Technical Standards for an Automatic Radio Control System (ARCS) for HF Communication Links" note="The extant edition is Ed 1"/>
          <applicability>
             This STANAG defines the technical standards required to ensure the
             interoperability of land, air and maritime HF radio equipment operating in an
@@ -41277,7 +41344,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4559ed3" tag="STANAG 4559 Ed 3">
-         <document orgid="nso" pubnum="STANAG 4559 Ed 3" date="2010-11-12" title="NATO Standard ISR Library Interface (NSILI)" version="3" note="This is a mandatory standard in the NISP, but superseded according to the NSO."/>
+         <document orgid="nso" pubnum="STANAG 4559 Ed 3" date="2010-11-12" title="NATO Standard ISR Library Interface (NSILI)" version="3"/>
          <applicability>
             This STANAG is to provide interoperability between NATO nations
             reconnaissance databases and product libraries by defining an interoperable
@@ -41369,7 +41436,7 @@ The purpose of this specification is to assure uniformity of treatment among all
          Maritime digital geographic data. Finally, this STANAG describes the services
          that shall be provided by data transmission media to be used for update of
          data sets on board of ships at sea.</applicability>
-         <responsibleparty rpref="c3b-iffcat"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
@@ -41484,7 +41551,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       <standard id="nso-stanag4579ed1" tag="STANAG 4579 Ed 1">
          <document orgid="nso" pubnum="STANAG 4579 Ed 1" title="Battlefield Target Identification Device (BTIDs)" date="2001-08-02"/>
          <applicability/>
-         <responsibleparty rpref="c3b-iffcat"/>
+         <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
@@ -41496,7 +41563,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4586ed3" tag="STANAG 4586 Ed 3">
-         <document orgid="nso" pubnum="STANAG 4586 Ed 3" date="2012-11-09" title="Standard Interfaces of UAV Control System (UCS) for NATO UAV Interoperability" note="This is an agreed standard in the NISP, but superseded according to the NSO."/>
+         <document orgid="nso" pubnum="STANAG 4586 Ed 3" date="2012-11-09" title="Standard Interfaces of UAV Control System (UCS) for NATO UAV Interoperability"/>
          <applicability>
             The objective of this STANAG is to facilitate communication between
             a UCS and different UAVs and their payloads as well as multiple C4I users.
@@ -41522,7 +41589,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4586ed4" tag="STANAG 4586 Ed 4">
-         <document orgid="nso" pubnum="STANAG 4586 Ed 4" date="2017-04-05" title="Standard Interfaces of UAV Control System (UCS) for NATO UAV Interoperability - AEP-84 Edition A" note="This is a candidate standard in the NISP, but promulgated according to the NSO on 2017-04-05. Add to applicability in database: Covers two Standards, with each five Standards-Related Documents (Implementation Guidelines, Validation/Test Guideline, Conformance Test Criteria, Configuration Management Plan and Vehicle and Cucs Type Id Tables)."/>
+         <document orgid="nso" pubnum="STANAG 4586 Ed 4" date="2017-04-05" title="Standard Interfaces of UAV Control System (UCS) for NATO UAV Interoperability - AEP-84 Edition A"/>
          <applicability>
             The objective of this STANAG is to facilitate communication between
             a UCS and different UAVs and their payloads as well as multiple C4I users.
@@ -41614,7 +41681,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4606ed4" tag="STANAG (RD) 4606 Ed 4">
-         <document orgid="nso" pubnum="STANAG (RD) 4606 Ed 4" date="" title="Super High Frequency (SHF) Military Satellite Communications (Milsatcom) EPM Waveform For Class B Services - AComP-4606 Edition A" note="This is an agreed standard in the NISP, as requested by RFCP 9-16. However, according to the NSO, this STANAG does not exist. Note that STANAG 4606 Ed 3 does exist and is promulgated. This edition is not included in the NISP."/>
+         <document orgid="nso" pubnum="STANAG (RD) 4606 Ed 4" date="" title="Super High Frequency (SHF) Military Satellite Communications (Milsatcom) EPM Waveform For Class B Services - AComP-4606 Edition A"/>
          <applicability/>
          <responsibleparty rpref="satcom"/>
          <status mode="accepted">
@@ -42218,7 +42285,7 @@ The purpose of this specification is to assure uniformity of treatment among all
             interoperability of digital voice, data and telegraph between
             UHF satellite communications (SATCOM) terminals.
          </applicability>
-         <responsibleparty rpref="ns"/>
+         <responsibleparty rpref="satcom"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
@@ -42290,8 +42357,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>1ce95c9b-c1ec-45c9-8730-c66cda526507</uuid>
       </standard>
 
-      <standard id="nso-stanag4706ed1" tag="STANAG 4706 (Ed 1">
-         <document orgid="nso" pubnum="STANAG 4706 (Ed 1" date="2018-01-17" title="Interoperability Standard for Satellite SHF Deployable Terminals Control and Command Services" note="This is a candidate standard in the NISP, but promulgated according to the NSO on 2018-01-17."/>
+      <standard id="nso-stanag4706ed1" tag="STANAG 4706 Ed 1">
+         <document orgid="nso" pubnum="STANAG 4706 Ed 1" date="2018-01-17" title="Interoperability Standard for Satellite SHF Deployable Terminals Control and Command Services"/>
          <applicability>
             The Satellite Control and Command Service will provide NATO forces with high capacity
             satellite communications.
@@ -42315,7 +42382,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag4711ed1" tag="STANAG 4711 Ed 1">
-         <document orgid="nso" pubnum="STANAG 4711 Ed 1" date="2018-01-25" title="Interoperability Point Quality of Service (IP QoS) - AComP-4711 Edition A"  note="This is a candidate standard in the NISP, but promulgated according to the NSO on 2018-01-25."/>
+         <document orgid="nso" pubnum="STANAG 4711 Ed 1" date="2018-01-25" title="Interoperability Point Quality of Service (IP QoS) - AComP-4711 Edition A"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -42417,7 +42484,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       <standard id="nso-stanag4774" tag="STANAG 4774 Ed 1">
          <document orgid="nso" pubnum="STANAG 4774 Ed 1" title="Confidentiality Metadata Label Syntax - ADatP-4774 Edition A" date="2017-12-20"/>
          <applicability/>
-         <responsibleparty rpref="c3b-cap1"/>
+         <responsibleparty rpref="c3b-dmcat"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
@@ -42432,7 +42499,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       <standard id="nso-stanag4778" tag="STANAG 4778 Ed 1">
          <document orgid="nso" pubnum="STANAG 4778 Ed 1" title="Metadata Binding - ADatP-4778 Edition A" date="2018-10-26"/>
          <applicability/>
-         <responsibleparty rpref="c3b-cap1"/>
+         <responsibleparty rpref="c3b-dmcat"/>
          <status mode="accepted">
             <uri>https://nso.nato.int/</uri>
             <history>
@@ -42675,7 +42742,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5068ed1" tag="STANAG 5068 Ed 1">
-         <document orgid="nso" pubnum="STANAG 5068 Ed 1" title="Secure Communications Interoperability Protocol (SCIP) - AComP-5068 EDITION A" date="2017-03-03" note="This is a candidate standard in the NISP, but promulgated according to the NSO on 2017-03-03."/>
+         <document orgid="nso" pubnum="STANAG 5068 Ed 1" title="Secure Communications Interoperability Protocol (SCIP) - AComP-5068 EDITION A" date="2017-03-03"/>
          <applicability/>
          <responsibleparty rpref="ns"/>
          <status mode="accepted">
@@ -42823,8 +42890,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>d5f5e6c4-54c6-4fc9-9add-48885d26ce76</uuid>
       </standard>
 
-      <standard id="nso-stanag5511ed10" tag="STANAG 5511 Ed 10">
-         <document orgid="nso-e" pubnum="STANAG 5511 Ed 10 / ATDLP-5.11(B)" date="" title="Tactical Data Exchange - Link 11/11B"/>
+      <standard id="nso-stanag5511ed10" tag="STANAG 5511 (Study) Ed 10">
+         <document orgid="nso" pubnum="STANAG 5511 (Study) Ed 10" date="" title="Tactical Data Exchange - Link 11/11B - ATDLP-5.11 Edition B"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -43033,7 +43100,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5516ed6" tag="STANAG 5516 Ed 6">
-         <document orgid="nso-e" pubnum="STANAG 5516 Ed 6" date="" title="NATO Bit-Oriented Message (BOM) Tactical Data Exchange - Link 16"/>
+         <document orgid="nso-e" pubnum="STANAG 5516 Ed 6" date="" title="Tactical Data Exchange - Link 16"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -43041,13 +43108,14 @@ The purpose of this specification is to assure uniformity of treatment among all
             <history>
                <event date="2016-12-23" flag="added" rfcp="9-16" version="10.0"/>
                <event date="2017-03-03" flag="changed" rfcp="9-46" version="10.0"/>
+               <event date="2019-03-04" flag="changed" rfcp="" version="12.0"/>
             </history>
          </status>
          <uuid>c90bae76-8fd3-4ff1-9efb-1a5a4080a3de</uuid>
       </standard>
 
       <standard id="nso-stanag5516ed7" tag="STANAG 5516 Ed 7">
-         <document orgid="nso-e" pubnum="STANAG 5516 Ed 7" title="NATO Bit-Oriented Message (BOM) Tactical Data Exchange - Link 16 - ATDLP-5.16 Edition A" date=""/>
+         <document orgid="nso-e" pubnum="STANAG 5516 Ed 7" title="Standards for Data Forwarding between Tactical Data Systems - Link 16 - ATDLP-6.16 Edition B" date="" note="The extant edition is Ed 5 and Ed 6 is still in ratification"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -43060,8 +43128,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>1f3deab7-f83f-41d3-a3a7-1c162e02aa9b</uuid>
       </standard>
 
-      <standard id="nso-stanag5516ed8" tag="STANAG 5516 Ed 8">
-         <document orgid="nso-e" pubnum="STANAG 5516 Ed 8 / ATDLP-5.16(B)" title="NATO Bit-Oriented Message (BOM) Tactical Data Exchange - Link 16 - ATDLP-5.16 Edition B" date=""/>
+      <standard id="nso-stanag5516ed8" tag="STANAG 5516 (Study) Ed 8">
+         <document orgid="nso" pubnum="STANAG 5516 (Study) Ed 8" title="Tactical Data Exchange - Link 16 - ATDLP-5.16 Edition B" date=""/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -43158,6 +43226,19 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>03730454-df13-4ed8-99f0-14e574f16c0d</uuid>
       </standard>
 
+      <standard id="nso-e-stanag5518ed4" tag="STANAG (RD) 5518 Ed 4">
+         <document orgid="nso-e" pubnum="STANAG (RD) 5518 Ed 4 / ATDLP-5.18(B)2" title="Standard for Joint Range Extension Application Protocol (JREAP) - ATDLP-5.18 Edition B" date="2016-04-17"/>
+         <applicability/>
+         <responsibleparty rpref="tdl"/>
+         <status mode="accepted">
+            <uri>https://nso.nato.int/</uri>
+            <history>
+               <event date="2019-02-14" flag="added" version="12.0" rfcp=""/>
+            </history>
+         </status>
+         <uuid>8f838b6f-4bac-438e-a378-1cca4d1beb36</uuid>
+      </standard>
+
       <standard id="nso-stanag5522ed2" tag="STANAG 5522 Ed 2">
          <document orgid="nso" pubnum="STANAG 5522 Ed 2" date="2008-09-29" title="NATO Improved Link Eleven (NILE) - Link 22">
             <comment>Tactical Data Exchange</comment>
@@ -43240,7 +43321,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5522ed6" tag="STANAG 5522 Ed 6">
-         <document orgid="nso-e" pubnum="STANAG 5522 Ed 6 / ATDLP-5.22(B)" date="" title="Link-22 - ATDLP-5.22 Edition B"/>
+         <document orgid="nso-e" pubnum="STANAG 5522 Ed 6 / ATDLP-5.22(B)" date="" title="Link-22 - ATDLP-5.22 Edition B" note="The extant edition is Ed 2 and Ed 3 is still in ratification. Ed 6 will be out for promulgation using Fast Track procedure during 2Q2019."/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -43376,7 +43457,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5528ed1" tag="STANAG 5528 Ed 1">
-         <document orgid="nso" pubnum="STANAG 5528 Ed 1" date="2018-02-23" title="Services to forward Friendly Force Information to Weapon Delivery Assets - ADatP-37 Edition A" note="This is a candidate standard in the NISP, but promulgated according to the NSO on 2018-02-23."/>
+         <document orgid="nso" pubnum="STANAG 5528 Ed 1" date="2018-02-23" title="Services to forward Friendly Force Information to Weapon Delivery Assets - ADatP-37 Edition A"/>
          <applicability>TBD</applicability>
          <responsibleparty rpref="c3b-cap2"/>
          <status mode="accepted">
@@ -43390,7 +43471,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag5555ed1" tag="STANAG 5555 Ed 1">
-         <document orgid="nso" pubnum="STANAG 5555 Ed 1" title="NATO Qualification Levels for Tactical Data Link Personnel - ATDLP-5.55 Edition A" date="2017-09-14" note="This is a candidate standard in the NISP, but promulgated according to the NSO on 2017-09-14."/>
+         <document orgid="nso" pubnum="STANAG 5555 Ed 1" title="NATO Qualification Levels for Tactical Data Link Personnel - ATDLP-5.55 Edition A" date="2017-09-14"/>
          <applicability/>
          <responsibleparty rpref="tdl"/>
          <status mode="accepted">
@@ -43694,7 +43775,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag7085ed3" tag="STANAG 7085 Ed 3">
-         <document orgid="nso" pubnum="STANAG 7085 Ed 3" date="2011-10-21" title="Interoperable Data Links for Imaging Systems - AEDP-10 Edition A" note="This is a mandatory standard in the NISP, but superseded according to the NSO. Ed 4 is promulgated on 2018-04-23, but not included in the NISP."/>
+         <document orgid="nso" pubnum="STANAG 7085 Ed 3" date="2011-10-21" title="Interoperable Data Links for Imaging Systems - AEDP-10 Edition A"/>
          <applicability>
             This STANAG provide the interoperability standards for 3 classes
             of imagery DL used for primary imagery data transmission: analogue links
@@ -43772,7 +43853,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag7149ed5" tag="STANAG 7149 Ed 5">
-         <document orgid="nso" pubnum="STANAG 7149 Ed 5" date="2010-09-24" title="NATO Message Catalogue - APP-11(C) CHANGE 1" version="5" note="This is an agreed standard in the NISP, but superseded according to the NSO."/>
+         <document orgid="nso" pubnum="STANAG 7149 Ed 5/APP-11(C)" date="2010-09-24" title="NATO Message Catalogue - APP-11(C) CHANGE 1" version="5"/>
          <applicability>
             The purpose of APP-11 is to provide user's with definitive reference
             of messages and supporting tables mandated for use in Joint, Land, Maritime
@@ -43796,8 +43877,8 @@ The purpose of this specification is to assure uniformity of treatment among all
          <uuid>2a824ff5-cafe-4416-81c2-e31fc9fd8be8</uuid>
       </standard>
 
-      <standard id="nso-stanag7149ed6" tag="STANAG 7149 Ed 6">
-         <document orgid="nso" pubnum="STANAG 7149 Ed 6" date="2015-11-23" title="NATO Message Catalogue - APP-11 Edition D" version="6"/>
+      <standard id="nso-stanag7149ed6-app11-d" tag="STANAG 7149 Ed 6">
+         <document orgid="nso" pubnum="STANAG 7149 Ed 6/APP-11(D)" date="2015-11-23" title="NATO Message Catalogue - APP-11 Edition D" version="6"/>
          <applicability>
             The purpose of APP-11 is to provide user's with definitive reference
             of messages and supporting tables mandated for use in Joint, Land, Maritime
@@ -43845,7 +43926,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag7163ed1" tag="STANAG 7163 Ed 1">
-         <document orgid="nso" pubnum="STANAG 7163 Ed 1" date="2003-01-22" title="Vector Map (VMap) Level 1" note="This is a mandatory standard in the NISP, but cancelled according to the NSO at 2018-09-06."/>
+         <document orgid="nso" pubnum="STANAG 7163 Ed 1" date="2003-01-22" title="Vector Map (VMap) Level 1"/>
          <applicability>
             Participating nations agree to use US MIL-PRF-89033 Vector Map (VMap)
             Level 1 as a manual for military planners at the operational and, to a
@@ -43905,7 +43986,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag7194ed1" tag="STANAG 7194 Ed 1">
-         <document orgid="nso" pubnum="STANAG 7194 Ed 1" date="2009-03-04" title="NATO Imagery Interpretability Rating Scale (NIIRS)" note="This is a mandatory standard in the NISP, but superseded according to the NSO."/>
+         <document orgid="nso" pubnum="STANAG 7194 Ed 1" date="2009-03-04" title="NATO Imagery Interpretability Rating Scale (NIIRS)"/>
          <applicability>
             The aim of this agreement is to promote interoperability for the exchange
             of data among North Atlantic Treaty Organisation (NATO) Intelligence,
@@ -43928,7 +44009,7 @@ The purpose of this specification is to assure uniformity of treatment among all
       </standard>
 
       <standard id="nso-stanag7194ed2" tag="STANAG 7194 Ed 2">
-         <document orgid="nso" pubnum="STANAG 7194 Ed 2" date="2018-09-28" title="NATO Imagery Interpretability Rating Scale (NIIRS) - AIntP-7 Edition A" version="2" note="This is a candidate standard in the NISP, but promulgated according to the NSO on 2018-09-28."/>
+         <document orgid="nso" pubnum="STANAG 7194 Ed 2" date="2018-09-28" title="NATO Imagery Interpretability Rating Scale (NIIRS) - AIntP-7 Edition A" version="2"/>
          <applicability>
             The aim of this agreement is to promote interoperability for the exchange
             of data among North Atlantic Treaty Organisation (NATO) Intelligence,
@@ -48640,8 +48721,8 @@ applications. </applicability>
          <uuid>37a5f2d8-1403-4516-a184-ca224186e598</uuid>
       </standard>
 
-      <standard id="tm-forum-tmf000" tag="TMForum TMF???">
-         <document orgid="tm-forum" pubnum="TMF???" title="TMF000 Event API REST Specification R17.5" version="0.96" date="2017-06"/>
+      <standard id="tm-forum-tmf000" tag="TMForum TMF000">
+         <document orgid="tm-forum" pubnum="TMF000" title="TMF000 Event API REST Specification R17.5" version="0.96" date="2017-06" note="TMF000 is included in FMN Spiral 3. An official publication number is not yet available."/>
          <applicability/>
          <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
@@ -49189,7 +49270,7 @@ applications. </applicability>
       </standard>
 
       <standard id="us-dod-mil-std6017d" tag="VMF">
-         <document orgid="us-dod" pubnum="MIL-STD-6017 D" date="2017-02-28" title="Variable Message Format (VMF)" note="Except Annex B, List of Geographical Data Field Identifiers (DFIs)"/>
+         <document orgid="us-dod" pubnum="MIL-STD-6017 D" date="2017-02-28" title="Variable Message Format (VMF)" note="Except Appendix B, List of Geographical Data Field Identifiers (DFIs)"/>
          <applicability>
             <para>The Variable Message Format (VMF) Military Standard (MIL-STD) provides military services and agencies with
               Joint interoperability standards, including message, data element, and protocol standards.
@@ -53850,7 +53931,7 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
       </capabilityprofile>
 
       <capabilityprofile id="bsp" short="BSP" title="NISP Basic Standards profile">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <description/>
          <subprofiles>
             <refprofile refid="bsp-Air_Services"/>
@@ -53907,6 +53988,7 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
             <refprofile refid="bsp-Packet-based_Broadcast_Services"/>
             <refprofile refid="bsp-Packet-based_Transport_Services"/>
             <refprofile refid="bsp-Policy_Decision_Point_Services"/>
+            <refprofile refid="bsp-Recognized_Air_Picture_Services"/>
             <refprofile refid="bsp-Recognized_Maritime_Picture_Services"/>
             <refprofile refid="bsp-Relational_Database_Storage_Services"/>
             <refprofile refid="bsp-SMC_Processes"/>
@@ -53930,8 +54012,10 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
             <refprofile refid="bsp-Web_Hosting_Services"/>
             <refprofile refid="bsp-Web_Platform_Services"/>
             <refprofile refid="bsp-Web_Presentation_Services"/>
+            <refprofile refid="bsp-Voice_Access_Services"/>
             <refprofile refid="bsp-Wired_Local_Area_Transmission_Services"/>
             <refprofile refid="bsp-Wired_Metropolitan_Area_Transmission_Services"/>
+            <refprofile refid="bsp-Wired_Transmission_Services"/>
             <refprofile refid="bsp-Wired_Wide_Area_Transmission_Services"/>
             <refprofile refid="bsp-Wireless_BLOS_Mobile_Narrowband_Transmission_Services"/>
             <refprofile refid="bsp-Wireless_BLOS_Mobile_Transmission_Services"/>
@@ -54171,7 +54255,11 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
 
       <capabilityprofile id="sip-for-smc" short="SIP for SMC" title="Service Interface Profile for Service Management and Control">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <description/>
+         <description>This Service Interface Profile provides guidance and technical details to the procedures,
+          supporting services, infrastructure and data attributes required to implement Service Management and Control
+          (SMC) services in Mission Networks. As such, this document contributes to the establishment of
+          capabilities in support of Federated Mission Networking (FMN) as an affordable, effective and efficient
+          means to enable sharing of information in a coalition environment.</description>
          <subprofiles>
             <refprofile refid="sip-for-smc-profile"/>
             <refprofile refid="sip-for-smc-profile"/>
@@ -54188,7 +54276,12 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
 
       <capabilityprofile id="sip-for-tls" short="SIP for TLS" title="Service Interface Profile for Transport Layer Security">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <description/>
+         <description>This Service Interface Profile (SIP) provides detailed information, guidance, instructions, standards and
+          criteria to be used as a  for the usage of Transport Layer Security (TLS) protocol to provide authentication,
+          confidentiality and integrity services for protecting the communication between a consumer and a provider.
+          This publication is a living document and will be periodically reviewed and updated to reflect technology developments,
+          emerging best practices, evolving standards and new or deprecated cryptographic schemes
+          and algorithms.</description>
          <subprofiles>
             <refprofile refid="sip-for-tls-profile"/>
          </subprofiles>
@@ -54203,7 +54296,10 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
 
       <capabilityprofile id="sip-for-web-apps" short="SIP for Web Apps" title="Service Interface Profile for Web Applications">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <description/>
+         <description>This Service Interface Profile (SIP) provides detailed information, guidance, instructions, standards and
+         criteria to be used for development, delivery and consumption of Web applications and dynamic Web sites.
+         This publication is a living document and will be periodically reviewed and updated to reflect technology
+         developments and emerging best practices.</description>
          <subprofiles>
             <refprofile refid="sip-for-web-apps-profile"/>
          </subprofiles>
@@ -54373,7 +54469,10 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
 
       <capabilityprofile id="sip-recognized-air-picture-data" short="SIP Recogn Air Pict Data" title="Service Interface Profile for Recognized Air Picture Data">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <description/>
+         <description>This Service Interface Profile provides detailed information, guidance, instructions, standards and criteria
+              to define the minimum set of data elements that are required to be available for operational or technical
+              reasons so that correctly formatted technical message can be generated to establish a Recognized Air Picture
+              in a federated environment.</description>
          <subprofiles>
             <refprofile refid="sip-recognized-air-picture-data-profile"/>
          </subprofiles>
@@ -56213,7 +56312,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Air_Services" title="NISP BSSP for Air_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-03b284a3-18d9-454b-b774-f5ef496504bb-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag1401ed15"/>
@@ -56235,7 +56334,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Application_Sharing_Services" title="NISP BSSP for Application_Sharing_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-eac52524-151f-414a-913c-6120561eaf55-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="itu-t-t.120"/>
@@ -56251,7 +56350,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Architecture_Management_Application" title="NISP BSSP for Architecture_Management_Application">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-3bcf6864-7fbe-4355-b30f-6a9e390a5a9d-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="iso-iec-ieee-42010"/>
@@ -56272,11 +56371,14 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Audio-based_Communication_Services" title="NISP BSSP for Audio-based_Communication_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="itu-t-h.323"/>
             <refstandard refid="itu-t-g.722.1c"/>
+            <refstandard refid="nso-stanag4591ed1"/>
+            <refstandard refid="nso-stanag4705ed1"/>
+            <refstandard refid="nso-stanag5046ed4"/>
          </refgroup>
          <status mode="accepted">
             <uri/>
@@ -56289,7 +56391,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Battlespace_Event_Services" title="NISP BSSP for Battlespace_Event_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-54f06201-f6f4-4939-a537-75a0c1ff70bc-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="mip-jc3iedm"/>
@@ -56305,7 +56407,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Battlespace_Object_Services" title="NISP BSSP for Battlespace_Object_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-d8fd520c-940b-48e6-ab46-2ccf9f6858ed-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="mip-jc3iedm"/>
@@ -56321,7 +56423,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Business_Support_CIS_Security_Services" title="NISP BSSP for Business_Support_CIS_Security_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-9fe03e23-01b3-4ce0-a790-05c48fe3fdcd-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="oasis-wss-v1.1-errata-os-samltokenprofile"/>
@@ -56346,7 +56448,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Business_Support_Guard_Services" title="NISP BSSP for Business_Support_Guard_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-7e15f5b0-5297-482c-8a51-b747c4b176a9-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="cceb-acp145"/>
@@ -56362,7 +56464,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-COI-Enabling_Services" title="NISP BSSP for COI-Enabling_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-d46e44a9-17df-4751-9d70-a42676e18dd3-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="ecma-ecma-262"/>
@@ -56386,7 +56488,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Choreography_Services" title="NISP BSSP for Choreography_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-b3ae55d3-855e-4a2b-99d3-652b6f012549-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="w3c-note-wsci-20020808"/>
@@ -56402,7 +56504,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Circuit-based_Transport_Services" title="NISP BSSP for Circuit-based_Transport_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-6c78c8dd-a68d-478d-8655-fc38569c1b30-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4578ed2"/>
@@ -56419,7 +56521,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Cloud_Computing" title="NISP BSSP for Cloud_Computing">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="user.cloud.cloud-computing"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="iso-iec-17788"/>
@@ -56441,7 +56543,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Communications_Access_Services" title="NISP BSSP for Communications_Access_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-5788a0ab-705f-4a2a-99a9-5325bdee4b43-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="cjcsm-sss-m-10001"/>
@@ -56450,6 +56552,8 @@ problematic</para>
             <refstandard refid="nso-stanag4586ed3"/>
             <refstandard refid="nso-stanag5501ed7"/>
             <refstandard refid="nso-stanag5511ed6"/>
+            <refstandard refid="nso-stanag5518ed3"/>
+            <refstandard refid="nso-stanag5522ed2"/>
             <refstandard refid="nso-stanag7085ed3"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="candidate">
@@ -56469,7 +56573,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Communications_Services" title="NISP BSSP for Communications_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-2c978bbc-f422-42e8-83e6-105a6bdb1e54-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="ieee-802.1d"/>
@@ -56480,23 +56584,22 @@ problematic</para>
             <refstandard refid="iso-iec-11801"/>
             <refstandard refid="itu-t-g.652"/>
             <refstandard refid="iec-61754-20-100"/>
+            <refstandard refid="nso-stanag4246ed3"/>
             <refstandard refid="nso-stanag4285ed1"/>
+            <refstandard refid="nso-stanag4292ed2"/>
             <refstandard refid="nso-stanag4415ed2"/>
             <refstandard refid="nso-stanag4481ed1"/>
+            <refstandard refid="nso-stanag4372ed3"/>
             <refstandard refid="nso-stanag4529ed1"/>
             <refstandard refid="nso-stanag4538ed1"/>
+            <refstandard refid="nso-stanag4681ed1"/>
+            <refstandard refid="nso-stanag4691ed2"/>
             <refstandard refid="nso-stanag5065ed1"/>
             <refstandard refid="nso-stanag5066ed3"/>
-            <refstandard refid="nso-stanag4292ed2"/>
-            <refstandard refid="nso-stanag4246ed3"/>
-            <refstandard refid="nso-stanag4372ed3"/>
-            <refstandard refid="nso-stanag4691ed2"/>
-            <refstandard refid="nso-stanag4681ed1"/>
             <refstandard refid="ietf-rfc1998"/>
             <refstandard refid="ietf-rfc3531"/>
             <refstandard refid="ietf-rfc4541"/>
             <refstandard refid="ietf-rfc4862"/>
-            <refstandard refid="nso-stanag4731ed1"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="ieee-802.15.4"/>
@@ -56526,7 +56629,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Composition_Services" title="NISP BSSP for Composition_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-1eb21714-12b8-41f9-b25e-c594d750dd1e-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="omg-formal03-03-01"/>
@@ -56542,7 +56645,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Core_Services" title="NISP BSSP for Core_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-3567de6b-7a0a-47c9-bc7f-18d7904c5df6-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="iso-iec-15408"/>
@@ -56559,7 +56662,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Data_Format_Transformation_Services" title="NISP BSSP for Data_Format_Transformation_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-b08fa4bc-9038-4303-9f09-5e312a7738e5-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="w3c-wd-xquery-20030502"/>
@@ -56575,7 +56678,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Data_Transfer_Services" title="NISP BSSP for Data_Transfer_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-6d22f034-635e-4e05-92a7-f5de15688d2b-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="ietf-rfc2428"/>
@@ -56591,7 +56694,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Directory_Storage_Services" title="NISP BSSP for Directory_Storage_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-3898a275-2231-4656-96aa-b9b37e5cbc78-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="cceb-acp133edD"/>
@@ -56610,7 +56713,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Distributed_Search_Services" title="NISP BSSP for Distributed_Search_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-25166e6e-2929-44e2-90a6-6378b7417f76-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="iso-15836"/>
@@ -56627,7 +56730,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Distributed_Time_Services" title="NISP BSSP for Distributed_Time_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-f15d7721-33a3-48e1-b2c6-b0d896f642dc-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="w3c-timezone"/>
@@ -56648,7 +56751,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Document_Sharing_Services" title="NISP BSSP for Document_Sharing_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-c7b7f84b-26a4-4659-9b7b-cb1e27d897c3-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="itu-t-t.120"/>
@@ -56664,7 +56767,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Domain_Name_Services" title="NISP BSSP for Domain_Name_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-92db9afd-4dab-4e76-9ba6-0287ded2d4e7-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="ietf-rfc6762"/>
@@ -56683,7 +56786,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Fax_Services" title="NISP BSSP for Fax_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-e00b1a32-6d87-4ee0-97ca-f47f45001e61-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="itu-t-t.30"/>
@@ -56703,7 +56806,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Geospatial_Applications" title="NISP BSSP for Geospatial_Applications">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-c62c8dfd-357b-4315-8513-9d1a4bbba70c-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4294part1"/>
@@ -56720,7 +56823,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Geospatial_Coordinate_Services" title="NISP BSSP for Geospatial_Coordinate_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-ed04f89a-d902-4208-8887-e94faba7edf1-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="ogc-01-009"/>
@@ -56736,7 +56839,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Geospatial_Services" title="NISP BSSP for Geospatial_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-54a19444-8cd5-4766-9140-6cdc53aafb79-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag7170ed3"/>
@@ -56767,7 +56870,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Host_Configuration_Services" title="NISP BSSP for Host_Configuration_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-0337220d-bb82-4719-ad7b-19e9b1d86371-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="ietf-rfc3315"/>
@@ -56784,7 +56887,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-IPv4_Routed_Access_Services" title="NISP BSSP for IPv4_Routed_Access_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="nso-stanag4711ed1"/>
@@ -56801,7 +56904,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-IPv6_Routed_Access_Services" title="NISP BSSP for IPv6_Routed_Access_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-3a549feb-b0ac-4aa9-987c-efa4010ac493-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="nso-stanag4711ed1"/>
@@ -56818,7 +56921,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-IT_Infrastructure_Management" title="NISP BSSP for IT_Infrastructure_Management">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="user.cloud.it-infrastructure-management"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="iso-iec-17963"/>
@@ -56834,7 +56937,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Informal_Messaging_Services" title="NISP BSSP for Informal_Messaging_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="ietf-rfc6854"/>
@@ -56855,7 +56958,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Information_Access_Services" title="NISP BSSP for Information_Access_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-39186b7e-1207-4057-b584-04f61af700da-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="ietf-rfc4287"/>
@@ -56878,7 +56981,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Information_Discovery_Services" title="NISP BSSP for Information_Discovery_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-6143f4be-fb3c-40ac-b38a-4926edc272f2-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="opensearch11"/>
@@ -56894,7 +56997,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Information_Management_Services" title="NISP BSSP for Information_Management_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-ddbcd8b7-259e-4f4d-98fa-22e220dc5f34-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="oasis-avdl-specification-01"/>
@@ -56910,11 +57013,10 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Information_Products" title="NISP BSSP for Information_Products">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-067fc1be-b7a7-471d-bef4-a42f91ac95b8-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="mip-mim4.1"/>
-            <refstandard refid="nso-ntdliprev3"/>
          </refgroup>
          <status mode="accepted">
             <uri/>
@@ -56927,7 +57029,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Infrastructure_Networking_Services" title="NISP BSSP for Infrastructure_Networking_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-1c9fd0c0-433e-4426-b6cd-f914e3682f74-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="opengroup-c706"/>
@@ -56947,7 +57049,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Infrastructure_Processing_Services" title="NISP BSSP for Infrastructure_Processing_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-ecae370f-6af0-40de-9629-3b468757e5db-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="dmtf-dsp0243"/>
@@ -56964,7 +57066,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Infrastructure_Services" title="NISP BSSP for Infrastructure_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-4b707108-a19f-48a9-96b0-799e592921e1-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="x-consortium-x11r7.5"/>
@@ -56977,7 +57079,6 @@ problematic</para>
             <refstandard refid="itu-t-g.729"/>
             <refstandard refid="itu-t-h.263"/>
             <refstandard refid="itu-t-h.264"/>
-            <refstandard refid="nso-stanag4591ed1"/>
             <refstandard refid="nso-stanag4479ed1"/>
             <refstandard refid="nso-stanag4559ed3"/>
             <refstandard refid="nso-stanag7194ed1"/>
@@ -57006,7 +57107,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Joint_Applications" title="NISP BSSP for Joint_Applications">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-c7cbdd74-1e68-4c20-9fd7-b5d45407e923-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4193ed.3-p1"/>
@@ -57027,7 +57128,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Mediation_Services" title="NISP BSSP for Mediation_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-13aba303-3b24-4b90-9d48-ad9ac4313c37-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4631ed1"/>
@@ -57046,7 +57147,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Message-Oriented_Middleware_Services" title="NISP BSSP for Message-Oriented_Middleware_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-d7fa6cd9-1b88-4807-890c-6240ba3e563a-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="oasis-wss-v1.1-spec-os-soapmessagesecurity"/>
@@ -57066,7 +57167,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Metadata_Repository_Services" title="NISP BSSP for Metadata_Repository_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-b4217d76-3d0e-4f21-9243-cc2a404ce745-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="w3c-xmldsig-core"/>
@@ -57085,7 +57186,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Meteorology_Services" title="NISP BSSP for Meteorology_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-0153c11b-7ec2-4a70-9162-a838d4b76f39-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag1116ed10"/>
@@ -57109,7 +57210,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Military_Messaging_Services" title="NISP BSSP for Military_Messaging_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-c65a1e19-5880-46bf-841b-b514aaf1464d-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4312ed2"/>
@@ -57119,8 +57220,9 @@ problematic</para>
             <refstandard refid="nso-stanag5501ed7"/>
             <refstandard refid="nso-stanag5511ed6"/>
             <refstandard refid="nso-stanag5516ed4"/>
+            <refstandard refid="nso-stanag5518ed3"/>
             <refstandard refid="nso-stanag5522ed2"/>
-            <refstandard refid="nso-stanag7149ed6"/>
+            <refstandard refid="nso-stanag7149ed6-app11-d"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="us-dod-mil-std6017d"/>
@@ -57129,7 +57231,6 @@ problematic</para>
             <refstandard refid="nso-stanag5511ed10"/>
             <refstandard refid="nso-stanag5516ed8"/>
             <refstandard refid="nso-stanag5522ed6"/>
-            <refstandard refid="nso-stanag7149ed6-app11-d2"/>
          </refgroup>
          <status mode="accepted">
             <uri/>
@@ -57142,7 +57243,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Modeling_and_Simulation_Services" title="NISP BSSP for Modeling_and_Simulation_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-b46ef62a-c85f-4b03-af01-3cbcba47f673-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="omg-formal-2002-12-06"/>
@@ -57159,7 +57260,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Native_Circuit-based_Access_Services" title="NISP BSSP for Native_Circuit-based_Access_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-d423c6a1-de1a-43ae-887a-2dcb58b5afe0-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4578ed2"/>
@@ -57176,7 +57277,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Office_Automation_Applications" title="NISP BSSP for Office_Automation_Applications">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-060323f4-741d-491e-926e-06c431d83a5b-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="microsoft-rtf1.9.1"/>
@@ -57195,7 +57296,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Packet-based_Access_Services" title="NISP BSSP for Packet-based_Access_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-634cdcd8-6b7c-4427-94ba-8098b03b6b0b-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="itu-t-y.1540"/>
@@ -57214,7 +57315,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Packet-based_Aggregation_Services" title="NISP BSSP for Packet-based_Aggregation_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-92b6a7e7-7f82-41f4-90e2-45569d3cccbd-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="nso-stanag4711ed1"/>
@@ -57231,7 +57332,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Packet-based_Broadcast_Services" title="NISP BSSP for Packet-based_Broadcast_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-45601b01-2ac4-4744-8cf6-bb248fbd8dea-X"/>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="nso-stanag4711ed1"/>
@@ -57248,7 +57349,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Packet-based_Transport_Services" title="NISP BSSP for Packet-based_Transport_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="ietf-rfc3232"/>
@@ -57273,7 +57374,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Packet_Routing_Services" title="NISP BSSP for Packet_Routing_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag5067ed1"/>
@@ -57294,7 +57395,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Policy_Decision_Point_Services" title="NISP BSSP for Policy_Decision_Point_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-f9b492da-a24a-4eaa-b797-0fc1c37068ec-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4715ed1"/>
@@ -57319,8 +57420,28 @@ problematic</para>
          <uuid>cd341d52-143d-4fa4-8b68-400366ba5bd1</uuid>
       </serviceprofile>
 
+      <serviceprofile id="bsp-Recognized_Air_Picture_Services" title="NISP BSSP for Recognized_Air_Picture_Services">
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <reftaxonomy refid="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="nso-stanag5501ed7"/>
+            <refstandard refid="nso-stanag5511ed6"/>
+            <refstandard refid="nso-stanag5516ed4"/>
+            <refstandard refid="nso-stanag5518ed1"/>
+            <refstandard refid="nso-stanag5522ed2"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="1998-12-08" version="0.1" rfcp=""/>
+               <event flag="changed" date="2013-11-24" version="8.0" rfcp=""/>
+            </history>
+         </status>
+         <uuid>8ccf5649-b181-4eed-a0c1-240b4a7e06a5</uuid>
+      </serviceprofile>
+
       <serviceprofile id="bsp-Recognized_Maritime_Picture_Services" title="NISP BSSP for Recognized_Maritime_Picture_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag5511ed6"/>
@@ -57338,7 +57459,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Relational_Database_Storage_Services" title="NISP BSSP for Relational_Database_Storage_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-1fe4aade-3ad5-4b31-a08d-ecb9d90cdbd3-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="microsoft-msdn-odbcpr"/>
@@ -57355,7 +57476,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-SMC_Processes" title="NISP BSSP for SMC_Processes">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-cfd424b7-6d14-4c37-a22b-2673b433e296-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-atdlp-7.12a1"/>
@@ -57372,7 +57493,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-SOA_Platform_CIS_Security_Services" title="NISP BSSP for SOA_Platform_CIS_Security_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-6226703b-0575-4d13-a350-a7913ad83f3b-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="rsa-pkcs-1-v2.1"/>
@@ -57389,7 +57510,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-SOA_Platform_Guard_Services" title="NISP BSSP for SOA_Platform_Guard_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-b54cd448-d1f9-4968-bf48-f58c2d5d301b-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="ietf-rfc5246"/>
@@ -57406,7 +57527,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-SOA_Platform_SMC_Services" title="NISP BSSP for SOA_Platform_SMC_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-60aedc7e-b256-4242-9a18-51b116dc8559-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="dmtf-cimschema"/>
@@ -57445,7 +57566,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-SOA_Platform_Services" title="NISP BSSP for SOA_Platform_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-d6f1a264-9503-4723-9cb5-04aa2a57e3a5-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="oasis-regrep-rim-3.0-os"/>
@@ -57477,7 +57598,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Security_Token_Services" title="NISP BSSP for Security_Token_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-913128ae-4838-4883-a03f-730df0cb0517-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="w3c-wspol-1.5"/>
@@ -57489,7 +57610,6 @@ problematic</para>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="ietf-rfc3162"/>
-            <refstandard refid="ietf-rfc1510"/>
             <refstandard refid="opengroup-p702"/>
          </refgroup>
          <status mode="accepted">
@@ -57503,7 +57623,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Service_Discovery_Services" title="NISP BSSP for Service_Discovery_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-c901eec8-f60b-4a78-b8ff-f556eeb156fd-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="oasis-uddi-v3.00-published-20020719"/>
@@ -57530,10 +57650,15 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Situational_Awareness_Services" title="NISP BSSP for Situational_Awareness_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-75a41fc4-9672-479c-a7fe-2b0cc8b01d4b-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="mip-jc3iedm"/>
+            <refstandard refid="nso-stanag5501ed7"/>
+            <refstandard refid="nso-stanag5511ed6"/>
+            <refstandard refid="nso-stanag5516ed4"/>
+            <refstandard refid="nso-stanag5518ed1"/>
+            <refstandard refid="nso-stanag5522ed2"/>
          </refgroup>
          <status mode="accepted">
             <uri/>
@@ -57546,7 +57671,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Symbology_Services" title="NISP BSSP for Symbology_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-3edec962-1d0e-4dc0-ab28-b01e0efc1064-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag7163ed1"/>
@@ -57576,7 +57701,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Tactical_Messaging_Access_Services" title="NISP BSSP for Tactical_Messaging_Access_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-7a409ea6-6137-442d-8f77-f19ba8387772-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="cceb-acp200"/>
@@ -57584,12 +57709,11 @@ problematic</para>
             <refstandard refid="nso-stanag4206ed3"/>
             <refstandard refid="nso-stanag4207ed3"/>
             <refstandard refid="nso-stanag4214ed2"/>
-            <refstandard refid="nso-stanag4705ed1"/>
-            <refstandard refid="nso-stanag4290ed1"/>
             <refstandard refid="nso-stanag5046ed4"/>
             <refstandard refid="nso-stanag5501ed7"/>
             <refstandard refid="nso-stanag5511ed6"/>
             <refstandard refid="nso-stanag5518ed1"/>
+            <refstandard refid="nso-stanag5522ed2"/>
             <refstandard refid="nso-stanag5601ed7"/>
             <refstandard refid="nso-stanag5616ed5"/>
          </refgroup>
@@ -57597,8 +57721,7 @@ problematic</para>
             <refstandard refid="nso-stanag4175ed6"/>
             <refstandard refid="nso-stanag5511ed10"/>
             <refstandard refid="nso-stanag5516ed8"/>
-            <refstandard refid="nso-stanag5518ed2"/>
-            <refstandard refid="nso-stanag5518ed3"/>
+            <refstandard refid="nso-e-stanag5518ed4"/>
             <refstandard refid="nso-stanag5616ed7"/>
          </refgroup>
          <status mode="accepted">
@@ -57612,7 +57735,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Tasking_and_Order_Services" title="NISP BSSP for Tasking_and_Order_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-1be80686-963c-4196-8c2c-b2e5f63cf26d-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="mip-jc3iedm"/>
@@ -57628,7 +57751,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Track_Services" title="NISP BSSP for Track_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="iso-iec-8802-3"/>
@@ -57642,6 +57765,7 @@ problematic</para>
             <refstandard refid="nso-stanag5501ed7"/>
             <refstandard refid="nso-stanag5511ed6"/>
             <refstandard refid="nso-stanag5516ed4"/>
+            <refstandard refid="nso-stanag5518ed3"/>
             <refstandard refid="nso-stanag5522ed2"/>
             <refstandard refid="nso-stanag5527ed1"/>
          </refgroup>
@@ -57663,7 +57787,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Transmission_Services" title="NISP BSSP for Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-8a45e97a-f563-4d05-9256-92c51eef8909-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="eia-tia-eia-492000-a"/>
@@ -57681,7 +57805,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Transport_Services" title="NISP BSSP for Transport_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-1e047c12-ca5f-4e1c-9d60-42195ef9a10d-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="ietf-rfc2474"/>
@@ -57707,11 +57831,12 @@ problematic</para>
             <refstandard refid="ietf-rfc1661"/>
             <refstandard refid="ietf-rfc1990"/>
             <refstandard refid="ietf-rfc3768"/>
-            <refstandard refid="microsoft-winsock2"/>
             <refstandard refid="ietf-rfc768"/>
             <refstandard refid="ietf-rfc2126"/>
             <refstandard refid="ietf-rfc4360"/>
             <refstandard refid="ietf-rfc5668"/>
+            <refstandard refid="microsoft-winsock2"/>
+            <refstandard refid="nso-stanag4731ed1"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="nato-tn-1417"/>
@@ -57739,7 +57864,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Undefined_Taxonomy_Node" title="NISP BSSP for Undefined_Taxonomy_Node">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="user.undefined.taxonomynode"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="cceb-acp100f"/>
@@ -57778,12 +57903,9 @@ problematic</para>
             <refstandard refid="nato-acp198ns-1h"/>
             <refstandard refid="nso-stanag4494ed1"/>
             <refstandard refid="nso-stanag4606ed4"/>
-            <refstandard refid="nso-atdlp-7.02a1"/>
-            <refstandard refid="nso-atdlp-7.03a1"/>
-            <refstandard refid="nso-atdlp-7.04a1"/>
-            <refstandard refid="nso-adatp-12e-vol1"/>
-            <refstandard refid="nso-adatp-12e-vol2"/>
-            <refstandard refid="nso-adatp-31c"/>
+            <refstandard refid="nso-stanag5555ed1"/>
+            <refstandard refid="tdl-atdlp-7.02a1"/>
+            <refstandard refid="tdl-atdlp-7.03a1"/>
             <refstandard refid="ietf-rfc7208"/>
             <refstandard refid="ietf-rfc7321"/>
             <refstandard refid="ietf-rfc7619"/>
@@ -57791,8 +57913,10 @@ problematic</para>
             <refstandard refid="ietf-rfc2484"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="candidate">
-            <refstandard refid="nso-atdlp-7.33a1"/>
-            <refstandard refid="nso-stanag5555ed1"/>
+            <refstandard refid="nso-adatp-12e-vol1"/>
+            <refstandard refid="nso-adatp-12e-vol2"/>
+            <refstandard refid="nso-atdlp-7.33b1"/>
+            <refstandard refid="nso-adatp-31c"/>
             <refstandard refid="tm-forum-tmf621"/>
             <refstandard refid="tm-forum-tmf622"/>
             <refstandard refid="tm-forum-tr250"/>
@@ -57801,6 +57925,7 @@ problematic</para>
             <refstandard refid="iso-iec-29500-1-2016"/>
             <refstandard refid="iso-iec-29500-3-2015"/>
             <refstandard refid="iso-iec-29500-4-2016"/>
+            <refstandard refid="tdl-atdlp-7.04a1"/>
          </refgroup>
          <status mode="accepted">
             <uri/>
@@ -57813,7 +57938,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Unified_Communication_and_Collaboration_Services" title="NISP BSSP for Unified_Communication_and_Collaboration_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-95fb2995-cc13-45d3-a055-e97a438969da-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="itu-t-h.248.1"/>
@@ -57841,9 +57966,9 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-User_Applications" title="NISP BSSP for User_Applications">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-cdd0fd6c-5d52-4d46-8d36-6f9c67475fcb-X"/>
-         <refgroup obligation="mandatory" lifecycle="candidate">
+         <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag5068ed1"/>
          </refgroup>
          <status mode="accepted">
@@ -57856,8 +57981,25 @@ problematic</para>
          <uuid>0ba8f023-99f3-4efb-8fe0-4ab0fb7d0d12</uuid>
       </serviceprofile>
 
+      <serviceprofile id="bsp-Video-based_Communication_Services" title="NISP BSSP for Audio-based_Communication_Services">
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="nso-stanag4705ed1"/>
+            <refstandard refid="nso-stanag5046ed4"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="1998-12-08" version="0.1" rfcp=""/>
+               <event flag="changed" date="2013-11-24" version="8.0" rfcp=""/>
+            </history>
+         </status>
+         <uuid>274f9446-32e2-45aa-8c36-d0f31afd878a</uuid>
+      </serviceprofile>
+
       <serviceprofile id="bsp-Virtualisation" title="NISP BSSP for Virtualisation">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="user.cloud.virtualisation"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="iso-iec-17203"/>
@@ -57873,7 +58015,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Web_Hosting_Services" title="NISP BSSP for Web_Hosting_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="oasis-wsspol-1.3"/>
@@ -57891,7 +58033,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Web_Platform_Services" title="NISP BSSP for Web_Platform_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-28813595-c7db-40fd-9b9a-9ea769ef9920-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="ietf-rfc2616"/>
@@ -57925,7 +58067,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Web_Presentation_Services" title="NISP BSSP for Web_Presentation_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-73a03cb5-fd4a-426a-a017-1ac32f0270a4-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="oasis-wsrp1.0"/>
@@ -57943,13 +58085,26 @@ problematic</para>
          <uuid>14f5ba87-e1ba-4a9c-8b07-9e40560ad49f</uuid>
       </serviceprofile>
 
+      <serviceprofile id="bsp-Voice_Access_Services" title="NISP BSSP for Voice Access Services">
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <reftaxonomy refid="T-d77bcdab-f242-4d6b-96dc-6474aabc0d7d-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+            <refstandard refid="nso-stanag4591ed1"/>
+         </refgroup>
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="1998-12-08" version="0.1" rfcp=""/>
+               <event flag="changed" date="2013-11-24" version="8.0" rfcp=""/>
+            </history>
+         </status>
+         <uuid>5968ccbe-e7f0-46b7-bd27-f29affc29d3c</uuid>
+      </serviceprofile>
+
       <serviceprofile id="bsp-Wired_Local_Area_Transmission_Services" title="NISP BSSP for Wired_Local_Area_Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-6c7b5ec2-1772-4876-bbe3-ffd1f3f765d0-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
-            <refstandard refid="nso-stanag4290ed1"/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="nso-stanag4290ed2"/>
          </refgroup>
          <status mode="accepted">
@@ -57957,18 +58112,33 @@ problematic</para>
             <history>
                <event flag="added" date="1998-12-08" version="0.1" rfcp=""/>
                <event flag="changed" date="2013-11-24" version="8.0" rfcp=""/>
+               <event flag="changed" date="2019-03-08" version="12.0" rfcp="">STANAG 4290 Ed 1 replaced by Ed 2 as mandatory</event>
             </history>
          </status>
          <uuid>1abcfd4b-4f39-4441-a142-1702bab4cf54</uuid>
       </serviceprofile>
 
       <serviceprofile id="bsp-Wired_Metropolitan_Area_Transmission_Services" title="NISP BSSP for Wired_Metropolitan_Area_Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-6e3551c3-4131-48e7-b39a-6a8927f5a7ba-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
-            <refstandard refid="nso-stanag4290ed1"/>
+            <refstandard refid="nso-stanag4290ed2"/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="candidate">
+         <status mode="accepted">
+            <uri/>
+            <history>
+               <event flag="added" date="1998-12-08" version="0.1" rfcp=""/>
+               <event flag="changed" date="2013-11-24" version="8.0" rfcp=""/>
+               <event flag="changed" date="2019-03-08" version="12.0" rfcp="">STANAG 4290 Ed 1 replaced by Ed 2 as mandatory</event>
+            </history>
+         </status>
+         <uuid>08f97cf6-b556-47f2-b5e5-bf2e4a9fa7eb</uuid>
+      </serviceprofile>
+
+      <serviceprofile id="bsp-Wired_Transmission_Services" title="NISP BSSP for Wired Transmission Services">
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <reftaxonomy refid="T-ece8fc03-3661-41f1-ba4b-7ba8fedf9a56-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4290ed2"/>
          </refgroup>
          <status mode="accepted">
@@ -57978,16 +58148,13 @@ problematic</para>
                <event flag="changed" date="2013-11-24" version="8.0" rfcp=""/>
             </history>
          </status>
-         <uuid>08f97cf6-b556-47f2-b5e5-bf2e4a9fa7eb</uuid>
+         <uuid>431deabc-1aaf-440b-8fe1-31e193471231</uuid>
       </serviceprofile>
 
       <serviceprofile id="bsp-Wired_Wide_Area_Transmission_Services" title="NISP BSSP for Wired_Wide_Area_Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-30406e59-7929-4d51-b45a-8bf58ee002b0-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
-            <refstandard refid="nso-stanag4290ed1"/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="nso-stanag4290ed2"/>
          </refgroup>
          <status mode="accepted">
@@ -57995,13 +58162,14 @@ problematic</para>
             <history>
                <event flag="added" date="1998-12-08" version="0.1" rfcp=""/>
                <event flag="changed" date="2013-11-24" version="8.0" rfcp=""/>
+               <event flag="changed" date="2019-03-08" version="12.0" rfcp="">STANAG 4290 Ed 1 replaced by Ed 2 as mandatory</event>
             </history>
          </status>
          <uuid>7159334c-a1a2-46e5-bad7-9bf4b52b5953</uuid>
       </serviceprofile>
 
       <serviceprofile id="bsp-Wireless_BLOS_Mobile_Narrowband_Transmission_Services" title="NISP BSSP for Wireless_BLOS_Mobile_Narrowband_Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-e0173077-44d2-4717-94cb-a7586da1fe60-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4203ed3"/>
@@ -58017,13 +58185,13 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Wireless_BLOS_Mobile_Transmission_Services" title="NISP BSSP for Wireless_BLOS_Mobile_Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-26c8e604-d72a-4eb1-b03f-71214fed385f-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4233ed1"/>
             <refstandard refid="nso-stanag4522ed1"/>
             <refstandard refid="nso-stanag4485ed2"/>
-            <refstandard refid="nso-stanag4486ed3"/>
+            <refstandard refid="nso-stanag4486ed4"/>
          </refgroup>
          <status mode="accepted">
             <uri/>
@@ -58036,7 +58204,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Wireless_BLOS_Static_Wideband_Transmission_Services" title="NISP BSSP for Wireless_BLOS_Static_Wideband_Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-ab020d8f-c2bc-468d-9d36-9327a5295563-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4622ed1"/>
@@ -58052,12 +58220,12 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Wireless_LOS_Mobile_Narrowband_Transmission_Services" title="NISP BSSP for Wireless_LOS_Mobile_Narrowband_Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-cf5a3df7-cff8-4a27-abdc-a40b32b9f0c4-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4203ed3"/>
             <refstandard refid="nso-stanag4204ed3"/>
-            <refstandard refid="nso-stanag4205ed3"/>
+            <refstandard refid="nso-stanag4205ed4"/>
             <refstandard refid="nso-stanag4444ed1"/>
             <refstandard refid="nso-stanag4484ed3"/>
          </refgroup>
@@ -58075,7 +58243,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Wireless_LOS_Mobile_Transmission_Services" title="NISP BSSP for Wireless_LOS_Mobile_Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-19eefbaa-c1cd-4154-b101-d6bd0994bd34-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="bluetooth-bluetooth42"/>
@@ -58094,7 +58262,7 @@ problematic</para>
       </serviceprofile>
 
       <serviceprofile id="bsp-Wireless_LOS_Mobile_Wideband_Transmission_Services" title="NISP BSSP for Wireless_LOS_Mobile_Wideband_Transmission_Services">
-         <profilespec orgid="ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
+         <profilespec orgid="c3b-ipcat" pubnum="STANAG 5524ed2" date="2013-11-24" title="NATO Interoperability Standards and Profiles (NISP)"/>
          <reftaxonomy refid="T-3c22730c-af51-467c-9fef-195a0e211138-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag4175ed5"/>
@@ -59480,7 +59648,7 @@ Web</guide>
          <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
-            <refstandard refid="nso-stanag7149ed6"/>
+            <refstandard refid="nso-stanag7149ed6-app11-d"/>
          </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
@@ -59583,7 +59751,7 @@ Web</guide>
          <reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="nso-stanag5527ed1"/>
-            <refstandard refid="nso-stanag7149ed6"/>
+            <refstandard refid="nso-stanag7149ed6-app11-d"/>
          </refgroup>
          <refgroup obligation="conditional" lifecycle="current">
             <description>VMF may only be used when messages are converted to NFFI or to FFI before
@@ -62096,7 +62264,7 @@ as specified in:
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="nso-stanag5527ed1"/>
-            <refstandard refid="nso-stanag7149ed6"/>
+            <refstandard refid="nso-stanag7149ed6-app11-d"/>
          </refgroup>
          <guide>
             <para>Messages exchanged according to the exchange mechanisms described in ADatP-36(A) shall
@@ -63767,7 +63935,8 @@ as specified in:
 
       <serviceprofile id="sip-for-web-apps-profile" title="Service Interface Profile for Web Applications">
          <profilespec orgid="fmn" pubnum="" title="FMN Spiral 3 Standards Profile" date="2018-10-26" version="3.0"/>
-         <reftaxonomy refid="user.undefined.taxonomynode"/>
+         <reftaxonomy refid="T-cef94bbc-8278-4066-b01f-403318515fa3-X"/>
+         <reftaxonomy refid="T-28813595-c7db-40fd-9b9a-9ea769ef9920-X"/>
          <refgroup obligation="mandatory" lifecycle="current">
             <refstandard refid="w3c-rec-html52"/>
             <refstandard refid="w3c-note-html5-diff"/>
@@ -64099,15 +64268,18 @@ as specified in:
       <orgkey key="c3b-cap1" short="C3B, CaP1" long="Communication and Information Services Capability Panel"/>
       <orgkey key="c3b-cap2" short="C3B, CaP2" long="Navigation and Identification Capability Panel"/>
       <orgkey key="c3b-cap2-fft" short="C3B/CaP2/FFT" long="C3B/CaP2/FFT"/>
-      <orgkey key="c3b-cap4" short="CaP/4" long="C3B CaP/4"/>
-      <orgkey key="c3b-dmcat" short="C3B DM CaT" long="C3B Data Management CaT"/>
+      <orgkey key="c3b-cap4" short="C3B, CaP4" long="C3B CaP/4"/>
+      <orgkey key="c3b-cscat" short="C3B CS CaT" long="C3B Core Services Capability Team"/>
+      <orgkey key="c3b-dmcat" short="C3B DM CaT" long="C3B Data Management Capability Team"/>
       <orgkey key="c3b-iffcat" short="C3B/IFF CaT" long="C3B/IFF CaT"/>
+      <orgkey key="c3b-ipcat" short="C3B IP iCaT" long="C3B Interoperability Profile Capability Team"/>
       <orgkey key="c3b-npma" short="C3B/NPMA" long="C3B/NPMA"/>
       <orgkey key="capi" short="CAPI" long="CAPI"/>
       <orgkey key="cceb" short="CCEB" long="Combined Communications and Electronic Board"/>
       <orgkey key="ccitt" short="CCITT" long="The International Telegraph and Telephone Consultative Committee"/>
       <orgkey key="cdt" short="CDT" long="Centre for distance-spanning technology"/>
       <orgkey key="checkpoint" short="Checkpoint" long="Check Point Software" uri="https://www.checkpoint.com/"/>
+      <orgkey key="cis3cip" short="CIS3 C&amp;IP" long="Communications and Information System Security Standard Communication and Information Partnership"/>
       <orgkey key="cjcsm" short="CJCSM" long="Chairman of the Joint Chiefs of Staff"/>
       <orgkey key="cnad-naag-jcggbad" short="CNAD, AC/225 NAAG, JCGGBAD" long="Joint Capability Group on Ground Based Air Defence"/>
       <orgkey key="cnad-nafag-jcgisr" short="CNAD, AC/224 NAFAG, JCGISR" long="Joint Capability Group on Intelligence, Surveillance and Reconnaissance"/>
@@ -64141,7 +64313,6 @@ as specified in:
       <orgkey key="ietf" short="IETF" long="Internet Engineering Task Force" uri="https://www.ietf.org/"/>
       <orgkey key="iho" short="IHO" long="International Hydrographic Organisation" uri="https://www.iho.int/"/>
       <orgkey key="iicwg" short="IICWG" long="International Interface Control Working Group"/>
-      <orgkey key="ipcat" short="IP iCaT" long="Interoperability Profile Capability Team"/>
       <orgkey key="ipiwg" short="IPIWG" long="Intelligence Projects Integration Working Group"/>
       <orgkey key="isaca" short="ISACA" long="Information Systems Audit and Control Association"/>
       <orgkey key="iso" short="ISO" long="ISO" uri="https://www.iso.org/"/>
