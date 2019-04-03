@@ -51,7 +51,12 @@ Copyright (c) 2019,  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <tr>
     <!-- List standard parameters -->
     <xsl:apply-templates select="/standards/records/standard[@id=$stdid]"/>
-    <td><xsl:value-of select="upper-case(../@obligation)"/></td>
+    <td>
+      <xsl:choose>
+         <xsl:when test="../@lifecycle='current'">MANDATORY</xsl:when>
+         <xsl:otherwise>CANDIDATE</xsl:otherwise>
+       </xsl:choose>
+    </td>
     <td><xsl:value-of select="/standards//node[@id=$nodeid]/@title"/></td>
     <td></td>
     <td></td>
