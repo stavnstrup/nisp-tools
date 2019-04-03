@@ -32,6 +32,7 @@ Copyright (c) 2019,  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <th>Obligation</th>
       <th>Original Taxonomy Node</th>
       <th>New Taxonomy Node</th>
+      <th>New Responsible party</th>
     </tr>
     <xsl:apply-templates select="records/capabilityprofile[@id='bsp']//refprofile"/>
   </table>
@@ -52,6 +53,7 @@ Copyright (c) 2019,  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:apply-templates select="/standards/records/standard[@id=$stdid]"/>
     <td><xsl:value-of select="upper-case(../@obligation)"/></td>
     <td><xsl:value-of select="/standards//node[@id=$nodeid]/@title"/></td>
+    <td></td>
     <td></td>
   </tr>
 </xsl:template>
