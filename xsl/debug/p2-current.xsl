@@ -348,7 +348,7 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:value-of select="@tag"/></td>
     <td align="center">
-      <xsl:apply-templates select="/standards/bestpracticeprofile//bprefstandard[@refid=$myid]"/>
+      <xsl:apply-templates select="/standards/records/capabilityprofile[@id='bsp']//refstandard[@refid=$myid]"/>
     </td>
     <td class="date"><xsl:apply-templates select=".//event"/></td>
     <td>
