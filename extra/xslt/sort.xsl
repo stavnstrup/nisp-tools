@@ -4,14 +4,14 @@
 
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
-            doctype-public="-//DDRE//DTDStandardDB XML V4.5//EN"
-            doctype-system="../schema/dtd/stddb45.dtd"/>
+            doctype-public="-//DDRE//DTDStandardDB XML V4.6//EN"
+            doctype-system="../schema/dtd/stddb46.dtd"/>
 
 <!--
 
 Sort standard and profiles by id.
 
-Copyright (c) 2014, 2018  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2014, 2019  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
