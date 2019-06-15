@@ -149,20 +149,20 @@
 <!-- profiles -->
 
 
-<!ELEMENT capabilityprofile (profilespec, description, subprofiles?, status,  uuid?)>
+<!ELEMENT capabilityprofile (refprofilespec?, profilespec, description, subprofiles?, status,  uuid?)>
 <!ATTLIST capabilityprofile
           id ID #REQUIRED
           short CDATA #REQUIRED
           title CDATA #REQUIRED>
 
 
-<!ELEMENT profile (profilespec, description?, subprofiles?, status, uuid?)*>
+<!ELEMENT profile (refprofilespec?, profilespec, description?, subprofiles?, status, uuid?)*>
 <!ATTLIST profile
           id ID #REQUIRED
           title CDATA #REQUIRED>
 
 
-<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
+<!ELEMENT serviceprofile (refprofilespec?, profilespec, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
 <!ATTLIST serviceprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
@@ -204,6 +204,10 @@
           version CDATA #IMPLIED
           note    CDATA #IMPLIED>
 
+
+<!ELEMENT refprofilespec EMPTY>
+<!ATTLIST refprofilespec
+          refid CDATA #REQUIRED>
 
 <!-- applicability content model identical to DocBook entry -->
 
