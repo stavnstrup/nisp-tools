@@ -78,7 +78,7 @@
 <!-- .......................... RECORDS .................................. -->
 
 
-<!ELEMENT records ((standard | serviceprofile | profile | capabilityprofile)*)>
+<!ELEMENT records ((standard | serviceprofile | profile | capabilityprofile | profilespec)*)>
 
 <!ELEMENT standard (document, applicability, responsibleparty, status, uuid?)>
 <!ATTLIST standard
@@ -196,6 +196,7 @@
 
 <!ELEMENT profilespec EMPTY>
 <!ATTLIST profilespec
+          id      CDATA #IMPLIED
           orgid   IDREF #REQUIRED
           pubnum  CDATA #REQUIRED
           date    CDATA #REQUIRED
