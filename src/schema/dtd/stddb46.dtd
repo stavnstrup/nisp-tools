@@ -57,7 +57,7 @@
 <!-- ...................................................................... -->
 
 
-<!ELEMENT standards (revhistory?, taxonomy, records, organisations, psmap)>
+<!ELEMENT standards (revhistory?, taxonomy, records, organisations)>
 <!ATTLIST standards
           revision CDATA #REQUIRED>
 
@@ -149,20 +149,20 @@
 <!-- profiles -->
 
 
-<!ELEMENT capabilityprofile (refprofilespec?, profilespec?, description, subprofiles?, status,  uuid?)>
+<!ELEMENT capabilityprofile (refprofilespec, description, subprofiles?, status,  uuid?)>
 <!ATTLIST capabilityprofile
           id ID #REQUIRED
           short CDATA #REQUIRED
           title CDATA #REQUIRED>
 
 
-<!ELEMENT profile (refprofilespec?, profilespec?, description?, subprofiles?, status, uuid?)*>
+<!ELEMENT profile (refprofilespec, description?, subprofiles?, status, uuid?)*>
 <!ATTLIST profile
           id ID #REQUIRED
           title CDATA #REQUIRED>
 
 
-<!ELEMENT serviceprofile (refprofilespec?, profilespec?, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
+<!ELEMENT serviceprofile (refprofilespec, pdescription?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
 <!ATTLIST serviceprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
@@ -196,7 +196,7 @@
 
 <!ELEMENT profilespec EMPTY>
 <!ATTLIST profilespec
-          id      CDATA #IMPLIED
+          id      ID #REQUIRED
           orgid   IDREF #REQUIRED
           pubnum  CDATA #REQUIRED
           date    CDATA #REQUIRED
@@ -207,7 +207,7 @@
 
 <!ELEMENT refprofilespec EMPTY>
 <!ATTLIST refprofilespec
-          refid CDATA #REQUIRED>
+          refid IDREF #REQUIRED>
 
 <!-- applicability content model identical to DocBook entry -->
 
@@ -226,13 +226,6 @@
 
 
 <!ELEMENT header EMPTY>
-
-<!ELEMENT psmap (pentry*)>
-
-<!ELEMENT pentry EMPTY>
-<!ATTLIST pentry
-          id    ID   #REQUIRED
-          psid    CDATA   #REQUIRED>
 
 <!-- ...................................................................... -->
 
