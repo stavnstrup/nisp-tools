@@ -57,7 +57,7 @@
 <!-- ...................................................................... -->
 
 
-<!ELEMENT standards (revhistory?, taxonomy, records, organisations)>
+<!ELEMENT standards (revhistory?, taxonomy, records, organisations, psmap)>
 <!ATTLIST standards
           revision CDATA #REQUIRED>
 
@@ -227,7 +227,12 @@
 
 <!ELEMENT header EMPTY>
 
+<!ELEMENT psmap (pentry*)>
 
+<!ELEMENT pentry EMPTY>
+<!ATTLIST pentry
+          id    ID   #REQUIRED
+          psid    CDATA   #REQUIRED>
 
 <!-- ...................................................................... -->
 
