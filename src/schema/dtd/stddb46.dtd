@@ -78,7 +78,7 @@
 <!-- .......................... RECORDS .................................. -->
 
 
-<!ELEMENT records ((standard | serviceprofile | profile | capabilityprofile | profilespec)*)>
+<!ELEMENT records ((standard | serviceprofile | profile | profilespec)*)>
 
 <!ELEMENT standard (document, applicability, responsibleparty, status, uuid?)>
 <!ATTLIST standard
@@ -149,17 +149,12 @@
 <!-- profiles -->
 
 
-<!ELEMENT capabilityprofile (refprofilespec, description, subprofiles?, status,  uuid?)>
-<!ATTLIST capabilityprofile
-          id ID #REQUIRED
-          short CDATA #REQUIRED
-          title CDATA #REQUIRED>
-
-
 <!ELEMENT profile (refprofilespec, description?, subprofiles?, status, uuid?)*>
 <!ATTLIST profile
           id ID #REQUIRED
-          title CDATA #REQUIRED>
+          short CDATA #REQUIRED
+          title CDATA #REQUIRED
+          toplevel (yes|no) "no">
 
 
 <!ELEMENT serviceprofile (refprofilespec, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>

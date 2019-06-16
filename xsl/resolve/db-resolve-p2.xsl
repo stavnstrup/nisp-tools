@@ -3,10 +3,13 @@
 <!--
 
 This stylesheet is created for the NISP, and is intended for
-transforming the standards database from a relational structure to
-clean tree-structure.
+tagging serviceprofile due to their dual functionallity.
 
-Copyright (c) 2009-2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+We add a type attribute to the servicprofile using the following rules
+  bsp: serviceprofiles which is part of the basic standards profile (BSP)
+  coi: any other service profile, which is part of a capability profile like FMN.
+
+Copyright (c) 2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -14,92 +17,36 @@ NATO Command, Control and Consultation Organisation (NC3O).
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:saxon="http://icl.com/saxon"
                 version='1.1'
-                exclude-result-prefixes="#default saxon">
+                xmlns:saxon="http://icl.com/saxon"
+                exclude-result-prefixes="saxon">
 
-<xsl:output indent="yes" />
+<xsl:output saxon:next-in-chain="db-resolve-p3.xsl"/>
 
-<!-- ==================================================================== -->
-
-<xsl:template match="/">
-  <xsl:comment>
-
-     DO NOT MODIFY THIS DOCUMENT. THIS IS A RESOLVED VERSION ONLY.
-
-  </xsl:comment>
-
-  <xsl:apply-templates/>
-</xsl:template>
+<xsl:strip-space elements="*"/>
 
 <!-- ==================================================================== -->
 
-<!-- Re-create the capability profile hierachy, which is necessary when we want to create
-     queries accross multiple concepts -->
+<!-- Add type attribute to all service profile, to be able to differentiate serviceprofiles,
+     which are part of the Base Standards Profile and those which are not -->
 
-<xsl:template match="standards">
-  <standards>
+<xsl:template match="serviceprofile">
+  <xsl:variable name="myid" select="@id"/>
+  <serviceprofile>
+    <xsl:attribute name="type">
+      <xsl:choose>
+        <xsl:when test="/standards//capabilityprofile[@id='bsp']//refprofile[@refid=$myid]">
+          <xsl:text>bsp</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>coi</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
-
-    <profilehierachy>
-      <xsl:apply-templates select="records/capabilityprofile[status/@mode='accepted']" mode="copyprofile"/>
-    </profilehierachy>
-  </standards>
-</xsl:template>
-
-
-<xsl:template match="capabilityprofile" mode="copyprofile">
-  <capabilityprofile type="cp" id="{@id}">
-    <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
-  </capabilityprofile>
-</xsl:template>
-
-
-<xsl:template match="profile" mode="copyprofile">
-  <!-- We are only interested in the relationship between capabilityprofiles, serviceprofiles and
-       standards - so do not list profiles in the heirachy, -->
-  <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
-</xsl:template>
-
-
-<xsl:template match="serviceprofile" mode="copyprofile">
-  <serviceprofile id="{@id}">
-    <xsl:apply-templates select="reftaxonomy" mode="copyprofile"/>
-    <xsl:apply-templates select="refgroup" mode="copyprofile"/>
   </serviceprofile>
 </xsl:template>
-
-
-<xsl:template match="reftaxonomy" mode="copyprofile">
-  <reftaxonomy refid="{@refid}"/>
-</xsl:template>
-
-
-<xsl:template match="subprofiles" mode="copyprofile">
-  <xsl:apply-templates select="refprofile" mode="copyprofile"/>
-</xsl:template>
-
-
-<xsl:template match="refstandard" mode="copyprofile">
-  <refstandard>
-    <xsl:apply-templates select="@*"/>
-  </refstandard>
-</xsl:template>
-
-<xsl:template match="refprofile" mode="copyprofile">
-  <xsl:variable name="myid" select="@refid"/>
-  <xsl:apply-templates select="/standards//*[@id=$myid]" mode="copyprofile"/>
-</xsl:template>
-
-
-<xsl:template match="refgroup" mode="copyprofile">
-  <refgroup>
-    <xsl:apply-templates select="@*"/>
-    <xsl:apply-templates select="refstandard" mode="copyprofile"/>
-  </refgroup>
-</xsl:template>
-
 
 <!-- ==================================================================== -->
 
