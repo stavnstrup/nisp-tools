@@ -4,47 +4,74 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;">
+  <meta name="dcterms.date" content="2013-10-02">
   <title>nisp-database</title>
   <style type="text/css">code{white-space: pre;}</style>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="man.css">
 </head>
@@ -67,16 +94,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The structure of the database is described in detail in <a href="nisp-database-schema.html">nisp-database-schema</a>.</p>
 <p>The remaining of this document describes specific issues of the database the user should be aware off.</p>
 <h2 id="introduction-of-uuids">Introduction of UUIDs</h2>
-<p>The introduction of UUIDs in the database put significant restrictions on how we in the future update standards and profiles. Except for fixing errors in the description of a standard or profile, the and standard and profile should never be modified. So when e.g. a standard is updated from version 2.0 to verion 3.0, we should create a complete new <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element. When creating the new <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element, it would make sence to just copy the old elemen and then change the appropiate attributes and child elemnts, then make sure you delete the copied UUID element from the new <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element.</p>
+<p>The introduction of UUIDs in the database put significant restrictions on how we in the future update standards and profiles. Except for fixing errors in the description of a standard or profile, the and standard and profile should never be modified. So when e.g. a standard is updated from version 2.0 to verion 3.0, we should create a complete new <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element. When creating the new <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element, it would make sence to just copy the old elemen and then change the appropiate attributes and child elemnts, then make sure you delete the copied UUID element from the new <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element.</p>
 <h2 id="usage-of-identifiers-in-the-database">Usage of identifiers in the database</h2>
-<p>Each <code>&lt;standard&gt;</code> and <code>&lt;profile&gt;</code> element have two identifiers, i.e. <code>id</code> in the form of an attribute and ùuid` in form of a child element. which are used to uniquely identify a specific standard or profile.</p>
+<p>Each <code>&lt;standard&gt;</code> and <code>&lt;profile&gt;</code> element have two identifiers, i.e. <code>id</code> in the form of an attribute and ùuid` in form of a child element. which are used to uniquely identify a specific standard or profile.</p>
 <p>The two identifiers serves different purposes:</p>
 <dl>
 <dt><code>id</code></dt>
 <dd>This identifier is manually created and by convention we use a combination of the <code>orgid</code>, a hyphen and and the <code>pubnum</code> attribute of the <code>&lt;document&gt;</code> element. This identifier is userfriendly, as it is easy to remember and are therefore the id we are using to refere to a standard or profile from a <code>&lt;select&gt;</code> element. Examples of such identifiers are <em>iso-8859-1</em> and <em>rfc-793</em>.
 </dd>
 <dt><code>uuid</code></dt>
-<dd>This identifier is <em>automatically</em> generated and should under no circumstances be changed. The UUID identifier will be unique for a specific version of a <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element, so e.g. two different version of a given standard will have different UUIDs. This will enable us to import the NISP database into a architecture repository and whenever the NISP database is updated we syncronise with the data in the architecture repository.
+<dd>This identifier is <em>automatically</em> generated and should under no circumstances be changed. The UUID identifier will be unique for a specific version of a <code>&lt;standard&gt;</code> or <code>&lt;profile&gt;</code> element, so e.g. two different version of a given standard will have different UUIDs. This will enable us to import the NISP database into a architecture repository and whenever the NISP database is updated we syncronise with the data in the architecture repository.
 </dd>
 </dl>
 <h2 id="generating-uuids">Generating UUIDs</h2>
@@ -85,7 +112,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>build -f uuid-build.xml</code></pre>
 <h2 id="usage-of-organisation-abbreaviations">Usage of organisation abbreaviations</h2>
 <p>Each <code>&lt;standard&gt;</code> element contains a <code>&lt;document&gt;</code> element, which describes the standard the element represents. Among the attributes is <code>orgid</code>, which should only use values from a pre-defined set of maps. This set is described in the element <code>&lt;organisations&gt;</code> and should be extended if the relevant standard organisation is not already defined. An example of such a map, is</p>
-<div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd">&lt;orgkey key=&quot;opengroup&quot; text=&quot;The Open Group&quot; /&gt;</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode dtd"><code class="sourceCode dtd"><a class="sourceLine" id="cb2-1" title="1">&lt;orgkey key=&quot;opengroup&quot; text=&quot;The Open Group&quot; /&gt;</a></code></pre></div>
 <h1 id="see-also">See Also</h1>
 <p><a href="" title="nisp-database-schema.html">nisp-database-schema</a></p>
 <p>The NISP sources and tools are availible in a subversion repository on TIDE at <a href="http://tide.acr.nato.int/svn/nisp/trunk" class="uri">http://tide.acr.nato.int/svn/nisp/trunk</a>.</p>

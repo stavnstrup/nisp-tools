@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% April 1, 2019
+% June 16, 2019
 
 # Name
 
@@ -22,7 +22,7 @@ inclusion in the NATO Architecture Repository (NAR).
 
 In order to enable validation of the database, a schema in form
 of a DTD have been defined. This DTD is located in the source distribution at
-`schema/dtd/stddb44.dtd`.
+`schema/dtd/stddb46.dtd`.
 
 Since some of the element in the schema represent textual information
 in the form of DocBook fragments such as paragraphs, unnumbered lists
@@ -91,9 +91,9 @@ attribute is the UUID assigned in the TIDE EM-Wiki.
           emUUID CDATA #REQUIRED>
 ~~~
 
-## Base Standards Profile (formerly know as Best Practice Profile)
+## Base Standards Profile
 
-In NISP volume 2 and 3 all mandatory and candidate standards are listed in what we call the *Base Standards Profile* (BSP). Since NISP 12, the BSP and COI profiles (capabilityprofile, profile and serviceprofile) has been consolidated. The BSP is now represented using a Capabilityprofile with the id value bsp.
+In NISP volume 2 and 3 all mandatory and candidate standards are listed in what we call the *Base Standards Profile* (BSP). Since NISP 12, the BSP and COI profiles (represented by `<profile>` and `<serviceprofile>` elements) has been consolidated. The BSP is now represented using a `<profile>` with the `id` value *bsp*.
 
 
 ## Standards
@@ -111,7 +111,7 @@ All standards and profiles types are contained in the `<records>`
 element.
 
 ~~~{.dtd}
-<!ELEMENT records ((standard | serviceprofile | profile | capabilityprofile)*)>
+<!ELEMENT records ((standard | serviceprofile | profile | profilespec)*)>
 ~~~
 
 
@@ -119,7 +119,7 @@ element.
 All standards are implemented using a
 single `<standard>` element describing both the
 standard and historical aspect about the standard.  A standard
-consists of:
+consists of the following elements:
 
 * document - describes the actual standard
 * applicability - when and where should the standard be used
@@ -316,49 +316,35 @@ means it is a randomly generated UUID.
 
 ## Community of Interest Profiles
 
-Where the *Base Standards Profile* represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes. Community of Interest Profiles uses three different profile elements, which are *capability profile*, *profile* and *serviceprofile* organized in a tree structure.
+Where the *Base Standards Profile* represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes. Community of Interest Profiles uses two different profile elements, which are *profile* and *serviceprofile* organized in a tree structure.
 
-The leaves of the tree consists of `servicprofile` elements which references selected standards. The root of the three is represented by a `capabilityprofile` element and all other nodes in the tree are represented by `profile` elements. The `capabilityprofile` and the `profile` element are almost identical and basically a kind of container elements. Alle profile elements are described in detail below.
-
-### Capability Profile
-
-The `<capabilityprofile>` element is a container element, which list the profiles necessary to implement a given capability.
-
-A `<capabilityprofile>` consists of a `<profilespec>` element describing
-the capability, a number of references to `<profile>` or `<serviceprofile>` elements encapsulated in a `<subprofiles>` element and a `<status>` element.
-
-~~~{.dtd}
-<!ELEMENT capabilityprofile (profilespec, description, subprofiles?, status,  uuid?)>
-<!ATTLIST capabilityprofile
-          id ID #REQUIRED
-          short CDATA #REQUIRED
-          title CDATA #REQUIRED>
-~~~
+The leaves of the tree consists of `servicprofile` elements which references selected standards. All other nodes in the tree are represented by the represented by `profile` elements. The `profile` element is basically a kind of container element. All profile elements are described in detail below. The root of a profile tree is also called a *capabilityprofile*, but is no longer represented by its own element.
 
 ### Profile
 
-A `<profile>` consists of a `<profilespec>` element describing
+A `<profile>` consists of a `<refprofilespec>` element describing
 the capability, a number of references to `<profile>` or `<serviceprofile>` elements encapsulated in a `<subprofiles>` element and a `<status>` element.
 
 ~~~{.dtd}
-<!ELEMENT profile (profilespec, description?, subprofiles?, status, uuid?)*>
+<!ELEMENT profile (refprofilespec, description?, subprofiles?, status, uuid?)*>
 <!ATTLIST profile
           id ID #REQUIRED
+          short CDATA #IMPLIED
           title CDATA #REQUIRED>
 ~~~
 
 ### Service Profile
 
-A `<serviceprofile>` element represents a service, which is required by a specific capability and it consists of a `<profilespec>` element describing the capability, a number of one or more references in form of `<reftaxonomy>` elements to the taxonomy. The `<serviceprofile>` serves two distinct roles, it represents a leave of the basic standards profiles which lists mandatory and emerging standardards for NATO common funded systems and second it represent the leaves of a community of interest profile like the Federated Mission Networking (FMN) profile. The role of the serviceprofile is controlles by the attributes of the `<refgroup>` element(s).
+A `<serviceprofile>` element represents a service, which is required by a specific capability and it consists of a `<refprofilespec>` ( referencing `<profilespec>` a describing the capability), a number of one or more references in form of `<reftaxonomy>` elements to the taxonomy. The `<serviceprofile>` serves two distinct roles, it represents a leave of the basic standards profiles which lists mandatory and emerging standardards for NATO common funded systems and second it represent the leaves of a community of interest profile like the Federated Mission Networking (FMN) profile. The role of the serviceprofile is controlles by the attributes of the `<refgroup>` element(s).
 
 ~~~{.dtd}
-<!ELEMENT serviceprofile (profilespec, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
+<!ELEMENT serviceprofile (refprofilespec, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
 <!ATTLIST serviceprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
 ~~~
 
-### Profile Elements
+### Profilespec Element
 
 A `<profilespec>` element exposes the publishing organisation, publication number, publishing date, title and version through the attributes orgid, pubnum, date, title, version and note. The orgid refers to an organisation is embedded in the `<organisations>` element. The rule of using organisation identifiers instead of the actual name of the organisation is mandated to prevent, that the same organisation exists in multiple incarnations in the database.
 
@@ -373,7 +359,15 @@ A `<profilespec>` element exposes the publishing organisation, publication numbe
           note    CDATA #IMPLIED>
 ~~~
 
-A `<subprofile>` element references child profiles. This element is used by the `<capabilityprofile>` and the `<profile>` elements and must only reference `<profile>` or `<serviceprofile>` elements.
+~~~{.dtd}
+<!ELEMENT refprofilespec EMPTY>
+<!ATTLIST refprofilespec
+          refid IDREF #REQUIRED>
+~~~
+
+### Child elements of profile and servicprofile
+
+A `<subprofile>` element references child profiles. This element is used by the  `<profile>` element and must only reference `<profile>` or `<serviceprofile>` elements.
 
 ~~~{.dtd}
 <!ELEMENT subprofiles (refprofile+)>
@@ -385,9 +379,11 @@ the profile.
 
 ~~~{.dtd}
 <!ELEMENT description  %ho; (%tbl.entry.mdl;)*>
+~~~
 
 The `<reftaxonomy>` element refences a taxonomy node, which this a given `<serviceprofile>` element supports.
 
+~~~{.dtd}
 <!ELEMENT reftaxonomy EMPTY>
 <!ATTLIST reftaxonomy
           refid IDREF #REQUIRED>
