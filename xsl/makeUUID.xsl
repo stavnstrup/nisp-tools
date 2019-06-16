@@ -27,7 +27,7 @@ Description : This stylesheet creates an UUID element in all standards
 
 <xsl:strip-space elements="*"/>
 
-<xsl:template match="standard|profilespec|serviceprofile|profile|capabilityprofile">
+<xsl:template match="standard|profilespec|serviceprofile|profile">
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
