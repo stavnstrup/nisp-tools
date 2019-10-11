@@ -63,7 +63,7 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DDRE <js@ddre.dk>
      <li><b>Date</b> - The date of the <i>event</i></li>
      <li><b>Flag</b> - The type of the <i>event</i> (added, changed or deleted)</li>
      <li><b>RFCP</b> - What RFCP (if any) resulted in this event</li>
-     <li><b>Version</b> - The version of the TA, this event referes to</li>
+     <li><b>Version</b> - The version of NISP, this event referes to</li>
    </ul>
 
   <p>N.B. There should only be one header for each version, otherwise
