@@ -23,6 +23,7 @@ notifications:
 
 script:
   - xmllint --noout --valid src/standards/standards.xml
+  - ant -f newbuild.xml
   - ant all
   - ant debug
 
