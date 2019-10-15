@@ -2436,7 +2436,7 @@ develop models within one application, and use different vendors' applications f
 model.</applicability>
          <responsibleparty rpref="ncia"/>
          <status mode="accepted">
-            <uri>/</uri>
+            <uri>http://dmg.org/pmml/pmml-v4-2-1.html</uri>
             <history>
                <event flag="added" date="2019-10-15" rfcp="12-17" version="13.0"/>
             </history>
@@ -50632,13 +50632,14 @@ between related tools that are UML/SysML based and tools that are based on other
             by expressions, extensible value testing, and constraining queries by
             source RDF graph. The results of SPARQL queries can be result sets or RDF graphs.
          </applicability>
-         <responsibleparty rpref="undefined"/>
+         <responsibleparty rpref="ncia"/>
          <status mode="deleted">
             <uri>http://www.w3.org/TR/2012/PR-sparql11-query-20121108/ </uri>
             <history>
                <event date="2008-12-10" flag="added" rfcp="2-19" version="3.0"/>
                <event date="2012-12-02" flag="changed" rfcp="6-113" version="7.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
+               <event flag="changed" date="2019-10-15" rfcp="12-18" version="13.0"/>
             </history>
          </status>
          <uuid>64560661-31ff-4d27-b089-02f6592733b0</uuid>
@@ -57173,6 +57174,9 @@ problematic</para>
       <serviceprofile id="bsp-Information_Discovery_Services" title="NISP BSSP for Information_Discovery_Services">
          <refprofilespec refid="profspec-bsp"/>
          <reftaxonomy refid="T-6143f4be-fb3c-40ac-b38a-4926edc272f2-X"/>
+         <refgroup obligation="mandatory" lifecycle="current">
+           <refstandard refid="w3c-rec-rdf-sparql11-query-20121108"/>
+         </refgroup>
          <refgroup obligation="mandatory" lifecycle="candidate">
             <refstandard refid="opensearch11"/>
          </refgroup>
