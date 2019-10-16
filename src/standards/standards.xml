@@ -9892,6 +9892,7 @@ Passive requesters of this profile are limited to the HTTP protocol.</applicabil
                <event flag="added" date="2010-09-22" version="5.0"/>
                <event flag="deleted" date="2017-01-26" rfcp="9-21" version="10.0"/>
                <event flag="changed" date="2017-11-16" version="11.0"/>
+               <event flag="deleted" date="2019-10-16" version="13.0" rfcp="12-20"/>
             </history>
          </status>
          <uuid>ebc2c42f-359d-4498-81f8-15936f84f367</uuid>
@@ -54823,23 +54824,6 @@ arbitrary XML-based messages. WSMP is extensible and may be used by any Communit
          <uuid>da63e1b4-ebfc-4bbd-816d-ab9e57295143</uuid>
       </profile>
 
-      <profile toplevel="yes" id="x-tms-smtp" short="X-TMS-SMTP" title="X-TMS-SMTP Profile">
-         <refprofilespec refid="profspec-tms-smtp"/>
-         <description>
-            <para>Defines military header fields to be used for SMTP messages that are gatewayed across military mail environment boundaries.</para>
-         </description>
-         <subprofiles>
-            <refprofile refid="x-tms-smtp-gateway"/>
-         </subprofiles>
-         <status mode="accepted">
-            <uri/>
-            <history>
-               <event flag="added" date="2006-04-27" version="1.0" rfcp="7-1"/>
-            </history>
-         </status>
-         <uuid>003e3ad7-45c8-4cbb-a1d0-2f221548cf7f</uuid>
-      </profile>
-
       <profile short="unknown" id="fmn1-pr-fed-com" title="Federated Communication Profile" toplevel="no">
          <refprofilespec refid="profspec-fmn1"/>
          <subprofiles>
@@ -64359,25 +64343,6 @@ as specified in:
          <uuid>9b7f9151-b599-4de7-b484-9adde648393d</uuid>
       </serviceprofile>
 
-      <serviceprofile id="x-tms-smtp-gateway" title="SMTP Header Fields in Gatewaying">
-         <refprofilespec refid="profspec-tms-smtp"/>
-         <reftaxonomy refid="T-7a409ea6-6137-442d-8f77-f19ba8387772-X"/>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <refstandard refid="ietf-rfc2821"/>
-         </refgroup>
-         <guide>
-            <para>Military header fields to be used for SMTP messages that are gatewayed across military mail environment boundaries.
-            It  specifies "X-messages" based upon RFC 2821, section  "3.8.1 Header Field in Gatewaying".
-            The profile specifies for each header field the name and possible values of the body.</para>
-         </guide>
-         <status mode="accepted">
-            <uri/>
-            <history>
-               <event flag="added" date="2006-04-27" version="1.0" rfcp="7-1"/>
-            </history>
-         </status>
-         <uuid>c4713c77-6d2d-431b-980f-2b0c836a1e05</uuid>
-      </serviceprofile>
 
       <profilespec id="profspec-archive" orgid="nato" pubnum="AC/324-D(2014)0008" title="Directive on the Preservation of NATO Digital Information of Permanent Value" date="2014-07-03" version="1">
          <uuid>2d95b3c5-9795-436b-8aa6-63521bb6c4cb</uuid>
@@ -64463,13 +64428,11 @@ as specified in:
          <uuid>29b2de47-fcee-4215-8613-e9a66af98d71</uuid>
       </profilespec>
 
-      <profilespec id="profspec-tms-smtp" orgid="nato" pubnum="X-TMS-SMTP" title="Defines military header fields to be used for SMTP messages that are gatewayed across military mail environment boundaries" date="2007-02-28" version="1">
-         <uuid>4c36d817-7337-4e3d-9fbf-a9bbc8dd84be</uuid>
-      </profilespec>
-
       <profilespec id="prospec-sip-pep" orgid="ncia" pubnum="AI_TECH_2016.06.02.04" title="Service Interface Profile for Policy Enforcement Points" date="2015-02-04" version="1">
          <uuid>cad9de79-804a-488a-8900-d4de2ed67569</uuid>
       </profilespec>
+ 
+
 
    </records>
    <organisations>
