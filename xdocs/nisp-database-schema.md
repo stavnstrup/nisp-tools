@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% Jul 5, 2018
+% April 1, 2019
 
 # Name
 
@@ -37,11 +37,10 @@ In the rest of this document, the syntax of the database is described
 in detail and when appropriate, examples of the actual implementation
 is included.
 
-The standard database DTD is logically separated into four
+The standard database DTD is logically separated into three
 different parts:
 
 * service taxonomy on the C3 taxonomy baseline 2 - dated november 2, 2015
-* a best practice profile
 * standard and profile descriptions
 * mapping between organisation abbreviations and full names
 
@@ -49,7 +48,7 @@ The root element of the DTD is the element `<standards>`
 and is described by:
 
 ~~~{.dtd}
-<!ELEMENT standards (revhistory?, taxonomy, bestpracticeprofile, records,
+<!ELEMENT standards (revhistory?, taxonomy, records,
                      organisations)>
 ~~~
 
@@ -94,38 +93,8 @@ attribute is the UUID assigned in the TIDE EM-Wiki.
 
 ## Base Standards Profile (formerly know as Best Practice Profile)
 
-In NISP volume 2 and 3 all mandatory and candidate standards are listed in what we call the *Base Standards Profile*. This profile used to be called the *Best Practice Profile*. When the last version of the DTD was implemented, we had not yet decided on the term Base Standards Profile, which is why the we retain the old naming scheme for this element end its children both in the DTD and in the database.
+In NISP volume 2 and 3 all mandatory and candidate standards are listed in what we call the *Base Standards Profile* (BSP). Since NISP 12, the BSP and COI profiles (capabilityprofile, profile and serviceprofile) has been consolidated. The BSP is now represented using a Capabilityprofile with the id value bsp.
 
-The `<bestpracticeprofile>` element consists of zero or more
-`<bpserviceprofile>` elements.
-
-~~~{.dtd}
-<!ELEMENT bestpracticeprofile (bpserviceprofile*)>
-~~~
-
-A `<bpserviceprofile>` element consists of one or more `<bpgroup>`
-elements, which represent a collection of standards mapped to a taxonomy node.
-Each `<bpserviceprofile>` have a `tref` attribute, which is a reference
-to a position in the taxonomy. A `genTitle` attribute may also exists, it should be identical with the title attribute of the associated note. Note that this attribute is actually never used except to explain which node the `tref` atrribute actually refers to.
-
-~~~{.dtd}
-<!ELEMENT bpserviceprofile (bpgroup*)>
-<!ATTLIST bpserviceprofile
-          tref IDREF #REQUIRED
-          genTitle CDATA #IMPLIED>
-~~~
-
-A `<bgroup>` element contains a list of `<bprefstandard>` elements, which references standards, which are mandatory or emerging depending on the value of the `mode` attribute.
-
-~~~{.dtd}
-<!ELEMENT bpgroup (bprefstandard+)>
-<!ATTLIST bpgroup
-          mode (unknown|mandatory|candidate) #REQUIRED>
-
-<!ELEMENT bprefstandard (#PCDATA)>
-<!ATTLIST bprefstandard
-          refid IDREF #REQUIRED>
-~~~
 
 ## Standards
 
@@ -426,7 +395,7 @@ The `<reftaxonomy>` element refences a taxonomy node, which this a given `<servi
 
 The `<refgroup>` references standards and profiles with a specific obligation. The `<refgroup>` element is child of a `<serviceprofile>`element.
 
-DESCRIBE obligation and lifecycle ATTRIBUTES AND HOW THEY CONTROL THE DUAL ROLES OF A SERVICE PROFILE
+TBD: DESCRIBE obligation and lifecycle ATTRIBUTES AND HOW THEY CONTROL THE DUAL ROLES OF A SERVICE PROFILE
 
 ~~~{.dtd}
 <!ELEMENT refgroup (description?, refstandard*, refprofile*)>
