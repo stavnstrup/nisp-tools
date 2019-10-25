@@ -21,8 +21,8 @@ Description : This stylesheet creates an UUID element in all standards
 
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
-            doctype-public="-//DDRE//DTDStandardDB XML V4.6//EN"
-            doctype-system="../schema/dtd/stddb46.dtd"/>
+            doctype-public="-//DDRE//DTDStandardDB XML V4.7//EN"
+            doctype-system="../schema/dtd/stddb47.dtd"/>
 
 
 <xsl:strip-space elements="*"/>
