@@ -61,7 +61,7 @@ index = {}
 predicates = []
 
 def indexDataset():
-	print ("Indexing dataset...")
+	#print ("Indexing dataset...")
 	global index, predicates
 	index = {}
 
@@ -75,7 +75,7 @@ def indexDataset():
 	predicates = index.keys()
 
 def loadDataset(name, path="."):
-	print ("Loading dataset...")
+	#print ("Loading dataset...")
 	global pages, index, predicates
 	pages.clear()
 	index.clear()
