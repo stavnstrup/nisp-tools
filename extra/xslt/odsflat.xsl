@@ -31,6 +31,9 @@
                 version='2.0'>
 
 
+
+
+
 <!-- Flattens a OpenOffice Spreadsheet.
 
      When data captured in an Open Office Spreadsheet needs to be
@@ -45,6 +48,36 @@
      i.e. expand them to single non-merged cells before doing any
      processing of the spreadsheet.
 -->
+
+
+<xsl:output indent="yes" saxon:next-in-chain="p2-odsflat.xsl"/>
+
+
+<xsl:template match="office:scripts|office:font-face-decls|office:automatic-styles|table:table-column"/>
+
+
+<xsl:template match="office:body|office:spreadsheet|table:calculation-settings|office:forms|table:iteration|text:p"><xsl:apply-templates/></xsl:template>
+
+<xsl:template match="table:table">
+  <table>
+    <xsl:apply-templates/>
+  </table>
+</xsl:template>
+
+
+<xsl:template match="table:table-row">
+  <row>
+    <xsl:apply-templates/>
+  </row>
+</xsl:template>
+
+
+<xsl:template match="table:table-cell">
+  <cell>
+    <xsl:apply-templates/>
+  </cell>
+</xsl:template>
+
 
 <xsl:template match="table:table-cell[@table:number-columns-repeated>1]">
   <xsl:call-template name="cellrepeat">
