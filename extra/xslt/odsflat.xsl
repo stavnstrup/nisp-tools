@@ -27,10 +27,10 @@
 		            xmlns:field="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:field:1.0"
 		            xmlns:saxon="http://saxon.sf.net/"
                 extension-element-prefixes="saxon"
-                exclude-result-prefixes="field"
                 version='2.0'>
-
-
+<!--
+                exclude-result-prefixes="fo script xlink ooo dc ooow number dom xsi presentation  svg chart dr3d math form meta oooc xforms field"
+-->
 
 
 
@@ -52,6 +52,12 @@
 
 <xsl:output indent="yes" saxon:next-in-chain="p2-odsflat.xsl"/>
 
+
+<xsl:template match="office:document-content">
+  <coverpages>
+    <xsl:apply-templates/>
+  </coverpages>
+</xsl:template>
 
 <xsl:template match="office:scripts|office:font-face-decls|office:automatic-styles|table:table-column"/>
 
