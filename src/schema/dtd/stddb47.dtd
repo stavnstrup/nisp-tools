@@ -78,19 +78,21 @@
 <!-- .......................... RECORDS .................................. -->
 
 
-<!ELEMENT records ((coverpage | standard | serviceprofile | profile | profilespec)*)>
+<!ELEMENT records ((coverdoc | standard | serviceprofile | profile | profilespec)*)>
 
-<!ELEMENT coverpage (document, coverstandards, responsibleparty, status, uuid?)>
-<!ATTLIST coverpage
-          tag CDATA #REQUIRED
-          id ID #REQUIRED>
-
-<!ELEMENT coverstandards (refstandard+)>
 
 <!ELEMENT standard (document, applicability, responsibleparty, status, uuid?)>
 <!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED>
+
+
+<!ELEMENT coverdoc (document, coverstandards, responsibleparty, status, uuid?)>
+<!ATTLIST coverdoc
+          tag CDATA #REQUIRED
+          id ID #REQUIRED>
+
+<!ELEMENT coverstandards (refstandard+)>
 
 <!-- document -->
 

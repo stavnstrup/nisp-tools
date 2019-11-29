@@ -111,9 +111,8 @@ All standards and profiles types are contained in the `<records>`
 element.
 
 ~~~{.dtd}
-<!ELEMENT records ((standard | serviceprofile | profile | profilespec)*)>
+<!ELEMENT records ((standard | coverdoc | serviceprofile | profile | profilespec)*)>
 ~~~
-
 
 
 All standards are implemented using a
@@ -143,6 +142,19 @@ and `id`.  The `tag` attribute was previously
 used the volume 3 of the NC3TA, and a is short title identifying the
 standard. A few future use could be to provide a title when selecting
 standards.
+
+## Covering Document
+
+A `coverdoc` element is a standard like construct which is realised by the NATO standardisation documents STANAG and STANREC, which represents an agrement of member nations to implement a standard, in whole or in part, with or without reservation, in order to meet an interoperability requirement. A coverdoc will refere to one or more standards descibed by the `coverstandards` element.
+
+~~~{.dtd}
+<!ELEMENT coverdoc (document, coverstandards, responsibleparty, status, uuid?)>
+<!ATTLIST coverdoc
+          tag CDATA #REQUIRED
+          id ID #REQUIRED>
+
+<!ELEMENT coverstandards (refstandard+)>
+~~~
 
 ### Document
 
