@@ -108,7 +108,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="@*" mode="addindexentry">
   <xsl:variable name="id" select="."/>
 
-  <xsl:variable name="record" select="$db//standard[@id=$id]"/>
+  <xsl:variable name="record" select="$db//standards/records/*[@id=$id]"/>
   <xsl:for-each select="$record/document">
      <xsl:variable name="org" select="@orgid"/>
      <indexterm>
@@ -153,7 +153,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </thead>
     <tbody>
       <xsl:choose>
-        <!-- We use the lifeycle attribute with values current and candidate to identify mandatory and candidate standards for the best
+        <!-- We use the lifeycle attribute with values current and candidate to identify mandatory and candidate standards/coverdocs for the best
              service profile. But note that the lifecycle vallue current also maps to multiple obligation levels, so we need to reduce the number
              of obligation values to only mandatory, when the lifecycle value is current -->
         <xsl:when test="$lifecycle='current'">
@@ -198,7 +198,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:param name="taxref" select="''"/>
 
   <xsl:variable name="stdid" select="@refid"/>
-  <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
+  <xsl:variable name="std" select="$db//records/*[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
   <!-- (This mandatory standard does NOT exist in a previous capability profile for a given taxonomy node taxref) AND
@@ -289,7 +289,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:param name="taxref" select="''"/>
 
   <xsl:variable name="stdid" select="@refid"/>
-  <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
+  <xsl:variable name="std" select="$db//records/*[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
   <row>
