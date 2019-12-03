@@ -235,6 +235,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:if test="$std/document/@pubnum !=''">
           <xsl:value-of select="$std/document/@pubnum"/>
         </xsl:if>
+        <xsl:if test="starts-with($std/document/@orgid, 'nso') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
+          <xsl:text> / </xsl:text>
+          <xsl:value-of select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/document/@pubnum"/>
+        </xsl:if>
       </entry>
       <entry>
         <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile" mode="listcp">
@@ -316,12 +320,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
       <xsl:if test="$std/document/@pubnum !=''">
         <xsl:value-of select="$std/document/@pubnum"/>
       </xsl:if>
-      <!--
-      <xsl:if test="($std/document/@orgid = 'nso') and (/standards/records/coverdoc/coverpages/refstandard[@refid=$stdid])">
+      <xsl:if test="starts-with($std/document/@orgid, 'nso') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
         <xsl:text> / </xsl:text>
-        <xsl:value-of select="/standards/records/coverdoc[coverpages/refstandard/@refid=$stdid]/document/@pubnum"/>
+        <xsl:value-of select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/document/@pubnum"/>
       </xsl:if>
-      -->
     </entry>
     <entry>BSP</entry>
     <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
