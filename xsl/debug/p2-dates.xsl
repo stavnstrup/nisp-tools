@@ -51,9 +51,9 @@ Copyright (c) 2003, 2014  Jens Stavnstrup/DDRE <js@ddre.dk>
     <xsl:text> using rev. </xsl:text><xsl:value-of select="@describe"/></p>
 
 
-   <p>These columns describes all standards in the database. The
+   <p>These columns describes all standards/coverdocs in the database. The
    records are sorted by the attributes pubnum and org in order to be
-   able to identify standards added multiple times.</p>
+   able to identify standards/coverdocs added multiple times.</p>
 
    <ul>
      <li><b>Rec</b> - The position of the record</li>
