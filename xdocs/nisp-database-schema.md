@@ -145,7 +145,7 @@ standards.
 
 ## Covering Document
 
-A `coverdoc` element is a standard like construct which is realised by the NATO standardisation documents STANAG and STANREC, which represents an agrement of member nations to implement a standard, in whole or in part, with or without reservation, in order to meet an interoperability requirement. A coverdoc will refere to one or more standards descibed by the `coverstandards` element.
+A `coverdoc` element is a standard like construct which is realized by the NATO standardization documents STANAG and STANREC, which represents an agreement of member nations to implement a standard, in whole or in part, with or without reservation, in order to meet an interoperability requirement. A coverdoc will refer to one or more standards described by the `coverstandards` element.
 
 ~~~{.dtd}
 <!ELEMENT coverdoc (document, coverstandards, responsibleparty, status, uuid?)>
