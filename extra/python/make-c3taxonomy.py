@@ -42,6 +42,6 @@ def printNode(name, level, maxlevel):
 
 print('<?xml version=\'1.0\'?>')
 print('<taxonomy>')
-printNode('Operational Context', 1, 4)
-printNode('CIS Capabilities', 1, 4)
+printNode('Operational Context', 1, 99)
+printNode('CIS Capabilities', 1, 99)
 print('</taxonomy>')
