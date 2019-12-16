@@ -16,14 +16,14 @@ Copyright (c) 2019  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="node[@title='Operational Context']">
   <xsl:apply-templates select="." mode="treepruning">
-    <xsl:with-param name="maxlevel" select="4"/>
+    <xsl:with-param name="maxlevel" select="6"/>
   </xsl:apply-templates>
 </xsl:template>
 
 
 <xsl:template match="node[@title='User-Facing Capabilities']">
   <xsl:apply-templates select="." mode="treepruning">
-    <xsl:with-param name="maxlevel" select="4"/>
+    <xsl:with-param name="maxlevel" select="6"/>
   </xsl:apply-templates>
 </xsl:template>
 
