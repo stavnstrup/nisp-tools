@@ -114,6 +114,11 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   </xsl:attribute>
 </xsl:attribute-set>
 
+<xsl:attribute-set name="component.title.properties">
+  <xsl:attribute name="text-align">center</xsl:attribute>
+</xsl:attribute-set>
+
+
 <xsl:param name="table.footnote.number.format">1</xsl:param>
 
 <!-- Graphics -->
@@ -401,6 +406,9 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
      "xsl/docbook-xsl/common/l10n.xml", and more precisely the subtree
      represented by the file: xsl/docbook-xsl/common/en.xml
 
+
+     As of NISP 13 (Dec 2019) we want chapter/annex heading to exists, which is
+     why the template below is commented out.
 -->
 
 <!--
