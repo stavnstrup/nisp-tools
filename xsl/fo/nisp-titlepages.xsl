@@ -32,10 +32,12 @@
     </xsl:when>
   </xsl:choose>
 
-  <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="bookinfo/mediaobject"/>
-  <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="info/mediaobject"/>
+  <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="bookinfo/issuenum"/>
+  <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="info/issuenum"/>
   <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="bookinfo/revhistory"/>
   <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="info/revhistory"/>
+  <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="bookinfo/mediaobject"/>
+  <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="info/mediaobject"/>
   <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="bookinfo/productname"/>
   <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="info/productname"/>
 </xsl:template>
@@ -115,25 +117,31 @@
 </xsl:template>
 
 <xsl:template match="volumenum" mode="book.titlepage.recto.auto.mode">
-<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" font-size="17.28pt" space-before="10mm" font-family="{$title.fontset}">
+<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" font-size="17.28pt" space-before="4mm" font-family="{$title.fontset}">
 <xsl:apply-templates select="." mode="book.titlepage.recto.mode"/>
 </fo:block>
 </xsl:template>
 
 <xsl:template match="subtitle" mode="book.titlepage.recto.auto.mode">
-<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" font-size="20.736pt" space-before="10mm" font-family="{$title.fontset}">
+<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" font-size="17.28pt" space-before="4mm" font-family="{$title.fontset}">
 <xsl:apply-templates select="." mode="book.titlepage.recto.mode"/>
 </fo:block>
 </xsl:template>
 
-<xsl:template match="mediaobject" mode="book.titlepage.recto.auto.mode">
-<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" space-before="1mm">
+<xsl:template match="issuenum" mode="book.titlepage.recto.auto.mode">
+<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" font-size="17.28pt" space-before="10mm" font-family="{$title.fontset}">
 <xsl:apply-templates select="." mode="book.titlepage.recto.mode"/>
 </fo:block>
 </xsl:template>
 
 <xsl:template match="revhistory" mode="book.titlepage.recto.auto.mode">
-<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" font-size="17.28pt" space-before="0mm" font-weight="bold" font-family="{$title.fontset}">
+<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" font-size="17.28pt" space-before="10mm" font-weight="bold" font-family="{$title.fontset}">
+<xsl:apply-templates select="." mode="book.titlepage.recto.mode"/>
+</fo:block>
+</xsl:template>
+
+<xsl:template match="mediaobject" mode="book.titlepage.recto.auto.mode">
+<fo:block xmlns:fo="http://www.w3.org/1999/XSL/Format" xsl:use-attribute-sets="book.titlepage.recto.style" text-align="center" space-before="10mm">
 <xsl:apply-templates select="." mode="book.titlepage.recto.mode"/>
 </fo:block>
 </xsl:template>
