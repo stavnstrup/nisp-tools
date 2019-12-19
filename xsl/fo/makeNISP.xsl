@@ -597,7 +597,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:if test="$nisp.lifecycle.stage='board'"><fo:block>Released to C3B</fo:block></xsl:if>
 -->
     </xsl:if>
-       
+
     <xsl:if test="$position='center' and $nisp.lifecycle.stage!='release'">
     </xsl:if>
     <!-- Put pagenumber on all pages except the title page -->
@@ -1034,7 +1034,10 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 </xsl:template>
 
+<!-- ====================================================== -->
+<!-- Do not include preface in TOC                          -->
 
+<xsl:template match="preface" mode="toc" />
 
 <xsl:template match="subject">
   <xsl:text>Generated using Git rev. </xsl:text>
