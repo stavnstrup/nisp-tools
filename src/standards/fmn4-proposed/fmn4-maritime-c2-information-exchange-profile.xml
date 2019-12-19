@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<profile id="fmn4-proposed-maritime-c2-information-exchange-profile" short="Proposed FMN 4 Maritime C2 Information Exchange Service" title="Proposed FMN Spiral 4 Maritime C2 Information Exchange Serviceprofile" toplevel="no">
+	<serviceprofile id="fmn4-proposed-maritime-c2-information-exchange-profile" title="Proposed FMN Spiral 4 Maritime C2 Information Exchange Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<!-- Recognized Maritime Picture Services -->
+		<reftaxonomy refid="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X"/>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- NISP Standard - NVG 1.5 -->
+			<refstandard refid="nato-tide-nvg"/>
+		</refgroup>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- NISP Standard - OTH-G -->
+			<refstandard refid="us-dod-oth-g"/>
+		</refgroup>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- OTH-T GOLD Baseline 2007 - "OVER-THE-HORIZON TARGETING GOLD baseline 2007" -->
+			<refstandard refid="fmn4"/>
+		</refgroup>
 		<status mode="accepted">
-			<uri/>
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
-	</profile>
+	</serviceprofile>
