@@ -225,8 +225,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 </xsl:attribute-set>
 
 
-<xsl:param name="header.column.widths">5 12 5</xsl:param>
-<xsl:param name="footer.column.widths">5 12 5</xsl:param>
+<xsl:param name="header.column.widths">6 10 6</xsl:param>
+<xsl:param name="footer.column.widths">6 10 6</xsl:param>
 
 <xsl:param name="stylesheet.result.type" select="'fo'"/>
 
@@ -420,147 +420,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
      .................................................................... -->
 
 
-<!-- A NISP TITLEPAGE DO HAVE A HEADER
-
-     Only change to this template is to the last choose statement (where
-     a footer is forced on the title page
--->
-
-<xsl:template name="header.table">
-  <xsl:param name="pageclass" select="''"/>
-  <xsl:param name="sequence" select="''"/>
-  <xsl:param name="gentext-key" select="''"/>
-
-  <!-- default is a single table style for all headers -->
-  <!-- Customize it for different page classes or sequence location -->
-
-  <xsl:choose>
-      <xsl:when test="$pageclass = 'index'">
-          <xsl:attribute name="margin-{$direction.align.start}">0pt</xsl:attribute>
-      </xsl:when>
-  </xsl:choose>
-
-  <xsl:variable name="column1">
-    <xsl:choose>
-      <xsl:when test="$double.sided = 0">1</xsl:when>
-      <xsl:when test="$sequence = 'first' or $sequence = 'odd'">1</xsl:when>
-      <xsl:otherwise>3</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="column3">
-    <xsl:choose>
-      <xsl:when test="$double.sided = 0">3</xsl:when>
-      <xsl:when test="$sequence = 'first' or $sequence = 'odd'">3</xsl:when>
-      <xsl:otherwise>1</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="candidate">
-    <fo:table xsl:use-attribute-sets="header.table.properties">
-      <xsl:call-template name="head.sep.rule">
-        <xsl:with-param name="pageclass" select="$pageclass"/>
-        <xsl:with-param name="sequence" select="$sequence"/>
-        <xsl:with-param name="gentext-key" select="$gentext-key"/>
-      </xsl:call-template>
-
-      <fo:table-column column-number="1">
-        <xsl:attribute name="column-width">
-          <xsl:text>proportional-column-width(</xsl:text>
-          <xsl:call-template name="header.footer.width">
-            <xsl:with-param name="location">header</xsl:with-param>
-            <xsl:with-param name="position" select="$column1"/>
-          </xsl:call-template>
-          <xsl:text>)</xsl:text>
-        </xsl:attribute>
-      </fo:table-column>
-      <fo:table-column column-number="2">
-        <xsl:attribute name="column-width">
-          <xsl:text>proportional-column-width(</xsl:text>
-          <xsl:call-template name="header.footer.width">
-            <xsl:with-param name="location">header</xsl:with-param>
-            <xsl:with-param name="position" select="2"/>
-          </xsl:call-template>
-          <xsl:text>)</xsl:text>
-        </xsl:attribute>
-      </fo:table-column>
-      <fo:table-column column-number="3">
-        <xsl:attribute name="column-width">
-          <xsl:text>proportional-column-width(</xsl:text>
-          <xsl:call-template name="header.footer.width">
-            <xsl:with-param name="location">header</xsl:with-param>
-            <xsl:with-param name="position" select="$column3"/>
-          </xsl:call-template>
-          <xsl:text>)</xsl:text>
-        </xsl:attribute>
-      </fo:table-column>
-
-      <fo:table-body>
-        <fo:table-row>
-          <xsl:attribute name="block-progression-dimension.minimum">
-            <xsl:value-of select="$header.table.height"/>
-          </xsl:attribute>
-          <fo:table-cell text-align="start"
-                         display-align="before">
-            <xsl:if test="$fop.extensions = 0">
-              <xsl:attribute name="relative-align">baseline</xsl:attribute>
-            </xsl:if>
-            <fo:block>
-              <xsl:call-template name="header.content">
-                <xsl:with-param name="pageclass" select="$pageclass"/>
-                <xsl:with-param name="sequence" select="$sequence"/>
-                <xsl:with-param name="position" select="$direction.align.start"/>
-                <xsl:with-param name="gentext-key" select="$gentext-key"/>
-              </xsl:call-template>
-            </fo:block>
-          </fo:table-cell>
-          <fo:table-cell text-align="center"
-                         display-align="before">
-            <xsl:if test="$fop.extensions = 0">
-              <xsl:attribute name="relative-align">baseline</xsl:attribute>
-            </xsl:if>
-            <fo:block>
-              <xsl:call-template name="header.content">
-                <xsl:with-param name="pageclass" select="$pageclass"/>
-                <xsl:with-param name="sequence" select="$sequence"/>
-                <xsl:with-param name="position" select="'center'"/>
-                <xsl:with-param name="gentext-key" select="$gentext-key"/>
-              </xsl:call-template>
-            </fo:block>
-          </fo:table-cell>
-          <fo:table-cell text-align="right"
-                         display-align="before">
-            <xsl:if test="$fop.extensions = 0">
-              <xsl:attribute name="relative-align">baseline</xsl:attribute>
-            </xsl:if>
-            <fo:block>
-              <xsl:call-template name="header.content">
-                <xsl:with-param name="pageclass" select="$pageclass"/>
-                <xsl:with-param name="sequence" select="$sequence"/>
-                <xsl:with-param name="position" select="$direction.align.end"/>
-                <xsl:with-param name="gentext-key" select="$gentext-key"/>
-              </xsl:call-template>
-            </fo:block>
-          </fo:table-cell>
-        </fo:table-row>
-      </fo:table-body>
-    </fo:table>
-  </xsl:variable>
-
-  <!-- Really output a header? -->
-  <xsl:choose>
-    <xsl:when test="$pageclass = 'titlepage A NISP TITLEPAGE DO HAVE A HEADER' and $gentext-key = 'book'
-                    and $sequence='first'">
-      <!-- no, book titlepages have no headers at all -->
-    </xsl:when>
-    <xsl:when test="$sequence = 'blank' and $headers.on.blank.pages = 0">
-      <!-- no output -->
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:copy-of select="$candidate"/>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
 
 
 <!-- ==================================================================== -->
@@ -603,18 +462,13 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:when test="$pageclass='titlepage' or $sequence='first' or $sequence='odd'">
         <xsl:choose>
           <xsl:when test="$position='right'">
-            <xsl:value-of select="//book/bookinfo/biblioid"/>
-            <xsl:text>(</xsl:text>
             <xsl:value-of select="$allied.publication.number"/>
-            <xsl:text>)</xsl:text>
             <xsl:if test="($nisp.revision != 0) and ($nisp.lifecycle.stage = 'board' or $nisp.lifecycle.stage = 'release')">
               <xsl:text>-REV</xsl:text>
               <xsl:value-of select="$nisp.revision"/>
             </xsl:if>
           </xsl:when>
           <xsl:when test="$position='left'">
-            <xsl:text>NISP Volume </xsl:text>
-            <xsl:value-of select="//book/bookinfo/volumenum"/>
           </xsl:when>
         </xsl:choose>
       </xsl:when>
@@ -622,18 +476,13 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:when test="$sequence='even' or $sequence='blank'">
         <xsl:choose>
           <xsl:when test="$position='left'">
-            <xsl:value-of select="//book/bookinfo/biblioid"/>
-            <xsl:text>(</xsl:text>
             <xsl:value-of select="$allied.publication.number"/>
-            <xsl:text>)</xsl:text>
             <xsl:if test="($nisp.revision != 0) and ($nisp.lifecycle.stage = 'board' or $nisp.lifecycle.stage = 'release')">
               <xsl:text>-REV</xsl:text>
               <xsl:value-of select="$nisp.revision"/>
             </xsl:if>
           </xsl:when>
           <xsl:when test="$position='right'">
-            <xsl:text>NISP Volume </xsl:text>
-            <xsl:value-of select="//book/bookinfo/volumenum"/>
           </xsl:when>
         </xsl:choose>
       </xsl:when>
@@ -692,153 +541,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
      .................................................................... -->
 
 
-
-<!-- A NISP TITLEPAGE DO HAVE A FOOTER
-
-     Only change to this template is to the last choose statement (where
-     a footer is forced on the title page
--->
-
-
-<xsl:template name="footer.table">
-  <xsl:param name="pageclass" select="''"/>
-  <xsl:param name="sequence" select="''"/>
-  <xsl:param name="gentext-key" select="''"/>
-
-  <!-- default is a single table style for all footers -->
-  <!-- Customize it for different page classes or sequence location -->
-
-  <xsl:choose>
-      <xsl:when test="$pageclass = 'index'">
-          <xsl:attribute name="margin-{$direction.align.start}">0pt</xsl:attribute>
-      </xsl:when>
-  </xsl:choose>
-
-  <xsl:variable name="column1">
-    <xsl:choose>
-      <xsl:when test="$double.sided = 0">1</xsl:when>
-      <xsl:when test="$sequence = 'first' or $sequence = 'odd'">1</xsl:when>
-      <xsl:otherwise>3</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="column3">
-    <xsl:choose>
-      <xsl:when test="$double.sided = 0">3</xsl:when>
-      <xsl:when test="$sequence = 'first' or $sequence = 'odd'">3</xsl:when>
-      <xsl:otherwise>1</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="candidate">
-    <fo:table xsl:use-attribute-sets="footer.table.properties">
-      <xsl:call-template name="foot.sep.rule">
-        <xsl:with-param name="pageclass" select="$pageclass"/>
-        <xsl:with-param name="sequence" select="$sequence"/>
-        <xsl:with-param name="gentext-key" select="$gentext-key"/>
-      </xsl:call-template>
-      <fo:table-column column-number="1">
-        <xsl:attribute name="column-width">
-          <xsl:text>proportional-column-width(</xsl:text>
-          <xsl:call-template name="header.footer.width">
-            <xsl:with-param name="location">footer</xsl:with-param>
-            <xsl:with-param name="position" select="$column1"/>
-          </xsl:call-template>
-          <xsl:text>)</xsl:text>
-        </xsl:attribute>
-      </fo:table-column>
-      <fo:table-column column-number="2">
-        <xsl:attribute name="column-width">
-          <xsl:text>proportional-column-width(</xsl:text>
-          <xsl:call-template name="header.footer.width">
-            <xsl:with-param name="location">footer</xsl:with-param>
-            <xsl:with-param name="position" select="2"/>
-          </xsl:call-template>
-          <xsl:text>)</xsl:text>
-        </xsl:attribute>
-      </fo:table-column>
-      <fo:table-column column-number="3">
-        <xsl:attribute name="column-width">
-          <xsl:text>proportional-column-width(</xsl:text>
-          <xsl:call-template name="header.footer.width">
-            <xsl:with-param name="location">footer</xsl:with-param>
-            <xsl:with-param name="position" select="$column3"/>
-          </xsl:call-template>
-          <xsl:text>)</xsl:text>
-        </xsl:attribute>
-      </fo:table-column>
-
-      <fo:table-body>
-        <fo:table-row>
-          <xsl:attribute name="block-progression-dimension.minimum">
-            <xsl:value-of select="$footer.table.height"/>
-          </xsl:attribute>
-          <fo:table-cell text-align="start"
-                         display-align="after">
-            <xsl:if test="$fop.extensions = 0">
-              <xsl:attribute name="relative-align">baseline</xsl:attribute>
-            </xsl:if>
-            <fo:block>
-              <xsl:call-template name="footer.content">
-                <xsl:with-param name="pageclass" select="$pageclass"/>
-                <xsl:with-param name="sequence" select="$sequence"/>
-                <xsl:with-param name="position" select="$direction.align.start"/>
-                <xsl:with-param name="gentext-key" select="$gentext-key"/>
-              </xsl:call-template>
-            </fo:block>
-          </fo:table-cell>
-          <fo:table-cell text-align="center"
-                         display-align="after">
-            <xsl:if test="$fop.extensions = 0">
-              <xsl:attribute name="relative-align">baseline</xsl:attribute>
-            </xsl:if>
-            <fo:block>
-              <xsl:call-template name="footer.content">
-                <xsl:with-param name="pageclass" select="$pageclass"/>
-                <xsl:with-param name="sequence" select="$sequence"/>
-                <xsl:with-param name="position" select="'center'"/>
-                <xsl:with-param name="gentext-key" select="$gentext-key"/>
-              </xsl:call-template>
-            </fo:block>
-          </fo:table-cell>
-          <fo:table-cell text-align="end"
-                         display-align="after">
-            <xsl:if test="$fop.extensions = 0">
-              <xsl:attribute name="relative-align">baseline</xsl:attribute>
-            </xsl:if>
-            <fo:block>
-              <xsl:call-template name="footer.content">
-                <xsl:with-param name="pageclass" select="$pageclass"/>
-                <xsl:with-param name="sequence" select="$sequence"/>
-                <xsl:with-param name="position" select="$direction.align.end"/>
-                <xsl:with-param name="gentext-key" select="$gentext-key"/>
-              </xsl:call-template>
-            </fo:block>
-          </fo:table-cell>
-        </fo:table-row>
-      </fo:table-body>
-    </fo:table>
-  </xsl:variable>
-
-  <!-- Really output a footer? -->
-  <xsl:choose>
-    <xsl:when test="$pageclass='titlepage A NISP TITLEPAGE DO HAVE A FOOTER' and $gentext-key='book'
-                    and $sequence='first'">
-      <!-- no, book titlepages have no footers at all -->
-    </xsl:when>
-    <xsl:when test="$sequence = 'blank' and $footers.on.blank.pages = 0">
-      <!-- no output -->
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:copy-of select="$candidate"/>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-
-<!-- ==================================================================== -->
-
-
 <xsl:template name="footer.content">
   <xsl:param name="pageclass" select="''"/>
   <xsl:param name="sequence" select="''"/>
@@ -865,6 +567,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <!-- -->
     <xsl:if test="(($sequence='blank' or $sequence='even') and $position='left') or
                   (($sequence='first' or $sequence='odd') and $position='right')">
+      Edition <xsl:value-of select="$allied.publication.edition"/> Version <xsl:value-of select="$allied.publication.version"/>
+<!--
       <xsl:if test="$nisp.lifecycle.stage='draft'">
         <xsl:choose>
           <xsl:when test="$version.minor=0"/>
@@ -877,7 +581,9 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
       <xsl:if test="$nisp.lifecycle.stage='final' or $nisp.lifecycle.stage='board'">Final </xsl:if>
       <xsl:if test="$nisp.lifecycle.stage!='release'">Draft</xsl:if>
       <xsl:if test="$nisp.lifecycle.stage='board'"><fo:block>Released to C3B</fo:block></xsl:if>
+-->
     </xsl:if>
+       
     <xsl:if test="$position='center' and $nisp.lifecycle.stage!='release'">
     </xsl:if>
     <!-- Put pagenumber on all pages except the title page -->
