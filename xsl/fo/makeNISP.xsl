@@ -360,6 +360,20 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   </fo:block>
 </xsl:template>
 
+<xsl:template match="productname" mode="titlepage.mode">
+  <fo:block space-before="8mm">NORTH ATLANTIC TREATY ORGANIZATION</fo:block>
+  <fo:block>
+      <xsl:call-template name="capitalize">
+        <xsl:with-param name="string" select="."/>
+      </xsl:call-template>
+  </fo:block>
+  <fo:block font-family="Helvetica" font-size="11px">
+    <fo:block>Published by the</fo:block>
+    <fo:block>NATO STANDARDIZATION OFFICE (NSO)</fo:block>
+    <fo:block>(C) NATO/OTAN</fo:block>
+  </fo:block>
+</xsl:template>
+
 
 <!-- We only want to use the first revision element. Print version and date on
      seperate lines, preceeded with the text "Version" and "Date" -->

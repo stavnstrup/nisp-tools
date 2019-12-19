@@ -46,10 +46,10 @@
 <xsl:variable name="allied.publication.edition">
   <xsl:choose>
     <xsl:when test="$version.minor=0">
-      <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ',$version.major, 1)"/>
+      <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ', $version.major, 1)"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ',$version.major+1, 1)"/>
+      <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ', $version.major+1, 1)"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:variable>

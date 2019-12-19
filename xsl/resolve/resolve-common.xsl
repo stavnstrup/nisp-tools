@@ -95,13 +95,124 @@ Director, NATO Standardization Office</para>
   </preface>
   <preface>
     <title>RECORD OF RESERVATIONS</title>
+       <informaltable frame="all" pgwide="1">
+      <tgroup cols="2">
+        <colspec colwidth="18*" colname="c1"/>
+        <colspec colwidth="82*" colname="c2"/>
+        <thead>
+          <row>
+            <entry>CHAPTER</entry>
+            <entry>RECORD OF RESERVATION BY NATIONS</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry namest="c1" nameend="c2">Note: The reservations listed on this page include only those that were recorded at time of
+            promulgation and may not be complete. Refer to the NATO Standardization Document
+            Database for the complete list of existing reservations.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
   </preface>
     <preface>
     <title>RECORD OF SPECIFIC RESERVATIONS</title>
     <informaltable frame="all" pgwide="1">
       <tgroup cols="2">
-        <colspec colwidth="15*" colname="c1"/>
-        <colspec colwidth="85*" colname="c2"/>
+        <colspec colwidth="18*" colname="c1"/>
+        <colspec colwidth="82*" colname="c2"/>
         <tbody>
           <row>
             <entry>[nation]</entry>
