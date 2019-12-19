@@ -196,7 +196,7 @@ Database for the complete list of existing reservations.</entry>
      <xsl:apply-templates select="@*"/>
      <xsl:apply-templates/>
   </biblioid>
-  <edition>Edition <xsl:value-of select="$allied.publication.edition"/> Version <xsl:value-of select="$allied.publication.version"/></edition>
+  <issuenum>Edition <xsl:value-of select="$allied.publication.edition"/> Version <xsl:value-of select="$allied.publication.version"/></issuenum>
 </xsl:template>
 
 <!-- ==================================================================== -->

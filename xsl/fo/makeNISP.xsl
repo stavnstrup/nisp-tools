@@ -366,10 +366,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <xsl:template match="revhistory" mode="titlepage.mode">
   <fo:block>
-    <fo:block/>
-    <fo:block space-before="16mm">
-      <!--Date: --><xsl:value-of select="./revision[1]/date"/>
-    </fo:block>
+    <!--Date: --><xsl:value-of select="./revision[1]/date"/>
   </fo:block>
 </xsl:template>
 
