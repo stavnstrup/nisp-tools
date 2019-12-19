@@ -57,11 +57,12 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- ToC/LoT/Index Generation -->
 
 <xsl:param name="generate.toc">
-  book toc,title,figure
+  book title toc,title,figure
 </xsl:param>
 
 <xsl:param name="toc.section.depth">2</xsl:param>
 
+<xsl:param name="process.empty.source.toc" select="1"/>
 
 <!-- Processor Extensions -->
 
@@ -235,9 +236,10 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   <xsl:attribute name="text-align">center</xsl:attribute>
 </xsl:attribute-set>
 
-<!-- ==================================================================== -->
-<!--   NISP Specific Parameters .                                         -->
-<!-- ==================================================================== -->
+
+
+
+
 
 
 <xsl:param name="intentionally-blank" select="'../images/intentionally-blank.svg'"/>

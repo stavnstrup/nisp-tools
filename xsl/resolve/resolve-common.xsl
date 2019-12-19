@@ -299,6 +299,7 @@ Database for the complete list of existing reservations.</entry>
       </tgroup>
     </informaltable>
   </preface>
+  <toc/>
 </xsl:template>
 
 
