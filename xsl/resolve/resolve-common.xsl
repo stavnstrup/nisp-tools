@@ -3,7 +3,7 @@
 
 This stylesheet contains templates used by all resolver stylesheets.
 
-Copyright (c) 2003-2017, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2003-2019, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -13,6 +13,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version='1.1'
                 exclude-result-prefixes="#default">
+
+<xsl:import href="../common/common.xsl"/>
 
 <xsl:param name="dbdir" select="'../../build.src/'"/>
 <xsl:param name="dbname" select="'resolved-standards.xml'"/>
@@ -34,12 +36,12 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="book">
-  <xsl:copy>
+  <book>
     <xsl:attribute name="condition"><xsl:value-of select="$documentdir"/></xsl:attribute>
     <xsl:apply-templates select="@*[local-name() != 'condition']"/>
     <xsl:attribute name="id"><xsl:value-of select="$docid"/></xsl:attribute>
     <xsl:apply-templates/>
-  </xsl:copy>
+  </book>
 </xsl:template>
 
 
@@ -70,8 +72,132 @@ NATO Command, Control and Consultation Organisation (NC3O).
       </imageobject>
     </mediaobject>
   </bookinfo>
+
+  <!-- Add NSO preable stuff -->
+  <preface>
+    <title>NORTH ATLANTIC TREATY ORGORNIZATION (NATO) NATO STANDARDISATION OFFICE (NSO) NATO LETTER OF PROMULGATION</title>
+    <para>The enclosed Alied Data Publication <xsl:value-of select="$allied.publication.number"/>, Edition 
+    <xsl:value-of select="$allied.publication.edition"/>, Version <xsl:value-of select="$allied.publication.version"/> NATO 
+    Interoperability Standards and Profiles, which has been approved by the nations in the C3B, is promulgated herewith. 
+    The agreement of nations to use this publication is recorded in STANAG 5524.</para>
+    <para><xsl:value-of select="$allied.publication.number"/>, Edition <xsl:value-of select="$allied.publication.edition"/>, 
+    Version <xsl:value-of select="$allied.publication.version"/> is effective on receipt/will come into effect on [NED] (What does NED mean?)</para>
+    <para>No part of this publication may be reproduced, stored in a retrieval system, used commercially, adapted, or transmitted in any form or by any means, electronic,
+    mechanical, photo-copying, recording or otherwise, without the prior permission of the publisher. With the exception of commercial sales, this does not apply to member
+    or partner nations, or NATO commands and bodies.</para>
+    <para>This publication shall be handled in accordance with C-M(2002)60.</para>
+    <para>Zoltán GULYÁS
+Brigadier General, HUNAF
+Director, NATO Standardization Office</para>
+  </preface>
+  <preface>
+    <title>RESERVED FOR NATIONAL LETTER OF PROMULGATION</title>
+  </preface>
+  <preface>
+    <title>RECORD OF RESERVATIONS</title>
+  </preface>
+    <preface>
+    <title>RECORD OF SPECIFIC RESERVATIONS</title>
+    <informaltable frame="all" pgwide="1">
+      <tgroup cols="2">
+        <colspec colwidth="15*" colname="c1"/>
+        <colspec colwidth="85*" colname="c2"/>
+        <tbody>
+          <row>
+            <entry>[nation]</entry>
+            <entry>[detail of reservation]</entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry></entry>
+            <entry></entry>
+          </row>
+          <row>
+            <entry namest="c1" nameend="c2">Note: The reservations listed on this page include only those that were recorded at time of
+promulgation and may not be complete. Refer to the NATO Standardization Document
+Database for the complete list of existing reservations.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </preface>
 </xsl:template>
 
+
+<xsl:template match="biblioid">
+  <biblioid>
+     <xsl:apply-templates select="@*"/>
+     <xsl:apply-templates/>
+  </biblioid>
+  <edition>Edition <xsl:value-of select="$allied.publication.edition"/> Version <xsl:value-of select="$allied.publication.version"/></edition>
+</xsl:template>
 
 <!-- ==================================================================== -->
 

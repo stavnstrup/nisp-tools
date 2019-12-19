@@ -260,24 +260,6 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <!-- Define standard page headers for even- and odd pages                 -->
 <!-- ==================================================================== -->
 
-<!-- Get the version number from the first revision element -->
-
-<xsl:variable name="version.major" select="substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
-<xsl:variable name="version.minor" select="substring-after(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
-
-<!-- AdatP-34 edition number.
-     E.g.  NISP 4.0 will be ADatP-34 edition D, NISP 4.1 - 5.0 will be ADatP-34 edition E -->
-
-<xsl:variable name="adatp34edition">
-  <xsl:choose>
-    <xsl:when test="$version.minor=0">
-      <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ',$version.major, 1)"/>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ',$version.major+1, 1)"/>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:variable>
 
 <!-- Set name of resulting document (without extension) e.g. NISP-Vol1 -->
 
@@ -362,8 +344,9 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   <fo:block space-before="8mm">
     <xsl:text></xsl:text>
     <xsl:value-of select="."/>
+<!-- This is not allowed in the NSO template 
     <xsl:text>(</xsl:text>
-    <xsl:value-of select="$adatp34edition"/>
+    <xsl:value-of select="$allied.publication.edition"/>
     <xsl:text>) / Version </xsl:text>
     <xsl:choose>
       <xsl:when test="$version.minor=0">
@@ -373,6 +356,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
         <xsl:value-of select="$version.major+1"/>
       </xsl:otherwise>
     </xsl:choose>
+-->
   </fo:block>
 </xsl:template>
 
@@ -624,7 +608,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
           <xsl:when test="$position='right'">
             <xsl:value-of select="//book/bookinfo/biblioid"/>
             <xsl:text>(</xsl:text>
-            <xsl:value-of select="$adatp34edition"/>
+            <xsl:value-of select="$allied.publication.number"/>
             <xsl:text>)</xsl:text>
             <xsl:if test="($nisp.revision != 0) and ($nisp.lifecycle.stage = 'board' or $nisp.lifecycle.stage = 'release')">
               <xsl:text>-REV</xsl:text>
@@ -643,7 +627,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
           <xsl:when test="$position='left'">
             <xsl:value-of select="//book/bookinfo/biblioid"/>
             <xsl:text>(</xsl:text>
-            <xsl:value-of select="$adatp34edition"/>
+            <xsl:value-of select="$allied.publication.number"/>
             <xsl:text>)</xsl:text>
             <xsl:if test="($nisp.revision != 0) and ($nisp.lifecycle.stage = 'board' or $nisp.lifecycle.stage = 'release')">
               <xsl:text>-REV</xsl:text>
