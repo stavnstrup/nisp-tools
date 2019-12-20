@@ -339,6 +339,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <!-- The Document number should be embraced in a parentesis -->
 
+
 <xsl:template match="biblioid" mode="titlepage.mode">
   <fo:block>
     NATO STANDARD
@@ -361,6 +362,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 -->
   </fo:block>
 </xsl:template>
+
 
 <xsl:template match="productname" mode="titlepage.mode">
   <fo:block space-before="8mm">NORTH ATLANTIC TREATY ORGANIZATION</fo:block>
@@ -394,6 +396,11 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   </fo:block>
 </xsl:template>
 
+<xsl:template match="preface[@role='promulgation-thiswillnotwork']">
+  <fo:block>NORTH ATLANTIC TREATY ORGANIZATION (NATO)</fo:block>
+  <fo:block>NATO STANDARDISATION OFFICE (NSO)</fo:block>
+  <xsl:apply-templates/>
+</xsl:template>
 
 <!-- Don't prefix Chapters or Appendixes, with the text Chapter/Appendix the
      format described below (component number and title).
