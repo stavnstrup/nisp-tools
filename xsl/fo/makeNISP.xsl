@@ -372,7 +372,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
   <fo:block font-family="Helvetica" font-size="11px">
     <fo:block>Published by the</fo:block>
     <fo:block>NATO STANDARDIZATION OFFICE (NSO)</fo:block>
-    <fo:block>(C) NATO/OTAN</fo:block>
+    <fo:block>&#x00A9; NATO/OTAN</fo:block>
   </fo:block>
 </xsl:template>
 
