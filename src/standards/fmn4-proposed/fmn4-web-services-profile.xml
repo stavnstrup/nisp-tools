@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-web-services-profile" title="Proposed FMN Spiral 4 Web Services Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
-		<!--  -->
-		<reftaxonomy refid="fmn4"/>
+		<!-- Web Hosting Services -->
+		<reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
-			<!--  -->
-			<refstandard refid="fmn4"/>
+			<!-- W3C - Cross-Origin Resource Sharing - "Cross-Origin Resource Sharing" -->
+			<refstandard refid="w3c-cr-cors-20130129"/>
+		</refgroup>
+		<refgroup obligation="recommended" lifecycle="candidate">
+			<!-- OASIS - Web Services Reliable Messaging v1.2 - "Web Services Reliable Messaging v1.2" -->
+			<refstandard refid="oasis-relmes"/>
+		</refgroup>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- W3C Note - Simple Object Access Protocol 1.1 - "Simple Object Access Protocol version 1.1" -->
+			<refstandard refid="w3c-note-soap-20000508"/>
+			<!-- W3C Note - Web Services Description Language 1.1 - "Web Services Description Language 1.1" -->
+			<refstandard refid="w3c-note-wsdl-20010315"/>
+			<!-- W3C - Web Services Description Language (WSDL) Version 2.0 SOAP 1.1 Binding - "Web Services Description Language (WSDL) Version 2.0 SOAP 1.1 Binding" -->
+			<refstandard refid="w3c-note-wsdl20-soap11-binding-20070626"/>
+			<!-- W3C - Web Services Addressing 1.0 - Core - "Web Services Addressing 1.0 - Core" -->
+			<refstandard refid="w3c-address"/>
+		</refgroup>
+		<refgroup obligation="conditional" lifecycle="candidate">
+			<!-- NISP Standard - REST -->
+			<refstandard refid="acm-2002-rest-toit"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>

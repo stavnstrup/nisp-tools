@@ -563,6 +563,52 @@
 				</status>
 			</standard>
 
+			<standard id="ogc-georss-schema-gml-1.1" tag="GeoRSS Simple">
+				<document orgid="ogc" pubnum="1.1" date="2006-12" title="GML application schema for the Simple and GML serializations of GeoRSS"/>
+				<applicability>
+					<para>The Simple serialization of GeoRSS is designed to be maximally concise,
+						in both representation and conception. Each of the four GeoRSS objects require only a single tag.</para>
+					<para>This simplicity comes at the cost of direct upward compatibility with GML. However, it is
+						straightforward to devise transformations from this Simple serialization to the GML serialization
+						through the GML model. For many needs, GeoRSS Simple will be sufficient.</para>
+					<para>Some publishers and users may prefer to seperate lat/long pairs by a comma rather than
+						whitespace. This is permissible in Simple; GeoRSS parsers should just treat commas as whitespace.</para>
+					<para>The first example shows GeoRSS Simple within an Atom 1.0 entry. This serialization applies
+						just as well to an RSS 2.0 or RSS 1.0 item; it can also be associated with the entire feed.
+						The rest of the examples show only the encoding of the objects and attributes.</para>
+				</applicability>
+				<responsibleparty rpref="fmn-cpwg"/>
+				<status mode="accepted">
+					<uri>http://www.georss.org/xml/1.1/georss.xsd</uri>
+					<history>
+						<event flag="added" date="2019-12-12" version="13.0" rfcp="12-025"/>
+					</history>
+				</status>
+			</standard>
+
+			<standard id="ogc-georss-schema-gml-subset" tag="GeoRSS Geography Markup Language">
+				<document orgid="ogc" pubnum="" date="" title="GeoRSS Geography Markup Language"/>
+				<applicability>
+					<para>Geography Markup Language (GML) is an XML grammar written in XML Schema for the modelling,
+						transport, and storage of geographic information. GML provides a variety of kinds of objects
+						for describing geography including features, coordinate reference systems, geometry, topology,
+						time, units of measure and generalized values. A geographic feature is "an abstraction of a
+						real world phenomenon; it is a geographic feature if it is associated with a location relative
+						to the Earth". So a digital representation of the real world can be thought of as a set of features.</para>
+					<para>GeoRSS GML represents the encoding of GeoRSS' objects in a simple GML version 3.1.1 profile.
+						Each section details the construction of GeoRSS' five objects, followed by some informative use
+						cases. As with all GeoRSS encodings, if not specified, the implied coordinate reference system
+						is WGS84 with coordinates written in decimal degrees.</para>
+				</applicability>
+				<responsibleparty rpref="fmn-cpwg"/>
+				<status mode="accepted">
+					<uri>http://www.georss.org/xml/1.0/gmlgeorss.xsd</uri>
+					<history>
+						<event flag="added" date="2019-12-12" version="13.0" rfcp="12-025"/>
+					</history>
+				</status>
+			</standard>
+
 
 <!-- Info to be updated of the following standards:
 			<standard id="ogc-07-147r2" tag="OGC KML"/>
