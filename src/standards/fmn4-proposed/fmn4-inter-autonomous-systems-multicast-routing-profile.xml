@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-inter-autonomous-systems-multicast-routing-profile" title="Proposed FMN Spiral 4 Inter-Autonomous Systems Multicast Routing Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
-		<!--  -->
-		<reftaxonomy refid="fmn4"/>
+		<!-- Packet Routing Services -->
+		<reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
+		<!-- IPv4 Routed Access Services -->
+		<reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
-			<!--  -->
-			<refstandard refid="fmn4"/>
+			<!-- RFC 7761 - "Protocol Independent Multicast - Sparse Mode (PIM-SM): Protocol Specification (Revised)" -->
+			<refstandard refid="ietf-rfc7761"/>
+			<!-- RFC 1112 - "Host extensions for IP multicasting" -->
+			<refstandard refid="ietf-rfc1112"/>
+			<!-- RFC 3376 - "Internet Group Management Protocol, Version 3" -->
+			<refstandard refid="ietf-rfc3376"/>
+		</refgroup>
+		<refgroup obligation="optional" lifecycle="candidate">
+			<!-- RFC 4607 - "Source-Specific Multicast for IP" -->
+			<refstandard refid="ietf-rfc4607"/>
+			<!-- RFC 4608 - "Source-Specific Protocol Independent Multicast in 232/8" -->
+			<refstandard refid="ietf-rfc4608"/>
+		</refgroup>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- RFC 3618 - "Multicast Source Discovery Protocol (MSDP)" -->
+			<refstandard refid="ietf-rfc3618"/>
+			<!-- RFC 4760 - "Multiprotocol Extensions for BGP-4" -->
+			<refstandard refid="ietf-rfc4760"/>
+		</refgroup>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- RFC 6308 - "Overview of the Internet Multicast Addressing Architecture" -->
+			<refstandard refid="ietf-rfc6308"/>
+			<!-- RFC 5771 - "IANA Guidelines for IPv4 Multicast Address Assignments" -->
+			<refstandard refid="ietf-rfc5771"/>
+			<!-- RFC 2365 - "Administratively Scoped IP Multicast" -->
+			<refstandard refid="ietf-rfc2365"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>
