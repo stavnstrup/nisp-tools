@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-cryptographic-algorithms-profile" title="Proposed FMN Spiral 4 Cryptographic Algorithms Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
-		<!--  -->
-		<reftaxonomy refid="fmn4"/>
+		<!-- Digital Certificate Services -->
+		<reftaxonomy refid="T-13a17bdd-8eb2-418c-8cb8-7f32a435f432-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
-			<!--  -->
-			<refstandard refid="fmn4"/>
+			<!-- FIPS PUB 197 - "Advanced Encryption Standard (AES)" -->
+			<refstandard refid="nist-fips197"/>
+			<!-- NIST SP 800-56A Rev 3 - "Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography" -->
+			<refstandard refid="nist-sp800-56arev3"/>
+			<!-- FIPS PUB 186-4 - "Digital Signature Standard (DSS)" -->
+			<refstandard refid="nist-fips-186-4"/>
+			<!-- FIPS PUB 180-4 - "Secure Hash Standard (SHS)" -->
+			<refstandard refid="nist-fips-180-4"/>
+			<!-- RFC 3526 - "More Modular Exponential (MODP) Diffie-Hellman groups for Internet Key Exchange (IKE)" -->
+			<refstandard refid="ietf-rfc3526"/>
+			<!-- NIST SP 800-56B Rev 1 - "Recommendation for Pair-Wise Key Establishment Schemes Using Integer Factorization Cryptography" -->
+			<refstandard refid="nist-sp800-56brev1"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>
