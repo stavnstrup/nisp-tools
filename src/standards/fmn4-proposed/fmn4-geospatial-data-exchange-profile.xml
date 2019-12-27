@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-geospatial-data-exchange-profile" title="Proposed FMN Spiral 4 Geospatial Data Exchange Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
-		<!--  -->
-		<reftaxonomy refid="fmn4"/>
+		<!-- Geospatial Services -->
+		<reftaxonomy refid="T-54a19444-8cd5-4766-9140-6cdc53aafb79-X"/>
+		<refgroup obligation="recommended" lifecycle="candidate">
+			<!-- OGC 12-128r12 - "GeoPackage Encoding Standard" -->
+			<refstandard refid="ogc-12-128r12"/>
+		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
-			<!--  -->
-			<refstandard refid="fmn4"/>
+			<!-- OGC 07-147r2 - "Keyhole Markup Language" -->
+			<refstandard refid="ogc-07-147r2"/>
+		</refgroup>
+		<refgroup obligation="recommended" lifecycle="candidate">
+			<!-- MIL-PRF-89038 - "Performance Specification: Compressed Arc Digitized Raster Graphics (CADRG)" -->
+			<refstandard refid="nga-mil-prf-89038"/>
+			<!-- MIL-STD-2411 - "Department of Defense Interface Standard: Raster Product Format" -->
+			<refstandard refid="nga-rpf"/>
+		</refgroup>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- GeoTIFF Revision 1.0 - "GeoTIFF Format Specification, GeoTIFF Revision 1.0, Specification Version 1.8.2, 28 December 2000" -->
+			<refstandard refid="osgeo-geotiff"/>
+			<!-- OGC 05-047r3 - "OpenGIS GML in JPEG 2000 for Geographic Imagery Encoding Specification" -->
+			<refstandard refid="ogc-05-047r3"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-overlay-distribution-profile" title="Proposed FMN Spiral 4 Overlay Distribution Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
-		<!--  -->
-		<reftaxonomy refid="fmn4"/>
+		<!-- Symbology Services -->
+		<reftaxonomy refid="T-3edec962-1d0e-4dc0-ab28-b01e0efc1064-X"/>
+		<refgroup obligation="conditional" lifecycle="candidate">
+			<!-- GEOINT - OGC KML 2.3 - "OGC KML, Version 2.3, 4 Aug 2015" -->
+			<refstandard refid="ogc-07-147r2"/>
+		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
-			<!--  -->
-			<refstandard refid="fmn4"/>
+			<!-- NISP Standard - NVG 1.5 -->
+			<refstandard refid="nato-tide-nvg"/>
+		</refgroup>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- APP-6(D) - "NATO JOINT MILITARY SYMBOLOGY" -->
+			<refstandard refid="nso-app-06-ed.d-v1"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>

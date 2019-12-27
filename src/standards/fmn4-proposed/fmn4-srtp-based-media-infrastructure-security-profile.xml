@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-srtp-based-media-infrastructure-security-profile" title="Proposed FMN Spiral 4 SRTP-based Media Infrastructure Security Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
-		<!--  -->
-		<reftaxonomy refid="fmn4"/>
-		<refgroup obligation="mandatory" lifecycle="candidate">
-			<!--  -->
-			<refstandard refid="fmn4"/>
+		<!-- Transport CIS Security Services -->
+		<reftaxonomy refid="T-4760c261-4248-4da0-8b39-05ecbe7b2297-X"/>
+		<refgroup obligation="conditional" lifecycle="candidate">
+			<!-- RFC 3711 - "The Secure Real-time Transport Protocol (SRTP)" -->
+			<refstandard refid="ietf-rfc3711"/>
+			<!-- RFC 4568 - "Session Description Protocol (SDP) Security Descriptions for Media Streams" -->
+			<refstandard refid="ietf-rfc4568"/>
+			<!-- RFC 5246 - "The Transport Layer Security (TLS) Protocol Version 1.2" -->
+			<refstandard refid="ietf-rfc5246"/>
+			<!-- RFC 7919 - "Negotiated Finite Field Diffie-Hellman Ephemeral Parameters for Transport Layer Security (TLS)" -->
+			<refstandard refid="ietf-rfc7919"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>

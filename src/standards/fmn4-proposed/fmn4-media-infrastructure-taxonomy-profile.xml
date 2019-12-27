@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-media-infrastructure-taxonomy-profile" title="Proposed FMN Spiral 4 Media Infrastructure Taxonomy Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
-		<!--  -->
-		<reftaxonomy refid="fmn4"/>
-		<refgroup obligation="mandatory" lifecycle="candidate">
-			<!--  -->
-			<refstandard refid="fmn4"/>
+		<!-- Video-based Communication Services -->
+		<reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
+		<!-- Audio-based Communication Services -->
+		<reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
+		<refgroup obligation="optional" lifecycle="candidate">
+			<!-- RFC 5853 - "Requirements from Session Initiation Protocol (SIP) Session Border Control (SBC) Deployments" -->
+			<refstandard refid="ietf-rfc5853"/>
+			<!-- RFC 7092 - "A Taxonomy of Session Initiation Protocol (SIP) Back-to-Back User Agents" -->
+			<refstandard refid="ietf-rfc7092"/>
+			<!-- RFC 7656 - "A Taxonomy of Semantics and Mechanisms for Real-Time Transport Protocol (RTP) Sources" -->
+			<refstandard refid="ietf-rfc7656"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>
