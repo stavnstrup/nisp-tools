@@ -86,9 +86,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
     mechanical, photo-copying, recording or otherwise, without the prior permission of the publisher. With the exception of commercial sales, this does not apply to member
     or partner nations, or NATO commands and bodies.</para>
     <para>This publication shall be handled in accordance with C-M(2002)60.</para>
-    <para>Zoltán GULYÁS
+    <para><address format="linespecific">Zoltán GULYÁS
 Brigadier General, HUNAF
-Director, NATO Standardization Office</para>
+Director, NATO Standardization Office</address></para>
   </preface>
   <preface>
     <title>RESERVED FOR NATIONAL LETTER OF PROMULGATION</title>
