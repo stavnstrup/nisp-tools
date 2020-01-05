@@ -133,7 +133,7 @@
 </chapter>
 <chapter id="v1c-concepts">
 <title>Basic Concepts</title>
-<para>This chapter gives an overview to understand the data in volume 2 and volume 3.</para>
+<para>This chapter gives an overview to understand the data in volume 2 and volume 3. NISP does not differentiate between the usage of NATO and non- NATO standards but always strives to select the most appropriate and up to date. The classification (Mandatory or Candidate) of any standard depends on its location in the NISP, Volume 2 or Volume 3, respectively.</para>
 <sect1 id="v1c-standards">
 <title>Standards</title>
 <!-- Define the term Standard-->
@@ -142,11 +142,11 @@
 <sect1 id="v1c-stanag">
 <title>STANAG</title>
 <!-- Define the term STANAG see AAP-03-->
-<para>STANAG's are managed by the NATO Standardization Office (NSO). NATO STANAG's that are promulgated shall be considered mandatory only for NATO common-funded systems. If NISP references a STANAG, the obligation status for it is only informative. The NSO maintains the obligation status in their own process of standardization.</para>
-<para>Some older STANAG's combine the agreement and the actual specification into one single document. NISP references the specification part.</para>
-<para>Some STANAG's and NATO Standards included in the NISP are not yet registered in the NSO database. To indicate this, in the NISP tables the publication number starts with "NSO-Expected" instead of "NSO" and in the index, they are grouped under "NATO Standardization Office (expected in the future)".</para>
-<para>For some STANAG's, the status in the NISP deviates from the status according to the NSO. For example, the NISP contains mandatory STANAGs that are Superseded or Cancelled according to the NSO. Also the NISP contains candidate STANAGs that are already Promulgated according to the NSO. For those STANAG's, this deviation is documented in a footnote.</para>
-<para>When a STANAG is not yet Promulgated, this is identified by including "Study" or "RD" (Ratification Draft) in the publication number.</para>
+<para>STANAGs are managed by the NATO Standardization Office (NSO). NATO STANAGs that are promulgated shall be considered mandatory only for NATO common-funded systems. If NISP references a STANAG, the obligation status for it is only informative. The NSO maintains the obligation status in their own process of standardization.</para>
+<para>Some older STANAGs combine the agreement and the actual specification into one single document. NISP references the specification part.</para>
+<para>Some STANAGs and NATO Standards included in the NISP are not yet registered in the NSO database. To indicate this, in the NISP tables the publication number starts with "NATO-Expected" instead of "NATO" and in the index, they are grouped under "NATO Standardization Office (expected in the future)".</para>
+<para>For some STANAGs, the status in the NISP deviates from the status according to the NSO. For example, the NISP contains mandatory STANAGs that are Superseded or Cancelled according to the NSO. Also the NISP contains candidate STANAGs that are already Promulgated according to the NSO. For those STANAGs, this deviation is documented in a footnote. In general IP CaT strives to explicitly mandate the latest version of a standard in Volume 2. However, in Community of Interest (COI) profiles such as FMN 3, or the Archive profile, the CoI might choose, for purely technical reasons, to keep a superseded standard for a certain time-frame in their profile.</para>
+<para>When a STANAG is not yet Promulgated, this is identified by including "Study" or "RD" (Ratification Draft) in the publication number. In general IP CaT strives to explicitly use promulgated standards especially in Volume 2. However, in Community of Interest (COI) profiles such as FMN, or the Archive profile, the CoI might choose, for purely technical reasons, to inject a Study or Ratification Draft of a standard in their profile. These should be limited to Volume 3.</para>
 </sect1>
 <sect1 id="v1c-profiles">
 <title>Interoperability Profiles</title>
@@ -165,7 +165,7 @@
 
 <para>The NISP now defines the <emphasis role="bold">obligation status</emphasis> of profiles and standards as "mandatory" or "candidate".
     <itemizedlist>
-      <listitem><para><emphasis role="bold">Mandatory</emphasis>: The application of standards or profiles is enforced for NATO common funded systems in planning, implementing and testing. NATO STANAGS's that are promulgated shall be considered mandatory. Nations are invited to do the same nationally to promote interoperabilty for federated systems and services. </para></listitem>
+      <listitem><para><emphasis role="bold">Mandatory</emphasis>: The application of standards or profiles is enforced for NATO common funded systems in planning, implementing and testing. Nations are required to use the NISP for developing capabilities that support NATO's missions (ie. NATO led operations, projects, programs, contracts and other related tasks). Nations are invited to do the same nationally to promote interoperabilty for federated systems and services. </para></listitem>
       <listitem><para><emphasis role="bold">Candidate</emphasis>: 
 The application of a standard or profile shall only be used for the purpose of testing and programme / project planning. The standard or profile must have progressed to a stage in its life-cycle and is sufficiently mature and is expected to be approved by the standardization body in the foreseeable future. This implies, that from a planning perspective, the respective standard or profile is expected to become mandatory during execution of the programme. A candidate standard or profile should not stay in volume 3 for more than 3 years.
 </para></listitem>
@@ -235,7 +235,55 @@ The Mandatory and Candidate FMN Spiral Profiles, in context for FMN Affiliates, 
 <title>Capability Packages</title>
 <para>Profiles will be referenced in the NISP for specified NATO Common Funded Systems or Capability Packages and may include descriptions of interfaces to National Systems where appropriate.</para>
 </sect2>
+<sect2>
+  <title>Criteria for selecting standards </title>
+
+<para>Any standard(s) listed in Volume 2 of the NISP shall:</para>
+<itemizedlist>
+  <listitem><para>Be already approved by a NATO Standardization Tasking Authority or another non-
+NATO standards development organization (e.g. ISO, ANSI, ETSI, IEEE, IETF,
+W3C);</para></listitem>
+  <listitem><para>Have an assigned responsible party within NATO that can provide relevant subject
+matter expertise;</para></listitem>
+  <listitem><para>Be available in one of the NATO official languages;</para></listitem>
+  <listitem><para>Support C3 Interoperability (including. people, processes and technology) and
+related NATO common funded Communication and Information Systems (CIS),
+including their development and operations;</para></listitem>
+  <listitem><para>Enable the NATO Enterprise, NATO Nations and Partner Nations to develop
+interoperable C3 capabilities that support NATO's missions (i.e. NATO led
+operations, projects, programs, contracts and other related tasks).</para></listitem>
+  <listitem><para>Any standard deviating from the criteria listed in the paragraph 4.1., can be
+recommended by the IP CaT for inclusion in the NISP and can be implemented after the
+approval of the C3B.</para></listitem>
+</itemizedlist>
+</sect2>
+
+<sect2>
+  <title>Criteria for selecting NON-NATO standards</title>
+
+ <para>Any Non-NATO standard(s) listed in Volume 2 of NISP should:</para>
+
+<itemizedlist>
+  <listitem><para>Have implementations from a cross-section of vendors available;</para></listitem>
+  <listitem><para>Be utilized by the broader user community;</para></listitem>
+ <listitem><para>Be developed in a consensus-based way;</para></listitem>
+  <listitem><para>Be free from any legal issues (i.e. intellectual property rights);</para></listitem>
+  <listitem><para>Meet NATO requirements;</para></listitem>
+  <listitem><para>Be easily accessible to vendors;</para></listitem>
+  <listitem><para>Have an open architecture, e.g. extensible for new technological developments,</para></listitem>
+  <listitem><para>Be compatible with other NATO-agreed standards;</para></listitem>
+  <listitem><para>Be stable (mostly recognized by related community/industry) and mature enough in
+terms of technology;</para></listitem>
+  <listitem><para>Be measurable in terms of its compliance.</para></listitem>
+</itemizedlist>
+</sect2>
+
+
+
+
+
 </sect1>
+
 </chapter>
 <chapter id="v1c-InfoOrganization">
     <title>Organization of the NISP Information</title>
