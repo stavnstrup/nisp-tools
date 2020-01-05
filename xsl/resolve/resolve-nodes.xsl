@@ -5,7 +5,7 @@
 This stylesheet is created for the NATO Interoperability Standard and
 profiles (NISP), and is intended for resolving volume 2 and 3.
 
-Copyright (c) 2002-2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2002-2020, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -235,6 +235,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:if test="$std/document/@pubnum !=''">
           <xsl:value-of select="$std/document/@pubnum"/>
         </xsl:if>
+        <xsl:if test="$std/document/@date !=''">
+          <xsl:text>:</xsl:text>
+          <xsl:value-of select="substring($std/document/@date, 1, 4)"/>
+        </xsl:if>
         <xsl:if test="starts-with($std/document/@orgid, 'nso') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
           <xsl:text> / </xsl:text>
           <xsl:value-of select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/document/@pubnum"/>
@@ -319,6 +323,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
       </xsl:if>
       <xsl:if test="$std/document/@pubnum !=''">
         <xsl:value-of select="$std/document/@pubnum"/>
+      </xsl:if>
+      <xsl:if test="$std/document/@date !=''">
+        <xsl:text>:</xsl:text>
+        <xsl:value-of select="substring($std/document/@date, 1, 4)"/>
       </xsl:if>
       <xsl:if test="starts-with($std/document/@orgid, 'nso') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
         <xsl:text> / </xsl:text>
