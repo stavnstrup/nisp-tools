@@ -60,6 +60,7 @@
    <property name="build.vol1" value="${build.dir}/volume1"/><!-- Source file names -->
    <property name="vol1.main.src" value="vol1.xml"/>
    <property name="vol1.resolve.src" value="vol1-resolved.xml"/>
+   <property name="vol1.postresolve.src" value="vol1-postresolved.xml"/>
    <property name="vol1.pdf.file" value="NISP-Vol1-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="vol1.rtf.file" value="NISP-Vol1-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
    <property name="xsl-resolve-vol1" value="resolve.xsl"/>
@@ -102,8 +103,12 @@
    </target>
    <target name="vol1.html" description="* Create Volume 1 in HTML5" depends="svg, vol1.resolve, vol1.html.check" unless="vol1-html.notRequired">
       <echo message="Create Volume 1 as chunked HTML5 pages"/>
+      <java fork="yes" classname="${xslt.class}">
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol1.postresolve.src} ${build.resolve}/${vol1.resolve.src} ${xsl-styles.dir}/resolve/postresolve-html.xsl"/>
+         <classpath refid="lib-saxon-classpath"/>
+      </java>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol1}">
-         <arg line="${xslt.opts} ${build.resolve}/${vol1.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol1 pdf.prefix=NISP-Vol1 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
+         <arg line="${xslt.opts} ${build.resolve}/${vol1.postresolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol1 pdf.prefix=NISP-Vol1 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
    </target>
@@ -130,6 +135,7 @@
    <property name="build.vol2" value="${build.dir}/volume2"/><!-- Source file names -->
    <property name="vol2.main.src" value="vol2.xml"/>
    <property name="vol2.resolve.src" value="vol2-resolved.xml"/>
+   <property name="vol2.postresolve.src" value="vol2-postresolved.xml"/>
    <property name="vol2.pdf.file" value="NISP-Vol2-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="vol2.rtf.file" value="NISP-Vol2-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
    <property name="xsl-resolve-vol2" value="resolve-nodes.xsl"/>
@@ -190,8 +196,12 @@
    </target>
    <target name="vol2.html" description="* Create Volume 2 in HTML5" depends="svg, vol2.resolve, vol2.html.check" unless="vol2-html.notRequired">
       <echo message="Create Volume 2 as chunked HTML5 pages"/>
+      <java fork="yes" classname="${xslt.class}">
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol2.postresolve.src} ${build.resolve}/${vol2.resolve.src} ${xsl-styles.dir}/resolve/postresolve-html.xsl"/>
+         <classpath refid="lib-saxon-classpath"/>
+      </java>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol2}">
-         <arg line="${xslt.opts} ${build.resolve}/${vol2.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol2 pdf.prefix=NISP-Vol2 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
+         <arg line="${xslt.opts} ${build.resolve}/${vol2.postresolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol2 pdf.prefix=NISP-Vol2 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
    </target>
@@ -219,6 +229,7 @@
    <property name="build.vol3" value="${build.dir}/volume3"/><!-- Source file names -->
    <property name="vol3.main.src" value="vol3.xml"/>
    <property name="vol3.resolve.src" value="vol3-resolved.xml"/>
+   <property name="vol3.postresolve.src" value="vol3-postresolved.xml"/>
    <property name="vol3.pdf.file" value="NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.pdf"/>
    <property name="vol3.rtf.file" value="NISP-Vol3-v${src-version-major}${nisp.lifecycle.postfix}.rtf"/>
    <property name="xsl-resolve-vol3" value="resolve-nodes.xsl"/>
@@ -279,8 +290,12 @@
    </target>
    <target name="vol3.html" description="* Create Volume 3 in HTML5" depends="svg, vol3.resolve, vol3.html.check" unless="vol3-html.notRequired">
       <echo message="Create Volume 3 as chunked HTML5 pages"/>
+      <java fork="yes" classname="${xslt.class}">
+         <arg line="${xslt.opts} -o ${build.resolve}/${vol3.postresolve.src} ${build.resolve}/${vol3.resolve.src} ${xsl-styles.dir}/resolve/postresolve-html.xsl"/>
+         <classpath refid="lib-saxon-classpath"/>
+      </java>
       <java fork="yes" classname="${xslt.class}" dir="${build.vol3}">
-         <arg line="${xslt.opts} ${build.resolve}/${vol3.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol3 pdf.prefix=NISP-Vol3 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
+         <arg line="${xslt.opts} ${build.resolve}/${vol3.postresolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts} docid=vol3 pdf.prefix=NISP-Vol3 use.para.numbering=${use.para.numbering} datestamp=${DSTAMP} describe=${describe}"/>
          <classpath refid="lib-saxon-classpath"/>
       </java>
    </target>

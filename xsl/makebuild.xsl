@@ -245,6 +245,7 @@ Make dynamic targets.
   </property>
 
   <property name="{$docid}.resolve.src" value="{$docid}-resolved.xml"/>
+  <property name="{$docid}.postresolve.src" value="{$docid}-postresolved.xml"/>
 
   <property name="{$docid}.pdf.file">
     <xsl:attribute name="value">
@@ -797,6 +798,24 @@ Make dynamic targets.
           depends="svg, {$docid}.resolve, {$docid}.html.check"
           unless="{$docid}-html.notRequired">
     <echo message="Create {$title} as chunked HTML5 pages"/>
+
+    <java fork="yes">
+      <xsl:attribute name="classname">
+        <xsl:text>${xslt.class}</xsl:text>
+      </xsl:attribute>
+
+      <arg>
+        <xsl:attribute name="line">
+          <xsl:text>${xslt.opts} -o ${build.resolve}/${</xsl:text>
+          <xsl:value-of select="$docid"/>
+          <xsl:text>.postresolve.src} ${build.resolve}/${</xsl:text>
+          <xsl:value-of select="$docid"/>
+          <xsl:text>.resolve.src} ${xsl-styles.dir}/resolve/postresolve-html.xsl</xsl:text>
+        </xsl:attribute>
+      </arg>
+      <classpath refid="lib-saxon-classpath"/>
+    </java>
+
     <java fork="yes">
       <xsl:attribute name="classname">
         <xsl:text>${xslt.class}</xsl:text>
@@ -827,7 +846,7 @@ Make dynamic targets.
         <xsl:attribute name="line">
           <xsl:text>${xslt.opts} ${build.resolve}/${</xsl:text>
           <xsl:value-of select="$docid"/>
-          <xsl:text>.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts}</xsl:text>
+          <xsl:text>.postresolve.src} ${xsl-xhtml.dir}/${xsl-chunk} ${nisp.lifecycle.opts}</xsl:text>
           <xsl:text> docid=</xsl:text>
           <xsl:value-of select="$docid"/>
           <xsl:text> pdf.prefix=</xsl:text>
