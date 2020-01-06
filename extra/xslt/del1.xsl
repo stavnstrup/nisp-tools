@@ -24,7 +24,7 @@
 
 <xsl:output saxon:next-in-chain="del2.xsl"/>
 
-<xsl:variable name="next.nisp.version" select="'12.0'"/>
+<xsl:variable name="next.nisp.version" select="'13.0'"/>
 
 
 <xsl:strip-space elements="*"/>
