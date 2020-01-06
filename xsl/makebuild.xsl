@@ -541,7 +541,7 @@ Make dynamic targets.
 
   <target name="{$docid}-olinks.check" depends="init">
     <uptodate property="{$docid}-olinks.notRequired">
-      <xsl:attribute name="targetfile"> 
+      <xsl:attribute name="targetfile">
         <xsl:text>${src.dir}/olinks/</xsl:text>
         <xsl:value-of select="$docid"/>
         <xsl:text>-target.db</xsl:text>
@@ -587,7 +587,7 @@ Make dynamic targets.
         <xsl:attribute name="line">
           <xsl:text>${build.resolve}/${</xsl:text>
           <xsl:value-of select="$docid"/>
-          <xsl:text>.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} </xsl:text> 
+          <xsl:text>.resolve.src} ${xsl-xhtml.dir}/${xsl-chunk} </xsl:text>
           <xsl:text>target.database.document=${src.dir}/olinks/olinksdb.xml current.docid=</xsl:text>
           <xsl:value-of select="$docid"/>
           <xsl:text> collect.xref.targets=only</xsl:text>
@@ -644,7 +644,7 @@ Make dynamic targets.
         <include name="*.svg"/>
         <exclude name="obsolete/*.svg"/>
       </fileset>
-    </copy> 
+    </copy>
 
     <uptodate property="{$docid}-svg.notRequired">
       <srcfiles includes="*.svg">
@@ -654,7 +654,7 @@ Make dynamic targets.
           <xsl:text>/figures</xsl:text>
         </xsl:attribute>
       </srcfiles>
-      <mapper type="glob" from="*.svg"> 
+      <mapper type="glob" from="*.svg">
         <xsl:attribute name="to">
           <xsl:text>${build.dir}/</xsl:text>
           <xsl:value-of select="$dir"/>
@@ -793,8 +793,8 @@ Make dynamic targets.
     </uptodate>
   </target>
 
-  <target name="{$docid}.html" description="* Create {$title} in HTML5" 
-          depends="svg, {$docid}.resolve, {$docid}.html.check" 
+  <target name="{$docid}.html" description="* Create {$title} in HTML5"
+          depends="svg, {$docid}.resolve, {$docid}.html.check"
           unless="{$docid}-html.notRequired">
     <echo message="Create {$title} as chunked HTML5 pages"/>
     <java fork="yes">
@@ -860,7 +860,7 @@ Make dynamic targets.
 
   <target name="{$docid}.pdf.check" depends="init">
     <uptodate property="{$docid}-pdf.notRequired">
-      <xsl:attribute name="targetfile"> 
+      <xsl:attribute name="targetfile">
         <xsl:text>${build.fo}/${</xsl:text>
         <xsl:value-of select="$docid"/>
         <xsl:text>.pdf.file}</xsl:text>
@@ -872,7 +872,7 @@ Make dynamic targets.
         </xsl:attribute>
         <xsl:attribute name="includes">
           <xsl:text>${</xsl:text>
-          <xsl:value-of select="$docid"/> 
+          <xsl:value-of select="$docid"/>
           <xsl:text>.resolve.src}</xsl:text>
         </xsl:attribute>
       </srcfiles>
@@ -916,7 +916,7 @@ Make dynamic targets.
       </xsl:if>
       <arg>
         <xsl:attribute name="line">
-          <xsl:text>${xslt.opts} -o </xsl:text> 
+          <xsl:text>${xslt.opts} -o </xsl:text>
           <xsl:value-of select="$docid"/>
           <xsl:text>.fo ${build.resolve}/${</xsl:text>
           <xsl:value-of select="$docid"/>
@@ -934,7 +934,7 @@ Make dynamic targets.
 
     <xsl:choose>
       <xsl:when test=".//target[@type='pdf'][@heapmemory]">
-    
+
         <java classname="org.apache.fop.apps.Fop" fork="yes">
 <!--
 
@@ -968,7 +968,7 @@ Make dynamic targets.
           </xsl:attribute>
           <xsl:attribute name="outfile">
             <xsl:text>${build.fo}/</xsl:text>
-            <xsl:text>${</xsl:text>	    
+            <xsl:text>${</xsl:text>
             <xsl:value-of select="$docid"/>
             <xsl:text>.pdf.file}</xsl:text>
           </xsl:attribute>
@@ -999,13 +999,13 @@ Make dynamic targets.
   <target name="{$docid}.rtf"
           description="* Create {$title} in RTF"
           depends="{$docid}.pdf">
-    <echo message="FIX FO version"/>    
+    <echo message="FIX FO version"/>
     <java fork="yes">
       <xsl:attribute name="classname"><xsl:text>${xslt.class}</xsl:text></xsl:attribute>
       <xsl:attribute name="dir"><xsl:text>${build.dir}/rtf/</xsl:text></xsl:attribute>
       <arg>
         <xsl:attribute name="line">
-          <xsl:text> -o </xsl:text> 
+          <xsl:text> -o </xsl:text>
           <xsl:value-of select="$docid"/>
           <xsl:text>.fo ${build.fo}/</xsl:text>
           <xsl:value-of select="$docid"/>
@@ -1031,7 +1031,7 @@ Make dynamic targets.
               <xsl:text> </xsl:text>
               <xsl:value-of select="$docid"/>
               <xsl:text>.fo -rtf </xsl:text>
-              <xsl:text>${</xsl:text>	    
+              <xsl:text>${</xsl:text>
               <xsl:value-of select="$docid"/>
               <xsl:text>.rtf.file}</xsl:text>
             </xsl:attribute>
@@ -1049,8 +1049,8 @@ Make dynamic targets.
             <xsl:text>.fo</xsl:text>
           </xsl:attribute>
           <xsl:attribute name="outfile">
-            <xsl:text>${build.dir}/rtf/</xsl:text>	    
-              <xsl:text>${</xsl:text>	    
+            <xsl:text>${build.dir}/rtf/</xsl:text>
+              <xsl:text>${</xsl:text>
               <xsl:value-of select="$docid"/>
               <xsl:text>.rtf.file}</xsl:text>
           </xsl:attribute>
@@ -1099,7 +1099,7 @@ Make dynamic targets.
       <xsl:attribute name="description">
         <xsl:value-of select="$comment"/>
       </xsl:attribute>
-    </xsl:if>    
+    </xsl:if>
   </target>
 
 </xsl:template>
