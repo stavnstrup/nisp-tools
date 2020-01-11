@@ -248,6 +248,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile" mode="listcp">
           <xsl:with-param name="taxref" select="$taxref"/>
           <xsl:with-param name="stdid" select="$stdid"/>
+          <xsl:with-param name="lc" select="'current'"/>
         </xsl:apply-templates>
       </entry>
       <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
@@ -259,8 +260,10 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="capabilityprofile" mode="listcp">
   <xsl:param name="taxref"/>
   <xsl:param name="stdid"/>
+  <xsl:param name="lc"/>
 
-  <xsl:if test=".//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]">
+  <xsl:if test=".//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and 
+                (../@lifecycle=$lc) and (../../reftaxonomy/@refid=$taxref)]">
     <xsl:choose>
       <xsl:when test="@id = 'bsp'">BSP</xsl:when>
       <xsl:otherwise><xsl:value-of select="translate(@id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:otherwise>
@@ -349,6 +352,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile" mode="listcp">
           <xsl:with-param name="taxref" select="$taxref"/>
           <xsl:with-param name="stdid" select="$stdid"/>
+          <xsl:with-param name="lc" select="'candidate'"/>
         </xsl:apply-templates>
       </entry>
       <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
