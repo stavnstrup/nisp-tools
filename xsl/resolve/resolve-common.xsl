@@ -76,7 +76,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <!-- Add NSO preable stuff -->
   <preface role="promulgation">
     <title>NATO LETTER OF PROMULGATION</title>
-    <para>The enclosed Alied Data Publication <xsl:value-of select="$allied.publication.number"/>, Edition 
+    <para>The enclosed Allied Data Publication <xsl:value-of select="$allied.publication.number"/>, Edition 
     <xsl:value-of select="$allied.publication.edition"/>, Version <xsl:value-of select="$allied.publication.version"/> NATO 
     Interoperability Standards and Profiles, which has been approved by the nations in the C3B, is promulgated herewith. 
     The agreement of nations to use this publication is recorded in STANAG 5524.</para>
