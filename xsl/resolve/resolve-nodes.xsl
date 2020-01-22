@@ -201,14 +201,17 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="std" select="$db//records/*[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
-  <!-- (This mandatory standard does NOT exist in a previous capability profile for a given taxonomy node taxref) AND
+  <!-- (This mandatory standard does NOT exits in this serviceprofile) AND
+       (This mandatory standard does NOT exist in a previous capability profile for a given taxonomy node taxref) AND
        (A previous services profile does NOT exists within the same capabilityprofile where
-        this standard is referenced for a given taxonomy node taxref)
+        this standard is referenced for a given taxonomy node taxref) AND
 
        We do this because we only want to list a standard once for each taxonomy node, whether it is listed in a previous
        capabilityprofile of it is listed in a previous serviceprofile within the current capabilityprofile.
   -->
-  <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
+  <xsl:if test="not(ancestor::refgroup/preceding-sibling::refgroup/refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
+                      and
+                not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
                       and
                 not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
@@ -305,14 +308,17 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:variable name="std" select="$db//records/*[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
-  <!-- (This candidate standard does NOT exist in a previous capability profile for a given taxonomy node taxref) AND
+  <!-- (This candidate standard does NOT exits in this serviceprofile) AND
+       (This candidate standard does NOT exist in a previous capability profile for a given taxonomy node taxref) AND
        (A previous services profile does NOT exists within the same capabilityprofile where
         this standard is referenced for a given taxonomy node taxref)
 
        We do this because we only want to list a standard once for each taxonomy node, whether it is listed in a previous
        capabilityprofile of it is listed in a previous serviceprofile within the current capabilityprofile.
   -->
-  <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])
+  <xsl:if test="not(ancestor::refgroup/preceding-sibling::refgroup/refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])
+                      and
+                not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])
                       and
                 not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
