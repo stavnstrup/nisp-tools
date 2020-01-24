@@ -42,6 +42,11 @@ Description : This stylesheet creates an UUID element in all standards
   <xsl:text>&#x0a;</xsl:text>
 </xsl:template>
 
+<xsl:template match="event">
+  <event date="{@date}" flag="{@flag}" version="{@version}" rfcp="{@rfcp}">
+    <xsl:apply-templates/>
+  </event>
+</xsl:template>
 
 <xsl:template match="status">
   <status>
