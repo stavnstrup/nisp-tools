@@ -346,7 +346,7 @@ Copyright (c) 2003, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     </td>
     <td class="date"><xsl:apply-templates select=".//event"/></td>
     <td>
-      <xsl:if test="not(status/uri)">
+      <xsl:if test="not(status/uri) or (status/uri='')">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:apply-templates select="status/uri"/>
