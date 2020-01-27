@@ -11,17 +11,16 @@
 
 Sort standard and profiles by id.
 
-Copyright (c) 2014, 2019  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2014, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
-
 <xsl:template match="records">
   <records>
-    <xsl:apply-templates select="standard">
+    <xsl:apply-templates select="coverdoc|standard">
        <xsl:sort select="@id"/>
     </xsl:apply-templates>
-    <xsl:apply-templates select="capabilityprofile">
+    <xsl:apply-templates select="profilespec">
        <xsl:sort select="@id"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="profile">
@@ -47,6 +46,5 @@ Copyright (c) 2014, 2019  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <xsl:apply-templates/>
   </xsl:copy>
 </xsl:template>
-
 
 </xsl:stylesheet>
