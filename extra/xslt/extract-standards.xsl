@@ -61,7 +61,7 @@ Copyright (c) 2014-2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:output indent="yes"/>
 
-<xsl:variable name="next.version" select="'10.0'"/>
+<xsl:variable name="next.version" select="'13.0'"/>
 
 <xsl:variable name="col.org" select="1"/>
 <xsl:variable name="col.pubnum" select="2"/>
