@@ -242,7 +242,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
           <xsl:text>:</xsl:text>
           <xsl:value-of select="substring($std/document/@date, 1, 4)"/>
         </xsl:if>
-        <xsl:if test="starts-with($std/document/@orgid, 'nso') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
+        <xsl:if test="starts-with($std/document/@orgid, 'nato') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
           <xsl:text> / </xsl:text>
           <xsl:value-of select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/document/@pubnum"/>
         </xsl:if>
@@ -349,7 +349,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
           <xsl:text>:</xsl:text>
           <xsl:value-of select="substring($std/document/@date, 1, 4)"/>
         </xsl:if>
-        <xsl:if test="starts-with($std/document/@orgid, 'nso') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
+        <xsl:if test="starts-with($std/document/@orgid, 'nato') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
           <xsl:text> / </xsl:text>
           <xsl:value-of select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/document/@pubnum"/>
         </xsl:if>
