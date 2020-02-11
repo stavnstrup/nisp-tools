@@ -245,6 +245,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:if test="starts-with($std/document/@orgid, 'nato') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
           <xsl:text> / </xsl:text>
           <xsl:value-of select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/document/@pubnum"/>
+          <xsl:apply-templates select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/@id" mode="addindexentry"/>
         </xsl:if>
       </entry>
       <entry>
