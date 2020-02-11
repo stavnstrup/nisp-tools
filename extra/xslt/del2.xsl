@@ -15,7 +15,7 @@
 <xsl:template match="/">
   <html>
     <meta charset="utf-8" />
-    <head><title>Deleted Standards</title></head>
+    <head><title></title></head>
     <style type="text/css">
       table {
          border-collapse: collapse;

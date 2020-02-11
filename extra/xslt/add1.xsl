@@ -15,9 +15,8 @@
 
      1. Goto the vol1 folder and run the following commands
      2. saxon -o added-standards.html ../standards/standards.xml ../../extra/xslt/add1.xsl
-     3. pandoc -o added-standards.xml -id-prefix=added- -t DocBook added-standards.html
+     3. pandoc -o added-standards.xml -t DocBook added-standards.html
 
-     Note: The parameter id-prefix should be prefixed with two hyphens to the left.
 -->
 
 <xsl:output saxon:next-in-chain="add2.xsl"/>

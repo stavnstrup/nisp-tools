@@ -19,7 +19,7 @@
 <xsl:template match="/">
   <html>
     <meta charset="utf-8" />
-    <head><title>Responsible parties</title></head>
+    <head><title></title></head>
     <style type="text/css">
       table {
          border-collapse: collapse;
@@ -29,7 +29,7 @@
       }
     </style>
   <body>
-    <h1>New standards</h1>
+    <h1>Added Standards</h1>
 
     <xsl:apply-templates select="standards"/>
   </body></html>
