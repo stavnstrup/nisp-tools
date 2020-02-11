@@ -490,6 +490,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
               <xsl:text>-REV</xsl:text>
               <xsl:value-of select="$nisp.revision"/>
             </xsl:if>
+            <fo:block>Volume <xsl:value-of select="//book/bookinfo/volumenum"/></fo:block>
           </xsl:when>
           <xsl:when test="$position='left'">
           </xsl:when>
@@ -504,6 +505,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
               <xsl:text>-REV</xsl:text>
               <xsl:value-of select="$nisp.revision"/>
             </xsl:if>
+            <fo:block>Volume <xsl:value-of select="//book/bookinfo/volumenum"/></fo:block>
           </xsl:when>
           <xsl:when test="$position='right'">
           </xsl:when>
