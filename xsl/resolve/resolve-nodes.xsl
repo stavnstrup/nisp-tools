@@ -228,6 +228,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:if test="string-length($note) &gt; 0">
         	<footnote id="{$stdid}-note"><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
         </xsl:if>
+         <!-- Add standard to index -->
         <xsl:apply-templates select="@refid" mode="addindexentry"/>
       </entry>
       <entry>
@@ -245,6 +246,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:if test="starts-with($std/document/@orgid, 'nato') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
           <xsl:text> / </xsl:text>
           <xsl:value-of select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/document/@pubnum"/>
+          <!-- Add coverdocument to index -->
           <xsl:apply-templates select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/@id" mode="addindexentry"/>
         </xsl:if>
       </entry>
