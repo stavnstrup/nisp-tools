@@ -19,7 +19,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
               If the stylesheet is used, whith another FO processor, then
               use the appropiate processer extension, if available.
 
-              Copyright (C) 2001-2019 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
+              Copyright (C) 2001-2020 Jens Stavnstrup/DALO <stavnstrup@mil.dk>,
               Danish Defence Research Establishment (DDRE), and
               Danish Acquisition and Logistics Organisation and
               NATO Command, Control and Consultation Organisation.(NC3O)
@@ -473,7 +473,7 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
     <!-- position can be left, center, right -->
     <xsl:choose>
       <xsl:when test="$position='center' and
-                      ($nisp.lifecycle.stage = 'draft' or $nisp.lifecycle.stage = 'final')">
+                      ($nisp.lifecycle.stage = 'draft')">
 <!--
         <xsl:value-of select="$nisp.class.label"/>
         <fo:block><xsl:value-of select="$nisp.release.label"/></fo:block>
