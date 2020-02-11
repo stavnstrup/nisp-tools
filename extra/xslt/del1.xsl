@@ -16,8 +16,9 @@
 
      1. Goto the vol1 folder and run the following commands
      2. saxon -o deleted-standards.html ../standards/standards.xml ../../extra/xslt/del1.xsl
-     3. pandoc -o deleted-standards.xml -t DocBook deleted-standards.html
+     3. pandoc -o deleted-standards.xml -id-prefix=ADD- -t DocBook deleted-standards.html
 
+Note: The parameter id-prefix should be prefixed with two hyphens to the left.
 -->
 
 <xsl:output saxon:next-in-chain="del2.xsl"/>
