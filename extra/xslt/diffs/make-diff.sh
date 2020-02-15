@@ -9,3 +9,4 @@ saxon91 -o deleted-standards.html ../../../src/standards/standards.xml del1.xsl
 pandoc -o raw-deleted-standards.xml --id-prefix=DEL- -t DocBook deleted-standards.html
 rm deleted-standards.html
 saxon91 -o ../../../src/volume1/deleted-standards.xml raw-deleted-standards.xml fix-sect.xsl
+rm raw-added-standards.xml raw-deleted-standards.xml
