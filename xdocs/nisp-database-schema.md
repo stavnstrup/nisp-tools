@@ -62,6 +62,17 @@ lists organisation which create/owns a standard but also organisations,
 which are responsible for a standard. Being responsible mean that an
 organisation is subject matter expert and recommend to use a given standard.
 
+~~~{.dtd}
+<!ELEMENT organisations (orgkey*)>
+
+<!ELEMENT orgkey EMPTY>
+<!ATTLIST orgkey
+          key    ID   #REQUIRED
+          short  CDATA   #REQUIRED
+          long   CDATA   #REQUIRED
+          uri    CDATA   #IMPLIED>
+~~~
+
 ## Service taxonomy
 
 The services taxonomy describes how the standards and profiles are
