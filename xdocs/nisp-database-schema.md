@@ -346,14 +346,15 @@ The leaves of the tree consists of `servicprofile` elements which references sel
 ### Profile
 
 A `<profile>` consists of a `<refprofilespec>` element describing
-the capability, a number of references to `<profile>` or `<serviceprofile>` elements encapsulated in a `<subprofiles>` element and a `<status>` element.
+the capability, a number of references to `<profile>` or `<serviceprofile>` elements encapsulated in a `<subprofiles>` element and a `<status>` element. A `toplevel` attribute is set to `yes`, if the `profile` node is the root of the profile tree. This node was previously called a capability node.
 
 ~~~{.dtd}
 <!ELEMENT profile (refprofilespec, description?, subprofiles?, status, uuid?)*>
 <!ATTLIST profile
           id ID #REQUIRED
           short CDATA #IMPLIED
-          title CDATA #REQUIRED>
+          title CDATA #REQUIRED
+          toplevel (yes|no) "no">
 ~~~
 
 ### Service Profile
