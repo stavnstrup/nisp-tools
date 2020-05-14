@@ -7,12 +7,12 @@
 
 <xsl:template match="/">
   <!-- Check DB for missing attributes in standards only -->
-  <xsl:variable name="empty.tag" select="count(//standard[@tag=''])"/>
-  <xsl:variable name="empty.orgid" select="count(//document[@orgid=''])"/>
-  <xsl:variable name="empty.pubnum" select="count(//document[@pubnum=''])"/>
-  <xsl:variable name="empty.date" select="count(//document[@date=''])"/>
-  <xsl:variable name="empty.uri" select="count(//standard)-count(//standard/status/uri)"/>
-  <xsl:variable name="empty.applicability" select="count(//applicability[not(string(.))])"/>
+  <xsl:variable name="empty.tag" select="count(//standard[@tag='' and status/@mode='accepted'])"/>
+  <xsl:variable name="empty.orgid" select="count(//document[@orgid='' and ../status/@mode='accepted'])"/>
+  <xsl:variable name="empty.pubnum" select="count(//document[@pubnum='' and ../status/@mode='accepted'])"/>
+  <xsl:variable name="empty.date" select="count(//document[@date='' and ../status/@mode='accepted'])"/>
+  <xsl:variable name="empty.uri" select="count(//standard[status/@mode='accepted'])-count(//standard/status/uri[../@mode='accepted'])"/>
+  <xsl:variable name="empty.applicability" select="count(//applicability[not(string(.)) and ../status/@mode='accepted'])"/>
 
   <xsl:if test="$empty.tag">
     <xsl:message>
