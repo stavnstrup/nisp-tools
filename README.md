@@ -39,7 +39,7 @@ extra/               misc extra stuff
 lib/                 tools used to create the different targets
 schema/              Misc schemas used by the tools package
 src/                 the XML sources for NISP
-xdocs/               XML sources of the documentation
+xdocs/               Markdown sources of the documentation
 xsl/                 XSLT stylesheets
 ```
 
