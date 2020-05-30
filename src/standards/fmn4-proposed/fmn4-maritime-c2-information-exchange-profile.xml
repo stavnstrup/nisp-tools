@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-maritime-c2-information-exchange-profile" title="Proposed FMN Spiral 4 Maritime C2 Information Exchange Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Maritime C2 Information Exchange Profile provides standards and guidance to support the exchange of Maritime
+Recognized Picture (RMP) information within a coalition network or a federation of networks.</para>
+		</description>
 		<!-- Recognized Maritime Picture Services -->
 		<reftaxonomy refid="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>For the RMP Services for building the Operational RMP it is mandatory to implement NVG to provide
+an interface for Cross COI Shared Situational Awareness where OTH-T GOLD cannot be processed</para>
+			</description>
 			<!-- NISP Standard - NVG 1.5 -->
 			<refstandard refid="nato-tide-nvg"/>
 		</refgroup>
@@ -15,9 +23,55 @@
 			<!-- OTH-T GOLD Baseline 2007 - "OVER-THE-HORIZON TARGETING GOLD baseline 2007" -->
 			<refstandard refid="us-dod-oth-t-g-2007"/>
 		</refgroup>
+		<guide>
+			<para>The implementation of the following message types is mandatory:
+				<itemizedlist>
+					<listitem>
+						<para>Contact Report (CTC);</para>
+					</listitem>
+					<listitem>
+						<para>Enhanced Contact Report (XCTC); and</para>
+					</listitem>
+					<listitem>
+						<para>Overlay Message (OVLY2, OVLY3).</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>The implementation of the following message types is optional:
+				<itemizedlist>
+					<listitem>
+						<para>Area of Interest Filter (AOI);</para>
+					</listitem>
+					<listitem>
+						<para>FOTC Situation Report;</para>
+					</listitem>
+					<listitem>
+						<para>Group Track Message (GROUP);</para>
+					</listitem>
+					<listitem>
+						<para>Operator Note (OPNOTE); and</para>
+					</listitem>
+					<listitem>
+						<para>PIM Track (PIMTRACK).</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>These messages can be used for other C2 functions.
+For interconnecting C2 Systems and their RMP Services, the implementation of the following
+transport protocol to share OTH-T GOLD messages is mandatory:
+				<itemizedlist>
+					<listitem>
+						<para>TCP (connect, send, disconnect) - default port:2020</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>End-users that do not have RMP Applications MAY generate OTH-T GOLD messages manually and
+transmit them via eMail/SMTP.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>66a751d2-c0b7-4b0c-9a4a-f6ba03030a56</uuid>
 	</serviceprofile>

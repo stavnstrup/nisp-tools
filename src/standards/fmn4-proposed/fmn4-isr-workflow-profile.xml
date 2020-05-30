@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-isr-workflow-profile" title="Proposed FMN Spiral 4 ISR Workflow Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The workflow services architecture defined by AEDP-19 covers the ISR enterprise wide sharing and management of:
+				<itemizedlist>
+					<listitem>
+						<para>Intelligence Collection Plans through the Requirements, Priority and GAOI Services.</para>
+					</listitem>
+					<listitem>
+						<para>Requests for information and ISR requests through the request service.</para>
+					</listitem>
+					<listitem>
+						<para>Taskings of organic ISR assets through the tasking service.</para>
+					</listitem>
+					<listitem>
+						<para>Linkage of collected and exploited products to requests, tasks and intelligence requirements.</para>
+					</listitem>
+					<listitem>
+						<para>ISR ORBAT including configuration information through the organization service.</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</description>
 		<!-- Information Requirements Management Services -->
 		<reftaxonomy refid="T-ea3f59bb-8e11-43d8-bafe-d51b4ff5fdc1-X"/>
 		<!-- Collection Management Services -->
@@ -11,11 +32,17 @@
 		<reftaxonomy refid="T-9a740413-5005-459b-9100-7e7cc08fa41d-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
 			<!-- AEDP-19(A)(1) - "NATO Standard ISR Workflow Architecture" -->
-			<refstandard refid="nso-aedp-19-ed.A-v1"/>
+			<refstandard refid="nato-aedp-19-ed.A-v1"/>
 		</refgroup>
+		<guide>
+			<para>The operational processes facilitated by the ISR workflow architecture are described in detail in the
+Procedural Instructions for JISR and Intelligence Products which is based on AIntP-16 (IRM&amp;CM
+procedures) and AIntP-14 (JISR procedures).</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>bbe0f69a-749a-4b78-a89e-339cf5122e6d</uuid>
 	</serviceprofile>

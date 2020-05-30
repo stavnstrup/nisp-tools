@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-land-c2-information-exchange-profile" title="Proposed FMN Spiral 4 Land C2Information Exchange Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Land C2 Information Exchange Profile provides standards and guidance to support the exchange of Command and
+Control information within a coalition network or a federation of networks.</para>
+		</description>
 		<!-- Battlespace Object Services -->
 		<reftaxonomy refid="T-d8fd520c-940b-48e6-ab46-2ccf9f6858ed-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para></para>
+			</description>
 			<!-- MIP 4.2 Information Exchange Specification - "MIP 4.2 Information Exchange Specification" -->
 			<refstandard refid="mip-v4.2"/>
 			<!-- ADatP-5644(A) - "Web Service Messaging Profile (WSMP)" -->
-			<refstandard refid="nso-adatp-5644-ed.a-v1"/>
+			<refstandard refid="nato-adatp-5644-ed.a-v1"/>
 		</refgroup>
+		<guide>
+			<para>The MIP 4 profile should be used primarily for the exchange of Battlespace Objects; this profile is not
+intended to support high volume, high frequency updates such as Friendly Force Tracks (FFT). Nor is
+it intended to support the exchange of data over tactical bearers (with limited capacity and
+intermittent availability). The MIP interoperability specification comprises both a mandatory technical
+interface specification as well as implementation guidance documents, and is available on the MIP
+website (https://www.mip-interop.org). The MIP Baseline 4 specification is updated periodically and it
+is designed to safeguard inter-version compatibility between increments.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>0500b856-0567-4a88-b26f-d699b2fd5850</uuid>
 	</serviceprofile>

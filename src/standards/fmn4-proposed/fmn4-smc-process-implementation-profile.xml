@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-smc-process-implementation-profile" title="Proposed FMN Spiral 4 SMC Process Implementation Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The SMC Process Implementation Profile enables the handover of federated Service Management records between the
+sending Service Providers and the receiving Service Provider. Details about the handover point and supported use
+cases is described per process in the Service Interface Profile. The profiles provide the implementation guidance for the
+TM Forum API REST Specification.</para>
+		</description>
 		<!-- Undefined Taxonomy Node -->
 		<reftaxonomy refid="user.undefined.taxonomynode"/>
 		<refgroup obligation="recommended" lifecycle="current">
@@ -21,9 +27,9 @@
 			<!-- TMForum TR250 - "TMForum API REST Conformance Guidelines R15.5.1" -->
 			<refstandard refid="tm-forum-tr250"/>
 			<!-- ADatP-4774A - "CONFIDENTIALITY LABELLING" -->
-			<refstandard refid="nso-adatp-4774-ed.a-v1"/>
+			<refstandard refid="nato-adatp-4774-ed.a-v1"/>
 			<!-- ADatP-4778A - "METADATA BINDING" -->
-			<refstandard refid="nso-adatp-4778-ed.a-v1"/>
+			<refstandard refid="nato-adatp-4778-ed.a-v1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="current">
 			<!-- Note: reference to other service profile -->
@@ -37,9 +43,14 @@
 				</para>
 			</description>
 		</refgroup>
+		<guide>
+			<para>FMN specific implementation details are specified within each of the Service Interface Profiles for
+Service Management and Control.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>5c31fe98-b217-4fdd-b269-043680282ef5</uuid>
 	</serviceprofile>

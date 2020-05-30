@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-cyber-information-exchange-profile" title="Proposed FMN Spiral 4 Cyber Information Exchange Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Cyber Information Exchange Profile provides standards are used to exchange information about cyber threats.</para>
+			<para>Structured Threat Information Expression (STIX) is an information model and serialization for cyber threat intelligence
+(CTI). By allowing the consistent expression of CTI in a machine­readable specification, STIX supports shared threat
+analysis, machine automation, and information sharing. It enables use cases such as indicator exchange, management
+of response activities, shared malware analysis, and higher ­level threat intelligence sharing.</para>
+			<para>Trusted Automated eXchange of Intelligence Information (TAXII) is an application layer protocol for the communication
+of cyber threat information in a simple and scalable manner. It defines services and message exchanges that enable
+organizations to share the information they choose with the partners they choose. TAXII is designed to transport STIX
+Objects.</para>
+			<para>Some of the important use cases are data feed providers such as an intel provider trying to share what indicators they
+see for threats, and sharing that with either Threat Intelligence Platforms (TIPS), sharing it with threat mitigation systems
+for example, like a firewall.</para>
+		</description>
 		<!-- Undefined Taxonomy Node -->
 		<reftaxonomy refid="user.undefined.taxonomynode"/>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>STIX provides a bundle as a container for STIX objects to allow for transportation of bulk STIX data.
+TAXII is specifically designed to support the exchange of CTI represented in STIX. This does not
+mean TAXII cannot be used to share data in other formats; it is designed for STIX, but is not limited
+to STIX. Nonetheless, TAXII is not mandatory for this exchange and C_SOC are suggested to
+distribute STIX Bundles via mailing lists or web-publication.</para>
+			</description>
 			<!-- TAXII Version 2 - "Trusted Automated eXchange of Intelligence Information" -->
 			<refstandard refid="oasis-taxii-2.0"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>STIX 2.0 is transport-agnostic, i.e., the structures and serializations do not rely on any specific
+transport mechanism.</para>
+			</description>
 			<!-- STIX V2.0 Part 1 - "STIX™ Version 2.0. Part 1: STIX Core Concepts" -->
 			<refstandard refid="oasis-stix-2.0-p1"/>
 			<!-- STIX V2.0 Part 2 - "STIX™ Version 2.0. Part 2: STIX Core Concepts" -->
@@ -24,4 +49,5 @@
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>1fba1458-03c7-4bc1-b3ac-13f18378bc17</uuid>
 	</serviceprofile>
