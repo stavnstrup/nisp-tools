@@ -29,6 +29,8 @@
   </elements>
   <!--
   <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/"/>
+
+  </relationships>
   -->
   <organizations xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <item>
@@ -44,11 +46,18 @@
     </item>
     <item>
       <label xml:lang="en">Motivation</label>
-       <xsl:apply-templates select="standard|coverdoc" mode="organization"/>
+       <item>
+         <label xml:lang="en">Standards</label>
+         <xsl:apply-templates select="/standards/organisations/orgkey" mode="organization"/>
+       </item>
        <item>
          <label xml:lang="en">Profile Specifications</label>
          <xsl:apply-templates select="profilespec" mode="organization"/>
        </item>
+    </item>
+    <item>
+      <label xml:lang="en">Other</label>
+
     </item>
       <!--
     <item>
@@ -84,7 +93,22 @@
   <xsl:variable name="myorgid" select="document/@orgid"/>
   <xsl:variable name="rp" select="responsibleparty/@rpref"/>
   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="{uuid}" xsi:type="Principle">
-    <name xml:lang="en"><xsl:value-of select="document/@title"/></name>
+    <name xml:lang="en"><xsl:value-of select="document/@title"/>
+      <xsl:if test="document/@orgid or document/@pubnum">
+        <xsl:text>, </xsl:text>
+        <xsl:if test="document/@orgid">
+          <xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/>
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:if test="document/@pubnum">
+          <xsl:value-of select="document/@pubnum"/>
+        </xsl:if>
+      </xsl:if>
+      <xsl:if test="document/@date">
+        <xsl:text>, </xsl:text>
+        <xsl:value-of select="substring(document/@date, 1, 4)"/>
+      </xsl:if>
+    </name>
     <!--
     <documentation xml:lang="en"><xsl:apply-templates select="applicability"/></documentation>
     -->
@@ -102,6 +126,13 @@
           <xsl:value-of select="/standards/allattributes/def[@attribute='pubnum']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="document/@pubnum"/></value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='title']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"><xsl:value-of select="document/@title"/></value>
       </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
@@ -208,11 +239,20 @@
 </xsl:template>
 
 
-
 <!-- ============================================================== -->
 <!--                          Organization                          -->
 <!-- ============================================================== -->
 
+
+<xsl:template match="orgkey" mode="organization">
+  <xsl:variable name="myorg" select="@key"/>
+  <xsl:if test="count(/standards//document[@orgid=$myorg])  > 0">
+    <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+      <label xml:lang="en"><xsl:value-of select="@short"/></label>
+      <xsl:apply-templates select="/standards//standard[document/@orgid=$myorg]|/standards//coverdoc[document/@orgid=$myorg]" mode="organization"/>
+    </item>
+  </xsl:if>
+</xsl:template>
 
 <xsl:template match="standard|coverdoc|profilespec|profile|serviceprofile" mode="organization">
   <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
@@ -222,8 +262,7 @@
 
 
 
-
-<xsl:template match="refstandard|refprofile|refgroup" mode="organization">
+<xsl:template match="refstandard" mode="organization">
  <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <xsl:attribute name="identifierRef" select="@uuid"/>
   </item>
@@ -246,7 +285,7 @@
 </xsl:template>
 
 
-
+<!-- ============================================================== -->
 
 
 <xsl:template match="@*|node()">
