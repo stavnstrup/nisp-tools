@@ -81,7 +81,7 @@
 
 
 <xsl:template match="profile[@toplevel='yes']" mode="makeprofiletree">
-  <capabilityprofile id="{@id}">
+  <capabilityprofile id="{@id}" uuid="id-{./uuid}">
     <xsl:apply-templates select="subprofiles" mode="makeprofiletree"/>
   </capabilityprofile>
 </xsl:template>

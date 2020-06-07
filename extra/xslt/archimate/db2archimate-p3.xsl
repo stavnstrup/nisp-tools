@@ -245,7 +245,7 @@
                  source="{ancestor::capabilityprofile/@uuid}"
                  xsi:type="Aggregation">
     <xsl:attribute name="target">
-      <xsl:apply-templates select="/standards/records/standard[@id=$mytarget]/uuid|/standards/records/coverdoc[@id=$mytarget]/uuid"/>
+      <xsl:apply-templates select="/standards/records/*[@id=$mytarget]/uuid"/>
     </xsl:attribute>
   </relationship>
  </xsl:template>
