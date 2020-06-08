@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-audio-based-collaboration-profile" title="Proposed FMN Spiral 4 Audio-based Collaboration Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Audio-based Collaboration Profile provides standards and guidance for the implementation of an interoperable
+voice system (telephony) on federated mission networks.</para>
+		</description>
 		<!-- Audio-based Communication Services -->
 		<reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following standards are used for audio protocols.</para>
+			</description>
 			<!-- ITU-T Recommendation G.729 - "Coding of speech at 8 kbit/s using conjugate-structure algebraic-code-excited linear prediction (CS-ACELP)" -->
 			<refstandard refid="itu-t-g.729"/>
 			<!-- ITU-T Recommendation G.722.1 - "Low-complexity coding at 24 and 32 kbit/s for hands-free operation in systems with low frame loss" -->
@@ -11,9 +18,20 @@
 			<!-- ITU-T Recommendation G.711 - "Pulse code modulation (PCM) of voice frequencies" -->
 			<refstandard refid="itu-t-g.711"/>
 		</refgroup>
+		<guide>
+			<para>Voice over IP (VoIP) refers to unprotected voice communication services running on unclassified IP
+networks e.g. conventional IP telephony. Voice over Secure IP (VoSIP) refers to non-protected voice
+service running on a classified IP networks. Depending on the security classification of a FMN
+instance, VoIP or VoSIP is mandatory.</para>
+			<para>If a member choses to use network agnostic Secure Voice services in addition to VoSIP, then SCIP
+specifications as defined for audio-based collaboration services (end-to-end protected voice) shall be
+used.</para>
+			<para>The voice sampling interval is 40ms.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>3eb86700-d4a0-4af5-84bb-427433ee3dba</uuid>
 	</serviceprofile>

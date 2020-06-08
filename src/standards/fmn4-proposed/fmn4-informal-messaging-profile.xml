@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-informal-messaging-profile" title="Proposed FMN Spiral 4 Informal Messaging Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Informal Messaging Profile provides standards and guidance for SMTP settings and the marking of informal
+messages.</para>
+		</description>
 		<!-- Informal Messaging Services -->
 		<reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Regarding Simple Mail Transfer Protocol (SMTP), the following standards are mandated for
+interoperability of e-mail services within the Mission Network.</para>
+			</description>
 			<!-- RFC 5321 - "Simple Mail Transfer Protocol" -->
 			<refstandard refid="ietf-rfc5321"/>
 			<!-- RFC 1870 - "SMTP Service Extension for Message Size Declaration" -->
@@ -21,9 +29,17 @@
 			<!-- RFC 4954 - "SMTP Service Extension for Authentication" -->
 			<refstandard refid="ietf-rfc4954"/>
 		</refgroup>
+		<guide>
+			<para>Informal messages must be marked in the message header field "Keywords" (IETF RFC 5322) and
+firstline-of-text in the message body in accordance with the markings defined in the Security Policy in
+effect.</para>
+			<para>TLS with mutual authentication is mandatory for all SMTP communications. Detailed TLS protocol
+requirements are specified in the 'Service Interface Profile for Transport Layer Security'.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>983f524d-bedc-48fe-aad8-825423f90134</uuid>
 	</serviceprofile>

@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-informal-messaging-services-metadata-labelling-profile" title="Proposed FMN Spiral 4 Informal Messaging Services Metadata Labelling Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Informal Messaging Services Metadata Labelling Profile describes how to apply standard Metadata to Informal
+Messaging Services.</para>
+		</description>
 		<!-- Informal Messaging Services -->
 		<reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The STANAG describes the syntax for NATO Core Metadata.</para>
+			</description>
 			<!-- STANAG 5636 Edition 1 - "NATO Core Metadata Specification (NCMS)" -->
-			<refstandard refid="nso-stanag5636ed1"/>
+			<refstandard refid="nato-stanag5636ed1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The STANAGs and binding profiles describe the syntax and mechanisms for applying Metadata.</para>
+			</description>
 			<!-- STANAG 4774 Edition 1 - "Confidentiality Metadata Label Syntax" -->
-			<refstandard refid="nso-stanag4774"/>
+			<refstandard refid="nato-stanag4774"/>
 			<!-- STANAG 4778 Edition 1 - "Metadata Binding Mechanism" -->
-			<refstandard refid="nso-stanag4778"/>
+			<refstandard refid="nato-stanag4778"/>
 			<!-- TN-1491 - "Profiles for Binding Metadata to a Data Object" -->
 			<refstandard refid="ncia-tn1491-ed2"/>
 			<!-- Note: reference to other service profile -->
 			<!-- refid="binding-smtp-v2" -->
 		</refgroup>
+		<guide>
+			<para>The structure of the binding is defined in Annex B of TN-1491.</para>
+			<para>The labelling Values shall be based on the Security Policy defined for the Mission.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>d297fccf-1674-4f62-a737-1c5d27c7fe87</uuid>
 	</serviceprofile>

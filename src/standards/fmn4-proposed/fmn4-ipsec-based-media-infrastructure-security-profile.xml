@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-ipsec-based-media-infrastructure-security-profile" title="Proposed FMN Spiral 4 IPSec-based Media Infrastructure Security Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The IPSec-based Media Infrastructure Security Profile provides security standards that are used for security of media
+infrastructure based on Internet Protocol Security (IPSec).</para>
+		</description>
 		<!-- Network Access Control Services -->
 		<reftaxonomy refid="T-b4f004a3-5940-4438-be5b-2ee8ba014ac2-X"/>
 		<!-- Infrastructure CIS Security Services -->
 		<reftaxonomy refid="T-4b707108-a19f-48a9-96b0-799e592921e1-X"/>
 		<refgroup obligation="conditional" lifecycle="candidate">
+			<description>
+				<para>Securing the MN Media infrastructure can be done in several ways and that the selection of the
+appropriate method is to be done during the mission planning. For this specific method, the following
+standard apply.</para>
+			</description>
 			<!-- RFC 7296 - "Internet Key Exchange Protocol Version 2 (IKEv2)" -->
 			<refstandard refid="ietf-rfc7296"/>
 			<!-- RFC 4303 - "IP Encapsulating Security Payload (ESP)" -->
@@ -24,4 +33,5 @@
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>658db23f-ed17-42b6-b7b5-79b5a2bad398</uuid>
 	</serviceprofile>
