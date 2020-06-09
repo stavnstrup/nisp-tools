@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-web-service-messaging-profile" title="Proposed FMN Spiral 4 Web Service Messaging Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Web Service Messaging Profile (WSMP) defines a set of service profiles to exchange a wide range of XML-based
+messages. WSMP is extensible and may be used by any Community of Interest (COI).</para>
+			<para>It is based on publicly available standards and defines a generic message exchange profile based on the
+Request/Response (RR) and the Publish/Subscribe (PubSub) Message Exchange Pattern (MEP). WSMP is platform
+independent and can be profiled for different wire protocols such as SOAP, REST, JMS, AMQP, and WEBSocket.</para>
+			<para>This profile is intended for software developers to implement interoperable "WSMP services" and "WSMP clients".</para>
+		</description>
 		<!-- Message-Oriented Middleware Services -->
 		<reftaxonomy refid="T-d7fa6cd9-1b88-4807-890c-6240ba3e563a-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
 			<!-- ADatP-5644(A) - "Web Service Messaging Profile (WSMP)" -->
-			<refstandard refid="nso-adatp-5644-ed.a-v1"/>
+			<refstandard refid="nato-adatp-5644-ed.a-v1"/>
 			<!-- ADatP-5644(A)(1) - "Web Service Messaging Profile (WSMP)" -->
-			<refstandard refid="nso-adatp-5644-ed.a-v1"/>
+			<refstandard refid="nato-adatp-5644-ed.a-v1"/>
 		</refgroup>
+		<guide>
+			<para>To enable plug-and-play interoperability a pre-defined minimum set of topics referenced and shared
+by multiple Communities of Interest is recommended. This "minimum topic tree" is include in Annex A
+"Information Products - Detailed Definitions" to the FMN Spiral 4 Procedural Instructions for
+Situational Awareness.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>2eb67fe7-e385-4cdf-8c24-2eded0d97b80</uuid>
 	</serviceprofile>

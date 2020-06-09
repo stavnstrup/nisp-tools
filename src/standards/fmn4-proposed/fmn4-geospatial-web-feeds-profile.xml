@@ -1,19 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-geospatial-web-feeds-profile" title="Proposed FMN Spiral 4 Geospatial Web Feeds Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Geospatial Web Feeds Profile provides standards and guidance for the delivery of geospatial content to web sites
+and to user agents, including the encoding of location as part of web feeds.</para>
+			<para>Feed processing software is required to either read or ignore these extensions and shall not fail if these extensions are
+present, so there is no danger of breaking someone's feed reader (or publisher) by including this element in a feed.</para>
+		</description>
 		<!-- Web Hosting Services -->
 		<reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>GeoRSS Simple encoding for "georss:point", "georss:line", "georss:polygon", "georss:box".</para>
+			</description>
 			<!-- GeoRSS Simple - "GeoRSS Simple" -->
 			<refstandard refid="ogc-georss-schema-gml-1.1"/>
 		</refgroup>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>GeoRSS GML Profile 1.0 a GML subset for point "gml:Point", line "gml:LineString", polygon
+"gml:Polygon", and box "gml:Envelope".</para>
+				<para>In Atom feeds, location shall be specified using Atom 1.0's official extension mechanism in
+combination with the GeoRSS GML Profile 1.0 whereby a "georss:where" element is added as a child
+of the element.</para>
+			</description>
 			<!-- GeoRSS Geography Markup Language - "GeoRSS Geography Markup Language" -->
 			<refstandard refid="ogc-georss-schema-gml-subset"/>
 		</refgroup>
+		<guide>
+			<para>Geography Markup Language (GML) allows to specify a coordinate reference system (CRS) other
+than WGS84 decimal degrees (lat/long). If there is a need to express geography in a CRS other than
+WGS84, it is recommended to specify the geographic object multiple times, one in WGS84 and the
+others in your other desired CRSs.</para>
+			<para>For backwards compatibility it is recommended to also implement RSS 2.0.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>2123b547-9df9-48ad-919a-2d6ac5337d12</uuid>
 	</serviceprofile>

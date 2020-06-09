@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-structured-data-profile" title="Proposed FMN Spiral 4 Structured Data Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Structured Data Profile provides standards and guidance for the structuring of web content on federated mission
+networks.</para>
+		</description>
 		<!-- Web Hosting Services -->
 		<reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>General formatting of information for sharing or exchange.</para>
+			</description>
 			<!-- W3C - XML 1.0 Recommendation - "XML 1.0 Recommendation" -->
 			<refstandard refid="w3c-rec-xml10-20081126"/>
 			<!-- RFC 4627 - "The application/json Media Type for JavaScript Object Notation (JSON)" -->
@@ -15,9 +22,15 @@
 			<!-- W3C - XHTML 1.0 in XML Schema - "XHTML 1.0 in XML Schema" -->
 			<refstandard refid="w3c-note-xhtml1-schema-20020902"/>
 		</refgroup>
+		<guide>
+			<para>XML shall be used for data exchange to satisfy those Information Exchange Requirements within a
+FMN instance that are not addressed by a specific information exchange standard. XML Schemas
+and namespaces are required for all XML documents.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>0fb9775d-58db-40cb-bc11-6f679db9f9ba</uuid>
 	</serviceprofile>

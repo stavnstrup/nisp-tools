@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-web-services-profile" title="Proposed FMN Spiral 4 Web Services Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Web Services Profile provides standards and guidance for transport-neutral mechanisms to address structured
+exchange of information in a decentralized, distributed environment via web services.</para>
+		</description>
 		<!-- Web Hosting Services -->
 		<reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Provide the elements a web service needs to deliver a suitable UI service, such as remote portlet
+functionality.</para>
+			</description>
 			<!-- W3C - Cross-Origin Resource Sharing - "Cross-Origin Resource Sharing" -->
 			<refstandard refid="w3c-cr-cors-20130129"/>
 		</refgroup>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>Reliable messaging for web services, describes a protocol that allows messages to be transferred
+reliably between nodes implementing this protocol in the presence of software component, system,
+or network failures.</para>
+			</description>
 			<!-- OASIS - Web Services Reliable Messaging v1.2 - "Web Services Reliable Messaging v1.2" -->
 			<refstandard refid="oasis-relmes"/>
 		</refgroup>
@@ -25,9 +38,18 @@
 			<!-- NISP Standard - REST -->
 			<refstandard refid="acm-2002-rest-toit"/>
 		</refgroup>
+		<guide>
+			<para>The preferred method for implementing web-services are SOAP, however, there are many use cases
+(mashups etc.) where a REST based interface is easier to implement and sufficient to meet the IERs.</para>
+			<para>Restful services support HTTP caching, if the data the Web service returns is not altered frequently
+and not dynamic in nature. REST is particularly useful for restricted-profile devices such as mobile
+phones and tablets for which the overhead of additional parameters like headers and other SOAP
+elements are less.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>c500eca7-3203-4060-93e8-02404209bebe</uuid>
 	</serviceprofile>

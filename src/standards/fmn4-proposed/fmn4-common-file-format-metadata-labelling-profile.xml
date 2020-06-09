@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-common-file-format-metadata-labelling-profile" title="Proposed FMN Spiral 4 Common File Format Metadata Labelling Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Common File Format Metadata Labelling Profile describes how to apply standard Metadata to Common File
+Formats.</para>
+		</description>
 		<!-- Undefined Taxonomy Node -->
 		<reftaxonomy refid="user.undefined.taxonomynode"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The STANAG describes the syntax for NATO Core Metadata.</para>
+			</description>
 			<!-- STANAG 5636 Edition 1 - "NATO Core Metadata Specification (NCMS)" -->
-			<refstandard refid="nso-stanag5636ed1"/>
+			<refstandard refid="nato-stanag5636ed1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The STANAGs and binding profiles describe the syntax and mechanisms for applying Metadata and
+Labels.</para>
+			</description>
 			<!-- STANAG 4774 Edition 1 - "Confidentiality Metadata Label Syntax" -->
-			<refstandard refid="nso-stanag4774"/>
+			<refstandard refid="nato-stanag4774"/>
 			<!-- STANAG 4778 Edition 1 - "Metadata Binding Mechanism" -->
-			<refstandard refid="nso-stanag4778"/>
+			<refstandard refid="nato-stanag4778"/>
 			<!-- TN-1491 - "Profiles for Binding Metadata to a Data Object" -->
 			<refstandard refid="ncia-tn1491-ed2"/>
 			<!-- Note: reference to other profiles -->
@@ -20,9 +31,29 @@
 			<!-- refid="binding-sidecar-v2" -->
 			<!-- refid="binding-extensible-v2" -->
 		</refgroup>
+		<guide>
+			<para>The structure of the binding is defined in the following Annexes of TN-1491:
+				<itemizedlist>
+					<listitem>
+						<para>Annex D (Office Open XML)</para>
+					</listitem>
+					<listitem>
+						<para>Annex G (OPC)</para>
+					</listitem>
+					<listitem>
+						<para>Annex H (Sidecar Files)</para>
+					</listitem>
+					<listitem>
+						<para>Annex I (XMP)</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>The labelling Values shall be based on the Security Policy defined for the Mission.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>6b662e61-b838-4069-8805-ecbf97e731ea</uuid>
 	</serviceprofile>
