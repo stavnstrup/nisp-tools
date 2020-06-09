@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-distributed-search-query-profile" title="Proposed FMN Spiral 4 Distributed Search Query Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Distributed Search Query Profile defines the standard interface for sending a Search Query to a Search Service and
+returning the Search Response.</para>
+		</description>
 		<!-- Search Services -->
 		<reftaxonomy refid="T-25166e6e-2929-44e2-90a6-6378b7417f76-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
@@ -11,9 +15,25 @@
 			<!-- RSS 2.0 - "Really Simple Syndication version 2.0 -->
 			<refstandard refid="rss-2.0"/>
 		</refgroup>
+		<guide>
+			<para>The Search Application shall construct and issue a Search Query compliant with the Search
+Description URL template syntax (provided by the Search Service) to the Search Service.</para>
+			<para>The Search Services shall support either RSS 2.0 format and/or Atom 1.0 format as the Search
+Response.</para>
+			<para>The Search Application shall be able to process Search Responses that are RSS 2.0 or Atom 1.0
+formats.</para>
+			<para>A Search Response in the Atom 1.0 format shall be an Atom Feed Document as specified in RFC
+4287.</para>
+			<para>Each search result, when the Search Response is in Atom 1.0 format, shall be stored as an
+individual “atom:entry” element as a child of the Atom Feed Document conformant with RFC 4287.</para>
+			<para>Each search result, when the Search Response is in RSS 2.0 format, shall be stored as individual
+item elements that contains a link element that is the URL for dereferencing the information object
+(indicated by that search result).</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>14fe2f39-7f0a-4269-82ec-6093c39ea19b</uuid>
 	</serviceprofile>
