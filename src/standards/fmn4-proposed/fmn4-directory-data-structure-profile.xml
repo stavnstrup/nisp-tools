@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-directory-data-structure-profile" title="Proposed FMN Spiral 4 Directory Data Structure Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Directory Data Structure Profile provides standards and guidance in support of the definition of the namespace of a
+federated mission network on the basis of the Lightweight Directory Access Protocol (LDAP).</para>
+		</description>
 		<!-- Directory Services -->
 		<reftaxonomy refid="T-3898a275-2231-4656-96aa-b9b37e5cbc78-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
@@ -9,9 +13,16 @@
 			<!-- RFC 4519 - "Lightweight Directory Access Protocol (LDAP): Schema for User Applications" -->
 			<refstandard refid="ietf-rfc4519"/>
 		</refgroup>
+		<guide>
+			<para>The Federated Directory Services shall be able to exchange inetOrgPerson object class with
+mandatory Common Name (cn) and Surname (sn) attributes. Based on the specific MN
+requirements, the list of exchanged attributes for particular MN might be extended by SMA during MN
+planning process.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>58dfcd46-00d8-41b9-8ab6-5ad3c0f9811e</uuid>
 	</serviceprofile>

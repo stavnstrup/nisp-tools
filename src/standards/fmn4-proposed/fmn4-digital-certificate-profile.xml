@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-digital-certificate-profile" title="Proposed FMN Spiral 4 Digital Certificate Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Digital Certificate Profile provides standards and guidance in support of a Public Key Infrastructure (PKI) on
+federated mission networks.</para>
+		</description>
 		<!-- Digital Certificate Services -->
 		<reftaxonomy refid="T-13a17bdd-8eb2-418c-8cb8-7f32a435f432-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>CRLs may be provided at multiple endpoints. The addresses of these endpoints shall be provided in
+digital certificates through X.509 certificate extensions such as Authority Information Access (AIA)
+and CRL distribution point (CDP). Each CA shall provide CRLs over HTTP. Clients must support this
+protocol.</para>
+			</description>
 			<!-- RFC 5280 - "Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile" -->
 			<refstandard refid="ietf-rfc5280"/>
 		</refgroup>
 		<refgroup obligation="optional" lifecycle="candidate">
+			<description>
+				<para>The Online Certificate Status Protocol (OCSP) capability is optional for PKI Service providers and
+consumers.</para>
+			</description>
 			<!-- RFC 6960 - "X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP" -->
 			<refstandard refid="ietf-rfc6960"/>
 		</refgroup>
 		<refgroup obligation="optional" lifecycle="candidate">
+			<description>
+				<para>CRLs may be provided at multiple endpoints. Each CA may provide CRLs over LDAP.</para>
+			</description>
 			<!-- RFC 4523 - "Lightweight Directory Access Protocol (LDAP) Schema Definitions for X.509 Certificates" -->
 			<refstandard refid="ietf-rfc4523"/>
 		</refgroup>
@@ -19,9 +36,24 @@
 			<!-- ITU-T Recommendation X.509 - "Information technology - Open Systems Interconnection - The Directory: Public-key and attribute certificate frameworks" -->
 			<refstandard refid="itu-t-x.509"/>
 		</refgroup>
+		<guide>
+			<para>The version of the encoded public key certificate shall be version 3. The version of the encoded
+certificate revocation list (CRL) shall be version 2.</para>
+			<para>Additional Implementation Guidance:
+				<itemizedlist>
+					<listitem>
+						<para>AC/322-D(2004)0024-REV2-ADD2 - "NATO Public Key Infrastructure (NPKI) Certificate Policy"</para>
+					</listitem>
+					<listitem>
+						<para>AC/322-D(2010)0036 - "NATO Cryptographic Interoperability Strategy"</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>7780bc52-fe57-41e2-876c-c18666a7f289</uuid>
 	</serviceprofile>

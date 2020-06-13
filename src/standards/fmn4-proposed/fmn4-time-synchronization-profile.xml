@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-time-synchronization-profile" title="Proposed FMN Spiral 4 Time Synchronization Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Time Synchronization Profile provides standards and guidance to support the synchronization of clients and servers
+across a network or a federation of networks and the safeguard of the accurate use of timestamps.</para>
+		</description>
 		<!-- Distributed Time Services -->
 		<reftaxonomy refid="T-f15d7721-33a3-48e1-b2c6-b0d896f642dc-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Service providers must synchronize their network segment with a stratum 1 time server directly
+connected to a stratum 0 device, or over a reliable network path to a stratum 1 time server of another
+service provider. All other entities in the federation must use the time service of their host service
+provider.</para>
+			</description>
 			<!-- RFC 5905 - "Network Time Protocol Version 4: Protocol and Algorithms Specification" -->
 			<refstandard refid="ietf-rfc5905"/>
 			<!-- ITU-R Recommendation TF.460 - "Standard-frequency and time-signal emissions" -->
 			<refstandard refid="itu-r-tf.460-6"/>
 		</refgroup>
+		<guide>
+			<para>Stratum 1 devices must implement IPv4 so that they can be used as time servers for IPv4-based
+Mission Networks.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>eb7289f9-d10c-4b02-afbb-41c1984615f1</uuid>
 	</serviceprofile>

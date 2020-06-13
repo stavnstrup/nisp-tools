@@ -1,15 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-virtual-appliance-interchange-profile" title="Proposed FMN Spiral 4 Virtual Appliance Interchange Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Virtual Appliance Interchange Profile defines the standard format for exchanging virtual appliances between
+different host platforms.</para>
+		</description>
 		<!-- Virtualized Processing Services -->
 		<reftaxonomy refid="T-9908d905-bbe8-4fe9-9e33-2407a01add2b-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following standards are mandated for the exchange of virtual appliances within the Mission
+Network.</para>
+			</description>
 			<!-- DSP0243 (v1.1.1) - "Open Virtualization Format Specification" -->
 			<refstandard refid="dmtf-dsp0243-1.1"/>
 		</refgroup>
+		<guide>
+			<para>To ensure optimization of the exchange of virtual appliances, the following guidelines should be
+observed.
+				<itemizedlist>
+					<listitem>
+						<para>Minimize the VMs’ HDD footprint to a minimum and use thin provisioning</para>
+					</listitem>
+					<listitem>
+						<para>Unmount any removable devices before exporting to OVF</para>
+					</listitem>
+					<listitem>
+						<para>Delete all snapshots</para>
+					</listitem>
+					<listitem>
+						<para>Shutdown machine</para>
+					</listitem>
+					<listitem>
+						<para>Include a CRC Integrity Check.</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>The platform should be able to support the following minimalistic set of hardware features:
+				<itemizedlist>
+					<listitem>
+						<para>vCPU support: min 2 vCPU supported per VM</para>
+					</listitem>
+					<listitem>
+						<para>SCSI disk controller: min 2</para>
+					</listitem>
+					<listitem>
+						<para>Virtual SCSI harddisks and optical disk: min 8</para>
+					</listitem>
+					<listitem>
+						<para>IDE nodes</para>
+					</listitem>
+					<listitem>
+						<para>Virtual IDE disks</para>
+					</listitem>
+					<listitem>
+						<para>Virtual IDE CD-ROMs
+							<itemizedlist>
+								<listitem>
+									<para>E1000 (Network Interface)</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</listitem>
+					<listitem>
+						<para>SVGA displays: min 1</para>
+					</listitem>
+					<listitem>
+						<para>Serial ports: min 1</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>89f531bb-d476-484c-b269-c9838efeb981</uuid>
 	</serviceprofile>
