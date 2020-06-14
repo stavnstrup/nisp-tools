@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-inter-autonomous-systems-routing-profile" title="Proposed FMN Spiral 4 Inter-Autonomous Systems Routing Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Inter-Autonomous Systems Routing Profile provides standards and guidance for routing between inter-autonomous
+systems.</para>
+		</description>
 		<!-- Packet Routing Services -->
 		<reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
 		<!-- IPv4 Routed Access Services -->
 		<reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following standard is added to improve MD5-based BGP-authentication.</para>
+			</description>
 			<!-- RFC 5082 - "The Generalized TTL Security Mechanism (GTSM)" -->
 			<refstandard refid="ietf-rfc5082"/>
 		</refgroup>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>Additionally, the following standard applies for 32-bit autonomous system numbers (ASN).</para>
+			</description>
 			<!-- RFC 5668 - "4-Octet AS Specific BGP Extended Community" -->
 			<refstandard refid="ietf-rfc5668"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following standard applies for unicast routing.</para>
+			</description>
 			<!-- RFC 4632 - "Classless Inter-domain Routing (CIDR): The Internet Address Assignment and Aggregation Plan" -->
 			<refstandard refid="ietf-rfc4632"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following standards apply for all IP interconnections.</para>
+			</description>
 			<!-- RFC 1997 - "BGP Communities Attribute" -->
 			<refstandard refid="ietf-rfc1997"/>
 			<!-- RFC 4360 - "BGP Extended Communities Attribute" -->
@@ -38,12 +54,23 @@
 			<refstandard refid="ietf-rfc7153"/>
 		</refgroup>
 		<refgroup obligation="conditional" lifecycle="candidate">
+			<description>
+				<para>The following standard can be added to improve MD5-based BGP-authentication, depending on
+bilateral agreement.</para>
+			</description>
 			<!-- RFC 7454 - "BGP Operations and Security" -->
 			<refstandard refid="ietf-rfc7454"/>
 		</refgroup>
+		<guide>
+			<para>Border Gateway Protocol (BGP) deployment guidance in IETF RFC 1772:1995, Application of the
+Border Gateway Protocol in the Internet.</para>
+			<para>BGP sessions must be authenticated, through a TCP message authentication code (MAC) using a
+one-way hash function (MD5), as described in IETF RFC 4271.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>783d374a-e177-49c9-bdc6-c3d024949953</uuid>
 	</serviceprofile>

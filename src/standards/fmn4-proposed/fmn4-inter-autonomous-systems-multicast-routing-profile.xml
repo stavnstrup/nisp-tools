@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-inter-autonomous-systems-multicast-routing-profile" title="Proposed FMN Spiral 4 Inter-Autonomous Systems Multicast Routing Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Inter-Autonomous Systems Multicast Routing Profile provides standards and guidance for multicast routing between
+inter-autonomous systems. Interconnections are based on bilateral agreements.</para>
+		</description>
 		<!-- Packet Routing Services -->
 		<reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
 		<!-- IPv4 Routed Access Services -->
 		<reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following standards shall apply for all IP interconnections.</para>
+			</description>
 			<!-- RFC 7761 - "Protocol Independent Multicast - Sparse Mode (PIM-SM): Protocol Specification (Revised)" -->
 			<refstandard refid="ietf-rfc7761"/>
 			<!-- RFC 1112 - "Host extensions for IP multicasting" -->
@@ -20,12 +27,19 @@
 			<refstandard refid="ietf-rfc4608"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Service providers with their own multicast capability shall provide a Rendezvous Point (RP)
+supporting the following IP multicast protocol standards.</para>
+			</description>
 			<!-- RFC 3618 - "Multicast Source Discovery Protocol (MSDP)" -->
 			<refstandard refid="ietf-rfc3618"/>
 			<!-- RFC 4760 - "Multiprotocol Extensions for BGP-4" -->
 			<refstandard refid="ietf-rfc4760"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following standards shall apply to multicast routing.</para>
+			</description>
 			<!-- RFC 6308 - "Overview of the Internet Multicast Addressing Architecture" -->
 			<refstandard refid="ietf-rfc6308"/>
 			<!-- RFC 5771 - "IANA Guidelines for IPv4 Multicast Address Assignments" -->
@@ -38,4 +52,5 @@
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>45a6a21d-7109-4267-a0a1-f4e729dcdd5a</uuid>
 	</serviceprofile>
