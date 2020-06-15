@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-inter-autonomous-systems-ip-transport-profile" title="Proposed FMN Spiral 4 Inter-Autonomous Systems IP Transport Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Inter-Autonomous Systems IP Transport Profile provides standards and guidance for Edge Transport Services
+between autonomous systems, using Internet Protocol (IP) over point-to-point Ethernet links on optical fibre.</para>
+		</description>
 		<!-- Packet-based Transport Services -->
 		<reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
 		<refgroup obligation="conditional" lifecycle="candidate">
+			<description>
+				<para>If the interconnection point is outside a shelter in a harsh environment, the interconnection shall
+follow STANAG 4290 or MIL-DTL-83526 connector specifications.</para>
+			</description>
 			<!-- MIL-DTL-83526 - "Connector, Fibre Optic, Circular Hermaphroditic, Bulkhead, Low Profile Without Strain Relief, Jam-Nut Mount, 2 and 4 Positions, Expanded Beam" -->
 			<refstandard refid="mil-dtl83526revd"/>
 			<!-- AComP-4290(A) - "Standard for Optical Connector Medium Rate and High Rate Military Tactical Link" -->
-			<refstandard refid="nso-stanag4290ed2"/>
+			<refstandard refid="nato-stanag4290ed2"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Standards for IP version 4 (IPv4) over Ethernet.</para>
+			</description>
 			<!-- RFC 0826 - "Ethernet Address Resolution Protocol: Or Converting Network Protocol Addresses to 48.bit Ethernet Address for Transmission on Ethernet Hardware" -->
 			<refstandard refid="ietf-rfc826"/>
 		</refgroup>
@@ -18,18 +29,29 @@
 			<refstandard refid="iso-iec-11801-1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Section 3 - Clause 38 - 1000BASE-LX, nominal transmit wavelength 1310nm.</para>
+			</description>
 			<!-- IEEE 802.3-2018 - "Standard for Ethernet" -->
 			<refstandard refid="ieee-802.3-2018"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The use of LC-connectors is required for network interconnections inside shelters (or inside other
+conditioned infrastructure).</para>
+			</description>
 			<!-- ITU-T Recommendation G.652 - "Characteristics of a single-mode optical fibre and cable" -->
 			<refstandard refid="itu-t-g.652"/>
 			<!-- IEC 61754-20-100:2012 - "Interface standard for LC connectors with protective housings related to IEC 61076-3-106" -->
 			<refstandard refid="iec-61754-20-100"/>
 		</refgroup>
+		<guide>
+			<para>Use 1 Gb/s Ethernet over single-mode optical fibre (SMF).</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>5016ba8d-02fa-4e63-8ece-5afe92ce0d6f</uuid>
 	</serviceprofile>
