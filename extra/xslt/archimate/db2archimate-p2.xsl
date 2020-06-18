@@ -13,10 +13,10 @@
      1. Remove all deleted elements
      2. Prefix all uuid's with 'id-', which is required by the Archimate Exchange Format schema
      3. Create a lookup table in order to create a propertyDefinitions list
-     4. Create a relation between referencegroups and standards 
+     4. Create a relation between referencegroups and standards
      5. Add a helper tree of profile heirachy
      6. Add a helper list with a mapping from organisations to all standards and coverstandards
-     
+
 
      ========================================================== -->
 
@@ -25,7 +25,11 @@
 <xsl:output indent="yes"/>
 -->
 
-<!-- Prefix all uuid's with 'id-', which is required by the Archimate Exchange Format schema -->
+<!-- Prefix all uuid's with 'id-'. Id's in XML MUST start with
+     a letter, and we therefore go with the same solution as Archi.
+
+     See also https://github.com/archimatetool/archi/issues/625
+-->
 
 <xsl:template match="uuid">
   <uuid>

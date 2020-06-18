@@ -28,7 +28,10 @@
     <xsl:apply-templates select="standard|coverdoc|profilespec|profile|serviceprofile" mode="element"/>
   </elements>
   <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+    <!-- Traverse the profiletrees -->
     <xsl:apply-templates select="/standards/profiletrees//refstandard" mode="listProfileRealtionship"/>
+    <!-- Traverse the list of organizational pages -->
+    <xsl:apply-templates select="/standards/orglist//reference" mode="listProfileRealtionship"/>
   </relationships>
   <organizations xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <item>
@@ -51,16 +54,11 @@
     </item>
     <item>
       <label xml:lang="en">Other</label>
-
     </item>
-      <!--
     <item>
       <label xml:lang="en">Relations</label>
-      <xsl:apply-templates select=".//refstandard" mode="organization"/>
-      <xsl:apply-templates select=".//refprofile" mode="organization"/>
-      <xsl:apply-templates select=".//refgroup" mode="organization"/>
+      <xsl:apply-templates select="/standards/profiletrees//refstandard" mode="refProfileRealtionship"/>
     </item>
-      -->
     <item>
       <label xml:lang="en">Views</label>
     </item>
@@ -167,6 +165,7 @@
   </element>
 </xsl:template>
 
+
 <xsl:template match="applicability">
   <xsl:apply-templates xmlns="http://www.opengroup.org/xsd/archimate/3.0/"/>
 </xsl:template>
@@ -251,6 +250,27 @@
  </xsl:template>
 
 
+<xsl:template match="reference" mode="listProfileRealtionship">
+  <xsl:variable name="mytarget" select="@refid"/>
+  <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
+                identifier="{@uuid}"
+                source="{../@uuid}"
+                xsi:type="Composition">
+    <xsl:attribute name="target">
+      <xsl:apply-templates select="/standards/records/*[@id=$mytarget]/uuid"/>
+    </xsl:attribute>
+  </relationship>
+ </xsl:template>
+
+
+<xsl:template match="refstandard" mode="refProfileRealtionship">
+  <item  xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifierRef="{@uuid}"/>
+</xsl:template>
+
+<!--
+<xsl:apply-templates select="/standards/orglist//reference" mode="listProfileRealtionship"/>
+-->
+
 
 <!-- ============================================================== -->
 <!--                          Organization                          -->
@@ -272,8 +292,6 @@
     <xsl:attribute name="identifierRef" select="uuid"/>
   </item>
 </xsl:template>
-
-
 
 <xsl:template match="refstandard" mode="organization">
  <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
