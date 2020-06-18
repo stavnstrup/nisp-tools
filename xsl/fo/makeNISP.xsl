@@ -64,6 +64,24 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 
 <xsl:param name="process.empty.source.toc" select="1"/>
 
+<xsl:template name="page.number.format">
+  <xsl:param name="element" select="local-name(.)"/>
+  <xsl:param name="master-reference" select="''"/>
+
+  <xsl:choose>
+    <xsl:when test="$element = 'toc' and self::book">i</xsl:when>
+    <xsl:when test="$element = 'set'">i</xsl:when>
+    <xsl:when test="$element = 'book'">i</xsl:when>
+    <xsl:when test="$element = 'preface'">i</xsl:when>
+    <xsl:when test="$element = 'dedication'">i</xsl:when>
+    <xsl:when test="$element = 'acknowledgements'">i</xsl:when>
+    <xsl:when test="$element = 'toc'">i</xsl:when>
+    <xsl:otherwise>1</xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+
 <!-- Processor Extensions -->
 
 <xsl:param name="fop1.extensions" select="1"/>
