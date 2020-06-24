@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;">
-  <meta name="dcterms.date" content="2019-06-16">
+  <meta name="dcterms.date" content="2020-06-24">
   <title>nisp-database-schema</title>
   <style type="text/css">code{white-space: pre;}</style>
   <!--[if lt IE 9]>
@@ -84,12 +84,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>nisp-database-schema - The schema of database used to describe standards and profiles in NISP</p>
 <h1 id="description">Description</h1>
 <p>The current NISP standards database is implemented as a XML document. The original design of the database reflected the structure of the list of standard and profiles described in the NC3 Technical Architecture version 1. In order to enable consistency across the different volumes, the database have been extended to be able to describe the selection of mandatory- and candidate standards and profiles. This selection of standards and profiles are justified in the rationale statements, which are also part of the database. Recently the database have been reorganised to reflect additional requirements, but also to prepare the database for inclusion in the NATO Architecture Repository (NAR).</p>
-<p>In order to enable validation of the database, a schema in form of a DTD have been defined. This DTD is located in the source distribution at <code>schema/dtd/stddb46.dtd</code>.</p>
+<p>In order to enable validation of the database, a schema in form of a DTD have been defined. This DTD is located in the source distribution at <code>schema/dtd/stddb47.dtd</code>.</p>
 <p>Since some of the element in the schema represent textual information in the form of DocBook fragments such as paragraphs, unnumbered lists etc., the standard database DTD have been implemented as an extension to the DocBook DTD. Ideally we should use multiple name space in order to avoid naming conflicts, but that is very complicated when using a simple schema language such as DTD. A better approach would be to implement the standard database schema in a modern schema language such as Relax NG.</p>
 <p>In the rest of this document, the syntax of the database is described in detail and when appropriate, examples of the actual implementation is included.</p>
 <p>The standard database DTD is logically separated into three different parts:</p>
 <ul>
-<li>service taxonomy on the C3 taxonomy baseline 2 - dated november 2, 2015</li>
+<li>service taxonomy on the C3 taxonomy baseline 3.1 - dated July 4, 2019</li>
 <li>standard and profile descriptions</li>
 <li>mapping between organisation abbreviations and full names</li>
 </ul>
@@ -200,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>&lt;history&gt;</code> element contains historical information about a standard. When was it added, changed or deleted and through which RFCP. The <code>&lt;history&gt;</code> element contains of one or more event elements.</p>
 <p>The <code>&lt;event&gt;</code> element may contain a <code>rfcp</code> attribute and must contain the attributes <code>flag</code>, <code>date</code> and <code>version</code>.</p>
 <p>The <code>version</code> attribute designates the major version where the RFCP is included. This means, that if e.g we receive a RFCP with the number 7-1, which means a change proposal for NISP version 7.0, then we should set the <code>version</code> attribute to the value <code>8.0</code>, since this is the first version, this RFCP takes effect.</p>
-<p>The <code>date</code> attribute must use the Comple Date format YYYY-MM-DD as defined in <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601</a>.</p>
+<p>The <code>date</code> attribute must use the Complete Date format YYYY-MM-DD as defined in <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601</a>.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span id="cb16-1"><a href="#cb16-1"></a><span class="dt">&lt;!ELEMENT</span> <span class="fu">history</span> <span class="dv">(</span><span class="fu">event</span><span class="dv">)</span><span class="fl">+</span><span class="dt">&gt;</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a></span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="dt">&lt;!ELEMENT</span> <span class="fu">event</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span></span>
@@ -268,6 +268,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb28"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span id="cb28-1"><a href="#cb28-1"></a><span class="dt">&lt;!ELEMENT</span> <span class="fu">guide</span> <span class="dv">%ho;</span> <span class="dv">(%tbl.entry.mdl;)</span><span class="fl">*</span><span class="dt">&gt;</span></span></code></pre></div>
 <h1>Author</h1>
 <p class="author">Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;</p>
-<p class="date">Last updated on June 16, 2019</p>
+<p class="date">Last updated on June 24, 2020</p>
 </body>
 </html>

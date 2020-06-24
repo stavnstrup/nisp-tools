@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% June 16, 2019
+% June 24, 2020
 
 # Name
 
@@ -22,7 +22,7 @@ inclusion in the NATO Architecture Repository (NAR).
 
 In order to enable validation of the database, a schema in form
 of a DTD have been defined. This DTD is located in the source distribution at
-`schema/dtd/stddb46.dtd`.
+`schema/dtd/stddb47.dtd`.
 
 Since some of the element in the schema represent textual information
 in the form of DocBook fragments such as paragraphs, unnumbered lists
@@ -40,17 +40,17 @@ is included.
 The standard database DTD is logically separated into three
 different parts:
 
-* service taxonomy on the C3 taxonomy baseline 2 - dated november 2, 2015
-* standard and profile descriptions
-* mapping between organisation abbreviations and full names
+- service taxonomy on the C3 taxonomy baseline 3.1 - dated July 4, 2019
+- standard and profile descriptions
+- mapping between organisation abbreviations and full names
 
 The root element of the DTD is the element `<standards>`
 and is described by:
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT standards (revhistory?, taxonomy, records,
                      organisations)>
-~~~
+```
 
 The `<revhistory>` element describes the historic changes to the database.
 
@@ -62,7 +62,7 @@ lists organisation which create/owns a standard but also organisations,
 which are responsible for a standard. Being responsible mean that an
 organisation is subject matter expert and recommend to use a given standard.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT organisations (orgkey*)>
 
 <!ELEMENT orgkey EMPTY>
@@ -71,7 +71,7 @@ organisation is subject matter expert and recommend to use a given standard.
           short  CDATA   #REQUIRED
           long   CDATA   #REQUIRED
           uri    CDATA   #IMPLIED>
-~~~
+```
 
 ## Service taxonomy
 
@@ -88,7 +88,7 @@ contains a description of the node in the form of raw mediawiki markup, the `des
 contains a description of the node in the form of raw markdown and the `emUUID`
 attribute is the UUID assigned in the TIDE EM-Wiki.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT taxonomy (node+)>
 
 <!ELEMENT node (node*)>
@@ -100,12 +100,11 @@ attribute is the UUID assigned in the TIDE EM-Wiki.
           description CDATA #IMPLIED
           descriptionMD CDATA #IMPLIED
           emUUID CDATA #REQUIRED>
-~~~
+```
 
 ## Base Standards Profile
 
-In NISP volume 2 and 3 all mandatory and candidate standards are listed in what we call the *Base Standards Profile* (BSP). Since NISP 12, the BSP and COI profiles (represented by `<profile>` and `<serviceprofile>` elements) has been consolidated. The BSP is now represented using a `<profile>` with the `id` value *bsp*.
-
+In NISP volume 2 and 3 all mandatory and candidate standards are listed in what we call the _Base Standards Profile_ (BSP). Since NISP 12, the BSP and COI profiles (represented by `<profile>` and `<serviceprofile>` elements) has been consolidated. The BSP is now represented using a `<profile>` with the `id` value _bsp_.
 
 ## Standards
 
@@ -121,35 +120,34 @@ all the different conventions used, when describing a standard or profile.
 All standards and profiles types are contained in the `<records>`
 element.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT records ((standard | coverdoc | serviceprofile | profile | profilespec)*)>
-~~~
-
+```
 
 All standards are implemented using a
 single `<standard>` element describing both the
-standard and historical aspect about the standard.  A standard
+standard and historical aspect about the standard. A standard
 consists of the following elements:
 
-* document - describes the actual standard
-* applicability - when and where should the standard be used
-* responsibleparty - Who is responsible for the standard
-* status - contains historical data
-* uuid - an automatically generated UUID. Note, that although the UUID
+- document - describes the actual standard
+- applicability - when and where should the standard be used
+- responsibleparty - Who is responsible for the standard
+- status - contains historical data
+- uuid - an automatically generated UUID. Note, that although the UUID
   is mandatory, it is defined as optional in the schema, so that the
   database will comply with the schema before the UUID is
   automatically generated.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT standard (document, applicability, responsibleparty, status, uuid?)>
 
 <!ATTLIST standard
           tag CDATA #REQUIRED
           id ID #REQUIRED>
-~~~
+```
 
 The standard exposes the attributes `tag`
-and `id`.  The `tag` attribute was previously
+and `id`. The `tag` attribute was previously
 used the volume 3 of the NC3TA, and a is short title identifying the
 standard. A few future use could be to provide a title when selecting
 standards.
@@ -158,14 +156,14 @@ standards.
 
 A `coverdoc` element is a standard like construct which is realized by the NATO standardization documents STANAG and STANREC, which represents an agreement of member nations to implement a standard, in whole or in part, with or without reservation, in order to meet an interoperability requirement. A coverdoc will refer to one or more standards described by the `coverstandards` element.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT coverdoc (document, coverstandards, responsibleparty, status, uuid?)>
 <!ATTLIST coverdoc
           tag CDATA #REQUIRED
           id ID #REQUIRED>
 
 <!ELEMENT coverstandards (refstandard+)>
-~~~
+```
 
 ### Document
 
@@ -177,7 +175,7 @@ element. The rule of using organisation identifiers instead of the
 actual name of the organisation is mandated to prevent, that the same
 organisation exists in multiple incarnations in the database.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT document (substandards?, correction*, alsoknown?, comment?)>
 
 <!ATTLIST document
@@ -187,7 +185,7 @@ organisation exists in multiple incarnations in the database.
           title   CDATA #REQUIRED
           version CDATA #IMPLIED
           note    CDATA #IMPLIED>
-~~~
+```
 
 If a standard is a cover standard (e.g ISO-8859), it may implement the
 `<substandards>` element, which contains a list of
@@ -200,47 +198,47 @@ substandards'), and in principle these substandards could refer to
 other `<standard>` elements. However, the later does not make
 any sense and is therefore not allowed.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT substandards (substandard+)>
 
 <!ELEMENT substandard EMPTY>
 <!ATTLIST substandard
           refid IDREF #REQUIRED>
-~~~
+```
 
 Some standard organisations publish documents which are correction to
 the standard.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT correction (#PCDATA)>
 
 <!ATTLIST correction
           cpubnum  CDATA #REQUIRED
           date     CDATA #REQUIRED>
-~~~
+```
 
 Sometimes a standard is republished by another standard organisation. An
 `<alsoknown>` element contains a description which might be
 empty. A `<alsoknown>` element must also contain a
 `orgid`, `pubnum` and `date`
 attribute. E.g. NATOs stanag 3809 for Digital Terrain Elevation
- Data (DTED) is also know as  ISO/IEC 8211.
+Data (DTED) is also know as ISO/IEC 8211.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT alsoknown (#PCDATA)>
 
 <!ATTLIST alsoknown
           orgid   CDATA #REQUIRED
           pubnum  CDATA #REQUIRED
           date    CDATA #REQUIRED>
-~~~
+```
 
 A `<comment>` element contain data in the form of text or DocBook
 `<ulink>` elements.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT comment (#PCDATA | ulink)*>
-~~~
+```
 
 ### Applicability
 
@@ -248,9 +246,9 @@ The `<applicability>` element uses the same content model as the
 DocBook `<entry>` element and contains a textual description of
 the standard.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT applicability %ho; (%tbl.entry.mdl;)*>
-~~~
+```
 
 ### Responsible Party
 
@@ -262,11 +260,11 @@ about the responsible organisation. This construct is similar to the
 `<organisations>` element construct and can be used to ensure `rpref`
 is selected from a predefined set.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT responsibleparty EMPTY>
 <!ATTLIST responsibleparty
           rpref   CDATA  #REQUIRED>
-~~~
+```
 
 ### Status
 
@@ -280,19 +278,19 @@ The `<status>` element contains the attributes `mode`, which is
 implied and is used to indicate standards, which were either
 accepted, rejected or deleted.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT status (info?, uri?, history)>
 <!ATTLIST status
           mode   (accepted|deleted|rejected) #IMPLIED "accepted">
-~~~
+```
 
 The `<info>` element contains textual information, which is not
 appropriate to put in e.g. the `<applicability>` element. It can also
 contain `<ulink>` elements, which e.g. could point to the standard.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT info (#PCDATA | ulink)*>
-~~~
+```
 
 The `<history>` element contains historical information about a
 standard. When was it added, changed or deleted and through which
@@ -308,9 +306,9 @@ number 7-1, which means a change proposal for NISP version 7.0, then
 we should set the `version` attribute to the value `8.0`, since this
 is the first version, this RFCP takes effect.
 
-The `date` attribute must use the Comple Date format YYYY-MM-DD as defined in [ISO 8601].
+The `date` attribute must use the Complete Date format YYYY-MM-DD as defined in [ISO 8601].
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT history (event)+>
 
 <!ELEMENT event (#PCDATA)>
@@ -320,13 +318,13 @@ The `date` attribute must use the Comple Date format YYYY-MM-DD as defined in [I
           date    CDATA   #REQUIRED
           rfcp    CDATA   #IMPLIED
           version CDATA   #REQUIRED>
-~~~
+```
 
 ### UUID
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT uuid (#PCDATA)>
-~~~
+```
 
 The `<uuid>` element is mandatory in every standard although in the
 DTD it is stated the there can be zero or one `<uuid>` element. The
@@ -339,40 +337,40 @@ means it is a randomly generated UUID.
 
 ## Community of Interest Profiles
 
-Where the *Base Standards Profile* represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes. Community of Interest Profiles uses two different profile elements, which are *profile* and *serviceprofile* organized in a tree structure.
+Where the _Base Standards Profile_ represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes. Community of Interest Profiles uses two different profile elements, which are _profile_ and _serviceprofile_ organized in a tree structure.
 
-The leaves of the tree consists of `servicprofile` elements which references selected standards. All other nodes in the tree are represented by the represented by `profile` elements. The `profile` element is basically a kind of container element. All profile elements are described in detail below. The root of a profile tree is also called a *capabilityprofile*, but is no longer represented by its own element.
+The leaves of the tree consists of `servicprofile` elements which references selected standards. All other nodes in the tree are represented by the represented by `profile` elements. The `profile` element is basically a kind of container element. All profile elements are described in detail below. The root of a profile tree is also called a _capabilityprofile_, but is no longer represented by its own element.
 
 ### Profile
 
 A `<profile>` consists of a `<refprofilespec>` element describing
 the capability, a number of references to `<profile>` or `<serviceprofile>` elements encapsulated in a `<subprofiles>` element and a `<status>` element. A `toplevel` attribute is set to `yes`, if the `profile` node is the root of the profile tree. This node was previously called a capability node.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT profile (refprofilespec, description?, subprofiles?, status, uuid?)*>
 <!ATTLIST profile
           id ID #REQUIRED
           short CDATA #IMPLIED
           title CDATA #REQUIRED
           toplevel (yes|no) "no">
-~~~
+```
 
 ### Service Profile
 
 A `<serviceprofile>` element represents a service, which is required by a specific capability and it consists of a `<refprofilespec>` ( referencing `<profilespec>` a describing the capability), a number of one or more references in form of `<reftaxonomy>` elements to the taxonomy. The `<serviceprofile>` serves two distinct roles, it represents a leave of the basic standards profiles which lists mandatory and emerging standardards for NATO common funded systems and second it represent the leaves of a community of interest profile like the Federated Mission Networking (FMN) profile. The role of the serviceprofile is controlles by the attributes of the `<refgroup>` element(s).
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT serviceprofile (refprofilespec, description?, reftaxonomy+, refgroup+, guide*,  status, uuid?)>
 <!ATTLIST serviceprofile
           id ID #REQUIRED
           title CDATA #REQUIRED>
-~~~
+```
 
 ### Profilespec Element
 
 A `<profilespec>` element exposes the publishing organisation, publication number, publishing date, title and version through the attributes orgid, pubnum, date, title, version and note. The orgid refers to an organisation is embedded in the `<organisations>` element. The rule of using organisation identifiers instead of the actual name of the organisation is mandated to prevent, that the same organisation exists in multiple incarnations in the database.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT profilespec EMPTY>
 <!ATTLIST profilespec
           orgid   IDREF #REQUIRED
@@ -381,66 +379,65 @@ A `<profilespec>` element exposes the publishing organisation, publication numbe
           title   CDATA #REQUIRED
           version CDATA #IMPLIED
           note    CDATA #IMPLIED>
-~~~
+```
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT refprofilespec EMPTY>
 <!ATTLIST refprofilespec
           refid IDREF #REQUIRED>
-~~~
+```
 
 ### Child elements of profile and servicprofile
 
-A `<subprofile>` element references child profiles. This element is used by the  `<profile>` element and must only reference `<profile>` or `<serviceprofile>` elements.
+A `<subprofile>` element references child profiles. This element is used by the `<profile>` element and must only reference `<profile>` or `<serviceprofile>` elements.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT subprofiles (refprofile+)>
-~~~
+```
 
 The `<description>` element uses the same content model as the
 DocBook `<entry>` element and contains a textual description of
 the profile.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT description  %ho; (%tbl.entry.mdl;)*>
-~~~
+```
 
 The `<reftaxonomy>` element refences a taxonomy node, which this a given `<serviceprofile>` element supports.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT reftaxonomy EMPTY>
 <!ATTLIST reftaxonomy
           refid IDREF #REQUIRED>
-~~~
+```
 
 The `<refgroup>` references standards and profiles with a specific obligation. The `<refgroup>` element is child of a `<serviceprofile>`element.
 
 TBD: DESCRIBE obligation and lifecycle ATTRIBUTES AND HOW THEY CONTROL THE DUAL ROLES OF A SERVICE PROFILE
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT refgroup (description?, refstandard*, refprofile*)>
 <!ATTLIST refgroup
           obligation (none|mandatory|recommended|optional|conditional) "none"
           lifecycle (current|candidate) "current">
-~~~
+```
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT refstandard EMPTY>
 <!ATTLIST refstandard
           refid IDREF #REQUIRED>
-~~~
+```
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT refprofile EMPTY>
 <!ATTLIST refprofile
           refid IDREF #REQUIRED>
-~~~
+```
 
 The `<guidance>` element provides guidance on how a set of standard should be implemented.
 
-~~~{.dtd}
+```{.dtd}
 <!ELEMENT guide %ho; (%tbl.entry.mdl;)*>
-~~~
+```
 
-
-[ISO 8601]: http://www.w3.org/TR/NOTE-datetime
+[iso 8601]: http://www.w3.org/TR/NOTE-datetime
