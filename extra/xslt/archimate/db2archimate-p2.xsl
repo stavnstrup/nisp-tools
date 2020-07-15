@@ -10,12 +10,11 @@
 
      Create Archimate export of all standards and profiles
 
-     1. Remove all deleted elements
-     2. Prefix all uuid's with 'id-', which is required by the Archimate Exchange Format schema
-     3. Create a lookup table in order to create a propertyDefinitions list
-     4. Create a relation between referencegroups and standards
-     5. Add a helper tree of profile heirachy
-     6. Add a helper list with a mapping from organisations to all standards and coverstandards
+     1. Prefix all uuid's with 'id-', which is required by the Archimate Exchange Format schema
+     2. Create a lookup table in order to create a propertyDefinitions list
+     3. Create a relation between referencegroups and standards
+     4. Add a helper tree of profile heirachy
+     5. Add a helper list with a mapping from organisations to all standards and coverstandards
 
 
      ========================================================== -->

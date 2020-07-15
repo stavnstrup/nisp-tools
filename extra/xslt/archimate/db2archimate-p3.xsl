@@ -251,6 +251,7 @@
 
 
 <xsl:template match="reference" mode="listProfileRealtionship">
+<!--
   <xsl:variable name="mytarget" select="@refid"/>
   <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
                 identifier="{@uuid}"
@@ -260,6 +261,7 @@
       <xsl:apply-templates select="/standards/records/*[@id=$mytarget]/uuid"/>
     </xsl:attribute>
   </relationship>
+-->  
  </xsl:template>
 
 
