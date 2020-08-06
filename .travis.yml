@@ -1,10 +1,12 @@
+dist: xenial
+
 git:
   depth: 300
 
 language: java
 
 jdk:
-  - oraclejdk8
+  - openjdk11
 
 sudo: required
 
@@ -12,7 +14,7 @@ before_install:
  - sudo apt-get -qq update
 
 install:
- - sudo apt-get install -qq libxml2-utils libsaxonb-java
+ - sudo apt-get install -qq libxml2-utils libsaxonb-java ant
 
 notifications:
   email:
@@ -21,6 +23,7 @@ notifications:
 
 script:
   - xmllint --noout --valid src/standards/standards.xml
+  - ant -f newbuild.xml
   - ant all
   - ant debug
 

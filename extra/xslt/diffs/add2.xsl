@@ -9,13 +9,17 @@
 
 <xsl:output method="html" indent="yes"/>
 
+
+
+
+
 <xsl:key name="key1" match="document" use="@orgid"/>
 
 
 <xsl:template match="/">
   <html>
     <meta charset="utf-8" />
-    <head><title>Deleted Standards</title></head>
+    <head><title></title></head>
     <style type="text/css">
       table {
          border-collapse: collapse;
@@ -25,7 +29,7 @@
       }
     </style>
   <body>
-    <h1>Deleted standards</h1>
+    <h1>Added Standards</h1>
 
     <xsl:apply-templates select="standards"/>
   </body></html>
@@ -43,7 +47,7 @@
     <ul>
       <xsl:for-each select="key('key1', $myorg)">
         <li>
-          <xsl:value-of select="normalize-space(./@title)"/>
+          <xsl:value-of select="normalize-space(./@title) "/>
           <xsl:if test="$myorg != '' or @pubnum !='' or @date != ''">
             <xsl:text> (</xsl:text>
             <xsl:if test="$myorg != ''">

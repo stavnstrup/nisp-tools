@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<serviceprofile id="fmn4-proposed-digital-certificate-profile" title="Proposed FMN Spiral 4 Digital Certificate Serviceprofile">
+		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<!-- Digital Certificate Services -->
+		<reftaxonomy refid="T-13a17bdd-8eb2-418c-8cb8-7f32a435f432-X"/>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- RFC 5280 - "Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile" -->
+			<refstandard refid="ietf-rfc5280"/>
+		</refgroup>
+		<refgroup obligation="optional" lifecycle="candidate">
+			<!-- RFC 6960 - "X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP" -->
+			<refstandard refid="ietf-rfc6960"/>
+		</refgroup>
+		<refgroup obligation="optional" lifecycle="candidate">
+			<!-- RFC 4523 - "Lightweight Directory Access Protocol (LDAP) Schema Definitions for X.509 Certificates" -->
+			<refstandard refid="ietf-rfc4523"/>
+		</refgroup>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<!-- ITU-T Recommendation X.509 - "Information technology - Open Systems Interconnection - The Directory: Public-key and attribute certificate frameworks" -->
+			<refstandard refid="itu-t-x.509"/>
+		</refgroup>
+		<status mode="accepted">
+			<history>
+				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
+			</history>
+		</status>
+	</serviceprofile>

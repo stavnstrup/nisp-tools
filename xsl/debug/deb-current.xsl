@@ -7,7 +7,7 @@
 
 <xsl:output saxon:next-in-chain="p2-current.xsl"/>
 
-<xsl:template match="standard[status/@mode='deleted']"/>
+<xsl:template match="*[status/@mode='deleted']"/>
 
 <xsl:template match="@*|node()">
   <xsl:copy>

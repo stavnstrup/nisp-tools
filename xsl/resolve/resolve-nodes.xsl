@@ -5,7 +5,7 @@
 This stylesheet is created for the NATO Interoperability Standard and
 profiles (NISP), and is intended for resolving volume 2 and 3.
 
-Copyright (c) 2002-2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2002-2020, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -196,7 +196,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="@*" mode="addindexentry">
   <xsl:variable name="id" select="."/>
 
-  <xsl:variable name="record" select="$db//standard[@id=$id]"/>
+  <xsl:variable name="record" select="$db//standards/records/*[@id=$id]"/>
   <xsl:for-each select="$record/document">
      <xsl:variable name="org" select="@orgid"/>
      <indexterm>
@@ -241,8 +241,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </thead>
     <tbody>
       <xsl:choose>
-        <!-- We use the lifeycle attribute with values current and candidate to identify mandatory and candidate standards for the best
-             service profile. But note that the lifecycle vallue current also maps to multiple obligation levels, so we need to reduce the number
+        <!-- We use the lifeycle attribute with values current and candidate to identify mandatory and candidate standards/coverdocs for the best
+             service profile. But note that the lifecycle value current also maps to multiple obligation levels, so we need to reduce the number
              of obligation values to only mandatory, when the lifecycle value is current -->
         <xsl:when test="$lifecycle='current'">
           <xsl:apply-templates select="." mode="listcurrent"/>
@@ -286,17 +286,20 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:param name="taxref" select="''"/>
 
   <xsl:variable name="stdid" select="@refid"/>
-  <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
+  <xsl:variable name="std" select="$db//records/*[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
-  <!-- (This mandatory standard does NOT exist in a previous capability profile for a given taxonomy node taxref) AND
+  <!-- (This mandatory standard does NOT exits in this serviceprofile) AND
+       (This mandatory standard does NOT exist in a previous capability profile for a given taxonomy node taxref) AND
        (A previous services profile does NOT exists within the same capabilityprofile where
-        this standard is referenced for a given taxonomy node taxref) 
+        this standard is referenced for a given taxonomy node taxref) AND
 
        We do this because we only want to list a standard once for each taxonomy node, whether it is listed in a previous
        capabilityprofile of it is listed in a previous serviceprofile within the current capabilityprofile.
   -->
-  <xsl:if test="not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
+  <xsl:if test="not(ancestor::refgroup/preceding-sibling::refgroup/refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
+                      and
+                not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
                       and
                 not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
@@ -311,8 +314,9 @@ NATO Command, Control and Consultation Organisation (NC3O).
         </xsl:choose>
         <xsl:variable name="note" select="string($std/document/@note)"/>
         <xsl:if test="string-length($note) &gt; 0">
-        	<footnote id="{$stdid}-note"><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
+        	<footnote id="{$stdid}-note"><para><!--<xsl:value-of select="$std/document/@pubnum"/> - --><xsl:value-of select="$note"/></para></footnote>
         </xsl:if>
+         <!-- Add standard to index -->
         <xsl:apply-templates select="@refid" mode="addindexentry"/>
       </entry>
       <entry>
@@ -323,11 +327,22 @@ NATO Command, Control and Consultation Organisation (NC3O).
         <xsl:if test="$std/document/@pubnum !=''">
           <xsl:value-of select="$std/document/@pubnum"/>
         </xsl:if>
+        <xsl:if test="$std/document/@date !=''">
+          <xsl:text>:</xsl:text>
+          <xsl:value-of select="substring($std/document/@date, 1, 4)"/>
+        </xsl:if>
+        <xsl:if test="starts-with($std/document/@orgid, 'nato') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
+          <xsl:text> / </xsl:text>
+          <xsl:value-of select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/document/@pubnum"/>
+          <!-- Add coverdocument to index -->
+          <xsl:apply-templates select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/@id" mode="addindexentry"/>
+        </xsl:if>
       </entry>
       <entry>
         <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile" mode="listcp">
           <xsl:with-param name="taxref" select="$taxref"/>
           <xsl:with-param name="stdid" select="$stdid"/>
+          <xsl:with-param name="lc" select="'current'"/>
         </xsl:apply-templates>
       </entry>
       <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
@@ -339,13 +354,15 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="capabilityprofile" mode="listcp">
   <xsl:param name="taxref"/>
   <xsl:param name="stdid"/>
+  <xsl:param name="lc"/>
 
-  <xsl:if test=".//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]">
+  <xsl:if test=".//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and 
+                (../@lifecycle=$lc) and (../../reftaxonomy/@refid=$taxref)]">
     <xsl:choose>
       <xsl:when test="@id = 'bsp'">BSP</xsl:when>
       <xsl:otherwise><xsl:value-of select="translate(@id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:otherwise>
     </xsl:choose>
-    <xsl:if test="following-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../../reftaxonomy/@refid=$taxref)]">
+    <xsl:if test="following-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle=$lc) and (../../reftaxonomy/@refid=$taxref)]">
       <xsl:text>, </xsl:text>
     </xsl:if>
   </xsl:if>
@@ -357,13 +374,15 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="node" mode="listcandidate">
   <xsl:variable name="myid" select="@id"/>
 
-  <xsl:variable name="refs" select="count(/standards/profilehierachy/capabilityprofile//refstandard[(../@lifecycle='candidate') and (../../reftaxonomy/@refid=$myid)])"/>
+  <xsl:variable name="refs" select="count(/standards/profilehierachy/capabilityprofile//refstandard[(../@lifecycle='candidate') and
+                                          (../../reftaxonomy/@refid=$myid)])"/>
   <xsl:if test="$refs>0">
     <row>
       <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     </row>
     <!-- Get standards from profiles -->
-    <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile[@id='bsp']//refstandard[(../@lifecycle='candidate') and (../../reftaxonomy/@refid=$myid)]" mode="listcandidate">
+    <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile//refstandard[(../@lifecycle='candidate') and
+                                 (../@obligation='mandatory') and(../../reftaxonomy/@refid=$myid)]" mode="listcandidate">
       <xsl:with-param name="taxref" select="$myid"/>
       <xsl:sort select="@refid"/>
     </xsl:apply-templates>
@@ -377,40 +396,66 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:param name="taxref" select="''"/>
 
   <xsl:variable name="stdid" select="@refid"/>
-  <xsl:variable name="std" select="$db//standard[@id=$stdid]"/>
+  <xsl:variable name="std" select="$db//records/*[@id=$stdid]"/>
   <xsl:variable name="myorgid" select="$std/responsibleparty/@rpref"/>
 
-  <row>
-    <entry>
-      <xsl:choose>
-        <xsl:when test="$std/status/uri != ''">
-          <ulink url="{$std/status/uri}"><xsl:value-of select="$std/document/@title"/></ulink>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$std/document/@title"/>
-        </xsl:otherwise>
-      </xsl:choose>
-      <xsl:variable name="note" select="string($std/document/@note)"/>
-      <xsl:if test="string-length($note) &gt; 0">
-      	<footnote id="{$stdid}-note"><para><xsl:value-of select="$std/document/@pubnum"/> - <xsl:value-of select="$note"/></para></footnote>
-      </xsl:if>
-      <xsl:apply-templates select="@refid" mode="addindexentry"/>
-    </entry>
-    <entry>
-      <xsl:if test="$std/document/@orgid !=''">
-        <xsl:value-of select="/standards/organisations/orgkey[@key=$std/document/@orgid]/@short"/>
-        <xsl:text> </xsl:text>
-      </xsl:if>
-      <xsl:if test="$std/document/@pubnum !=''">
-        <xsl:value-of select="$std/document/@pubnum"/>
-      </xsl:if>
-    </entry>
-    <entry>BSP</entry>
-    <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
-  </row>
+  <!-- (This candidate standard does NOT exits in this serviceprofile) AND
+       (This candidate standard does NOT exist in a previous capability profile for a given taxonomy node taxref) AND
+       (A previous services profile does NOT exists within the same capabilityprofile where
+        this standard is referenced for a given taxonomy node taxref)
+
+       We do this because we only want to list a standard once for each taxonomy node, whether it is listed in a previous
+       capabilityprofile of it is listed in a previous serviceprofile within the current capabilityprofile.
+  -->
+  <xsl:if test="not(ancestor::refgroup/preceding-sibling::refgroup/refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])
+                      and
+                not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])
+                      and
+                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])">
+    <row>
+      <entry>
+        <xsl:choose>
+          <xsl:when test="$std/status/uri != ''">
+            <ulink url="{$std/status/uri}"><xsl:value-of select="$std/document/@title"/></ulink>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$std/document/@title"/>
+          </xsl:otherwise>
+        </xsl:choose>
+        <xsl:variable name="note" select="string($std/document/@note)"/>
+        <xsl:if test="string-length($note) &gt; 0">
+        	<footnote id="{$stdid}-note"><para><!--<xsl:value-of select="$std/document/@pubnum"/> - --><xsl:value-of select="$note"/></para></footnote>
+        </xsl:if>
+        <xsl:apply-templates select="@refid" mode="addindexentry"/>
+      </entry>
+      <entry>
+        <xsl:if test="$std/document/@orgid !=''">
+          <xsl:value-of select="/standards/organisations/orgkey[@key=$std/document/@orgid]/@short"/>
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:if test="$std/document/@pubnum !=''">
+          <xsl:value-of select="$std/document/@pubnum"/>
+        </xsl:if>
+        <xsl:if test="$std/document/@date !=''">
+          <xsl:text>:</xsl:text>
+          <xsl:value-of select="substring($std/document/@date, 1, 4)"/>
+        </xsl:if>
+        <xsl:if test="starts-with($std/document/@orgid, 'nato') and (/standards/records/coverdoc//refstandard[@refid=$stdid])">
+          <xsl:text> / </xsl:text>
+          <xsl:value-of select="/standards/records/coverdoc[.//refstandard/@refid=$stdid]/document/@pubnum"/>
+        </xsl:if>
+      </entry>
+      <entry>
+        <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile" mode="listcp">
+          <xsl:with-param name="taxref" select="$taxref"/>
+          <xsl:with-param name="stdid" select="$stdid"/>
+          <xsl:with-param name="lc" select="'candidate'"/>
+        </xsl:apply-templates>
+      </entry>
+      <entry><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></entry>
+    </row>
+  </xsl:if>
 </xsl:template>
-
-
 
 
 </xsl:stylesheet>

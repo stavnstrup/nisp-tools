@@ -13,8 +13,8 @@
     <volumenum>2</volumenum>
     <revhistory>
       <revision>
-        <revnumber>12.0</revnumber>
-        <date>19 Jul 2019</date>
+        <revnumber>13.0</revnumber>
+        <date>4 Apr 2020</date>
       </revision>
     </revhistory>
     <subjectset><subject><subjectterm>DO NOT REMOVE</subjectterm></subject></subjectset>
@@ -28,7 +28,7 @@
     <title>Introduction</title>
     <para>Volume 2 of the NISP focuses on agreed interoperability standards and profiles.</para>
 <para>The NISP references Standards from different standardization bodies<footnote><para>In case of conflict between any recommended non-NATO standard and relevant NATO standard, the definition of the latter prevails.</para></footnote>. In the case of a ratified STANAG, NATO Standardization procedures apply. The NISP only references these STANAG’s without displaying the country-specific reservations.
-  The country-specific reservations can be found in the NATO Standardization Office&amp;s NATO Standardization Document Database (NSDD).</para>
+  The country-specific reservations can be found in the NATO Standardization Office&apos;s NATO Standardization Document Database (NSDD).</para>
     <para>The Combined Communications Electronics Board (CCEB) nations will use NISP Volume 2 <xref linkend="v2c-std" /> and <xref linkend="v2s1-ts" />
     tables to publish the interoperability standards for the CCEB under the provisions of the NATO-CCEB List of Understandings
     (LoU)<footnote><para>References:NATO Letter AC/322(SC/5)L/144 of 18 October 2000, CCEB Letter D/CCEB/WS/1/16 of 9 November 2000, NATO Letter AC/322(SC/5)L/157 of 13 February 2001</para></footnote>.</para>
@@ -114,9 +114,9 @@
     <title>Standards</title>
     <sect1>
       <title>Introduction</title>
-      <para>The purpose of this chapter is to specify the agreed NISP standards. The document organizes these standards, following  baseline 2.0 NATO's C3 Taxonomy, as endorsed by the NATO C3 Board per AC/322-D(2016)0017 “C3 Taxonomy Baseline 2.0” dated 14 March 2016. A graphical representation of this taxonomy is included in volume 1.</para>
+      <para>The purpose of this chapter is to specify the agreed NISP standards. The document organizes these standards, following  baseline 3.1 of NATO's C3 Taxonomy, as endorsed by the NATO C3 Board per AC/322-D(2019)0034-AS1(INV) on “C3 Taxonomy Baseline 3.1” dated 26 August 2019. A graphical representation of this taxonomy is included in volume 1.</para>
       <para>For some standards it was not clear yet which service identified in the C3 Taxonomy should be used. Therefore, as an interim solution, the taxonomy was extended with e.g. user-defined &#x201C;Cloud Services&#x201D;. In a separate section, all standards are listed for which could not yet be defined how they should be linked to the C3 Taxonomy.</para>
-      <para>The standards are presented in tabular form. Each table represent a subtree from the C3 taxonomy and each table line (marked in bold and spanning all columns in the table) represents a taxonomy node from the subtree.  Under each taxonomy node title, all standards which are mapped to the node are listed with the following attributes: title of the standard; where possible, a link to the standard; publication number of the standard; a list of all the capability profiles where the standard is used; and finally the "responsible party" which is the domain expert that advises NATO about the standard. In general, a taxonomy node is only listed if at least one standard is assigned to this taxonomy node.</para>
+      <para>The standards are presented in tabular form. Each table represent a subtree from the C3 taxonomy and each table line (marked in bold and spanning all columns in the table) represents a taxonomy node from the subtree.  Under each taxonomy node title, all standards which are mapped to the node are listed with the following attributes: title of the standard; where possible, a link to the standard; publication number of the standard<footnote><para>If the standard is a NATO standard and has a cover document, the publication number is followed by a slash and the publication number of the cover document.</para></footnote>; a list of all the capability profiles where the standard is used; and finally the "responsible party" which is the domain expert that advises NATO about the standard. In general, a taxonomy node is only listed if at least one standard is assigned to this taxonomy node.</para>
       <para>When STANAG X Ed Y is in ratification process, this is indicated by STANAG (RD) X Ed Y, and when it is a study draft, this is indicated by STANAG (Study) X Ed Y.</para>
       <sect2 id="v2s2-rel">
         <title>Releasability Statement</title>
@@ -162,26 +162,33 @@
         <para condition="ignore" />
         <?dbmerge node="T-2c978bbc-f422-42e8-83e6-105a6bdb1e54-X" lifecycle="current"?>
       </sect2>
-       <sect2>
+
+      <sect2>
+        <title>Extended C3 Taxonomy</title>
+        <para>The following table list taxonomy nodes, which may be part of a future version of the C3 taxonomy. They are part of this document, because stakesholders have
+        provided an unofficial classification scheme for a specific purpose.</para>
+
+       <sect3>
         <title>Cloud Services</title>
         <para condition="ignore" />
         <?dbmerge node="user.cloud" lifecycle="current"?>
-      </sect2>
-      <sect2>
+      </sect3>
+      <sect3>
         <title>Directory Data Synchronization Services</title>
         <para condition="ignore"/>
         <?dbmerge node="user.directory-data-synchronization" lifecycle="current"?>
-      </sect2>
-      <sect2>
+      </sect3>
+      <sect3>
         <title>Archive Profile</title>
         <para condition="ignore"/>
         <?dbmerge node="temp-Archive" lifecycle="current"?>
-      </sect2>
-      <sect2>
-        <title>Extended C3 Taxonomy</title>
-        <para>The following table list taxonomy nodes, which will be part of a future version of the C3 taxonomy. They are part of this document, because stakesholders have
-        decided to using an unofficial classification scheme for a specific purpose.</para>
-        <?dbmerge node="user.c3extended" lifecycle="current"?>
+      </sect3>
+<!--
+     This node was used when we receive an RFC, where a standard was mapped to a node in the development EM-Wiki, 
+     which was not part of an official C3 Taxonomy.
+
+    <?dbmerge node="user.c3extended" lifecycle="current"?>
+-->
       </sect2>
     </sect1>
 
@@ -225,10 +232,10 @@
             </row>
           </thead>
           <tbody>
-            <?cpbprfmerge id="x-tms-smtp"?>
             <?cpbprfmerge id="fmn1"?>
             <?cpbprfmerge id="fmn2"?>
             <?cpbprfmerge id="fmn3"?>
+            <?cpbprfmerge id="architecture"?>
             <?cpbprfmerge id="archive-archive"?>
             <?cpbprfmerge id="sip-sec"?>
             <?cpbprfmerge id="sip-rest"?>

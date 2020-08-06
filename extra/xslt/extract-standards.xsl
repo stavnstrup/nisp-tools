@@ -61,7 +61,7 @@ Copyright (c) 2014-2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:output indent="yes"/>
 
-<xsl:variable name="next.version" select="'10.0'"/>
+<xsl:variable name="next.version" select="'13.0'"/>
 
 <xsl:variable name="col.org" select="1"/>
 <xsl:variable name="col.pubnum" select="2"/>
@@ -74,6 +74,8 @@ Copyright (c) 2014-2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:variable name="col.responsible-party" select="9"/>
 <xsl:variable name="col.obligation" select="10"/>
 <xsl:variable name="col.taxonomy-entry" select="11"/>
+<xsl:variable name="col.id" select="12"/>
+<xsl:variable name="col.generatedid" select="13"/>
 
 <!-- Get current date & time adjusted to UTC -->
 
@@ -113,9 +115,16 @@ Copyright (c) 2014-2016  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:template match="table:table-row">
   <standard>
     <xsl:attribute name="id">
-      <xsl:value-of select="lower-case(table:table-cell[position()=$col.org])"/>
-      <xsl:text>-</xsl:text>
-      <xsl:value-of select="translate(lower-case(table:table-cell[position()=$col.pubnum]),'() ','')"/>
+      <xsl:choose>
+        <xsl:when test="table:table-cell[position()=$col.id]">
+          <xsl:value-of select="table:table-cell[position()=$col.id]"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="lower-case(table:table-cell[position()=$col.org])"/>
+          <xsl:text>-</xsl:text>
+          <xsl:value-of select="translate(lower-case(table:table-cell[position()=$col.pubnum]),'() ','')"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:attribute>
     <xsl:attribute name="tag">
       <xsl:value-of select="table:table-cell[position()=$col.tag]"/>

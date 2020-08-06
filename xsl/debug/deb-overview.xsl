@@ -9,7 +9,7 @@
 This stylesheet is created for the NISP , and is
 intended to create an overview of the starndard database.
 
-Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2003, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -29,12 +29,6 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 <xsl:strip-space elements="*"/>
 
 
-
-<!-- If this param is set to one, only one headline is generated.
-     You can therefore use the import the html file in a spreadsheet program
-     and use the freeze pane facility -->
-
-<xsl:param name="excelXP" select="0"/>
 
 
 <xsl:template match="standards">
@@ -79,31 +73,31 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <td><b>Rec</b></td>
         <td><b>Total</b></td>
         <td><b>Deleted</b></td>
-        <td><b>Rejected</b></td>
       </tr>
       <tr>
         <td>Standards</td>
         <td align="right"><xsl:value-of select="count(.//standard)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::standard])"/></td>
-        <td align="right"><xsl:value-of select="count(.//standard[status='rejected'])"/></td>
+      </tr>
+      <tr>
+        <td>Cover Documents</td>
+        <td align="right"><xsl:value-of select="count(.//coverdoc)"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::coverdoc])"/></td>
       </tr>
       <tr>
         <td>Capability Profiles</td>
-        <td align="right"><xsl:value-of select="count(.//capabilityprofile)"/></td>
-        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::capabilityprofile])"/></td>
-        <td align="right"><xsl:value-of select="count(.//capabilityprofile[status='rejected'])"/></td>
+        <td align="right"><xsl:value-of select="count(.//profile[@toplevel='yes'])"/></td>
+        <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::profile/@toplevel='yes'])"/></td>
       </tr>
       <tr>
         <td>Profiles</td>
         <td align="right"><xsl:value-of select="count(.//profile)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::profile])"/></td>
-        <td align="right"><xsl:value-of select="count(.//profile[status='rejected'])"/></td>
       </tr>
       <tr>
         <td>Service Profiles</td>
         <td align="right"><xsl:value-of select="count(.//serviceprofile)"/></td>
         <td align="right"><xsl:value-of select="count(.//event[(@flag='deleted') and (position()=last()) and ancestor::serviceprofile])"/></td>
-        <td align="right"><xsl:value-of select="count(.//serviceprofile[status='rejected'])"/></td>
       </tr>
     </table>
 
@@ -122,7 +116,7 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
    <ul>
      <li><b>Rec</b> - The sorted position of the <i>standard</i> or <i>profile</i> in the database</li>
      <li><b>ID</b> - What ID is associated with this <i>standard</i></li>
-     <li><b>Type</b> - Is this a <i>coverstandard</i> (CS), a <i>single standard</i> (S) or a <i>sub standard</i> (SS)</li>
+     <li><b>Type</b> - Is this a <i>cover document</i> (C) or a <i>standard</i> (S)</li>
      <li><b>Org</b> - What organisation have published this <i>standard</i></li>
      <li><b>Pubnum</b> - The publication number of the <i>standard</i></li>
      <li><b>Title</b> - The title of the <i>standard</i></li>
@@ -130,27 +124,36 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
      <li><b>Ver</b> - Version of the <i>standard</i> or <i>profile</i></li>
      <li><b>Responsible Party</b> - An organisational unit within NATO, who takes the responsibility to guide NATO on the specific standard.</li>
      <li><b>Tag</b> - What Tag is associated with this record</li>
-     <li><b>Best Practice</b> - Is this record part of the best practic profile (A : Agreed, C: Candidate), i.e. mandatory for NATO common funded systems</li>
+     <li><b>BSP</b> - Is this record part of the basic standards profile (A : Agreed, C: Candidate), i.e. mandatory for NATO common funded systems</li>
      <li><b>History</b> - What is the history of the record</li>
      <li><b>URI</b> - Location of the standard</li>
    </ul>
 
-  <xsl:if test="$excelXP = 1">
-    <table border="1" width="100%">
-      <xsl:call-template name="htmlheader"/>
-    </table>
-  </xsl:if>
 
   <table class="overview" border="1">
-    <xsl:call-template name="htmlheader"/>
-    <xsl:apply-templates select="records/standard">
+    <tr class="head">
+      <th>Rec</th>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Org</th>
+      <th>PubNum</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Ver</th>
+      <th>Responsible Party</th>
+      <th>Tag</th>
+      <th>BSP</th>
+      <th>History</th>
+      <th>URI</th>
+    </tr>
+    <xsl:apply-templates select="records/coverdoc|records/standard">
       <xsl:sort select="@id" order="ascending"/>
     </xsl:apply-templates>
   </table>
 
   <h2 id="profiles">Profiles</h2>
 
-  <p>This table lists all capability, profiles and serviceprofiles.
+  <p>This table lists all profiles and serviceprofiles.
 
   <ul>
     <li>Profiles (PR) list standards and profiles which fits natually
@@ -164,13 +167,23 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     Service Framework</a> (part of the <a
     href="https://tide.act.nato.int/em/index.php?title=C3_Taxonomy">C3
     taxonomy</a>).</li>
-    <li>Capability Profiles (CP) consists of a set of profile and serviceprofiles. An example of this is the FMN profile.</li>
+    <li>We use the term Capability Profile (CP) for a profile with the toplevel attribute set to yes. An example of this is the FMN profile.</li>
   </ul></p>
 
 
   <table class="overview" border="1">
-    <xsl:call-template name="htmlheader"/>
-    <xsl:apply-templates select="//profile|//capabilityprofile|//serviceprofile">
+    <tr class="head">
+      <th>Rec</th>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Org</th>
+      <th>PubNum</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Ver</th>
+      <th>History</th>
+    </tr> 
+    <xsl:apply-templates select="//profile|//serviceprofile">
       <xsl:sort select="@id" order="ascending"/>
     </xsl:apply-templates>
   </table>
@@ -180,26 +193,43 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 <xsl:template name="htmlheader">
-  <tr class="head">
-    <th>Rec</th>
-    <th>ID</th>
-    <th>Type</th>
-    <th>Org</th>
-    <th>PubNum</th>
-    <th>Title</th>
-    <th>Date</th>
-    <th>Ver</th>
-    <th>Responsible Party</th>
-    <th>Tag</th>
-    <th>Best Practice</th>
-    <th>History</th>
-    <th>URI</th>
-   </tr>
+
 </xsl:template>
 
 
-<xsl:template match="profile|serviceprofile|capabilityprofile">
+
+<xsl:template match="profilespec">
+    <td>
+      <xsl:if test="@orgid =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="@orgid"/>
+    </td>
+    <td>
+      <xsl:if test="@pubnum =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="@pubnum"/>
+    </td>
+    <td>
+      <xsl:if test="@title =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="@title"/>
+      <xsl:apply-templates select="parts"/>
+    </td>
+    <td class="date">
+      <xsl:if test="@date =''">
+        <xsl:attribute name="class">missing</xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="@date"/>
+    </td>
+    <td><xsl:value-of select="@version"/></td>
+</xsl:template>
+
+<xsl:template match="profile|serviceprofile">
   <xsl:variable name="myid" select="@id"/>
+  <xsl:variable name="pref" select="refprofilespec/@refid"/>
   <tr>
     <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">
       <xsl:attribute name="class">deleted</xsl:attribute>
@@ -207,62 +237,27 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td><xsl:value-of select="@id"/></td>
     <td align="center">
       <xsl:choose>
-        <xsl:when test="local-name(.)='capabilityprofile'">CP</xsl:when>
+        <xsl:when test="(local-name(.)='profile') and (@toplevel='yes')">CP</xsl:when>
         <xsl:when test="local-name(.)='serviceprofile'">SP</xsl:when>
         <xsl:otherwise>PR</xsl:otherwise>
       </xsl:choose>
     </td>
-    <td>
-      <xsl:if test="profilespec/@orgid =''">
-        <xsl:attribute name="class">missing</xsl:attribute>
-      </xsl:if>
-      <xsl:value-of select="profilespec/@orgid"/>
-    </td>
-    <td>
-      <xsl:if test="profilespec/@pubnum =''">
-        <xsl:attribute name="class">missing</xsl:attribute>
-      </xsl:if>
-      <xsl:value-of select="profilespec/@pubnum"/>
-    </td>
-    <td>
-      <xsl:if test="profilespec/@title =''">
-        <xsl:attribute name="class">missing</xsl:attribute>
-      </xsl:if>
-      <xsl:value-of select="profilespec/@title"/>
-      <xsl:apply-templates select="parts"/>
-    </td>
-    <td class="date">
-      <xsl:if test="profilespec/@date =''">
-        <xsl:attribute name="class">missing</xsl:attribute>
-      </xsl:if>
-      <xsl:value-of select="profilespec/@date"/>
-    </td>
-    <td><xsl:value-of select="profilespec/@version"/></td>
-    <td><xsl:apply-templates select="document/correction"/></td>
-    <td><xsl:apply-templates select="document/alsoknown"/></td>
-    <td>
-      <xsl:if test="@tag =''">
-        <xsl:attribute name="class">missing</xsl:attribute>
-      </xsl:if>
-      <xsl:value-of select="@tag"/></td>
-    <td align="center">
-      <xsl:apply-templates select="/standards/bestpracticeprofile//refstandard[@refid=$myid]"/>
-    </td>
+
+    <xsl:apply-templates select="//profilespec[@id=$pref]"/>
     <td><xsl:apply-templates select=".//event"/></td>
-    <td>N/A</td>
   </tr>
 </xsl:template>
 
 
-<xsl:template match="bprefstandard">
-  <xsl:variable name="tref" select="ancestor::bpserviceprofile/@tref"/>
+<xsl:template match="refstandard">
+  <xsl:variable name="tref" select="ancestor::serviceprofile/reftaxonomy/@refid"/>
   <xsl:choose>
-    <xsl:when test="parent::bpgroup[@mode='mandatory']">M</xsl:when>
-    <xsl:when test="parent::bpgroup[@mode='candidate']">C</xsl:when>
+    <xsl:when test="parent::refgroup[@lifecycle='current']">M</xsl:when>
+    <xsl:when test="parent::refgroup[@lifecycle='candidate']">C</xsl:when>
   </xsl:choose>
-  <xsl:text> ( </xsl:text>
+  <xsl:text> (</xsl:text>
   <xsl:value-of select="/standards/taxonomy//*[@id=$tref]/@title"/>
-  <xsl:text> ) </xsl:text>
+  <xsl:text>) </xsl:text>
 </xsl:template>
 
 
@@ -298,7 +293,7 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 
 
-<xsl:template match="standard">
+<xsl:template match="standard|coverdoc">
   <xsl:variable name="myid" select="@id"/>
   <xsl:variable name="myrp" select="responsibleparty/@rpref"/>
   <tr>
@@ -311,8 +306,7 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
     <td><xsl:value-of select="@id"/></td>
     <td align="center">
       <xsl:choose>
-        <xsl:when test="document/substandards">CS</xsl:when>
-        <xsl:when test="//substandards/refstandard/@refid=$myid">SS</xsl:when>
+        <xsl:when test="local-name()='coverdoc'">C</xsl:when>
         <xsl:otherwise>S</xsl:otherwise>
       </xsl:choose>
     </td>
@@ -348,11 +342,11 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:value-of select="@tag"/></td>
     <td align="center">
-      <xsl:apply-templates select="/standards/bestpracticeprofile//bprefstandard[@refid=$myid]"/>
+      <xsl:apply-templates select="/standards/records/serviceprofile[starts-with(@id, 'bsp')]//refstandard[@refid=$myid]"/>
     </td>
     <td class="date"><xsl:apply-templates select=".//event"/></td>
     <td>
-      <xsl:if test="not(status/uri)">
+      <xsl:if test="not(status/uri) or (status/uri='')">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
       <xsl:apply-templates select="status/uri"/>

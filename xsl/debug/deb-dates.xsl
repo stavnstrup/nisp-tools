@@ -32,10 +32,10 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 </xsl:template>
 
 <xsl:template match="event">
-  <xsl:variable name="myid" select="ancestor::standard/@id|ancestor::profile/@id|ancestor::serviceprofile/@id|ancestor::capabilityprofile/@id"/>
+  <xsl:variable name="myid" select="ancestor::standard/@id|ancestor::coverdoc/@id|ancestor::profile/@id|ancestor::serviceprofile/@id|ancestor::capabilityprofile/@id"/>
 
   <event>
-    <rec><xsl:number from="standards" count="standard|serviceprofile|profile|capabilityprofile" format="1" level="any"/></rec>
+    <rec><xsl:number from="standards" count="standard|coverdoc|serviceprofile|profile|capabilityprofile" format="1" level="any"/></rec>
     <type>
       <xsl:choose>
         <xsl:when test="ancestor::capabilityprofile">
@@ -50,10 +50,13 @@ Copyright (c) 2003, 2017  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
         <xsl:when test="ancestor::standard">
           <xsl:text>S</xsl:text>
         </xsl:when>
+        <xsl:when test="ancestor::coverdoc">
+          <xsl:text>S</xsl:text>
+        </xsl:when>
       </xsl:choose>
     </type>
-    <id><xsl:value-of select="ancestor::standard/@id|ancestor::profile/@id|ancestor::serviceprofile/@id|ancestor::capabilityprofile/@id"/></id>
-    <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::profile/@title|ancestor::serviceprofile/@title|ancestor::capabilityprofile/@title"/></tag>
+    <id><xsl:value-of select="ancestor::standard/@id|ancestor::coverdoc/@id|ancestor::profile/@id|ancestor::serviceprofile/@id|ancestor::capabilityprofile/@id"/></id>
+    <tag><xsl:value-of select="ancestor::standard/@tag|ancestor::coverdoc/@tag|ancestor::profile/@title|ancestor::serviceprofile/@title|ancestor::capabilityprofile/@title"/></tag>
     <date><xsl:value-of select="@date"/></date>
     <flag><xsl:value-of select="@flag"/></flag>
     <rfcp><xsl:value-of select="@rfcp"/></rfcp>

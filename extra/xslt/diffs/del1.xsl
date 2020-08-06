@@ -7,33 +7,32 @@
                 version='2.0'>
 
 
-<!-- Create a HTML document with standards added in this version.
+<!-- Create a HTML document with standards deleted in this version.
      Subsequently this document can be converted to DocBook using a
      tool like Pandoc and embedded in volume 1.
 
-     exammple
+
+     exammple:
 
      1. Goto the vol1 folder and run the following commands
-     2. saxon -o added-standards.html ../standards/standards.xml ../../extra/xslt/add1.xsl
-     3. pandoc -o added-standards.xml -id-prefix=added- -t DocBook added-standards.html
+     2. saxon -o deleted-standards.html ../standards/standards.xml ../../extra/xslt/del1.xsl
+     3. pandoc -o deleted-standards.xml -id-prefix=ADD- -t DocBook deleted-standards.html
 
-     Note: The parameter id-prefix should be prefixed with two hyphens to the left.
+Note: The parameter id-prefix should be prefixed with two hyphens to the left.
 -->
 
-<xsl:output saxon:next-in-chain="add2.xsl"/>
+<xsl:output saxon:next-in-chain="del2.xsl"/>
 
-<xsl:variable name="next.nisp.version" select="'12.0'"/>
-
+<xsl:variable name="next.nisp.version" select="'13.0'"/>
 
 
 <xsl:strip-space elements="*"/>
 
 <xsl:param name="describe" select="''"/>
 
-
 <xsl:template match="standards">
   <standards>
-    <xsl:apply-templates select=".//event[(position()=last()) and (@flag='added') and (@version=$next.nisp.version)]"/>
+    <xsl:apply-templates select=".//event[(position()=last()) and (@flag='deleted') and (@version=$next.nisp.version)]"/>
   </standards>
 </xsl:template>
 
