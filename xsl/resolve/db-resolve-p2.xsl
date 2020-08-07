@@ -186,7 +186,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
   Replace the URI of the external standard information to a link to the standard information
   available in the NISP viewer. -->
 
-  <xsl:template match="standard/status/uri">
+  <xsl:template match="standard/status/uri | coverdoc/status/uri">
   <uri>
     <xsl:choose>
       <xsl:when test="not ($replace.standard.uri = 'yes')">
