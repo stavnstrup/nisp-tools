@@ -16,9 +16,7 @@ different volumes, the database have been extended to be able to
 describe the selection of mandatory- and candidate standards
 and profiles. This selection of standards and profiles are justified
 in the rationale statements, which are also part of the
-database. Recently the database have been reorganised to reflect
-additional requirements, but also to prepare the database for
-inclusion in the NATO Architecture Repository (NAR).
+database.
 
 In order to enable validation of the database, a schema in form
 of a DTD have been defined. This DTD is located in the source distribution at
