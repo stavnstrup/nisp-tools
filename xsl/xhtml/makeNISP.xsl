@@ -204,7 +204,7 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:template match="corpauthor" mode="titlepage.mode">
   <div class="{name(.)}">
-    <div>AdatP-34(<xsl:value-of select="$adatp34edition"/>)</div>
+    <div>ADatP-34(<xsl:value-of select="$adatp34edition"/>)</div>
     <div><xsl:apply-templates select="..//revision[1]/revnumber"
        mode="titlepage.mode"/></div>
     <div><xsl:apply-templates
