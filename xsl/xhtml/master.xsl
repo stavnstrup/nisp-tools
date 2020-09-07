@@ -106,7 +106,7 @@ Description:  This stylesheet is created for the NATO Interoperability Standards
               <hr />
               <h5>NISP Database</h5>
               <p>Search the database.</p>
-              <div class="btn"><a class="small button" href="https://nhqc3s.hq.nato.int/NISP/default.aspx">Search</a></div>
+              <div class="btn"><a class="small button" href="https://nhqc3s.hq.nato.int/NISP/">Search</a></div>
             </div>
           </div>
         </xsl:otherwise>
