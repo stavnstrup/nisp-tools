@@ -3,13 +3,11 @@
 <!--
 
 This stylesheet is created for the NISP, and is intended for
-tagging serviceprofile due to their dual functionallity.
+renaming profiles with the attribute  toplevel="yes" to capabilityprofile. This will ensure
+the old resolve-nodes.xsl stylesheet will continue to work and display mandatory and candidate
+standards in NISP volume 2 and 3.
 
-We add a type attribute to the servicprofile using the following rules
-  bsp: serviceprofiles which is part of the basic standards profile (BSP)
-  coi: any other service profile, which is part of a capability profile like FMN.
-
-Copyright (c) 2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2019, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -25,30 +23,11 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:strip-space elements="*"/>
 
-<!-- ==================================================================== -->
-
-<!-- Add type attribute to all service profile, to be able to differentiate serviceprofiles,
-     which are part of the Base Standards Profile and those which are not -->
-
-<xsl:template match="serviceprofile">
-  <xsl:variable name="myid" select="@id"/>
-  <serviceprofile>
-    <xsl:attribute name="type">
-      <xsl:choose>
-        <xsl:when test="/standards//capabilityprofile[@id='bsp']//refprofile[@refid=$myid]">
-          <xsl:text>bsp</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>coi</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:attribute>
+<xsl:template match="profile[@toplevel='yes']">
+  <capabilityprofile>
     <xsl:apply-templates select="@*"/>
-    <xsl:apply-templates/>
-  </serviceprofile>
+    <xsl:apply-templates/>  </capabilityprofile>
 </xsl:template>
-
-<!-- ==================================================================== -->
 
 <xsl:template match="@*|node()">
   <xsl:copy>
@@ -56,6 +35,5 @@ NATO Command, Control and Consultation Organisation (NC3O).
     <xsl:apply-templates/>
   </xsl:copy>
 </xsl:template>
-
 
 </xsl:stylesheet>

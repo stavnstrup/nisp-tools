@@ -7,7 +7,7 @@ renaming profiles with the attribute  toplevel="yes" to capabilityprofile. This 
 the old resolve-nodes.xsl stylesheet will continue to work and display mandatory and candidate
 standards in NISP volume 2 and 3.
 
-Copyright (c) 2019, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2020, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -23,11 +23,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <xsl:strip-space elements="*"/>
 
-<xsl:template match="profile[@toplevel='yes']">
-  <capabilityprofile>
-    <xsl:apply-templates select="@*"/>
-    <xsl:apply-templates/>  </capabilityprofile>
-</xsl:template>
+<xsl:template match="*[status/@mode='deleted']"/>
+
 
 <xsl:template match="@*|node()">
   <xsl:copy>
