@@ -3,8 +3,7 @@
                 xmlns:saxon="http://saxon.sf.net/"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 extension-element-prefixes="saxon"
-                version='2.0'
-                >
+                version='2.0'>
 
 
 <!--
@@ -17,7 +16,7 @@
 <xsl:template match="standards">
   <model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd" identifier="id-93c48180-9e5b-4220-a666-ee020c07d53a">
     <name xml:lang="en">NISP Samples</name>
-<!-- meta-data attributes -->
+    <!-- meta-data attributes -->
     <xsl:apply-templates select="records"/>
   </model>
 </xsl:template>
@@ -35,22 +34,27 @@
   </relationships>
   <organizations xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <item>
-      <label xml:lang="en">Technology &amp; Physical</label>
+      <label xml:lang="en">Business</label>
+      <item>
+        <label xml:lang="en">Contract</label>
+        <xsl:apply-templates select="coverdoc" mode="organization"/>
+      </item>
+      <item>
+         <label xml:lang="en">Standards</label>
+         <xsl:apply-templates select="/standards/organisations/orgkey" mode="organization"/>
+      </item>
       <item>
         <label xml:lang="en">Profiles</label>
         <xsl:apply-templates select="profile" mode="organization"/>
       </item>
-    </item>
-    <item>
-      <label xml:lang="en">Motivation</label>
-       <item>
-         <label xml:lang="en">Standards</label>
-         <xsl:apply-templates select="/standards/organisations/orgkey" mode="organization"/>
-       </item>
-       <item>
-         <label xml:lang="en">Profile Specifications</label>
-         <xsl:apply-templates select="profilespec" mode="organization"/>
-       </item>
+      <item>
+        <label xml:lang="en">Profile Specifications</label>
+        <xsl:apply-templates select="profilespec" mode="organization"/>
+      </item>
+      <item>
+        <label xml:lang="en">Service Profile</label>
+        <xsl:apply-templates select="serviceprofile" mode="organization"/>
+      </item>
     </item>
     <item>
       <label xml:lang="en">Other</label>
@@ -84,7 +88,7 @@
 <xsl:template match="standard|coverdoc" mode="element">
   <xsl:variable name="myorgid" select="document/@orgid"/>
   <xsl:variable name="rp" select="responsibleparty/@rpref"/>
-  <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="{uuid}" xsi:type="Principle">
+  <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="{uuid}" xsi:type="BusinessObject">
     <name xml:lang="en"><xsl:value-of select="document/@title"/>
       <xsl:if test="document/@orgid or document/@pubnum">
         <xsl:text>, </xsl:text>
@@ -108,7 +112,7 @@
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='organisation']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='publisher']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></value>
       </property>
@@ -173,13 +177,13 @@
 
 <xsl:template match="profilespec" mode="element">
   <xsl:variable name="myorgid" select="@orgid"/>
-  <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="{uuid}" xsi:type="Principle">
+  <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="{uuid}" xsi:type="BusinessObject">
     <name xml:lang="en"><xsl:value-of select="@title"/></name>
     <properties>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='organisation']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='publisher']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></value>
       </property>
@@ -217,7 +221,7 @@
 
 
 <xsl:template match="profile|serviceprofile"  mode="element">
-   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="{uuid}" xsi:type="TechnologyService">
+   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="{uuid}" xsi:type="BusinessObject">
      <name xml:lang="en"><xsl:value-of select="@title"/></name>
      <properties>
        <property>
@@ -230,6 +234,8 @@
      </properties>
    </element>
 </xsl:template>
+
+
 
 
 <!-- ============================================================== -->

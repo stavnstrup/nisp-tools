@@ -19,10 +19,10 @@
 
      ========================================================== -->
 
-<xsl:output indent="yes" saxon:next-in-chain="db2archimate-p3.xsl"/>
 <!--
-<xsl:output indent="yes"/>
+<xsl:output indent="yes" saxon:next-in-chain="db2archimate-p3.xsl"/>
 -->
+<xsl:output indent="yes"/>
 
 <!-- Prefix all uuid's with 'id-'. Id's in XML MUST start with
      a letter, and we therefore go with the same solution as Archi.
@@ -43,7 +43,7 @@
   <standards>
     <xsl:apply-templates select="@*"/>
     <allattributes>
-      <def position="1" attribute="organisation"/>
+      <def position="1" attribute="publisher"/>
       <def position="2" attribute="pubnum"/>
       <def position="3" attribute="title"/>
       <def position="4" attribute="date"/>
@@ -165,6 +165,12 @@
   </reference>
 </xsl:template>
 
+<xsl:template match="profile[@toplevel='no']">
+  <profilecontainer>
+    <xsl:apply-templates select="@*"/>
+    <xsl:apply-templates/>
+  </profilecontainer>
+</xsl:template>
 
 <!-- ========================================================== -->
 
