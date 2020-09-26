@@ -19,23 +19,12 @@
 
      ========================================================== -->
 
-<!--
 <xsl:output indent="yes" saxon:next-in-chain="db2archimate-p3.xsl"/>
+<!--
 -->
+
 <xsl:output indent="yes"/>
 
-<!-- Prefix all uuid's with 'id-'. Id's in XML MUST start with
-     a letter, and we therefore go with the same solution as Archi.
-
-     See also https://github.com/archimatetool/archi/issues/625
--->
-
-<xsl:template match="uuid">
-  <uuid>
-    <xsl:text>id-</xsl:text>
-    <xsl:value-of select="."/>
-  </uuid>
-</xsl:template>
 
 <!-- Create a lookup table in order to create a propertyDefinitions list -->
 
@@ -43,14 +32,15 @@
   <standards>
     <xsl:apply-templates select="@*"/>
     <allattributes>
-      <def position="1" attribute="publisher"/>
-      <def position="2" attribute="pubnum"/>
-      <def position="3" attribute="title"/>
-      <def position="4" attribute="date"/>
-      <def position="5" attribute="version"/>
-      <def position="6" attribute="responsibleparty"/>
-      <def position="7" attribute="uri"/>
-      <def position="8" attribute="nisp_element"/>
+      <def position="1" attribute="publisher"/>         <!-- orgid -->
+      <def position="2" attribute="pubnum"/>            <!-- pubnum -->
+      <def position="3" attribute="title"/>             <!-- title -->
+      <def position="4" attribute="date"/>              <!-- date -->
+      <def position="5" attribute="version"/>           <!-- version -->
+      <def position="6" attribute="responsibleparty"/>  <!-- responsibleparty -->
+      <def position="7" attribute="uri"/>               <!-- uri -->
+      <def position="8" attribute="stereotype"/>        <!-- N/A -->
+      <def position="9" attribute="uuid"/>              <!-- uuid -->
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
