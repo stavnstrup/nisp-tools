@@ -32,15 +32,15 @@
   <standards>
     <xsl:apply-templates select="@*"/>
     <allattributes>
-      <def position="1" attribute="publisher"/>         <!-- orgid -->
-      <def position="2" attribute="pubnum"/>            <!-- pubnum -->
-      <def position="3" attribute="title"/>             <!-- title -->
-      <def position="4" attribute="date"/>              <!-- date -->
-      <def position="5" attribute="version"/>           <!-- version -->
-      <def position="6" attribute="responsibleparty"/>  <!-- responsibleparty -->
-      <def position="7" attribute="uri"/>               <!-- uri -->
-      <def position="8" attribute="stereotype"/>        <!-- N/A -->
-      <def position="9" attribute="uuid"/>              <!-- uuid -->
+      <def position="1" attribute="publisher"/>             <!-- orgid -->
+      <def position="2" attribute="identifier"/>            <!-- pubnum -->
+      <def position="3" attribute="title"/>                 <!-- title -->
+      <def position="4" attribute="dateAccepted"/>          <!-- date -->
+      <def position="5" attribute="version"/>               <!-- version -->
+      <def position="6" attribute="nispResponsibleParty"/>  <!-- responsibleparty -->
+      <def position="7" attribute="uri"/>                   <!-- uri -->
+      <def position="8" attribute="stereotype"/>            <!-- N/A -->
+      <def position="9" attribute="uuid"/>                  <!-- uuid -->
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>

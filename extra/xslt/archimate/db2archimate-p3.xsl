@@ -125,7 +125,7 @@
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='pubnum']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='identifier']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="document/@pubnum"/></value>
       </property>
@@ -139,7 +139,7 @@
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='date']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='dateAccepted']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="document/@date"/></value>
       </property>
@@ -153,7 +153,7 @@
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='responsibleparty']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='nispResponsibleParty']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="/standards/organisations/orgkey[@key=$rp]/@short"/></value>
       </property>
@@ -203,14 +203,14 @@
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='pubnum']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='identifier']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="@pubnum"/></value>
       </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='date']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='dateAccepted']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="@date"/></value>
       </property>
