@@ -25,7 +25,7 @@
 <xsl:template match="records">
   <!-- List all elements -->
   <elements xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
-    <xsl:apply-templates select="standard|coverdoc|profilespec|profile|serviceprofile" mode="element"/>
+    <xsl:apply-templates select="standard|coverdoc|profilespec|profile|profilecontainer|serviceprofile" mode="element"/>
   </elements>
   <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <!-- Traverse the profiletrees -->
@@ -47,7 +47,7 @@
       </item>
       <item>
         <label xml:lang="en">Profiles</label>
-        <xsl:apply-templates select="profile[@toplevel='yes']" mode="organization"/>
+        <xsl:apply-templates select="profile" mode="organization"/>
       </item>
       <item>
         <label xml:lang="en">Profile Specifications</label>
@@ -61,8 +61,8 @@
     <item>
       <label xml:lang="en">Other</label>
       <item>
-        <label xml:lang="en">Profiles Containers</label>
-        <xsl:apply-templates select="profile[@toplevel='no']" mode="organization"/>
+        <label xml:lang="en">Profile Containers</label>
+        <xsl:apply-templates select="profilecontainer" mode="organization"/>
       </item>
     </item>
     <item>
@@ -240,7 +240,7 @@
 </xsl:template>
 
 
-<xsl:template match="profile[@toplevel='yes']|serviceprofile"  mode="element">
+<xsl:template match="profile|serviceprofile"  mode="element">
    <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="BusinessObject">
      <name xml:lang="en"><xsl:value-of select="@title"/></name>
      <properties>
@@ -262,7 +262,7 @@
    </element>
 </xsl:template>
 
-<xsl:template match="profile[@toplevel='no']"  mode="element">
+<xsl:template match="profilecontainer"  mode="element">
    <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="Grouping">
      <name xml:lang="en"><xsl:value-of select="@title"/></name>
      <properties>
@@ -344,7 +344,7 @@
   </xsl:if>
 </xsl:template>
 
-<xsl:template match="standard|coverdoc|profilespec|profile|serviceprofile" mode="organization">
+<xsl:template match="standard|coverdoc|profilespec|profile|profilecontainer|serviceprofile" mode="organization">
   <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <xsl:attribute name="identifierRef">
       <xsl:text>id-</xsl:text>
