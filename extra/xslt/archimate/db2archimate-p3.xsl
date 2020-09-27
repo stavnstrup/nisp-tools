@@ -25,7 +25,7 @@
 <xsl:template match="records">
   <!-- List all elements -->
   <elements xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
-    <xsl:apply-templates select="standard|coverdoc|profilespec|profile|profilecontainer|serviceprofile" mode="element"/>
+    <xsl:apply-templates select="standard|coverdoc|profilespec|profile|profilecontainer|serviceprofile|serviceprofile/refgroup" mode="element"/>
   </elements>
   <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <!-- Traverse the profiletrees -->
@@ -63,6 +63,10 @@
       <item>
         <label xml:lang="en">Profile Containers</label>
         <xsl:apply-templates select="profilecontainer" mode="organization"/>
+      </item>
+      <item>
+        <label xml:lang="en">Reference Groups</label>
+        <xsl:apply-templates select="refgroup" mode="organization"/>
       </item>
     </item>
     <item>
@@ -160,14 +164,14 @@
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='uri']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='externalIdentifier']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="status/uri"/></value>
       </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='uuid']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="uuid"/></value>
       </property>
@@ -224,7 +228,7 @@
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='uuid']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="uuid"/></value>
       </property>
@@ -247,7 +251,7 @@
        <property>
          <xsl:attribute name="propertyDefinitionRef">
            <xsl:text>propid-</xsl:text>
-           <xsl:value-of select="/standards/allattributes/def[@attribute='uuid']/@position"/>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
          </xsl:attribute>
          <value xml:lang="en"><xsl:value-of select="uuid"/></value>
        </property>
@@ -269,7 +273,7 @@
        <property>
          <xsl:attribute name="propertyDefinitionRef">
            <xsl:text>propid-</xsl:text>
-           <xsl:value-of select="/standards/allattributes/def[@attribute='uuid']/@position"/>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
          </xsl:attribute>
          <value xml:lang="en"><xsl:value-of select="uuid"/></value>
        </property>
@@ -279,6 +283,29 @@
            <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
          </xsl:attribute>
          <value xml:lang="en">profile container</value>
+       </property>
+     </properties>
+   </element>
+</xsl:template>
+
+
+<xsl:template match="refgroup"  mode="element">
+   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{@uuid}" xsi:type="Grouping">
+     <name xml:lang="en"><xsl:value-of select="@title"/></name>
+     <properties>
+       <property>
+         <xsl:attribute name="propertyDefinitionRef">
+           <xsl:text>propid-</xsl:text>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
+         </xsl:attribute>
+         <value xml:lang="en"><xsl:value-of select="@uuid"/></value>
+       </property>
+       <property>
+         <xsl:attribute name="propertyDefinitionRef">
+           <xsl:text>propid-</xsl:text>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
+         </xsl:attribute>
+         <value xml:lang="en">refgroup</value>
        </property>
      </properties>
    </element>

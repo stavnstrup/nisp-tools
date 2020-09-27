@@ -38,9 +38,9 @@
       <def position="4" attribute="dateAccepted"/>          <!-- date -->
       <def position="5" attribute="version"/>               <!-- version -->
       <def position="6" attribute="nispResponsibleParty"/>  <!-- responsibleparty -->
-      <def position="7" attribute="uri"/>                   <!-- uri -->
+      <def position="7" attribute="externalIdentifier"/>    <!-- uri -->
       <def position="8" attribute="stereotype"/>            <!-- N/A -->
-      <def position="9" attribute="uuid"/>                  <!-- uuid -->
+      <def position="9" attribute="nispUUID"/>              <!-- uuid -->
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
