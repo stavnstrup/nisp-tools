@@ -41,6 +41,8 @@
       <def position="7" attribute="externalIdentifier"/>    <!-- uri -->
       <def position="8" attribute="stereotype"/>            <!-- N/A -->
       <def position="9" attribute="nispUUID"/>              <!-- uuid -->
+      <def position="9" attribute="nispObligation"/>
+      <def position="10" attribute="nispLifecycle"/>
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>

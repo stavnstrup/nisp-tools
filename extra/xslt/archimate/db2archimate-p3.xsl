@@ -295,6 +295,26 @@
      <properties>
        <property>
          <xsl:attribute name="propertyDefinitionRef">
+           <xsl:text>description</xsl:text>
+         </xsl:attribute>
+         <value xml:lang="en"><xsl:value-of select="description"/></value>
+       </property>
+       <property>
+         <xsl:attribute name="propertyDefinitionRef">
+           <xsl:text>propid-</xsl:text>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='nispObligation']/@position"/>
+         </xsl:attribute>
+         <value xml:lang="en"><xsl:value-of select="@obligation"/></value>
+       </property>
+       <property>
+         <xsl:attribute name="propertyDefinitionRef">
+           <xsl:text>propid-</xsl:text>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='nisplifecycle']/@position"/>
+         </xsl:attribute>
+         <value xml:lang="en"><xsl:value-of select="@lifecycle"/></value>
+       </property>
+       <property>
+         <xsl:attribute name="propertyDefinitionRef">
            <xsl:text>propid-</xsl:text>
            <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
          </xsl:attribute>
