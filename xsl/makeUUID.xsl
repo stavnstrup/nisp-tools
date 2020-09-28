@@ -42,6 +42,20 @@ Description : This stylesheet creates an UUID element in all standards
   <xsl:text>&#x0a;</xsl:text>
 </xsl:template>
 
+<xsl:template match="orgkey">
+  <orgkey>
+    <xsl:apply-templates select="@*"/>
+    <xsl:if test="not(./@uuid)">
+      <xsl:attribute name="uuid">
+        <xsl:if test="function-available('uuid:randomUUID')">
+          <xsl:value-of select="uuid:randomUUID()"/>
+        </xsl:if>
+      </xsl:attribute>
+    </xsl:if>
+  </orgkey>
+<xsl:template>
+
+
 <xsl:template match="event">
   <event date="{@date}" flag="{@flag}" version="{@version}" rfcp="{@rfcp}">
     <xsl:apply-templates/>
