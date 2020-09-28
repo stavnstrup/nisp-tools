@@ -53,7 +53,7 @@ Description : This stylesheet creates an UUID element in all standards
       </xsl:attribute>
     </xsl:if>
   </orgkey>
-<xsl:template>
+</xsl:template>
 
 
 <xsl:template match="event">
