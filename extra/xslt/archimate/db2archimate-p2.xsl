@@ -41,8 +41,8 @@
       <def position="7" attribute="externalIdentifier"/>    <!-- uri -->
       <def position="8" attribute="stereotype"/>            <!-- N/A -->
       <def position="9" attribute="nispUUID"/>              <!-- uuid -->
-      <def position="9" attribute="nispObligation"/>
-      <def position="10" attribute="nispLifecycle"/>
+      <def position="10" attribute="nispObligation"/>
+      <def position="11" attribute="nispLifecycle"/>
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
@@ -55,8 +55,32 @@
 </xsl:template>
 
 <!--
+  Tag all nodes in the taxonomy tree which should part of the export.
+-->
+
+<xsl:template match="node">
+  <xsl:variable name="myid" select="@id"/>
+  <node>
+    <xsl:apply-templates select="@*"/>
+    <xsl:if test="/standards/records/serviceprofile/reftaxonomy[@refid=$myid]">
+      <xsl:attribute name="usenode" select="yes"/>
+    </xsl:if>
+    <xsl:apply-templates/>
+  </node>
+</xsl:template>
+
+
+
+
+<!--
   Create a relation between referencegroup and standards
 -->
+
+
+<!--
+
+Sep. 29, 2020
+We probably do not need that anymore, since ids on relations does not need to be persistent anymore?
 
 <xsl:template match="refstandard">
   <xsl:element name="{local-name()}">
@@ -68,10 +92,12 @@
     <xsl:apply-templates/>
   </xsl:element>
 </xsl:template>
+-->
 
 
 <!--
-  Add a helper tree of profile heirachy
+  Create a profile tree for each profile. This temporary datastructure speeds up
+  quering about relations between nodes in a profile.
 -->
 
 
@@ -83,8 +109,8 @@
 
 
 <xsl:template match="profile[not(@toplevel='yes')]" mode="makeprofiletree">
-  <!-- We are only interested in the relationship between capabilityprofiles, serviceprofiles and
-       standards - so do not list profiles in the heirachy, -->
+  <!-- We are only interested in the relationship between the root and the leaves in the profile tree and
+       standards references from the leaves - so ignore any other part of the tree structure. -->
   <xsl:apply-templates select="subprofiles" mode="makeprofiletree"/>
 </xsl:template>
 
@@ -122,7 +148,6 @@
   <xsl:apply-templates select="/standards//*[@id=$myid]" mode="makeprofiletree"/>
 </xsl:template>
 
-
 <xsl:template match="refgroup" mode="makeprofiletree">
   <refgroup>
     <xsl:apply-templates select="@*"/>
@@ -133,6 +158,16 @@
 <!--
   Add a helper list with a mapping from organisations to all standards and coverstandards
 -->
+
+
+<!--
+
+Sep. 29, 2020
+
+Revisit these templates now that orgkey have an uuid attribute
+
+-->
+
 
 <xsl:template match="orgkey" mode="orglist">
   <xsl:variable name="myorg" select="@key"/>
@@ -147,7 +182,6 @@
   </xsl:if>
 </xsl:template>
 
-
 <xsl:template match="standard|coverdoc" mode="orglist">
   <reference refid="{@id}">
     <xsl:attribute name="uuid">
@@ -156,6 +190,8 @@
     </xsl:attribute>
   </reference>
 </xsl:template>
+
+<!-- Rename profiles, which are not top-level profiles to profilecontainer -->
 
 <xsl:template match="profile[@toplevel='no']">
   <profilecontainer>

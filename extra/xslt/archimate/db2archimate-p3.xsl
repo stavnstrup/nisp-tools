@@ -17,75 +17,85 @@
   <model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd" identifier="id-93c48180-9e5b-4220-a666-ee020c07d53a">
     <name xml:lang="en">NISP</name>
     <!-- Define meta-data attributes -->
-    <xsl:apply-templates select="records"/>
+    <elements xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+      <xsl:apply-templates select="taxonomy/node"/>
+      <xsl:apply-templates select="records"/>
+    </elements>
+<!--
+    <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+-->
+    <!-- Traverse the profiletrees -->
+<!--
+      <xsl:apply-templates select="/standards/profiletrees//refstandard" mode="listProfileRealtionship"/>
+-->
+    <!-- Traverse the list of organizational pages -->
+<!--
+      <xsl:apply-templates select="/standards/orglist//reference" mode="listProfileRealtionship"/>
+    </relationships>
+-->
+    <!-- Organize elemets and relations -->
+    <organizations xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+      <item>
+        <label xml:lang="en">Business</label>
+        <item>
+          <label xml:lang="en">Agreement</label>
+          <xsl:apply-templates select="records/coverdoc" mode="organization"/>
+        </item>
+        <item>
+          <label xml:lang="en">Standards</label>
+          <xsl:apply-templates select="/standards/organisations/orgkey" mode="organization"/>
+        </item>
+        <item>
+          <label xml:lang="en">Profiles</label>
+          <xsl:apply-templates select="records/profile" mode="organization"/>
+        </item>
+        <item>
+          <label xml:lang="en">Profile Specifications</label>
+          <xsl:apply-templates select="records/profilespec" mode="organization"/>
+        </item>
+        <item>
+          <label xml:lang="en">Service Profile</label>
+          <xsl:apply-templates select="records/serviceprofile" mode="organization"/>
+        </item>
+      </item>
+      <item>
+        <label xml:lang="en">Other</label>
+        <item>
+          <label xml:lang="en">Profile Containers</label>
+          <xsl:apply-templates select="records/profilecontainer" mode="organization"/>
+        </item>
+        <item>
+          <label xml:lang="en">Reference Groups</label>
+          <xsl:apply-templates select="records/serviceprofile/refgroup" mode="organization"/>
+        </item>
+      </item>
+    <!--
+      <item>
+        <label xml:lang="en">Relations</label>
+        <xsl:apply-templates select="/standards/profiletrees//refstandard" mode="refProfileRealtionship"/>
+      </item>
+    -->
+      <item>
+        <label xml:lang="en">Views</label>
+      </item>
+    </organizations>
+    <propertyDefinitions xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+      <xsl:apply-templates select="/standards/allattributes/*"/>
+    </propertyDefinitions>
+  <!--
+    <views  xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+      <diagrams>
+      </diagrams>
+    </views>
+  -->
   </model>
 </xsl:template>
 
 
 <xsl:template match="records">
   <!-- List all elements -->
-  <elements xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
-    <xsl:apply-templates select="standard|coverdoc|profilespec|profile|profilecontainer|serviceprofile|serviceprofile/refgroup" mode="element"/>
-  </elements>
-  <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
-    <!-- Traverse the profiletrees -->
-    <xsl:apply-templates select="/standards/profiletrees//refstandard" mode="listProfileRealtionship"/>
-    <!-- Traverse the list of organizational pages -->
-    <xsl:apply-templates select="/standards/orglist//reference" mode="listProfileRealtionship"/>
-  </relationships>
-  <!-- Organize elemets and relations -->
-  <organizations xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
-    <item>
-      <label xml:lang="en">Business</label>
-      <item>
-        <label xml:lang="en">Agreement</label>
-        <xsl:apply-templates select="coverdoc" mode="organization"/>
-      </item>
-      <item>
-         <label xml:lang="en">Standards</label>
-         <xsl:apply-templates select="/standards/organisations/orgkey" mode="organization"/>
-      </item>
-      <item>
-        <label xml:lang="en">Profiles</label>
-        <xsl:apply-templates select="profile" mode="organization"/>
-      </item>
-      <item>
-        <label xml:lang="en">Profile Specifications</label>
-        <xsl:apply-templates select="profilespec" mode="organization"/>
-      </item>
-      <item>
-        <label xml:lang="en">Service Profile</label>
-        <xsl:apply-templates select="serviceprofile" mode="organization"/>
-      </item>
-    </item>
-    <item>
-      <label xml:lang="en">Other</label>
-      <item>
-        <label xml:lang="en">Profile Containers</label>
-        <xsl:apply-templates select="profilecontainer" mode="organization"/>
-      </item>
-      <item>
-        <label xml:lang="en">Reference Groups</label>
-        <xsl:apply-templates select="refgroup" mode="organization"/>
-      </item>
-    </item>
-    <item>
-      <label xml:lang="en">Relations</label>
-      <xsl:apply-templates select="/standards/profiletrees//refstandard" mode="refProfileRealtionship"/>
-    </item>
-    <item>
-      <label xml:lang="en">Views</label>
-    </item>
-  </organizations>
-  <propertyDefinitions xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
-    <xsl:apply-templates select="/standards/allattributes/*"/>
-  </propertyDefinitions>
-  <!--
-  <views  xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
-    <diagrams>
-    </diagrams>
-  </views>
-  -->
+  <xsl:apply-templates select="standard|coverdoc|profilespec|profile|profilecontainer|serviceprofile|serviceprofile/refgroup" mode="element"/>
+
 </xsl:template>
 
 
@@ -290,15 +300,10 @@
 
 
 <xsl:template match="refgroup"  mode="element">
-   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{@uuid}" xsi:type="Grouping">
+   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="Grouping">
      <name xml:lang="en"><xsl:value-of select="@title"/></name>
+     <documentation xml:lang="en"><xsl:value-of select="description"/></documentation>
      <properties>
-       <property>
-         <xsl:attribute name="propertyDefinitionRef">
-           <xsl:text>description</xsl:text>
-         </xsl:attribute>
-         <value xml:lang="en"><xsl:value-of select="description"/></value>
-       </property>
        <property>
          <xsl:attribute name="propertyDefinitionRef">
            <xsl:text>propid-</xsl:text>
@@ -309,7 +314,7 @@
        <property>
          <xsl:attribute name="propertyDefinitionRef">
            <xsl:text>propid-</xsl:text>
-           <xsl:value-of select="/standards/allattributes/def[@attribute='nisplifecycle']/@position"/>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='nispLifecycle']/@position"/>
          </xsl:attribute>
          <value xml:lang="en"><xsl:value-of select="@lifecycle"/></value>
        </property>
@@ -329,6 +334,10 @@
        </property>
      </properties>
    </element>
+</xsl:template>
+
+
+<xsl:template match="node">
 </xsl:template>
 
 
