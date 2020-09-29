@@ -12,9 +12,14 @@
 <xsl:output indent="yes"/>
 
 <xsl:variable name="draft" select="'(DRAFT) '"/>
+
+<xsl:variable name="nisp-version" select="'NISP 13.0'"/>
+
 <!-- Version 3.0 of the C3 Taxonomy -->
 <xsl:variable name="c3t-statement" select="'Generated from the ACT Enterprise Mapping Wiki on 26 Aug 2019'"/>
 <xsl:variable name="c3t-date" select="'26 Aug 2019'"/>
+
+
 
 <xsl:template match="standards">
   <model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd" identifier="id-93c48180-9e5b-4220-a666-ee020c07d53a">
@@ -25,51 +30,57 @@
       <xsl:apply-templates select="records"/>
     </elements>
 <!--
-    <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
 -->
+    <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <!-- Traverse the profiletrees -->
-<!--
       <xsl:apply-templates select="/standards/profiletrees//refstandard" mode="listProfileRealtionship"/>
+<!--
 -->
     <!-- Traverse the list of organizational pages -->
 <!--
+-->
       <xsl:apply-templates select="/standards/orglist//reference" mode="listProfileRealtionship"/>
     </relationships>
--->
     <!-- Organize elemets and relations -->
     <organizations xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
       <item>
         <label xml:lang="en">Business</label>
         <item>
-          <label xml:lang="en">Agreement</label>
-          <xsl:apply-templates select="records/coverdoc" mode="organization"/>
-        </item>
-        <item>
-          <label xml:lang="en">Standards</label>
-          <xsl:apply-templates select="/standards/organisations/orgkey" mode="organization"/>
-        </item>
-        <item>
-          <label xml:lang="en">Profiles</label>
-          <xsl:apply-templates select="records/profile" mode="organization"/>
-        </item>
-        <item>
-          <label xml:lang="en">Profile Specifications</label>
-          <xsl:apply-templates select="records/profilespec" mode="organization"/>
-        </item>
-        <item>
-          <label xml:lang="en">Service Profile</label>
-          <xsl:apply-templates select="records/serviceprofile" mode="organization"/>
-        </item>
+          <label xml:lang="en"><xsl:value-of select="$nisp-version"/></label>
+          <item>
+            <label xml:lang="en">Agreement</label>
+            <xsl:apply-templates select="records/coverdoc" mode="organization"/>
+          </item>
+          <item>
+            <label xml:lang="en">Standards</label>
+            <xsl:apply-templates select="/standards/organisations/orgkey" mode="organization"/>
+          </item>
+          <item>
+            <label xml:lang="en">Profiles</label>
+            <xsl:apply-templates select="records/profile" mode="organization"/>
+          </item>
+          <item>
+            <label xml:lang="en">Profile Specifications</label>
+            <xsl:apply-templates select="records/profilespec" mode="organization"/>
+          </item>
+          <item>
+            <label xml:lang="en">Service Profile</label>
+            <xsl:apply-templates select="records/serviceprofile" mode="organization"/>
+          </item>
+        </item> 
       </item>
       <item>
         <label xml:lang="en">Other</label>
         <item>
-          <label xml:lang="en">Profile Containers</label>
-          <xsl:apply-templates select="records/profilecontainer" mode="organization"/>
-        </item>
-        <item>
-          <label xml:lang="en">Reference Groups</label>
-          <xsl:apply-templates select="records/serviceprofile/refgroup1" mode="organization"/>
+          <label xml:lang="en"><xsl:value-of select="$nisp-version"/></label>
+          <item>
+            <label xml:lang="en">Profile Containers</label>
+            <xsl:apply-templates select="records/profilecontainer" mode="organization"/>
+          </item>
+          <item>
+            <label xml:lang="en">Reference Groups</label>
+            <xsl:apply-templates select="records/serviceprofile/refgroup" mode="organization"/>
+          </item>
         </item>
       </item>
     <!--
@@ -325,7 +336,7 @@
            <xsl:text>propid-</xsl:text>
            <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
          </xsl:attribute>
-         <value xml:lang="en"><xsl:value-of select="@uuid"/></value>
+         <value xml:lang="en"><xsl:value-of select="uuid"/></value>
        </property>
        <property>
          <xsl:attribute name="propertyDefinitionRef">
@@ -415,6 +426,8 @@
 <!-- ============================================================== -->
 
 
+
+
 <xsl:template match="refstandard" mode="listProfileRealtionship">
   <xsl:variable name="mytarget" select="@refid"/>
   <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
@@ -430,6 +443,7 @@
 
 
 <xsl:template match="reference" mode="listProfileRealtionship">
+
 <!--
   <xsl:variable name="mytarget" select="@refid"/>
   <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
@@ -443,6 +457,8 @@
   </relationship>
 -->
  </xsl:template>
+
+
 
 
 <xsl:template match="refstandard" mode="refProfileRealtionship">
@@ -469,7 +485,7 @@
   </xsl:if>
 </xsl:template>
 
-<xsl:template match="standard|coverdoc|profilespec|profile|profilecontainer|serviceprofile" mode="organization">
+<xsl:template match="standard|coverdoc|profilespec|profile|profilecontainer|serviceprofile|serviceprofile/refgroup" mode="organization">
   <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <xsl:attribute name="identifierRef">
       <xsl:text>id-</xsl:text>
