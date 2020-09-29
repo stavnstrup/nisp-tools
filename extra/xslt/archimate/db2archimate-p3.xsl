@@ -12,6 +12,8 @@
 <xsl:output indent="yes"/>
 
 
+<xsl:variable name="draft" select="'(DRAFT) '"/>
+
 
 <xsl:template match="standards">
   <model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd" identifier="id-93c48180-9e5b-4220-a666-ee020c07d53a">
@@ -109,7 +111,7 @@
   <xsl:variable name="myorgid" select="document/@orgid"/>
   <xsl:variable name="rp" select="responsibleparty/@rpref"/>
   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="BusinessObject">
-    <name xml:lang="en"><xsl:value-of select="document/@title"/>
+    <name xml:lang="en"><xsl:value-of select="$draft"/><xsl:value-of select="document/@title"/>
       <xsl:if test="document/@orgid or document/@pubnum">
         <xsl:text>, </xsl:text>
         <xsl:if test="document/@orgid">
@@ -205,7 +207,7 @@
 <xsl:template match="profilespec" mode="element">
   <xsl:variable name="myorgid" select="@orgid"/>
   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="BusinessObject">
-    <name xml:lang="en"><xsl:value-of select="@title"/></name>
+    <name xml:lang="en"><xsl:value-of select="$draft"/><xsl:value-of select="@title"/></name>
     <properties>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
@@ -256,7 +258,7 @@
 
 <xsl:template match="profile|serviceprofile"  mode="element">
    <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="BusinessObject">
-     <name xml:lang="en"><xsl:value-of select="@title"/></name>
+     <name xml:lang="en"><xsl:value-of select="$draft"/><xsl:value-of select="@title"/></name>
      <properties>
        <property>
          <xsl:attribute name="propertyDefinitionRef">

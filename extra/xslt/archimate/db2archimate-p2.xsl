@@ -41,8 +41,8 @@
       <def position="7" attribute="externalIdentifier"/>    <!-- uri -->
       <def position="8" attribute="stereotype"/>            <!-- N/A -->
       <def position="9" attribute="nispUUID"/>              <!-- uuid -->
-      <def position="10" attribute="nispObligation"/>
-      <def position="11" attribute="nispLifecycle"/>
+      <def position="10" attribute="nispObligation"/>       <!-- obligation -->
+      <def position="11" attribute="nispLifecycle"/>        <!-- lifecycle -->
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
@@ -55,13 +55,14 @@
 </xsl:template>
 
 <!--
-  Tag all nodes in the taxonomy tree which should part of the export.
+  Tag all nodes in the C3 taxonomy tree which should part of the ArchiMate export.
 -->
 
 <xsl:template match="node">
   <xsl:variable name="myid" select="@id"/>
   <node>
     <xsl:apply-templates select="@*"/>
+    <!-- Only nodes which are referenced from a profile are included -->
     <xsl:if test="/standards/records/serviceprofile/reftaxonomy[@refid=$myid]">
       <xsl:attribute name="usenode" select="yes"/>
     </xsl:if>
@@ -70,12 +71,9 @@
 </xsl:template>
 
 
-
-
 <!--
   Create a relation between referencegroup and standards
 -->
-
 
 <!--
 
