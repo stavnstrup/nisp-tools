@@ -43,6 +43,13 @@
       <def position="9" attribute="nispUUID"/>              <!-- uuid -->
       <def position="10" attribute="nispObligation"/>       <!-- obligation -->
       <def position="11" attribute="nispLifecycle"/>        <!-- lifecycle -->
+      <def position="12" attribute="creator"/>
+      <def position="13" attribute="policyIdentifier"/>
+      <def position="14" attribute="classification"/>
+      <def position="15" attribute="C3T UUID"/>
+      <def position="16" attribute="C3T URL"/>
+      <def position="17" attribute="C3T Version"/>
+      <def position="18" attribute="C3T Date"/>
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
@@ -64,7 +71,17 @@
     <xsl:apply-templates select="@*"/>
     <!-- Only nodes which are referenced from a profile are included -->
     <xsl:if test="/standards/records/serviceprofile/reftaxonomy[@refid=$myid]">
-      <xsl:attribute name="usenode" select="yes"/>
+      <xsl:attribute name="usenode">
+        <xsl:text>yes</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
+    <!-- Make sure use-defined nodes also has an uuid value -->
+    <xsl:if test="@emUUID=''">
+      <xsl:attribute name="emUUID">
+        <xsl:if test="function-available('uuid:randomUUID')">
+          <xsl:value-of select="uuid:randomUUID()"/>
+        </xsl:if>
+      </xsl:attribute>
     </xsl:if>
     <xsl:apply-templates/>
   </node>

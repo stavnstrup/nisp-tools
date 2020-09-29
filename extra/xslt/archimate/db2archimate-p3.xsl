@@ -11,16 +11,17 @@
 -->
 <xsl:output indent="yes"/>
 
-
 <xsl:variable name="draft" select="'(DRAFT) '"/>
-
+<!-- Version 3.0 of the C3 Taxonomy -->
+<xsl:variable name="c3t-statement" select="'Generated from the ACT Enterprise Mapping Wiki on 26 Aug 2019'"/>
+<xsl:variable name="c3t-date" select="'26 Aug 2019'"/>
 
 <xsl:template match="standards">
   <model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd" identifier="id-93c48180-9e5b-4220-a666-ee020c07d53a">
     <name xml:lang="en">NISP</name>
     <!-- Define meta-data attributes -->
     <elements xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
-      <xsl:apply-templates select="taxonomy/node"/>
+      <xsl:apply-templates select="taxonomy/node" mode="element"/>
       <xsl:apply-templates select="records"/>
     </elements>
 <!--
@@ -68,7 +69,7 @@
         </item>
         <item>
           <label xml:lang="en">Reference Groups</label>
-          <xsl:apply-templates select="records/serviceprofile/refgroup" mode="organization"/>
+          <xsl:apply-templates select="records/serviceprofile/refgroup1" mode="organization"/>
         </item>
       </item>
     <!--
@@ -97,7 +98,6 @@
 <xsl:template match="records">
   <!-- List all elements -->
   <xsl:apply-templates select="standard|coverdoc|profilespec|profile|profilecontainer|serviceprofile|serviceprofile/refgroup" mode="element"/>
-
 </xsl:template>
 
 
@@ -339,7 +339,74 @@
 </xsl:template>
 
 
-<xsl:template match="node">
+<xsl:template match="node" mode="element">
+  <xsl:if test="./@usenode='yes'">
+    <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{@emUUID}" xsi:type="TechnologyService"> <!-- Fix:  Note, we might be using other parts of the taxonomy -->
+      <name xml:lang="en"><xsl:value-of select="@title"/></name>
+      <!--
+      <documentation xml:lang="en"><xsl:value-of select="@description"/></documentation>
+      -->
+      <properties>
+        <property>
+          <xsl:attribute name="propertyDefinitionRef">
+            <xsl:text>propid-</xsl:text>
+            <xsl:value-of select="/standards/allattributes/def[@attribute='creator']/@position"/>
+          </xsl:attribute>
+          <value>ACT</value>
+        </property>
+        <property>
+          <xsl:attribute name="propertyDefinitionRef">
+            <xsl:text>propid-</xsl:text>
+            <xsl:value-of select="/standards/allattributes/def[@attribute='publisher']/@position"/>
+          </xsl:attribute>
+          <value>ACT</value>
+        </property>
+        <property>
+          <xsl:attribute name="propertyDefinitionRef">
+            <xsl:text>propid-</xsl:text>
+            <xsl:value-of select="/standards/allattributes/def[@attribute='policyIdentifier']/@position"/>
+          </xsl:attribute>
+          <value>Public</value>
+        </property>
+        <property>
+          <xsl:attribute name="propertyDefinitionRef">
+            <xsl:text>propid-</xsl:text>
+            <xsl:value-of select="/standards/allattributes/def[@attribute='publisher']/@position"/>
+          </xsl:attribute>
+          <value>Unmarked</value>
+        </property>
+        <property>
+          <xsl:attribute name="propertyDefinitionRef">
+            <xsl:text>propid-</xsl:text>
+            <xsl:value-of select="/standards/allattributes/def[@attribute='C3T UUID']/@position"/>
+          </xsl:attribute>
+          <value><xsl:value-of select="@emUUID"/></value>
+        </property>
+        <property>
+          <xsl:attribute name="propertyDefinitionRef">
+            <xsl:text>propid-</xsl:text>
+            <xsl:value-of select="/standards/allattributes/def[@attribute='C3T URL']/@position"/>
+          </xsl:attribute>
+          <value>https://tide.act.nato.int/em/index.php/Community_Of_Interest_(COI)_Services</value>
+        </property>
+        <property>
+          <xsl:attribute name="propertyDefinitionRef">
+            <xsl:text>propid-</xsl:text>
+            <xsl:value-of select="/standards/allattributes/def[@attribute='C3T Version']/@position"/>
+          </xsl:attribute>
+          <value><xsl:value-of select="$c3t-statement"/></value>
+        </property>
+        <property>
+          <xsl:attribute name="propertyDefinitionRef">
+            <xsl:text>propid-</xsl:text>
+            <xsl:value-of select="/standards/allattributes/def[@attribute='C3T Date']/@position"/>
+          </xsl:attribute>
+          <value><xsl:value-of select="$c3t-date"/></value>
+        </property>
+      </properties>
+    </element>
+  </xsl:if>
+  <xsl:apply-templates mode="element"/>
 </xsl:template>
 
 

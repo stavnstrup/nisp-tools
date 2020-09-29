@@ -11,7 +11,7 @@
      Create Archimate export of all standards and profiles
 
      1. Remove all deleted elements
-     
+
      ========================================================== -->
 
 <xsl:output indent="yes" saxon:next-in-chain="db2archimate-p2.xsl"/>
