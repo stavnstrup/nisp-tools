@@ -50,6 +50,7 @@
       <def position="16" attribute="C3T URL"/>
       <def position="17" attribute="C3T Version"/>
       <def position="18" attribute="C3T Date"/>
+      <def position="19" attribute="guide"/>
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
@@ -61,31 +62,7 @@
   </standards>
 </xsl:template>
 
-<!--
-  Tag all nodes in the C3 taxonomy tree which should part of the ArchiMate export.
--->
 
-<xsl:template match="node">
-  <xsl:variable name="myid" select="@id"/>
-  <node>
-    <xsl:apply-templates select="@*"/>
-    <!-- Only nodes which are referenced from a profile are included -->
-    <xsl:if test="/standards/records/serviceprofile/reftaxonomy[@refid=$myid]">
-      <xsl:attribute name="usenode">
-        <xsl:text>yes</xsl:text>
-      </xsl:attribute>
-    </xsl:if>
-    <!-- Make sure use-defined nodes also has an uuid value -->
-    <xsl:if test="@emUUID=''">
-      <xsl:attribute name="emUUID">
-        <xsl:if test="function-available('uuid:randomUUID')">
-          <xsl:value-of select="uuid:randomUUID()"/>
-        </xsl:if>
-      </xsl:attribute>
-    </xsl:if>
-    <xsl:apply-templates/>
-  </node>
-</xsl:template>
 
 
 <!--
@@ -117,21 +94,21 @@ We probably do not need that anymore, since ids on relations does not need to be
 
 
 <xsl:template match="profile[@toplevel='yes']" mode="makeprofiletree">
-  <capabilityprofile id="{@id}" uuid="id-{./uuid}">
+  <profile id="{@id}" uuid="{uuid}">
     <xsl:apply-templates select="subprofiles" mode="makeprofiletree"/>
-  </capabilityprofile>
+  </profile>
 </xsl:template>
 
 
 <xsl:template match="profile[not(@toplevel='yes')]" mode="makeprofiletree">
-  <!-- We are only interested in the relationship between the root and the leaves in the profile tree and
-       standards references from the leaves - so ignore any other part of the tree structure. -->
-  <xsl:apply-templates select="subprofiles" mode="makeprofiletree"/>
+  <profilecontainer id="{@id}" uuid="{uuid}">
+    <xsl:apply-templates select="subprofiles" mode="makeprofiletree"/>
+  </profilecontainer>
 </xsl:template>
 
 
 <xsl:template match="serviceprofile" mode="makeprofiletree">
-  <serviceprofile id="{@id}">
+  <serviceprofile id="{@id}" uuid="{uuid}">
     <xsl:apply-templates select="reftaxonomy" mode="makeprofiletree"/>
     <xsl:apply-templates select="refgroup" mode="makeprofiletree"/>
   </serviceprofile>
@@ -139,7 +116,7 @@ We probably do not need that anymore, since ids on relations does not need to be
 
 
 <xsl:template match="reftaxonomy" mode="makeprofiletree">
-  <reftaxonomy refid="{@refid}"/>
+  <reftaxonomy uuid="{substring-before(substring-after(@refid, 'T-'),'-X')}"/>
 </xsl:template>
 
 
@@ -149,26 +126,27 @@ We probably do not need that anymore, since ids on relations does not need to be
 
 
 <xsl:template match="refstandard" mode="makeprofiletree">
+  <xsl:variable name="myid" select="@refid"/>
   <refstandard>
-    <xsl:apply-templates select="@*"/>
     <xsl:attribute name="uuid">
-      <xsl:text>id-</xsl:text>
-      <xsl:value-of select="uuid:randomUUID()"/>
+      <xsl:value-of select="/standards/records/standard[@id=$myid]/uuid"/>
     </xsl:attribute>
   </refstandard>
 </xsl:template>
 
 <xsl:template match="refprofile" mode="makeprofiletree">
   <xsl:variable name="myid" select="@refid"/>
+
   <xsl:apply-templates select="/standards//*[@id=$myid]" mode="makeprofiletree"/>
 </xsl:template>
 
 <xsl:template match="refgroup" mode="makeprofiletree">
-  <refgroup>
+  <refgroup uuid="{uuid}">
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates select="refstandard" mode="makeprofiletree"/>
   </refgroup>
 </xsl:template>
+
 
 <!--
   Add a helper list with a mapping from organisations to all standards and coverstandards

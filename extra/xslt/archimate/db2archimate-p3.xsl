@@ -2,7 +2,9 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:saxon="http://saxon.sf.net/"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:uuid="java:java.util.UUID"
                 extension-element-prefixes="saxon"
+                exclude-result-prefixes="uuid"
                 version='2.0'>
 
 
@@ -33,7 +35,8 @@
 -->
     <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <!-- Traverse the profiletrees -->
-      <xsl:apply-templates select="/standards/profiletrees//refstandard" mode="listProfileRealtionship"/>
+      <xsl:apply-templates select="/standards/profiletrees//serviceprofile" mode="listProfileRelation"/>
+
 <!--
 -->
     <!-- Traverse the list of organizational pages -->
@@ -267,7 +270,7 @@
 </xsl:template>
 
 
-<xsl:template match="profile|serviceprofile"  mode="element">
+<xsl:template match="profile"  mode="element">
    <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="BusinessObject">
      <name xml:lang="en"><xsl:value-of select="$draft"/><xsl:value-of select="@title"/></name>
      <properties>
@@ -289,6 +292,7 @@
    </element>
 </xsl:template>
 
+
 <xsl:template match="profilecontainer"  mode="element">
    <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="Grouping">
      <name xml:lang="en"><xsl:value-of select="@title"/></name>
@@ -306,6 +310,36 @@
            <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
          </xsl:attribute>
          <value xml:lang="en">profile container</value>
+       </property>
+     </properties>
+   </element>
+</xsl:template>
+
+<xsl:template match="serviceprofile"  mode="element">
+   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="BusinessObject">
+     <name xml:lang="en"><xsl:value-of select="$draft"/><xsl:value-of select="@title"/></name>
+     <documentation xml:lang="en"><xsl:value-of select="description"/></documentation>
+     <properties>
+       <property>
+         <xsl:attribute name="propertyDefinitionRef">
+           <xsl:text>propid-</xsl:text>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='guide']/@position"/>
+         </xsl:attribute>
+         <value xml:lang="en"><xsl:value-of select="guide"/></value>
+       </property>
+       <property>
+         <xsl:attribute name="propertyDefinitionRef">
+           <xsl:text>propid-</xsl:text>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
+         </xsl:attribute>
+         <value xml:lang="en"><xsl:value-of select="uuid"/></value>
+       </property>
+       <property>
+         <xsl:attribute name="propertyDefinitionRef">
+           <xsl:text>propid-</xsl:text>
+           <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
+         </xsl:attribute>
+         <value xml:lang="en"><xsl:value-of select="local-name(.)"/></value>
        </property>
      </properties>
    </element>
@@ -398,7 +432,11 @@
             <xsl:text>propid-</xsl:text>
             <xsl:value-of select="/standards/allattributes/def[@attribute='C3T URL']/@position"/>
           </xsl:attribute>
-          <value>https://tide.act.nato.int/em/index.php/Community_Of_Interest_(COI)_Services</value>
+          <value> 
+            <xsl:text>https://tide.act.nato.int/em/index.php/</xsl:text>
+            <xsl:text>Community_Of_Interest_(COI)_Services</xsl:text> <!-- Fix this -->
+          </value>
+
         </property>
         <property>
           <xsl:attribute name="propertyDefinitionRef">
@@ -427,47 +465,35 @@
 
 
 
-
-<xsl:template match="refstandard" mode="listProfileRealtionship">
-  <xsl:variable name="mytarget" select="@refid"/>
+<xsl:template match="profilecontainer|serviceprofile|reftaxonomy|refgroup" mode="listProfileRelation">
   <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
-                 identifier="id-{@uuid}"
-                 source="{ancestor::capabilityprofile/@uuid}"
-                 xsi:type="Aggregation">
-    <xsl:attribute name="target">
-      <xsl:text>id-</xsl:text>
-      <xsl:apply-templates select="/standards/records/*[@id=$mytarget]/uuid"/>
-    </xsl:attribute>
-  </relationship>
- </xsl:template>
-
-
-<xsl:template match="reference" mode="listProfileRealtionship">
-
-<!--
-  <xsl:variable name="mytarget" select="@refid"/>
-  <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
-                identifier="id-{@uuid}"
-                source="id-{../@uuid}"
+                source="id-{parent::node()/@uuid}"
+                target="id-{@uuid}"
                 xsi:type="Composition">
-    <xsl:attribute name="target">
-      <xsl:text>id-</xsl:text>
-      <xsl:apply-templates select="/standards/records/*[@id=$mytarget]/uuid"/>
+    <xsl:attribute name="identifier">
+      <xsl:if test="function-available('uuid:randomUUID')">
+        <xsl:text>id-</xsl:text>
+        <xsl:value-of select="uuid:randomUUID()"/>
+      </xsl:if>
     </xsl:attribute>
   </relationship>
--->
- </xsl:template>
-
-
-
-
-<xsl:template match="refstandard" mode="refProfileRealtionship">
-  <item  xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifierRef="id-{@uuid}"/>
+  <xsl:apply-templates mode="listProfileRelation"/>
 </xsl:template>
 
-<!--
-<xsl:apply-templates select="/standards/orglist//reference" mode="listProfileRealtionship"/>
--->
+
+<xsl:template match="refstandard" mode="listProfileRelation">
+  <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
+                source="id-{parent::node()/@uuid}"
+                target="id-{@uuid}"
+                xsi:type="Aggregation">
+    <xsl:attribute name="identifier">
+      <xsl:text>id-</xsl:text>
+      <xsl:if test="function-available('uuid:randomUUID')">
+        <xsl:value-of select="uuid:randomUUID()"/>
+      </xsl:if>
+    </xsl:attribute>
+  </relationship>
+</xsl:template>
 
 
 <!-- ============================================================== -->

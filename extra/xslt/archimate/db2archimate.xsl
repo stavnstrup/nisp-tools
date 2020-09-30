@@ -21,7 +21,31 @@
 
 <xsl:template match="*[status/@mode='deleted']"/>
 
+<!--
+  Tag all nodes in the C3 taxonomy tree which should part of the ArchiMate export.
+-->
 
+<xsl:template match="node">
+  <xsl:variable name="myid" select="@id"/>
+  <node>
+    <xsl:apply-templates select="@*"/>
+    <!-- Only nodes which are referenced from a profile are included -->
+    <xsl:if test="/standards/records/serviceprofile/reftaxonomy[@refid=$myid]">
+      <xsl:attribute name="usenode">
+        <xsl:text>yes</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
+    <!-- Make sure use-defined nodes also has an uuid value -->
+    <xsl:if test="@emUUID=''">
+      <xsl:attribute name="emUUID">
+        <xsl:if test="function-available('uuid:randomUUID')">
+          <xsl:value-of select="uuid:randomUUID()"/>
+        </xsl:if>
+      </xsl:attribute>
+    </xsl:if>
+    <xsl:apply-templates/>
+  </node>
+</xsl:template>
 
 <!-- ========================================================== -->
 
