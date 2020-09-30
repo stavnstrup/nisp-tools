@@ -19,9 +19,11 @@
 
      ========================================================== -->
 
-<xsl:output indent="yes" saxon:next-in-chain="db2archimate-p3.xsl"/>
 <!--
+<xsl:output indent="yes" saxon:next-in-chain="db2archimate-p3.xsl"/>
 -->
+
+
 
 <xsl:output indent="yes"/>
 
@@ -108,7 +110,10 @@ We probably do not need that anymore, since ids on relations does not need to be
 
 
 <xsl:template match="serviceprofile" mode="makeprofiletree">
-  <serviceprofile id="{@id}" uuid="{uuid}">
+  <serviceprofile id="{@id}" title="{@title}" uuid="{uuid}">
+    <xsl:attribute name="constraintUUID">
+      <xsl:value-of select="uuid:randomUUID()"/>
+    </xsl:attribute>
     <xsl:apply-templates select="reftaxonomy" mode="makeprofiletree"/>
     <xsl:apply-templates select="refgroup" mode="makeprofiletree"/>
   </serviceprofile>
@@ -116,7 +121,13 @@ We probably do not need that anymore, since ids on relations does not need to be
 
 
 <xsl:template match="reftaxonomy" mode="makeprofiletree">
-  <reftaxonomy uuid="{substring-before(substring-after(@refid, 'T-'),'-X')}"/>
+  <xsl:variable name="myid" select="@refid"/>
+  <reftaxonomy>
+    <xsl:apply-templates select="@*"/>
+    <xsl:attribute name="uuid">
+      <xsl:value-of select="/standards/taxonomy//node[@id=$myid]/@emUUID"/>
+    </xsl:attribute>
+  </reftaxonomy>
 </xsl:template>
 
 
@@ -129,14 +140,13 @@ We probably do not need that anymore, since ids on relations does not need to be
   <xsl:variable name="myid" select="@refid"/>
   <refstandard>
     <xsl:attribute name="uuid">
-      <xsl:value-of select="/standards/records/standard[@id=$myid]/uuid"/>
+      <xsl:value-of select="/standards/records/*[@id=$myid]/uuid"/>
     </xsl:attribute>
   </refstandard>
 </xsl:template>
 
 <xsl:template match="refprofile" mode="makeprofiletree">
   <xsl:variable name="myid" select="@refid"/>
-
   <xsl:apply-templates select="/standards//*[@id=$myid]" mode="makeprofiletree"/>
 </xsl:template>
 
