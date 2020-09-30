@@ -19,8 +19,8 @@
 
      ========================================================== -->
 
-<!--
 <xsl:output indent="yes" saxon:next-in-chain="db2archimate-p3.xsl"/>
+<!--
 -->
 
 
@@ -96,21 +96,21 @@ We probably do not need that anymore, since ids on relations does not need to be
 
 
 <xsl:template match="profile[@toplevel='yes']" mode="makeprofiletree">
-  <profile id="{@id}" uuid="{uuid}">
+  <profile id="{@id}" uuid="{uuid}" spec="{refprofilespec/@refid}">
     <xsl:apply-templates select="subprofiles" mode="makeprofiletree"/>
   </profile>
 </xsl:template>
 
 
 <xsl:template match="profile[not(@toplevel='yes')]" mode="makeprofiletree">
-  <profilecontainer id="{@id}" uuid="{uuid}">
+  <profilecontainer id="{@id}" uuid="{uuid}" spec="{refprofilespec/@refid}">
     <xsl:apply-templates select="subprofiles" mode="makeprofiletree"/>
   </profilecontainer>
 </xsl:template>
 
 
 <xsl:template match="serviceprofile" mode="makeprofiletree">
-  <serviceprofile id="{@id}" title="{@title}" uuid="{uuid}">
+  <serviceprofile id="{@id}" title="{@title}" uuid="{uuid}" spec="{refprofilespec/@refid}">
     <xsl:attribute name="constraintUUID">
       <xsl:value-of select="uuid:randomUUID()"/>
     </xsl:attribute>

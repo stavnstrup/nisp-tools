@@ -38,6 +38,10 @@
       <xsl:apply-templates select="/standards/profiletrees//serviceprofile" mode="listProfileRelation"/>
       <!-- List all relations between serviceprofile,constraint & taxonomy elements -->
       <xsl:apply-templates select="profiletrees//serviceprofile" mode="listConstraintRelation"/>
+
+      <!-- Create relation to profilespecifications -->
+      <xsl:apply-templates select="profiletrees" mode="listSpecRelation"/>
+
       <!-- Traverse the list of organizational pages -->
 <!--
       <xsl:apply-templates select="/standards/orglist//reference" mode="listProfileRealtionship"/>
@@ -69,7 +73,14 @@
             <label xml:lang="en">Service Profile</label>
             <xsl:apply-templates select="records/serviceprofile" mode="organization"/>
           </item>
-        </item> 
+        </item>
+      </item>
+      <item>
+        <label xml:lang="en">Technology &amp; Physical</label>
+        <item>
+          <label xml:lang="en">C3T</label>
+          <xsl:apply-templates select="taxonomy/node" mode="organization"/>
+        </item>
       </item>
       <item>
         <label xml:lang="en">Motivation</label>
@@ -494,8 +505,7 @@
 <!-- ============================================================== -->
 
 
-
-<xsl:template match="profilecontainer|serviceprofile|reftaxonomy|refgroup" mode="listProfileRelation">
+<xsl:template match="profilecontainer|serviceprofile|refgroup" mode="listProfileRelation">
   <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
                 source="id-{parent::node()/@uuid}"
                 target="id-{@uuid}"
@@ -565,6 +575,31 @@
   </relationship>
 </xsl:template>
 
+
+<xsl:template match="profiletrees" mode="listSpecRelation">
+  <xsl:apply-templates mode="listSpecRelation"/>
+</xsl:template>
+
+<xsl:template match="profile|profilecontainer|serviceprofile" mode="listSpecRelation">
+  <xsl:variable name="specId" select="@spec"/>
+  <xsl:variable name="specUUID" select="/standards/records/profilespec[@id=$specId]/uuid"/>
+  <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
+                source="id-{@uuid}"
+                target="id-{$specUUID}"
+                xsi:type="Association">
+    <xsl:attribute name="identifier">
+      <xsl:text>id-</xsl:text>
+      <xsl:if test="function-available('uuid:randomUUID')">
+        <xsl:value-of select="uuid:randomUUID()"/>
+      </xsl:if>
+    </xsl:attribute>
+  </relationship>
+  <xsl:apply-templates mode="listSpecRelation"/>
+</xsl:template>
+
+<xsl:template match="reftaxonomy|refgroup" mode="listSpecRelation"/>
+
+
 <!-- ============================================================== -->
 <!--                          Organization                          -->
 <!-- ============================================================== -->
@@ -608,6 +643,17 @@
   </item>
 </xsl:template>
 
+<xsl:template match="node" mode="organization">
+  <xsl:if test="./@usenode='yes'">
+    <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+      <xsl:attribute name="identifierRef">
+        <xsl:text>id-</xsl:text>
+        <xsl:value-of select="@emUUID"/>
+      </xsl:attribute>
+    </item>
+  </xsl:if>
+  <xsl:apply-templates mode="organization"/>
+</xsl:template>
 
 <!-- ============================================================== -->
 <!--                      Propertydefinition                        -->
