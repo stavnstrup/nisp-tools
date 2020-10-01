@@ -167,6 +167,7 @@
     <documentation xml:lang="en"><xsl:apply-templates select="applicability"/></documentation>
     -->
     <properties>
+<!--  We do not need this property any more, but let os keep it just in case
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
@@ -174,6 +175,7 @@
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></value>
       </property>
+-->
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
