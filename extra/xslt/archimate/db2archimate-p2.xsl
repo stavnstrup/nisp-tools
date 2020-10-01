@@ -66,29 +66,6 @@
 
 
 
-
-<!--
-  Create a relation between referencegroup and standards
--->
-
-<!--
-
-Sep. 29, 2020
-We probably do not need that anymore, since ids on relations does not need to be persistent anymore?
-
-<xsl:template match="refstandard">
-  <xsl:element name="{local-name()}">
-    <xsl:apply-templates select="@*"/>
-    <xsl:attribute name="uuid">
-      <xsl:text>id-</xsl:text>
-      <xsl:value-of select="uuid:randomUUID()"/>
-    </xsl:attribute>
-    <xsl:apply-templates/>
-  </xsl:element>
-</xsl:template>
--->
-
-
 <!--
   Create a profile tree for each profile. This temporary datastructure speeds up
   quering about relations between nodes in a profile.
@@ -145,6 +122,7 @@ We probably do not need that anymore, since ids on relations does not need to be
   </refstandard>
 </xsl:template>
 
+
 <xsl:template match="refprofile" mode="makeprofiletree">
   <xsl:variable name="myid" select="@refid"/>
   <xsl:apply-templates select="/standards//*[@id=$myid]" mode="makeprofiletree"/>
@@ -174,13 +152,16 @@ Revisit these templates now that orgkey have an uuid attribute
 
 <xsl:template match="orgkey" mode="orglist">
   <xsl:variable name="myorg" select="@key"/>
-  <xsl:if test="count(/standards//document[@orgid=$myorg])  > 0">
-    <org id="{$myorg}">
-     <xsl:attribute name="uuid">
-      <xsl:text>id-</xsl:text>
-      <xsl:value-of select="uuid:randomUUID()"/>
-    </xsl:attribute>
-      <xsl:apply-templates select="/standards//standard[document/@orgid=$myorg]|/standards//coverdoc[document/@orgid=$myorg]" mode="orglist"/>
+  <xsl:if test="count(/standards//document[@orgid=$myorg]) + 
+                count(/standards//responsibleparty[@rpref=$myorg]) > 0">
+    <org>
+      <xsl:apply-templates select="@*"/>
+      <creatorOfStandard>
+        <xsl:apply-templates select="/standards//*[document/@orgid=$myorg]" mode="orglist"/>
+      </creatorOfStandard>
+      <responsibleForStandard>
+        <xsl:apply-templates select="/standards//*[responsibleparty/@rpref=$myorg]" mode="orglist"/>
+      </responsibleForStandard>
     </org>
   </xsl:if>
 </xsl:template>

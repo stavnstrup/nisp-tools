@@ -32,6 +32,7 @@
       <xsl:apply-templates select="records"/>
       <xsl:apply-templates select="taxonomy/node" mode="element"/>
       <xsl:apply-templates select="profiletrees//serviceprofile" mode="constraint"/>
+      <xsl:apply-templates select="orglist/org" mode="element"/>
     </elements>
     <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
       <!-- Traverse the profiletrees -->
@@ -54,19 +55,23 @@
         <item>
           <label xml:lang="en"><xsl:value-of select="$nisp-version"/></label>
           <item>
+            <label xml:lang="en">Organization</label>
+            <xsl:apply-templates select="orglist/org" mode="organization"/>
+          </item>
+          <item>
             <label xml:lang="en">Agreement</label>
             <xsl:apply-templates select="records/coverdoc" mode="organization"/>
           </item>
           <item>
-            <label xml:lang="en">Standards</label>
+            <label xml:lang="en">Standard</label>
             <xsl:apply-templates select="/standards/organisations/orgkey" mode="organization"/>
           </item>
           <item>
-            <label xml:lang="en">Profiles</label>
+            <label xml:lang="en">Profile</label>
             <xsl:apply-templates select="records/profile" mode="organization"/>
           </item>
           <item>
-            <label xml:lang="en">Profile Specifications</label>
+            <label xml:lang="en">Profile Specification</label>
             <xsl:apply-templates select="records/profilespec" mode="organization"/>
           </item>
           <item>
@@ -500,6 +505,30 @@
   </element>
 </xsl:template>
 
+<xsl:template match="org" mode="element">
+  <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{@uuid}" xsi:type="BusinessActor">
+    <name xml:lang="en"><xsl:value-of select="@short"/></name>
+    <documentation xml:lang="en"><xsl:value-of select="@long"/></documentation>
+    <properties>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
+        </xsl:attribute>
+        <value><xsl:value-of select="@uuid"/></value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">org</value>
+      </property>
+    </properties>
+  </element>
+</xsl:template>
+
+
 <!-- ============================================================== -->
 <!--                          Relationships                         -->
 <!-- ============================================================== -->
@@ -653,6 +682,15 @@
     </item>
   </xsl:if>
   <xsl:apply-templates mode="organization"/>
+</xsl:template>
+
+<xsl:template match="org" mode="organization">
+  <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+    <xsl:attribute name="identifierRef">
+      <xsl:text>id-</xsl:text>
+      <xsl:value-of select="@uuid"/>
+    </xsl:attribute>
+  </item>
 </xsl:template>
 
 <!-- ============================================================== -->
