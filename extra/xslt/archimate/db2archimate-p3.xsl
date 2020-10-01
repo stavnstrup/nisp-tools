@@ -43,10 +43,10 @@
       <!-- Create relation to profilespecifications -->
       <xsl:apply-templates select="profiletrees" mode="listSpecRelation"/>
 
-      <!-- Traverse the list of organizational pages -->
-<!--
-      <xsl:apply-templates select="/standards/orglist//reference" mode="listProfileRealtionship"/>
--->
+      <!-- Create relation from organisations to standards and coverdocs -->
+
+      <xsl:apply-templates select="/standards/orglist/org" mode="listOrgRelation"/>
+
     </relationships>
     <!-- Organize elemets and relations -->
     <organizations xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
@@ -635,6 +635,34 @@
 
 <xsl:template match="reftaxonomy|refgroup" mode="listSpecRelation"/>
 
+
+<!-- -->
+
+<xsl:template match="org" mode="listOrgRelation">
+  <xsl:apply-templates select="creatorOfStandard/reference" mode="listOrgRelation">
+    <xsl:with-param name="relation" select="'own'"/>
+  </xsl:apply-templates>
+  <xsl:apply-templates select="responsibleForStandard/reference" mode="listOrgRelation">
+    <xsl:with-param name="relation" select="'is responsible'"/>
+  </xsl:apply-templates>
+</xsl:template>
+
+<xsl:template match="reference" mode="listOrgRelation">
+  <xsl:param name="relation"/>
+
+  <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
+                source="id-{../../@uuid}"
+                target="id-{@uuid}"
+                xsi:type="Association">
+    <xsl:attribute name="identifier">
+      <xsl:text>id-</xsl:text>
+      <xsl:if test="function-available('uuid:randomUUID')">
+        <xsl:value-of select="uuid:randomUUID()"/>
+      </xsl:if>
+    </xsl:attribute>
+    <name xml:lang="en"><xsl:value-of select="$relation"/></name>
+  </relationship>
+</xsl:template>
 
 <!-- ============================================================== -->
 <!--                          Organization                          -->

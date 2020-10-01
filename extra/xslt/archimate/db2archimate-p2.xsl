@@ -152,7 +152,7 @@ Revisit these templates now that orgkey have an uuid attribute
 
 <xsl:template match="orgkey" mode="orglist">
   <xsl:variable name="myorg" select="@key"/>
-  <xsl:if test="count(/standards//document[@orgid=$myorg]) + 
+  <xsl:if test="count(/standards//document[@orgid=$myorg]) +
                 count(/standards//responsibleparty[@rpref=$myorg]) > 0">
     <org>
       <xsl:apply-templates select="@*"/>
@@ -167,10 +167,10 @@ Revisit these templates now that orgkey have an uuid attribute
 </xsl:template>
 
 <xsl:template match="standard|coverdoc" mode="orglist">
-  <reference refid="{@id}">
+  <xsl:variable name="myid" select="@id"/>
+  <reference>
     <xsl:attribute name="uuid">
-      <xsl:text>id-</xsl:text>
-      <xsl:value-of select="uuid:randomUUID()"/>
+      <xsl:value-of select="/standards/records/*[@id=$myid]/uuid"/>
     </xsl:attribute>
   </reference>
 </xsl:template>
