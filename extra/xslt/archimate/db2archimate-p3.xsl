@@ -507,9 +507,16 @@
 
 <xsl:template match="org" mode="element">
   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{@uuid}" xsi:type="BusinessActor">
-    <name xml:lang="en"><xsl:value-of select="@short"/></name>
+    <name xml:lang="en"><xsl:value-of select="$draft"/><xsl:value-of select="@short"/></name>
     <documentation xml:lang="en"><xsl:value-of select="@long"/></documentation>
     <properties>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='externalIdentifier']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"><xsl:value-of select="@uri"/></value>
+      </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
