@@ -23,8 +23,6 @@
 <!--
 -->
 
-
-
 <xsl:output indent="yes"/>
 
 
@@ -53,6 +51,11 @@
       <def position="17" attribute="C3T Version"/>
       <def position="18" attribute="C3T Date"/>
       <def position="19" attribute="guide"/>
+      <def position="20" attribute="dateCompleted"/>
+      <def position="21" attribute="abstract"/>
+      <def position="22" attribute="status"/>
+      <def position="23" attribute="metadataConfidentialityLab"/>
+      <def position="24" attribute="originatorConfidentialityLabel"/>
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
@@ -138,15 +141,6 @@
 
 <!--
   Add a helper list with a mapping from organisations to all standards and coverstandards
--->
-
-
-<!--
-
-Sep. 29, 2020
-
-Revisit these templates now that orgkey have an uuid attribute
-
 -->
 
 

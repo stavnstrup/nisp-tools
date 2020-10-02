@@ -27,6 +27,73 @@
 <xsl:template match="standards">
   <model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd" identifier="id-93c48180-9e5b-4220-a666-ee020c07d53a">
     <name xml:lang="en">NISP</name>
+    <properties>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='creator']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">Jens Stavnstrup &lt;stavnstrup@gmail.com&gt;</value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='publisher']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">Interoperality Profiles Capability Team (IP CaT)</value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='dateCompleted']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">2020-07-14</value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='abstract']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">The NISP prescribes the necessary technical standards and profiles to achieve
+interoperability of Communications and Information Systems in support of NATO's missions
+and operations.</value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='version']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">v13.0.1-3-gf76e5a1</value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='identifier']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">AC/322-N(2020)0024-REV1-FINAL</value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='status']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">active</value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='originatorConfidentialityLabel']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"></value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='metadataConfidentialityLab']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"></value>
+      </property>
+    </properties>
     <!-- Define meta-data attributes -->
     <elements xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
       <xsl:apply-templates select="records"/>
