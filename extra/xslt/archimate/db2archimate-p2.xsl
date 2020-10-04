@@ -147,11 +147,13 @@
 <xsl:template match="orgkey" mode="orglist">
   <xsl:variable name="myorg" select="@key"/>
   <xsl:if test="count(/standards//document[@orgid=$myorg]) +
-                count(/standards//responsibleparty[@rpref=$myorg]) > 0">
+                count(/standards//responsibleparty[@rpref=$myorg]) +
+                count(/standards//profilespec[@orgid=$myorg])> 0">
     <org>
       <xsl:apply-templates select="@*"/>
       <creatorOfStandard>
         <xsl:apply-templates select="/standards//*[document/@orgid=$myorg]" mode="orglist"/>
+        <xsl:apply-templates select="/standards/records/profilespec[@orgid=$myorg]" mode="orglist"/>
       </creatorOfStandard>
       <responsibleForStandard>
         <xsl:apply-templates select="/standards//*[responsibleparty/@rpref=$myorg]" mode="orglist"/>
@@ -168,6 +170,18 @@
     </xsl:attribute>
   </reference>
 </xsl:template>
+
+
+ <xsl:template match="profilespec" mode="orglist">
+  <xsl:variable name="myid" select="@id"/>
+  <reference>
+    <xsl:attribute name="uuid">
+      <xsl:value-of select="/standards/records/profilespec[@id=$myid]/uuid"/>
+    </xsl:attribute>
+  </reference>
+ </xsl:template>
+
+
 
 <!-- Rename profiles, which are not top-level profiles to profilecontainer -->
 

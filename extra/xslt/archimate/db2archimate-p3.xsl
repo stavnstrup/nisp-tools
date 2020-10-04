@@ -104,6 +104,7 @@ and operations.</value>
     <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
       <!-- Traverse the profiletrees -->
       <xsl:apply-templates select="/standards/profiletrees//serviceprofile" mode="listProfileRelation"/>
+
       <!-- List all relations between serviceprofile,constraint & taxonomy elements -->
       <xsl:apply-templates select="profiletrees//serviceprofile" mode="listConstraintRelation"/>
 
@@ -111,9 +112,7 @@ and operations.</value>
       <xsl:apply-templates select="profiletrees" mode="listSpecRelation"/>
 
       <!-- Create relation from organisations to standards and coverdocs -->
-
       <xsl:apply-templates select="/standards/orglist/org" mode="listOrgRelation"/>
-
     </relationships>
     <!-- Organize elemets and relations -->
     <organizations xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
@@ -314,6 +313,7 @@ and operations.</value>
   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="BusinessObject">
     <name xml:lang="en"><xsl:value-of select="$draft"/><xsl:value-of select="@title"/></name>
     <properties>
+<!--
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
@@ -321,6 +321,7 @@ and operations.</value>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></value>
       </property>
+-->
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
@@ -705,7 +706,7 @@ and operations.</value>
 <xsl:template match="reftaxonomy|refgroup" mode="listSpecRelation"/>
 
 
-<!-- -->
+<!-- Create relation between organisations and standards, aggrements and profilespecs -->
 
 <xsl:template match="org" mode="listOrgRelation">
   <xsl:apply-templates select="creatorOfStandard/reference" mode="listOrgRelation">
@@ -767,7 +768,6 @@ and operations.</value>
 </xsl:template>
 
 <xsl:template match="serviceprofile" mode="constraintOrganization">
-<xsl:comment>Helo World</xsl:comment>
   <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <xsl:attribute name="identifierRef">
       <xsl:text>id-</xsl:text>
