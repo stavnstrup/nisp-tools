@@ -1,6 +1,6 @@
 % nisp-database-schema
 % Jens Stavnstrup \<stavnstrup@mil.dk\>
-% June 24, 2020
+% September 21, 2020
 
 # Name
 
@@ -414,7 +414,7 @@ The `<refgroup>` references standards and profiles with a specific obligation. T
 TBD: DESCRIBE obligation and lifecycle ATTRIBUTES AND HOW THEY CONTROL THE DUAL ROLES OF A SERVICE PROFILE
 
 ```{.dtd}
-<!ELEMENT refgroup (description?, refstandard*, refprofile*)>
+<!ELEMENT refgroup (description?, refstandard*, refprofile*, uuid?)>
 <!ATTLIST refgroup
           obligation (none|mandatory|recommended|optional|conditional) "none"
           lifecycle (current|candidate) "current">

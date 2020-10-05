@@ -21,13 +21,13 @@ Description : This stylesheet creates an UUID element in all standards
 
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
-            doctype-public="-//DDRE//DTDStandardDB XML V4.7//EN"
-            doctype-system="../schema/dtd/stddb47.dtd"/>
+            doctype-public="-//DDRE//DTDStandardDB XML V4.8//EN"
+            doctype-system="../schema/dtd/stddb48.dtd"/>
 
 
 <xsl:strip-space elements="*"/>
 
-<xsl:template match="standard|coverdoc|profilespec|serviceprofile|profile">
+<xsl:template match="standard|coverdoc|profilespec|serviceprofile|profile|refgroup">
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
@@ -41,6 +41,20 @@ Description : This stylesheet creates an UUID element in all standards
   </xsl:element>
   <xsl:text>&#x0a;</xsl:text>
 </xsl:template>
+
+<xsl:template match="orgkey">
+  <orgkey>
+    <xsl:apply-templates select="@*"/>
+    <xsl:if test="not(./@uuid)">
+      <xsl:attribute name="uuid">
+        <xsl:if test="function-available('uuid:randomUUID')">
+          <xsl:value-of select="uuid:randomUUID()"/>
+        </xsl:if>
+      </xsl:attribute>
+    </xsl:if>
+  </orgkey>
+</xsl:template>
+
 
 <xsl:template match="event">
   <event date="{@date}" flag="{@flag}" version="{@version}" rfcp="{@rfcp}">
