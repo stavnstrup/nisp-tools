@@ -113,6 +113,9 @@ and operations.</value>
 
       <!-- Create relation from organisations to standards and coverdocs -->
       <xsl:apply-templates select="/standards/orglist/org" mode="listOrgRelation"/>
+
+      <!-- List relations betwwen a coverdoc and the covered standards -->
+      <xsl:apply-templates select="/standards/records/coverdoc" mode="listCoverStandardRelation"/>
     </relationships>
     <!-- Organize elemets and relations -->
     <organizations xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
@@ -298,7 +301,7 @@ and operations.</value>
         </xsl:attribute>
         <value xml:lang="en">
           <xsl:choose>
-            <xsl:when test="local-name(.)='coverdoc'"/>agreement</xsl:when>
+            <xsl:when test="local-name(.)='coverdoc'">agreement</xsl:when>
             <xsl:otherwise>standard</xsl:otherwise>
           </xsl:choose>
         </value>
@@ -738,6 +741,33 @@ and operations.</value>
     <name xml:lang="en"><xsl:value-of select="$relation"/></name>
   </relationship>
 </xsl:template>
+
+
+<xsl:template match="coverdoc" mode="listCoverStandardRelation">
+  <xsl:apply-templates select="coverstandards/refstandard" mode="listCoverStandardRelation">
+    <xsl:with-param name="coverUUID" select="uuid"/>
+  </xsl:apply-templates>
+</xsl:template>
+
+<xsl:template match="refstandard" mode="listCoverStandardRelation">
+  <xsl:param name="coverUUID"/>
+
+  <xsl:variable name="rid" select="@refid"/>
+  <xsl:variable name="stdUUID" select="/standards//standard[@id=$rid]/uuid"/>
+
+  <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
+                source="id-{$coverUUID}"
+                target="id-{$stdUUID}"
+                xsi:type="Association">
+    <xsl:attribute name="identifier">
+      <xsl:text>id-</xsl:text>
+      <xsl:if test="function-available('uuid:randomUUID')">
+        <xsl:value-of select="uuid:randomUUID()"/>
+      </xsl:if>
+    </xsl:attribute>
+  </relationship>
+</xsl:template>
+
 
 <!-- ============================================================== -->
 <!--                          Organization                          -->
