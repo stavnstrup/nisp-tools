@@ -296,7 +296,12 @@ and operations.</value>
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en"><xsl:value-of select="local-name(.)"/></value>
+        <value xml:lang="en">
+          <xsl:choose>
+            <xsl:when test="local-name(.)='coverdoc'"/>agreement</xsl:when>
+            <xsl:otherwise>standard</xsl:otherwise>
+          </xsl:choose>
+        </value>
       </property>
     </properties>
   </element>
