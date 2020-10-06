@@ -480,7 +480,7 @@ and operations.</value>
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en">refgroup</value>
+        <value xml:lang="en">standardgroup</value>
       </property>
     </properties>
   </element>
