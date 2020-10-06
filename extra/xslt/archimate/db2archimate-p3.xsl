@@ -715,10 +715,10 @@ and operations.</value>
 
 <xsl:template match="org" mode="listOrgRelation">
   <xsl:apply-templates select="creatorOfStandard/reference" mode="listOrgRelation">
-    <xsl:with-param name="relation" select="'own'"/>
+    <xsl:with-param name="relation" select="'is published by'"/>
   </xsl:apply-templates>
   <xsl:apply-templates select="responsibleForStandard/reference" mode="listOrgRelation">
-    <xsl:with-param name="relation" select="'is responsible'"/>
+    <xsl:with-param name="relation" select="'is responsible for'"/>
   </xsl:apply-templates>
 </xsl:template>
 
