@@ -54,7 +54,7 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:param name="use.extensions" select="1"/>
 
-<xsl:param name="graphicsize.extension" select="1"/>
+<xsl:param name="graphicsize.extension" select="0"/>
 
 <!-- XSLT Processing -->
 
