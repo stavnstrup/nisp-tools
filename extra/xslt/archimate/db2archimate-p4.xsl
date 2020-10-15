@@ -10,9 +10,11 @@
 
 <xsl:output indent="yes"/>
 
+<!--
+<xsl:template match="label[../../label = 'Relations']">
+-->
 
-<xsl:template match="label[../../label='Relations']">
-  <xsl:message>Hello World</xsl:message>
+<xsl:template match="am:label[../../am:label = 'Relations']">
   <label xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>

@@ -7,21 +7,19 @@
                 exclude-result-prefixes="uuid"
                 version='2.0'>
 
-<!--
 <xsl:output indent="yes" saxon:next-in-chain="db2archimate-p4.xsl"/>
--->
 
 <xsl:strip-space elements="*"/>
 
 <xsl:output indent="yes"/>
 
-<xsl:variable name="draft" select="'(DRAFT) '"/>
+<xsl:variable name="draft" select="'(Sample) '"/>
+
 <xsl:variable name="nispVersion" select="'13.0'"/>
 <xsl:variable name="dateCreated" select="current-dateTime()"/>
-<xsl:variable name="dateAccepted" select="'2020-04-19'"/>
+<xsl:variable name="dateAccepted" select="'2020-06-19'"/>
 <xsl:variable name="creator" select="'Interoperality Profiles Capability Team (IP CaT)'"/>
 <xsl:variable name="publisher" select="'C3 Board'"/>
-
 
 <!-- Version 3.0 of the C3 Taxonomy -->
 <xsl:variable name="c3t-statement" select="'Generated from the ACT Enterprise Mapping Wiki on 26 Aug 2019'"/>
@@ -55,6 +53,13 @@
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='defaultConfidentialityMarking']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">Public</value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='abstract']/@position"/>
         </xsl:attribute>
         <value xml:lang="en">The NISP prescribes the necessary technical standards and profiles to achieve
@@ -82,7 +87,26 @@ and operations.</value>
         </xsl:attribute>
         <value xml:lang="en">active</value>
       </property>
-
+      <property xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='nispVersion']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"><xsl:value-of select="$nispVersion"/></value>
+      </property><property xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='dateCreated']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"><xsl:value-of select="$dateCreated"/></value>
+      </property>
+      <property xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='dateAccepted']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"><xsl:value-of select="$dateAccepted"/></value>
+      </property>
     </properties>
     <!-- Define meta-data attributes -->
     <elements xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
@@ -94,13 +118,10 @@ and operations.</value>
     </elements>
     <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
       <!-- Traverse the profiletrees -->
-      <xsl:apply-templates select="/standards/profiletrees//serviceprofile" mode="listProfileRelation"/>
+      <xsl:apply-templates select="/standards/profiletrees/profile" mode="listProfileRelation"/>
 
       <!-- List all relations between serviceprofile,constraint & taxonomy elements -->
       <xsl:apply-templates select="profiletrees//serviceprofile" mode="listConstraintRelation"/>
-
-      <!-- Create relation to profilespecifications -->
-      <xsl:apply-templates select="profiletrees" mode="listSpecRelation"/>
 
       <!-- Create relation from organisations to standards and coverdocs -->
       <xsl:apply-templates select="/standards/orglist/org" mode="listOrgRelation"/>
@@ -223,35 +244,17 @@ and operations.</value>
   <xsl:variable name="myorgid" select="document/@orgid"/>
   <xsl:variable name="rp" select="responsibleparty/@rpref"/>
   <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{uuid}" xsi:type="BusinessObject">
-    <name xml:lang="en"><xsl:value-of select="$draft"/><xsl:value-of select="document/@title"/>
-      <xsl:if test="document/@orgid or document/@pubnum">
+    <name xml:lang="en"><xsl:value-of select="$draft"/>
+      <xsl:if test="document/@pubnum">
+        <xsl:value-of select="document/@pubnum"/>
         <xsl:text>, </xsl:text>
-        <xsl:if test="document/@orgid">
-          <xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/>
-          <xsl:text> </xsl:text>
-        </xsl:if>
-        <xsl:if test="document/@pubnum">
-          <xsl:value-of select="document/@pubnum"/>
-        </xsl:if>
       </xsl:if>
-      <xsl:if test="document/@date">
-        <xsl:text>, </xsl:text>
-        <xsl:value-of select="substring(document/@date, 1, 4)"/>
-      </xsl:if>
+      <xsl:value-of select="document/@title"/>
     </name>
     <!--
     <documentation xml:lang="en"><xsl:apply-templates select="applicability"/></documentation>
     -->
     <properties>
-<!--  We do not need this property any more, but let os keep it just in case
-      <property>
-        <xsl:attribute name="propertyDefinitionRef">
-          <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='publisher']/@position"/>
-        </xsl:attribute>
-        <value xml:lang="en"><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@short"/></value>
-      </property>
--->
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
@@ -308,8 +311,8 @@ and operations.</value>
         </xsl:attribute>
         <value xml:lang="en">
           <xsl:choose>
-            <xsl:when test="local-name(.)='coverdoc'">agreement</xsl:when>
-            <xsl:otherwise>standard</xsl:otherwise>
+            <xsl:when test="local-name(.)='coverdoc'">Agreement</xsl:when>
+            <xsl:otherwise>Standard</xsl:otherwise>
           </xsl:choose>
         </value>
       </property>
@@ -322,7 +325,6 @@ and operations.</value>
 <xsl:template match="applicability">
   <xsl:apply-templates xmlns="http://www.opengroup.org/xsd/archimate/3.0/"/>
 </xsl:template>
-
 
 
 <xsl:template match="profile"  mode="element">
@@ -343,7 +345,7 @@ and operations.</value>
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en">profile</value>
+        <value xml:lang="en">Profile</value>
       </property>
       <xsl:call-template name="AddCommonProperties"/>
     </properties>
@@ -369,7 +371,7 @@ and operations.</value>
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en">profilecontainer</value>
+        <value xml:lang="en">Profile Container</value>
       </property>
       <xsl:call-template name="AddCommonProperties"/>
     </properties>
@@ -402,7 +404,7 @@ and operations.</value>
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en"><xsl:value-of select="local-name(.)"/></value>
+        <value xml:lang="en">Service Profile</value>
       </property>
       <xsl:call-template name="AddCommonProperties"/>
      </properties>
@@ -441,7 +443,7 @@ and operations.</value>
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en">standardgroup</value>
+        <value xml:lang="en">Standard Group</value>
       </property>
       <xsl:call-template name="AddCommonProperties"/>
     </properties>
@@ -451,7 +453,18 @@ and operations.</value>
 
 <xsl:template match="node" mode="element">
   <xsl:if test="./@usenode='yes'">
-    <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{@emUUID}" xsi:type="TechnologyService">
+    <element xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifier="id-{@emUUID}">
+      <xsl:attribute name="xsi:type">
+        <xsl:choose>
+          <xsl:when test="ancestor::node()[@title='Policy and Guidance']">Driver</xsl:when>
+          <xsl:when test="ancestor::node()[@title='Mission Types and Tasks']">Goal</xsl:when>
+          <xsl:when test="ancestor::node()[@title='Capability Hierachy']">Capability</xsl:when>
+          <xsl:when test="ancestor::node()[@title='Business Processes']">BusinessProcess</xsl:when>
+          <xsl:when test="ancestor::node()[@title='Information Products']">BusinessObject</xsl:when>
+          <xsl:when test="ancestor::node()[@title='User Applications']">ApplicationService</xsl:when>
+          <xsl:otherwise>TechnologyService</xsl:otherwise>
+        </xsl:choose>
+      </xsl:attribute>
       <name xml:lang="en"><xsl:value-of select="@title"/></name>
       <!--
       <documentation xml:lang="en"><xsl:value-of select="@description"/></documentation>
@@ -499,7 +512,7 @@ and operations.</value>
           </xsl:attribute>
           <value>
             <xsl:text>https://tide.act.nato.int/em/index.php/</xsl:text>
-            <xsl:text>Community_Of_Interest_(COI)_Services</xsl:text> <!-- Fix this -->
+            <xsl:value-of select="translate(@title,' ', '_')"/>
           </value>
         </property>
         <property>
@@ -591,6 +604,10 @@ and operations.</value>
 <!--                          Relationships                         -->
 <!-- ============================================================== -->
 
+
+<xsl:template match="profile" mode="listProfileRelation">
+  <xsl:apply-templates mode="listProfileRelation"/>
+</xsl:template>
 
 <xsl:template match="profilecontainer|serviceprofile|refgroup" mode="listProfileRelation">
   <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
@@ -712,12 +729,14 @@ and operations.</value>
   </relationship>
 </xsl:template>
 
+<!-- List relations betwwen a coverdoc and the covered standards -->
 
 <xsl:template match="coverdoc" mode="listCoverStandardRelation">
   <xsl:apply-templates select="coverstandards/refstandard" mode="listCoverStandardRelation">
     <xsl:with-param name="coverUUID" select="uuid"/>
   </xsl:apply-templates>
 </xsl:template>
+
 
 <xsl:template match="refstandard" mode="listCoverStandardRelation">
   <xsl:param name="coverUUID"/>
@@ -735,12 +754,21 @@ and operations.</value>
         <xsl:value-of select="uuid:randomUUID()"/>
       </xsl:if>
     </xsl:attribute>
+    <name xml:lang="en">is governing implementation</name>
     <properties>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en">is governing implementation</value>
+      </property>
       <xsl:call-template name="AddCommonProperties"/>
     </properties>
   </relationship>
 </xsl:template>
 
+<!-- List relations between a plateau and standardgroups -->
 
 <xsl:template match="plateau" mode="listPlateauStandardGroupRelation">
   <xsl:variable name="plateauLifeCycle" select="@lifecycle"/>
@@ -861,16 +889,6 @@ in the profile, profilecontainer and serviceprofile elements.
   <xsl:apply-templates mode="organization"/>
 </xsl:template>
 
-<!--
-<xsl:template match="org" mode="organization">
-  <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
-    <xsl:attribute name="identifierRef">
-      <xsl:text>id-</xsl:text>
-      <xsl:value-of select="@uuid"/>
-    </xsl:attribute>
-  </item>
-</xsl:template>
--->
 
 <!-- ============================================================== -->
 <!--                      Propertydefinition                        -->

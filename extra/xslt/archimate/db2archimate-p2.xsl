@@ -35,7 +35,7 @@
       <def position="1" attribute="publisher"/>             <!-- orgid -->
       <def position="2" attribute="identifier"/>            <!-- pubnum -->
       <def position="3" attribute="title"/>                 <!-- title -->
-      <def position="4" attribute="dateAccepted"/>          <!-- date -->
+      <def position="4" attribute="dateAccepted"/>
       <def position="5" attribute="version"/>               <!-- version -->
       <def position="6" attribute="nispResponsibleParty"/>  <!-- responsibleparty -->
       <def position="7" attribute="externalIdentifier"/>    <!-- uri -->
@@ -54,12 +54,11 @@
       <def position="20" attribute="dateCompleted"/>
       <def position="21" attribute="abstract"/>
       <def position="22" attribute="status"/>
-      <def position="23" attribute="metadataConfidentialityLab"/>
-      <def position="24" attribute="originatorConfidentialityLabel"/>
       <def position="25" attribute="nispVersion"/>
       <def position="26" attribute="URL"/>
       <def position="27" attribute="dateCreated"/>
-      <def position="28" attribute="dateIssued"/>
+      <def position="28" attribute="dateIssued"/>            <!-- date -->
+      <def position="29" attribute="defaultConfidentialityMarking"/>
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
