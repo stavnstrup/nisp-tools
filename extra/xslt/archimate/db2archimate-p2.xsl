@@ -56,6 +56,10 @@
       <def position="22" attribute="status"/>
       <def position="23" attribute="metadataConfidentialityLab"/>
       <def position="24" attribute="originatorConfidentialityLabel"/>
+      <def position="25" attribute="nispVersion"/>
+      <def position="26" attribute="URL"/>
+      <def position="27" attribute="dateCreated"/>
+      <def position="28" attribute="dateIssued"/>
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
@@ -63,10 +67,13 @@
     <orglist>
       <xsl:apply-templates select="/standards/organisations/orgkey" mode="orglist"/>
     </orglist>
+    <plateaus>
+      <plateau lifecycle="current" uuid="{uuid:randomUUID()}"/>
+      <plateau lifecycle="candidate" uuid="{uuid:randomUUID()}"/>
+    </plateaus>
     <xsl:apply-templates/>
   </standards>
 </xsl:template>
-
 
 
 <!--
@@ -147,13 +154,11 @@
 <xsl:template match="orgkey" mode="orglist">
   <xsl:variable name="myorg" select="@key"/>
   <xsl:if test="count(/standards//document[@orgid=$myorg]) +
-                count(/standards//responsibleparty[@rpref=$myorg]) +
-                count(/standards//profilespec[@orgid=$myorg])> 0">
+                count(/standards//responsibleparty[@rpref=$myorg])> 0">
     <org>
       <xsl:apply-templates select="@*"/>
       <creatorOfStandard>
         <xsl:apply-templates select="/standards//*[document/@orgid=$myorg]" mode="orglist"/>
-        <xsl:apply-templates select="/standards/records/profilespec[@orgid=$myorg]" mode="orglist"/>
       </creatorOfStandard>
       <responsibleForStandard>
         <xsl:apply-templates select="/standards//*[responsibleparty/@rpref=$myorg]" mode="orglist"/>
@@ -170,16 +175,6 @@
     </xsl:attribute>
   </reference>
 </xsl:template>
-
-
- <xsl:template match="profilespec" mode="orglist">
-  <xsl:variable name="myid" select="@id"/>
-  <reference>
-    <xsl:attribute name="uuid">
-      <xsl:value-of select="/standards/records/profilespec[@id=$myid]/uuid"/>
-    </xsl:attribute>
-  </reference>
- </xsl:template>
 
 
 

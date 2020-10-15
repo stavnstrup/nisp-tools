@@ -11,6 +11,22 @@
 <xsl:output indent="yes"/>
 
 
+<xsl:template match="label[../../label='Relations']">
+  <xsl:message>Hello World</xsl:message>
+  <label xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
+    <xsl:apply-templates select="@*"/>
+    <xsl:apply-templates/>
+  </label>
+  <xsl:apply-templates select="//am:relationship" mode="listRelation"/>
+</xsl:template>
+
+<xsl:template match="am:relationship" mode="listRelation">
+  <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifierRef="{@identifier}"/>
+</xsl:template>
+
+
+
+
 <xsl:template match="@*|node()">
   <xsl:copy>
     <xsl:apply-templates select="@*"/>
