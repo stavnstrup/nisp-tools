@@ -18,8 +18,9 @@
 <xsl:variable name="nispVersion" select="'13.0'"/>
 <xsl:variable name="dateCreated" select="current-dateTime()"/>
 <xsl:variable name="dateAccepted" select="'2020-06-19'"/>
+<xsl:variable name="acceptedDocIF" select="''"/>
 <xsl:variable name="creator" select="'Interoperality Profiles Capability Team (IP CaT)'"/>
-<xsl:variable name="publisher" select="'C3 Board'"/>
+<xsl:variable name="publisher" select="'Consultation, Command and Control Board (C3B)'"/>
 
 <!-- Version 3.0 of the C3 Taxonomy -->
 <xsl:variable name="c3t-statement" select="'Generated from the ACT Enterprise Mapping Wiki on 26 Aug 2019'"/>
@@ -48,7 +49,7 @@
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='dateCompleted']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en">2020-07-14</value>
+        <value xml:lang="en"><xsl:value-of select="$dateAccepted"/></value>
       </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">

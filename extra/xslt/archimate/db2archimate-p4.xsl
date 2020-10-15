@@ -10,10 +10,6 @@
 
 <xsl:output indent="yes"/>
 
-<!--
-<xsl:template match="label[../../label = 'Relations']">
--->
-
 <xsl:template match="am:label[../../am:label = 'Relations']">
   <label xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <xsl:apply-templates select="@*"/>
@@ -25,8 +21,6 @@
 <xsl:template match="am:relationship" mode="listRelation">
   <item xmlns="http://www.opengroup.org/xsd/archimate/3.0/" identifierRef="{@identifier}"/>
 </xsl:template>
-
-
 
 
 <xsl:template match="@*|node()">

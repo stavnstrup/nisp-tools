@@ -32,17 +32,17 @@
   <standards>
     <xsl:apply-templates select="@*"/>
     <allattributes>
-      <def position="1" attribute="publisher"/>             <!-- orgid -->
-      <def position="2" attribute="identifier"/>            <!-- pubnum -->
-      <def position="3" attribute="title"/>                 <!-- title -->
+      <def position="1" attribute="publisher"/>                  <!-- orgid -->
+      <def position="2" attribute="identifier"/>                 <!-- pubnum -->
+      <def position="3" attribute="title"/>                      <!-- title -->
       <def position="4" attribute="dateAccepted"/>
-      <def position="5" attribute="version"/>               <!-- version -->
-      <def position="6" attribute="nispResponsibleParty"/>  <!-- responsibleparty -->
-      <def position="7" attribute="externalIdentifier"/>    <!-- uri -->
-      <def position="8" attribute="stereotype"/>            <!-- N/A -->
-      <def position="9" attribute="nispUUID"/>              <!-- uuid -->
-      <def position="10" attribute="nispObligation"/>       <!-- obligation -->
-      <def position="11" attribute="nispLifecycle"/>        <!-- lifecycle -->
+      <def position="5" attribute="version"/>                    <!-- version -->
+      <def position="6" attribute="nispResponsibleParty"/>       <!-- responsibleparty -->
+      <def position="7" attribute="externalIdentifier"/>         <!-- uri -->
+      <def position="8" attribute="stereotype"/>                 
+      <def position="9" attribute="nispUUID"/>                   <!-- uuid -->
+      <def position="10" attribute="nispObligation"/>            <!-- obligation -->
+      <def position="11" attribute="nispLifecycle"/>             <!-- lifecycle -->
       <def position="12" attribute="creator"/>
       <def position="13" attribute="policyIdentifier"/>
       <def position="14" attribute="classification"/>
@@ -54,11 +54,11 @@
       <def position="20" attribute="dateCompleted"/>
       <def position="21" attribute="abstract"/>
       <def position="22" attribute="status"/>
-      <def position="25" attribute="nispVersion"/>
-      <def position="26" attribute="URL"/>
-      <def position="27" attribute="dateCreated"/>
-      <def position="28" attribute="dateIssued"/>            <!-- date -->
-      <def position="29" attribute="defaultConfidentialityMarking"/>
+      <def position="23" attribute="nispVersion"/>
+      <def position="24" attribute="URL"/>
+      <def position="25" attribute="dateCreated"/>
+      <def position="26" attribute="dateIssued"/>                 <!-- date -->
+      <def position="27" attribute="defaultConfidentialityMarking"/>
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>
@@ -74,12 +74,10 @@
   </standards>
 </xsl:template>
 
-
 <!--
   Create a profile tree for each profile. This temporary datastructure speeds up
   quering about relations between nodes in a profile.
 -->
-
 
 <xsl:template match="profile[@toplevel='yes']" mode="makeprofiletree">
   <profile id="{@id}" uuid="{uuid}" spec="{refprofilespec/@refid}">
