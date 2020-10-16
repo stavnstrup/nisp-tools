@@ -19,7 +19,7 @@
 <xsl:variable name="dateCreated" select="current-dateTime()"/>
 <xsl:variable name="dateAccepted" select="'2020-06-19'"/>
 <xsl:variable name="acceptedDocIF" select="''"/>
-<xsl:variable name="creator" select="'Interoperality Profiles Capability Team (IP CaT)'"/>
+<xsl:variable name="creator" select="'Interoperability Profiles Capability Team (IP CaT)'"/>
 <xsl:variable name="publisher" select="'Consultation, Command and Control Board (C3B)'"/>
 
 <!-- Version 3.0 of the C3 Taxonomy -->
