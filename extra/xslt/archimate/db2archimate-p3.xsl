@@ -119,19 +119,22 @@ and operations.</value>
     </elements>
     <relationships xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
       <!-- Traverse the profiletrees -->
-      <xsl:apply-templates select="/standards/profiletrees/profile" mode="listProfileRelation"/>
+      <xsl:apply-templates select="profiletrees/profile" mode="listProfileRelation"/>
 
       <!-- List all relations between serviceprofile,constraint & taxonomy elements -->
       <xsl:apply-templates select="profiletrees//serviceprofile" mode="listConstraintRelation"/>
 
       <!-- Create relation from organisations to standards and coverdocs -->
-      <xsl:apply-templates select="/standards/orglist/org" mode="listOrgRelation"/>
+      <xsl:apply-templates select="orglist/org" mode="listOrgRelation"/>
 
       <!-- List relations betwwen a coverdoc and the covered standards -->
-      <xsl:apply-templates select="/standards/records/coverdoc" mode="listCoverStandardRelation"/>
+      <xsl:apply-templates select="records/coverdoc" mode="listCoverStandardRelation"/>
 
      <!-- List relations between a plateau and standardgroups -->
      <xsl:apply-templates select="plateaus/plateau" mode="listPlateauStandardGroupRelation"/>
+
+     <!-- List relations between a plateau and profiles -->
+     <xsl:apply-templates select="plateaus/plateau" mode="listPlateauProfiles"/>
 
     </relationships>
     <!-- Organize elemets and relations -->
@@ -798,9 +801,50 @@ and operations.</value>
   </relationship>
 </xsl:template>
 
-<!--
-This template generates properties from the referenced profilespec element and are used to embed them
-in the profile, profilecontainer and serviceprofile elements.
+<!-- List relations between a plateau and profiles -->
+
+<!-- This is a Hack: map from candidate plateau to FMN 4 otherwise map to mandatory plateau.
+     Idealy each profile should have a lifecycle attribute
+-->
+
+<xsl:template match="plateau" mode="listPlateauProfiles">
+  <xsl:variable name="plateauLifeCycle" select="@lifecycle"/>
+  <xsl:choose>
+    <xsl:when test="$plateauLifeCycle='candidate'">
+      <xsl:apply-templates select="/standards/profiletrees/profile[@id='fmn4-proposed-pr']" mode="listPlateauProfiles">
+        <xsl:with-param name="plateauUUID" select="@uuid"/>
+      </xsl:apply-templates>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates select="/standards/profiletrees/profile[not(@id='fmn4-proposed-pr')]" mode="listPlateauProfiles">
+        <xsl:with-param name="plateauUUID" select="@uuid"/>
+      </xsl:apply-templates>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="profile" mode="listPlateauProfiles">
+  <xsl:param name="plateauUUID"/>
+
+  <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
+                source="id-{$plateauUUID}"
+                target="id-{@uuid}"
+                xsi:type="Association">
+    <xsl:attribute name="identifier">
+      <xsl:text>id-</xsl:text>
+      <xsl:if test="function-available('uuid:randomUUID')">
+        <xsl:value-of select="uuid:randomUUID()"/>
+      </xsl:if>
+    </xsl:attribute>
+    <properties>
+      <xsl:call-template name="AddCommonProperties"/>
+    </properties>
+  </relationship>
+</xsl:template>
+
+
+<!-- This template generates properties from the referenced profilespec element and are used to embed them
+     in the profile, profilecontainer and serviceprofile elements.
 -->
 
 <xsl:template match="profilespec" mode="AddProfileSpecProperties">
