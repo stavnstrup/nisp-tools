@@ -35,17 +35,6 @@
         <xsl:text>yes</xsl:text>
       </xsl:attribute>
     </xsl:if>
-    <!-- Make sure use-defined nodes also has an uuid value -->
-    <!--
-
-    <xsl:if test="@emUUID=''">
-      <xsl:attribute name="emUUID">
-        <xsl:if test="function-available('uuid:randomUUID')">
-          <xsl:value-of select="uuid:randomUUID()"/>
-        </xsl:if>
-      </xsl:attribute>
-    </xsl:if>
-    -->
     <xsl:apply-templates/>
   </node>
 </xsl:template>

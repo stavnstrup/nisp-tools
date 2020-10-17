@@ -20,10 +20,6 @@
      ========================================================== -->
 
 <xsl:output indent="yes" saxon:next-in-chain="db2archimate-p3.xsl"/>
-<!--
--->
-
-<xsl:output indent="yes"/>
 
 
 <!-- Create a lookup table in order to create a propertyDefinitions list -->
@@ -39,7 +35,7 @@
       <def position="5" attribute="version"/>                    <!-- version -->
       <def position="6" attribute="nispResponsibleParty"/>       <!-- responsibleparty -->
       <def position="7" attribute="externalIdentifier"/>         <!-- uri -->
-      <def position="8" attribute="stereotype"/>                 
+      <def position="8" attribute="stereotype"/>
       <def position="9" attribute="nispUUID"/>                   <!-- uuid -->
       <def position="10" attribute="nispObligation"/>            <!-- obligation -->
       <def position="11" attribute="nispLifecycle"/>             <!-- lifecycle -->
@@ -74,9 +70,8 @@
   </standards>
 </xsl:template>
 
-<!--
-  Create a profile tree for each profile. This temporary datastructure speeds up
-  quering about relations between nodes in a profile.
+<!-- Create a profile tree for each profile. This temporary datastructure speeds up
+     quering about relations between nodes in a profile.
 -->
 
 <xsl:template match="profile[@toplevel='yes']" mode="makeprofiletree">
@@ -143,8 +138,7 @@
 </xsl:template>
 
 
-<!--
-  Add a helper list with a mapping from organisations to all standards and coverstandards
+<!-- Add a helper list with a mapping from organisations to all standards and coverstandards
 -->
 
 

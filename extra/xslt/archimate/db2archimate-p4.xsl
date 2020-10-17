@@ -8,6 +8,8 @@
                 exclude-result-prefixes="am xsi"
                 version='2.0'>
 
+<!-- Place all relations in the NISP subfolder -->
+
 <xsl:output indent="yes"/>
 
 <xsl:template match="am:label[../../am:label = 'Relations']">
