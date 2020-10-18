@@ -4,3 +4,7 @@ Dumps the NISP database into an Archimate Exchange format complaiant with the NI
 located at https://tide.act.nato.int/git/IPCaT/NISPArchiMateProfile
 
 This stylesheet requires Saxon 9.1 or higher
+
+```
+   $ saxon standards.xml db2archimate.xsl
+```
