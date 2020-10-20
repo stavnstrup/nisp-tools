@@ -582,6 +582,13 @@ and operations.</value>
       <xsl:value-of select="$nispVersion"/>
     </name>
     <properties>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='nispLifecycle']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"><xsl:value-of select="@lifecycle"/></value>
+      </property>
       <xsl:call-template name="AddCommonProperties"/>
     </properties>
   </element>
