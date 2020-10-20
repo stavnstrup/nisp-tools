@@ -384,7 +384,7 @@ and operations.</value>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='guide']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='nispGuide']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="guide"/></value>
       </property>
