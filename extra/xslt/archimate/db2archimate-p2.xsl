@@ -33,7 +33,6 @@
       <def position="3" attribute="title"/>                      <!-- title -->
       <def position="4" attribute="dateAccepted"/>
       <def position="5" attribute="version"/>                    <!-- version -->
-      <def position="6" attribute="nispResponsibleParty"/>       <!-- responsibleparty -->
       <def position="7" attribute="externalIdentifier"/>         <!-- uri -->
       <def position="8" attribute="stereotype"/>
       <def position="9" attribute="nispUUID"/>                   <!-- uuid -->

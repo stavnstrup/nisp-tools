@@ -282,13 +282,6 @@ and operations.</value>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='nispResponsibleParty']/@position"/>
-        </xsl:attribute>
-        <value xml:lang="en"><xsl:value-of select="/standards/organisations/orgkey[@key=$rp]/@short"/></value>
-      </property>
-      <property>
-        <xsl:attribute name="propertyDefinitionRef">
-          <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='URL']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="status/uri"/></value>
