@@ -39,7 +39,7 @@
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='dateCompleted']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='dateIssued']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="$dateAccepted"/></value>
       </property>
@@ -139,23 +139,23 @@ and operations.</value>
             <xsl:value-of select="$nispVersion"/>
           </label>
           <item>
-            <label xml:lang="en">Organization</label>
+            <label xml:lang="en">Organizations</label>
             <xsl:apply-templates select="orglist/org" mode="organization"/>
           </item>
           <item>
-            <label xml:lang="en">Agreement</label>
+            <label xml:lang="en">Agreements</label>
             <xsl:apply-templates select="records/coverdoc" mode="organization"/>
           </item>
           <item>
-            <label xml:lang="en">Standard</label>
+            <label xml:lang="en">Standards</label>
             <xsl:apply-templates select="/standards/organisations/orgkey" mode="organization"/>
           </item>
           <item>
-            <label xml:lang="en">Profile</label>
+            <label xml:lang="en">Profiles</label>
             <xsl:apply-templates select="records/profile" mode="organization"/>
           </item>
           <item>
-            <label xml:lang="en">Service Profile</label>
+            <label xml:lang="en">Service Profiles</label>
             <xsl:apply-templates select="records/serviceprofile" mode="organization"/>
           </item>
         </item>
@@ -289,7 +289,7 @@ and operations.</value>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='UUID']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="uuid"/></value>
       </property>
@@ -325,7 +325,7 @@ and operations.</value>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='UUID']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="uuid"/></value>
       </property>
@@ -351,7 +351,7 @@ and operations.</value>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='UUID']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="uuid"/></value>
       </property>
@@ -384,7 +384,7 @@ and operations.</value>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='UUID']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="uuid"/></value>
       </property>
@@ -553,7 +553,7 @@ and operations.</value>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='nispUUID']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='UUID']/@position"/>
         </xsl:attribute>
         <value><xsl:value-of select="@uuid"/></value>
       </property>

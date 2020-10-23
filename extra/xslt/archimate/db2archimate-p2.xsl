@@ -35,7 +35,7 @@
       <def position="5" attribute="version"/>                    <!-- version -->
       <def position="7" attribute="externalIdentifier"/>         <!-- uri -->
       <def position="8" attribute="stereotype"/>
-      <def position="9" attribute="nispUUID"/>                   <!-- uuid -->
+      <def position="9" attribute="UUID"/>                       <!-- uuid -->
       <def position="10" attribute="nispObligation"/>            <!-- obligation -->
       <def position="11" attribute="nispLifecycle"/>             <!-- lifecycle -->
       <def position="12" attribute="creator"/>
@@ -45,8 +45,10 @@
       <def position="16" attribute="C3T URL"/>
       <def position="17" attribute="C3T Version"/>
       <def position="18" attribute="C3T Date"/>
-      <def position="19" attribute="nispGuide"/>                  <!-- guide -->>
+      <def position="19" attribute="nispGuide"/>                  <!-- guide -->
+<!--
       <def position="20" attribute="dateCompleted"/>
+-->
       <def position="21" attribute="abstract"/>
       <def position="22" attribute="status"/>
       <def position="23" attribute="nispVersion"/>

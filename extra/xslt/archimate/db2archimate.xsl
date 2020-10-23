@@ -11,7 +11,7 @@
      Create Archimate export of all standards and profiles
 
      1. Remove all deleted elements
-
+     2. Tag all taxonomy nodes which should be part of the export
      ========================================================== -->
 
 <xsl:output indent="yes" saxon:next-in-chain="db2archimate-p2.xsl"/>
@@ -29,7 +29,7 @@
   <xsl:variable name="myid" select="@id"/>
   <node>
     <xsl:apply-templates select="@*"/>
-    <!-- Only nodes which are referenced from a profile are included -->
+    <!-- Only nodes which are referenced from a service profile are included -->
     <xsl:if test="/standards/records/serviceprofile/reftaxonomy[@refid=$myid]">
       <xsl:attribute name="usenode">
         <xsl:text>yes</xsl:text>
