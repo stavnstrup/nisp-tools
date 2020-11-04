@@ -691,10 +691,10 @@ and operations.</value>
 
 <xsl:template match="org" mode="listOrgRelation">
   <xsl:apply-templates select="creatorOfStandard/reference" mode="listOrgRelation">
-    <xsl:with-param name="relation" select="'is published by'"/>
+    <xsl:with-param name="relation" select="'Publication'"/>
   </xsl:apply-templates>
   <xsl:apply-templates select="responsibleForStandard/reference" mode="listOrgRelation">
-    <xsl:with-param name="relation" select="'is responsible for'"/>
+    <xsl:with-param name="relation" select="'Responsibility'"/>
   </xsl:apply-templates>
 </xsl:template>
 
@@ -711,7 +711,12 @@ and operations.</value>
         <xsl:value-of select="uuid:randomUUID()"/>
       </xsl:if>
     </xsl:attribute>
-    <name xml:lang="en"><xsl:value-of select="$relation"/></name>
+    <name xml:lang="en">
+      <xsl:choose>
+        <xsl:when test="Publication"><xsl:text>is published by</xsl:text></xsl:when>
+        <xsl:when test="Responsibility"><xsl:text>is responsible for</xsl:text></xsl:when>
+      </xsl:choose>
+    </name>
     <properties>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
@@ -757,7 +762,7 @@ and operations.</value>
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='stereotype']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en">is governing implementation</value>
+        <value xml:lang="en">Governance</value>
       </property>
       <xsl:call-template name="AddCommonProperties"/>
     </properties>
