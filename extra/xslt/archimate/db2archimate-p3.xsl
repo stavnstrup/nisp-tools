@@ -26,7 +26,7 @@
         <xsl:text> ver. </xsl:text>
         <xsl:value-of select="$nispVersion"/>
       </xsl:if>
-    </name>  
+    </name>
     <documentation xml:lang="en">The NISP prescribes the necessary technical standards and profiles to achieve
 interoperability of Communications and Information Systems in support of NATO's missions
 and operations.</documentation>
@@ -37,6 +37,13 @@ and operations.</documentation>
           <xsl:value-of select="/standards/allattributes/def[@attribute='creator']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="$creator"/></value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='title']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"><xsl:value-of select="$modelTitle"/></value>
       </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
@@ -92,7 +99,7 @@ and operations.</value>
       <property xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='nispVersion']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='version']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="$nispVersion"/></value>
       </property><property xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
