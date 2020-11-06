@@ -4,15 +4,8 @@
 
 <xsl:variable name="draft" select="'(Sample) '"/>     <!-- Prefix text used in name for DRAFT version -->
 
-<xsl:variable name="nispVersion" select="'13.0'"/>
-<xsl:variable name="modelName">
-  <xsl:text>NATO Interoperability Standards and Profiles (NISP)</xsl:text>
-  <xsl:if test="$nispVersion != ''">
-    <xsl:text> ver. </xsl:text>
-    <xsl:value-of select="$nispVersion"/>
-  </xsl:if>
-</xsl:variable>
 <xsl:varianle name="modelTitle" select="'NATO Interoperability Standards and Profiles (NISP)'"/>
+<xsl:variable name="nispVersion" select="'13.0'"/>
 <xsl:variable name="modelPurpose" select="''"/>
 <xsl:variable name="dateCreated" select="current-dateTime()"/>
 <xsl:variable name="dateAccepted" select="'2020-06-19'"/>

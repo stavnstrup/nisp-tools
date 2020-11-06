@@ -20,7 +20,13 @@
 
 <xsl:template match="standards">
   <model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.0/archimate3_Diagram.xsd" identifier="id-93c48180-9e5b-4220-a666-ee020c07d53a">
-    <name xml:lang="en"><xsl:value-of select="$modelName"/></name>
+    <name xml:lang="en">
+      <xsl:value-of select="$modelTitle"/>
+      <xsl:if test="$nispVersion != ''">
+        <xsl:text> ver. </xsl:text>
+        <xsl:value-of select="$nispVersion"/>
+      </xsl:if>
+    </name>  
     <documentation xml:lang="en">The NISP prescribes the necessary technical standards and profiles to achieve
 interoperability of Communications and Information Systems in support of NATO's missions
 and operations.</documentation>
