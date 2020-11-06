@@ -4,7 +4,7 @@
 
 <xsl:variable name="draft" select="'(Sample) '"/>     <!-- Prefix text used in name for DRAFT version -->
 
-<xsl:varianle name="modelTitle" select="'NATO Interoperability Standards and Profiles (NISP)'"/>
+<xsl:variable name="modelTitle" select="'NATO Interoperability Standards and Profiles (NISP)'"/>
 <xsl:variable name="nispVersion" select="'13.0'"/>
 <xsl:variable name="modelPurpose" select="''"/>
 <xsl:variable name="dateCreated" select="current-dateTime()"/>
