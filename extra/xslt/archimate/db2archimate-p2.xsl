@@ -46,9 +46,7 @@
       <def position="17" attribute="C3T Version"/>
       <def position="18" attribute="C3T Date"/>
       <def position="19" attribute="implementationGuidance"/>                  <!-- guide -->
-<!--
-      <def position="20" attribute="dateCompleted"/>
--->
+      <def position="20" attribute="description"/>
       <def position="21" attribute="abstract"/>
       <def position="22" attribute="status"/>
       <def position="23" attribute="nispVersion"/>

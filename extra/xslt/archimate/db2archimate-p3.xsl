@@ -27,9 +27,7 @@
         <xsl:value-of select="$nispVersion"/>
       </xsl:if>
     </name>
-    <documentation xml:lang="en">The NISP prescribes the necessary technical standards and profiles to achieve
-interoperability of Communications and Information Systems in support of NATO's missions
-and operations.</documentation>
+    <documentation xml:lang="en"><xsl:value-of select="$modelDescription"/></documentation>
     <properties>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
@@ -44,6 +42,13 @@ and operations.</documentation>
           <xsl:value-of select="/standards/allattributes/def[@attribute='title']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="$modelTitle"/></value>
+      </property>
+      <property>
+        <xsl:attribute name="propertyDefinitionRef">
+          <xsl:text>propid-</xsl:text>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='description']/@position"/>
+        </xsl:attribute>
+        <value xml:lang="en"><xsl:value-of select="$modelDescription"/></value>
       </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
