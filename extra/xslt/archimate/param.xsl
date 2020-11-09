@@ -9,7 +9,8 @@
 <xsl:variable name="nispVersion" select="'13.0'"/>
 <xsl:variable name="modelPurpose" select="''"/>
 <xsl:variable name="dateCreated" select="current-dateTime()"/>
-<xsl:variable name="dateAccepted" select="'2020-06-19'"/>
+<xsl:variable name="nispDateIssued" select="'2020-04-04'"/>
+<xsl:variable name="nispDateAccepted" select="'2020-06-19'"/>
 <xsl:variable name="acceptedDocIF" select="''"/>
 <xsl:variable name="creator" select="'Interoperability Profiles Capability Team (IP CaT)'"/>
 <xsl:variable name="publisher" select="'Consultation, Command and Control Board (C3B)'"/>

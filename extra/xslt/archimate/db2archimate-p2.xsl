@@ -54,6 +54,7 @@
       <def position="25" attribute="dateCreated"/>
       <def position="26" attribute="dateIssued"/>                 <!-- date -->
       <def position="27" attribute="defaultConfidentialityMarking"/>
+      <def position="28" attribute="nispDateAccepted"/>
     </allattributes>
     <profiletrees>
       <xsl:apply-templates select="/standards//profile[@toplevel='yes']" mode="makeprofiletree"/>

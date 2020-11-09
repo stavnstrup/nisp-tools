@@ -62,7 +62,7 @@
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='dateIssued']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en"><xsl:value-of select="$dateAccepted"/></value>
+        <value xml:lang="en"><xsl:value-of select="$nispDateIssued"/></value>
       </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
@@ -119,7 +119,7 @@ and operations.</value>
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='dateAccepted']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en"><xsl:value-of select="$dateAccepted"/></value>
+        <value xml:lang="en"><xsl:value-of select="$nispDateAccepted"/></value>
       </property>
     </properties>
     <!-- Define meta-data attributes -->
@@ -289,7 +289,7 @@ and operations.</value>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
-          <xsl:value-of select="/standards/allattributes/def[@attribute='dateIssued']/@position"/>
+          <xsl:value-of select="/standards/allattributes/def[@attribute='dateAccepted']/@position"/>
         </xsl:attribute>
         <value xml:lang="en"><xsl:value-of select="document/@date"/></value>
       </property>
@@ -883,7 +883,7 @@ and operations.</value>
   <property xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <xsl:attribute name="propertyDefinitionRef">
       <xsl:text>propid-</xsl:text>
-      <xsl:value-of select="/standards/allattributes/def[@attribute='dateIssued']/@position"/>
+      <xsl:value-of select="/standards/allattributes/def[@attribute='dateAccepted']/@position"/>
     </xsl:attribute>
     <value xml:lang="en"><xsl:value-of select="@date"/></value>
   </property>
@@ -989,9 +989,9 @@ and operations.</value>
   <property xmlns="http://www.opengroup.org/xsd/archimate/3.0/">
     <xsl:attribute name="propertyDefinitionRef">
       <xsl:text>propid-</xsl:text>
-      <xsl:value-of select="/standards/allattributes/def[@attribute='dateAccepted']/@position"/>
+      <xsl:value-of select="/standards/allattributes/def[@attribute='nispDateAccepted']/@position"/>
     </xsl:attribute>
-    <value xml:lang="en"><xsl:value-of select="$dateAccepted"/></value>
+    <value xml:lang="en"><xsl:value-of select="$nispDateAccepted"/></value>
   </property>
 </xsl:template>
 
