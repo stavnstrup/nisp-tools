@@ -8,13 +8,13 @@ language: java
 jdk:
   - openjdk11
 
-sudo: required
+os: linux
 
 before_install:
- - sudo apt-get -qq update
+  - sudo apt-get -qq update
 
 install:
- - sudo apt-get install -qq libxml2-utils libsaxonb-java ant
+  - sudo apt-get install -qq libxml2-utils libsaxonb-java ant
 
 notifications:
   email:
@@ -30,9 +30,9 @@ script:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: "./_scripts/deploy-live-nisp.sh"
+    script: './_scripts/deploy-live-nisp.sh'
     on:
       branch: master
 
 after_script:
-  - "./_scripts/trigger-site-build.sh"
+  - './_scripts/trigger-site-build.sh'
