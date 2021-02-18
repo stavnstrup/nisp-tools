@@ -168,7 +168,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
   </informaltable>
 </xsl:template>
 
-
 <xsl:template match="node" mode="listcurrent">
 
   <xsl:variable name="myid" select="@id"/>
@@ -177,14 +176,14 @@ NATO Command, Control and Consultation Organisation (NC3O).
        Check if there are standards associated with a specific node, which are current and mandatory
   -->
   <xsl:variable name="refs" select="count(/standards/profilehierachy//refstandard[(../@lifecycle='current') and 
-                                           (../@obligation='mandatory') and (../../reftaxonomy/@refid=$myid)])"/>
+                                           ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and (../../reftaxonomy/@refid=$myid)])"/>
   <xsl:if test="$refs>0">
     <row>
       <entry namest="c1" nameend="c4"><emphasis role="bold"><xsl:value-of select="@title"/></emphasis></entry>
     </row>
     <!-- List all standards from all profiles -->
     <xsl:apply-templates select="/standards/profilehierachy//refstandard[(../@lifecycle='current') and 
-                                 (../@obligation='mandatory') and (../../reftaxonomy/@refid=$myid)]" mode="listcurrent">
+                                 ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and (../../reftaxonomy/@refid=$myid)]" mode="listcurrent">
       <xsl:with-param name="taxref" select="$myid"/>
       <xsl:sort select="@refid"/>
     </xsl:apply-templates>
@@ -209,11 +208,11 @@ NATO Command, Control and Consultation Organisation (NC3O).
        We do this because we only want to list a standard once for each taxonomy node, whether it is listed in a previous
        capabilityprofile of it is listed in a previous serviceprofile within the current capabilityprofile.
   -->
-  <xsl:if test="not(ancestor::refgroup/preceding-sibling::refgroup/refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
+  <xsl:if test="not(ancestor::refgroup/preceding-sibling::refgroup/refstandard[(@refid=$stdid) and ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
                       and
-                not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
+                not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])
                       and
-                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])">
+                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and (../@lifecycle='current') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
       <entry>
         <xsl:choose>
@@ -268,13 +267,13 @@ NATO Command, Control and Consultation Organisation (NC3O).
   <xsl:param name="stdid"/>
   <xsl:param name="lc"/>
 
-  <xsl:if test=".//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and 
+  <xsl:if test=".//refstandard[(@refid=$stdid) and ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and 
                 (../@lifecycle=$lc) and (../../reftaxonomy/@refid=$taxref)]">
     <xsl:choose>
       <xsl:when test="@id = 'bsp'">BSP</xsl:when>
       <xsl:otherwise><xsl:value-of select="translate(@id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:otherwise>
     </xsl:choose>
-    <xsl:if test="following-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle=$lc) and (../../reftaxonomy/@refid=$taxref)]">
+    <xsl:if test="following-sibling::capabilityprofile//refstandard[(@refid=$stdid) and ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and (../@lifecycle=$lc) and (../../reftaxonomy/@refid=$taxref)]">
       <xsl:text>, </xsl:text>
     </xsl:if>
   </xsl:if>
@@ -294,7 +293,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
     </row>
     <!-- Get standards from profiles -->
     <xsl:apply-templates select="/standards/profilehierachy/capabilityprofile//refstandard[(../@lifecycle='candidate') and
-                                 (../@obligation='mandatory') and(../../reftaxonomy/@refid=$myid)]" mode="listcandidate">
+                                 ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and(../../reftaxonomy/@refid=$myid)]" mode="listcandidate">
       <xsl:with-param name="taxref" select="$myid"/>
       <xsl:sort select="@refid"/>
     </xsl:apply-templates>
@@ -319,11 +318,11 @@ NATO Command, Control and Consultation Organisation (NC3O).
        We do this because we only want to list a standard once for each taxonomy node, whether it is listed in a previous
        capabilityprofile of it is listed in a previous serviceprofile within the current capabilityprofile.
   -->
-  <xsl:if test="not(ancestor::refgroup/preceding-sibling::refgroup/refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])
+  <xsl:if test="not(ancestor::refgroup/preceding-sibling::refgroup/refstandard[(@refid=$stdid) and ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])
                       and
-                not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])
+                not(ancestor::capabilityprofile/preceding-sibling::capabilityprofile//refstandard[(@refid=$stdid) and ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])
                       and
-                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])">
+                not(ancestor::serviceprofile/preceding-sibling::serviceprofile//refstandard[(@refid=$stdid) and ((../@obligation='mandatory') or ((starts-with(../../@id,'fmn4-prf-')) and (../@obligation='conditional'))) and (../@lifecycle='candidate') and (../../reftaxonomy/@refid=$taxref)])">
     <row>
       <entry>
         <xsl:choose>
