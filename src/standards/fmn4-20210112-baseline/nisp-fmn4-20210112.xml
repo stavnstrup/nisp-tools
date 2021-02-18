@@ -156,30 +156,20 @@
       <standard id="itu-t-g.722.1" tag="G.722.1">
          <document orgid="itu-t"
                    pubnum="G.722.1"
-                   date="2005/5/14 2008/6/13"
-                   title="Low-complexity coding at 24 and 32 kbit/s for hands-free operation in systems with low frame loss Low-complexity coding at 24 and 32 kbit/s for hands-free operation in systems with low frame loss, corrigendum 1"/>
+                   date="2005/5/14"
+                   title="Low-complexity coding at 24 and 32 kbit/s for hands-free operation in systems with low frame loss"/>
          <applicability>
             <para>This Recommendation describes a digital wideband coder algorithm that provides an audio bandwidth of 50 Hz to 7 kHz, operating at a bit rate of 24 kbit/s or 32 kbit/s. The digital input to the coder may be 14-, 15- or 16-bit 2's complement format at a sample rate of 16 kHz (handled in the same way as in ITU-T Rec. G.722). The analogue and digital interface circuitry at the encoder input and decoder output should conform to the same specifications described in ITU-T Rec. G.722.</para>
             <para>The algorithm is based on transform technology, using a Modulated Lapped Transform (MLT). It operates on 20-ms frames (320 samples) of audio. Because the transform window (basis function length) is 640 samples and a 50 per cent (320 samples) overlap is used between frames, the effective look-ahead buffer size is 20 ms. Hence the total algorithmic delay of 40 ms is the sum of the frame size plus look-ahead. All other delays are due to computational and network transmission delays.</para>
-            <para>In the floating-point C source code of G.722.1 Annex B, one file is changed: decoder.c</para>
-            <para>These changes correct two problems:</para>
-            <itemizedlist spacing="compact">
-               <listitem>
-                  <para>The noise fill energy was 26.8 dB too weak on the floating-point decoder, compared to the fixed-point source code. This has been corrected by defining a constant NOISE_SCALE_FACTOR, with the value of 22.0, and using this to scale the background noise.</para>
-               </listitem>
-               <listitem>
-                  <para>There was potential for an array overflow in certain circumstances. This has been corrected by bounding the index array.</para>
-               </listitem>
-            </itemizedlist>
          </applicability>
          <responsibleparty rpref="fmn-cpwg"/>
          <status mode="accepted">
-            <uri>http://www.itu.int/rec/T-REC-G.722.1 https://www.itu.int/rec/T-REC-G.722.1-200806-I!Cor1/en</uri>
+            <uri>http://www.itu.int/rec/T-REC-G.722.1</uri>
             <history>
                <event date="2021-01-15" flag="added" rfcp="13-019" version="14.0"/>
             </history>
          </status>
-         <uuid>0594d2f0-b5fd-48f2-a3d0-96c62a05d2df 6a9469c1-f89a-4f51-b2dc-13194fa1f9da</uuid>
+         <uuid>0594d2f0-b5fd-48f2-a3d0-96c62a05d2df</uuid>
       </standard>
       <standard id="ietf-rfc7468" tag="RFC 7468">
          <document orgid="ietf"
