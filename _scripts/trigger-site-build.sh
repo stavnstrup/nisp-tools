@@ -12,4 +12,4 @@ curl -s -X POST \
    -H "Travis-API-Version: 3" \
    -H "Authorization: token $TRAVIS_API_TOKEN" \
    -d "$body" \
-   https://api.travis-ci.org/repo/stavnstrup%2Fnisp-nation/requests
+   https://api.travis-ci.com/repo/stavnstrup%2Fnisp-nation/requests
