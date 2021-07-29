@@ -26,7 +26,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <xsl:template match="profile[@toplevel='yes']">
   <capabilityprofile>
     <xsl:apply-templates select="@*"/>
-    <xsl:apply-templates/>  </capabilityprofile>
+    <xsl:apply-templates/>
+  </capabilityprofile>
 </xsl:template>
 
 <xsl:template match="@*|node()">

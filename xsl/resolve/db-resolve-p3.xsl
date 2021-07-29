@@ -50,7 +50,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 
 <xsl:template match="capabilityprofile" mode="copyprofile">
-  <capabilityprofile type="cp" id="{@id}">
+  <capabilityprofile type="cp" id="{@id}" short="{@short}">
     <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
   </capabilityprofile>
 </xsl:template>

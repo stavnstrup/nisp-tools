@@ -272,7 +272,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
                 (../@lifecycle=$lc) and (../../reftaxonomy/@refid=$taxref)]">
     <xsl:choose>
       <xsl:when test="@id = 'bsp'">BSP</xsl:when>
-      <xsl:otherwise><xsl:value-of select="translate(@id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:otherwise>
+      <xsl:otherwise><xsl:value-of select="translate(@short,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ_')"/></xsl:otherwise>
     </xsl:choose>
     <xsl:if test="following-sibling::capabilityprofile//refstandard[(@refid=$stdid) and (../@obligation='mandatory') and (../@lifecycle=$lc) and (../../reftaxonomy/@refid=$taxref)]">
       <xsl:text>, </xsl:text>
