@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-formatted-messages-for-isr-profile" title="Proposed FMN Spiral 4 Formatted Messages for ISR Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Formatted Messages Profile provides standard for formatted messages that are typically used to exchange
+Intelligence, Surveillance, and Reconnaissance (ISR) products in military operations. These formatted messages may
+be used as payload/attachment in combination with various transport mechanisms such as informal messaging (e-mail),
+text collaboration (chat) or for publication as files on websites. In addition, some of these formatted messages are also
+supported by federated ISR Libraries.</para>
+		</description>
 		<!-- Informal Messaging Services -->
 		<reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
 		<!-- Audio-based Communication Services -->
@@ -13,33 +20,102 @@
 		<!-- Reporting Services (replacement) -->
 		<reftaxonomy refid="T-0cc8df53-d57e-4d20-bb33-9debce304a72-X"/>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>The following XML Schema defined by MAJIIC 2 SHOULD be supported:
+					<itemizedlist>
+						<listitem>
+							<para>ISR Spot Report (ISRSPOTREP)</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+				<para>This report is to be used for quick reporting allowing a free-text description of the results.
+					<itemizedlist>
+						<listitem>
+							<para>MAJIIC 2 Bravo.1</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 		<!-- Note: Missing information for MAJIIC 2 Bravo.1	-->
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>To support the sharing of JISR Products the following message formats defined in various AEDPs
+MUST be supported:
+					<itemizedlist>
+						<listitem>
+							<para>ISR Track</para>
+						</listitem>
+						<listitem>
+							<para>Measurement and Signature Intelligence Report (MASINTREP)</para>
+						</listitem>
+						<listitem>
+							<para>Imagery</para>
+						</listitem>
+						<listitem>
+							<para>Ground Moving Target Indicator (GMTI)</para>
+						</listitem>
+						<listitem>
+							<para>Motion Imagery</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 			<!-- AEDP-12(A)(1) - "NATO ISR Tracking Standard (NITS)" -->
-			<refstandard refid="nso-aedp-12-ed.a-v1"/>
+			<refstandard refid="nato-aedp-12-ed.a-v1"/>
 			<!-- AEDP-16 - "NATO STANDARDIZATION OF MEASUREMENT AND SIGNATURE INTELLIGENCE (MASINT) REPORTING" -->
-			<refstandard refid="nso-aedp-16"/>
+			<refstandard refid="nato-aedp-16"/>
 			<!-- AEDP-04(B)(1) - "NATO SECONDARY IMAGERY FORMAT (NSIF) STANAG 4545 IMPLEMENTATION GUIDE" -->
-			<refstandard refid="nso-aedp-04-ed.2-v1"/>
+			<refstandard refid="nato-aedp-04-ed.2-v1"/>
 			<!-- AEDP-07(B)(1) - "NATO GROUND MOVING TARGET INDICATION (GMTI) FORMAT STANAG 4607 IMPLEMENTATION GUIDE" -->
-			<refstandard refid="nso-aedp-07-ed.2-v1"/>
+			<refstandard refid="nato-aedp-07-ed.2-v1"/>
 			<!-- AEDP-08 - "NATO MOTION IMAGERY STANAG 4609 IMPLEMENTATION GUIDE" -->
-			<refstandard refid="nso-aedp-08-ed.3-v1"/>
+			<refstandard refid="nato-aedp-08-ed.3-v1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>To support the exchange of information needed to govern and facilitate the collection of Intelligence,
+Surveillance and Reconnaissance (ISR) information and production of intelligence the following
+message formats defined in APP-11 MUST be supported (MTF Identifier, MTF Index Ref Number):
+					<itemizedlist>
+						<listitem>
+							<para>Intelligence Request (INTREQ, J021)</para>
+						</listitem>
+						<listitem>
+							<para>Information Requirement Management &amp; Collection Management Exchange (ICE, J033)</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 			<!-- APP-11(E) - "NATO Message Catalogue" -->
-			<refstandard refid="nso-app-11-ed.e-v1"/>
+			<refstandard refid="nato-app-11-ed.e-v1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>To support the sharing of JISR Products the following message formats defined in APP-11 and
+STANAG 3377 MUST be supported (MTF Identifier, MTF Index Ref Number):
+					<itemizedlist>
+						<listitem>
+							<para>Target Track Report (TRACKREP, J071)</para>
+						</listitem>
+						<listitem>
+							<para>Mission Report (MISREP, F031)</para>
+						</listitem>
+						<listitem>
+							<para>Inflight Report (INFLIGHTREP , J009)</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 			<!-- APP-11(E) - "NATO Message Catalogue" -->
-			<refstandard refid="nso-app-11-ed.e-v1"/>
+			<refstandard refid="nato-app-11-ed.e-v1"/>
 			<!-- STANAG 3377 Edition 6 - "Air Reconnaissance Intelligence Report Forms" -->
-			<refstandard refid="nso-stanag3377ed6"/>
+			<refstandard refid="nato-stanag3377ed6"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>ff098f36-b1d0-47b3-961f-1d4bdcb1884a</uuid>
 	</serviceprofile>

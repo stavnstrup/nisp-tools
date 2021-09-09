@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-isr-library-interface-profile" title="Proposed FMN Spiral 4 ISR Library Interface Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The ISR Library Interface is the standard interface for querying and accessing heterogeneous product libraries
+maintained by various nations.</para>
+		</description>
 		<!-- JISR Reporting Services (not in C3 Taxonomy) -->
 		<!-- Reporting Services (replacement) -->
 		<reftaxonomy refid="T-0cc8df53-d57e-4d20-bb33-9debce304a72-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Note: implementation of STANAG 5525 in the context of the ISR Library Interface Profile is limited to
+the definition of unique keys that could be used to unambiguously refer to an external information
+object that is modelled in accordance with STANAG 5525.</para>
+			</description>
 			<!-- STANAG 5525 Edition 1 - "Joint Consultation, Command and Control Information Exchange Data Model (JC3IEDM)" -->
-			<refstandard refid="nso-stanag5525ed1"/>
+			<refstandard refid="nato-stanag5525ed1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following NATO standards are mandated for interoperability of ISR libraries.</para>
+			</description>
 			<!-- AEDP-04(B)(1) - "NATO SECONDARY IMAGERY FORMAT (NSIF) STANAG 4545 IMPLEMENTATION GUIDE" -->
-			<refstandard refid="nso-aedp-04-ed.2-v1"/>
+			<refstandard refid="nato-aedp-04-ed.2-v1"/>
 			<!-- AEDP-07(B)(1) - "NATO GROUND MOVING TARGET INDICATION (GMTI) FORMAT STANAG 4607 IMPLEMENTATION GUIDE" -->
-			<refstandard refid="nso-aedp-07-ed.2-v1"/>
+			<refstandard refid="nato-aedp-07-ed.2-v1"/>
 			<!-- AEDP-17(A)(1) - "NATO Standard ISR Library Interface" -->
-			<refstandard refid="nso-aedp-17-ed.A-v1"/>
+			<refstandard refid="nato-aedp-17-ed.A-v1"/>
 			<!-- MISP-2015.1 - "U.S. MOTION IMAGERY STANDARDS BOARD (MISB) - MOTION IMAGERY STANDARDS PROFILE-2015.1" -->
 			<refstandard refid="nnstd-misp-2015.1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following international standards are mandated for interoperability of ISR libraries.</para>
+			</description>
 			<!-- ISO 639-2:1998 - "Codes for the representation of names of languages - Part 2: Alpha-3 code" -->
 			<refstandard refid="iso-639-2"/>
 			<!-- ISO/IEC 14750:1999 - "Open Distributed Processing - Interface Definition Language" -->
@@ -32,9 +47,27 @@
 			<!-- ISO/IEC 12087-5:1998/Cor 2:2002 - "Technical Corrigendum 2 to International Standard ISO/IEC 12087-5:1998" -->
 			<refstandard refid="iso-iec-12087-5-cor2"/>
 		</refgroup>
+		<guide>
+			<para>To ensure optimization of network resources the CSD services work best with a unicast address
+space.</para>
+			<para>AEDP-17(A)(1) defines two interfaces:
+					<itemizedlist>
+						<listitem>
+							<para>the first one is a federated service provider interface (see ISR Library Federation Pattern) based
+on CORBA's Internet Inter-ORB Protocol,</para>
+						</listitem>
+						<listitem>
+							<para>the second one is in support of the provider-consumer interface (see ISR Library Access Pattern)
+based on web services.</para>
+						</listitem>
+					</itemizedlist>
+Service provider must identify which interfaces/patterns they support as a part of the federation
+process.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>fa44c8a8-c66d-4f68-bb65-332d1ff86642</uuid>
 	</serviceprofile>

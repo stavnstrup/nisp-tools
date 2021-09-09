@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-land-tactical-c2-information-exchange-profile" title="Proposed FMN Spiral 4 Command and Control Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Land Tactical C2 Information Exchange Profile provides standards and guidance with regard to a core set of
+Command and Control information and also on how to exchange XML messages within a coalition tactical environment
+with mobile units</para>
+		</description>
 		<!-- Battlespace Object Services -->
 		<reftaxonomy refid="T-c742df52-642c-4799-b678-4acf5d278fb5-X"/>
 		<!-- Direct Messaging Services -->
@@ -10,22 +15,34 @@
 		<!-- Situational Awareness Services -->
 		<reftaxonomy refid="T-75a41fc4-9672-479c-a7fe-2b0cc8b01d4b-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>AEP-76 is to be used for direct C2 Data Exchange between coalition units at the Mobile Tactical
+Edge, where a shared interoperability network is in place built upon the loaned radio concept. The
+information exchange mechanism of AEP-76 supports the efficient information exchange of XML
+messages over a coalition mobile tactical edge network.</para>
+			</description>
 			<!-- AEP-76Vol1(A)(2) - "Specifications Defining the Joint Dismounted Soldier System Interoperability Network (JDSSIN) – Security" -->
-			<refstandard refid="nso-aep-76-1-ed.A-v2"/>
+			<refstandard refid="nato-aep-76-vol1-ed.a-v2"/>
 			<!-- AEP-76Vol4(A)(2) - "Specifications Defining the Joint Dismounted Soldier System Interoperability Network (JDSSIN) – Information Exchange Mechanism" -->
-			<refstandard refid="nso-aep-76-4-ed.A-v2"/>
+			<refstandard refid="nato-aep-76-vol4-ed.a-v2"/>
 			<!-- AEP-76Vol5(A)(2) - "Specifications Defining the Joint Dismounted Soldier System Interoperability Network (JDSSIN) – Network Access" -->
-			<refstandard refid="nso-aep-76-5-ed.A-v2"/>
+			<refstandard refid="nato-aep-76-vol5-ed.a-v2"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>AEP-76 is to be used for direct C2 Data Exchange between coalition units at the Mobile Tactical
+Edge, where a shared interoperability network is in place built upon the loaned radio concept. The
+data model of AEP-76 is based on MIP 3.1 XML messages.</para>
+			</description>
 			<!-- AEP-76Vol1(A)(2) - "Specifications Defining the Joint Dismounted Soldier System Interoperability Network (JDSSIN) – Security" -->
-			<refstandard refid="nso-aep-76-1-ed.A-v2"/>
+			<refstandard refid="nato-aep-76-vol1-ed.a-v2"/>
 			<!-- AEP-76Vol2(A)(2) - "Specifications Defining the Joint Dismounted Soldier System Interoperability Network (JDSSIN) – Data Model" -->
-			<refstandard refid="nso-aep-76-2-ed.A-v2"/>
+			<refstandard refid="nato-aep-76-vol2-ed.a-v2"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>90cd3e3c-8ea6-4e18-b43b-dfe35b173954</uuid>
 	</serviceprofile>

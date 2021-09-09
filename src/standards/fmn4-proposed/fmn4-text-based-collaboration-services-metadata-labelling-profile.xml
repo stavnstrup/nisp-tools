@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-text-based-collaboration-services-metadata-labelling-profile" title="Proposed FMN Spiral 4 Text-Based Collaboration Services Metadata Labelling Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Text-Based Collaboration Services Metadata Labelling Profile describes how to apply standard Metadata to
+Text-Based Collaboration Services.</para>
+		</description>
 		<!-- Text-based Communication Services -->
 		<reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
-			<!-- STANAG 5636 Edition 1 - "NATO Core Metadata Specification (NCMS)" -->
-			<refstandard refid="nso-stanag5636ed1"/>
-		</refgroup>
-		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The STANAGs and binding profiles describe the syntax and mechanisms for applying Metadata.</para>
+			</description>
 			<!-- STANAG 4774 Edition 1 - "Confidentiality Metadata Label Syntax" -->
-			<refstandard refid="nso-stanag4774"/>
+			<refstandard refid="nato-stanag4774"/>
 			<!-- STANAG 4778 Edition 1 - "Metadata Binding Mechanism" -->
-			<refstandard refid="nso-stanag4778"/>
+			<refstandard refid="nato-stanag4778"/>
 			<!-- TN-1491 - "Profiles for Binding Metadata to a Data Object" -->
 			<refstandard refid="ncia-tn1491-ed2"/>
 			<!-- Note: reference to other profile -->
 			<!-- refid="binding-xmpp-v2" -->
 		</refgroup>
+		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The STANAG describes the syntax for NATO Core Metadata.</para>
+			</description>
+			<!-- STANAG 5636 Edition 1 - "NATO Core Metadata Specification (NCMS)" -->
+			<refstandard refid="nato-stanag5636ed1"/>
+		</refgroup>
+		<guide>
+			<para>The structure of the binding is defined in Annex C of TN-1491.</para>
+			<para>The labelling Values shall be based on the Security Policy defined for the Mission.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>9de2bae7-86ff-4957-b798-cb28fd675618</uuid>
 	</serviceprofile>

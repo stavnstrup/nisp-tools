@@ -1,21 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-jreap-profile" title="Proposed FMN Spiral 4 JREAP Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Joint Range Extension Application Protocol (JREAP) enables Link 16 tactical data to be transmitted over digital
+media and networks not originally designed for tactical data exchange. Full detail of JREAP instructions and procedures
+can be found in STANAG 5518 Ed1 - Interoperability Standard for Joint Range Extension Application Protocol (JREAP).</para>
+			<para>Link 16 messages (i.e. J-series) are embedded inside of the JREAP. JREAP management messages (i.e. X-series) are
+used, in order to ensure proper dissemination of the Link 16 messages.</para>
+			<para>Capabilities are provided that include:
+				<itemizedlist>
+					<listitem>
+						<para>Extending the range-limited tactical networks to beyond LOS while reducing their dependence upon relay platforms</para>
+						<para>Reducing the loading on stressed networks</para>
+						<para>Providing backup communications in the event of the loss of the normal link</para>
+						<para>Providing a connection to a platform that may not be equipped with the specialized communications equipment for
+that TDL.</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>For media that do not support OSI network and transport layers, the JREAP provides network and transport layer
+functionality. For media supporting OSI network and transport layers, the JREAP is encapsulated within those layers.
+JREAP software can be integrated into a host system or into a stand-alone processor. The appropriate interface
+terminals are required at each end of any JREAP alternate media link.</para>
+		</description>
 		<!-- Track Distribution Services -->
 		<reftaxonomy refid="T-7de33633-668c-4d32-ba13-944acbc798fe-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>JREAP offers the transmission mechanism. Track Service is performed by Link 16</para>
+			</description>
 			<!-- STANAG 5516 Edition 8 - "Tactical Data Exchange - Link 16" -->
-			<refstandard refid="nso-stanag5516ed8"/>
+			<refstandard refid="nato-stanag5516ed8"/>
 			<!-- STANAG 5518 Edition 1 - "Interoperability Standard for Joint Range Extension Application Protocol (JREAP)" -->
-			<refstandard refid="nso-stanag5518ed1"/>
+			<refstandard refid="nato-stanag5518ed1"/>
 		</refgroup>
 		<refgroup obligation="conditional" lifecycle="candidate">
+			<description>
+				<para>STANAG 5602 covers ATDLP-6.02 (SIMPLE), which specifies the requirements for the transfer of
+data between remote sites to support the interoperability testing of tactical data link implementations
+in different platforms.</para>
+			</description>
 			<!-- STANAG 5602 Edition 4 - "Standard Interface for Multiple Platform Link Evaluation (SIMPLE)" -->
-			<refstandard refid="nso-stanag5602ed4"/>
+			<refstandard refid="nato-stanag5602ed4"/>
 		</refgroup>
+		<guide>
+			<para>===JREAP=== JREAP is designed to support operations using Link 16 over most communication
+media (JRE media) including forwarding TDL data over SATCOM links (JREAP-A), Serial links
+(JREAP-B), and over IP networks (JREAP-C).</para>
+			<para>Each JRE medium has unique characteristics. It supports UDP Unicast, UDP multicast, and TCP.</para>
+			<para>For implementation in FMN only JREAP, Appendix C - ENCAPSULATION OVER INTERNET
+PROTOCOL (IP) - is to be used.</para>
+			<para>===SIMPLE=== The SIMPLE protocol is going to be used only for Verification and Validation
+purpose of all systems employing or interfacing with tactical data links and only when the systems do
+not support JREAP. It is not going to be used within the operational network for operational purpose.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>5bc97ea3-92b0-4f4f-8971-68df0fa1aa3f</uuid>
 	</serviceprofile>

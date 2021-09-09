@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-ip-quality-of-service-profile" title="Proposed FMN Spiral 4 IP Quality of Service Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The IP Quality of Service Profile provides standards and guidance to establish and control an agreed level of
+performance for IP services in federated networks.</para>
+		</description>
 		<!-- IPv4 Routed Access Services -->
 		<reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
 		<!-- Packet-based Transport Services -->
 		<reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP).</para>
+			</description>
 			<!-- RFC 2474 - "Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers" -->
 			<refstandard refid="ietf-rfc2474"/>
 			<!-- RFC 4594 - "Configuration Guidelines for DiffServ Service Classes" -->
@@ -22,12 +29,29 @@
 			<refstandard refid="itu-t-j.241"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following normative standards shall apply for IP Quality of Service (QoS).</para>
+			</description>
 			<!-- STANAG 4711 Edition 1 - "Interoperability Point Quality of Service (IP QOS)" -->
-			<refstandard refid="nso-stanag4711ed1"/>
+			<refstandard refid="nato-stanag4711ed1"/>
 		</refgroup>
+		<guide>
+			<para>For NATO-led Mission Network deployments, the following governing policies apply:
+				<itemizedlist>
+					<listitem>
+						<para>AC/322(SC/6)WP(2009)0002-REV2 - "NC3B Policy on the Federation of Networks and Provision
+of Communications Services within the Networking Information Infrastructure"</para>
+					</listitem>
+					<listitem>
+						<para>NATO Policy for Standardization</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>07c31bdd-88f8-415d-8790-2d5ba20bc1f4</uuid>
 	</serviceprofile>

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-calendaring-exchange-profile" title="Proposed FMN Spiral 4 Calendaring Exchange Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The calendaring exchange profile provides standards and guidance for the exchange Meeting Requests, Free/Busy
+information as well as Calendar sharing implemented by CUA software.</para>
+			<para>The focus of this standard is on the exchange of the aforementioned information items and does not cover other typical
+features found in collaboration software, e.g. chat or workflows.</para>
+		</description>
 		<!-- Calendaring and Scheduling Services -->
 		<reftaxonomy refid="T-d5b2a8d5-e4d6-4e91-89d4-9c2539aac1c6-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
@@ -11,9 +17,20 @@
 			<!-- RFC 6047 - "iCalendar Message-Based Interoperability Protocol (iMIP)" -->
 			<refstandard refid="ietf-rfc6047"/>
 		</refgroup>
+		<guide>
+			<para>RFC 5545 is required in order to allow a vendor independent representation and exchange of
+calendaring and scheduling information such as events, to-dos, journal entries, and free/busy
+information, independent of any particular calendar service or protocol.</para>
+			<para>RFC 5546 defines the scheduling methods that permit two or more calendaring systems to perform
+transactions such as publishing, scheduling, rescheduling, responding to scheduling requests,
+negotiating changes, or canceling.</para>
+			<para>RFC 6047 defines how calendaring entries defined by the iCalendar Object Model (iCalendar) are
+wrapped and transported over SMTP.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>29f2c36f-a226-4e84-b62b-18cb3f562d84</uuid>
 	</serviceprofile>

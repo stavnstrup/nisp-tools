@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-tactical-message-distribution-profile" title="Proposed FMN Spiral 4 Tactical Message Distribution Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Air Information Exchange Profile provides standards and guidance to support the exchange of Recognized Air
+Picture (RAP) information within a coalition network or a federation of networks.</para>
+		</description>
 		<!-- Recognized Air Picture Services -->
 		<reftaxonomy refid="T-46d22093-5675-41ee-a406-557eabb666e9-X"/>
 		<!-- Situational Awareness Services -->
@@ -8,16 +12,125 @@
 		<!-- Track Management Services -->
 		<reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The Standard for Joint Range Extension Application Protocol (JREAP) - ATDLP-5.18 Edition B
+enables TDL data to be transmitted over digital media and networks not originally designed for
+tactical data exchange. JREAP consists of three different protocols: A, B and C. For implementation
+in FMN only JREAP, Appendix C 'Encapsulation over Internet Protocol (IP)' which enables TDL data
+to be transmitted over an IP network must be used.</para>
+				<para>As per the common time reference within JREAP, UTC must be supported as the common time
+reference. If no common time reference is available, round-trip shall be used.</para>
+			</description>
 			<!-- ATDLP-5.18B - "INTEROPERABILITY STANDARD FOR JOINT RANGE EXTENSION APPLICATION PROTOCOL (JREAP)" -->
-			<refstandard refid="nso-atdlp-5.18-ed.a-v1"/>
+			<refstandard refid="nato-atdlp-5.18-ed.a-v1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+		<description>
+			<para>The "Minimum Link-16 Message Profile", as described in the FMN Spiral 3 Service Interface Profile
+for RAP Data, defines the minimum set of data elements that are required to be available for
+operational or technical reasons so that correctly formatted technical message can be generated to
+establish a Recognized Air Picture in a federated environment. The implementation of the following
+message types of STANAG 5516 is MANDATORY:
+				<itemizedlist>
+					<listitem>
+						<para>Precise Participant Location and Identification (PPLI) Messages
+							<itemizedlist>
+								<listitem>
+									<para>J2.0 Indirect Interface Unit PPLI</para>
+								</listitem>
+								<listitem>
+									<para>J2.2 Air PPLI</para>
+								</listitem>
+								<listitem>
+									<para>J2.3 Surface (Maritime) PPLI</para>
+								</listitem>
+								<listitem>
+									<para>J2.4 Subsurface (Maritime) PPLI</para>
+								</listitem>
+								<listitem>
+									<para>J2.5 Land (Ground) Point PPLI</para>
+								</listitem>
+								<listitem>
+									<para>J2.6 Land (Ground) Track PPLI</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</listitem>
+					<listitem>
+						<para>Surveillance Messages
+							<itemizedlist>
+								<listitem>
+									<para>J3.0 Reference Point</para>
+								</listitem>
+								<listitem>
+									<para>J3.1 Emergency Point</para>
+								</listitem>
+								<listitem>
+									<para>J3.2 Air Track message</para>
+								</listitem>
+								<listitem>
+									<para>J3.3 Surface (Maritime) Track</para>
+								</listitem>
+								<listitem>
+									<para>J3.4 Subsurface (Maritime) Track</para>
+								</listitem>
+								<listitem>
+									<para>J3.5 Land (Ground) Point/Track</para>
+								</listitem>
+								<listitem>
+									<para>J3.7 Electronic Warfare Product Information</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>To maximize the ability to share tactical data in support of Situational Awareness, the following
+message types must also be supported:
+				<itemizedlist>
+					<listitem>
+						<para>J7 Information Management</para>
+					</listitem>
+					<listitem>
+						<para>J8 Information Management</para>
+					</listitem>
+					<listitem>
+						<para>J9 Weapons Coordination and Management</para>
+					</listitem>
+					<listitem>
+						<para>J10 Weapons Coordination and Management</para>
+					</listitem>
+					<listitem>
+						<para>J12 Control</para>
+					</listitem>
+					<listitem>
+						<para>J13 Platform and System Status</para>
+					</listitem>
+					<listitem>
+						<para>J15 Threat Warning</para>
+					</listitem>
+					<listitem>
+						<para>J17 Miscellaneous</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>More recent editions of this standard may be implemented for operational use and edition 8 is the
+absolute minimum to guarantee Link 16 tactical message distribution.</para>
+		</description>
 			<!-- STANAG 5516 Edition 8 - "Tactical Data Exchange - Link 16" -->
-			<refstandard refid="nso-stanag5516ed8"/>
+			<refstandard refid="nato-stanag5516ed8"/>
 		</refgroup>
+		<guide>
+			<para>With regards to JREAP: JREAP is designed to support operations using Link 16 over most
+communication media (JRE media) including forwarding TDL data over SATCOM links (JREAP-A),
+Serial links (JREAP-B), and over IP networks (JREAP-C). Each JRE medium has unique
+characteristics. It supports UDP Unicast, UDP multicast, and TCP. For implementation in FMN only
+JREAP, Appendix C "Encapsulation over Internet Protocol (IP)" is to be used.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>596ed088-e503-407e-b80c-b7b19fcfc032</uuid>
 	</serviceprofile>

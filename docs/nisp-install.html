@@ -19,7 +19,7 @@
 <h1 id="name">Name</h1>
 <p>nisp-install - Installation of NISP tools and sources</p>
 <h1 id="description">Description</h1>
-<p>Working with DocBook XML files, requires quite a bit of software. However, the number of packages necessary, depends on the requirements of the user. To simplify things, most of the tools have been bundled in the nisp-tools package. In order e.g. to generate a HTML version of the NISP, the users only have to install Java, the nisp tools distribution and the sources for the XML version of the NISP. <!--
+<p>Working with DocBook XML files, requires quite a bit of software. However, the number of packages necessary, depends on the requirements of the user. To simplify things, most of the tools have been bundled in the nisp-tools package. In order e.g. to generate a HTML version of the NISP, the users only have to install Java, the nisp tools distribution and the sources for the XML version of the NISP. <!--
 A detailed description of all the different tools
 included in this package can be found in the [NISP software](nisp-software.html) manual.
 --></p>
@@ -82,9 +82,9 @@ user could rename the tools directory to e.g. `c:\nisp-tools`, and of course set
 ****************************************************************************************
 -->
 <h2 id="installation-of-the-htmlhelp-compiler">Installation of the HTMLHELP compiler</h2>
-<p>The current web version of the NISP also comes with a HTML Help version. This requires installation of the Microsoft's HTML Help compiler, which due to license restrictions can not be included in the NISP tools package. The user is required to download this distribution from the Microsoft's website. Search for &quot;html help downloads&quot;.</p>
+<p>The current web version of the NISP also comes with a HTML Help version. This requires installation of the Microsoft’s HTML Help compiler, which due to license restrictions can not be included in the NISP tools package. The user is required to download this distribution from the Microsoft’s website. Search for “html help downloads”.</p>
 <p>A configuration file with default user definable properties is located in the root of the tools distribution contains the property <code>hcc</code>, which must point to the location of the HTML Help Compiler. See here</p>
-<p>When you use the default installation using the file &quot;htmlhelp.exe&quot; distributed by Microsoft, the HTML Help Workshop will be installed in <code>C:\Program Files\HTML Help Workshop</code>. The HTML Help Workshop also includes the HTML Help Compiler. The default setting of the property <code>hcc</code> in the file &quot;user.properties&quot; therefore is:</p>
+<p>When you use the default installation using the file “htmlhelp.exe” distributed by Microsoft, the HTML Help Workshop will be installed in <code>C:\Program Files\HTML Help Workshop</code>. The HTML Help Workshop also includes the HTML Help Compiler. The default setting of the property <code>hcc</code> in the file “user.properties” therefore is:</p>
 <pre><code>hcc = C:\\Program Files\\HTML Help Workshop\\hhc.exe</code></pre>
 <p>Change the value of this parameter, if your version of the HTML Help Compiler is located in a different directory.</p>
 <p>Please note that the file <code>hcc.exe</code> itself is not sufficient to be able to compile a HTML Help project. At least the following three files, which are included in the Microsoft distribution of the HTML Help Workshop, are required to be able to compile a HTML Help project:</p>
@@ -93,12 +93,12 @@ user could rename the tools directory to e.g. `c:\nisp-tools`, and of course set
 <li><em>itcc.dll</em> - Default this file is installed in <code>C:\Program Files\HTML Help Workshop</code>.</li>
 <li><em>hha.dll</em> - Default this file is installed in <code>C:\Windows\System32</code> (on WindowsXP).</li>
 </ul>
-<p>If you do not have sufficient privileges to install the HTML Help Workshop, you can copy these files to the same folder, e.g. <code>D:\Tools\NISP\HTMLHelp</code> and change the <code>hcc</code> property in the file &quot;user.properties&quot; to e.g. <code>hcc=D:\\Tools\\NISP\\HTMLHelp</code>. Now it is possible to invoke the HTML Help compiler and generate the &quot;.chm&quot;-file.</p>
+<p>If you do not have sufficient privileges to install the HTML Help Workshop, you can copy these files to the same folder, e.g. <code>D:\Tools\NISP\HTMLHelp</code> and change the <code>hcc</code> property in the file “user.properties” to e.g. <code>hcc=D:\\Tools\\NISP\\HTMLHelp</code>. Now it is possible to invoke the HTML Help compiler and generate the “.chm”-file.</p>
 <pre><code>hcc=D:\\Tools\\NISP\\HTMLHelp</code></pre>
 <p>This approach has one problem: the index will not be generated correctly. You must register the file <code>itcc.dll</code> to be able to generate a correct index as well. If you have sufficient privileges, you can perform this action using the command:</p>
 <pre><code>    regsvr32 itcc.dll</code></pre>
 <h2 id="user-defined-configuration">User defined configuration</h2>
-<p>A configuration file with default values for the build process is located in the root folder with the name &quot;user.properties&quot;. Since this file might be updated whenever the user syncronizes with the subversion repository, this file should never been modified. Instead the user should make a copy of this file and call it &quot;local.user.properties&quot; and edit the appropiate properties.</p>
+<p>A configuration file with default values for the build process is located in the root folder with the name “user.properties”. Since this file might be updated whenever the user syncronizes with the subversion repository, this file should never been modified. Instead the user should make a copy of this file and call it “local.user.properties” and edit the appropiate properties.</p>
 <h1>Author</h1>
 <p class="author">Jens Stavnstrup &lt;stavnstrup@mil.dk&gt;</p>
 <p class="date">Last updated on December 19, 2009</p>

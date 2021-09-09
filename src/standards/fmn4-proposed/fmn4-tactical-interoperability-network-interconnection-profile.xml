@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-tactical-interoperability-network-interconnection-profile" title="Proposed FMN Spiral 4 Tactical Interoperability Network Interconnection Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Tactical Interoperability Network Interconnection Profile provide the technical details to create a shared
+interoperability network at the mobile tactical edge. When no common waveform for land tactical radios can be used for
+a federation, a standard "bridging" solution based on loaned radios can be used to mitigate the interoperability problem.</para>
+			<para>The architectural pattern "asset exchange pattern" to achieve operational interoperability. Such a asset exchange
+pattern would aim for "Interchangeability" of assets from different Mission Network (MN) participants. Interchangeability,
+is the ability of one product, process or service to be used in place of another to fulfil the same requirements.</para>
+			<para>Mobile Tactical Edge information exchange for FMN Spiral 4 is limited to “FMN Spiral 4 Service Instruction for Mobile
+Tactical Edge Land C2 Information Exchange”, which is basically data exchange based on STANAG 4677. This data
+exchange service relies for Spiral 4 on a shared interoperability network based on the loaned radio concept, described in
+this document.</para>
+			<para>The information exchanged over the interface between Tactical CIS and the Radio shall be protected with similar
+mechanism that required to protect NATO RESTRICTED information or equivalent national classification level. The
+protection of information at the lower tactical level has a number of distinctive characteristics:
+				<itemizedlist>
+					<listitem>
+						<para>information is often transient and perishable – it is only relevant for a short period of time</para>
+					</listitem>
+					<listitem>
+						<para>transmission of information is confined to a small geographic area.</para>
+					</listitem>
+					<listitem>
+						<para>information is held on portable devices which are often close to physical threats</para>
+					</listitem>
+					<listitem>
+						<para>networks at the lower tactical are often isolated from the wider network.</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</description>
 		<!-- IPv4 Routed Access Services -->
 		<reftaxonomy refid="T-8b0fcb44-08fd-4757-a12a-0fe3ea9aad7b-X"/>
 		<!-- Packet-based Transport Services -->
 		<reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>It is recommend the implement the following standards in addition to RFC 1112:</para>
+			</description>
 			<!-- RFC 2236 - "Internet Group Management Protocol, Version 2" -->
 			<refstandard refid="ietf-rfc2236"/>
 			<!-- RFC 3376 - "Internet Group Management Protocol, Version 3 -->
@@ -13,7 +46,7 @@
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
 			<!-- AEP-76Vol5(A)(2) - "Specifications Defining the Joint Dismounted Soldier System Interoperability Network (JDSSIN) – Network Access" -->
-			<refstandard refid="nso-aep-76-5-ed.A-v2"/>
+			<refstandard refid="nato-aep-76-vol5-ed.a-v2"/>
 			<!-- RFC 894 - "A Standard for the Transmission of IP Datagrams over Ethernet Networks" -->
 			<refstandard refid="ietf-rfc894"/>
 			<!-- RFC 950 - "Internet Standard Subnetting Procedure" -->
@@ -36,4 +69,5 @@
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>987ebf44-00a5-4232-ab7d-fe2898159cb7</uuid>
 	</serviceprofile>

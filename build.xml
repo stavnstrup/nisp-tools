@@ -267,7 +267,7 @@ $Id$
   </target>
 
 
-  <target name="checkdb">
+  <target name="checkdb" description="* Show database information">
     <mkdir dir="${build.dir}"/>
     <java classname="${xslt.class}" fork="yes">
        <arg line="-o ${build.dir}/build.uuid
@@ -368,7 +368,7 @@ $Id$
   <!-- Default target and global HTML and PDF targets                      -->
   <!-- =================================================================== -->
 
-  <target name="all" description="* Create all volumes for the web"
+  <target name="all" description="* Create all volumes for in HTML5 and PDF"
           depends="init, html, pdf"/>
 
 

@@ -1,18 +1,60 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                version='1.1'
-                exclude-result-prefixes="#default">
+                version='1.1'>
 
 <xsl:output method="text"/>
 
 <xsl:template match="/">
+
+  <xsl:variable name="stat.standard" select="count(//standard[status/@mode='accepted'])"/>
+  <xsl:variable name="stat.coverdoc" select="count(//coverdoc[status/@mode='accepted'])"/>
+  <xsl:variable name="stat.profile" select="count(//profile[status/@mode='accepted'])"/>
+  <xsl:variable name="stat.serviceprofile" select="count(//serviceprofile[status/@mode='accepted'])"/>
+  <xsl:variable name="stat.profilespec" select="count(//profilespec)"/>
+  <xsl:variable name="stat.orgkey" select="count(//orgkey)"/>
+  <xsl:variable name="stat.node" select="count(//node)"/>
+
+
   <!-- Check DB for missing attributes in standards only -->
-  <xsl:variable name="empty.tag" select="count(//standard[@tag=''])"/>
-  <xsl:variable name="empty.orgid" select="count(//document[@orgid=''])"/>
-  <xsl:variable name="empty.pubnum" select="count(//document[@pubnum=''])"/>
-  <xsl:variable name="empty.date" select="count(//document[@date=''])"/>
-  <xsl:variable name="empty.uri" select="count(//standard)-count(//standard/status/uri)"/>
-  <xsl:variable name="empty.applicability" select="count(//applicability[not(string(.))])"/>
+  <xsl:variable name="empty.tag" select="count(//standard[@tag='' and status/@mode='accepted'])"/>
+  <xsl:variable name="empty.orgid" select="count(//document[@orgid='' and ../status/@mode='accepted'])"/>
+  <xsl:variable name="empty.pubnum" select="count(//document[@pubnum='' and ../status/@mode='accepted'])"/>
+  <xsl:variable name="empty.date" select="count(//document[@date='' and ../status/@mode='accepted'])"/>
+  <xsl:variable name="empty.uri" select="count(//standard[status/@mode='accepted'])-count(//standard/status/uri[../@mode='accepted'])"/>
+  <xsl:variable name="empty.applicability" select="count(//applicability[not(string(.)) and ../status/@mode='accepted'])"/>
+
+  <xsl:message>----------</xsl:message>
+  <xsl:message>
+    <xsl:text>Standards:              </xsl:text>
+    <xsl:value-of select="$stat.standard"/>
+  </xsl:message>
+    <xsl:message>
+    <xsl:text>Cover Document:         </xsl:text>
+    <xsl:value-of select="$stat.coverdoc"/>
+  </xsl:message>
+  <xsl:message>
+    <xsl:text>Profiles:               </xsl:text>
+    <xsl:value-of select="$stat.profile"/>
+  </xsl:message>
+  <xsl:message>
+    <xsl:text>Service Profiles:       </xsl:text>
+    <xsl:value-of select="$stat.serviceprofile"/>
+  </xsl:message>
+  <xsl:message>
+    <xsl:text>Profile Specifications: </xsl:text>
+    <xsl:value-of select="$stat.profilespec"/>
+  </xsl:message>
+  <xsl:message>
+    <xsl:text>Organisations:          </xsl:text>
+    <xsl:value-of select="$stat.orgkey"/>
+  </xsl:message>
+  <xsl:message>
+    <xsl:text>Taxonomy Nodes:         </xsl:text>
+    <xsl:value-of select="$stat.node"/>
+  </xsl:message>
+  <xsl:message>----------</xsl:message>
+
+
 
   <xsl:if test="$empty.tag">
     <xsl:message>

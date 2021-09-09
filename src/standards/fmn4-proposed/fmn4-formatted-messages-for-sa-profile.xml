@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-formatted-messages-for-sa-profile" title="Proposed FMN Spiral 4 Formatted Messages for SA Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Formatted Messages Profile for Situational Awareness provides standard for formatted messages that are typically
+used in military operations in support of Situational Awareness. These formatted messages may be used as
+payload/attachment in combination with various transport mechanisms such as informal messaging (e-mail), text
+collaboration (chat) or in standardized voice procedures, e.g. MEDEVAC Requests.</para>
+		</description>
 		<!-- Informal Messaging Services -->
 		<reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
 		<!-- Audio-based Communication Services -->
@@ -8,12 +14,88 @@
 		<!-- Text-based Communication Services -->
 		<reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Procedures for Situational Awareness require the following messages:
+					<itemizedlist>
+						<listitem>
+							<para>Events:
+								<itemizedlist>
+									<listitem>
+										<para>Incident Report (INCREP – A078)</para>
+									</listitem>
+									<listitem>
+										<para>Incident Spot Report (INCSPOTREP – J006)</para>
+									</listitem>
+									<listitem>
+										<para>Troops in Contact SALTA Format (SALTATIC – A073)</para>
+									</listitem>
+									<listitem>
+										<para>Search and Rescue Incident Report (SARIR)</para>
+									</listitem>
+									<listitem>
+										<para>EOD Incident Report (EODINCREP - J069) / EO Incident Report (EOINCREP)</para>
+									</listitem>
+									<listitem>
+										<para>Events Report (EVENTREP - J092)</para>
+									</listitem>
+								</itemizedlist>
+							</para>
+						</listitem>
+						<listitem>
+							<para>Tasks and Orders:
+								<itemizedlist>
+									<listitem>
+										<para>Airspace Control Order (ACO - F011)</para>
+									</listitem>
+									<listitem>
+										<para>Air Tasking Order (ATO - F058)</para>
+									</listitem>
+								</itemizedlist>
+							</para>
+						</listitem>
+						<listitem>
+							<para>Features:
+								<itemizedlist>
+									<listitem>
+										<para>Killbox Message (KILLBOX - F083)</para>
+									</listitem>
+								</itemizedlist>
+							</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 			<!-- APP-11(E) - "NATO Message Catalogue" -->
-			<refstandard refid="nso-app-11-ed.e-v1"/>
+			<refstandard refid="nato-app-11-ed.e-v1"/>
 		</refgroup>
+		<guide>
+			<para>The following set of APP-11 messages should be supported:
+				<itemizedlist>
+					<listitem>
+						<para>Presence Report (PRESENCE)</para>
+					</listitem>
+					<listitem>
+						<para>Enemy Contact Report (ENEMY CONTACT REP)</para>
+					</listitem>
+					<listitem>
+						<para>Search and Rescue Incident Report (SARIR)</para>
+					</listitem>
+					<listitem>
+						<para>Events Report (EVENTREP)</para>
+					</listitem>
+					<listitem>
+						<para>Situation Report (SITREP)</para>
+					</listitem>
+					<listitem>
+						<para>Friendly Force Information (FFI)</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>f54493bb-f9c3-47d8-a7ea-832333b69a61</uuid>
 	</serviceprofile>

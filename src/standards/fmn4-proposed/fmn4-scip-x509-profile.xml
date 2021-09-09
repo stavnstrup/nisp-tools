@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-scip-x509-profile" title="Proposed FMN Spiral 4 SCIP X.509 Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The X.509 standard is used in cryptography to define the format of public key certificates, which are used in many
+Internet protocols. One example is the use in Transport Layer Security (TLS) / Secure Sockets Layer (SSL), which is the
+basis for HTTPS, the secure protocol for browsing the web. Public key certificates are also used in offline applications,
+like electronic signatures.</para>
+			<para>An X.509 certificate contains a public key and an identity (a hostname, or an organization, or an individual), and is either
+signed by a certificate authority or self-signed. When a certificate is signed by a trusted certificate authority, or validated
+by other means, someone holding that certificate can rely on the public key it contains to establish secure
+communications with another party, or validate documents digitally signed by the corresponding private key.</para>
+			<para>Besides the format for certificates themselves, X.509 specifies certificate revocation lists as a means to distribute
+information about certificates that are no longer valid, and a certification path validation algorithm, which allows for
+certificates to be signed by intermediate Certificate Authority (CA) certificates, which are in turn signed by other
+certificates, eventually reaching a trust anchor.</para>
+		</description>
 		<!-- Undefined Taxonomy Node -->
 		<reftaxonomy refid="user.undefined.taxonomynode"/>
 		<refgroup obligation="conditional" lifecycle="candidate">
+			<description>
+				<para>When X.509 is applied for the Secure Communications Interoperability Protocol (SCIP), the following
+standards need to be followed.</para>
+			</description>
 			<!-- SCIP-233.109 - "X.509 Elliptic Curve (EC) Key Material Format Specification" -->
 			<refstandard refid="iicwg-scip-233.109"/>
 			<!-- SCIP-233.307 - "ECDH Key Agreement and TEK Derivation Specification" -->
@@ -22,4 +40,5 @@
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>2091780d-faec-418b-a947-482d6bb90445</uuid>
 	</serviceprofile>

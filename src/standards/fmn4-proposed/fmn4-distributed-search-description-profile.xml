@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-distributed-search-description-profile" title="Proposed FMN Spiral 4 Distributed Search Description Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Distributed Search Description Profile provides standards and guidance for describing and discovering the
+description for federated Search Services.</para>
+		</description>
 		<!-- Search Services -->
 		<reftaxonomy refid="T-25166e6e-2929-44e2-90a6-6378b7417f76-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
@@ -11,9 +15,23 @@
 			<!-- W3C - XML 1.0 Recommendation - "XML 1.0 Recommendation" -->
 			<refstandard refid="w3c-rec-xml10-20081126"/>
 		</refgroup>
+		<guide>
+			<para>The Search Services shall construct a Search Description as an OpenSearch Description Document
+(OSDD) compliant with OpenSearch 1.1.</para>
+			<para>The Search Services Search Description shall contain a URL request template for each Search
+Response format that it supports (indicated by the URL @type attribute value).</para>
+			<para>Each URL template provided in the Search Services Search Description shall contain a URL
+template {searchTerms} parameter.</para>
+			<para>Other parameters used in the URL request template are recommended to be optional.</para>
+			<para>The Search Services shall publish the Search Description to the same host as the Search Services.</para>
+			<para>The Search Services, when requested, SHALL return a Search Description.</para>
+			<para>The Search Services may support auto-discovery of a Search Description, as specified in
+OpenSearch 1.1.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>e95a8602-b6ee-42f4-83d0-04664b7b5137</uuid>
 	</serviceprofile>

@@ -14,14 +14,14 @@ N.B: DO NOT USE this stylesheet unless you know what you are doing.
 
 The potential error in the event element might be in the rfcp or the date attribute instead.
 
-Copyright (c) 2014, 2019  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2014, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
 
 <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"
-            doctype-public="-//DDRE//DTDStandardDB XML V4.7//EN"
-            doctype-system="../src/schema/dtd/stddb47.dtd"/>
+            doctype-public="-//DDRE//DTDStandardDB XML V4.8//EN"
+            doctype-system="../src/schema/dtd/stddb48.dtd"/>
 
 
 <xsl:strip-space elements="*"/>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-cryptographic-algorithms-profile" title="Proposed FMN Spiral 4 Cryptographic Algorithms Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Cryptographic Algorithms Profile specifies the use of public standards for cryptographic algorithm interoperability to
+protect IT systems.</para>
+		</description>
 		<!-- Digital Certificate Services -->
 		<reftaxonomy refid="T-13a17bdd-8eb2-418c-8cb8-7f32a435f432-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
@@ -17,9 +21,71 @@
 			<!-- NIST SP 800-56B Rev 1 - "Recommendation for Pair-Wise Key Establishment Schemes Using Integer Factorization Cryptography" -->
 			<refstandard refid="nist-sp800-56brev1"/>
 		</refgroup>
+		<guide>
+			<para>The following algorithms and parameters are to be used to support specific functions:
+				<itemizedlist>
+					<listitem>
+						<para><emphasis role="strong">Root CA Certificates</emphasis>
+							<itemizedlist>
+								<listitem>
+									<para><emphasis>Digest Algorithm</emphasis>: SHA-256, or SHA-384 (Root CA certificates, which were signed using SHA-1
+before 1 January 2016, may be used until 1 January 2025)
+									</para>
+								</listitem>
+								<listitem>
+									<para><emphasis>RSA modulus size (bits)</emphasis>: 3072 and 4096
+									</para>
+								</listitem>
+								<listitem>
+									<para><emphasis>ECC Curve</emphasis>: NIST P-256, and P-384
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</listitem>
+					<listitem>
+						<para><emphasis role="strong">Subordinate CA Certificates</emphasis>
+							<itemizedlist>
+								<listitem>
+									<para><emphasis>Digest Algorithm</emphasis>: SHA-256, and SHA-384
+									</para>
+								</listitem>
+								<listitem>
+									<para><emphasis>RSA modulus size (bits)</emphasis>: 2048, 3072 and 4096
+									</para>
+								</listitem>
+								<listitem>
+									<para><emphasis>ECC Curve</emphasis>: NIST P-256, and P-384
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</listitem>
+					<listitem>
+						<para><emphasis role="strong">Subscriber Certificates</emphasis>
+							<itemizedlist>
+								<listitem>
+									<para><emphasis>Digest Algorithm</emphasis>: SHA-256, and SHA-384
+									</para>
+								</listitem>
+								<listitem>
+									<para><emphasis>RSA modulus size (bits)</emphasis>: 2048, 3072 and 4096
+									</para>
+								</listitem>
+								<listitem>
+									<para><emphasis>ECC Curve</emphasis>: NIST P-256, and P-384
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>55f1d354-e82c-419a-8428-2f23e6852305</uuid>
 	</serviceprofile>

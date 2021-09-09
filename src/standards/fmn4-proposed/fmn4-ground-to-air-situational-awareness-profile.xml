@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-ground-to-air-situational-awareness-profile" title="Proposed FMN Spiral 4 Ground-to-Air Situational Awareness Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Ground-to-Air Situational (G2A) Awareness Profile provides standards and guidance to support the exchange of
+Friendly Force Tracking information within a coalition network or a federation of networks over Link 16.</para>
+		</description>
 		<!-- Track Management Services -->
 		<reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
 		<!-- Track Distribution Services -->
 		<reftaxonomy refid="T-7de33633-668c-4d32-ba13-944acbc798fe-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
 			<!-- ADatP-37A - "SERVICES TO FORWARD FRIENDLY FORCE INFORMATION TO WEAPON DELIVERY ASSETS" -->
-			<refstandard refid="nso-adatp-37-ed.a-v1"/>
+			<refstandard refid="nato-adatp-37-ed.a-v1"/>
 		</refgroup>
+		<guide>
+			<para>Messages exchanged according to the exchange mechanisms described in ADatP-37(A) shall
+comply with the J-series message schema defined STANAG 5516, Tactical Data Exchange – Link 16
+and STANAG 5518, Interoperability Standard for Joint Range Extension Application Protocol
+(JREAP)</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>75febf21-00ad-447d-8cda-82146b43510a</uuid>
 	</serviceprofile>

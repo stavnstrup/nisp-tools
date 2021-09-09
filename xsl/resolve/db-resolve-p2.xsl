@@ -3,13 +3,11 @@
 <!--
 
 This stylesheet is created for the NISP, and is intended for
-tagging serviceprofile due to their dual functionallity.
+renaming profiles with the attribute  toplevel="yes" to capabilityprofile. This will ensure
+the old resolve-nodes.xsl stylesheet will continue to work and display mandatory and candidate
+standards in NISP volume 2 and 3.
 
-We add a type attribute to the servicprofile using the following rules
-  bsp: serviceprofiles which is part of the basic standards profile (BSP)
-  coi: any other service profile, which is part of a capability profile like FMN.
-
-Copyright (c) 2018, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2019, Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 Danish Defence Acquisition and Logistic Organisation (DALO),
 Danish Defence Research Establishment (DDRE) and
 NATO Command, Control and Consultation Organisation (NC3O).
@@ -54,28 +52,6 @@ NATO Command, Control and Consultation Organisation (NC3O).
 
 <!-- ==================================================================== -->
 
-<!-- Add type attribute to all service profile, to be able to differentiate serviceprofiles,
-     which are part of the Base Standards Profile and those which are not -->
-
-<xsl:template match="serviceprofile">
-  <xsl:variable name="myid" select="@id"/>
-  <serviceprofile>
-    <xsl:attribute name="type">
-      <xsl:choose>
-        <xsl:when test="/standards//capabilityprofile[@id='bsp']//refprofile[@refid=$myid]">
-          <xsl:text>bsp</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>coi</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:attribute>
-    <xsl:apply-templates select="@*"/>
-    <xsl:apply-templates/>
-  </serviceprofile>
-</xsl:template>
-
-
 <xsl:template match="reftaxonomy" mode="copyprofile">
   <reftaxonomy refid="{@refid}"/>
 </xsl:template>
@@ -118,19 +94,20 @@ NATO Command, Control and Consultation Organisation (NC3O).
   
 <xsl:variable name="capabilityprofile.list" select="document(concat($capabilityprofile.list.dir,'capabilityprofiles.xml'))/capabilityprofiles"/>
 <!--
-  Add servicearea and docinfo information from capabilityprofile.list to the capability profile in the standards database. -->
+  Add servicearea and docinfo information from capabilityprofile.list to the toplevel profile in the standards database. -->
   
-<xsl:template match="capabilityprofile">
+<xsl:template match="profile[@toplevel='yes']">
   <xsl:variable name="cpbprf.cur" select="$capabilityprofile.list/capabilityprofile[id=current()/@id]"/>
     <xsl:choose>
       <xsl:when test="$cpbprf.cur">
-        <capabilityprofile id="{@id}" short="{@short}" title="{$cpbprf.cur/title}"
+        <capabilityprofile toplevel="yes" id="{@id}" short="{@short}" title="{$cpbprf.cur/title}"
           servicearea="{$cpbprf.cur/servicearea}" docinfo="{$cpbprf.cur/docinfo}">
           <xsl:apply-templates/>
         </capabilityprofile>  
       </xsl:when>
       <xsl:otherwise>
-        <capabilityprofile id="{@id}" short="{@short}" title="{@title}">
+        <capabilityprofile>
+					<xsl:apply-templates match="@*"/>
           <xsl:apply-templates/>
         </capabilityprofile>  
       </xsl:otherwise>
@@ -140,7 +117,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
 <!--
   Replace the URI of the PDF file to the user defined location. -->
   
-<xsl:template match="capabilityprofile/status/uri">
+<xsl:template match="profile[@toplevel='yes']/status/uri">
   <xsl:variable name="cpbprf.cur" select="$capabilityprofile.list/capabilityprofile[id=current()/../../@id]"/>
     <uri>
       <xsl:choose>
@@ -168,7 +145,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
   Replace the description information by the user defined description.
   If not specified, keep the current description. -->
   
-<xsl:template match="capabilityprofile/description">
+<xsl:template match="profile[@toplevel='yes']/description">
   <xsl:variable name="cpbprf.cur" select="$capabilityprofile.list/capabilityprofile[id=current()/../@id]"/>
   <xsl:choose>
     <xsl:when test="$cpbprf.cur/description/para">

@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-web-content-profile" title="Proposed FMN Spiral 4 Web Content Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Web Content Profile provides standards and guidance for the processing, sharing and presentation of web content
+on federated mission networks. Web presentation services must be based on a fundamental set of basic and widely
+understood protocols, such as those listed below.</para>
+			<para>Recommendations in the FMN Spiral 2 Service Interface Profile for Web Applications are intended to improve the
+experience of Web applications and to make information and services available to users irrespective of their device and
+Web browser. However, it does not mean that exactly the same information is available in an identical representation
+across all devices: the context of mobile use, device capability variations, bandwidth issues and mobile network
+capabilities all affect the representation. Some services and information are more suitable for and targeted at particular
+user contexts. While services may be most appropriately experienced in one context or another, it is considered best
+practice to provide as reasonable experience as is possible given device limitations and not to exclude access from any
+particular class of device, except where this is necessary because of device limitations.</para>
+		</description>
 		<!-- Web Hosting Services -->
 		<reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Providing a common style sheet language for describing presentation semantics (that is, the look and
+formatting) of documents written in markup languages like HTML.</para>
+			</description>
 			<!-- W3C - Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification - "Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification" -->
 			<refstandard refid="w3c-rec-css2-2011067"/>
 			<!-- W3C - CSS Style Attributes - "CSS Style Attributes" -->
@@ -14,6 +31,10 @@
 			<refstandard refid="w3c-rec-css3-color-20110607"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Publishing information including text, multi-media, hyperlink features, scripting languages and style
+sheets on the network.</para>
+			</description>
 			<!-- RFC 2854 - "The 'text/html' Media Type" -->
 			<refstandard refid="ietf-rfc2854"/>
 			<!-- W3C - HTML5 - "HTML5" -->
@@ -25,9 +46,26 @@
 			<!-- W3C - Selectors Level 3 - "Selectors Level 3" -->
 			<refstandard refid="w3c-rec-css3-selectors-20110929"/>
 		</refgroup>
+		<guide>
+			<para>To enable the use of web applications by the widest possible audience, web applications shall be
+device independent and shall be based on HTML5 standards and criteria for the development,
+delivery and consumption of Web applications and dynamic Web sites. HTML5 is a new version of
+the mark-up language HTML, with new elements, attributes, and behaviours (data format) and it
+contains a larger set of associated technologies such as CSS 3 and JavaScript that allows more
+diverse and powerful Web sites and applications.</para>
+			<para>Web applications will not require any browser plug-ins on the client side as some organizations or
+end user devices do not allow the use of Java Applets or proprietary extensions such as Silverlight
+(Microsoft), Flash (Adobe) or Quick Time (Apple). Implementers shall use open standard based
+solutions (HTML5 / CSS3) instead.</para>
+			<para>The requirements defined in the FMN Spiral 2 Service Interface Profile for Web Applications are
+mandatory for all web content consumers (browsers) and are optional for web content providers. It is
+expected that in the future FMN Spiral Specifications they will become mandatory also for the web
+content providers.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>e3112e96-3cc8-472a-abb7-55716277b35c</uuid>
 	</serviceprofile>

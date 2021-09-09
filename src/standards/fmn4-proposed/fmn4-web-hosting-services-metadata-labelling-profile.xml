@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-web-hosting-services-metadata-labelling-profile" title="Proposed FMN Spiral 4 Web Hosting Services Metadata Labelling Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Web Hosting Services Metadata Labelling Profile describes how to apply standard Metadata to Web Hosting
+Services.</para>
+		</description>
 		<!-- Web Hosting Services -->
 		<reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The STANAG describes the syntax for NATO Core Metadata.</para>
+			</description>
 			<!-- STANAG 5636 Edition 1 - "NATO Core Metadata Specification (NCMS)" -->
-			<refstandard refid="nso-stanag5636ed1"/>
+			<refstandard refid="nato-stanag5636ed1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The STANAGs and binding profiles describe the syntax and mechanisms for applying Metadata and
+Labels.</para>
+			</description>
 			<!-- STANAG 4774 Edition 1 - "Confidentiality Metadata Label Syntax" -->
-			<refstandard refid="nso-stanag4774"/>
+			<refstandard refid="nato-stanag4774"/>
 			<!-- STANAG 4778 Edition 1 - "Metadata Binding Mechanism" -->
-			<refstandard refid="nso-stanag4778"/>
+			<refstandard refid="nato-stanag4778"/>
 			<!-- TN-1491 - "Profiles for Binding Metadata to a Data Object" -->
 			<refstandard refid="ncia-tn1491-ed2"/>
 			<!-- Note: reference to other profiles -->
@@ -20,9 +31,29 @@
 			<!-- refid="binding-wsmp-v2" -->
 			<!-- refid="binding-common-xml" -->
 		</refgroup>
+		<guide>
+			<para>The structure of the binding is defined in the following Annexes of TN-1491:
+				<itemizedlist>
+					<listitem>
+						<para>Annex E (SOAP)</para>
+					</listitem>
+					<listitem>
+						<para>Annex F (REST)</para>
+					</listitem>
+					<listitem>
+						<para>Annex J (WSMP)</para>
+					</listitem>
+					<listitem>
+						<para>Annex K (XML)</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para></para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>c3cf1e35-e33b-4757-9e10-904eaf76a5fd</uuid>
 	</serviceprofile>

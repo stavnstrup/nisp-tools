@@ -1,15 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-battlespace-event-federation-profile" title="Proposed FMN Spiral 4 Battlespace Event Federation Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Battlespace Event Federation Profile provides standards and guidance to support the exchange of information on
+significant incidents, important events, trends and activities within a coalition network or a federation of networks.</para>
+		</description>
 		<!-- Battlespace Event Services -->
 		<reftaxonomy refid="T-54f06201-f6f4-4939-a537-75a0c1ff70bc-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>To support exploitation the following APP-11 message formats MUST be supported (MTF Identifier,
+MTF Index Ref Number):
+					<itemizedlist>
+						<listitem>
+							<para>Incident Report (INCREP, A078)</para>
+						</listitem>
+						<listitem>
+							<para>Incident Spot Report (INCSPOTREP, J006)</para>
+						</listitem>
+						<listitem>
+							<para>Troops in Contact SALTA format (SALTATIC, A073)</para>
+						</listitem>
+						<listitem>
+							<para>Events Report (EVENTREP, J092)</para>
+						</listitem>
+						<listitem>
+							<para>Improvised Explosive Device Report (IEDREP, A075)</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+				<para>The INCREP is used to report any significant incident caused by terrorism, civil unrest, natural
+disaster, or media activity.</para>
+				<para>The INCSPOTREP is used to provide time critical information on important events that have an
+immediate impact on operations.</para>
+				<para>The SALTATIC is used to report troops in contact, the report should be made as soon as possible by
+the unit that has come under some form of attack. It uses the following basic format: Size of enemy,
+Action of enemy, Location, Time and Action taken.</para>
+				<para>The EVENTREP is used to provide the chain of command information about important Events, trends
+and activities that do not have an element of extreme urgency, but do influence on-going operations.</para>
+				<para>The IEDREP is sent when an IED has been encountered. It identifies the hazard area, tactical
+situation, operational priorities and the unit affected. This initial report should be followed by normal
+EOD/Engineer reporting requirements.</para>
+			</description>
 			<!-- APP-11(E) - "NATO Message Catalogue" -->
-			<refstandard refid="nso-app-11-ed.e-v1"/>
+			<refstandard refid="nato-app-11-ed.e-v1"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>f116271a-8f85-487a-b30e-eb482ebad283</uuid>
 	</serviceprofile>

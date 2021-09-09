@@ -1,27 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-video-based-collaboration-profile" title="Proposed FMN Spiral 4 Video-based Collaboration Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Video-based Collaboration Profile provides standards and guidance for the implementation and configuration of
+Video Tele Conferencing (VTC) systems and services in a federated mission network.</para>
+		</description>
 		<!-- Video-based Communication Services -->
 		<reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
 		<refgroup obligation="conditional" lifecycle="candidate">
+			<description>
+				<para>Not required at this time, but when available it can be implemented between dedicated network
+segments after approval from the MN administrative authority.</para>
+			</description>
 			<!-- RFC 4582 - "The Binary Floor Control Protocol (BFCP)" -->
 			<refstandard refid="ietf-rfc4582"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following standards are required for audio coding in VTC.</para>
+			</description>
 			<!-- ITU-T Recommendation G.722.1 - "Low-complexity coding at 24 and 32 kbit/s for hands-free operation in systems with low frame loss" -->
 			<refstandard refid="itu-t-g.722.1-corr1-06.08"/>
 			<!-- ITU-T Recommendation G.711 - "Pulse code modulation (PCM) of voice frequencies" -->
 			<refstandard refid="itu-t-g.711"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>The following standards are required for video coding in VTC.</para>
+			</description>
 			<!-- ITU-T Recommendation H.264 - "Advanced video coding for generic audiovisual services" -->
 			<refstandard refid="itu-t-h.264"/>
 			<!-- RFC 6184 - "RTP Payload Format for H.264 Video" -->
 			<refstandard refid="ietf-rfc6184"/>
 		</refgroup>
+		<guide>
+			<para>It Is recommended that dynamic port ranges are constrained to a limited and agreed number. This is
+an activity that needs to be performed at the mission planning stage. Different vendors have different
+limitations on fixed ports. However common ground can always be found.</para>
+			<para>As a Minimum G.722.1 is to be used. Others are exceptions and need to be agreed by the MN
+administrative authority for video calls.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>417b1503-ffad-4370-979c-314a4b5bc6bc</uuid>
 	</serviceprofile>

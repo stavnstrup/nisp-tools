@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-formatted-messages-for-medevac-profile" title="Proposed FMN Spiral 4 Formatted Messages for MEDEVAC Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Formatted Messages Profile provides standard for formatted messages that are typically used for C2 of Medical
+Evacuation missions. These formatted messages may be used as payload/attachment in combination with various
+transport mechanisms such as informal messaging (e-mail), text collaboration (chat) or in standardized voice
+procedures.</para>
+		</description>
 		<!-- Informal Messaging Services -->
 		<reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
 		<!-- Audio-based Communication Services -->
@@ -8,16 +14,80 @@
 		<!-- Text-based Communication Services -->
 		<reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>C2 of MEDEVAC Missions requires the following messages:
+					<itemizedlist>
+						<listitem>
+							<para>Situational Awareness:
+								<itemizedlist>
+									<listitem>
+										<para>Incident Report (INCREP – A078)</para>
+									</listitem>
+									<listitem>
+										<para>Incident Spot Report (INCSPOTREP – J006)</para>
+									</listitem>
+									<listitem>
+										<para>Troops in Contact SALTA Format (SALTATIC A073)</para>
+									</listitem>
+								</itemizedlist>
+							</para>
+						</listitem>
+						<listitem>
+							<para>Requests:
+								<itemizedlist>
+									<listitem>
+										<para>Medical Evacuation Request (MEDEVAC – A012)</para>
+									</listitem>
+									<listitem>
+										<para>Mechanism Injury Symptoms Treatment (MIST AT, supplement to A012)</para>
+									</listitem>
+									<listitem>
+										<para>Diving Accident (DIVEACC – N019)</para>
+									</listitem>
+									<listitem>
+										<para>Evacuation Request (EVACREQ – N096)</para>
+									</listitem>
+								</itemizedlist>
+							</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 			<!-- APP-11(E) - "NATO Message Catalogue" -->
-			<refstandard refid="nso-app-11-ed.e-v1"/>
+			<refstandard refid="nato-app-11-ed.e-v1"/>
 			<!-- AJMedP-2 - "ALLIED JOINT DOCTRINE FOR MEDICAL EVACUATION" -->
-			<refstandard refid="nso-ajmedp-2-ed.a-v1"/>
+			<refstandard refid="nato-ajmedp-2-ed.a-v1"/>
 			<!-- ATP-97 -->
-			<refstandard refid="nso-atp-97-ed.a-v1"/>
+			<refstandard refid="nato-atp-97-ed.a-v1"/>
 		</refgroup>
+		<guide>
+			<para>The following set of APP-11 messages should be supported:
+				<itemizedlist>
+					<listitem>
+						<para>Presence Report (PRESENCE)</para>
+					</listitem>
+					<listitem>
+						<para>Enemy Contact Report (ENEMY CONTACT REP)</para>
+					</listitem>
+					<listitem>
+						<para>Search and Rescue Incident Report (SARIR)</para>
+					</listitem>
+					<listitem>
+						<para>Events Report (EVENTREP)</para>
+					</listitem>
+					<listitem>
+						<para>Situation Report (SITREP)</para>
+					</listitem>
+					<listitem>
+						<para>Friendly Force Information (FFI)</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>fd47e73a-3757-463e-8a03-d26a197ba9fc</uuid>
 	</serviceprofile>

@@ -86,8 +86,8 @@ NATO Command, Control and Consultation Organisation (NC3O).
     mechanical, photo-copying, recording or otherwise, without the prior permission of the publisher. With the exception of commercial sales, this does not apply to member
     or partner nations, or NATO commands and bodies.</para>
     <para>This publication shall be handled in accordance with C-M(2002)60.</para>
-    <para><address format="linespecific">Zoltán GULYÁS
-Brigadier General, HUNAF
+    <para><address format="linespecific">Dimitrios SIGOULAKIS
+Major General, GRC (A)
 Director, NATO Standardization Office</address></para>
   </preface>
   <preface>

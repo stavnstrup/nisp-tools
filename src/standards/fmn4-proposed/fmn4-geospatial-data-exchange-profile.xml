@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-geospatial-data-exchange-profile" title="Proposed FMN Spiral 4 Geospatial Data Exchange Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>Maps, geographical overviews and digital images provide valuable knowledge of a mission area and are intensively
+used for planning and mission execution purposes at every level of command. Geospatial information (GI) requirements
+are typically defined by product type (what is required – the level of detail at a specific scale) and coverage (where it is
+required). Geospatial support covers land, sea and air-space (battle space) segments and consists of four main product
+types: topographical, hydrographical, aeronautical information and suitable geospatially referenced imagery.</para>
+			<para>Typically, maps and geospatial datasets are being produced by different organisations and need to be exchanged (e.g.
+via automated or manual file transfer) between different participants using standardised exchange formats. These
+datasets would then be loaded into specialised geospatial information systems (GIS) and published via standardized
+Web Services.</para>
+		</description>
 		<!-- Geospatial Services -->
 		<reftaxonomy refid="T-54a19444-8cd5-4766-9140-6cdc53aafb79-X"/>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>File geodatabases store geospatial datasets and can hold any number of these large, individual
+datasets. File geodatabases can be used across multiple platforms. Users are rapidly adopting file
+geodatabases in place of using legacy shapefiles.</para>
+			</description>
 			<!-- OGC 12-128r12 - "GeoPackage Encoding Standard" -->
 			<refstandard refid="ogc-12-128r12"/>
 		</refgroup>
@@ -12,20 +28,34 @@
 			<refstandard refid="ogc-07-147r2"/>
 		</refgroup>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>File based storage and exchange of digital geospatial mapping (raster) data.</para>
+			</description>
 			<!-- MIL-PRF-89038 - "Performance Specification: Compressed Arc Digitized Raster Graphics (CADRG)" -->
 			<refstandard refid="nga-mil-prf-89038"/>
 			<!-- MIL-STD-2411 - "Department of Defense Interface Standard: Raster Product Format" -->
 			<refstandard refid="nga-rpf"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>File based storage and exchange of digital geospatial mapping (raster) data.</para>
+			</description>
 			<!-- GeoTIFF Revision 1.0 - "GeoTIFF Format Specification, GeoTIFF Revision 1.0, Specification Version 1.8.2, 28 December 2000" -->
 			<refstandard refid="osgeo-geotiff"/>
 			<!-- OGC 05-047r3 - "OpenGIS GML in JPEG 2000 for Geographic Imagery Encoding Specification" -->
 			<refstandard refid="ogc-05-047r3"/>
 		</refgroup>
+		<guide>
+			<para>Often the exchange of large geospatial(raster) data sets between Geo organizations of different
+Mission Participants is conducted in the proprietary Multi-resolution seamless image database format
+(MrSID Generation 3). Data in MrSID format could be transformed to GeoTIFF. The JPEG 2000
+image compression standard offers many of the same advantages as MrSID, plus the added benefits
+of being an international standard (ISO/IEC 15444).</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>68f0f495-e985-4e9d-b444-e2eae967041a</uuid>
 	</serviceprofile>

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-formatted-messages-for-intelligence-profile" title="Proposed FMN Spiral 4 Formatted Messages for Intelligence Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Formatted Messages Profile provides standard for formatted messages that are typically used to exchange
+Intelligence Products in military operations. These formatted messages may be used as payload/attachment in
+combination with various transport mechanisms such as informal messaging (e-mail), text collaboration (chat) or for
+publication as files on websites.</para>
+		</description>
 		<!-- Informal Messaging Services -->
 		<reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
 		<!-- Audio-based Communication Services -->
@@ -10,23 +16,109 @@
 		<!-- Web Hosting Services -->
 		<reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>To support exploitation the following MAJIIC 2 message formats SHOULD be supported
+					<itemizedlist>
+						<listitem>
+							<para>Electronic Order of Battle (EOB)</para>
+						</listitem>
+						<listitem>
+							<para>Pentagram Report (PentagramREP)</para>
+						</listitem>
+						<listitem>
+							<para>MAJIIC 2 Bravo.1</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 			<!-- Note: Missing information for MAJIIC 2 Bravo.1	-->
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>To support exploitation the following APP-11 message formats MUST be supported (MTF Identifier,
+MTF Index Ref Number):
+					<itemizedlist>
+						<listitem>
+							<para>Air Intelligence Report (AIRINTREP, F001)</para>
+						</listitem>
+						<listitem>
+							<para>Counter-Intelligence and Security Report (CIINTREP, J112)</para>
+						</listitem>
+						<listitem>
+							<para>Counter-Intelligence and Security Summary (CIINTSUM, J113)</para>
+						</listitem>
+						<listitem>
+							<para>Counter-Intelligence and Security Supplementary Report (CISUPINTREP, J115)</para>
+						</listitem>
+						<listitem>
+							<para>Detailed Document Report (DEDOCREP, J089)</para>
+						</listitem>
+						<listitem>
+							<para>First Hostile Act Report (First Hostile Act)</para>
+						</listitem>
+						<listitem>
+							<para>Intelligence Report (INTREP, J110)</para>
+						</listitem>
+						<listitem>
+							<para>Intelligence Summary (INTSUM, J111)</para>
+						</listitem>
+						<listitem>
+							<para>Maritime Intelligence Report (MARINTREP, J016)</para>
+						</listitem>
+						<listitem>
+							<para>Maritime Intelligence Summary (MARINTSUM, J015)</para>
+						</listitem>
+						<listitem>
+							<para>Supplementary Intelligence Report (SUPINTREP, J114)</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 			<!-- APP-11(E) - "NATO Message Catalogue" -->
-			<refstandard refid="nso-app-11-ed.e-v1"/>
+			<refstandard refid="nato-app-11-ed.e-v1"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>To support the exchange of Intelligence Products the following AJP-2.5 message formats MUST be
+supported (MTF Identifier):
+					<itemizedlist>
+						<listitem>
+							<para>Human Intelligence Report (HUMINTREP)</para>
+						</listitem>
+						<listitem>
+							<para>Human Intelligence Summary (HUMINTSUM)</para>
+						</listitem>
+						<listitem>
+							<para>Interrogation Report (INTGREP)</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 			<!-- AJP-2.5 Ed. A -->
-			<refstandard refid="nso-ajp-2.5-ed.a"/>
+			<refstandard refid="nato-ajp-2.5-ed.a"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>To support the exchange of information needed to govern and facilitate the collection of Intelligence,
+Surveillance and Reconnaissance (ISR) information and production of intelligence the following
+message formats defined in APP-11 MUST be supported (MTF Identifier, MTF Index Ref Number):
+					<itemizedlist>
+						<listitem>
+							<para>Intelligence Request (INTREQ, J021)</para>
+						</listitem>
+						<listitem>
+							<para>Information Requirement Management &amp; Collection Management Exchange (ICE, J033)</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</description>
 			<!-- APP-11(E) - "NATO Message Catalogue" -->
-			<refstandard refid="nso-app-11-ed.e-v1"/>
+			<refstandard refid="nato-app-11-ed.e-v1"/>
 		</refgroup>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>d44b6a93-c22c-4eed-b957-47d75b4fab59</uuid>
 	</serviceprofile>

@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-secure-voice-profile" title="Proposed FMN Spiral 4 Secure Voice Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Secure Voice Profile provides standards and guidance for the facilitation of secure telephony and other protected
+audio-based collaboration on federated mission networks.</para>
+		</description>
 		<!-- Audio-based Communication Services -->
 		<reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>SCIP Network Standards for operation over VoIP RTP</para>
+			</description>
 			<!-- SCIP-214.2 - "SCIP over Real-time Transport Protocol (RTP)" -->
 			<refstandard refid="iicwg-scip-214.2"/>
 			<!-- SCIP-214.3 - "Securing SIP Signaling – Use of TLS with SCIP" -->
 			<refstandard refid="iicwg-scip-214.3"/>
 		</refgroup>
 		<refgroup obligation="optional" lifecycle="candidate">
+			<description>
+				<para>SCIP Network Standards for operation over other network types</para>
+			</description>
 			<!-- SCIP-214.1 - "SCIP over Public Switched Telephone Network (PSTN)" -->
 			<refstandard refid="iicwg-scip-214"/>
 			<!-- SCIP-215 - "SCIP over IP Implementation Standard and Minimum Essential Requirements (MER)" -->
@@ -18,20 +28,31 @@
 			<refstandard refid="iicwg-scip-216"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>SCIP Signaling Plan and Negotiation</para>
+			</description>
 			<!-- SCIP-210 - "SCIP Signaling Plan" -->
 			<refstandard refid="iicwg-scip-210"/>
 			<!-- SCIP-233.350 - "Interoperable Terminal Priority (TP) Community of Interest (COI) Specification" -->
 			<refstandard refid="iicwg-scip-233.350"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>SCIP Secure Applications</para>
+			</description>
 			<!-- SCIP-233.501 - "MELP(e) Voice Specification" -->
 			<refstandard refid="iicwg-scip-233.501"/>
 			<!-- SCIP-233.502 - "Secure G.729D Voice Specification" -->
 			<refstandard refid="iicwg-scip-233.502"/>
 		</refgroup>
+		<guide>
+			<para>AComP-5068 Secure Communications Interoperability Protocol (SCIP) Edition A Version 1 provides
+further guidance for the implementation of SCIP specifications.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>f0fbc27b-f60e-42ff-a00c-10ad59d8705c</uuid>
 	</serviceprofile>

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-basic-text-based-collaboration-chatroom-profile" title="Proposed FMN Spiral 4 Basic Text-based Collaboration Chatroom Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Basic Text-based Collaboration Chatroom Profile provides standards and guidance to host chatrooms to support
+persistent near-real time text-based group collaboration capability (chat) for time critical reporting and decision making in
+military operations.</para>
+		</description>
 		<!-- Text-based Communication Services -->
 		<reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
 		<!-- Presence Services -->
 		<reftaxonomy refid="T-c31cbe2b-47ef-432a-b428-90cdea2e377c-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>XMPP Services hosting the shared chatrooms must comply with the following additional extensions.</para>
+			</description>
 			<!-- XEP-0059 -->
 			<refstandard refid="xmpp-xep-0059"/>
 			<!-- XEP-0082 -->
@@ -14,6 +22,9 @@
 			<refstandard refid="xmpp-xep-0313"/>
 		</refgroup>
 		<refgroup obligation="optional" lifecycle="candidate">
+			<description>
+				<para>XMPP Services hosting the shared chatrooms may comply with the following additional extensions.</para>
+			</description>
 			<!-- XEP-0334 -->
 			<refstandard refid="xmpp-xep-0334"/>
 			<!-- XEP-0346 -->
@@ -24,4 +35,5 @@
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>55e258dc-09e8-4330-af37-a9cdbf17e9e6</uuid>
 	</serviceprofile>

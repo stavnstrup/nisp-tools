@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-inter-autonomous-systems-ip-communications-security-profile" title="Proposed FMN Spiral 4 Inter-Autonomous Systems IP Communications Security Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Inter-Autonomous Systems IP Communications Security Profile provides standards and guidance for
+communications security for transporting IP packets between federated mission network interconnections and in general
+over the whole Mission Network.</para>
+		</description>
 		<!-- Transport CIS Security Services -->
 		<reftaxonomy refid="T-4760c261-4248-4da0-8b39-05ecbe7b2297-X"/>
 		<refgroup obligation="recommended" lifecycle="candidate">
+			<description>
+				<para>In Missions, where NATO information products are not carried over the mission network, MISSION
+SECRET (MS) communications infrastructure is protected with technical structures by mutual
+agreement made during the mission planning phase.</para>
+			</description>
 			<!-- AC/322-D(2015)0031 - "CIS Security Technical and Implementation Directive on Cryptographic Security and Mechanism for the protection of NATO Information within NNN & IO CIS" -->
 			<refstandard refid="c3b-ac322-d2015-0031"/>
 			<!-- CSfC Multi-Site Connectivity - "CSfC Multi-Site Connectivity Capability Package" -->
 			<refstandard refid="nsa-csfc-msccp"/>
 		</refgroup>
 		<refgroup obligation="conditional" lifecycle="candidate">
+			<description>
+				<para>In Missions, where NATO information products are carried over the mission network, the MISSION
+SECRET (MS) communications infrastructure is protected at minimum with Type-B crypto devices.</para>
+			</description>
 			<!-- AC/322-D(2015)0031 - "CIS Security Technical and Implementation Directive on Cryptographic Security and Mechanism for the protection of NATO Information within NNN & IO CIS" -->
 			<refstandard refid="c3b-ac322-d2015-0031"/>
 		</refgroup>
+		<guide>
+			<para>In Missions, where the mission network classification is MISSION RESTRICTED (MR) or lower,
+communication infrastructure is protected at the minimum with technical structures that are within
+Service Instruction section Security and in Routing Encapsulation Profile.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>e0e08dcc-9225-4ce8-b72f-286d42f15892</uuid>
 	</serviceprofile>

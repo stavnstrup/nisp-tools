@@ -1,23 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-overlay-distribution-profile" title="Proposed FMN Spiral 4 Overlay Distribution Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>This profile covers the standards for (military) symbology and overlays that identify locations on the surface of the
+planet. These overlays are employed when disseminating recognized domain or functional pictures and related picture
+elements as overlays between different communities of interest in a federated mission network environment.</para>
+		</description>
 		<!-- Symbology Services -->
 		<reftaxonomy refid="T-3edec962-1d0e-4dc0-ab28-b01e0efc1064-X"/>
-		<refgroup obligation="conditional" lifecycle="candidate">
+			<refgroup obligation="conditional" lifecycle="candidate">
+			<description>
+				<para>Conditional for two use cases that typically involve cross-domain information exchange:
+					<itemizedlist>
+						<listitem>
+							<para>sharing overlays with non-military partners who are not on the mission network and who do not
+	use military symbology, and</para>
+						</listitem>
+						<listitem>
+							<para>exchanging of targeting and intelligence products that are prepared on national networks.</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+				<para>When exporting KML files that reference external resources, KMZ as defined in "Annex C: KMZ Files"
+	must be used and all relevant referenced external resources must be included in the KMZ structure
+	as relative references. The references to these files can be found in the href attribute (or sometimes,
+	the element) of several KML elements. To enable cross domain exchange and long-term preservation
+	relative references must be used for those resources that are included in the KMZ structure. As many
+	Earth Viewers only work with legacy PKZIP 2.x format for KMZ, .zip folders shall be created in
+	accordance with https://www.pkware.com/documents/APPNOTE/APPNOTE-2.0.txt.</para>
+			</description>
 			<!-- GEOINT - OGC KML 2.3 - "OGC KML, Version 2.3, 4 Aug 2015" -->
 			<refstandard refid="ogc-07-147r2"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>If NVG 2.0.2 becomes available in the NATO Interoperability Standards and Profiles (ADatP-36)
+	before approval of the FMN Spiral 4 Specification, the newer version shall be used.</para>
+			</description>
 			<!-- NISP Standard - NVG 1.5 -->
 			<refstandard refid="nato-tide-nvg"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Applies to NVG only</para>
+			</description>
 			<!-- APP-6(D) - "NATO JOINT MILITARY SYMBOLOGY" -->
-			<refstandard refid="nso-app-06-ed.d-v1"/>
+			<refstandard refid="nato-app-06-ed.d-v1"/>
 		</refgroup>
+		<guide>
+			<para>All presentation services shall render tracks, tactical graphics, and Battlespace objects using these
+symbology standards except in the case where the object being rendered is not covered in the
+standard. In these exceptional cases, additional symbols shall be defined as extensions of existing
+symbol standards and must be backwards compatible. These extensions shall be submitted as a
+request for change within the configuration management process to be considered for inclusion in the
+next version of the specification.</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>e04ec905-ac73-4c46-a841-8336e6b79b48</uuid>
 	</serviceprofile>

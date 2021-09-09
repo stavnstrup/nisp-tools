@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<serviceprofile id="fmn4-proposed-web-feeds-profile" title="Proposed FMN Spiral 4 Web Feeds Serviceprofile">
 		<refprofilespec refid="profspec-fmn4-proposed"/>
+		<description>
+			<para>The Web Feeds Profile provides standards and guidance for the delivery of content to feed aggregators (web sites as
+well as directly to user agents).</para>
+		</description>
 		<!-- Web Hosting Services -->
 		<reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Receivers of web content such as news aggregators or user agents must support both the RSS and
+the ATOM standard.</para>
+			</description>
 			<!-- RFC 4287 - "The Atom Syndication Format" -->
 			<refstandard refid="ietf-rfc4287"/>
 			<!-- RFC 5023 - "The Atom Publishing Protocol" -->
@@ -12,6 +20,9 @@
 			<refstandard refid="rss-2.0"/>
 		</refgroup>
 		<refgroup obligation="mandatory" lifecycle="candidate">
+			<description>
+				<para>Web content providers must support at least one of the two standards (RSS and/or Atom).</para>
+			</description>
 			<!-- RFC 4287 - "The Atom Syndication Format" -->
 			<refstandard refid="ietf-rfc4287"/>
 			<!-- RFC 5023 - "The Atom Publishing Protocol" -->
@@ -19,9 +30,34 @@
 			<!-- RSS 2.0 - "Really Simple Syndication version 2.0" -->
 			<refstandard refid="rss-2.0"/>
 		</refgroup>
+		<guide>
+			<para>RSS and Atom documents should reference related OpenSearch description documents via the
+Atom 1.0 "link" element, as specified in Section 4.2.7 of RFC 4287.</para>
+			<para>The "rel" attribute of the link element should contain the value "search" when referring to
+OpenSearch description documents. This relationship value is pending IANA registration. The reuse
+of the Atom link element is recommended in the context of other syndication formats that do natively
+support comparable functionality.</para>
+			<para>The following restrictions apply:
+				<itemizedlist>
+					<listitem>
+						<para>The "type" attribute must contain the value "application/opensearchdescription+xml".</para>
+					</listitem>
+					<listitem>
+						<para>The "rel" attribute must contain the value "search".</para>
+					</listitem>
+					<listitem>
+						<para>The "href" attribute must contain a URI that resolves to an OpenSearch description document.</para>
+					</listitem>
+					<listitem>
+						<para>The "title" attribute may contain a human-readable plain text string describing the search engine.</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</guide>
 		<status mode="accepted">
 			<history>
 				<event date="2019-12-12" flag="added" rfcp="12-025" version="13.0"/>
 			</history>
 		</status>
+		<uuid>efd6594f-cadd-4bff-b397-0d3b8f92628b</uuid>
 	</serviceprofile>
