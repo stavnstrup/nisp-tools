@@ -55,7 +55,7 @@
   </xsl:choose>
 </xsl:variable>
 
-<xsl:variable name="allied.publication.version" select="2"/>
+<xsl:variable name="allied.publication.version" select="1"/>
 
 
 
