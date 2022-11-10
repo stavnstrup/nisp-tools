@@ -295,6 +295,7 @@ Copyright (c) 2003, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 <xsl:template match="standard|coverdoc">
   <xsl:variable name="myid" select="@id"/>
+  <xsl:variable name="myorg" select="document/@orgid"/>
   <xsl:variable name="myrp" select="responsibleparty/@rpref"/>
   <tr>
     <xsl:if test=".//event[(position()=last()) and (@flag = 'deleted')]">
@@ -314,7 +315,10 @@ Copyright (c) 2003, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <xsl:if test="document/@orgid =''">
         <xsl:attribute name="class">missing</xsl:attribute>
       </xsl:if>
+      <!--
       <xsl:value-of select="document/@orgid"/>
+      -->
+      <xsl:apply-templates select="/standards/organisations/orgkey[@key=$myorg]/@short"/>
     </td>
     <td>
       <xsl:if test="document/@pubnum =''">
