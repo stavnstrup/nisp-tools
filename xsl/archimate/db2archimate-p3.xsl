@@ -140,7 +140,7 @@ and operations.</value>
       <!-- Create relation from organisations to standards and coverdocs -->
       <xsl:apply-templates select="orglist/org" mode="listOrgRelation"/>
 
-      <!-- List relations betwwen a coverdoc and the covered standards -->
+      <!-- List relations between a coverdoc and the covered standards -->
       <xsl:apply-templates select="records/coverdoc" mode="listCoverStandardRelation"/>
 
      <!-- List relations between a plateau and standardgroups -->
