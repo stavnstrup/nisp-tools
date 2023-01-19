@@ -6,7 +6,7 @@
 
 <xsl:variable name="modelTitle" select="'NATO Interoperability Standards and Profiles (NISP)'"/>
 <xsl:variable name="modelDescription" select="'The NISP prescribes the necessary technical standards and profiles to achieve interoperability of Communications and Information Systems in support of NATOs missions and operations.'"/>
-<xsl:variable name="nispVersion" select="'14.0'"/>
+<xsl:variable name="nispVersion" select="'ADatP-34 ed. N Ver. 1'"/>
 <xsl:variable name="modelPurpose" select="'Official Release'"/>
 <xsl:variable name="dateCreated" select="current-dateTime()"/>
 <xsl:variable name="nispDateIssued" select="'2021-05-26'"/>
