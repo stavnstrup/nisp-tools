@@ -6,13 +6,13 @@
                 version='2.0'
                 exclude-result-prefixes="uuid">
 
-<!-- ==========================================================
+<!-- ==============================================================
 
-     Create Archimate export of all standards and profiles
+     Create Archimate export of all standards and profiles (part 1)
 
      1. Remove all deleted elements
      2. Tag all taxonomy nodes which should be part of the export
-     ========================================================== -->
+     ============================================================== -->
 
 <xsl:output indent="yes" saxon:next-in-chain="db2archimate-p2.xsl"/>
 

@@ -18,9 +18,7 @@
 
 
      ========================================================== -->
-
 <xsl:output indent="yes" saxon:next-in-chain="db2archimate-p3.xsl"/>
-
 
 <!-- Create a lookup table in order to create a propertyDefinitions list -->
 
@@ -63,6 +61,7 @@
       <xsl:apply-templates select="/standards/organisations/orgkey" mode="orglist"/>
     </orglist>
     <plateaus>
+       <!-- Create two plateaus, one with mandatory (current) and one with candidate standards -->
       <plateau lifecycle="current" uuid="{uuid:randomUUID()}"/>
       <plateau lifecycle="candidate" uuid="{uuid:randomUUID()}"/>
     </plateaus>

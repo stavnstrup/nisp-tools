@@ -14,7 +14,9 @@
 
 <xsl:strip-space elements="*"/>
 
+<!--
 <xsl:output indent="yes"/>
+-->
 
 
 
