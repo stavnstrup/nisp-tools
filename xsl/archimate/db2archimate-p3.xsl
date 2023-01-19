@@ -87,14 +87,14 @@ and operations.</value>
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='version']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en">v13.0.1-3-gf76e5a1</value>
+        <value xml:lang="en"><xsl:value-of select="$gitDescribe"/></value>
       </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
           <xsl:text>propid-</xsl:text>
           <xsl:value-of select="/standards/allattributes/def[@attribute='identifier']/@position"/>
         </xsl:attribute>
-        <value xml:lang="en">AC/322-N(2020)0024-REV1-FINAL</value>
+        <value xml:lang="en"><xsl:value-of select="$acceptedDocIF"/></value>
       </property>
       <property>
         <xsl:attribute name="propertyDefinitionRef">
