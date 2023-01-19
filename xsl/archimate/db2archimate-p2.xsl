@@ -18,6 +18,7 @@
 
 
      ========================================================== -->
+
 <xsl:output indent="yes" saxon:next-in-chain="db2archimate-p3.xsl"/>
 
 <!-- Create a lookup table in order to create a propertyDefinitions list -->
