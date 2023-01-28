@@ -137,13 +137,6 @@
             <refstandard refid="ietf-rfc7468"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The PEM format with base64-encoded data shall be used to exchange Certificates, Certificate Revocation Lists (CRLs), and Certification Requests.</para>
-            </description>
-            <refstandard refid="ietf-rfc7468"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -170,21 +163,13 @@
             <refstandard refid="nist-sp800-56brev2"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nist-fips-186-4"/>
-            <refstandard refid="nist-fips197"/>
-            <refstandard refid="nist-fips-180-4"/>
-            <refstandard refid="nist-sp800-56arev2"/>
-            <refstandard refid="ietf-rfc3526"/>
-            <refstandard refid="nist-sp800-56brev2"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>The following algorithms and parameters are to be used to support specific functions:</para>
             <itemizedlist spacing="compact">
                <listitem>
-                  <para>'''Root CA Certificates</para>
+                  <para>
+                     <emphasis role="strong">Root CA Certificates</emphasis>
+                  </para>
                   <itemizedlist spacing="compact">
                      <listitem>
                         <para>
@@ -201,7 +186,9 @@
                   </itemizedlist>
                </listitem>
                <listitem>
-                  <para>'''Subordinate CA Certificates</para>
+                  <para>
+                     <emphasis role="strong">Subordinate CA Certificates</emphasis>
+                  </para>
                   <itemizedlist spacing="compact">
                      <listitem>
                         <para>
@@ -217,7 +204,9 @@
                   </itemizedlist>
                </listitem>
                <listitem>
-                  <para>'''Subscriber Certificates</para>
+                  <para>
+                     <emphasis role="strong">Subscriber Certificates</emphasis>
+                  </para>
                   <itemizedlist spacing="compact">
                      <listitem>
                         <para>
@@ -285,25 +274,6 @@
             <refstandard refid="ietf-rfc5280"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="itu-t-x.509"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The Online Certificate Status Protocol (OCSP) capability is mandatory for PKI Service providers. The addresses of OCSP endpoints shall be provided in digital certificates through X.509 certificate extensions such as Authority Information Access (AIA). Clients might support this protocol.</para>
-            </description>
-            <refstandard refid="ietf-rfc6960"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>CRLs may be provided at multiple endpoints. The addresses of these endpoints shall be provided in digital certificates through X.509 certificate extensions such as Authority Information Access (AIA) and CRL distribution point (CDP). Each CA shall provide CRLs over HTTP. Clients must support this protocol.</para>
-            </description>
-            <refstandard refid="ietf-rfc5280"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>The version of the encoded public key certificate shall be version 3. The version of the encoded certificate revocation list (CRL) shall be version 2.</para>
             <para>For further guidance on the implementation the AC/322-N(2020)0077 "iTIF Certificate Profiles Version 1.2.2" shall also be considered.</para>
@@ -343,21 +313,6 @@
          </description>
          <reftaxonomy refid="T-9908d905-bbe8-4fe9-9e33-2407a01add2b-X"/>
          <!--Virtualized Processing Services-->
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>If automated importing of virtual appliances is supported by the service provider, OVF format shall be used as exchange format.</para>
-            </description>
-            <refstandard refid="dmtf-dsp0243"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>File format for virtual hard disk drives, which the service consumer has to be able to provide.</para>
-            </description>
-            <refstandard refid="vmware-vdk50"/>
-            <refstandard refid="microsoft-vhd"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="conditional" lifecycle="current">
             <description>
                <para>If automated importing of virtual appliances is supported by the service provider, OVF format shall be used as exchange format.</para>
@@ -474,12 +429,6 @@
             <refstandard refid="itu-r-tf.460-6"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc5905"/>
-            <refstandard refid="itu-r-tf.460-6"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>Stratum 1 devices must implement IPv4 so that they can be used as time servers for IPv4-based mission networks.</para>
          </guide>
@@ -498,16 +447,6 @@
          </description>
          <reftaxonomy refid="T-92db9afd-4dab-4e76-9ba6-0287ded2d4e7-X"/>
          <!--Domain Name Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc4033"/>
-            <refstandard refid="ietf-rfc4034"/>
-            <refstandard refid="ietf-rfc4035"/>
-            <refstandard refid="ietf-rfc4509"/>
-            <refstandard refid="ietf-rfc5155"/>
-            <refstandard refid="ietf-rfc5702"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="ietf-rfc4033"/>
@@ -550,21 +489,6 @@
          </description>
          <reftaxonomy refid="T-92db9afd-4dab-4e76-9ba6-0287ded2d4e7-X"/>
          <!--Domain Name Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc1034"/>
-            <refstandard refid="ietf-rfc1035"/>
-            <refstandard refid="ietf-rfc2181"/>
-            <refstandard refid="ietf-rfc2782"/>
-            <refstandard refid="ietf-rfc3258"/>
-            <refstandard refid="ietf-rfc4786"/>
-            <refstandard refid="ietf-rfc5936"/>
-            <refstandard refid="ietf-rfc5966"/>
-            <refstandard refid="ietf-rfc6382"/>
-            <refstandard refid="ietf-rfc6891"/>
-            <refstandard refid="ietf-rfc7094"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="ietf-rfc1034"/>
@@ -683,47 +607,6 @@
             <refstandard refid="iso-iec-14750"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The Basic Image Interchange Format (BIIF) is mandated for interoperability of ISR libraries.</para>
-            </description>
-            <refstandard refid="iso-iec-12087-5"/>
-            <refstandard refid="iso-iec-12087-5-cor1"/>
-            <refstandard refid="iso-iec-12087-5-cor2"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following NATO standards provide the specification as well as business rules for interoperability of ISR libraries.</para>
-            </description>
-            <refstandard refid="nato-aedp-17-ed.A-v1"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Implementation of STANAG 5525 in the context of the ISR Library Interface Profile is limited to the definition of unique keys that could be used to unambiguously refer to an external information object that is modelled in accordance with STANAG 5525. Note that AEDP-17 refers to the metadata attribute “JC3IEDMIdentifier” on page G-15, but to “identifierJC3IEDM” on page G-79. The correct attribute to use is “identifierJC3IEDM”.</para>
-            </description>
-            <refstandard refid="nato-jc3iedm-3.1.4"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following NATO standards are mandated for interoperability of ISR library products.</para>
-            </description>
-            <refstandard refid="nato-nnstd-misp-2015.1"/>
-            <refstandard refid="nato-aedp-04-ed.2-v1"/>
-            <refstandard refid="nato-aedp-07-ed.2-v1"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following international standards are mandated for interoperability of ISR libraries.</para>
-            </description>
-            <refstandard refid="iso-639-2"/>
-            <refstandard refid="iso-iec-11179-3"/>
-            <refstandard refid="iso-iec-14750"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>To ensure optimization of network resources the ISR Library Interface services work best with a unicast address space.</para>
             <para>AEDP-17 defines four interfaces:</para>
@@ -789,20 +672,6 @@
             <refstandard refid="nato-aedp-18-ed.A-v1"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Implementation mandates that one or more of the following standards be implemented:</para>
-            </description>
-            <refstandard refid="nato-nnstd-misp-2015.1"/>
-            <refstandard refid="nato-aedp-07-ed.2-v1"/>
-            <refstandard refid="nato-atdlp-5.18-ed.b-v2"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-aedp-18-ed.A-v1"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>The operational processes facilitated by the ISR Streaming architecture are described in detail in the Procedural Instructions for Intelligence and JISR.</para>
          </guide>
@@ -847,11 +716,6 @@
          </description>
          <reftaxonomy refid="T-f50b7a95-a560-406c-8e7b-ba95e3c11878-X"/>
          <!--Business Processes-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-ajp-3.1-ed.a-v1"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="nato-ajp-3.1-ed.a-v1"/>
@@ -906,12 +770,6 @@
             <refstandard refid="mip-v4.3"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-adatp-5644-ed.a-v1"/>
-            <refstandard refid="mip-v4.3"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>The MIP4 profile should be used primarily for the exchange of Battlespace Objects (BSOs); this profile is not intended to support high volume, high frequency updates such as Friendly Force Tracking (FFT). Nor is it intended to support the exchange of data over tactical bearers (with limited capacity and intermittent availability).</para>
             <para>The MIP interoperability specification comprises both a mandatory technical interface specification as well as implementation guidance documents, and is available on the MIP website (https://www.mip-interop.org). The minimum iteration for MIP4 implementation is MIP4.3 (and MIP4.3 is the basis for the capabilities covered by the Spiral 4 Specification). However, as the MIP4 specification supports inter-version compatibility, later iterations of MIP4 (i.e. MIP4.4+) are expected to remain interoperable with MIP4.3.</para>
@@ -933,18 +791,6 @@
          </description>
          <reftaxonomy refid="T-31ac992b-efdc-4d04-8da6-e9162f4a76f8-X"/>
          <!--Recognized Maritime Picture Services-->
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>For conditional use, coupled with the AIS line from OTH-T GOLD Baseline 2007.</para>
-            </description>
-            <refstandard refid="us-dod-oth-g"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="us-dod-oth-t-g-2007"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="conditional" lifecycle="current">
             <description>
                <para>For conditional use, coupled with the AIS line from OTH-T GOLD Baseline 2007.</para>
@@ -1016,56 +862,6 @@
          <!--Battlespace Object Services-->
          <reftaxonomy refid="T-c742df52-642c-4799-b678-4acf5d278fb5-X"/>
          <!--Direct Messaging Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>AEP-76 is to be used for direct C2 Data Exchange between coalition units at the Mobile Tactical Edge, where a shared interoperability network is in place built upon the loaned radio concept. The data model of AEP-76 is based on variant of MIP 3.1 XML messages. The following 8 messages of the messages defined in Volume II are mandatory for federating JDSS in coalition operations:</para>
-               <itemizedlist spacing="compact">
-                  <listitem>
-                     <para>Presence Message</para>
-                  </listitem>
-                  <listitem>
-                     <para>Identification Message</para>
-                  </listitem>
-                  <listitem>
-                     <para>Contact /Sighting Message</para>
-                  </listitem>
-                  <listitem>
-                     <para>Sketch Message</para>
-                  </listitem>
-                  <listitem>
-                     <para>GenInfo Message</para>
-                  </listitem>
-                  <listitem>
-                     <para>Receipt Message</para>
-                  </listitem>
-                  <listitem>
-                     <para>Overlay Message</para>
-                  </listitem>
-                  <listitem>
-                     <para>Casualty Evacuation Request Message (Request Message Body only)</para>
-                  </listitem>
-               </itemizedlist>
-            </description>
-            <refstandard refid="nato-aep-76-vol2-ed.a-v2"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-aep-76-vol3-ed.a-v2"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-aep-76-vol3-ed.a-v2"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-aep-76-vol5-ed.a-v2"/>
-            <refstandard refid="nato-aep-76-vol1-ed.a-v2"/>
-            <refstandard refid="nato-aep-76-vol4-ed.a-v2"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>AEP-76 is to be used for direct C2 Data Exchange between coalition units at the Mobile Tactical Edge, where a shared interoperability network is in place built upon the loaned radio concept. The data model of AEP-76 is based on variant of MIP 3.1 XML messages. The following 8 messages of the messages defined in Volume II are mandatory for federating JDSS in coalition operations:</para>
@@ -1197,14 +993,6 @@
             <refstandard refid="tm-forum-tmf630"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>If an affiliate choses to automate its SMC business processes (SMC Federation Level 1 or Level 2), these standards MUST be implemented.</para>
-            </description>
-            <refstandard refid="tm-forum-tr250"/>
-            <refstandard refid="tm-forum-tmf630"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>The Service Management and Control Process Choreography Profile will expand over time and new APIs are expected to be added as they mature as commercial standards.</para>
          </guide>
@@ -1223,28 +1011,6 @@
          </description>
          <reftaxonomy refid="T-f50b7a95-a560-406c-8e7b-ba95e3c11878-X"/>
          <!--Business Processes-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The confidentiality metadata MUST be embedded in the SMC Messages.</para>
-            </description>
-            <refstandard refid="nato-adatp-4774-ed.a-v1"/>
-            <refstandard refid="nato-adatp-4778-ed.a-v1"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The SIP for Service Management and Control provides detailed implementation direction on how to implement the TMForum APIs.</para>
-            </description>
-            <refstandard refid="tm-forum-tr250"/>
-            <refstandard refid="tm-forum-tmf621"/>
-            <refstandard refid="tm-forum-tmf638"/>
-            <refstandard refid="tm-forum-tmf639"/>
-            <refstandard refid="tm-forum-tmf641"/>
-            <refstandard refid="tm-forum-tmf000"/>
-            <refstandard refid="tm-forum-tmf661"/>
-            <refstandard refid="tm-forum-tmf674"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>The confidentiality metadata MUST be embedded in the SMC Messages.</para>
@@ -1288,17 +1054,6 @@
          </description>
          <reftaxonomy refid="T-f50b7a95-a560-406c-8e7b-ba95e3c11878-X"/>
          <!--Business Processes-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>STIX 2.0 is transport-agnostic, i.e., the structures and serializations do not rely on any specific transport mechanism. STIX 2.0 messages will be exchanged with distributed collaboration means such as email and web-hosting.</para>
-            </description>
-            <refstandard refid="oasis-stix-2.0-p1"/>
-            <refstandard refid="oasis-stix-2.0-p2"/>
-            <refstandard refid="oasis-stix-2.0-p3"/>
-            <refstandard refid="oasis-stix-2.0-p4"/>
-            <refstandard refid="oasis-stix-2.0-p5"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>STIX 2.0 is transport-agnostic, i.e., the structures and serializations do not rely on any specific transport mechanism. STIX 2.0 messages will be exchanged with distributed collaboration means such as email and web-hosting.</para>
@@ -1401,35 +1156,6 @@
             <refstandard refid="nato-app-11-ed.d-v1"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>To support exploitation the following APP-11 message formats MUST be supported (MTF Identifier, MTF Index Ref Number):</para>
-               <itemizedlist spacing="compact">
-                  <listitem>
-                     <para>Incident Report (INCREP, A078)</para>
-                  </listitem>
-                  <listitem>
-                     <para>Incident Spot Report (INCSPOTREP, J006)</para>
-                  </listitem>
-                  <listitem>
-                     <para>Troops in Contact SALTA format (SALTATIC, A073)</para>
-                  </listitem>
-                  <listitem>
-                     <para>Events Report (EVENTREP, J092)</para>
-                  </listitem>
-                  <listitem>
-                     <para>Improvised Explosive Device Report (IEDREP, A075)</para>
-                  </listitem>
-               </itemizedlist>
-               <para>The INCREP is used to report any significant incident caused by terrorism, civil unrest, natural disaster, or media activity.</para>
-               <para>The INCSPOTREP is used to provide time critical information on important events that have an immediate impact on operations.</para>
-               <para>The SALTATIC is used to report troops in contact, the report should be made as soon as possible by the unit that has come under some form of attack. It uses the following basic format: Size of enemy, Action of enemy, Location, Time and Action taken</para>
-               <para>The EVENTREP is used to provide the chain of command information about important Events, trends and activities that do not have an element of extreme urgency, but do influence on-going operations</para>
-               <para>The IEDREP is sent when an IED has been encountered. It identifies the hazard area, tactical situation, operational priorities and the unit affected. This initial report should be followed by normal EOD/Engineer reporting requirements.</para>
-            </description>
-            <refstandard refid="nato-app-11-ed.d-v1"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -1450,12 +1176,6 @@
          <!--Track Distribution Services-->
          <reftaxonomy refid="T-6980cc23-83cd-4174-81c3-ffb7ac3997b9-X"/>
          <!--Track Management Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-app-11-ed.d-v1"/>
-            <refstandard refid="nato-adatp-36-ed.a-v1"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="nato-app-11-ed.d-v1"/>
@@ -1489,98 +1209,6 @@
          <!--Recognized Maritime Picture Services-->
          <reftaxonomy refid="T-75a41fc4-9672-479c-a7fe-2b0cc8b01d4b-X"/>
          <!--Situational Awareness Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The "Minimum Link-16 Message Profile", as described in the FMN Spiral 3 Service Interface Profile for RAP Data, defines the minimum set of data elements that are required to be available for operational or technical reasons so that correctly formatted technical message can be generated to establish the RAP in a federated environment. The implementation of the following message types of ATDLP-5.16 is MANDATORY and refers to Appendix A of the standard for the detailed requirement of receive or transmit support, also based on the role of the MNP:</para>
-               <itemizedlist spacing="compact">
-                  <listitem>
-                     <para>Precise Participant Location and Identification (PPLI) Messages</para>
-                     <itemizedlist spacing="compact">
-                        <listitem>
-                           <para>J2.0 Indirect Interface Unit PPLI</para>
-                        </listitem>
-                        <listitem>
-                           <para>J2.2 Air PPLI</para>
-                        </listitem>
-                        <listitem>
-                           <para>J2.3 Surface (Maritime) PPLI</para>
-                        </listitem>
-                        <listitem>
-                           <para>J2.4 Subsurface (Maritime) PPLI</para>
-                        </listitem>
-                        <listitem>
-                           <para>J2.5 Land (Ground) Point PPLI</para>
-                        </listitem>
-                        <listitem>
-                           <para>J2.6 Land (Ground) Track PPLI</para>
-                        </listitem>
-                     </itemizedlist>
-                  </listitem>
-                  <listitem>
-                     <para>Surveillance Messages</para>
-                     <itemizedlist spacing="compact">
-                        <listitem>
-                           <para>J3.0 Reference Point</para>
-                        </listitem>
-                        <listitem>
-                           <para>J3.1 Emergency Point</para>
-                        </listitem>
-                        <listitem>
-                           <para>J3.2 Air Track message</para>
-                        </listitem>
-                        <listitem>
-                           <para>J3.3 Surface (Maritime) Track</para>
-                        </listitem>
-                        <listitem>
-                           <para>J3.4 Subsurface (Maritime) Track</para>
-                        </listitem>
-                        <listitem>
-                           <para>J3.5 Land (Ground) Point/Track</para>
-                        </listitem>
-                        <listitem>
-                           <para>J3.7 Electronic Warfare Product Information</para>
-                        </listitem>
-                     </itemizedlist>
-                  </listitem>
-               </itemizedlist>
-               <para>For MNPs that are contributing to Shared Situational Awareness production, the following messages should be supported to maximize the ability to share tactical data:</para>
-               <itemizedlist spacing="compact">
-                  <listitem>
-                     <para>J7 Information Management</para>
-                  </listitem>
-                  <listitem>
-                     <para>J9 Weapons Coordination and Management</para>
-                  </listitem>
-                  <listitem>
-                     <para>J10 Weapons Coordination and Management</para>
-                  </listitem>
-                  <listitem>
-                     <para>J12 Control</para>
-                  </listitem>
-                  <listitem>
-                     <para>J13 Platform and System Status</para>
-                  </listitem>
-                  <listitem>
-                     <para>J15 Threat Warning</para>
-                  </listitem>
-                  <listitem>
-                     <para>J17 Miscellaneous</para>
-                  </listitem>
-               </itemizedlist>
-               <para>More recent editions of this standard may be implemented for operational use but ATDLP-5.16 is the minimum to guarantee Link 16 tactical message distribution.</para>
-            </description>
-            <refstandard refid="nato-atdlp-5.16-ed.b-v1"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The JREAP Standard enables TDL data to be transmitted over digital media and networks not originally designed for tactical data exchange. JREAP consists of three different protocols: A, B and C. For implementation in FMN only JREAP-C 'Encapsulation over Internet Protocol (IP)' which enables TDL data to be transmitted over an IP network must be used.</para>
-               <para>Refer to Appendix E of the standard for an overview of which messages are MANDATORY for implementation.</para>
-               <para>Within JREAP-C, UTC must be supported as the common time reference. If no common time reference is available, round-trip shall be used.</para>
-            </description>
-            <refstandard refid="nato-atdlp-5.18-ed.b-v2"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>The "Minimum Link-16 Message Profile", as described in the FMN Spiral 3 Service Interface Profile for RAP Data, defines the minimum set of data elements that are required to be available for operational or technical reasons so that correctly formatted technical message can be generated to establish the RAP in a federated environment. The implementation of the following message types of ATDLP-5.16 is MANDATORY and refers to Appendix A of the standard for the detailed requirement of receive or transmit support, also based on the role of the MNP:</para>
@@ -1724,12 +1352,6 @@
             <refstandard refid="nato-adatp-37-ed.a-v1"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-adatp-36-ed.a-v1"/>
-            <refstandard refid="nato-adatp-37-ed.a-v1"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>Messages exchanged according to the exchange mechanisms described in ADatP-37(A) shall comply with the J-series message schema defined STANAG 5516, Tactical Data Exchange – Link 16 and STANAG 5518, Interoperability Standard for Joint Range Extension Application Protocol (JREAP).</para>
          </guide>
@@ -1756,11 +1378,6 @@
             <refstandard refid="nato-adatp-37-ed.a-v1"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-adatp-37-ed.a-v1"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>Messages exchanged according to the exchange mechanisms described in ADatP-37(A) shall comply with the J-series message schema defined STANAG 5516, Tactical Data Exchange – Link 16 and STANAG 5518, Interoperability Standard for Joint Range Extension Application Protocol (JREAP).</para>
          </guide>
@@ -1779,40 +1396,6 @@
          </description>
          <reftaxonomy refid="T-3edec962-1d0e-4dc0-ab28-b01e0efc1064-X"/>
          <!--Symbology Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Applies to NVG only. Implementation Guidance is provided in<ulink url="NVG_2.0_APP-6D_Bindings">NVG 2.0 APP-6D Bindings</ulink>
-               </para>
-            </description>
-            <refstandard refid="nato-app-06-ed.d-v1"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>Conditional for three use cases that typically involve cross-domain information exchange:</para>
-               <itemizedlist spacing="compact">
-                  <listitem>
-                     <para>sharing overlays outside of the Mission Network or,</para>
-                  </listitem>
-                  <listitem>
-                     <para>sharing overlays to exchange information in the form of Cross-security domain exchange. If an Affiliate has the requirement to share (export/import) with external (non-MN) organisations, then it is to support exchange via KML</para>
-                  </listitem>
-                  <listitem>
-                     <para>exchanging of targeting and JISR products that are prepared on national networks. This particular COI have articulated a requirement to use KML for “Named Area of Interest”. In terms of conditionality, this use is to be defined by that COI.</para>
-                  </listitem>
-               </itemizedlist>
-               <para>When exporting KML files that reference external resources, KML Zipped (KMZ) must be used and all relevant referenced external resources must be included in the KMZ structure as relative references. The references to these files can be found in the href attribute (or sometimes, the '"`UNIQ--nowiki-00008B5E-QINU`"' element) of several KML elements. To enable cross domain exchange and long-term preservation relative references must be used for those resources that are included in the KMZ structure. As many Earth Viewers only work with legacy PKZIP 2.x format for KMZ, .zip folders shall be created in accordance with<ulink url="https://www.pkware.com/documents/APPNOTE/APPNOTE-2.0.txt">https://www.pkware.com/documents/APPNOTE/APPNOTE-2.0.txt</ulink>.</para>
-            </description>
-            <refstandard refid="ogc-07-147r2"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The minimum conformance level for Spiral 4 is defined as conformant with type B3R - as per the NVG 2.0.2 Specification summarized as: File-based and NVG Request/Response Protocol, all symbolized content, with timing information and operationally relevant extended data.</para>
-            </description>
-            <refstandard refid="act-nvg-2.0.2"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>Applies to NVG only. Implementation Guidance is provided in<ulink url="NVG_2.0_APP-6D_Bindings">NVG 2.0 APP-6D Bindings</ulink>
@@ -1904,21 +1487,6 @@
             <refstandard refid="ietf-rfc8247"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc2784"/>
-            <refstandard refid="ietf-rfc4106"/>
-            <refstandard refid="ietf-rfc4303"/>
-            <refstandard refid="ietf-rfc4754"/>
-            <refstandard refid="ietf-rfc4868"/>
-            <refstandard refid="ietf-rfc5903"/>
-            <refstandard refid="ietf-rfc6379"/>
-            <refstandard refid="ietf-rfc7296"/>
-            <refstandard refid="ietf-rfc7427"/>
-            <refstandard refid="ietf-rfc7670"/>
-            <refstandard refid="ietf-rfc8247"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>Protected Core Networking does not support the use of pre-shared keys as an authentication method. While classified information domains in Coloured Clouds may use pre-shared keys in their NIP-G interfaces, IKEv2 is used for authentication both using digital certificates and pre-shared keys.</para>
          </guide>
@@ -1988,52 +1556,6 @@
             <refstandard refid="ietf-rfc5082"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards are added to improve BGP resilience through faster detection of network failures</para>
-            </description>
-            <refstandard refid="ietf-rfc5880"/>
-            <refstandard refid="ietf-rfc5881"/>
-            <refstandard refid="ietf-rfc5883"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standard applies for unicast routing.</para>
-            </description>
-            <refstandard refid="ietf-rfc4632"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards apply for all IP interconnections.</para>
-            </description>
-            <refstandard refid="ietf-rfc1997"/>
-            <refstandard refid="ietf-rfc4271"/>
-            <refstandard refid="ietf-rfc4360"/>
-            <refstandard refid="ietf-rfc4760"/>
-            <refstandard refid="ietf-rfc5492"/>
-            <refstandard refid="ietf-rfc6286"/>
-            <refstandard refid="ietf-rfc6793"/>
-            <refstandard refid="ietf-rfc7153"/>
-            <refstandard refid="ietf-rfc7606"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>Additionally, the following standard applies for 32-bit extended communities used for traffic engineering purposes.</para>
-               <para>The confidition to use 32-bit extended communities is that MNSMA defines community values to be used for the traffic engineering as well as traffic engineering policies to be applied.</para>
-            </description>
-            <refstandard refid="ietf-rfc5668"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standard is added to improve security of BGP peering</para>
-            </description>
-            <refstandard refid="ietf-rfc5082"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>BGP sessions must be authenticated, through a TCP message authentication code (MAC) using a one-way hash function (MD5), as described in IETF RFC 4271.</para>
          </guide>
@@ -2055,32 +1577,6 @@
          <!--IPv4 Routed Access Services-->
          <reftaxonomy refid="T-5c6b2b30-6819-4224-9afa-e299e6e49e33-X"/>
          <!--Packet Routing Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Service providers with their own multicast capability shall provide a Rendezvous Point (RP) supporting the following IP multicast protocol standards.</para>
-            </description>
-            <refstandard refid="ietf-rfc4760"/>
-            <refstandard refid="ietf-rfc3618"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards shall apply to multicast routing.</para>
-            </description>
-            <refstandard refid="ietf-rfc5771"/>
-            <refstandard refid="ietf-rfc2365"/>
-            <refstandard refid="ietf-rfc6308"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>These standards shall apply for all IP interconnections.</para>
-            </description>
-            <refstandard refid="ietf-rfc1112"/>
-            <refstandard refid="ietf-rfc3376"/>
-            <refstandard refid="ietf-rfc7761"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>Service providers with their own multicast capability shall provide a Rendezvous Point (RP) supporting the following IP multicast protocol standards.</para>
@@ -2199,24 +1695,6 @@
             <refstandard refid="ietf-rfc5023"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Web content providers must support at least one of the two standards (RSS and/or Atom).</para>
-            </description>
-            <refstandard refid="rss-2.0"/>
-            <refstandard refid="ietf-rfc4287"/>
-            <refstandard refid="ietf-rfc5023"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Receivers of web content such as news aggregators or user agents must support both the RSS and the ATOM standard.</para>
-            </description>
-            <refstandard refid="rss-2.0"/>
-            <refstandard refid="ietf-rfc4287"/>
-            <refstandard refid="ietf-rfc5023"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>RSS and Atom documents should reference related OpenSearch description documents via the Atom 1.0 "link" element, as specified in Section 4.2.7 of RFC 4287.</para>
             <para>The "rel" attribute of the link element should contain the value "search" when referring to OpenSearch description documents. This relationship value is pending IANA registration. The reuse of the Atom link element is recommended in the context of other syndication formats that do natively support comparable functionality.</para>
@@ -2252,16 +1730,6 @@
          </description>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
          <!--Web Hosting Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The Allied Data Publication and associated binding profiles describe the syntax and mechanisms for applying Confidentiality Metadata.</para>
-            </description>
-            <refstandard refid="nato-adatp-4774-ed.a-v1"/>
-            <refstandard refid="nato-adatp-4778-ed.a-v1"/>
-            <refstandard refid="fmn-cpwg-sip-bdg-mtd-http-msgs"/>
-            <refstandard refid="fmn-cpwg-sip-bdg-mtd-soap-msgs"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>The Allied Data Publication and associated binding profiles describe the syntax and mechanisms for applying Confidentiality Metadata.</para>
@@ -2314,27 +1782,6 @@
             <refstandard refid="w3c-rec-html5-20141028"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Providing a common style sheet language for describing presentation semantics (that is, the look and formatting) of documents written in markup languages like HTML.</para>
-            </description>
-            <refstandard refid="w3c-rec-css3-color-20110607"/>
-            <refstandard refid="w3c-rec-css-namespaces-3-20140320"/>
-            <refstandard refid="w3c-rec-css-style-attr-20131107"/>
-            <refstandard refid="w3c-rec-css2-2011067"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Publishing information including text, multi-media, hyperlink features, scripting languages and style sheets on the network.</para>
-            </description>
-            <refstandard refid="ietf-rfc2854"/>
-            <refstandard refid="ietf-rfc4329"/>
-            <refstandard refid="w3c-rec-css3-mediaqueries-20120619"/>
-            <refstandard refid="w3c-rec-css3-selectors-20110929"/>
-            <refstandard refid="w3c-rec-html5-20141028"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>To enable the use of web applications by the widest possible audience, web applications shall be device independent and shall be based on HTML5 standards and criteria for the development, delivery and consumption of web applications and dynamic websites. HTML5 contains new features for attributes and behaviors, plus a large set of associated technologies such as CSS 3 and JavaScript that allows more diverse and powerful Web sites and applications.</para>
             <para>Web applications will not require any browser plug-ins on the client side as some organizations or end user devices do not allow the use of Java Applets or proprietary extensions such as Silverlight (Microsoft), Flash (Adobe) or Quick Time (Apple). Implementers shall use open standard based solutions (HTML5 / CSS3) instead.</para>
@@ -2356,15 +1803,6 @@
          </description>
          <reftaxonomy refid="T-067fc1be-b7a7-471d-bef4-a42f91ac95b8-X"/>
          <!--Information Products-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The Allied Data Publication and associated binding profiles describe the syntax and mechanisms for applying Confidentiality Metadata.</para>
-            </description>
-            <refstandard refid="nato-adatp-4774-ed.a-v1"/>
-            <refstandard refid="nato-adatp-4778-ed.a-v1"/>
-            <refstandard refid="fmn-cpwg-sip-bdg-mtd-common-file-formats"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>The Allied Data Publication and associated binding profiles describe the syntax and mechanisms for applying Confidentiality Metadata.</para>
@@ -2400,11 +1838,6 @@
             <refstandard refid="nato-adatp-5644-ed.a-v1"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-adatp-5644-ed.a-v1"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>To enable plug-and-play interoperability a pre-defined minimum set of topics referenced and shared by multiple communities of interest is recommended. This "TopicNamespace" is included in Annex A "Information Products - Detailed Definitions" to the FMN Spiral 4 Procedural Instructions for Situational Awareness.</para>
             <para>The version of the WSMP Standard used with MIP4-IES (Version 4.3) is WSMP 1.3.2.</para>
@@ -2424,19 +1857,6 @@
          </description>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
          <!--Web Hosting Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc1738"/>
-            <refstandard refid="ietf-rfc2817"/>
-            <refstandard refid="ietf-rfc3986"/>
-            <refstandard refid="ietf-rfc7230"/>
-            <refstandard refid="ietf-rfc7231"/>
-            <refstandard refid="ietf-rfc7232"/>
-            <refstandard refid="ietf-rfc7233"/>
-            <refstandard refid="ietf-rfc7234"/>
-            <refstandard refid="ietf-rfc7235"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="ietf-rfc1738"/>
@@ -2484,21 +1904,6 @@
             <refstandard refid="w3c-note-wsdl20-soap11-binding-20070626"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Provide the elements a web service needs to deliver a suitable UI service, such as remote portlet functionality.</para>
-            </description>
-            <refstandard refid="w3c-cr-cors-20130129"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="w3c-note-soap-20000508"/>
-            <refstandard refid="w3c-note-wsdl-20010315"/>
-            <refstandard refid="w3c-address"/>
-            <refstandard refid="w3c-note-wsdl20-soap11-binding-20070626"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>The preferred method for implementing web-services are SOAP, however, there are many use cases (mashups etc.) where a REST based interface is easier to implement and sufficient to meet the IERs.</para>
             <para>Restful services support HTTP caching, if the data the Web service returns is not altered frequently and not dynamic in nature. REST is particularly useful for restricted-profile devices such as mobile phones and tablets for which the overhead of additional parameters like headers and other SOAP elements are less. The foundational document of the REST architectural style may be found at<ulink url="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</ulink>.</para>
@@ -2529,17 +1934,6 @@
             <refstandard refid="w3c-rec-xmlschema-2-20041028"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>General formatting of information for sharing or exchange.</para>
-            </description>
-            <refstandard refid="w3c-note-xhtml1-schema-20020902"/>
-            <refstandard refid="ietf-rfc4627"/>
-            <refstandard refid="w3c-rec-xml10-20081126"/>
-            <refstandard refid="w3c-rec-xmlschema-1-20041028"/>
-            <refstandard refid="w3c-rec-xmlschema-2-20041028"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>XML shall be used for data exchange to satisfy those Information Exchange Requirements (IERs) within a FMN mission network instance that are not addressed by a specific information exchange standard. XML schemas and namespaces are required for all XML documents.</para>
          </guide>
@@ -2558,16 +1952,6 @@
          </description>
          <reftaxonomy refid="T-ba82b230-5e03-44bc-897a-ea5890dae4cb-X"/>
          <!--Authentication Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc3986"/>
-            <refstandard refid="ietf-rfc5322"/>
-            <refstandard refid="oasis-saml2.0-metadata-20050315"/>
-            <refstandard refid="ietf-rfc2256"/>
-            <refstandard refid="ietf-rfc2798"/>
-            <refstandard refid="ietf-rfc4519"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="ietf-rfc3986"/>
@@ -2632,12 +2016,6 @@
             <refstandard refid="ietf-rfc4519"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc2798"/>
-            <refstandard refid="ietf-rfc4519"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>The Federated Directory Services shall be able to exchange inetOrgPerson object class with mandatory Common Name (cn) and Surname (sn) attributes. Based on the specific mission network's requirements, the list of exchanged attributes for a particular mission network might be extended by Service Management Authority (SMA) during the planning process.</para>
          </guide>
@@ -2656,21 +2034,6 @@
          </description>
          <reftaxonomy refid="T-3898a275-2231-4656-96aa-b9b37e5cbc78-X"/>
          <!--Directory Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc4519"/>
-            <refstandard refid="ietf-rfc2849"/>
-            <refstandard refid="ietf-rfc4510"/>
-            <refstandard refid="ietf-rfc4511"/>
-            <refstandard refid="ietf-rfc4512"/>
-            <refstandard refid="ietf-rfc4513"/>
-            <refstandard refid="ietf-rfc4514"/>
-            <refstandard refid="ietf-rfc4515"/>
-            <refstandard refid="ietf-rfc4516"/>
-            <refstandard refid="ietf-rfc4517"/>
-            <refstandard refid="ietf-rfc4518"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="ietf-rfc4519"/>
@@ -2752,26 +2115,6 @@
             <refstandard refid="itu-t-j.241"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following normative standards shall apply for IP Quality of Service (QoS).</para>
-            </description>
-            <refstandard refid="nato-acomp-4711-ed.a-v1"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Utilize Quality of Service capabilities of the network (Diffserve, no military precedence on IP).</para>
-            </description>
-            <refstandard refid="ietf-rfc2474"/>
-            <refstandard refid="ietf-rfc4594"/>
-            <refstandard refid="itu-t-y.1540-2019-12"/>
-            <refstandard refid="itu-t-y.1541"/>
-            <refstandard refid="itu-t-y.1542"/>
-            <refstandard refid="itu-t-m.2301"/>
-            <refstandard refid="itu-t-j.241"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -2789,21 +2132,6 @@
          </description>
          <reftaxonomy refid="T-4760c261-4248-4da0-8b39-05ecbe7b2297-X"/>
          <!--Transport CIS Security Services-->
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>In missions where no NATO information products are carried over the mission network, the MISSION SECRET (MS) communications infrastructure is protected with technical structures by mutual agreement made during the mission planning phase.</para>
-            </description>
-            <refstandard refid="nsa-csfc-msccp"/>
-            <refstandard refid="c3b-ac322-d2015-0031"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>In missions where NATO information products are carried over the mission network, the MISSION SECRET (MS) communications infrastructure is protected at minimum with Type-B crypto devices.</para>
-            </description>
-            <refstandard refid="c3b-ac322-d2015-0031"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="conditional" lifecycle="current">
             <description>
                <para>In missions where no NATO information products are carried over the mission network, the MISSION SECRET (MS) communications infrastructure is protected with technical structures by mutual agreement made during the mission planning phase.</para>
@@ -2838,49 +2166,6 @@
          </description>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
          <!--Packet-based Transport Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>For automatic detection of MTU between end-points.</para>
-            </description>
-            <refstandard refid="ietf-rfc1191"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The use of LC-connectors is required for network interconnections inside shelters (or inside other conditioned infrastructure).</para>
-            </description>
-            <refstandard refid="iec-61754-20-100"/>
-            <refstandard refid="itu-t-g.652"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Standards for IP version 4 (IPv4) over Ethernet.</para>
-            </description>
-            <refstandard refid="ietf-rfc826"/>
-            <refstandard refid="ietf-rfc894"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Section 3 - Clause 38 - 1000BASE-LX, nominal transmit wavelength 1310nm.</para>
-            </description>
-            <refstandard refid="ieee-802.3-2018"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="iso-iec-11801-1"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>If the interconnection point is outside a shelter in a harsh environment, the interconnection shall follow AComP-4290 or MIL-DTL-83526 connector specifications.</para>
-            </description>
-            <refstandard refid="mil-dtl-83526c"/>
-            <refstandard refid="nato-acomp-4290-ed.a-v2"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>For automatic detection of MTU between end-points.</para>
@@ -2981,26 +2266,6 @@
             <refstandard refid="nato-aep-76-vol5-ed.a-v2"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Implement the following standard in addition to RFC 1112.</para>
-            </description>
-            <refstandard refid="ietf-rfc2236"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc2474"/>
-            <refstandard refid="ietf-rfc1191"/>
-            <refstandard refid="ietf-rfc894"/>
-            <refstandard refid="ietf-rfc950"/>
-            <refstandard refid="ietf-rfc1112"/>
-            <refstandard refid="ietf-rfc1918"/>
-            <refstandard refid="ietf-rfc4632"/>
-            <refstandard refid="ietf-rfc5771"/>
-            <refstandard refid="nato-aep-76-vol5-ed.a-v2"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>This profile is to be used exclusively for operations at the tactical edge (TACCIS [MC0640]) and not in combination with any of the other profiles defined in the SP4 SI for Communications, which are targeted at OPCIS [MC0640].</para>
          </guide>
@@ -3019,12 +2284,6 @@
          </description>
          <reftaxonomy refid="T-a6fef4f6-40e5-4a5c-a3b0-9ee60e4507dd-X"/>
          <!--Packet-based Transport Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc2080"/>
-            <refstandard refid="ietf-rfc2453"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="ietf-rfc2080"/>
@@ -3166,48 +2425,6 @@
             <refstandard refid="nato-atp-97-ed.a-v1"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>C2 of MedEvac Missions requires the following messages:</para>
-               <itemizedlist spacing="compact">
-                  <listitem>
-                     <para>Situational Awareness:</para>
-                     <itemizedlist spacing="compact">
-                        <listitem>
-                           <para>Incident Report (INCREP – A078)</para>
-                        </listitem>
-                        <listitem>
-                           <para>Incident Spot Report (INCSPOTREP – J006)</para>
-                        </listitem>
-                        <listitem>
-                           <para>Troops in Contact SALTA Format (SALTATIC A073)</para>
-                        </listitem>
-                     </itemizedlist>
-                  </listitem>
-                  <listitem>
-                     <para>Requests:</para>
-                     <itemizedlist spacing="compact">
-                        <listitem>
-                           <para>Medical Evacuation Request (MEDEVAC – A012)</para>
-                        </listitem>
-                        <listitem>
-                           <para>Mechanism Injury Symptoms Treatment (MIST‐AT, supplement to A012)</para>
-                        </listitem>
-                        <listitem>
-                           <para>Diving Accident (DIVEACC – N019)</para>
-                        </listitem>
-                        <listitem>
-                           <para>Evacuation Request (EVACREQ – N096)</para>
-                        </listitem>
-                     </itemizedlist>
-                  </listitem>
-               </itemizedlist>
-            </description>
-            <refstandard refid="nato-app-11-ed.d-v1"/>
-            <refstandard refid="nato-ajmedp-2-ed.a-v1"/>
-            <refstandard refid="nato-atp-97-ed.a-v1"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -3237,13 +2454,6 @@
             <refstandard refid="ietf-rfc3629"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Use of UTF-8 for complete Unicode support, including fully internationalized addresses is mandatory.</para>
-            </description>
-            <refstandard refid="ietf-rfc3629"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -3262,46 +2472,6 @@
          <!--Web Hosting Services-->
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
          <!--Informal Messaging Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>For still image coding.</para>
-            </description>
-            <refstandard refid="iso-iec-10918-1"/>
-            <refstandard refid="iso-iec-10918-3"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>For electronic calendars data.</para>
-            </description>
-            <refstandard refid="ietf-rfc5545"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Consumation of word processing documents, spreadsheets and presentations.</para>
-            </description>
-            <refstandard refid="iso-iec-29500-1-2012"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Consumation of word processing documents, spreadsheets and presentations.</para>
-            </description>
-            <refstandard refid="iso-iec-26300-1-2015"/>
-            <refstandard refid="iso-iec-26300-2-2015"/>
-            <refstandard refid="iso-iec-26300-3-2015"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>For document exchange, storage and long-term preservation.</para>
-            </description>
-            <refstandard refid="iso-19005-1"/>
-            <refstandard refid="iso-19005-2"/>
-            <refstandard refid="iso-32000-1"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>For still image coding.</para>
@@ -3372,16 +2542,6 @@
             <refstandard refid="w3c-rec-ruby-20010531"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Support of the Internationalization Profile is mandatory for client applications</para>
-            </description>
-            <refstandard refid="w3c-rec-charmod-20050215"/>
-            <refstandard refid="w3c-rec-its-20070403"/>
-            <refstandard refid="w3c-rec-its20-20131029"/>
-            <refstandard refid="w3c-rec-ruby-20010531"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>Best practices and tutorials on internationalization can be found at:<ulink url="http://www.w3.org/International/articlelist">http://www.w3.org/International/articlelist</ulink>.</para>
          </guide>
@@ -3433,11 +2593,6 @@
             <refstandard refid="ogc-09-025r2"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ogc-09-025r2"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>Implementation guidance can be found in DGIWG 122, "Defence Profile of OGC’s Web Feature Service 2.0" v.2.0.1, 28 November 2017.</para>
          </guide>
@@ -3456,21 +2611,6 @@
          </description>
          <reftaxonomy refid="T-06d559b4-1bdf-40cc-904f-4e745a170f24-X"/>
          <!--Web Hosting Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>GML subset for point "gml:Point", line "gml:LineString", polygon "gml:Polygon", and box "gml:Envelope".</para>
-               <para>In Atom feeds, location shall be specified using Atom 1.0's official extension mechanism in combination with the GeoRSS GML Profile 1.0 whereby a "georss:where" element is added as a child of the &lt;entry&gt; element.</para>
-            </description>
-            <refstandard refid="ogc-03-105r1"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>GeoRSS Simple encoding for "georss:point", "georss:line", "georss:polygon", "georss:box".</para>
-            </description>
-            <refstandard refid="ogc-georss-schema-gml-1.1"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>GML subset for point "gml:Point", line "gml:LineString", polygon "gml:Polygon", and box "gml:Envelope".</para>
@@ -3535,37 +2675,6 @@
             <refstandard refid="iso-iec-15444-1"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>This ESRI Technical Paper describes XML schemas for the Geodatabase in order to enable exchange of digital geospatial data. In contrary to the ESRI Arc Geodatabase (File-based), this document is freely available to the public and does not require vendor-specific licenses.</para>
-            </description>
-            <refstandard refid="esri-xmlschema-geodb-200806"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Exchange of Digital Vector Data</para>
-            </description>
-            <refstandard refid="nga-mil-prf-89039"/>
-            <refstandard refid="nga-dod-mil-prf-89033"/>
-            <refstandard refid="nato-ageop-11-ed.b-v1"/>
-            <refstandard refid="nato-ageop-19-ed.a-v1"/>
-            <refstandard refid="esri-shapefile"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Exchange of Digital Raster Data</para>
-            </description>
-            <refstandard refid="nato-ageop-11-ed.b-v1"/>
-            <refstandard refid="nato-ageop-19-ed.a-v1"/>
-            <refstandard refid="nga-mil-prf-89038"/>
-            <refstandard refid="nga-rpf"/>
-            <refstandard refid="ogc-05-047r3"/>
-            <refstandard refid="mil-prf-89020b"/>
-            <refstandard refid="iso-iec-15444-1"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>Implementation guidance for GeoTIFF Format Specification is defined in STANAG 2592 - AGeoP 11.3 GeoTIFF Raster Format Specification – Edition A – Version 1 – December 2018.</para>
          </guide>
@@ -3590,12 +2699,6 @@
             <refstandard refid="nato-ageop-26-ed.a-v1"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ogc-07-057r7"/>
-            <refstandard refid="nato-ageop-26-ed.a-v1"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>Implementation Guidance: Service Providers can select which profile(s) to implement, and should put emphasis on DGIWG Profiles. Service Consumers that want to consume WMS/WMTS services provided by the NATO Command Structure must implement the NCIA SIP.</para>
          </guide>
@@ -3614,12 +2717,6 @@
          </description>
          <reftaxonomy refid="T-4a3a0865-33e0-4cff-9a7c-9f334e46a61c-X"/>
          <!--Geospatial Web Map Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="nato-ageop-26-ed.a-v1"/>
-            <refstandard refid="ogc-06-042"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="nato-ageop-26-ed.a-v1"/>
@@ -3694,16 +2791,6 @@
          </description>
          <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
          <!--Audio-based Communication Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards are used for audio protocols.</para>
-            </description>
-            <refstandard refid="itu-t-g.711"/>
-            <refstandard refid="itu-t-g.722.1"/>
-            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
-            <refstandard refid="itu-t-g.729"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>The following standards are used for audio protocols.</para>
@@ -3790,14 +2877,6 @@
             <refstandard refid="itu-t-g.729"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="itu-t-g.711"/>
-            <refstandard refid="itu-t-g.722.1"/>
-            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
-            <refstandard refid="itu-t-g.729"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -3814,14 +2893,6 @@
          </description>
          <reftaxonomy refid="T-53151cf1-2071-4aa5-a73a-07bb4dc5de9c-X"/>
          <!--Video-based Communication Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="itu-t-h.264"/>
-            <refstandard refid="itu-t-g.711"/>
-            <refstandard refid="itu-t-g.722.1"/>
-            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="itu-t-h.264"/>
@@ -3882,12 +2953,6 @@
             <refstandard refid="ietf-rfc4412"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc4411"/>
-            <refstandard refid="ietf-rfc4412"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -3905,16 +2970,6 @@
          </description>
          <reftaxonomy refid="T-4760c261-4248-4da0-8b39-05ecbe7b2297-X"/>
          <!--Transport CIS Security Services-->
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>Securing the MN Media infrastructure can be done in several ways and that the selection of the appropriate method is to be done during the mission planning. For this specific method, the following standard apply.</para>
-            </description>
-            <refstandard refid="ietf-rfc5246"/>
-            <refstandard refid="ietf-rfc7919"/>
-            <refstandard refid="ietf-rfc3711"/>
-            <refstandard refid="ietf-rfc4568"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="conditional" lifecycle="current">
             <description>
                <para>Securing the MN Media infrastructure can be done in several ways and that the selection of the appropriate method is to be done during the mission planning. For this specific method, the following standard apply.</para>
@@ -3946,18 +3001,6 @@
          <!--Infrastructure CIS Security Services-->
          <reftaxonomy refid="T-b4f004a3-5940-4438-be5b-2ee8ba014ac2-X"/>
          <!--Network Access Control Services-->
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>Securing the media infrastructure can be done in several ways and that the selection of the appropriate method is to be done during the mission planning. For this specific method, the following standard apply.</para>
-            </description>
-            <refstandard refid="ietf-rfc4303"/>
-            <refstandard refid="ietf-rfc4754"/>
-            <refstandard refid="ietf-rfc5903"/>
-            <refstandard refid="ietf-rfc7296"/>
-            <refstandard refid="ietf-rfc7427"/>
-            <refstandard refid="ietf-rfc7670"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="conditional" lifecycle="current">
             <description>
                <para>Securing the media infrastructure can be done in several ways and that the selection of the appropriate method is to be done during the mission planning. For this specific method, the following standard apply.</para>
@@ -4010,29 +3053,6 @@
             <refstandard refid="ietf-rfc6665"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards define the Session Initiation Protocol (SIP) and Real-time Transport Protocol (RTP) support for conferencing.</para>
-            </description>
-            <refstandard refid="ietf-rfc4353"/>
-            <refstandard refid="ietf-rfc4579"/>
-            <refstandard refid="ietf-rfc5366"/>
-            <refstandard refid="ietf-rfc7667"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards are used for regular Session Initiation Protocol (SIP) support..</para>
-            </description>
-            <refstandard refid="ietf-rfc3261"/>
-            <refstandard refid="ietf-rfc3262"/>
-            <refstandard refid="ietf-rfc3264"/>
-            <refstandard refid="ietf-rfc3311"/>
-            <refstandard refid="ietf-rfc4028"/>
-            <refstandard refid="ietf-rfc4566"/>
-            <refstandard refid="ietf-rfc6665"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -4049,12 +3069,6 @@
          </description>
          <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
          <!--Audio-based Communication Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc3550"/>
-            <refstandard refid="ietf-rfc4733"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="ietf-rfc3550"/>
@@ -4115,19 +3129,6 @@
             <refstandard refid="iicwg-scip-233.601"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>When PPK is applied for the Secure Communications Interoperability Protocol (SCIP), the following standards need to be followed.</para>
-            </description>
-            <refstandard refid="iicwg-scip-233.104"/>
-            <refstandard refid="iicwg-scip-233.304"/>
-            <refstandard refid="iicwg-scip-233.350"/>
-            <refstandard refid="iicwg-scip-233.401"/>
-            <refstandard refid="iicwg-scip-233.422"/>
-            <refstandard refid="iicwg-scip-233.441"/>
-            <refstandard refid="iicwg-scip-233.601"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -4159,18 +3160,6 @@
             <refstandard refid="iicwg-scip-233.444"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>When X.509 is applied for the Secure Communications Interoperability Protocol (SCIP), the following standards need to be followed.</para>
-            </description>
-            <refstandard refid="iicwg-scip-233.401"/>
-            <refstandard refid="iicwg-scip-233.601"/>
-            <refstandard refid="iicwg-scip-233.109"/>
-            <refstandard refid="iicwg-scip-233.307"/>
-            <refstandard refid="iicwg-scip-233.423"/>
-            <refstandard refid="iicwg-scip-233.444"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -4187,39 +3176,6 @@
          </description>
          <reftaxonomy refid="T-9f408558-029b-4625-ab8a-3dfcdb677800-X"/>
          <!--Audio-based Communication Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>SCIP Secure Applications.</para>
-            </description>
-            <refstandard refid="iicwg-scip-233.501"/>
-            <refstandard refid="iicwg-scip-233.502"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>SCIP Network Standards for operation over VoIP Real-time Transport Protocol (RTP).</para>
-            </description>
-            <refstandard refid="iicwg-scip-214.2"/>
-            <refstandard refid="iicwg-scip-214.3"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>SCIP Signaling Plan and Negotiation.</para>
-            </description>
-            <refstandard refid="iicwg-scip-233.350"/>
-            <refstandard refid="iicwg-scip-210"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>SCIP Network Standards for operation over other network types.</para>
-            </description>
-            <refstandard refid="iicwg-scip-214.1"/>
-            <refstandard refid="iicwg-scip-215"/>
-            <refstandard refid="iicwg-scip-216"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>SCIP Secure Applications.</para>
@@ -4283,15 +3239,6 @@
             <refstandard refid="itu-t-e.164"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards are used for numbering. Network planners and engineers are reminded that in case Canada and United States are both participating in a mission network, there is a necessity to de-conflict the country code a.k.a. Country Identified (CI).</para>
-            </description>
-            <refstandard refid="nato-stanag4705ed1"/>
-            <refstandard refid="itu-t-e.123"/>
-            <refstandard refid="itu-t-e.164"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -4344,15 +3291,6 @@
             <refstandard refid="fmn-cpwg-sip-bdg-mtd-xmpp-stanzas"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The Allied Data Publication and associated binding profiles describe the syntax and mechanisms for applying Confidentiality Metadata.</para>
-            </description>
-            <refstandard refid="nato-adatp-4774-ed.a-v1"/>
-            <refstandard refid="nato-adatp-4778-ed.a-v1"/>
-            <refstandard refid="fmn-cpwg-sip-bdg-mtd-xmpp-stanzas"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>The structure of the binding is defined in ADatP-4778.</para>
             <para>The labelling values shall be based on the security policy defined for the mission.</para>
@@ -4373,13 +3311,6 @@
          </description>
          <reftaxonomy refid="T-f6a4c0a6-787d-43c2-bd3e-48eeb41d4827-X"/>
          <!--Text-based Communication Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="xmpp-xep-0004-2.10.0"/>
-            <refstandard refid="xmpp-xep-0068"/>
-            <refstandard refid="xmpp-xep-0346"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="xmpp-xep-0004-2.10.0"/>
@@ -4416,16 +3347,6 @@
             <refstandard refid="xmpp-xep-0313"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>XMPP Services hosting the shared chatrooms must comply with the following additional extensions.</para>
-            </description>
-            <refstandard refid="xmpp-xep-0045-1.32.0"/>
-            <refstandard refid="xmpp-xep-0059"/>
-            <refstandard refid="xmpp-xep-0082"/>
-            <refstandard refid="xmpp-xep-0313"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -4444,36 +3365,6 @@
          <!--Text-based Communication Services-->
          <reftaxonomy refid="T-c31cbe2b-47ef-432a-b428-90cdea2e377c-X"/>
          <!--Presence Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards are the base IETF protocols for interoperability of chat services.</para>
-            </description>
-            <refstandard refid="ietf-rfc6120"/>
-            <refstandard refid="ietf-rfc6121"/>
-            <refstandard refid="ietf-rfc6122"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards are required to achieve compliance for an XMPP Server and an XMPP Client dependent upon the categorisation of presenting a core or advanced instant messaging service interface.</para>
-            </description>
-            <refstandard refid="xmpp-xep-0012"/>
-            <refstandard refid="xmpp-xep-0030-2.5rc3"/>
-            <refstandard refid="xmpp-xep-0047"/>
-            <refstandard refid="xmpp-xep-0054"/>
-            <refstandard refid="xmpp-xep-0055"/>
-            <refstandard refid="xmpp-xep-0060-1.18.0"/>
-            <refstandard refid="xmpp-xep-0092"/>
-            <refstandard refid="xmpp-xep-0106-1.1.1"/>
-            <refstandard refid="xmpp-xep-0114"/>
-            <refstandard refid="xmpp-xep-0115-1.5.2"/>
-            <refstandard refid="xmpp-xep-0160"/>
-            <refstandard refid="xmpp-xep-0199"/>
-            <refstandard refid="xmpp-xep-0202"/>
-            <refstandard refid="xmpp-xep-0203"/>
-            <refstandard refid="xmpp-xep-0220-1.1.1"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>The following standards are the base IETF protocols for interoperability of chat services.</para>
@@ -4564,30 +3455,6 @@
             <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards are required for video coding in VTC.</para>
-            </description>
-            <refstandard refid="ietf-rfc6184"/>
-            <refstandard refid="itu-t-h.264"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="conditional" lifecycle="current">
-            <description>
-               <para>Use of the BFCP is conditional to that VTC conferencing services are used with the shared content like presentations and/or screen sharing, whose control needs to be shared among participants.</para>
-            </description>
-            <refstandard refid="ietf-rfc4582"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The following standards are required for audio coding in VTC.</para>
-            </description>
-            <refstandard refid="itu-t-g.711"/>
-            <refstandard refid="itu-t-g.722.1"/>
-            <refstandard refid="itu-t-g.722.1-corr1-06.08"/>
-            <uuid/>
-         </refgroup>
          <guide>
             <para>It Is recommended that dynamic port ranges are constrained to a limited and agreed number. This is an activity that needs to be performed at the mission planning stage. Different vendors have different limitations on fixed ports. However, common ground can always be found.</para>
             <para>As a minimum G.722.1 is to be used. Others are exceptions and need to be agreed by the mission network's administrative authority for video calls.</para>
@@ -4654,29 +3521,6 @@
             <refstandard refid="ietf-rfc6152"/>
             <uuid/>
          </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>Media and content types.</para>
-            </description>
-            <refstandard refid="w3c-rec-html5-20141028"/>
-            <refstandard refid="ietf-rfc1896"/>
-            <refstandard refid="ietf-rfc2046"/>
-            <refstandard refid="ietf-rfc3676"/>
-            <refstandard refid="ietf-rfc5147"/>
-            <refstandard refid="w3c-note-xhtml1-schema-20020902"/>
-            <uuid/>
-         </refgroup>
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>MIME encapsulation.</para>
-            </description>
-            <refstandard refid="ietf-rfc2046"/>
-            <refstandard refid="ietf-rfc2045"/>
-            <refstandard refid="ietf-rfc2047"/>
-            <refstandard refid="ietf-rfc2049"/>
-            <refstandard refid="ietf-rfc6152"/>
-            <uuid/>
-         </refgroup>
          <guide/>
          <status mode="accepted">
             <uri/>
@@ -4693,20 +3537,6 @@
          </description>
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
          <!--Informal Messaging Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>These standards are mandated for interoperability of e-mail services within the mission network.</para>
-            </description>
-            <refstandard refid="ietf-rfc1870"/>
-            <refstandard refid="ietf-rfc2034"/>
-            <refstandard refid="ietf-rfc2920"/>
-            <refstandard refid="ietf-rfc3207"/>
-            <refstandard refid="ietf-rfc3461"/>
-            <refstandard refid="ietf-rfc4954"/>
-            <refstandard refid="ietf-rfc5321"/>
-            <refstandard refid="ietf-rfc5322"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>These standards are mandated for interoperability of e-mail services within the mission network.</para>
@@ -4740,15 +3570,6 @@
          </description>
          <reftaxonomy refid="T-e683e3a2-ef50-4da3-b286-2ecf23e21aae-X"/>
          <!--Informal Messaging Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description>
-               <para>The Allied Data Publication and associated binding profiles describe the syntax and mechanisms for applying Confidentiality Metadata.</para>
-            </description>
-            <refstandard refid="nato-adatp-4774-ed.a-v1"/>
-            <refstandard refid="nato-adatp-4778-ed.a-v1"/>
-            <refstandard refid="fmn-cpwg-sip-bdg-mtd-informal-msgs"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description>
                <para>The Allied Data Publication and associated binding profiles describe the syntax and mechanisms for applying Confidentiality Metadata.</para>
@@ -4797,13 +3618,6 @@
          </description>
          <reftaxonomy refid="T-d5b2a8d5-e4d6-4e91-89d4-9c2539aac1c6-X"/>
          <!--Calendaring and Scheduling Services-->
-         <refgroup obligation="mandatory" lifecycle="current">
-            <description/>
-            <refstandard refid="ietf-rfc5545"/>
-            <refstandard refid="ietf-rfc5546"/>
-            <refstandard refid="ietf-rfc6047"/>
-            <uuid/>
-         </refgroup>
          <refgroup obligation="mandatory" lifecycle="current">
             <description/>
             <refstandard refid="ietf-rfc5545"/>
