@@ -41,3 +41,14 @@ jobs:
         user_email: 'nisp-bot@nw3.dk'
         keep_files: true
         # cname: live.nisp.nw3.dk
+
+    - name: Trigger NISP Nation
+      env:
+        TRIGGER_NISP_NATION: ${{ secrets.TRIGGER_NISP_NATION }}
+      run: |
+        curl -v -H "Accept: application/vnd.github.everest-preview+json" \
+         -H "Authorization: token $TRIGGER_NISP_NATION" \
+         --request POST \
+         --data '{"event_type": "build-nation",
+            "client_payload": { "MESSAGE" : "Build requested by NISP-tools" }}' \
+            https://api.github.com/repos/stavnstrup/nisp-nation/dispatches
