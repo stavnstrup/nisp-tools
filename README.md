@@ -2,7 +2,7 @@
 
 # NATO Interoperability Standards and Profiles (NISP)
 
-[![Linux Build Status](https://github.com/stavnstrup/nisp-tools/actions/workflows/gh-pages-deployment.yml/badge.svg))](https://github.com/stavnstrup/nisp-tools/actions)
+[![Linux Build Status](https://github.com/stavnstrup/nisp-tools/actions/workflows/gh-pages-deployment.yml/badge.svg)](https://github.com/stavnstrup/nisp-tools/actions)
 
 This distribution contains the stylesheets, building tools and
 documentation necessary to work with XML version of the NATO
