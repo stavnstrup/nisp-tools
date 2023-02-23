@@ -1,12 +1,12 @@
-This library contains all major external components in the NC3TA
-framework.
+This library contains all major external components in the NISP tool set.
 
 
-Main Components
-===============
+N.B. This file is seriously obsolete and needs to be updated.
 
-Ant 1.8.1
----------
+
+# Main Components
+
+## Ant 1.8.1
 
 http;//xerces.apache.org
 
@@ -14,14 +14,9 @@ Ant is a make like tool, which integrates the misc tools used to
 create the NC3TA documents.
 
 
-
-
-
-Xerces 2.10.0 
-------------
+## Xerces 2.10.0 
 
 http;//xerces.apache.org
-
 
 
 resolver-1.2.jar
@@ -30,27 +25,20 @@ xercesImpl-2.10.0.jar
 xml-apis-1.4.01.jar
 xml-apis-ext-1.4.01.jar
 
-Saxon 6.5.5
------------
+## Saxon 6.5.5
 
 http://saxon.sourceforge.net
 
 
-
-
-Batik 1.7
----------
+## Batik 1.7
 
 
 
 
-FOP 0.95+
-----------
+## FOP 0.95+
 
 
-
-
-nc3ta 1.0
+## NISP
 ---------
 
 This jar contains two small apps, which
@@ -59,11 +47,9 @@ This jar contains two small apps, which
 - Gives a list of loaded jars 
 
 
-In the NC3TA tool packages a number This file describes 
+In the NISP tool packages a number This file describes 
 
-Main Components
----------------
-
+## Main Components
 
 ant.jar
 avalon-framework-cvs-20020806.jar
@@ -97,7 +83,7 @@ The files in this directory are java archive (JAR) file from the
 following distributions:
 
 
-  Distribution: Jakata Ant 1.6.5 (Make like build system)
+ Distribution: Ant 1.6.5 (Make like build system)
 
     ant.jar 
     ant-launcher.jar
@@ -138,9 +124,3 @@ following distributions:
     avalon-framework-cvs-20020315.jar
 
 
-  ------------------------------------------------------------------
-
-  Distribitions: This NC3TA tools package. Sources in java/src
-   
-
-   libnc3ta.jar
