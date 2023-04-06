@@ -23,7 +23,7 @@ Note: The parameter id-prefix should be prefixed with two hyphens to the left.
 
 <xsl:output saxon:next-in-chain="del2.xsl"/>
 
-<xsl:variable name="next.nisp.version" select="'13.0'"/>
+<xsl:variable name="next.nisp.version" select="'15.0'"/>
 
 
 <xsl:strip-space elements="*"/>

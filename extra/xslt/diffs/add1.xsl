@@ -22,7 +22,7 @@
 
 <xsl:output saxon:next-in-chain="add2.xsl"/>
 
-<xsl:variable name="next.nisp.version" select="'13.0'"/>
+<xsl:variable name="next.nisp.version" select="'15.0'"/>
 
 
 
