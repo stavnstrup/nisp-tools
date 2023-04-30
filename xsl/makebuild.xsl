@@ -504,9 +504,9 @@ Make dynamic targets.
           <xsl:value-of select="$docid"/>
           <xsl:text>}</xsl:text>
           <xsl:if test="$db">
-	    <xsl:text> dbname=resolved-</xsl:text>
+      	    <xsl:text> dbname=resolved-</xsl:text>
             <xsl:value-of select="$db"/>
-	  </xsl:if>
+	        </xsl:if>
           <xsl:text> docid=</xsl:text>
           <xsl:value-of select="$docid"/>
           <xsl:text> documentdir=</xsl:text>
@@ -516,6 +516,8 @@ Make dynamic targets.
           <xsl:text> nisp.image.ext=</xsl:text>
           <xsl:text>${nisp.image.ext}</xsl:text>
           <xsl:text> describe=${describe}</xsl:text>
+          <xsl:text> nato-std-edition=${nato-std-edition}</xsl:text>
+          <xsl:text> nato-std-version=${nato-std-version}</xsl:text>
         </xsl:attribute>
       </arg>
 
