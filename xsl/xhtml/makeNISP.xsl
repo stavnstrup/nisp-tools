@@ -153,13 +153,15 @@ Description : This stylesheet is a customization of Norman Walsh
 
 
 <!-- Get the version number from the first revision element -->
-
+<!--
 <xsl:variable name="version.major" select="substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
 <xsl:variable name="version.minor" select="substring-after(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
+-->
 
 <!-- AdatP-34 edition number.
      E.g.  NISP 4.0 will be ADatP-34 edition D, NISP 4.1 - 5.0 will be ADatP-34 edition E -->
 
+<!--
 <xsl:variable name="adatp34edition">
   <xsl:choose>
     <xsl:when test="$version.minor=0">
@@ -170,6 +172,7 @@ Description : This stylesheet is a customization of Norman Walsh
     </xsl:otherwise>
   </xsl:choose>
 </xsl:variable>
+-->
 
 
 <!-- We don't use beginpage here, however it is parts of some documents
@@ -204,7 +207,9 @@ Description : This stylesheet is a customization of Norman Walsh
 
 <xsl:template match="corpauthor" mode="titlepage.mode">
   <div class="{name(.)}">
-    <div>ADatP-34(<xsl:value-of select="$adatp34edition"/>)</div>
+    <div>ADatP-34(<xsl:value-of 
+      select="$allied.publication.edition"/>)(<xsl:value-of 
+      select="$allied.publication.version"/>)</div>
     <div><xsl:apply-templates select="..//revision[1]/revnumber"
        mode="titlepage.mode"/></div>
     <div><xsl:apply-templates

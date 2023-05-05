@@ -856,6 +856,8 @@ Make dynamic targets.
           <xsl:text> use.para.numbering=${use.para.numbering}</xsl:text>
           <xsl:text> datestamp=${DSTAMP}</xsl:text>
           <xsl:text> describe=${describe}</xsl:text>
+          <xsl:text> nato-std-edition=${nato-std-edition}</xsl:text>
+          <xsl:text> nato-std-version=${nato-std-version}</xsl:text>
         </xsl:attribute>
       </arg>
       <classpath refid="lib-saxon-classpath"/>
