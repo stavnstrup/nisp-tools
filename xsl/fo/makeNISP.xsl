@@ -273,8 +273,8 @@ Description : This stylesheet is a customization of Norman Walsh DocBook
 <xsl:param name="nisp.release.label" select="''"/>
 <xsl:param name="describe" select="''"/>
 
-
-
+<xsl:param name="nisp-std-edition" select="''"/>
+<xsl:param name="nisp-std-version" select="''"/>
 
 <!-- ==================================================================== -->
 <!-- Define standard page headers for even- and odd pages                 -->

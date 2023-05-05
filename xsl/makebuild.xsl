@@ -946,6 +946,8 @@ Make dynamic targets.
           <xsl:value-of select="$pdf.prefix"/>
           <xsl:text> use.para.numbering=${use.para.numbering}</xsl:text>
           <xsl:text> describe=${describe}</xsl:text>
+          <xsl:text> nato-std-edition=${nato-std-edition}</xsl:text>
+          <xsl:text> nato-std-version=${nato-std-version}</xsl:text>
         </xsl:attribute>
       </arg>
       <classpath refid="lib-saxon-classpath"/>

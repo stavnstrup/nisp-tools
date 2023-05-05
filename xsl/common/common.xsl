@@ -32,6 +32,9 @@
 <xsl:param name="copyright.years" select="concat($copyright.first.year, '-', 
                                                  $copyright.last.year)"/>
 
+<xsl:param name="nato-std-edition" select="''"/>
+<xsl:param name="nato-std-version" select="''"/>
+
 <!-- Get the version number from the first revision element -->
 
 <xsl:variable name="version.major" select="substring-before(//book/bookinfo/revhistory/revision[1]/revnumber,'.')"/>
@@ -44,6 +47,8 @@
      E.g.  NISP 4.0 will be ADatP-34 edition D, NISP 4.1 - 5.0 will be ADatP-34 edition E -->
 
 <xsl:variable name="allied.publication.edition">
+  <xsl:value-of select="$nato-std-edition"/>
+<!--
   <xsl:choose>
     <xsl:when test="$version.minor=0">
       <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ', $version.major, 1)"/>
@@ -52,9 +57,15 @@
       <xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXUZ', $version.major+1, 1)"/>
     </xsl:otherwise>
   </xsl:choose>
+-->
 </xsl:variable>
 
+<xsl:variable name="allied.publication.version">
+  <xsl:value-of select="$nato-std-version"/>
+</xsl:variable>
+<!--
 <xsl:variable name="allied.publication.version" select="2"/>
+-->
 
 
 
