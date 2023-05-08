@@ -87,7 +87,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
     or partner nations, or NATO commands and bodies.</para>
     <para>This publication shall be handled in accordance with C-M(2002)60.</para>
     <para><address format="linespecific">Dimitrios SIGOULAKIS
-Major General, GRC (A)
+Lieutenant General, GRC (A)
 Director, NATO Standardization Office</address></para>
   </preface>
   <preface>
