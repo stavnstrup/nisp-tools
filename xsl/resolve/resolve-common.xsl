@@ -81,7 +81,7 @@ NATO Command, Control and Consultation Organisation (NC3O).
     Interoperability Standards and Profiles, which has been approved by the nations in the C3B, is promulgated herewith. 
     The agreement of nations to use this publication is recorded in STANAG 5524.</para>
     <para><xsl:value-of select="$allied.publication.number"/>, Edition <xsl:value-of select="$allied.publication.edition"/>, 
-    Version <xsl:value-of select="$allied.publication.version"/> is effective on receipt.</para>
+    Version <xsl:value-of select="$allied.publication.version"/> is effective on receipt and supersedes ADatP-34, Edition N, Version 1 which shall be destroyed in accordance with the local procedure for the destruction of documents.</para>
     <para>No part of this publication may be reproduced, stored in a retrieval system, used commercially, adapted, or transmitted in any form or by any means, electronic,
     mechanical, photo-copying, recording or otherwise, without the prior permission of the publisher. With the exception of commercial sales, this does not apply to member
     or partner nations, or NATO commands and bodies.</para>
