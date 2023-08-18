@@ -32,7 +32,7 @@ Note: The parameter id-prefix should be prefixed with two hyphens to the left.
 
 <xsl:template match="standards">
   <standards>
-    <xsl:apply-templates select=".//event[(position()=last()) and (@flag='deleted') and (@version=$next.nisp.version)]"/>
+    <xsl:apply-templates select=".//standard//event[(@flag='deleted') and (@version=$next.nisp.version)]"/>
   </standards>
 </xsl:template>
 

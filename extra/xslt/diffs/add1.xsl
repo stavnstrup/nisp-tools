@@ -33,7 +33,7 @@
 
 <xsl:template match="standards">
   <standards>
-    <xsl:apply-templates select=".//event[(position()=last()) and (@flag='added') and (@version=$next.nisp.version)]"/>
+    <xsl:apply-templates select=".//standard//event[(@flag='added') and (@version=$next.nisp.version)]"/>
   </standards>
 </xsl:template>
 
