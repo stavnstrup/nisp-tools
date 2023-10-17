@@ -9,7 +9,7 @@
 This stylesheet is created for the NISP , and is
 intended to create an overview of the starndard database.
 
-Copyright (c) 2003, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
+Copyright (c) 2003, 2023  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
 
 -->
 
@@ -127,6 +127,7 @@ Copyright (c) 2003, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
      <li><b>BSP</b> - Is this record part of the basic standards profile (A : Agreed, C: Candidate), i.e. mandatory for NATO common funded systems</li>
      <li><b>History</b> - What is the history of the record</li>
      <li><b>URI</b> - Location of the standard</li>
+     <li><b>UUID</b> - UUID of the standard</li>
    </ul>
 
 
@@ -145,6 +146,7 @@ Copyright (c) 2003, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       <th>BSP</th>
       <th>History</th>
       <th>URI</th>
+      <th>UUID</th>
     </tr>
     <xsl:apply-templates select="records/coverdoc|records/standard">
       <xsl:sort select="@id" order="ascending"/>
@@ -355,6 +357,7 @@ Copyright (c) 2003, 2020  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
       </xsl:if>
       <xsl:apply-templates select="status/uri"/>
     </td>
+    <td><xsl:value-of select="uuid"/></td>
   </tr>
 </xsl:template>
 
