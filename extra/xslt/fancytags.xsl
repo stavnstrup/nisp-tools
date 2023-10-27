@@ -22,10 +22,11 @@ Description : Create fancy tags.
 
 <xsl:strip-space elements="*"/>
 
-<xsl:template match="standard">
+<xsl:template match="standard|coverdoc">
   <xsl:variable name="myorg" select="document/@orgid"/>
   <xsl:variable name="myid" select="@id"/>
-  <standard id="{./@id}">
+  <xsl:element name="{local-name(.)}">
+    <xsl:attribute name="id" select="./@id"/>
     <xsl:attribute name="tag">
       <xsl:apply-templates select="/standards/organisations/orgkey[@key=$myorg]/@short"/>
       <xsl:if test="document/@pubnum !=''">
@@ -44,7 +45,7 @@ Description : Create fancy tags.
       </xsl:if>
     </xsl:attribute>
     <xsl:apply-templates/>
-  </standard>
+  </xsl:element>
   <xsl:text>&#x0a;</xsl:text>
 </xsl:template>
 
