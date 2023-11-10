@@ -7,28 +7,39 @@
 
 <xsl:output indent="yes" saxon:next-in-chain="gowiki-p3.xsl"/>
 
+<!--
 
-
-<xsl:template match="profilespec">
-  <xsl:variable name="myorg" select="@orgid"/>
-  <profilespec>
-    <xsl:attribute name="tag">
-      <xsl:apply-templates select="/standards/organisations/orgkey[@key=$myorg]/@short"/>
-      <xsl:if test="@pubnum !=''">
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="@pubnum"/>
-      </xsl:if>
-      <xsl:if test="@date !=''">
-        <xsl:text> (</xsl:text>
-        <xsl:value-of select="substring(@date, 1, 4)"/>
-        <xsl:text>)</xsl:text>
-      </xsl:if>
-    </xsl:attribute>
+<xsl:template match="profile[@top='yes']">
+  <capabilityprofile>
     <xsl:apply-templates select="@*"/>
     <xsl:apply-templates/>
-  </profilespec>
+  </capabilityprofile>
 </xsl:template>
 
+-->
+
+<xsl:template match="standard">
+  <standard>
+    <xsl:apply-templates select="@*"/>
+    <xsl:attribute name="wikiId">
+      <xsl:text>NISP-S</xsl:text>
+      <xsl:number from="/standards/records" count="standard" format="00001" level="any"/>
+    </xsl:attribute>
+    <xsl:apply-templates/>
+  </standard>
+</xsl:template>
+
+
+<xsl:template match="profile|serviceprofile">
+  <xsl:element name="{local-name(.)}">
+    <xsl:apply-templates select="@*"/>
+    <xsl:attribute name="wikiId">
+      <xsl:text>NISP-P</xsl:text>
+      <xsl:number from="/standards/records" count="profile|serviceprofile" format="00001" level="any"/>
+    </xsl:attribute>
+    <xsl:apply-templates/>
+  </xsl:element>
+</xsl:template>
 
 <xsl:template match="@*|node()">
   <xsl:copy>
