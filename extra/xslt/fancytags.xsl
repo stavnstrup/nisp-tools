@@ -25,14 +25,22 @@ Description : Create fancy tags.
 <xsl:template match="standard|coverdoc">
   <xsl:variable name="myorg" select="document/@orgid"/>
   <xsl:variable name="myid" select="@id"/>
+  <xsl:variable name="shortOrg" select="/standards/organisations/orgkey[@key=$myorg]/@short"/>
   <xsl:element name="{local-name(.)}">
     <xsl:attribute name="id" select="./@id"/>
     <xsl:attribute name="tag">
-      <xsl:apply-templates select="/standards/organisations/orgkey[@key=$myorg]/@short"/>
-      <xsl:if test="document/@pubnum !=''">
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="document/@pubnum"/>
-      </xsl:if>
+      <xsl:choose>
+        <xsl:when test="starts-with(document/@pubnum, $shortOrg)">
+          <xsl:value-of select="document/@pubnum"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="$shortOrg"/>
+          <xsl:if test="document/@pubnum !=''">
+            <xsl:text> </xsl:text>
+            <xsl:value-of select="document/@pubnum"/>
+          </xsl:if>
+        </xsl:otherwise>
+      </xsl:choose>
       <xsl:if test="document/@date !=''">
         <xsl:text> (</xsl:text>
         <xsl:value-of select="substring(document/@date, 1, 4)"/>
