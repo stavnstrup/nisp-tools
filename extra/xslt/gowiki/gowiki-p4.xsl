@@ -86,6 +86,7 @@
 <xsl:apply-templates select="records/standard"/>
 </xsl:result-document>
 
+<xsl:apply-templates select="records/standard" mode="pages"/>
 
 
 <!-- ===========================================
@@ -162,6 +163,30 @@
 <xsl:text>"</xsl:text><xsl:if test="$cid != ''"><xsl:value-of select="/standards//coverdoc[@id=$cid]/@tag"/></xsl:if>
 <xsl:text>"&#x0A;</xsl:text>
 </xsl:template>
+
+
+<xsl:template match="standard" mode="pages">
+<xsl:variable name="myid" select="@id"/>
+<xsl:variable name="myorgid" select="document/@orgid"/>
+<xsl:variable name="myparty" select="responsibleparty/@rpref"/>
+<xsl:result-document href="{@wikiId}.page">
+<xsl:text>{{Standard&#x0A;</xsl:text>
+<xsl:text>|organization=</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@long"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|title=</xsl:text><xsl:value-of select="document/@title"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|code=</xsl:text><xsl:value-of select="document/@pubnum"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|date=</xsl:text><xsl:value-of select="document/@date"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|version=</xsl:text><xsl:value-of select="document/@version"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|classification=&#x0A;</xsl:text>
+<xsl:text>|parties=</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myparty]/@short"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|description=&#x0A;</xsl:text>
+<xsl:variable name="cid"><xsl:value-of select="/standards//coverdoc[coverstandards/refstandard/@refid=$myid]/@id"/></xsl:variable>
+<xsl:text>|coverdoc=</xsl:text><xsl:if test="$cid != ''"><xsl:value-of select="/standards//coverdoc[@id=$cid]/@tag"/></xsl:if>
+<xsl:text>|link=</xsl:text><xsl:value-of select="status/uri"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>}}&#x0A;</xsl:text>
+</xsl:result-document>
+</xsl:template>
+
 
 <!-- List references -->
 
