@@ -105,7 +105,7 @@ Copyright (c) 2003, 2023  Jens Stavnstrup/DALO <stavnstrup@mil.dk>
   <h2>Standards</h2>
 
   <p>This page contains tables of all standards and profiles included in
-  the database. The standards and profiles are sorted by the <emphasis>id</emphasis> attribute.</p>
+  the database. The standards and profiles are sorted by the <emphasis>id</emphasis> attribute. The same data are also available in a <a href="https://docs.google.com/spreadsheets/d/1fOgQa375vK-LgkP2fPx6oY95p7CaSTPWYLcXaeSc2_8/edit?pli=1#gid=0">Google spreadsheet</a>.</p>
 
   <p>In this overview, rows with a red background are represent
   deleted standards and profiles. Cells with a yellow background, indicates that that we
