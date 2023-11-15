@@ -112,6 +112,8 @@
 <xsl:apply-templates select="records/serviceprofile"/>
 </xsl:result-document>
 
+<xsl:apply-templates select="records/serviceprofile" mode="pages"/>
+
 </xsl:template>
 
 
@@ -253,6 +255,37 @@
 <xsl:text>"</xsl:text><xsl:if test="$cid != ''"><xsl:value-of select="/standards//coverdoc[@id=$cid]/@tag"/></xsl:if>
 <xsl:text>"&#x0A;</xsl:text>
 </xsl:template>
+
+
+<xsl:template match="capabilityprofile|profile" mode="pages">
+<xsl:result-document href="{@wikiId}.page">
+<xsl:text>{{Profile</xsl:text>
+<xsl:text>|uuid=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|tile=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|description=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|state=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|filename=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|link=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|code=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|parties=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|profileGroup=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|references=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|artefact=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|textbox=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|guidance={{Profile guidance</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|textbox=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|baselines=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>}}&#x0A;</xsl:text>
+<xsl:text>|standards={{Profile Standards&#x0A;</xsl:text>
+<xsl:text>uuid=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>standards=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>obligations=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>textbox=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>baselines=</xsl:text><xsl:text>&#x0A;</xsl:text>
+<xsl:text>}}&#x0A;</xsl:text>
+<xsl:text>}}</xsl:text>
+</xsl:template>
+
 
 <xsl:template match="serviceprofile">
 <xsl:variable name="myid" select="@id"/>
