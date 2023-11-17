@@ -7,16 +7,6 @@
 
 <xsl:output indent="yes" saxon:next-in-chain="gowiki-p3.xsl"/>
 
-<!--
-
-<xsl:template match="profile[@top='yes']">
-  <capabilityprofile>
-    <xsl:apply-templates select="@*"/>
-    <xsl:apply-templates/>
-  </capabilityprofile>
-</xsl:template>
-
--->
 
 <xsl:template match="standard">
   <standard>
