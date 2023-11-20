@@ -86,6 +86,7 @@
 
 <!-- ============================================================== -->
 
+<!--
 <xsl:template match="profilespec">
   <xsl:variable name="myorg" select="@orgid"/>
   <profilespec>
@@ -105,6 +106,7 @@
     <xsl:apply-templates/>
   </profilespec>
 </xsl:template>
+-->
 
 
 

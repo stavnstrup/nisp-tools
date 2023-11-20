@@ -6,6 +6,8 @@
 
 <xsl:output method="text"/>
 
+<xsl:variable name="db" select="document('profile-groups.xml')"/>
+
 <xsl:template match="standards">
 
 <!-- ===========================================
@@ -21,9 +23,6 @@
 </xsl:result-document>
 
 
-
-
-
 <!-- ===========================================
                      PARTIES
      =========================================== -->
@@ -36,11 +35,10 @@
 </xsl:result-document>
 
 
-
-
 <!-- ===========================================
                      REFERENCES
      =========================================== -->
+
 <xsl:result-document href="references.csv">
 <xsl:text>Title,</xsl:text>
 <xsl:text>Reference[uuid],</xsl:text>
@@ -77,21 +75,12 @@
 <xsl:text>Standard[code],</xsl:text>
 <xsl:text>Standard[date],</xsl:text>
 <xsl:text>Standard[version],</xsl:text>
-<xsl:text>Standard[li
-nk],</xsl:text>
+<xsl:text>Standard[link],</xsl:text>
 <xsl:text>Standard[organization],</xsl:text>
 <xsl:text>Standard[parties],</xsl:text>
 <xsl:text>Standard[coverDocument]&#x0A;</xsl:text>
 <xsl:apply-templates select="records/standard"/>
 </xsl:result-document>
-
-
-
-<!--
-<xsl:apply-templates select="records/standard" mode="pages"/>
--->
-
-
 
 
 <!-- ===========================================
@@ -108,15 +97,10 @@ nk],</xsl:text>
 <xsl:text>Profile[profileGroup],</xsl:text>
 <xsl:text>Profile[references],</xsl:text>
 <xsl:text>Profile[artefact]&#x0A;</xsl:text>
-<xsl:text>Profile&#x0A;</xsl:text>
 <xsl:apply-templates select="records/profile"/>
-<xsl:text>Service Profile&#x0A;</xsl:text>
 <xsl:apply-templates select="records/serviceprofile"/>
 </xsl:result-document>
 
-<!--
-<xsl:apply-templates select="records/serviceprofile" mode="pages"/>
--->
 
 </xsl:template>
 
@@ -165,7 +149,7 @@ nk],</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@long"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myparty]/@short"/><xsl:text>",</xsl:text>
 <xsl:variable name="cid"><xsl:value-of select="/standards//coverdoc[coverstandards/refstandard/@refid=$myid]/@id"/></xsl:variable>
-<xsl:text>"</xsl:text><xsl:if test="$cid != ''"><xsl:value-of select="/standards//coverdoc[@id=$cid]/@tag"/></xsl:if>
+<xsl:text>"</xsl:text><xsl:if test="$cid != ''"><xsl:value-of select="/standards//coverdoc[@id=$cid]/@wikiId"/></xsl:if>
 <xsl:text>"&#x0A;</xsl:text>
 </xsl:template>
 
@@ -177,36 +161,13 @@ nk],</xsl:text>
 
 
 
-<xsl:template match="standard" mode="pages">
-<xsl:variable name="myid" select="@id"/>
-<xsl:variable name="myorgid" select="document/@orgid"/>
-<xsl:variable name="myparty" select="responsibleparty/@rpref"/>
-<xsl:result-document href="{@wikiId}.page">
-<xsl:text>{{Standard&#x0A;</xsl:text>
-<xsl:text>|organization=</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@long"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|title=</xsl:text><xsl:value-of select="document/@title"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|code=</xsl:text><xsl:value-of select="document/@pubnum"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|date=</xsl:text><xsl:value-of select="document/@date"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|version=</xsl:text><xsl:value-of select="document/@version"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|classification=&#x0A;</xsl:text>
-<xsl:text>|parties=</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myparty]/@short"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|description=&#x0A;</xsl:text>
-<xsl:variable name="cid"><xsl:value-of select="/standards//coverdoc[coverstandards/refstandard/@refid=$myid]/@id"/></xsl:variable>
-<xsl:text>|coverdoc=</xsl:text><xsl:if test="$cid != ''"><xsl:value-of select="/standards//coverdoc[@id=$cid]/@tag"/></xsl:if>
-<xsl:text>|link=</xsl:text><xsl:value-of select="status/uri"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>}}&#x0A;</xsl:text>
-</xsl:result-document>
-</xsl:template>
-
-
 <!-- List references -->
 
 <xsl:template match="coverdoc">
 <xsl:variable name="myid" select="@id"/>
 <xsl:variable name="myorg" select="document/@orgid"/>
 <xsl:variable name="myparty" select="responsibleparty/@rpref"/>
-<xsl:text>"</xsl:text><xsl:value-of select="@tag"/><xsl:text>",</xsl:text>
+<xsl:text>"</xsl:text><xsl:value-of select="@wikiId"/><xsl:text>",</xsl:text>
 <xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@title"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@pubnum"/><xsl:text>",</xsl:text>
@@ -224,7 +185,7 @@ nk],</xsl:text>
 
 <xsl:template match="profilespec">
   <xsl:variable name="myorg" select="@orgid"/>
-  <xsl:text>"</xsl:text><xsl:value-of select="@tag"/><xsl:text>",</xsl:text>
+  <xsl:text>"</xsl:text><xsl:value-of select="@wikiId"/><xsl:text>",</xsl:text>
   <xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
   <xsl:text>"</xsl:text><xsl:value-of select="@title"/><xsl:text>",</xsl:text>
   <xsl:text>"</xsl:text><xsl:value-of select="@pubnum"/><xsl:text>",</xsl:text>
@@ -241,14 +202,17 @@ nk],</xsl:text>
 <xsl:variable name="myspecid" select="refprofilespec/@refid"/>
 <xsl:variable name="myorgid" select="/standards//profilespec[@id=$myspecid]/@orgid"/>
 
+<xsl:variable name="cid" select="/standards/profilehierachy//*[@id=$myid]/ancestor-or-self::capabilityprofile/@id"/> 
+
 <xsl:text>"</xsl:text><xsl:value-of select="@wikiId"/><xsl:text>",</xsl:text>
-<xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
+<xsl:value-of select="uuid"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="@title"/><xsl:text>",</xsl:text>
 <xsl:text>"",</xsl:text> <!-- coverprofiles and profiles do not have a description -->
 <xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@pubnum"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@long"/><xsl:text>",</xsl:text>
-<xsl:text>"Profile Group",</xsl:text> <!-- Profile Group -->
-<xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@tag"/><xsl:text>",</xsl:text>
+<xsl:text>"Profile Group:</xsl:text><xsl:value-of select="$cid"/><xsl:text>",</xsl:text> <!-- Profile Group -->
+<xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@wikiId"/><xsl:text>",</xsl:text>
+<xsl:text>""&#x0A;</xsl:text>
 </xsl:template>
 
 
@@ -258,7 +222,7 @@ nk],</xsl:text>
 <xsl:variable name="myorgid" select="/standards//profilespec[@id=$myspecid]/@orgid"/>
 
 <xsl:text>"</xsl:text><xsl:value-of select="@wikiId"/><xsl:text>",</xsl:text>
-<xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
+<xsl:value-of select="uuid"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="@title"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="description"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@pubnum"/><xsl:text>",</xsl:text>
@@ -276,13 +240,16 @@ nk],</xsl:text>
 <xsl:template match="reftaxonomy">
   <xsl:variable name="myrefid" select="@refid"/>
   <xsl:apply-templates select="/standards//node[@id=$myrefid]"/>
+  <xsl:if test="following-sibling::reftaxonomy">
+    <xsl:text>;</xsl:text>
+  </xsl:if>
 </xsl:template>
 
 <xsl:template match="node">
+<!--
   <xsl:value-of select="ancestor::node()[@level=5]/@title"/>
-  <xsl:if test="not(last())">
-    <xsl:text>;</xsl:text>
-  </xsl:if>
+-->
+  <xsl:value-of select="@level"/>
 </xsl:template>
 
 </xsl:stylesheet>

@@ -12,7 +12,7 @@
   <standard>
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="wikiId">
-      <xsl:text>NISP-S</xsl:text>
+      <xsl:text>S</xsl:text>
       <xsl:number from="/standards/records" count="standard" format="00001" level="any"/>
     </xsl:attribute>
     <xsl:apply-templates/>
@@ -24,12 +24,26 @@
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="wikiId">
-      <xsl:text>NISP-P</xsl:text>
+      <xsl:text>P</xsl:text>
       <xsl:number from="/standards/records" count="profile|serviceprofile" format="00001" level="any"/>
     </xsl:attribute>
     <xsl:apply-templates/>
   </xsl:element>
 </xsl:template>
+
+
+<xsl:template match="coverdoc|profilespec">
+  <xsl:element name="{local-name(.)}">
+    <xsl:apply-templates select="@*"/>
+    <xsl:attribute name="wikiId">
+      <xsl:text>R</xsl:text>
+      <xsl:number from="/standards/records" count="coverdoc|profilespec" format="00001" level="any"/>
+    </xsl:attribute>
+    <xsl:apply-templates/>
+  </xsl:element>
+</xsl:template>
+
+
 
 <xsl:template match="@*|node()">
   <xsl:copy>
