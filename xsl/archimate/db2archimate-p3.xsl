@@ -648,20 +648,22 @@ and operations.</value>
 
 
 <xsl:template match="refstandard" mode="listProfileRelation">
-  <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
-                source="id-{parent::node()/@uuid}"
-                target="id-{@uuid}"
-                xsi:type="Aggregation">
-    <xsl:attribute name="identifier">
-      <xsl:text>id-</xsl:text>
-      <xsl:if test="function-available('uuid:randomUUID')">
-        <xsl:value-of select="uuid:randomUUID()"/>
-      </xsl:if>
-    </xsl:attribute>
-    <properties>
-      <xsl:call-template name="AddCommonProperties"/>
-    </properties>
-  </relationship>
+  <xsl:if test="(parent::node()/@uuid != '') and (@uuid != '')">
+    <relationship xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
+                  source="id-{parent::node()/@uuid}"
+                  target="id-{@uuid}"
+                  xsi:type="Aggregation">
+      <xsl:attribute name="identifier">
+        <xsl:text>id-</xsl:text>
+        <xsl:if test="function-available('uuid:randomUUID')">
+          <xsl:value-of select="uuid:randomUUID()"/>
+        </xsl:if>
+      </xsl:attribute>
+      <properties>
+        <xsl:call-template name="AddCommonProperties"/>
+      </properties>
+    </relationship>
+  </xsl:if>
 </xsl:template>
 
 
