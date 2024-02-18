@@ -7,12 +7,13 @@
 
 <xsl:output indent="yes" saxon:next-in-chain="gowiki-p3.xsl"/>
 
+<!-- Add wikiId to all elements. These are used to name pages in the Wiki -->
 
 <xsl:template match="standard">
   <standard>
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="wikiId">
-      <xsl:text>S</xsl:text>
+      <xsl:text>STD </xsl:text>
       <xsl:number from="/standards/records" count="standard" format="00001" level="any"/>
     </xsl:attribute>
     <xsl:apply-templates/>
@@ -24,7 +25,7 @@
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="wikiId">
-      <xsl:text>P</xsl:text>
+      <xsl:text>PRF </xsl:text>
       <xsl:number from="/standards/records" count="profile|serviceprofile" format="00001" level="any"/>
     </xsl:attribute>
     <xsl:apply-templates/>
@@ -36,7 +37,7 @@
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="wikiId">
-      <xsl:text>R</xsl:text>
+      <xsl:text>REF </xsl:text>
       <xsl:number from="/standards/records" count="coverdoc|profilespec" format="00001" level="any"/>
     </xsl:attribute>
     <xsl:apply-templates/>

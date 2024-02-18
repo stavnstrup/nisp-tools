@@ -8,7 +8,7 @@
 
 <xsl:variable name="db" select="document('profile-groups.xml')"/>
 
-<xsl:variable name="debug" select="1"/>
+<xsl:variable name="debug" select="0"/>
 
 <xsl:template match="standards">
 
@@ -16,32 +16,37 @@
                      ORGANIZATIONS
      =========================================== -->
 
-<xsl:result-document href="./organizations.csv">
+<!--
+<xsl:result-document href="NISP-organizations.csv">
 <xsl:text>Title,</xsl:text>
 <xsl:text>Organization[uuid],</xsl:text>
 <xsl:text>Organization[acronym],</xsl:text>
 <xsl:text>Organization[website]&#x0A;</xsl:text>
 <xsl:apply-templates select="organisations/orgkey" mode="list-org"/>
 </xsl:result-document>
+-->
 
 
 <!-- ===========================================
                      PARTIES
      =========================================== -->
 
-<xsl:result-document href="parties.csv">
+<!--
+<xsl:result-document href="NISP-parties.csv">
 <xsl:text>Title,</xsl:text>
 <xsl:text>Party[uuid],</xsl:text>
 <xsl:text>Party[title]&#x0A;</xsl:text>
 <xsl:apply-templates select="organisations/orgkey" mode="list-party"/>
 </xsl:result-document>
+-->
 
 
 <!-- ===========================================
                      REFERENCES
      =========================================== -->
 
-<xsl:result-document href="references.csv">
+<!--
+<xsl:result-document href="NISP-references.csv">
 <xsl:text>Title,</xsl:text>
 <xsl:if test="$debug"><xsl:text>ID,</xsl:text></xsl:if>
 <xsl:text>Reference[uuid],</xsl:text>
@@ -54,23 +59,26 @@
 <xsl:apply-templates select="records/coverdoc"/>
 <xsl:apply-templates select="records/profilespec"/>
 </xsl:result-document>
+-->
 
 <!-- ===========================================
                      FOOTNOTE
      =========================================== -->
 
-<xsl:result-document href="footnotes.csv">
+<!--
+<xsl:result-document href="NISP-footnotes.csv">
 <xsl:text>Title,</xsl:text>
 <xsl:text>Footnote[remark]&#x0A;</xsl:text>
 <xsl:apply-templates select="records/standard[document/@note != '']" mode="makeFootnote"/>
 </xsl:result-document>
+-->
 
 
 <!-- ===========================================
                      STANDARDS
      =========================================== -->
 
-<xsl:result-document href="standards.csv">
+<xsl:result-document href="NISP-standards.csv">
 <xsl:text>Title,</xsl:text>
 <xsl:if test="$debug"><xsl:text>ID,</xsl:text></xsl:if>
 <xsl:text>Standard[uuid],</xsl:text>
@@ -81,7 +89,7 @@
 <xsl:text>Standard[version],</xsl:text>
 <xsl:text>Standard[link],</xsl:text>
 <xsl:text>Standard[organization],</xsl:text>
-<xsl:text>Standard[parties],</xsl:text>
+<xsl:text>Standard[party],</xsl:text>
 <xsl:text>Standard[coverDocument]&#x0A;</xsl:text>
 <xsl:apply-templates select="records/standard"/>
 </xsl:result-document>
@@ -91,7 +99,7 @@
                      PROFILES
      =========================================== -->
 
-<xsl:result-document href="profiles.csv">
+<xsl:result-document href="NISP-profiles.csv">
 <xsl:text>Title,</xsl:text>
 <xsl:if test="$debug"><xsl:text>ID,</xsl:text></xsl:if>
 <xsl:text>Profile[uuid],</xsl:text>
@@ -140,6 +148,9 @@
 <!-- List Standards -->
 
 <xsl:template match="standard">
+<xsl:variable name="apos">'</xsl:variable>
+<xsl:variable name="quot">"</xsl:variable>
+<xsl:variable name="app"><xsl:apply-templates select="applicability"/></xsl:variable>
 <xsl:variable name="myid" select="@id"/>
 <xsl:variable name="myorgid" select="document/@orgid"/>
 <xsl:variable name="myparty" select="responsibleparty/@rpref"/>
@@ -147,7 +158,7 @@
 <xsl:if test="$debug"><xsl:text>"</xsl:text><xsl:value-of select="@id"/><xsl:text>",</xsl:text></xsl:if>
 <xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@title"/><xsl:text>",</xsl:text>
-<xsl:text>"",</xsl:text>
+<xsl:text>"</xsl:text><xsl:value-of select="replace(normalize-space($app), $quot, $apos)"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@pubnum"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@date"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@version"/><xsl:text>",</xsl:text>
@@ -240,9 +251,6 @@
 <xsl:text>"&#x0A;</xsl:text>
 </xsl:template>
 
-
-
-
 <xsl:template match="reftaxonomy">
   <xsl:variable name="myrefid" select="@refid"/>
   <xsl:apply-templates select="/standards//node[@id=$myrefid]"/>
@@ -250,6 +258,7 @@
     <xsl:text>;</xsl:text>
   </xsl:if>
 </xsl:template>
+
 
 <xsl:template match="node">
 <!--
