@@ -150,6 +150,7 @@
 <xsl:template match="standard">
 <xsl:variable name="apos">'</xsl:variable>
 <xsl:variable name="quot">"</xsl:variable>
+<xsl:variable name="lf">&#x0A;</xsl:variable>
 <xsl:variable name="app"><xsl:apply-templates select="applicability"/></xsl:variable>
 <xsl:variable name="myid" select="@id"/>
 <xsl:variable name="myorgid" select="document/@orgid"/>
@@ -158,7 +159,7 @@
 <xsl:if test="$debug"><xsl:text>"</xsl:text><xsl:value-of select="@id"/><xsl:text>",</xsl:text></xsl:if>
 <xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@title"/><xsl:text>",</xsl:text>
-<xsl:text>"</xsl:text><xsl:value-of select="replace(normalize-space($app), $quot, $apos)"/><xsl:text>",</xsl:text>
+<xsl:text>"</xsl:text><xsl:value-of select="replace(replace(replace(normalize-space($app), $quot, $apos), 'BULLETSPACES', '  *'), 'LINEFEED', '&#x0A;')"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@pubnum"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@date"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@version"/><xsl:text>",</xsl:text>

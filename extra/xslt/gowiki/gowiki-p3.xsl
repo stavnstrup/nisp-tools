@@ -110,39 +110,36 @@
 
 
 <!--
-
-
 <xsl:template match="applicability">
 <xsl:if test="count(./node()) &gt; 0">
-<xsl:text> >2&#x0A;</xsl:text>
 <xsl:apply-templates/>
 </xsl:if>
 </xsl:template>
+-->
 
 
 <xsl:template match="itemizedlist|orderedlist">
-<xsl:text>&#x0A;&#x0A;</xsl:text>
+<xsl:text>LINEFEED</xsl:text>
 <xsl:apply-templates/>
 </xsl:template>
 
 
 <xsl:template match="listitem">
-<xsl:text>  *</xsl:text><xsl:apply-templates/><xsl:text>&#x0A;&#x0A;</xsl:text>
+<xsl:text>BULLETSPACES</xsl:text><xsl:apply-templates/><xsl:text>LINEFEED</xsl:text>
 </xsl:template>
 
 <xsl:template match="listitem/para"><xsl:text>  </xsl:text><xsl:apply-templates/></xsl:template>
 
+<xsl:template match="para"><xsl:text>  </xsl:text><xsl:apply-templates/><xsl:text>LINEFEEDLINEFEED</xsl:text></xsl:template>
 
-<xsl:template match="para"><xsl:text>  </xsl:text><xsl:apply-templates/><xsl:text>&#x0A;&#x0A;</xsl:text></xsl:template>
-
-
+<!--
 <xsl:template match="text()">
 <xsl:variable name="escapeChars" select="'\&quot;'"/>
 <xsl:if test="name(..)='applicability'"><xsl:text>  </xsl:text></xsl:if>
 <xsl:value-of select="translate(translate(normalize-space(),':',' '), $escapeChars, ' ')"/>
 </xsl:template>
-
 -->
+
 
 
 <!-- ============================================================== -->
