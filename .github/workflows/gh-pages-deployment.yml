@@ -20,6 +20,7 @@ jobs:
 
     - name: Install XML Tools
       run: |
+        sudo apt update
         sudo apt install -qq libxml2-utils libsaxonb-java ant
 
     - name: Generate NISP documentation
