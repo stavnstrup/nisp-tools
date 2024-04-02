@@ -84,6 +84,7 @@
 <xsl:text>Standard[uuid],</xsl:text>
 <xsl:text>Standard[title],</xsl:text>
 <xsl:text>Standard[description],</xsl:text>
+<xsl:text>Standard[pubnum],</xsl:text>
 <xsl:text>Standard[code],</xsl:text>
 <xsl:text>Standard[date],</xsl:text>
 <xsl:text>Standard[version],</xsl:text>
@@ -159,7 +160,8 @@
 <xsl:if test="$debug"><xsl:text>"</xsl:text><xsl:value-of select="@id"/><xsl:text>",</xsl:text></xsl:if>
 <xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@title"/><xsl:text>",</xsl:text>
-<xsl:text>"</xsl:text><xsl:value-of select="replace(replace(replace(normalize-space($app), $quot, $apos), 'BULLETSPACES', '  *'), 'LINEFEED', '&#x0A;')"/><xsl:text>",</xsl:text>
+<xsl:text>"</xsl:text><xsl:value-of select="replace(replace(replace(normalize-space($app), $quot, $apos), 'BULLETSPACES', '* '), 'LINEFEED', '&#x0A;')"/><xsl:text>",</xsl:text>
+<xsl:text>"</xsl:text><xsl:value-of select="document/@pubnum"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@pubnum"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@date"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="document/@version"/><xsl:text>",</xsl:text>

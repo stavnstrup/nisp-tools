@@ -128,9 +128,9 @@
 <xsl:text>BULLETSPACES</xsl:text><xsl:apply-templates/><xsl:text>LINEFEED</xsl:text>
 </xsl:template>
 
-<xsl:template match="listitem/para"><xsl:text>  </xsl:text><xsl:apply-templates/></xsl:template>
+<xsl:template match="listitem/para"><xsl:apply-templates/></xsl:template>
 
-<xsl:template match="para"><xsl:text>  </xsl:text><xsl:apply-templates/><xsl:text>LINEFEEDLINEFEED</xsl:text></xsl:template>
+<xsl:template match="para"><xsl:apply-templates/><xsl:text>LINEFEEDLINEFEED</xsl:text></xsl:template>
 
 <!--
 <xsl:template match="text()">
