@@ -4,9 +4,11 @@
                 extension-element-prefixes="saxon"
                 version='2.0'>
 
+<!--
 
 <xsl:output indent="yes" saxon:next-in-chain="gowiki-p4.xsl"/>
-
+-->
+<xsl:output indent="yes"/>
 
 <!-- ============================================================== -->
 
@@ -21,23 +23,23 @@
     <xsl:apply-templates/>
 
     <profilehierachy>
-      <xsl:apply-templates select="records/profile[@top='yes' and status/@mode='accepted']" mode="copyprofile"/>
+      <xsl:apply-templates select="records/profile[@toplevel='yes' and status/@mode='accepted']" mode="copyprofile"/>
     </profilehierachy>
   </standards>
 </xsl:template>
 
 
-<xsl:template match="profile[@top='yes']" mode="copyprofile">
+<xsl:template match="profile[@toplevel='yes']" mode="copyprofile">
   <capabilityprofile type="cp" id="{@id}" short="{@short}">
     <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
   </capabilityprofile>
 </xsl:template>
 
 
-<xsl:template match="profile[@top='no']" mode="copyprofile">
-  <!-- We are only interested in the relationship between capabilityprofiles, serviceprofiles and
-       standards - so do not list profiles in the heirachy, -->
-  <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
+<xsl:template match="profile[@toplevel='no']" mode="copyprofile">
+  <profile type="pr" id="{@id}" short="{@short}">
+    <xsl:apply-templates select="subprofiles" mode="copyprofile"/>
+  </profile>
 </xsl:template>
 
 
