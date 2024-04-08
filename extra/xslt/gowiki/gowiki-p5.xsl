@@ -110,7 +110,8 @@
 <xsl:text>Profile[parties],</xsl:text>
 <xsl:text>Profile[profileGroup],</xsl:text>
 <xsl:text>Profile[references],</xsl:text>
-<xsl:text>Profile[artefact]&#x0A;</xsl:text>
+<xsl:text>Profile[taxo],</xsl:text>
+<xsl:text>Profile[legacyTaxo]&#x0A;</xsl:text>
 <xsl:apply-templates select="records/profile"/>
 <xsl:apply-templates select="records/serviceprofile"/>
 </xsl:result-document>
