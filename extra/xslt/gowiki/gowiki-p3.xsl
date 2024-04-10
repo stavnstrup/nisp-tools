@@ -12,16 +12,14 @@
 
 <xsl:output indent="yes" saxon:next-in-chain="gowiki-p4.xsl"/>
 
-
 <xsl:template match="records/profile[@toplevel='yes']">
   <xsl:variable name="myid" select="@id"/>
-  <profile>
-    <xsl:apply-templates select="@*"/>
-    <xsl:if test="count(../../profilehierachy/capabilityprofile[@id=$myid]//*[descendant-or-self::serviceprofile])=1">
-      <xsl:attribute name="keep" select="'no'"/>
-    </xsl:if>
-    <xsl:apply-templates/>
-  </profile>
+  <xsl:if test="count(../../profilehierachy/capabilityprofile[@id=$myid]//*[descendant-or-self::serviceprofile])=1">
+    <profile>
+      <xsl:apply-templates select="@*"/>
+      <xsl:apply-templates/>
+    </profile>
+  </xsl:if>
 </xsl:template>
 
 <xsl:template match="@*|node()">

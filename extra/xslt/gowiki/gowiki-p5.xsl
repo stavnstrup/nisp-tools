@@ -107,7 +107,7 @@
 <xsl:text>Profile[title],</xsl:text>
 <xsl:text>Profile[description],</xsl:text>
 <xsl:text>Profile[code],</xsl:text>
-<xsl:text>Profile[parties],</xsl:text>
+<xsl:text>Profile[party],</xsl:text>
 <xsl:text>Profile[profileGroup],</xsl:text>
 <xsl:text>Profile[references],</xsl:text>
 <xsl:text>Profile[taxo],</xsl:text>
@@ -217,21 +217,25 @@
 <!-- List Profiles -->
 
 <xsl:template match="capabilityprofile|profile">
+<xsl:variable name="apos">'</xsl:variable>
+<xsl:variable name="quot">"</xsl:variable>
+<xsl:variable name="lf">&#x0A;</xsl:variable>
+<xsl:variable name="description"><xsl:apply-templates select="description"/></xsl:variable>
 <xsl:variable name="myid" select="@id"/>
 <xsl:variable name="myspecid" select="refprofilespec/@refid"/>
 <xsl:variable name="myorgid" select="/standards//profilespec[@id=$myspecid]/@orgid"/>
-
 <xsl:variable name="cid" select="/standards/profilehierachy//*[@id=$myid]/ancestor-or-self::capabilityprofile/@id"/> 
 
 <xsl:text>"</xsl:text><xsl:value-of select="@wikiId"/><xsl:text>",</xsl:text>
 <xsl:if test="$debug"><xsl:text>"</xsl:text><xsl:value-of select="@id"/><xsl:text>",</xsl:text></xsl:if>
 <xsl:value-of select="uuid"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="@title"/><xsl:text>",</xsl:text>
-<xsl:text>"",</xsl:text> <!-- coverprofiles and profiles do not have a description -->
+<xsl:text>"</xsl:text><xsl:value-of select="replace(replace(replace(normalize-space($description), $quot, $apos), 'BULLETSPACES', '* '), 'LINEFEED', '&#x0A;')"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@pubnum"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@long"/><xsl:text>",</xsl:text>
-<xsl:text>"Profile Group:</xsl:text><xsl:value-of select="$cid"/><xsl:text>",</xsl:text> <!-- Profile Group -->
+<xsl:text>"</xsl:text><xsl:value-of select="$db/pgroups/pgroup[@id=$cid]/@group"/><xsl:text>",</xsl:text> <!-- Profile Group -->
 <xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@wikiId"/><xsl:text>",</xsl:text>
+<xsl:text>"",</xsl:text>
 <xsl:text>""&#x0A;</xsl:text>
 </xsl:template>
 
@@ -240,6 +244,8 @@
 <xsl:variable name="myid" select="@id"/>
 <xsl:variable name="myspecid" select="refprofilespec/@refid"/>
 <xsl:variable name="myorgid" select="/standards//profilespec[@id=$myspecid]/@orgid"/>
+<xsl:variable name="cid" select="/standards/profilehierachy//*[@id=$myid]/ancestor-or-self::capabilityprofile/@id"/>
+<xsl:variable name="firstid" select="reftaxonomy[position()=1]/@refid"/>
 
 <xsl:text>"</xsl:text><xsl:value-of select="@wikiId"/><xsl:text>",</xsl:text>
 <xsl:if test="$debug"><xsl:text>"</xsl:text><xsl:value-of select="@id"/><xsl:text>",</xsl:text></xsl:if>
@@ -248,11 +254,36 @@
 <xsl:text>"</xsl:text><xsl:value-of select="description"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@pubnum"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@long"/><xsl:text>",</xsl:text>
-<xsl:text>"Profile Group",</xsl:text>
-<xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@tag"/><xsl:text>",</xsl:text>
-<xsl:text>"</xsl:text>
-<xsl:apply-templates select="reftaxonomy"/>
-<xsl:text>"&#x0A;</xsl:text>
+<xsl:text>"</xsl:text><xsl:value-of select="$db/pgroups/pgroup[@id=$cid]/@group"/><xsl:text>",</xsl:text> <!-- Profile Group -->
+<xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@wikiId"/><xsl:text>",</xsl:text>
+<xsl:choose> <!-- Taxo -->
+  <xsl:when test="(count(reftaxonomy) = 1) and (/standards//node[@id=$firstid]/@level &gt; 5)">
+    <xsl:text>"</xsl:text>
+    <xsl:apply-templates select="reftaxonomy"/>
+    <xsl:text>",</xsl:text>
+  </xsl:when>
+  <xsl:otherwise>
+    <xsl:text>"",</xsl:text> 
+  </xsl:otherwise>
+</xsl:choose>
+
+<xsl:choose> <!-- legalTaxo -->
+  <xsl:when test="count(reftaxonomy) = 1">
+    <xsl:choose>
+      <xsl:when test="/standards//node[@id=$firstid]/@level &lt; 6">
+        <xsl:text>"</xsl:text><xsl:apply-templates select="reftaxonomy"/><xsl:text>"</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>""</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:when>
+  <xsl:otherwise>
+    <xsl:text>"</xsl:text><xsl:apply-templates select="reftaxonomy"/><xsl:text>"</xsl:text>
+  </xsl:otherwise>
+</xsl:choose>
+<xsl:text>&#x0A;</xsl:text>
+
 </xsl:template>
 
 <xsl:template match="reftaxonomy">
@@ -265,10 +296,14 @@
 
 
 <xsl:template match="node">
-<!--
-  <xsl:value-of select="ancestor::node()[@level=5]/@title"/>
--->
-  <xsl:value-of select="@level"/>
+  <xsl:choose>
+    <xsl:when test="@level &gt; 6">
+      <xsl:value-of select="ancestor::node()[@level=6]/@title"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="@title"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>
