@@ -45,7 +45,7 @@
                      REFERENCES
      =========================================== -->
 
-<!--
+
 <xsl:result-document href="NISP-references.csv">
 <xsl:text>Title,</xsl:text>
 <xsl:if test="$debug"><xsl:text>ID,</xsl:text></xsl:if>
@@ -59,19 +59,19 @@
 <xsl:apply-templates select="records/coverdoc"/>
 <xsl:apply-templates select="records/profilespec"/>
 </xsl:result-document>
--->
+
 
 <!-- ===========================================
                      FOOTNOTE
      =========================================== -->
 
-<!--
+
 <xsl:result-document href="NISP-footnotes.csv">
 <xsl:text>Title,</xsl:text>
 <xsl:text>Footnote[remark]&#x0A;</xsl:text>
 <xsl:apply-templates select="records/standard[document/@note != '']" mode="makeFootnote"/>
 </xsl:result-document>
--->
+
 
 
 <!-- ===========================================
@@ -108,6 +108,7 @@
 <xsl:text>Profile[description],</xsl:text>
 <xsl:text>Profile[code],</xsl:text>
 <xsl:text>Profile[party],</xsl:text>
+<xsl:text>Profile[children],</xsl:text>
 <xsl:text>Profile[profileGroup],</xsl:text>
 <xsl:text>Profile[references],</xsl:text>
 <xsl:text>Profile[taxo],</xsl:text>
@@ -228,11 +229,12 @@
 
 <xsl:text>"</xsl:text><xsl:value-of select="@wikiId"/><xsl:text>",</xsl:text>
 <xsl:if test="$debug"><xsl:text>"</xsl:text><xsl:value-of select="@id"/><xsl:text>",</xsl:text></xsl:if>
-<xsl:value-of select="uuid"/><xsl:text>",</xsl:text>
+<xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="@title"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="replace(replace(replace(normalize-space($description), $quot, $apos), 'BULLETSPACES', '* '), 'LINEFEED', '&#x0A;')"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@pubnum"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@long"/><xsl:text>",</xsl:text>
+<xsl:text>"</xsl:text><xsl:apply-templates select="/standards/profilehierachy/*[@id=$myid]/*" mode="listchildren"/><xsl:text>",</xsl:text> <!-- Has children -->
 <xsl:text>"</xsl:text><xsl:value-of select="$db/pgroups/pgroup[@id=$cid]/@group"/><xsl:text>",</xsl:text> <!-- Profile Group -->
 <xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@wikiId"/><xsl:text>",</xsl:text>
 <xsl:text>"",</xsl:text>
@@ -241,6 +243,10 @@
 
 
 <xsl:template match="serviceprofile">
+<xsl:variable name="apos">'</xsl:variable>
+<xsl:variable name="quot">"</xsl:variable>
+<xsl:variable name="lf">&#x0A;</xsl:variable>
+<xsl:variable name="description"><xsl:apply-templates select="description"/></xsl:variable>
 <xsl:variable name="myid" select="@id"/>
 <xsl:variable name="myspecid" select="refprofilespec/@refid"/>
 <xsl:variable name="myorgid" select="/standards//profilespec[@id=$myspecid]/@orgid"/>
@@ -249,11 +255,12 @@
 
 <xsl:text>"</xsl:text><xsl:value-of select="@wikiId"/><xsl:text>",</xsl:text>
 <xsl:if test="$debug"><xsl:text>"</xsl:text><xsl:value-of select="@id"/><xsl:text>",</xsl:text></xsl:if>
-<xsl:value-of select="uuid"/><xsl:text>",</xsl:text>
+<xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="@title"/><xsl:text>",</xsl:text>
-<xsl:text>"</xsl:text><xsl:value-of select="description"/><xsl:text>",</xsl:text>
+<xsl:text>"</xsl:text><xsl:value-of select="replace(replace(replace(normalize-space($description), $quot, $apos), 'BULLETSPACES', '* '), 'LINEFEED', '&#x0A;')"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@pubnum"/><xsl:text>",</xsl:text>
 <xsl:text>"</xsl:text><xsl:value-of select="/standards/organisations/orgkey[@key=$myorgid]/@long"/><xsl:text>",</xsl:text>
+<xsl:text>"",</xsl:text> <!-- Has children -->
 <xsl:text>"</xsl:text><xsl:value-of select="$db/pgroups/pgroup[@id=$cid]/@group"/><xsl:text>",</xsl:text> <!-- Profile Group -->
 <xsl:text>"</xsl:text><xsl:value-of select="/standards//profilespec[@id=$myspecid]/@wikiId"/><xsl:text>",</xsl:text>
 <xsl:choose> <!-- Taxo -->
@@ -266,7 +273,6 @@
     <xsl:text>"",</xsl:text> 
   </xsl:otherwise>
 </xsl:choose>
-
 <xsl:choose> <!-- legalTaxo -->
   <xsl:when test="count(reftaxonomy) = 1">
     <xsl:choose>
@@ -304,6 +310,15 @@
       <xsl:value-of select="@title"/>
     </xsl:otherwise>
   </xsl:choose>
+</xsl:template>
+
+
+<xsl:template match="profile|serviceprofile" mode="listchildren">
+   <xsl:variable name="myid" select="@id"/>
+   <xsl:value-of select="/standards/records/*[@id=$myid]/@wikiId"/>
+   <xsl:if test="following-sibling::profile or following-sibling::serviceprofile">
+    <xsl:text>;</xsl:text>
+  </xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>

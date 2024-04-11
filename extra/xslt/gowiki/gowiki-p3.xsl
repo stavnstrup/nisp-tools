@@ -14,7 +14,7 @@
 
 <xsl:template match="records/profile[@toplevel='yes']">
   <xsl:variable name="myid" select="@id"/>
-  <xsl:if test="count(../../profilehierachy/capabilityprofile[@id=$myid]//*[descendant-or-self::serviceprofile])=1">
+  <xsl:if test="count(../../profilehierachy/capabilityprofile[@id=$myid]//*[descendant-or-self::serviceprofile]) != 1">
     <profile>
       <xsl:apply-templates select="@*"/>
       <xsl:apply-templates/>

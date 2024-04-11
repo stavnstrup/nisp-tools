@@ -14,7 +14,7 @@
   <standard>
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="wikiId">
-      <xsl:text>STD </xsl:text>
+      <xsl:text>STD-</xsl:text>
       <xsl:number from="/standards/records" count="standard" format="00001" level="any"/>
     </xsl:attribute>
     <xsl:apply-templates/>
@@ -26,7 +26,7 @@
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="wikiId">
-      <xsl:text>PRF </xsl:text>
+      <xsl:text>PRF-</xsl:text>
       <xsl:number from="/standards/records" count="profile|serviceprofile" format="00001" level="any"/>
     </xsl:attribute>
     <xsl:apply-templates/>
@@ -38,7 +38,7 @@
   <xsl:element name="{local-name(.)}">
     <xsl:apply-templates select="@*"/>
     <xsl:attribute name="wikiId">
-      <xsl:text>REF </xsl:text>
+      <xsl:text>REF-</xsl:text>
       <xsl:number from="/standards/records" count="coverdoc|profilespec" format="00001" level="any"/>
     </xsl:attribute>
     <xsl:apply-templates/>
