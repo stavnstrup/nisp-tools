@@ -118,6 +118,22 @@
 <xsl:apply-templates select="records/serviceprofile"/>
 </xsl:result-document>
 
+<xsl:result-document href="NISP-profile-guidance.csv">
+<xsl:text>Title,</xsl:text>
+<xsl:text>Profile Guidance[guidance],</xsl:text>
+<xsl:text>Profile Guidance[baselines]&#x0A;</xsl:text>
+<xsl:apply-templates select="records/serviceprofile" mode="guidance"/>
+</xsl:result-document>
+
+<xsl:result-document href="NISP-profile-standards.csv">
+<xsl:text>Title,</xsl:text>
+<xsl:text>Profile Standards[uuid],</xsl:text>
+<xsl:text>Profile Standards[standard],</xsl:text>
+<xsl:text>Profile Standards[obligations],</xsl:text>
+<xsl:text>Profile Standards[baselines]</xsl:text>
+<xsl:text>&#x0A;</xsl:text>
+<xsl:apply-templates select="records//refgroup" mode="standards"/>
+</xsl:result-document>
 
 </xsl:template>
 
@@ -320,6 +336,39 @@
    <xsl:if test="following-sibling::profile or following-sibling::serviceprofile">
     <xsl:text>;</xsl:text>
   </xsl:if>
+</xsl:template>
+
+
+
+<!-- Sub objects -->
+
+<xsl:template match="serviceprofile" mode="guidance">
+<xsl:variable name="apos">'</xsl:variable>
+<xsl:variable name="quot">"</xsl:variable>
+<xsl:variable name="lf">&#x0A;</xsl:variable>
+<xsl:variable name="guide"><xsl:apply-templates select="guide"/></xsl:variable>
+<xsl:variable name="myuuid" select="uuid"/>
+<xsl:value-of select="@wikiId"/><xsl:text>,</xsl:text>
+<xsl:text>"</xsl:text><xsl:value-of select="replace(replace(replace(normalize-space($guide), $quot, $apos), 'BULLETSPACES', '* '), 'LINEFEED', '&#x0A;')"/><xsl:text>",</xsl:text>
+<xsl:if test="$nisp14/standards//serviceprofile/uuid = $myuuid">
+  <xsl:text>NISP Version 14;</xsl:text>
+</xsl:if>
+  <xsl:text>NISP Version 15</xsl:text>
+<xsl:text>&#x0A;</xsl:text>
+</xsl:template>
+
+
+<xsl:template match="refgroup" mode="standards">
+<xsl:variable name="myuuid" select="uuid"/>
+<xsl:value-of select="../@wikiId"/><xsl:text>,</xsl:text>
+<xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
+<xsl:text>,</xsl:text>
+<xsl:text>,</xsl:text>
+<xsl:if test="$nisp14/standards//serviceprofile/uuid = $myuuid">
+  <xsl:text>NISP Version 14;</xsl:text>
+</xsl:if>
+  <xsl:text>NISP Version 15</xsl:text>
+<xsl:text>&#x0A;</xsl:text>
 </xsl:template>
 
 </xsl:stylesheet>
