@@ -7,6 +7,7 @@
 <xsl:output method="text"/>
 
 <xsl:variable name="db" select="document('profile-groups.xml')"/>
+<xsl:variable name="nisp14" select="document('nisp14-Standardsadatp34edn20210526.xml')"/>
 
 <xsl:variable name="debug" select="0"/>
 
