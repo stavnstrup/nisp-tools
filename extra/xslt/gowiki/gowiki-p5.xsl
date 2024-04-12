@@ -8,6 +8,7 @@
 
 <xsl:variable name="db" select="document('profile-groups.xml')"/>
 <xsl:variable name="nisp14" select="document('nisp14-Standardsadatp34edn20210526.xml')"/>
+<xsl:variable name="stdSnapshot" select="document('snapshot.xml')"/>
 
 <xsl:variable name="debug" select="0"/>
 
@@ -130,6 +131,7 @@
 <xsl:text>Profile Standards[uuid],</xsl:text>
 <xsl:text>Profile Standards[standard],</xsl:text>
 <xsl:text>Profile Standards[obligations],</xsl:text>
+<xsl:text>Profile Standards[remark],</xsl:text>
 <xsl:text>Profile Standards[baselines]</xsl:text>
 <xsl:text>&#x0A;</xsl:text>
 <xsl:apply-templates select="records//refgroup" mode="standards"/>
@@ -359,16 +361,46 @@
 
 
 <xsl:template match="refgroup" mode="standards">
+<xsl:variable name="apos">'</xsl:variable>
+<xsl:variable name="quot">"</xsl:variable>
+<xsl:variable name="lf">&#x0A;</xsl:variable>
+<xsl:variable name="description"><xsl:apply-templates select="description"/></xsl:variable>
 <xsl:variable name="myuuid" select="uuid"/>
 <xsl:value-of select="../@wikiId"/><xsl:text>,</xsl:text>
 <xsl:value-of select="uuid"/><xsl:text>,</xsl:text>
+<xsl:apply-templates select="refstandard"/>
 <xsl:text>,</xsl:text>
+<xsl:choose>
+  <xsl:when test="@lifecycle='candidate'">
+    <xsl:text>Candidate</xsl:text>
+  </xsl:when>
+  <xsl:otherwise>
+    <xsl:choose>
+      <xsl:when test="@obligation='mandatory'"><xsl:text>Mandatory</xsl:text></xsl:when>
+      <xsl:when test="@obligation='conditional'"><xsl:text>Conditional</xsl:text></xsl:when>
+      <xsl:when test="@obligation='optional'"><xsl:text>Optional</xsl:text></xsl:when>
+      <xsl:when test="@obligation='recommended'"><xsl:text>Recommended</xsl:text></xsl:when>
+       <xsl:when test="@obligation='emerging'"><xsl:text>Emerging</xsl:text></xsl:when>
+    </xsl:choose>
+  </xsl:otherwise>
+</xsl:choose>
 <xsl:text>,</xsl:text>
-<xsl:if test="$nisp14/standards//serviceprofile/uuid = $myuuid">
+<xsl:text>"</xsl:text><xsl:value-of select="replace(replace(replace(normalize-space($description), $quot, $apos), 'BULLETSPACES', '* '), 'LINEFEED', '&#x0A;')"/><xsl:text>",</xsl:text>
+<xsl:if test="$nisp14/standards//refgroup/uuid = $myuuid">
   <xsl:text>NISP Version 14;</xsl:text>
 </xsl:if>
   <xsl:text>NISP Version 15</xsl:text>
 <xsl:text>&#x0A;</xsl:text>
+</xsl:template>
+
+
+<xsl:template match="refstandard">
+  <xsl:variable name="myid" select="@refid"/>
+  <xsl:variable name="uuid" select="/standards/records/standard[@id=$myid]/uuid"/>
+  <xsl:value-of select="$stdSnapshot//std[uuid=$uuid]/sid"/>
+  <xsl:if test="following-sibling::refstandard">
+     <xsl:text>;</xsl:text>
+  </xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>
